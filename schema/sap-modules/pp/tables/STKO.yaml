@@ -1,0 +1,316 @@
+table: STKO
+module: PP
+description: "BOM Header — bill of material header data (category, alternative, base quantity, status). Second link in the BOM chain (MAST→STKO→STPO)."
+source: https://leanx.eu/en/sap/table/stko.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: STLTY
+    description: "BOM category"
+    data_element: STLTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: STLNR
+    description: "Bill of material"
+    data_element: STNUM
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: true
+  - name: STLAL
+    description: "Alternative BOM"
+    data_element: STALT
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: STKOZ
+    description: "Internal counter"
+    data_element: CIM_COUNT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: DATUV
+    description: "Valid-From Date"
+    data_element: DATUV
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: TECHV
+    description: "Technical status from"
+    data_element: TECHV
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AENNR
+    description: "Change Number"
+    data_element: AENNR
+    check_table: AENR
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: LKENZ
+    description: "Deletion Indicator"
+    data_element: LKENZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LOEKZ
+    description: "Deletion flag for BOMs"
+    data_element: LOKNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VGKZL
+    description: "Previous header counter"
+    data_element: VGKZL
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: ANDAT
+    description: "Date record created on"
+    data_element: ANDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ANNAM
+    description: "User who created record"
+    data_element: ANNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: BMEIN
+    description: "Base unit of measure for BOM"
+    data_element: BASME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: BMENG
+    description: "Base quantity"
+    data_element: BASMN
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: CADKZ
+    description: "CAD Indicator"
+    data_element: CADKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LABOR
+    description: "Laboratory/design office"
+    data_element: LABOR
+    check_table: T024L
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LTXSP
+    description: "Long Text Language, for Creation of a Change Document"
+    data_element: LTXSP_CP
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: STKTX
+    description: "Alternative BOM Text"
+    data_element: STKTX
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: STLST
+    description: "BOM status"
+    data_element: STLST
+    check_table: T415S
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: WRKAN
+    description: "Plant where BOM or alternative/variant created"
+    data_element: WRKAN
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: DVDAT
+    description: "Date of last date shift"
+    data_element: DVDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: DVNAM
+    description: "Name of the user who carried out the date shift"
+    data_element: DVNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEHLP
+    description: "Date Shift Hierarchy Indicator"
+    data_element: CC_AEHLP
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: ALEKZ
+    description: "ALE indicator"
+    data_element: CS_ALEKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GUIDX
+    description: "Global identification of a BOM header change status"
+    data_element: CS_GUIDB
+    check_table: ~
+    datatype: RAW
+    length: 16
+    decimals: 0
+    key: false
+  - name: YY_OWNING_SYSTEM
+    description: "Owning System"
+    data_element: Y_OWNING_SYSTEM
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: YY_MAINTAINED_BY
+    description: "Maintained By"
+    data_element: Y_MAINTAINED_BY
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: YY_MBOMBYTECH
+    description: "Technology R&D Approver"
+    data_element: Y_MBOMBYTECH
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: YY_MBOMBYPE
+    description: "Production Engineering"
+    data_element: Y_MBOMBYPE
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: YY_PDMLINKID_H
+    description: "PDMLink Header ID"
+    data_element: Y_PDMLINKID_H
+    check_table: ~
+    datatype: CHAR
+    length: 36
+    decimals: 0
+    key: false
+  - name: YY_COMMONID
+    description: "BOMCommonID"
+    data_element: Y_COMMONID
+    check_table: ~
+    datatype: CHAR
+    length: 36
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: AENNR
+    check_table: AENR
+    check_field: MANDT
+  - field: AENNR
+    check_table: AENR
+    check_field: AENNR
+  - field: BMEIN
+    check_table: T006
+    check_field: MANDT
+  - field: BMEIN
+    check_table: T006
+    check_field: MSEHI
+  - field: LABOR
+    check_table: T024L
+    check_field: MANDT
+  - field: LABOR
+    check_table: T024L
+    check_field: LABOR
+  - field: LTXSP
+    check_table: T002
+    check_field: SPRAS
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: STLST
+    check_table: T415S
+    check_field: STLST
+  - field: STLST
+    check_table: T415S
+    check_field: MANDT
+  - field: WRKAN
+    check_table: T001W
+    check_field: MANDT
+  - field: WRKAN
+    check_table: T001W
+    check_field: WERKS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

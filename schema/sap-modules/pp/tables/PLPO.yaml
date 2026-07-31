@@ -1,0 +1,2375 @@
+table: PLPO
+module: PP
+description: "Task List Operation/Activity — routing operation detail (control key, work center, standard values, scheduling). Terminal table of the routing chain."
+source: https://leanx.eu/en/sap/table/plpo.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: PLNTY
+    description: "Task List Type"
+    data_element: PLNTY
+    check_table: TCA01
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: PLNNR
+    description: "Key for Task List Group"
+    data_element: PLNNR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: true
+  - name: PLNKN
+    description: "Number of the task list node"
+    data_element: PLNKN
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: ZAEHL
+    description: "Internal counter"
+    data_element: CIM_COUNT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: DATUV
+    description: "Valid-From Date"
+    data_element: DATUV
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: TECHV
+    description: "Technical status from"
+    data_element: TECHV
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AENNR
+    description: "Change Number"
+    data_element: AENNR
+    check_table: AENR
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: LOEKZ
+    description: "Deletion Indicator"
+    data_element: LKENZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PARKZ
+    description: "Indicator: inactive changes"
+    data_element: PARKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ANDAT
+    description: "Date record created on"
+    data_element: ANDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ANNAM
+    description: "User who created record"
+    data_element: ANNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: SUMNR
+    description: "Node number of the superior operation"
+    data_element: SUMKNTNR
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: VORNR
+    description: "Operation/Activity Number"
+    data_element: VORNR
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: STEUS
+    description: "Control key"
+    data_element: STEUS
+    check_table: T430
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ARBID
+    description: "Object ID"
+    data_element: OBJEKTID
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: OBJTY
+    description: "Object types of the CIM resource"
+    data_element: CR_OBJTY
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KTSCH
+    description: "Standard text key"
+    data_element: KTSCH
+    check_table: T435
+    datatype: CHAR
+    length: 7
+    decimals: 0
+    key: false
+  - name: LTXA1
+    description: "Operation short text"
+    data_element: LTXA1
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: LTXA2
+    description: "Second line of the description"
+    data_element: LTXA2
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: TXTSP
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: VPLTY
+    description: "Type of the referenced task list"
+    data_element: VPLNTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VPLNR
+    description: "Group of the referenced task list"
+    data_element: VPLNNR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: VPLAL
+    description: "Group counter of the referenced task list"
+    data_element: VPLNAL
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: VPLFL
+    description: "Referenced sequence in routing"
+    data_element: VPLBFL
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: VINTV
+    description: "Increment between referenced operations"
+    data_element: VINTV
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: MEINH
+    description: "Unit of Measure for Activity/Operation"
+    data_element: VORME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: UMREN
+    description: "Denominator for converting rtg and op units of measure"
+    data_element: CP_UMREN
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 0
+    key: false
+  - name: UMREZ
+    description: "Numerator for converting task list and oper. un. of measure"
+    data_element: CP_UMREZ
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 0
+    key: false
+  - name: BMSCH
+    description: "Base Quantity"
+    data_element: BMSCH
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: ZMERH
+    description: "Break"
+    data_element: DZMERH
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: ZEIER
+    description: "Unit for the break time"
+    data_element: DZEIER
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: LAR01
+    description: "Activity Type"
+    data_element: LSTAR
+    check_table: CSLA
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: VGE01
+    description: "Unit of measure for the standard value"
+    data_element: VGWRTEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: VGW01
+    description: "Standard Value"
+    data_element: VGWRT
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: LAR02
+    description: "Activity Type"
+    data_element: LSTAR
+    check_table: CSLA
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: VGE02
+    description: "Unit of measure for the standard value"
+    data_element: VGWRTEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: VGW02
+    description: "Standard Value"
+    data_element: VGWRT
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: LAR03
+    description: "Activity Type"
+    data_element: LSTAR
+    check_table: CSLA
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: VGE03
+    description: "Unit of measure for the standard value"
+    data_element: VGWRTEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: VGW03
+    description: "Standard Value"
+    data_element: VGWRT
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: LAR04
+    description: "Activity Type"
+    data_element: LSTAR
+    check_table: CSLA
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: VGE04
+    description: "Unit of measure for the standard value"
+    data_element: VGWRTEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: VGW04
+    description: "Standard Value"
+    data_element: VGWRT
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: LAR05
+    description: "Activity Type"
+    data_element: LSTAR
+    check_table: CSLA
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: VGE05
+    description: "Unit of measure for the standard value"
+    data_element: VGWRTEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: VGW05
+    description: "Standard Value"
+    data_element: VGWRT
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: LAR06
+    description: "Activity Type"
+    data_element: LSTAR
+    check_table: CSLA
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: VGE06
+    description: "Unit of measure for the standard value"
+    data_element: VGWRTEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: VGW06
+    description: "Standard Value"
+    data_element: VGWRT
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: ZERMA
+    description: "Type of standard value calculation"
+    data_element: DZERMA
+    check_table: T429
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: ZGDAT
+    description: "Date when the standard value was calculated"
+    data_element: DZGDAT
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ZCODE
+    description: "Reference number for standard value code"
+    data_element: DZCODE
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: ZULNR
+    description: "Basis for standard value calculation"
+    data_element: DZULNR
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: RSANZ
+    description: "Number of confirmation slips"
+    data_element: CR_RS_ANZ
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: PDEST
+    description: "Printer for shop papers"
+    data_element: CR_PDEST
+    check_table: TSP03
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LOANZ
+    description: "Number of Time Tickets"
+    data_element: LOHNANZ
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: LOART
+    description: "Wage Type"
+    data_element: LOHNART
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: QUALF
+    description: "Suitability"
+    data_element: QUALF
+    check_table: T423
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ANZMA
+    description: "Number of employees"
+    data_element: ANZMS
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: RFGRP
+    description: "Setup group category"
+    data_element: RUEFAGRP
+    check_table: T426
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RFSCH
+    description: "Setup group key"
+    data_element: RUEFASCHLU
+    check_table: T425
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RASCH
+    description: "Setup Type Key"
+    data_element: RUEARSCHLU
+    check_table: T428
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: AUFAK
+    description: "Scrap factor"
+    data_element: AUSCHUFAK
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 3
+    key: false
+  - name: LOGRP
+    description: "Wage group"
+    data_element: LOHNGRP
+    check_table: T421
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: UEMUS
+    description: "Required overlapping"
+    data_element: UEMUSKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: UEKAN
+    description: "Optional overlapping"
+    data_element: UEKANKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLIES
+    description: "Indicator: continuous flow production"
+    data_element: FLIESSKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZEIMU
+    description: "Unit for the minimum overlap time"
+    data_element: DZEIMU
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ZMINU
+    description: "Minimum overlap time"
+    data_element: DZMINU
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: MINWE
+    description: "Minimum Send-Ahead Quantity"
+    data_element: MINWEI
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: SPMUS
+    description: "Required splitting"
+    data_element: SPLITTUNG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SPLIM
+    description: "Maximum number of splits"
+    data_element: SPLITTANZ
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: ZEIMB
+    description: "Unit for the minimum processing time"
+    data_element: DZEIMB
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ZMINB
+    description: "Minimum processing time"
+    data_element: DZMINB
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: ZEILM
+    description: "Unit for the maximum wait time"
+    data_element: DZEILM
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ZLMAX
+    description: "Maximum wait time"
+    data_element: DZLMAX
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: ZEILP
+    description: "Unit for the required wait time"
+    data_element: DZEILP
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ZLPRO
+    description: "Minimum wait time"
+    data_element: DZLPRO
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: ZEIWN
+    description: "Unit for the standard queue time"
+    data_element: DZEIWN
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ZWNOR
+    description: "Standard queue time"
+    data_element: DZWNOR
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: ZEIWM
+    description: "Unit for the minumum queue time"
+    data_element: DZEIWM
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ZWMIN
+    description: "Minimum queue time"
+    data_element: DZWMIN
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: ZEITN
+    description: "Unit for the standard move time"
+    data_element: DZEITN
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ZTNOR
+    description: "Standard move time"
+    data_element: DZTNOR
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: ZEITM
+    description: "Unit for the minimum move time"
+    data_element: DZEITM
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ZTMIN
+    description: "Minimum move time"
+    data_element: DZTMIN
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: ABLIPKZ
+    description: "Indicator: simultaneous teardown and wait"
+    data_element: ABLIPKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RSTRA
+    description: "Reduction strategy per operation/activity"
+    data_element: RSTRA
+    check_table: T499Q
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: BZOFFB
+    description: "Reference date for start of sub-operation"
+    data_element: CP_OBZOFFB
+    check_table: TCA54
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: OFFSTB
+    description: "Offset to sub-operation start"
+    data_element: CP_OOFFSTB
+    check_table: ~
+    datatype: QUAN
+    length: 5
+    decimals: 0
+    key: false
+  - name: EHOFFB
+    description: "Unit for offset to start"
+    data_element: CP_OEHOFFB
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: BZOFFE
+    description: "Reference date for finish of sub-operation"
+    data_element: CP_OBZOFFE
+    check_table: TCA54
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: OFFSTE
+    description: "Offset to sub-operation finish"
+    data_element: CP_OOFFSTE
+    check_table: ~
+    datatype: QUAN
+    length: 5
+    decimals: 0
+    key: false
+  - name: EHOFFE
+    description: "Unit for offset to finish"
+    data_element: CP_OEHOFFE
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: SORTL
+    description: "Sort Term for Non-Stock Info Records"
+    data_element: SORTI
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LIFNR
+    description: "Account Number of Vendor or Creditor"
+    data_element: LIFNR
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PLIFZ
+    description: "Planned Delivery Time in Days"
+    data_element: PLIFZ
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: PREIS
+    description: "Net Price in Purchasing Info Record"
+    data_element: IPREI
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: PEINH
+    description: "Price Unit"
+    data_element: EPEIN
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 0
+    key: false
+  - name: SAKTO
+    description: "Cost Element"
+    data_element: KSTAR
+    check_table: CSKA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: INFNR
+    description: "Number of Purchasing Info Record"
+    data_element: INFNR
+    check_table: EINA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ESOKZ
+    description: "Purchasing info record category"
+    data_element: ESOKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EKORG
+    description: "Purchasing Organization"
+    data_element: EKORG
+    check_table: T024E
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: EKGRP
+    description: "Purchasing group for external processing"
+    data_element: VG_EKGRP
+    check_table: T024
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: KZLGF
+    description: "Indicator: fixed lot external processing"
+    data_element: KZLGF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MATKL
+    description: "Material Group"
+    data_element: MATKL
+    check_table: T023
+    datatype: CHAR
+    length: 9
+    decimals: 0
+    key: false
+  - name: DAUNO
+    description: "Normal duration of the activity"
+    data_element: DAUNOR
+    check_table: ~
+    datatype: QUAN
+    length: 5
+    decimals: 1
+    key: false
+  - name: DAUNE
+    description: "Normal duration/unit"
+    data_element: DAUNORE
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: DAUMI
+    description: "Minimum activity duration"
+    data_element: DAUMIN
+    check_table: ~
+    datatype: QUAN
+    length: 5
+    decimals: 1
+    key: false
+  - name: DAUME
+    description: "Unit for the minimum duration"
+    data_element: DAUMINE
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: DDEHN
+    description: "Indicator: flexible duration"
+    data_element: DAUDEHN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EINSA
+    description: "Constraint on the basic start date for the activity"
+    data_element: EINSCHRA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EINSE
+    description: "Constraint on the finish date of the activity"
+    data_element: EINSCHRE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ARBEI
+    description: "Work involved in the activity"
+    data_element: ARBEIT
+    check_table: ~
+    datatype: QUAN
+    length: 7
+    decimals: 1
+    key: false
+  - name: ARBEH
+    description: "Unit for work"
+    data_element: ARBEITE
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ANZZL
+    description: "Number of capacities required"
+    data_element: ANZKAP
+    check_table: ~
+    datatype: INT1
+    length: 3
+    decimals: 0
+    key: false
+  - name: PRZNT
+    description: "Work percentage"
+    data_element: APROZENT
+    check_table: ~
+    datatype: INT1
+    length: 3
+    decimals: 0
+    key: false
+  - name: VERTL
+    description: "Distribution function for capacity requirements"
+    data_element: VERTEILUNG
+    check_table: T498
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: MLSTN
+    description: "Usage"
+    data_element: MILESTONE
+    check_table: T433
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: PPRIO
+    description: "Priority"
+    data_element: PRIORITAET
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SLWID
+    description: "Key word ID for user-defined fields"
+    data_element: SLWID
+    check_table: TCN00
+    datatype: CHAR
+    length: 7
+    decimals: 0
+    key: false
+  - name: USR00
+    description: "User field with 20 characters"
+    data_element: USRCHAR20
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: USR01
+    description: "User field with 20 characters"
+    data_element: USRCHAR20
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: USR02
+    description: "User field with 10 characters"
+    data_element: USRCHAR10
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: USR03
+    description: "User field with 10 characters"
+    data_element: USRCHAR10
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: USR04
+    description: "User field for quantity (length 10.3)"
+    data_element: USRQUAN13
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: USE04
+    description: "User field: Unit for quantity fields"
+    data_element: USRUNIT
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: USR05
+    description: "User field for quantity (length 10.3)"
+    data_element: USRQUAN13
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: USE05
+    description: "User field: Unit for quantity fields"
+    data_element: USRUNIT
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: USR06
+    description: "User-defined field for values (length 10,3)"
+    data_element: USRCURR13
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 3
+    key: false
+  - name: USE06
+    description: "User field: Unit for value fields"
+    data_element: USRCUKY
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: USR07
+    description: "User-defined field for values (length 10,3)"
+    data_element: USRCURR13
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 3
+    key: false
+  - name: USE07
+    description: "User field: Unit for value fields"
+    data_element: USRCUKY
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: USR08
+    description: "User field for date"
+    data_element: USRDATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: USR09
+    description: "User field for date"
+    data_element: USRDATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: USR10
+    description: "User-defined field: Indicator for reports"
+    data_element: USRFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: USR11
+    description: "User-defined field: Indicator for reports"
+    data_element: USRFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ANFKO
+    description: "Requesting cost center"
+    data_element: ANFKO
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ANFKOKRS
+    description: "Controlling area of the requesting cost center"
+    data_element: ANFKOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KAPAR
+    description: "Capacity category"
+    data_element: KAPART
+    check_table: TC26
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: INDET
+    description: "Key for calculation"
+    data_element: INDET
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LARNT
+    description: "Activity Type"
+    data_element: LSTAR
+    check_table: CSLA
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: PRKST
+    description: "Costs in the activity"
+    data_element: PRKST
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: QRASTERMNG
+    description: "Quantity for Grid Point Definition"
+    data_element: QRASTERMNG
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: QRASTEREH
+    description: "Grid Unit of Measure"
+    data_element: QRASTEREH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ANLZU
+    description: "Syst.Condition"
+    data_element: ANLZU
+    check_table: T357M
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ISTRU
+    description: "Assembly"
+    data_element: ISTRU
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: ISTTY
+    description: "BOM category"
+    data_element: STLTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ISTNR
+    description: "Bill of material"
+    data_element: STNUM
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: ISTKN
+    description: "BOM item node number"
+    data_element: STLKN
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: ISTPO
+    description: "Internal counter"
+    data_element: CIM_COUNT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: IUPOZ
+    description: "Subitem Number"
+    data_element: UPOSZ
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: EBORT
+    description: "Installation Point for Subitem"
+    data_element: EBORT
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: KALID
+    description: "Factory Calendar"
+    data_element: WFCID
+    check_table: TFACD
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FRSP
+    description: "Earliest possible activity / Latest possible activity"
+    data_element: FRSP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VERTN
+    description: "Distr.cap.reqmts (plant maint.,process order, network)"
+    data_element: CR_VERTN
+    check_table: TC29
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: ZGR01
+    description: "Key for performance efficiency rate"
+    data_element: IDZEITGRAD
+    check_table: TC31
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: ZGR02
+    description: "Key for performance efficiency rate"
+    data_element: IDZEITGRAD
+    check_table: TC31
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: ZGR03
+    description: "Key for performance efficiency rate"
+    data_element: IDZEITGRAD
+    check_table: TC31
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: ZGR04
+    description: "Key for performance efficiency rate"
+    data_element: IDZEITGRAD
+    check_table: TC31
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: ZGR05
+    description: "Key for performance efficiency rate"
+    data_element: IDZEITGRAD
+    check_table: TC31
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: ZGR06
+    description: "Key for performance efficiency rate"
+    data_element: IDZEITGRAD
+    check_table: TC31
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: MDLID
+    description: "Model ID for charge calculation"
+    data_element: MDLID
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: RUZUS
+    description: "Key: rounding and additional values"
+    data_element: RUZUS
+    check_table: TCERS
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BMEIH
+    description: "Operation order quantity unit"
+    data_element: BMEIH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: BMVRG
+    description: "Purchase order quantity operation"
+    data_element: BMVRG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: CKSELKZ
+    description: "Indicator for Relevancy to Costing"
+    data_element: CK_SELKZ
+    check_table: TCK08
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KALKZ
+    description: "Cost"
+    data_element: CK_KALKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: NPRIO
+    description: "Priority"
+    data_element: NW_PRIO
+    check_table: TCN07
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PVZKN
+    description: "Number of the task list node"
+    data_element: PLNKN
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: PHFLG
+    description: "Indicator: Phase"
+    data_element: PHFLG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PHSEQ
+    description: "Control Recipe Destination"
+    data_element: TC52
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KNOBJ
+    description: "Number of Object with Assigned Dependencies"
+    data_element: KNOBJ
+    check_table: ~
+    datatype: NUMC
+    length: 18
+    decimals: 0
+    key: false
+  - name: ERFSICHT
+    description: "Recording View"
+    data_element: QERFSICHT
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PSPNR
+    description: "Standard WBS element"
+    data_element: PS_SPS_ELE
+    check_table: PRPSS
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: QLOTYPE
+    description: "Object Type"
+    data_element: OTYPE
+    check_table: T778O
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: QLOBJEKTID
+    description: "Object ID"
+    data_element: OBJEKTID
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: QLKAPAR
+    description: "Capacity category"
+    data_element: KAPART
+    check_table: TC26
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: QKZPRZEIT
+    description: "Interval = Time (Time-Related)"
+    data_element: QKZPRZEIT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QKZZTMG1
+    description: "Quantity Confirmation for Each Partial Lot"
+    data_element: QKZZTMG1
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QKZPRMENG
+    description: "Creation Cycle = Quantity (Quantity-Reference)"
+    data_element: QKZPRMENG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QKZPRFREI
+    description: "Interval Without Reference to Time or Quantity"
+    data_element: QKZPRFREI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QRASTZEHT
+    description: "Time Unit"
+    data_element: QRASTZEHT
+    check_table: ~
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: QRASTZFAK
+    description: "Time Factor"
+    data_element: QRASTZFAK
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: QRASTMENG
+    description: "Quantity Between Two Inspections"
+    data_element: QRASTMENG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: QPPKTABS
+    description: "Flow Variants for Inspection Point Completion"
+    data_element: QPPKTABS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KRIT1
+    description: "Planning object"
+    data_element: PLOBJ
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: CLASSID
+    description: "Internal Class Number"
+    data_element: CLINT
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: PACKNO
+    description: "Package number"
+    data_element: PACKNO
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: EBELN
+    description: "Purchasing Document Number"
+    data_element: EBELN
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: EBELP
+    description: "Item Number of Purchasing Document"
+    data_element: EBELP
+    check_table: EKPO
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: CAPOC
+    description: "Type of CAPP calculation at order creation"
+    data_element: CAPOC
+    check_table: ~
+    datatype: NUMC
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLG_CAPTXT
+    description: "Ind: CAPP text exists"
+    data_element: FLG_CAPTXT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CN_WEIGHT
+    description: "Aggregation weight for POC (PS progress)"
+    data_element: EV_WEIGHTD
+    check_table: ~
+    datatype: DEC
+    length: 8
+    decimals: 0
+    key: false
+  - name: QKZTLSBEST
+    description: "Operation with Stock-Related Partial Lot Assignment"
+    data_element: QKZTLSBEST
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUFKT
+    description: "Execution Factor"
+    data_element: AFAKT
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: DAFKT
+    description: "Average execution factor"
+    data_element: DFAKT
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: RWFAK
+    description: "Rework factor (is not used yet)"
+    data_element: RWFAK
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 3
+    key: false
+  - name: AAUFG
+    description: "Indicator: Work center operation set"
+    data_element: AAUFG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VERDART
+    description: "Grouping Category"
+    data_element: VERDART
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: UAVO_AUFL
+    description: "Suboper. do not apply to order"
+    data_element: UAVO_AUFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FRDLB
+    description: "Indicator: Externally processed op. with subcontracting"
+    data_element: CO_FRDLB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QPART
+    description: "Inspection Type"
+    data_element: QPART
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: PRZ01
+    description: "Business Process"
+    data_element: CO_PRZNR
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: TAKT
+    description: "takt within a line segment"
+    data_element: LD_TAKT
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: OPRID
+    description: "External operation ID"
+    data_element: CP_OPRID
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: NVADD
+    description: "Indicator for non-value-added operations"
+    data_element: LD_NVADD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EVGEW
+    description: "Aggregation weight for POC (PS progress)"
+    data_element: EV_WEIGHTD
+    check_table: ~
+    datatype: DEC
+    length: 8
+    decimals: 0
+    key: false
+  - name: RFPNT
+    description: "Reference point for BOM transfer"
+    data_element: CN_RFPNT
+    check_table: TCNRFP
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: FLG_TSK_GROUP
+    description: "Group operation"
+    data_element: FLG_TSK_GROUP_TYPE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ADPSP
+    description: "Reference Element PM/PS"
+    data_element: ADDCOMPARE_CORE
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: TPLNR
+    description: "Functional Location"
+    data_element: TPLNR
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: EQUNR
+    description: "Equipment Number"
+    data_element: EQUNR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: MES_OPERID
+    description: "Key of an Operation from an ME System"
+    data_element: CO_MES_INT_OPERID
+    check_table: ~
+    datatype: CHAR
+    length: 48
+    decimals: 0
+    key: false
+  - name: MES_STEPID
+    description: "Key of a Step in a Routing (SAP ME)"
+    data_element: CO_MES_INT_STEPID
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: SUBPLNAL
+    description: "Subordinate Task List Group Counter"
+    data_element: SUBPLNAL
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: SUBPLNNR
+    description: "Key for Subordinate Task List Group"
+    data_element: SUBPLNNR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: SUBPLNTY
+    description: "Task List Type: Subordinate Task List"
+    data_element: SUBPLNTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XEXCLTL
+    description: "Sign: Exclude Subordinate Task List (and in All Tree)"
+    data_element: XEXCLTL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: AENNR
+    check_table: AENR
+    check_field: MANDT
+  - field: AENNR
+    check_table: AENR
+    check_field: AENNR
+  - field: ANFKO
+    check_table: CSKS
+    check_field: MANDT
+  - field: ANFKO
+    check_table: CSKS
+    check_field: KOKRS
+  - field: ANFKO
+    check_table: CSKS
+    check_field: KOSTL
+  - field: ANFKO
+    check_table: CSKS
+    check_field: DATBI
+  - field: ANFKOKRS
+    check_table: TKA01
+    check_field: MANDT
+  - field: ANFKOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: ANLZU
+    check_table: T357M
+    check_field: MANDT
+  - field: ANLZU
+    check_table: T357M
+    check_field: ANLZU
+  - field: ARBEH
+    check_table: T006
+    check_field: MANDT
+  - field: ARBEH
+    check_table: T006
+    check_field: MSEHI
+  - field: BMEIH
+    check_table: T006
+    check_field: MANDT
+  - field: BMEIH
+    check_table: T006
+    check_field: MSEHI
+  - field: BUKRS
+    check_table: T001
+    check_field: MANDT
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: BZOFFB
+    check_table: TCA54
+    check_field: BZOFF
+  - field: BZOFFE
+    check_table: TCA54
+    check_field: BZOFF
+  - field: CKSELKZ
+    check_table: TCK08
+    check_field: MANDT
+  - field: CKSELKZ
+    check_table: TCK08
+    check_field: SELKZ
+  - field: DAUME
+    check_table: T006
+    check_field: MANDT
+  - field: DAUME
+    check_table: T006
+    check_field: MSEHI
+  - field: DAUNE
+    check_table: T006
+    check_field: MANDT
+  - field: DAUNE
+    check_table: T006
+    check_field: MSEHI
+  - field: EBELP
+    check_table: EKPO
+    check_field: MANDT
+  - field: EBELP
+    check_table: EKPO
+    check_field: EBELN
+  - field: EBELP
+    check_table: EKPO
+    check_field: EBELP
+  - field: EHOFFB
+    check_table: T006
+    check_field: MANDT
+  - field: EHOFFB
+    check_table: T006
+    check_field: MSEHI
+  - field: EHOFFE
+    check_table: T006
+    check_field: MANDT
+  - field: EHOFFE
+    check_table: T006
+    check_field: MSEHI
+  - field: EKGRP
+    check_table: T024
+    check_field: MANDT
+  - field: EKGRP
+    check_table: T024
+    check_field: EKGRP
+  - field: EKORG
+    check_table: T024E
+    check_field: MANDT
+  - field: EKORG
+    check_table: T024E
+    check_field: EKORG
+  - field: INFNR
+    check_table: EINA
+    check_field: MANDT
+  - field: INFNR
+    check_table: EINA
+    check_field: INFNR
+  - field: ISTRU
+    check_table: MARA
+    check_field: MANDT
+  - field: ISTRU
+    check_table: MARA
+    check_field: MATNR
+  - field: KALID
+    check_table: TFACD
+    check_field: IDENT
+  - field: KAPAR
+    check_table: TC26
+    check_field: MANDT
+  - field: KAPAR
+    check_table: TC26
+    check_field: KAPAR
+  - field: KTSCH
+    check_table: T435
+    check_field: MANDT
+  - field: KTSCH
+    check_table: T435
+    check_field: VLSCH
+  - field: LAR01
+    check_table: CSLA
+    check_field: MANDT
+  - field: LAR01
+    check_table: CSLA
+    check_field: KOKRS
+  - field: LAR01
+    check_table: CSLA
+    check_field: LSTAR
+  - field: LAR01
+    check_table: CSLA
+    check_field: DATBI
+  - field: LAR02
+    check_table: CSLA
+    check_field: MANDT
+  - field: LAR02
+    check_table: CSLA
+    check_field: KOKRS
+  - field: LAR02
+    check_table: CSLA
+    check_field: LSTAR
+  - field: LAR02
+    check_table: CSLA
+    check_field: DATBI
+  - field: LAR03
+    check_table: CSLA
+    check_field: MANDT
+  - field: LAR03
+    check_table: CSLA
+    check_field: KOKRS
+  - field: LAR03
+    check_table: CSLA
+    check_field: LSTAR
+  - field: LAR03
+    check_table: CSLA
+    check_field: DATBI
+  - field: LAR04
+    check_table: CSLA
+    check_field: MANDT
+  - field: LAR04
+    check_table: CSLA
+    check_field: KOKRS
+  - field: LAR04
+    check_table: CSLA
+    check_field: LSTAR
+  - field: LAR04
+    check_table: CSLA
+    check_field: DATBI
+  - field: LAR05
+    check_table: CSLA
+    check_field: MANDT
+  - field: LAR05
+    check_table: CSLA
+    check_field: KOKRS
+  - field: LAR05
+    check_table: CSLA
+    check_field: LSTAR
+  - field: LAR05
+    check_table: CSLA
+    check_field: DATBI
+  - field: LAR06
+    check_table: CSLA
+    check_field: MANDT
+  - field: LAR06
+    check_table: CSLA
+    check_field: KOKRS
+  - field: LAR06
+    check_table: CSLA
+    check_field: LSTAR
+  - field: LAR06
+    check_table: CSLA
+    check_field: DATBI
+  - field: LARNT
+    check_table: CSLA
+    check_field: MANDT
+  - field: LARNT
+    check_table: CSLA
+    check_field: KOKRS
+  - field: LARNT
+    check_table: CSLA
+    check_field: LSTAR
+  - field: LARNT
+    check_table: CSLA
+    check_field: DATBI
+  - field: LIFNR
+    check_table: LFA1
+    check_field: MANDT
+  - field: LIFNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: LOGRP
+    check_table: T421
+    check_field: MANDT
+  - field: LOGRP
+    check_table: T421
+    check_field: WERKS
+  - field: LOGRP
+    check_table: T421
+    check_field: LOGRP
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MATKL
+    check_table: T023
+    check_field: MANDT
+  - field: MATKL
+    check_table: T023
+    check_field: MATKL
+  - field: MEINH
+    check_table: T006
+    check_field: MANDT
+  - field: MEINH
+    check_table: T006
+    check_field: MSEHI
+  - field: MLSTN
+    check_table: T433
+    check_field: MANDT
+  - field: MLSTN
+    check_table: T433
+    check_field: MLSTN
+  - field: NPRIO
+    check_table: TCN07
+    check_field: MANDT
+  - field: NPRIO
+    check_table: TCN07
+    check_field: NPRIO
+  - field: PDEST
+    check_table: TSP03
+    check_field: PADEST
+  - field: PHSEQ
+    check_table: TC52
+    check_field: MANDT
+  - field: PHSEQ
+    check_table: TC52
+    check_field: WERKS
+  - field: PHSEQ
+    check_table: TC52
+    check_field: PHSEQ
+  - field: PLNTY
+    check_table: TCA01
+    check_field: MANDT
+  - field: PLNTY
+    check_table: TCA01
+    check_field: PLNTY
+  - field: PSPNR
+    check_table: PRPSS
+    check_field: MANDT
+  - field: PSPNR
+    check_table: PRPSS
+    check_field: PSPNR
+  - field: QLKAPAR
+    check_table: TC26
+    check_field: MANDT
+  - field: QLKAPAR
+    check_table: TC26
+    check_field: KAPAR
+  - field: QLOTYPE
+    check_table: T778O
+    check_field: MANDT
+  - field: QLOTYPE
+    check_table: T778O
+    check_field: OTYPE
+  - field: QRASTEREH
+    check_table: T006
+    check_field: MANDT
+  - field: QRASTEREH
+    check_table: T006
+    check_field: MSEHI
+  - field: QUALF
+    check_table: T423
+    check_field: MANDT
+  - field: QUALF
+    check_table: T423
+    check_field: WERKS
+  - field: QUALF
+    check_table: T423
+    check_field: QUALF
+  - field: RASCH
+    check_table: T428
+    check_field: MANDT
+  - field: RASCH
+    check_table: T428
+    check_field: WERKS
+  - field: RASCH
+    check_table: T428
+    check_field: RASCH
+  - field: RFGRP
+    check_table: T426
+    check_field: MANDT
+  - field: RFGRP
+    check_table: T426
+    check_field: WERKS
+  - field: RFGRP
+    check_table: T426
+    check_field: RFGRP
+  - field: RFPNT
+    check_table: TCNRFP
+    check_field: MANDT
+  - field: RFPNT
+    check_table: TCNRFP
+    check_field: RFPNT
+  - field: RFSCH
+    check_table: T425
+    check_field: MANDT
+  - field: RFSCH
+    check_table: T425
+    check_field: WERKS
+  - field: RFSCH
+    check_table: T425
+    check_field: RFGRP
+  - field: RFSCH
+    check_table: T425
+    check_field: RFSCH
+  - field: RSTRA
+    check_table: T499Q
+    check_field: MANDT
+  - field: RSTRA
+    check_table: T499Q
+    check_field: WERKS
+  - field: RSTRA
+    check_table: T499Q
+    check_field: RSTRA
+  - field: RUZUS
+    check_table: TCERS
+    check_field: MANDT
+  - field: RUZUS
+    check_table: TCERS
+    check_field: RUZUS
+  - field: SAKTO
+    check_table: CSKA
+    check_field: MANDT
+  - field: SAKTO
+    check_table: CSKA
+    check_field: KTOPL
+  - field: SAKTO
+    check_table: CSKA
+    check_field: KSTAR
+  - field: SLWID
+    check_table: TCN00
+    check_field: MANDT
+  - field: SLWID
+    check_table: TCN00
+    check_field: SLWID
+  - field: STEUS
+    check_table: T430
+    check_field: MANDT
+  - field: STEUS
+    check_table: T430
+    check_field: STEUS
+  - field: TXTSP
+    check_table: T002
+    check_field: SPRAS
+  - field: USE04
+    check_table: T006
+    check_field: MANDT
+  - field: USE04
+    check_table: T006
+    check_field: MSEHI
+  - field: USE05
+    check_table: T006
+    check_field: MANDT
+  - field: USE05
+    check_table: T006
+    check_field: MSEHI
+  - field: USE06
+    check_table: TCURC
+    check_field: MANDT
+  - field: USE06
+    check_table: TCURC
+    check_field: WAERS
+  - field: USE07
+    check_table: TCURC
+    check_field: MANDT
+  - field: USE07
+    check_table: TCURC
+    check_field: WAERS
+  - field: VERTL
+    check_table: T498
+    check_field: MANDT
+  - field: VERTL
+    check_table: T498
+    check_field: VERTL
+  - field: VERTN
+    check_table: TC29
+    check_field: MANDT
+  - field: VERTN
+    check_table: TC29
+    check_field: VERTL
+  - field: VGE01
+    check_table: T006
+    check_field: MANDT
+  - field: VGE01
+    check_table: T006
+    check_field: MSEHI
+  - field: VGE02
+    check_table: T006
+    check_field: MANDT
+  - field: VGE02
+    check_table: T006
+    check_field: MSEHI
+  - field: VGE03
+    check_table: T006
+    check_field: MANDT
+  - field: VGE03
+    check_table: T006
+    check_field: MSEHI
+  - field: VGE04
+    check_table: T006
+    check_field: MANDT
+  - field: VGE04
+    check_table: T006
+    check_field: MSEHI
+  - field: VGE05
+    check_table: T006
+    check_field: MANDT
+  - field: VGE05
+    check_table: T006
+    check_field: MSEHI
+  - field: VGE06
+    check_table: T006
+    check_field: MANDT
+  - field: VGE06
+    check_table: T006
+    check_field: MSEHI
+  - field: WAERS
+    check_table: TCURC
+    check_field: MANDT
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: WERKS
+    check_table: T001W
+    check_field: MANDT
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+  - field: ZEIER
+    check_table: T006
+    check_field: MANDT
+  - field: ZEIER
+    check_table: T006
+    check_field: MSEHI
+  - field: ZEILM
+    check_table: T006
+    check_field: MANDT
+  - field: ZEILM
+    check_table: T006
+    check_field: MSEHI
+  - field: ZEILP
+    check_table: T006
+    check_field: MANDT
+  - field: ZEILP
+    check_table: T006
+    check_field: MSEHI
+  - field: ZEIMB
+    check_table: T006
+    check_field: MANDT
+  - field: ZEIMB
+    check_table: T006
+    check_field: MSEHI
+  - field: ZEIMU
+    check_table: T006
+    check_field: MANDT
+  - field: ZEIMU
+    check_table: T006
+    check_field: MSEHI
+  - field: ZEITM
+    check_table: T006
+    check_field: MANDT
+  - field: ZEITM
+    check_table: T006
+    check_field: MSEHI
+  - field: ZEITN
+    check_table: T006
+    check_field: MANDT
+  - field: ZEITN
+    check_table: T006
+    check_field: MSEHI
+  - field: ZEIWM
+    check_table: T006
+    check_field: MANDT
+  - field: ZEIWM
+    check_table: T006
+    check_field: MSEHI
+  - field: ZEIWN
+    check_table: T006
+    check_field: MANDT
+  - field: ZEIWN
+    check_table: T006
+    check_field: MSEHI
+  - field: ZERMA
+    check_table: T429
+    check_field: MANDT
+  - field: ZERMA
+    check_table: T429
+    check_field: WERKS
+  - field: ZERMA
+    check_table: T429
+    check_field: ZERMA
+  - field: ZGR01
+    check_table: TC31
+    check_field: MANDT
+  - field: ZGR01
+    check_table: TC31
+    check_field: ID
+  - field: ZGR02
+    check_table: TC31
+    check_field: MANDT
+  - field: ZGR02
+    check_table: TC31
+    check_field: ID
+  - field: ZGR03
+    check_table: TC31
+    check_field: MANDT
+  - field: ZGR03
+    check_table: TC31
+    check_field: ID
+  - field: ZGR04
+    check_table: TC31
+    check_field: MANDT
+  - field: ZGR04
+    check_table: TC31
+    check_field: ID
+  - field: ZGR05
+    check_table: TC31
+    check_field: MANDT
+  - field: ZGR05
+    check_table: TC31
+    check_field: ID
+  - field: ZGR06
+    check_table: TC31
+    check_field: MANDT
+  - field: ZGR06
+    check_table: TC31
+    check_field: ID
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

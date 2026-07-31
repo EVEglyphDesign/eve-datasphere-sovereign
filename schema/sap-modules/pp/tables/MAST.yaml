@@ -1,0 +1,124 @@
+table: MAST
+module: PP
+description: "Material to BOM Link — connects a material/plant/BOM-usage to its bill of material number and alternative. Entry point of the BOM chain."
+source: https://leanx.eu/en/sap/table/mast.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: true
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: STLAN
+    description: "BOM Usage"
+    data_element: STLAN
+    check_table: T416
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: STLNR
+    description: "Bill of material"
+    data_element: STNUM
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: true
+  - name: STLAL
+    description: "Alternative BOM"
+    data_element: STALT
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: LOSVN
+    description: "From Lot Size"
+    data_element: LOSVN
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LOSBS
+    description: "To Lot Size"
+    data_element: LOSBS
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: ANDAT
+    description: "Date record created on"
+    data_element: ANDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ANNAM
+    description: "User who created record"
+    data_element: ANNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: CSLTY
+    description: "Indicator: configured material (material variant)"
+    data_element: CSLTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: STLAN
+    check_table: T416
+    check_field: STLAN
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

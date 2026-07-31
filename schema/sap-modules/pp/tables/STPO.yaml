@@ -1,0 +1,1173 @@
+table: STPO
+module: PP
+description: "BOM Item — individual component line items of a bill of material (quantity, item category, scrap, procurement). Terminal table of the BOM chain."
+source: https://leanx.eu/en/sap/table/stpo.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: STLTY
+    description: "BOM category"
+    data_element: STLTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: STLNR
+    description: "Bill of material"
+    data_element: STNUM
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: true
+  - name: STLKN
+    description: "BOM item node number"
+    data_element: STLKN
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: STPOZ
+    description: "Internal counter"
+    data_element: CIM_COUNT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: DATUV
+    description: "Valid-From Date"
+    data_element: DATUV
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: TECHV
+    description: "Technical status from"
+    data_element: TECHV
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AENNR
+    description: "Change Number"
+    data_element: AENNR
+    check_table: AENR
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: LKENZ
+    description: "Deletion Indicator"
+    data_element: LKENZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VGKNT
+    description: "Predecessor Node"
+    data_element: VGKNT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: VGPZL
+    description: "Previous item counter"
+    data_element: VGPZL
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: ANDAT
+    description: "Date record created on"
+    data_element: ANDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ANNAM
+    description: "User who created record"
+    data_element: ANNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: IDNRK
+    description: "BOM component"
+    data_element: IDNRK
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: PSWRK
+    description: "Issuing plant"
+    data_element: PSWRK
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: POSTP
+    description: "Item Category (Bill of Material)"
+    data_element: POSTP
+    check_table: T418
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: POSNR
+    description: "BOM Item Number"
+    data_element: SPOSN
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SORTF
+    description: "Sort String"
+    data_element: SORTP
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: MEINS
+    description: "Component unit of measure"
+    data_element: KMPME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: MENGE
+    description: "Component quantity"
+    data_element: KMPMG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: FMENG
+    description: "Fixed qty"
+    data_element: FMNGE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUSCH
+    description: "Component scrap in percent"
+    data_element: KAUSF
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: AVOAU
+    description: "Operation scrap"
+    data_element: AVOAU
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: NETAU
+    description: "Indicator: Net scrap"
+    data_element: NETAU
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SCHGT
+    description: "Indicator: Bulk Material"
+    data_element: SCHGT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BEIKZ
+    description: "Material Provision Indicator"
+    data_element: BEIKZ
+    check_table: T417
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ERSKZ
+    description: "Indicator: spare part"
+    data_element: ERSKZ
+    check_table: T413
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RVREL
+    description: "Indicator: item relevant to sales"
+    data_element: RVREL
+    check_table: TVRL
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SANFE
+    description: "Indicator: item relevant to production"
+    data_element: SANFE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SANIN
+    description: "Indicator: item relevant to plant maintenance"
+    data_element: SANIN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SANKA
+    description: "Indicator for relevancy to costing"
+    data_element: CS_SANKA
+    check_table: TCK08
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SANKO
+    description: "Indicator: item relevant to engineering"
+    data_element: SANKO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SANVS
+    description: "Indicator: high-level configuration"
+    data_element: SANVS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STKKZ
+    description: "PM assembly indicator"
+    data_element: STKKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: REKRI
+    description: "Indicator: BOM is recursive"
+    data_element: REKRI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: REKRS
+    description: "Indicator: recursiveness allowed"
+    data_element: REKRS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CADPO
+    description: "CAD Indicator"
+    data_element: CADPO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: NFMAT
+    description: "Follow-up material in BOM item - NOT IN USE"
+    data_element: CS_NFMAT
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: NLFZT
+    description: "Lead-time offset"
+    data_element: NLFZT
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: VERTI
+    description: "Distribution key for component consumption"
+    data_element: SA_VERTI
+    check_table: T437V
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ALPOS
+    description: "Indicator: alternative item"
+    data_element: ALPOS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EWAHR
+    description: "Usage probability in % (alternative item)"
+    data_element: EWAHR
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: EKGRP
+    description: "Purchasing Group"
+    data_element: EKGRP
+    check_table: T024
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LIFZT
+    description: "Delivery time in days"
+    data_element: LIFZT
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: LIFNR
+    description: "Account Number of Vendor or Creditor"
+    data_element: LIFNR
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PREIS
+    description: "Price"
+    data_element: CPREI
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: PEINH
+    description: "Price Unit"
+    data_element: PEINH
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: SAKTO
+    description: "Cost element"
+    data_element: SAKTO
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ROANZ
+    description: "Number of variable-size items"
+    data_element: ROANZ
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: ROMS1
+    description: "Size 1"
+    data_element: ROMS1
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: ROMS2
+    description: "Size 2"
+    data_element: ROMS2
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: ROMS3
+    description: "Size 3"
+    data_element: ROMS3
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: ROMEI
+    description: "Unit of measure for sizes 1 to 3"
+    data_element: ROMEI
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ROMEN
+    description: "Quantity of variable-size item"
+    data_element: ROMEN
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: RFORM
+    description: "Formula key"
+    data_element: RFORM
+    check_table: T418F
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: UPSKZ
+    description: "Indicator: sub-items exist"
+    data_element: UPSKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VALKZ
+    description: "Indicator: item in more than one alternative"
+    data_element: VALKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LTXSP
+    description: "Long Text Language, for Creation of a Change Document"
+    data_element: LTXSP_CP
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: POTX1
+    description: "BOM Item Text (Line 1)"
+    data_element: POTX1
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: POTX2
+    description: "BOM item text (line 2)"
+    data_element: POTX2
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: OBJTY
+    description: "Object type (BOM item)"
+    data_element: OBJTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MATKL
+    description: "Material Group"
+    data_element: MATKL
+    check_table: T023
+    datatype: CHAR
+    length: 9
+    decimals: 0
+    key: false
+  - name: WEBAZ
+    description: "Goods Receipt Processing Time in Days"
+    data_element: WEBAZ
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: DOKAR
+    description: "Document Type"
+    data_element: DOKAR
+    check_table: TDWA
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: DOKNR
+    description: "Document number"
+    data_element: DOKNR
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: DOKVR
+    description: "Document Version"
+    data_element: DOKVR
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: DOKTL
+    description: "Document Part"
+    data_element: DOKTL_D
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: CSSTR
+    description: "Average material purity in %"
+    data_element: CSSTR
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: CLASS
+    description: "Class number"
+    data_element: KLASSE_D
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: KLART
+    description: "Class Type"
+    data_element: KLASSENART
+    check_table: TCLA
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: POTPR
+    description: "Resulting item category"
+    data_element: POTPR
+    check_table: T418
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AWAKZ
+    description: "Selection indicator for configurable BOMs"
+    data_element: AWAKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: INSKZ
+    description: "Instance indicator"
+    data_element: INSKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VCEKZ
+    description: "Indicator: not displayed in configuration editor"
+    data_element: VCEKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VSTKZ
+    description: "Indicator: not displayed in single-level configuration"
+    data_element: VSTKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VACKZ
+    description: "Indicator: not displayed in automatic configuration"
+    data_element: VACKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EKORG
+    description: "Purchasing Organization"
+    data_element: EKORG
+    check_table: T024E
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: CLOBK
+    description: "Required Component"
+    data_element: CLOBK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CLMUL
+    description: "Multiple Selection Allowed"
+    data_element: CLMULT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CLALT
+    description: "Alternative Display Format"
+    data_element: CLALT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CVIEW
+    description: "Organizational Area"
+    data_element: ABTEILUNG
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KNOBJ
+    description: "Number of Object with Assigned Dependencies"
+    data_element: KNOBJ
+    check_table: ~
+    datatype: NUMC
+    length: 18
+    decimals: 0
+    key: false
+  - name: LGORT
+    description: "Issue location for production order"
+    data_element: CSLGO
+    check_table: T001L
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KZKUP
+    description: "Indicator: co-product"
+    data_element: KZKUP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: INTRM
+    description: "Intra Material"
+    data_element: INTRM
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: TPEKZ
+    description: "Indicator: restrictions exist"
+    data_element: TPEKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STVKN
+    description: "Inherited node number of BOM item"
+    data_element: STVKN
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: DVDAT
+    description: "Date of last date shift"
+    data_element: DVDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: DVNAM
+    description: "Name of the user who carried out the date shift"
+    data_element: DVNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: DSPST
+    description: "Explosion type"
+    data_element: CS_DISPO
+    check_table: T414
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ALPST
+    description: "Alternative item: strategy"
+    data_element: CS_ALPST
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ALPRF
+    description: "Alternative item: ranking order"
+    data_element: CS_ALPRF
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: ALPGR
+    description: "Alternative item: group"
+    data_element: CS_ALPGR
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KZNFP
+    description: "Indicator: Follow-Up Item"
+    data_element: CS_KZNFP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: NFGRP
+    description: "Follow-up group"
+    data_element: CS_NFGRP
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: NFEAG
+    description: "Discontinuation group"
+    data_element: CS_NFEAG
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KNDVB
+    description: "Indicator: manual change to sales order BOM"
+    data_element: CS_KNDVB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KNDBZ
+    description: "Indicator: BOM item changed/selected via obj. dependencies"
+    data_element: CS_KNDBZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KSTTY
+    description: "BOM category of original sales order BOM item"
+    data_element: CS_KSTTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KSTNR
+    description: "Bill of material for original sales order BOM item"
+    data_element: CS_KSTNR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: KSTKN
+    description: "Node number of original sales order BOM item"
+    data_element: CS_KSTKN
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: KSTPZ
+    description: "Counter for original sales order BOM item"
+    data_element: CS_KSTPZ
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: CLSZU
+    description: "Classification number"
+    data_element: CS_CLSZU
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: KZCLB
+    description: "Indicator: classification as selection condition"
+    data_element: CS_KZCLB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AEHLP
+    description: "Date Shift Hierarchy Indicator"
+    data_element: CC_AEHLP
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: PRVBE
+    description: "Production Supply Area"
+    data_element: PRVBE
+    check_table: PVBE
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: NLFZV
+    description: "Lead-time offset for operation"
+    data_element: CS_NLFZV
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: NLFMV
+    description: "Unit for lead-time offset for operation"
+    data_element: CS_NLFMV
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: IDPOS
+    description: "Item group"
+    data_element: CS_IDPOS
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: IDHIS
+    description: "History counter"
+    data_element: CS_IDHIS
+    check_table: ~
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: IDVAR
+    description: "Component Variant"
+    data_element: CS_IDVAR
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: ALEKZ
+    description: "ALE indicator"
+    data_element: CS_ALEKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ITMID
+    description: "External identification of an item"
+    data_element: CS_ITMID
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: GUID
+    description: "Temporarily not used"
+    data_element: CS_CHAR22
+    check_table: ~
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: ITSOB
+    description: "Special procurement type for BOM item"
+    data_element: CS_SOBSL
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: RFPNT
+    description: "Reference point for BOM transfer"
+    data_element: CN_RFPNT
+    check_table: TCNRFP
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: GUIDX
+    description: "Global identification of an item's change status"
+    data_element: CS_GUID
+    check_table: ~
+    datatype: RAW
+    length: 16
+    decimals: 0
+    key: false
+  - name: YY_RDS_PP
+    description: "Reference Designator (RDS-PP)"
+    data_element: Y_RDS_PP
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: YY_PDMLINKID
+    description: "PDMLink BOM Component ID"
+    data_element: Y_PDMLINKID
+    check_table: ~
+    datatype: CHAR
+    length: 36
+    decimals: 0
+    key: false
+  - name: YY_ITEM_COMMONID
+    description: "BOMCommonID"
+    data_element: Y_COMMONID
+    check_table: ~
+    datatype: CHAR
+    length: 36
+    decimals: 0
+    key: false
+  - name: CUFACTOR
+    description: "CU: Number of CU Instances"
+    data_element: /CUM/CUFACTOR
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: FUNCID
+    description: "Function Identifier"
+    data_element: CCC_FUNCID
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: AENNR
+    check_table: AENR
+    check_field: AENNR
+  - field: AENNR
+    check_table: AENR
+    check_field: MANDT
+  - field: BEIKZ
+    check_table: T417
+    check_field: BEIKZ
+  - field: BEIKZ
+    check_table: T417
+    check_field: MANDT
+  - field: DOKAR
+    check_table: TDWA
+    check_field: DOKAR
+  - field: DOKAR
+    check_table: TDWA
+    check_field: MANDT
+  - field: DSPST
+    check_table: T414
+    check_field: DISPO
+  - field: DSPST
+    check_table: T414
+    check_field: MANDT
+  - field: EKGRP
+    check_table: T024
+    check_field: EKGRP
+  - field: EKGRP
+    check_table: T024
+    check_field: MANDT
+  - field: EKORG
+    check_table: T024E
+    check_field: EKORG
+  - field: EKORG
+    check_table: T024E
+    check_field: MANDT
+  - field: ERSKZ
+    check_table: T413
+    check_field: ERSKZ
+  - field: ERSKZ
+    check_table: T413
+    check_field: MANDT
+  - field: KLART
+    check_table: TCLA
+    check_field: KLART
+  - field: KLART
+    check_table: TCLA
+    check_field: MANDT
+  - field: LGORT
+    check_table: T001L
+    check_field: LGORT
+  - field: LGORT
+    check_table: T001L
+    check_field: WERKS
+  - field: LGORT
+    check_table: T001L
+    check_field: MANDT
+  - field: LIFNR
+    check_table: LFA1
+    check_field: MANDT
+  - field: LIFNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: LTXSP
+    check_table: T002
+    check_field: SPRAS
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MATKL
+    check_table: T023
+    check_field: MANDT
+  - field: MATKL
+    check_table: T023
+    check_field: MATKL
+  - field: MEINS
+    check_table: T006
+    check_field: MANDT
+  - field: MEINS
+    check_table: T006
+    check_field: MSEHI
+  - field: NFMAT
+    check_table: MARA
+    check_field: MATNR
+  - field: NFMAT
+    check_table: MARA
+    check_field: MANDT
+  - field: NLFMV
+    check_table: T006
+    check_field: MANDT
+  - field: NLFMV
+    check_table: T006
+    check_field: MSEHI
+  - field: POSTP
+    check_table: T418
+    check_field: POSTP
+  - field: POSTP
+    check_table: T418
+    check_field: MANDT
+  - field: POTPR
+    check_table: T418
+    check_field: POSTP
+  - field: POTPR
+    check_table: T418
+    check_field: MANDT
+  - field: PRVBE
+    check_table: PVBE
+    check_field: WERKS
+  - field: PRVBE
+    check_table: PVBE
+    check_field: PRVBE
+  - field: PRVBE
+    check_table: PVBE
+    check_field: MANDT
+  - field: PSWRK
+    check_table: T001W
+    check_field: MANDT
+  - field: PSWRK
+    check_table: T001W
+    check_field: WERKS
+  - field: RFORM
+    check_table: T418F
+    check_field: MANDT
+  - field: RFORM
+    check_table: T418F
+    check_field: RFORM
+  - field: RFPNT
+    check_table: TCNRFP
+    check_field: RFPNT
+  - field: RFPNT
+    check_table: TCNRFP
+    check_field: MANDT
+  - field: ROMEI
+    check_table: T006
+    check_field: MSEHI
+  - field: ROMEI
+    check_table: T006
+    check_field: MANDT
+  - field: RVREL
+    check_table: TVRL
+    check_field: RVREL
+  - field: RVREL
+    check_table: TVRL
+    check_field: MANDT
+  - field: SANKA
+    check_table: TCK08
+    check_field: SELKZ
+  - field: SANKA
+    check_table: TCK08
+    check_field: MANDT
+  - field: VERTI
+    check_table: T437V
+    check_field: VERTL
+  - field: VERTI
+    check_table: T437V
+    check_field: WERKS
+  - field: VERTI
+    check_table: T437V
+    check_field: MANDT
+  - field: WAERS
+    check_table: TCURC
+    check_field: MANDT
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

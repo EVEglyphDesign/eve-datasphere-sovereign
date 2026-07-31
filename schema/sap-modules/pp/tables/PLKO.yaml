@@ -1,0 +1,773 @@
+table: PLKO
+module: PP
+description: "Task List (Routing) Group Header — header data for routings/task lists, including usage, status, and planner group. First link in the routing chain (PLKO→PLPO)."
+source: https://leanx.eu/en/sap/table/plko.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: PLNTY
+    description: "Task List Type"
+    data_element: PLNTY
+    check_table: TCA01
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: PLNNR
+    description: "Key for Task List Group"
+    data_element: PLNNR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: true
+  - name: PLNAL
+    description: "Group Counter"
+    data_element: PLNAL
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: ZAEHL
+    description: "Internal counter"
+    data_element: CIM_COUNT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: DATUV
+    description: "Valid-From Date"
+    data_element: DATUV
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: TECHV
+    description: "Technical status from"
+    data_element: TECHV
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AENNR
+    description: "Change Number"
+    data_element: AENNR
+    check_table: AENR
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: LOEKZ
+    description: "Deletion Indicator"
+    data_element: LKENZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PARKZ
+    description: "Indicator: inactive changes"
+    data_element: PARKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ANDAT
+    description: "Date record created on"
+    data_element: ANDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ANNAM
+    description: "User who created record"
+    data_element: ANNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: VERWE
+    description: "Task list usage"
+    data_element: PLN_VERWE
+    check_table: T411
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: STATU
+    description: "Status"
+    data_element: PLNST
+    check_table: T412
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: PLNME
+    description: "Task list unit of measure"
+    data_element: PLNME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: LOSVN
+    description: "From Lot Size"
+    data_element: LOSGRVON
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LOSBS
+    description: "To lot size"
+    data_element: LOSGRBIS
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: VAGRP
+    description: "Responsible planner group/department"
+    data_element: VAGRP
+    check_table: T024A
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: AESZN
+    description: "Document change number (without document management system)"
+    data_element: AESZN
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: KTEXT
+    description: "Task list description"
+    data_element: PLANTEXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: TXTSP
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: ABDAT
+    description: "Date of the last call"
+    data_element: ABRUFDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ABANZ
+    description: "Number of calls"
+    data_element: ABRUFANZ
+    check_table: ~
+    datatype: DEC
+    length: 4
+    decimals: 0
+    key: false
+  - name: PROFIDNETZ
+    description: "Profile"
+    data_element: PROFID_STD
+    check_table: TCA41
+    datatype: CHAR
+    length: 7
+    decimals: 0
+    key: false
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: QVEWERKS
+    description: "Plant of Selected Set for Automatic Usage Decision"
+    data_element: QVEWERKS
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: QVEMENGE
+    description: "Selected Set for Usage Decision"
+    data_element: QVEMENGE
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: QVEVERSION
+    description: "Code Version Used for an Automatic Usage Decision"
+    data_element: QVEVERSION
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: QVEDATUM
+    description: "Date of Code Used for Usage Decision"
+    data_element: QVEDATUM
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: QVEGRUPPE
+    description: "Code Group for Automatic Usage Decision"
+    data_element: QVEGRUPPE
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: QVECODE
+    description: "Code for Automatic Usage Decision"
+    data_element: QVECODE
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: QDYNREGEL
+    description: "Dynamic Modification Rule"
+    data_element: QDYNREGEL
+    check_table: QDDR
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: QDYNHEAD
+    description: "Level at Which Dynamic Modification Parameters Are Defined"
+    data_element: QDYNHEAD
+    check_table: TQ39A
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QPRZIEHVER
+    description: "Sample-Drawing Procedure"
+    data_element: QPRZIEHVER
+    check_table: QPRVK
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: QVERSNPRZV
+    description: "Version No. of the Sample-Drawing Procedure"
+    data_element: QVERSNPRZV
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: QKZRASTER
+    description: "Inspection Point"
+    data_element: QKZRASTER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QDYNSTRING
+    description: "String for Dynamic Modification Criteria (Database Relevant)"
+    data_element: QDYNSTRING
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: STRAT
+    description: "Maintenance strategy"
+    data_element: STRAT
+    check_table: T351
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: PPOOL
+    description: "Maintenance package pool"
+    data_element: PPOOL
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: ISTRU
+    description: "Assembly"
+    data_element: ISTRU
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: IWERK
+    description: "Maintenance Planning Plant"
+    data_element: IWERK
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ANLZU
+    description: "Syst.Condition"
+    data_element: ANLZU
+    check_table: T357M
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ARBID
+    description: "Work center group with planning function"
+    data_element: IGEWERK
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: EXTNUM
+    description: "External Numbering of Units to be Inspected"
+    data_element: QEXTNUM
+    check_table: TQ12
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DELKZ
+    description: "Indicator: Delete completely in reorganization run"
+    data_element: CP_DELKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ARBTY
+    description: "Object types of the CIM resource"
+    data_element: CR_OBJTY
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: STUPR
+    description: "Setup recipe"
+    data_element: STUPR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: CLNDR
+    description: "Clean-out recipe"
+    data_element: CLNDR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: PRTYP
+    description: "Process type"
+    data_element: C2_PRTYP
+    check_table: ~
+    datatype: NUMC
+    length: 1
+    decimals: 0
+    key: false
+  - name: REODAT
+    description: "Archive date"
+    data_element: REODAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: NETID
+    description: "Object ID of the resource"
+    data_element: CR_OBJID
+    check_table: CRID
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: FLG_CHK
+    description: "Ind: Task list was submitted for consistency check"
+    data_element: FLG_CHKED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PSPNR
+    description: "Standard WBS element"
+    data_element: PS_SPS_ELE
+    check_table: PRPSS
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: TTRAS
+    description: "Task lists: Internal representation of the period pattern"
+    data_element: CP_TTRAS
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: KZKFG
+    description: "Ind: Configurable object"
+    data_element: CP_KZKFG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLNNR_ALT
+    description: "Old number"
+    data_element: CP_PLNNR_A
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: FLG_CAPO
+    description: "Recalculate standard values at order creation using CAPP"
+    data_element: FLG_CAPO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STLTY
+    description: "BOM category"
+    data_element: STLTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STLNR
+    description: "Bill of material"
+    data_element: STNUM
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: STLAL
+    description: "Alternative BOM"
+    data_element: STLAL
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: SLWBEZ
+    description: "Identification for the Inspection Point Field Combination"
+    data_element: QSLWBEZ
+    check_table: TQ79
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: PPKZTLZU
+    description: "Partial Lot Assignment in an Inspection During Production"
+    data_element: QPPKZTLZU
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CHRULE
+    description: "Change rule"
+    data_element: R_CHRULE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CCOAA
+    description: "Change Type for Object"
+    data_element: CCOAA
+    check_table: TCC13
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: ST_ARBID
+    description: "Object ID"
+    data_element: OBJEKTID
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: MEINH
+    description: "Unit of Measure for Activity/Operation"
+    data_element: VORME
+    check_table: ~
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: UMREZ
+    description: "Numerator for converting task list and oper. un. of measure"
+    data_element: CP_UMREZ
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 0
+    key: false
+  - name: UMREN
+    description: "Denominator for converting rtg and op units of measure"
+    data_element: CP_UMREN
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 0
+    key: false
+  - name: BMSCH
+    description: "Base Quantity"
+    data_element: BMSCH
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: ADPSP
+    description: "Reference Element PM/PS"
+    data_element: ADDCOMPARE_CORE
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: MS_FLAG
+    description: "Indicator: Multiple Specifications"
+    data_element: Q_MS_FLG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TSTMP_BW
+    description: "Time Stamp for BI Delta Extraction"
+    data_element: TSTMP_BW_EXT
+    check_table: ~
+    datatype: DEC
+    length: 16
+    decimals: 0
+    key: false
+  - name: MES_ROUTINGID
+    description: "Key of a Routing from an ME System"
+    data_element: CO_MES_INT_ROUTINGID
+    check_table: ~
+    datatype: CHAR
+    length: 64
+    decimals: 0
+    key: false
+  - name: XHIERTL
+    description: "Sign: Task List Contains Hierarchical Operations"
+    data_element: XHIERTL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TL_EXTID
+    description: "A&D: External ID of Task List"
+    data_element: TL_EXTID
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: AENNR
+    check_table: AENR
+    check_field: AENNR
+  - field: AENNR
+    check_table: AENR
+    check_field: MANDT
+  - field: ANLZU
+    check_table: T357M
+    check_field: ANLZU
+  - field: ANLZU
+    check_table: T357M
+    check_field: MANDT
+  - field: CCOAA
+    check_table: TCC13
+    check_field: MANDT
+  - field: CCOAA
+    check_table: TCC13
+    check_field: CCOAA
+  - field: EXTNUM
+    check_table: TQ12
+    check_field: MANDT
+  - field: EXTNUM
+    check_table: TQ12
+    check_field: EXTNUM
+  - field: ISTRU
+    check_table: MARA
+    check_field: MATNR
+  - field: ISTRU
+    check_table: MARA
+    check_field: MANDT
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: KOKRS
+    check_table: TKA01
+    check_field: MANDT
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: NETID
+    check_table: CRID
+    check_field: MANDT
+  - field: NETID
+    check_table: CRID
+    check_field: OBJID
+  - field: NETID
+    check_table: CRID
+    check_field: OBJTY
+  - field: PLNME
+    check_table: T006
+    check_field: MANDT
+  - field: PLNME
+    check_table: T006
+    check_field: MSEHI
+  - field: PLNTY
+    check_table: TCA01
+    check_field: MANDT
+  - field: PLNTY
+    check_table: TCA01
+    check_field: PLNTY
+  - field: PROFIDNETZ
+    check_table: TCA41
+    check_field: PLNAW
+  - field: PROFIDNETZ
+    check_table: TCA41
+    check_field: MANDT
+  - field: PROFIDNETZ
+    check_table: TCA41
+    check_field: PROFIDNETZ
+  - field: PSPNR
+    check_table: PRPSS
+    check_field: MANDT
+  - field: PSPNR
+    check_table: PRPSS
+    check_field: PSPNR
+  - field: QDYNHEAD
+    check_table: TQ39A
+    check_field: DYNLEVEL
+  - field: QDYNREGEL
+    check_table: QDDR
+    check_field: DYNREGEL
+  - field: QDYNREGEL
+    check_table: QDDR
+    check_field: MANDT
+  - field: QPRZIEHVER
+    check_table: QPRVK
+    check_field: VERSION
+  - field: QPRZIEHVER
+    check_table: QPRVK
+    check_field: PRZIEHVERF
+  - field: QPRZIEHVER
+    check_table: QPRVK
+    check_field: MANDT
+  - field: QVEWERKS
+    check_table: T001W
+    check_field: MANDT
+  - field: QVEWERKS
+    check_table: T001W
+    check_field: WERKS
+  - field: SLWBEZ
+    check_table: TQ79
+    check_field: SLWBEZ
+  - field: SLWBEZ
+    check_table: TQ79
+    check_field: MANDT
+  - field: STATU
+    check_table: T412
+    check_field: MANDT
+  - field: STATU
+    check_table: T412
+    check_field: PLNST
+  - field: STRAT
+    check_table: T351
+    check_field: STRAT
+  - field: STRAT
+    check_table: T351
+    check_field: MANDT
+  - field: TXTSP
+    check_table: T002
+    check_field: SPRAS
+  - field: VAGRP
+    check_table: T024A
+    check_field: MANDT
+  - field: VAGRP
+    check_table: T024A
+    check_field: WERKS
+  - field: VAGRP
+    check_table: T024A
+    check_field: FEVOR
+  - field: VERWE
+    check_table: T411
+    check_field: MANDT
+  - field: VERWE
+    check_table: T411
+    check_field: VERWE
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+  - field: WERKS
+    check_table: T001W
+    check_field: MANDT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.
