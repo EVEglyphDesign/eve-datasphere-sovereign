@@ -1,6 +1,8 @@
 # eve-datasphere-sovereign
 
-**The Sovereign Datasphere Mirror.** A customer-owned, GitHub-native reference server that mirrors and extends SAP Datasphere on the customer's side of the wire — seeded from the disaster-recovery copy of SAP the customer already owns as a capital asset.
+**ACDOCA extended through every system. Every transaction scored for ESG. Every interaction record attributes profitability to the human who produced the good. Hashed, published, freely tradeable.**
+
+This is the truth ledger — the technical ledger and the ESG ledger — as one continuous ACDOCA extension, seeded from the disaster-recovery copy of SAP the customer already owns as a capital asset.
 
 Pour le bien-être du peuple.
 
@@ -8,9 +10,11 @@ Pour le bien-être du peuple.
 
 ## The thesis in one paragraph
 
-SAP customers hold a permanent-license disaster-recovery instance they've already paid for. That DR copy — plus SAP's own replication tooling — is enough to stand up a full mirror of the master data and transactional model inside the customer's DMZ, on customer-owned infrastructure, under customer-owned copyright. Once mirrored, the reference server becomes the true operational spine: SAP shrinks from "system of record" to "one of the transactional feeders," and every AI, analytics, ledger extension, and downstream ledger runs on the sovereign copy. **Sovereign AI requires sovereign data.** This repository is the sovereign data.
+Every enterprise already produces ACDOCA-shaped journal lines. The disaster-recovery instance the customer already owns is enough to mirror those lines, on customer-owned infrastructure, under customer-owned copyright. On top of that spine we attach two companion column sets on every line — an **ESG score** (E, S, G triple, scored at posting time) and an **interaction record** (which humans contributed, weighted by causal share). The chain is hashed with the same primitive already proven in [truth-ledger/msl](https://github.com/EVEglyphDesign/truth-ledger/tree/main/msl), published through the [agent-governance-ledger](https://github.com/EVEglyphDesign/agent-governance-ledger) rail, and permission-free to trade. **Profitability per human** becomes a first-class query. **ESG value flows at transaction granularity**, no existing institution required. **Sovereign AI requires sovereign data — and this is the sovereign data.**
 
-This is not anti-SAP. It is not third-party support. It is not a migration play. It is **extension** — helping customers extract more value from a capital asset they already own, at a moment when SAP's subscription pressure gives them nowhere else to go.
+This is not anti-SAP. It is not third-party support. It is not a migration play. It is **extension** — the customer's own capital asset, extended into the ledger that lets the world heal at the speed of commerce.
+
+Full doctrine: [`docs/DOCTRINE-ESG-ACDOCA-EXTENSION.md`](docs/DOCTRINE-ESG-ACDOCA-EXTENSION.md) (DRAFT v0, awaiting Apex ratification).
 
 ---
 
@@ -65,16 +69,18 @@ Key design commitments:
 ## Repository layout
 
 ```
+docs/
+  DOCTRINE-ESG-ACDOCA-EXTENSION.md   The governing doctrine (DRAFT v0)
+  thesis.md                          Positioning
 schema/
-  datasphere-parity/     Every Datasphere base structure, reproduced as sovereign DDL
-  acdoca/                The universal journal — the operational spine
-  master-data/           Customer, vendor, material, org, chart-of-accounts
-  extensions/            Sovereign extensions: agent memory, ledger overlays, industry models
-replication/             CDC pipelines, table cadence config, DR-seeding runbooks
-governance/              Copyright footer, audit-trail spec, sovereignty guarantees
-agents/                  Agent definitions that read the sovereign schema (never SAP directly)
-docs/                    Thesis papers, positioning, buyer briefs, replication playbooks
-.github/workflows/       CI: schema validation, lineage checks, audit-log generation
+  acdoca/                            Layer 1 — the transactional spine (real-time CDC)
+  datasphere-parity/                 Scaffolding: SAP base structures reproduced as sovereign DDL
+  master-data/                       Feeders: customer/vendor/material/org/chart-of-accounts
+  extensions/                        Layer 2 (ESG score) + Layer 3 (interaction record) columns
+replication/                         CDC pipelines, cadence config, DR-seeding runbooks
+governance/                          Sovereignty guarantees + copyright footer
+agents/                              Agents that read the sovereign ledger (never SAP directly)
+.github/workflows/                   CI: schema validation, chain integrity, audit-log generation
 ```
 
 ---
