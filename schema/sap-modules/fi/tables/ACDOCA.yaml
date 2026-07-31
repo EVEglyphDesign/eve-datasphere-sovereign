@@ -1,0 +1,999 @@
+table: ACDOCA
+module: FI
+description: "Universal Journal Entry Line Items — S/4HANA's single source of truth for FI+CO+AA+ML+CO-PA line items. THE truth-ledger table."
+source: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/3cb1182b4a184bdd93f8d62e3f1f0741/8b8e5695c4dc4749a706f9fa2f6bda92.html
+fields:
+  - name: RCLNT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: RLDNR
+    description: "Ledger in General Ledger Accounting"
+    data_element: FINS_LEDGER
+    check_table: FINSC_LEDGER
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: RBUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: GJAHR
+    description: "Fiscal Year"
+    data_element: GJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: BELNR
+    description: "Accounting Document Number"
+    data_element: BELNR_D
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: DOCLN
+    description: "Six-Character Posting Item for Ledger"
+    data_element: DOCLN6
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: true
+  - name: RYEAR
+    description: "General Ledger Fiscal Year"
+    data_element: GJAHR_POS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: DOCNR_LD
+    description: "Ledger specific Accounting Document Number"
+    data_element: FINS_DOCNR_LD
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RRCTY
+    description: "Record Type"
+    data_element: RRCTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RMVCT
+    description: "Transaction Type"
+    data_element: RMVCT
+    check_table: T856
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: VORGN
+    description: "Transaction Type for General Ledger"
+    data_element: VORGN
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VRGNG
+    description: "CO Business Transaction"
+    data_element: VRGNG
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BTTYPE
+    description: "Business Transaction Type"
+    data_element: BTTYPE
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: AWTYP
+    description: "Reference Transaction"
+    data_element: AWTYP
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: AWSYS
+    description: "Logical System of Source Document"
+    data_element: LOGSYSTEM
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AWORG
+    description: "Reference Organizational Units"
+    data_element: AWORG
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AWREF
+    description: "Reference Document Number"
+    data_element: AWREF
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AWITEM
+    description: "Reference Document Line Item"
+    data_element: FINS_AWITEM
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: AWITGRP
+    description: "Group of Reference Document Line Items"
+    data_element: FINS_AWITGRP
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: SUBTA
+    description: "Partial Document to be balanced to zero"
+    data_element: FINS_SUBTA
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: XREVERSING
+    description: "Identifier for reversal document"
+    data_element: FINS_XREVERSING
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XREVERSED
+    description: "Indicator: Item has been reversed"
+    data_element: FINS_XREVERSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XTRUEREV
+    description: "Indicator: Reversed by true reversal"
+    data_element: FINS_XTRUEREV
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AWTYP_REV
+    description: "Reference Transaction of Reversed Document"
+    data_element: AWTYP_REV
+    check_table: TTYP
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: AWORG_REV
+    description: "Reference Organizational Units of Reversed Document"
+    data_element: AWORG_REV
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AWREF_REV
+    description: "Reference Document Number of Reversed Document"
+    data_element: AWREF_REV
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SUBTA_REV
+    description: "Partial Document to be balanced to zero (reversed)"
+    data_element: FINS_SUBTA_REV
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: XSETTLING
+    description: "Indicator: settling item"
+    data_element: FINS_XSETTLING
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XSETTLED
+    description: "Indicator: settled item"
+    data_element: FINS_XSETTLED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PREC_AWTYP
+    description: "Preceding Reference Transaction"
+    data_element: FINS_PREC_AWTYP
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: PREC_AWORG
+    description: "Preceding Reference Organizational Units"
+    data_element: FINS_PREC_AWORG
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PREC_AWREF
+    description: "Preceding Reference Document Number"
+    data_element: FINS_PREC_AWREF
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PREC_AWITEM
+    description: "Preceding Posting Row of Reference Document"
+    data_element: FINS_PREC_AWITEM
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: PREC_SUBTA
+    description: "Preceding Partial Document to be balanced to zero"
+    data_element: FINS_PREC_SUBTA
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: PREC_GJAHR
+    description: "Preceding Journal Entry Fiscal Year"
+    data_element: FINS_PREC_GJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: PREC_BELNR
+    description: "Preceding Journal Entry Document Number"
+    data_element: FINS_PREC_BELNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PREC_DOCLN
+    description: "Preceding Journal Entry Line Item"
+    data_element: FINS_PREC_DOCLN
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: XCOMMITMENT
+    description: "Indicator: Commitment item"
+    data_element: FINS_XCOMMITMENT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: OBS_REASON
+    description: "Reason for obsolete Item"
+    data_element: FINS_OBSOLETE_ITEM_REASON
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RTCUR
+    description: "Currency Key (Transaction Currency)"
+    data_element: FINS_CURRT
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: RWCUR
+    description: "Currency Key of Original Transaction Currency"
+    data_element: FINS_CURRW
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: RHCUR
+    description: "Local Currency (Company Code Currency)"
+    data_element: FINS_CURRH
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: RKCUR
+    description: "Controlling Area Currency"
+    data_element: FINS_CURRK
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: ROCUR
+    description: "Object Currency"
+    data_element: FINS_CURR1
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: RVCUR
+    description: "Freely Defined Currency 1"
+    data_element: FINS_CURR2
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: RBCUR
+    description: "Freely Defined Currency 2"
+    data_element: FINS_CURR3
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: RCCUR
+    description: "Freely Defined Currency 3"
+    data_element: FINS_CURR4
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: RDCUR
+    description: "Freely Defined Currency 4"
+    data_element: FINS_CURR5
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: RECUR
+    description: "Freely Defined Currency 5"
+    data_element: FINS_CURR6
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: RFCUR
+    description: "Freely Defined Currency 6"
+    data_element: FINS_CURR7
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: RGCUR
+    description: "Freely Defined Currency 7"
+    data_element: FINS_CURR8
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: RCO_OCUR
+    description: "CO Object Currency"
+    data_element: FINS_CO_OCUR
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: RUNIT
+    description: "Base Unit of Measure"
+    data_element: MEINS
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: RVUNIT
+    description: "Sales Unit"
+    data_element: VRKME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: RRUNIT
+    description: "Reference Unit"
+    data_element: MEINS_RRUNIT
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: QUNIT1
+    description: "Additional Quantity Unit 1"
+    data_element: FINS_QUNIT1
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: QUNIT2
+    description: "Additional Quantity Unit 2"
+    data_element: FINS_QUNIT2
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: QUNIT3
+    description: "Additional Quantity Unit 3"
+    data_element: FINS_QUNIT3
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: RACCT
+    description: "Account Number (G/L Account)"
+    data_element: RACCT
+    check_table: SKB1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RCNTR
+    description: "Cost Center"
+    data_element: KOSTL
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PRCTR
+    description: "Profit Center"
+    data_element: PRCTR
+    check_table: CEPC
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RFAREA
+    description: "Functional Area"
+    data_element: FKBER_LONG
+    check_table: TFKB
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: RBUSA
+    description: "Business Area"
+    data_element: GSBER
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SEGMENT
+    description: "Segment for Segmental Reporting"
+    data_element: FB_SEGMENT
+    check_table: FAGL_SEGM
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SCNTR
+    description: "Sender Cost Center"
+    data_element: SKOST
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PPRCTR
+    description: "Partner Profit Center"
+    data_element: PPRCTR
+    check_table: CEPC
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SFAREA
+    description: "Partner Functional Area"
+    data_element: SFKBER
+    check_table: TFKB
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: SBUSA
+    description: "Trading Partner's Business Area"
+    data_element: PARGB
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: RASSC
+    description: "Trading Partner (Company ID)"
+    data_element: RASSC
+    check_table: T880
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: PSEGMENT
+    description: "Partner Segment for Segmental Reporting"
+    data_element: FB_PSEGMENT
+    check_table: FAGL_SEGM
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: TSL
+    description: "Amount in Transaction Currency"
+    data_element: FINS_VTCUR9
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: WSL
+    description: "Amount in Original Transaction Currency"
+    data_element: FINS_VWCUR9
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: HSL
+    description: "Amount in Local Currency (Company Code Currency)"
+    data_element: FINS_VHCUR9
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: KSL
+    description: "Amount in Controlling Area Currency"
+    data_element: FINS_VKCUR9
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: OSL
+    description: "Amount in Object Currency"
+    data_element: FINS_VOCUR9
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: VSL
+    description: "Amount in Freely Defined Currency 1"
+    data_element: FINS_VVCUR9
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: BSL
+    description: "Amount in Freely Defined Currency 2"
+    data_element: FINS_VBCUR9
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: CSL
+    description: "Amount in Freely Defined Currency 3"
+    data_element: FINS_VCCUR9
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: DSL
+    description: "Amount in Freely Defined Currency 4"
+    data_element: FINS_VDCUR9
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: ESL
+    description: "Amount in Freely Defined Currency 5"
+    data_element: FINS_VECUR9
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: FSL
+    description: "Amount in Freely Defined Currency 6"
+    data_element: FINS_VFCUR9
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: GSL
+    description: "Amount in Freely Defined Currency 7"
+    data_element: FINS_VGCUR9
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: CO_OSL
+    description: "Amount in CO Object Currency"
+    data_element: FINS_CO_VOCUR9
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: MSL
+    description: "Quantity"
+    data_element: FINS_MSL
+    check_table: ~
+    datatype: QUAN
+    length: 23
+    decimals: 3
+    key: false
+  - name: VMSL
+    description: "Sales Quantity"
+    data_element: FINS_VMSL
+    check_table: ~
+    datatype: QUAN
+    length: 23
+    decimals: 3
+    key: false
+  - name: RMSL
+    description: "Reference Quantity"
+    data_element: FINS_RMSL
+    check_table: ~
+    datatype: QUAN
+    length: 23
+    decimals: 3
+    key: false
+  - name: QSL1
+    description: "Additional Quantity 1"
+    data_element: FINS_QSL1
+    check_table: ~
+    datatype: QUAN
+    length: 23
+    decimals: 3
+    key: false
+  - name: QSL2
+    description: "Additional Quantity 2"
+    data_element: FINS_QSL2
+    check_table: ~
+    datatype: QUAN
+    length: 23
+    decimals: 3
+    key: false
+  - name: QSL3
+    description: "Additional Quantity 3"
+    data_element: FINS_QSL3
+    check_table: ~
+    datatype: QUAN
+    length: 23
+    decimals: 3
+    key: false
+  - name: DRCRK
+    description: "Debit/Credit Indicator"
+    data_element: SHKZG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: POPER
+    description: "Posting Period"
+    data_element: POPER
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: BUDAT
+    description: "Posting Date in the Document"
+    data_element: BUDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BLDAT
+    description: "Document Date in Document"
+    data_element: BLDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BLART
+    description: "Document Type"
+    data_element: BLART
+    check_table: T003
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KTOSL
+    description: "Transaction Key"
+    data_element: KTOSL
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: KOART
+    description: "Account Type"
+    data_element: KOART
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KUNNR
+    description: "Customer Number"
+    data_element: KUNNR
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LIFNR
+    description: "Vendor Account Number"
+    data_element: LIFNR
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ANLN1
+    description: "Main Asset Number"
+    data_element: ANLN1
+    check_table: ANLH
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ANLN2
+    description: "Asset Subnumber"
+    data_element: ANLN2
+    check_table: ANLA
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: AUFNR
+    description: "Order Number"
+    data_element: AUFNR
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: PS_PSP_PNR
+    description: "Work Breakdown Structure Element (WBS Element)"
+    data_element: PS_PSP_PNR
+    check_table: PRPS
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: USNAM
+    description: "User Name"
+    data_element: USNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: CPUDT
+    description: "Accounting Document Entry Date"
+    data_element: CPUDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: SGTXT
+    description: "Item Text"
+    data_element: SGTXT
+    check_table: ~
+    datatype: CHAR
+    length: 50
+    decimals: 0
+    key: false
+  - name: XBLNR
+    description: "Reference Document Number (Header)"
+    data_element: XBLNR1
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: AUGBL
+    description: "Clearing Document Number"
+    data_element: AUGBL
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AUGDT
+    description: "Clearing Date"
+    data_element: AUGDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BSTAT
+    description: "Document Status"
+    data_element: BSTAT_D
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MIG_SOURCE
+    description: "Source of a migrated journal entry item"
+    data_element: FINS_ACDOC_MIG_SOURCE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: RCLNT
+    check_table: T000
+    check_field: MANDT
+  - field: RLDNR
+    check_table: FINSC_LEDGER
+    check_field: RLDNR
+  - field: RBUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: BLART
+    check_table: T003
+    check_field: BLART
+  - field: RMVCT
+    check_table: T856
+    check_field: TRTYP
+  - field: RTCUR
+    check_table: TCURC
+    check_field: WAERS
+  - field: RWCUR
+    check_table: TCURC
+    check_field: WAERS
+  - field: RHCUR
+    check_table: TCURC
+    check_field: WAERS
+  - field: RKCUR
+    check_table: TCURC
+    check_field: WAERS
+  - field: ROCUR
+    check_table: TCURC
+    check_field: WAERS
+  - field: RUNIT
+    check_table: T006
+    check_field: MSEHI
+  - field: RACCT
+    check_table: SKB1
+    check_field: SAKNR
+  - field: RCNTR
+    check_table: CSKS
+    check_field: KOSTL
+  - field: PRCTR
+    check_table: CEPC
+    check_field: PRCTR
+  - field: RFAREA
+    check_table: TFKB
+    check_field: FKBER
+  - field: RBUSA
+    check_table: TGSB
+    check_field: GSBER
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: SEGMENT
+    check_table: FAGL_SEGM
+    check_field: SEGMENT
+  - field: PPRCTR
+    check_table: CEPC
+    check_field: PRCTR
+  - field: SBUSA
+    check_table: TGSB
+    check_field: GSBER
+  - field: RASSC
+    check_table: T880
+    check_field: RCOMP
+  - field: KUNNR
+    check_table: KNA1
+    check_field: KUNNR
+  - field: LIFNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+  - field: ANLN1
+    check_table: ANLH
+    check_field: ANLN1
+  - field: ANLN2
+    check_table: ANLA
+    check_field: ANLN2
+  - field: AUFNR
+    check_table: AUFK
+    check_field: AUFNR
+  - field: PS_PSP_PNR
+    check_table: PRPS
+    check_field: PSPNR
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.
