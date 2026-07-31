@@ -1,0 +1,185 @@
+table: T001
+module: CROSS
+description: "Company Codes — the organizational-unit master every FI table's BUKRS field checks against. SAP's real T001 carries roughly 90 configuration-control fields (posting-period variants, workflow variants, tax-procedure links); this definition carries the core identity, currency, and cross-module linkage fields that a dealer tie-out actually consumes, not the full configuration surface. Accuracy over padding: fields listed below are real T001 fields confirmed against source, not the entire table."
+source: https://leanx.eu/en/sap/table/t001.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: BUTXT
+    description: "Name of Company Code or Company"
+    data_element: BUTXT
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: ORT01
+    description: "City"
+    data_element: ORT01
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: LAND1
+    description: "Country Key"
+    data_element: LAND1
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Currency Key — the company code's local/reporting currency"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: SPRAS
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: KTOPL
+    description: "Chart of Accounts"
+    data_element: KTOPL
+    check_table: T004
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PERIV
+    description: "Fiscal Year Variant"
+    data_element: PERIV
+    check_table: T009
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: RCOMP
+    description: "Company ID (used for consolidation, trading-partner elimination)"
+    data_element: RCOMP
+    check_table: T880
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: FIKRS
+    description: "Financial Management Area"
+    data_element: FIKRS
+    check_table: FM01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KKBER
+    description: "Credit control area"
+    data_element: KKBER
+    check_table: T014
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: MREGL
+    description: "Country for Calculating Days in Arrears"
+    data_element: MREGL
+    check_table: T004R
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: UMKRS
+    description: "Sales/Purchase Tax Group"
+    data_element: UMKRS
+    check_table: T007F
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: XGSBER
+    description: "Indicator: Business area financial statements"
+    data_element: XGSBER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XSKFN
+    description: "Company code to be reorganized"
+    data_element: XSKFN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ADRNR
+    description: "Address (business address services)"
+    data_element: CHAR10
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: XKKBI
+    description: "Indicator: Update Cost of Sales Accounting"
+    data_element: XKKBI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: LAND1
+    check_table: T005
+    check_field: LAND1
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: SPRAS
+    check_table: T002
+    check_field: SPRAS
+  - field: KTOPL
+    check_table: T004
+    check_field: KTOPL
+  - field: PERIV
+    check_table: T009
+    check_field: PERIV
+  - field: RCOMP
+    check_table: T880
+    check_field: RCOMP
+  - field: FIKRS
+    check_table: FM01
+    check_field: FIKRS
+  - field: KKBER
+    check_table: T014
+    check_field: KKBER
+  - field: MREGL
+    check_table: T004R
+    check_field: MREGL
+  - field: UMKRS
+    check_table: T007F
+    check_field: UMKRS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

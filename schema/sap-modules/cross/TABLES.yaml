@@ -76,6 +76,9 @@ tables:
   - name: TCURR
     description: "Exchange rates"
     domain: currency
+  - name: TCURX
+    description: "Decimal Places in Currencies — exception list for currencies whose decimal count differs from the two-decimal default"
+    domain: currency
   - name: TCURT
     description: "Currency Code Names"
     domain: currency

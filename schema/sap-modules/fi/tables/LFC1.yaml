@@ -1,0 +1,99 @@
+table: LFC1
+module: FI
+description: "Vendor Master (Transaction Figures) — the AP-side counterpart of KNC1: annual and monthly debit/credit/sales totals per vendor per company code per fiscal year, checked against BSIK/BSAK roll-forward totals."
+source: https://leanx.eu/en/sap/table/lfc1.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: LIFNR
+    description: "Account Number of Vendor or Creditor"
+    data_element: LIFNR
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: LFB1
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: GJAHR
+    description: "Fiscal Year"
+    data_element: GJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: ERDAT
+    description: "Date on which the record was created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: USNAM
+    description: "User name"
+    data_element: USNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: UMSAV
+    description: "Balance Carried Forward in Local Currency"
+    data_element: UMSAV
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: UM01S
+    description: "Total of the Debit Postings for the Month (period 01)"
+    data_element: UM01S
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: UM01H
+    description: "Total of Credit Postings for the Month (period 01)"
+    data_element: UM01H
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: UM01U
+    description: "Sales in the Posting Period (period 01)"
+    data_element: UM01U
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+notes:
+  - "Periods 02 through 16 repeat the UMnnS / UMnnH / UMnnU triple shown for period 01, identical pattern to KNC1. LFC1 has no BABZG/UABZG/KZINS/KUMAG trailer — those deduction and arrears-interest concepts are customer-side only."
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: LIFNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: BUKRS
+    check_table: LFB1
+    check_field: BUKRS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

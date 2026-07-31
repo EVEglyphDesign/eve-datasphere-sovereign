@@ -1,0 +1,84 @@
+table: TCURR
+module: CROSS
+description: "Exchange Rates — the from-currency/to-currency conversion rate table used to translate document-currency amounts (WRBTR) into local-currency amounts (DMBTR) across FI postings. Only meaningful once TCURC exists."
+source: https://leanx.eu/en/sap/table/tcurr.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: KURST
+    description: "Exchange Rate Type"
+    data_element: KURST_CURR
+    check_table: TCURV
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: FCURR
+    description: "From currency"
+    data_element: FCURR_CURR
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: true
+  - name: TCURR
+    description: "To-currency"
+    data_element: TCURR_CURR
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: true
+  - name: GDATU
+    description: "Date As of Which the Exchange Rate Is Effective"
+    data_element: GDATU_INV
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: true
+  - name: UKURS
+    description: "Exchange Rate"
+    data_element: UKURS_CURR
+    check_table: ~
+    datatype: DEC
+    length: 9
+    decimals: 5
+    key: false
+  - name: FFACT
+    description: "Ratio for the \"From\" Currency Units"
+    data_element: FFACT_CURR
+    check_table: ~
+    datatype: DEC
+    length: 9
+    decimals: 0
+    key: false
+  - name: TFACT
+    description: "Ratio for the \"To\" Currency Units"
+    data_element: TFACT_CURR
+    check_table: ~
+    datatype: DEC
+    length: 9
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: KURST
+    check_table: TCURV
+    check_field: KURST
+  - field: FCURR
+    check_table: TCURC
+    check_field: WAERS
+  - field: TCURR
+    check_table: TCURC
+    check_field: WAERS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

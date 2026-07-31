@@ -108,23 +108,29 @@ Aligned with sister repos in the EVEglyphDesign canon:
 
 ## Status
 
-**v0 — scaffolding, first feeder lane open.** Repository structure, thesis, positioning,
-and initial Datasphere-parity schema tree are laid down. The CO module's cost-object gap
-is closed — `AUFK`, `COSS`, `COSP`, `CSKB`, and `CSKT` now have field-level YAML, closing
-the crosswalk the [CDK Drive twin](https://github.com/EVEglyphDesign/eve-hawkins-cdk-twin)
-keys its repair-order identity on (`AUFK-AUFNR`). A full reconciliation of every module's
-table inventory against its field-level definitions is recorded in
-[`schema/sap-modules/RECONCILIATION-NOTE.md`](schema/sap-modules/RECONCILIATION-NOTE.md) —
-several modules (`PS`, `HR`, `BW`, `CROSS`) remain entirely undefined at field level, and
-`CROSS` in particular carries load-bearing check-tables (`T000`, `ONR00`, `TCURC`, `ADRC`)
-referenced everywhere but defined nowhere yet. The non-SAP feeder lane is open under
-[`schema/feeders/`](schema/feeders/), with the CDK Drive → ACDOCA mapping and projection
-worked through for the Hawkins / Peterbilt Atlantic dealer group — the first system of
-record in this canon with no SAP instance behind it at all. The symmetric-identity rule
-governing all of this is now stated as doctrine in
+**v0 — scaffolding, open-item subledger and CROSS foundation closed.** Repository
+structure, thesis, positioning, and initial Datasphere-parity schema tree are laid down.
+The CO module's cost-object gap is closed — `AUFK`, `COSS`, `COSP`, `CSKB`, and `CSKT`
+now have field-level YAML, closing the crosswalk the
+[CDK Drive twin](https://github.com/EVEglyphDesign/eve-hawkins-cdk-twin) keys its
+repair-order identity on (`AUFK-AUFNR`). The FI open-item subledgers that a dealer
+accounting-schedule reconciliation keys on — `BSID`, `BSAD`, `BSIK`, `BSAK`, plus `SKAT`,
+`KNC1`, and `LFC1` — are now field-level defined, and the CROSS foundation layer has
+opened with `T000`, `T001`, `TCURC`, `TCURR`, `TCURX`, `ONR00`, and `T006` (the single
+most-referenced check table in the whole schema, 221 references). A full reconciliation
+of every module's table inventory against its field-level definitions, plus a ranked
+list of what to close next by dealer-tie-out blocking impact, is recorded in
+[`schema/sap-modules/RECONCILIATION-NOTE.md`](schema/sap-modules/RECONCILIATION-NOTE.md).
+The non-SAP feeder lane under [`schema/feeders/`](schema/feeders/) now includes a full
+[schedule-reconciliation mapping](schema/feeders/cdk-dms/schedule-reconciliation.md) from
+a CDK accounting schedule's control key through `ZUONR` open-item assignment, aging, and
+the clearing event, for the Hawkins / Peterbilt Atlantic dealer group — the first system
+of record in this canon with no SAP instance behind it at all. The symmetric-identity
+rule governing all of this is stated as doctrine in
 [`docs/DOCTRINE-SYMMETRIC-ALIGNMENT.md`](docs/DOCTRINE-SYMMETRIC-ALIGNMENT.md) (DRAFT v0,
-awaiting Apex ratification). Next: seed the ACDOCA field-level DDL itself and the first
-vertical reference model.
+awaiting Apex ratification). Next: `BSAS`/`BSIS` (G/L open/cleared items — the
+reconciliation-account counterpart to the subledgers just closed) and `EKBE` (purchase
+order history), per the ranked list in the reconciliation note.
 
 ---
 

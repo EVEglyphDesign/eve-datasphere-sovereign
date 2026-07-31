@@ -99,6 +99,14 @@ tables:
   - name: KNVV
     description: "Customer Master Sales Data"
     domain: customer_master
+  - name: KNC1
+    description: "Customer Master (Transaction Figures) — annual/monthly debit, credit, and sales totals per customer per company code"
+    domain: customer_master
+
+  # ------------- Vendor transaction figures (added alongside KNC1 for symmetry) -------------
+  - name: LFC1
+    description: "Vendor Master (Transaction Figures) — the AP-side counterpart of KNC1"
+    domain: vendor_master
 
   # ------------- Asset Accounting -------------
   - name: ANLA

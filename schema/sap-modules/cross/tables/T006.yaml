@@ -1,0 +1,204 @@
+table: T006
+module: CROSS
+description: "Units of Measurement — the most heavily-referenced check table in this repository (221 field-level references across MM/PM/PP/QM/SD tables already defined, per a repository-wide grep on 2026-07-30). Added even though it was not named in the original request, because it clears the single largest concentration of dangling check-table references in the schema, ahead of any other candidate by more than 2x."
+source: https://leanx.eu/en/sap/table/t006.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: MSEHI
+    description: "Unit of Measurement"
+    data_element: MSEHI
+    check_table: ~
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: true
+  - name: KZEX3
+    description: "3-char indicator for external unit of measurement"
+    data_element: KZEX3
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZEX6
+    description: "6-char. ID for external unit of measurement"
+    data_element: KZEX6
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ANDEC
+    description: "No. of decimal places to which rounding should be performed"
+    data_element: ANDEC
+    check_table: ~
+    datatype: INT2
+    length: 5
+    decimals: 0
+    key: false
+  - name: KZKEH
+    description: "Commercial measurement unit ID"
+    data_element: KZKEH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZWOB
+    description: "Value-based commitment indicator"
+    data_element: KZWOB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZ1EH
+    description: "Indicator (1) unit"
+    data_element: KZ1EH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZ2EH
+    description: "Indicator (2) unit"
+    data_element: KZ2EH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DIMID
+    description: "Dimension key"
+    data_element: DIMID
+    check_table: T006D
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: ZAEHL
+    description: "Numerator for conversion to SI unit"
+    data_element: DZAEHL
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: NENNR
+    description: "Denominator for conversion into SI unit"
+    data_element: NENNR
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: EXP10
+    description: "Base ten exponent for conversion to SI unit"
+    data_element: EXP10
+    check_table: ~
+    datatype: INT2
+    length: 5
+    decimals: 0
+    key: false
+  - name: ADDKO
+    description: "Additive constant for conversion to SI unit"
+    data_element: ADDKO
+    check_table: ~
+    datatype: DEC
+    length: 9
+    decimals: 6
+    key: false
+  - name: EXPON
+    description: "Base ten exponent for floating-point display"
+    data_element: EXPON
+    check_table: ~
+    datatype: INT2
+    length: 5
+    decimals: 0
+    key: false
+  - name: DECAN
+    description: "Number of decimal places for number display"
+    data_element: DECAN
+    check_table: ~
+    datatype: INT2
+    length: 5
+    decimals: 0
+    key: false
+  - name: ISOCODE
+    description: "ISO code for unit of measurement"
+    data_element: ISOCD_UNIT
+    check_table: T006I
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: PRIMARY
+    description: "Selection field for conversion from ISO code to internal code"
+    data_element: ISOCD_MARK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TEMP_VALUE
+    description: "Temperature"
+    data_element: TEMP_VALUE
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: TEMP_UNIT
+    description: "Temperature unit"
+    data_element: TEMP_UNIT
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: FAMUNIT
+    description: "Unit of measurement family"
+    data_element: FAMUNIT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PRESS_VAL
+    description: "Pressure Value"
+    data_element: PRESS_VAL
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: PRESS_UNIT
+    description: "Unit of Pressure"
+    data_element: PRESS_UNIT
+    check_table: ~
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: DIMID
+    check_table: T006D
+    check_field: DIMID
+  - field: ISOCODE
+    check_table: T006I
+    check_field: ISOCODE
+  - field: TEMP_UNIT
+    check_table: T006
+    check_field: MSEHI
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

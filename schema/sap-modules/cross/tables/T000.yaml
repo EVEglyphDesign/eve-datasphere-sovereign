@@ -1,0 +1,150 @@
+table: T000
+module: CROSS
+description: "Clients — the root of the SAP client hierarchy (MANDT) that every table in this repository keys on as its first field. One row per client (production, test, sandbox)."
+source: https://leanx.eu/en/sap/table/t000.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: ~
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: MTEXT
+    description: "Client Name"
+    data_element: MTEXT_D
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: ORT01
+    description: "City"
+    data_element: ORT01
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: MWAER
+    description: "Standard Currency Throughout Client"
+    data_element: MWAER
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: ADRNR
+    description: "Address (business address services)"
+    data_element: CHAR10
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: CCCATEGORY
+    description: "Role of client (production, test, ...)"
+    data_element: CCCATEGORY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CCCORACTIV
+    description: "Change and transport for client-specific objects"
+    data_element: CCCORACTIV
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CCNOCLIIND
+    description: "Client-independent object changes"
+    data_element: CCNOCLIIND
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CCCOPYLOCK
+    description: "Indicator: Client Copy or Comparison Is Running"
+    data_element: CCCOPYLOCK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CCNOCASCAD
+    description: "Protection against SAP upgrade / cascading changes"
+    data_element: CCNOCASCAD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CCSOFTLOCK
+    description: "Client Locked due to Client Copy"
+    data_element: CCSOFTLOCK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CCORIGCONT
+    description: "Restriction of original access"
+    data_element: CCORIGCONT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CCIMAILDIS
+    description: "No Internet mail and fax connections"
+    data_element: CCIMAILDIS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CCTEMPLOCK
+    description: "Temporary lock due to a client copy process"
+    data_element: CCTEMPLOCK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CHANGEUSER
+    description: "Name of the person who changed the object"
+    data_element: AS4USER
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: CHANGEDATE
+    description: "Date of Last Change"
+    data_element: AS4DATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: LOGSYS
+    description: "Logical system"
+    data_element: LOGSYS
+    check_table: TBDLS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MWAER
+    check_table: TCURC
+    check_field: WAERS
+  - field: LOGSYS
+    check_table: TBDLS
+    check_field: LOGSYS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

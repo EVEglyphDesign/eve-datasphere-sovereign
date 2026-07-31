@@ -1,0 +1,76 @@
+table: SKAT
+module: FI
+description: "G/L Account Master Record (Chart of Accounts: Description) — the human-readable name text for a chart-of-accounts G/L account (SKA1). Needed to make BSID/BSAD/BSIK/BSAK HKONT values legible in any dealer tie-out output."
+source: https://leanx.eu/en/sap/table/skat.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: SPRAS
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: true
+  - name: KTOPL
+    description: "Chart of Accounts"
+    data_element: KTOPL
+    check_table: T004
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: SAKNR
+    description: "G/L Account Number"
+    data_element: SAKNR
+    check_table: SKA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: TXT20
+    description: "G/L Account Short Text"
+    data_element: TXT20_SKAT
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: TXT50
+    description: "G/L Account Long Text"
+    data_element: TXT50_SKAT
+    check_table: ~
+    datatype: CHAR
+    length: 50
+    decimals: 0
+    key: false
+  - name: MCOD1
+    description: "Search Term"
+    data_element: MCDS1
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: SPRAS
+    check_table: T002
+    check_field: SPRAS
+  - field: KTOPL
+    check_table: T004
+    check_field: KTOPL
+  - field: SAKNR
+    check_table: SKA1
+    check_field: SAKNR
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

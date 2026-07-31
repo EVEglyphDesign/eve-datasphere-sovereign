@@ -1,0 +1,442 @@
+table: BSAD
+module: FI
+description: "Accounting: Secondary Index for Customers (Cleared Items) — same row shape as BSID, but for items that have already been cleared (AUGDT/AUGBL populated). This is the destination an open item on the dealer's accounting schedule moves to the moment a payment or credit is applied — the clearing event a schedule-to-GL reconciliation has to account for, not just the open balance."
+source: https://leanx.eu/en/sap/table/bsad.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: KUNNR
+    description: "Customer Number"
+    data_element: KUNNR
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: UMSKS
+    description: "Special G/L Transaction Type"
+    data_element: UMSKS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: UMSKZ
+    description: "Special G/L Indicator"
+    data_element: UMSKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: AUGDT
+    description: "Clearing Date — populated for every row in this table, unlike BSID where it is null until the item clears"
+    data_element: AUGDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: AUGBL
+    description: "Document Number of the Clearing Document — the payment/credit document that closed the open item"
+    data_element: AUGBL
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ZUONR
+    description: "Assignment Number — the same open-item control key carried over from the BSID row this record clears"
+    data_element: DZUONR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: GJAHR
+    description: "Fiscal Year"
+    data_element: GJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: BELNR
+    description: "Accounting Document Number"
+    data_element: BELNR_D
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: BUZEI
+    description: "Number of Line Item Within Accounting Document"
+    data_element: BUZEI
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: true
+  - name: BUDAT
+    description: "Posting Date in the Document"
+    data_element: BUDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BLDAT
+    description: "Document Date in Document"
+    data_element: BLDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: CPUDT
+    description: "Day On Which Accounting Document Was Entered"
+    data_element: CPUDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: XBLNR
+    description: "Reference Document Number"
+    data_element: XBLNR1
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: BLART
+    description: "Document Type"
+    data_element: BLART
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: MONAT
+    description: "Fiscal Period"
+    data_element: MONAT
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: BSCHL
+    description: "Posting Key"
+    data_element: BSCHL
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ZUMSK
+    description: "Target Special G/L Indicator"
+    data_element: DZUMSK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SHKZG
+    description: "Debit/Credit Indicator"
+    data_element: SHKZG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GSBER
+    description: "Business Area"
+    data_element: GSBER
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: MWSKZ
+    description: "Tax on sales/purchases code"
+    data_element: MWSKZ
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: DMBTR
+    description: "Amount in Local Currency"
+    data_element: DMBTR
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: WRBTR
+    description: "Amount in document currency"
+    data_element: WRBTR
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: MWSTS
+    description: "Tax Amount in Local Currency"
+    data_element: MWSTS
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: WMWST
+    description: "Tax amount in document currency"
+    data_element: WMWST
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: SGTXT
+    description: "Item Text"
+    data_element: SGTXT
+    check_table: ~
+    datatype: CHAR
+    length: 50
+    decimals: 0
+    key: false
+  - name: AUFNR
+    description: "Order Number"
+    data_element: AUFNR
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: SAKNR
+    description: "G/L Account Number"
+    data_element: SAKNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: HKONT
+    description: "General Ledger Account — the reconciliation account this item cleared against"
+    data_element: HKONT
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ZFBDT
+    description: "Baseline Date for Due Date Calculation"
+    data_element: DZFBDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ZTERM
+    description: "Terms of Payment Key"
+    data_element: DZTERM
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SKNTO
+    description: "Cash discount amount in local currency"
+    data_element: SKNTO
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: WSKTO
+    description: "Cash discount amount in document currency"
+    data_element: WSKTO
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ZLSCH
+    description: "Payment Method"
+    data_element: DZLSCH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: HBKID
+    description: "Short Key for a House Bank"
+    data_element: HBKID
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: REBZG
+    description: "Number of the Invoice the Transaction Belongs to"
+    data_element: REBZG
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: REBZJ
+    description: "Fiscal Year of the Relevant Invoice (for Credit Memo)"
+    data_element: REBZJ
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: REBZZ
+    description: "Line Item in the Relevant Invoice"
+    data_element: REBZZ
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: VBUND
+    description: "Company ID of trading partner"
+    data_element: RASSC
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: VBELN
+    description: "Billing Document"
+    data_element: VBELN_VF
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KOSTL
+    description: "Cost Center"
+    data_element: KOSTL
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KKBER
+    description: "Credit control area"
+    data_element: KKBER
+    check_table: T014
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PRCTR
+    description: "Profit Center"
+    data_element: PRCTR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: QSSKZ
+    description: "Withholding Tax Code"
+    data_element: QSSKZ
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PSWSL
+    description: "Update Currency for General Ledger Transaction Figures"
+    data_element: PSWSL
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: PSWBT
+    description: "Amount for Updating in General Ledger"
+    data_element: PSWBT
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: VBEL2
+    description: "Sales Document"
+    data_element: VBELN_VA
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BSTAT
+    description: "Document Status"
+    data_element: BSTAT_D
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XRAGL
+    description: "Indicator: Clearing was Reversed"
+    data_element: XRAGL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUGGJ
+    description: "Fiscal Year of Clearing Document"
+    data_element: AUGGJ
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: KUNNR
+    check_table: KNA1
+    check_field: KUNNR
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: KKBER
+    check_table: T014
+    check_field: KKBER
+  - field: PSWSL
+    check_table: TCURC
+    check_field: WAERS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

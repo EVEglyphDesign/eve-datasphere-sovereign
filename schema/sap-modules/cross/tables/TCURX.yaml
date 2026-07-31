@@ -1,0 +1,24 @@
+table: TCURX
+module: CROSS
+description: "Decimal Places in Currencies — the exception table listing currencies whose decimal-place count differs from the two-decimal default (e.g. JPY has 0, KWD has 3). Needed to correctly interpret DMBTR/WRBTR magnitude on any non-USD dealer entity."
+source: https://leanx.eu/en/sap/table/tcurx.html
+fields:
+  - name: CURRKEY
+    description: "Currency Key"
+    data_element: SYCURR
+    check_table: ~
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: true
+  - name: CURRDEC
+    description: "Number of decimal places"
+    data_element: CURRDEC
+    check_table: ~
+    datatype: INT1
+    length: 3
+    decimals: 0
+    key: false
+foreign_keys: []
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

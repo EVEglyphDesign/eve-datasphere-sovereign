@@ -1,0 +1,27 @@
+table: ONR00
+module: CROSS
+description: "General Object Number — the number-range object that issues OBJNR values consumed by CO objects (AUFK-OBJNR, COSS/COSP-OBJNR) to tie a cost object into the Controlling object-number namespace. Referenced heavily by the CO tables already defined in this repository."
+source: https://leanx.eu/en/sap/table/onr00.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ~
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: true
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

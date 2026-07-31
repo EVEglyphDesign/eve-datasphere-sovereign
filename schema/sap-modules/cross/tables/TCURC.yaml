@@ -1,0 +1,56 @@
+table: TCURC
+module: CROSS
+description: "Currency Codes — the currency master that WAERS/PSWSL/HWAER fields across every FI table (BSEG, BSID, BSAD, BSIK, BSAK, ACDOCA) check against. One of the two most-referenced check tables in this repository."
+source: https://leanx.eu/en/sap/table/tcurc.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: ~
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS_CURC
+    check_table: ~
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: true
+  - name: ISOCD
+    description: "ISO currency code"
+    data_element: ISOCD
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: ALTWR
+    description: "Alternative key for currencies"
+    data_element: ALTWR
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: GDATU
+    description: "Date until which the currency is valid"
+    data_element: DATUM_CURC
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: XPRIMARY
+    description: "Primary SAP Currency Code for ISO Code"
+    data_element: XPRIMARY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys: []
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.
