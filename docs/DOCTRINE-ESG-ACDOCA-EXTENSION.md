@@ -132,6 +132,8 @@ When ESG value flows at transaction granularity, permission-free, hash-verified,
 
 No implementation moves ahead of ratification.
 
+**Franciscan doctrine governs any downstream deployment in that lane. Adopt, do not modify. No proposal advances without ratified standing.**
+
 ---
 
 © 2026 Dany Thériault / EVE Glyph Design. Controlled copy.
