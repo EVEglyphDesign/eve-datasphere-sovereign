@@ -1,0 +1,753 @@
+table: KNA1
+module: FI
+description: "Customer Master (General Section) — client-level customer identity, address, and control data shared across company codes."
+source: https://leanx.eu/en/sap/table/kna1.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: KUNNR
+    description: "Customer Number"
+    data_element: KUNNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: LAND1
+    description: "Country Key"
+    data_element: LAND1_GP
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: NAME1
+    description: "Name 1"
+    data_element: NAME1_GP
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: NAME2
+    description: "Name 2"
+    data_element: NAME2_GP
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: ORT01
+    description: "City"
+    data_element: ORT01_GP
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: PSTLZ
+    description: "Postal Code"
+    data_element: PSTLZ
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: REGIO
+    description: "Region (State, Province, County)"
+    data_element: REGIO
+    check_table: T005S
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: SORTL
+    description: "Sort field"
+    data_element: SORTL
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: STRAS
+    description: "House number and street"
+    data_element: STRAS_GP
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: TELF1
+    description: "First telephone number"
+    data_element: TELF1
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: TELFX
+    description: "Fax Number"
+    data_element: TELFX
+    check_table: ~
+    datatype: CHAR
+    length: 31
+    decimals: 0
+    key: false
+  - name: XCPDK
+    description: "Indicator: Is the account a one-time account?"
+    data_element: XCPDK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ADRNR
+    description: "Address"
+    data_element: ADRNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: MCOD1
+    description: "Search term for matchcode search"
+    data_element: MCDD1
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: MCOD2
+    description: "Search Term for Matchcode Search"
+    data_element: MCDD2
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: MCOD3
+    description: "Search term for matchcode search"
+    data_element: MCDD3
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: ANRED
+    description: "Title"
+    data_element: ANRED
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: AUFSD
+    description: "Central order block for customer"
+    data_element: AUFSD_X
+    check_table: TVAST
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: BAHNE
+    description: "Express train station"
+    data_element: BAHNE
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: BAHNS
+    description: "Train station"
+    data_element: BAHNS
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: BBBNR
+    description: "International location number (part 1)"
+    data_element: BBBNR
+    check_table: ~
+    datatype: NUMC
+    length: 7
+    decimals: 0
+    key: false
+  - name: BBSNR
+    description: "International location number (Part 2)"
+    data_element: BBSNR
+    check_table: ~
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: BEGRU
+    description: "Authorization Group"
+    data_element: BRGRU
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BRSCH
+    description: "Industry key"
+    data_element: BRSCH
+    check_table: T016
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BUBKZ
+    description: "Check digit for the international location number"
+    data_element: BUBKZ
+    check_table: ~
+    datatype: NUMC
+    length: 1
+    decimals: 0
+    key: false
+  - name: DATLT
+    description: "Data communication line no."
+    data_element: DATLT
+    check_table: ~
+    datatype: CHAR
+    length: 14
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on which the Record Was Created"
+    data_element: ERDAT_RF
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM_RF
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: EXABL
+    description: "Indicator: Unloading points exist"
+    data_element: EXABL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FAKSD
+    description: "Central billing block for customer"
+    data_element: FAKSD_X
+    check_table: TVFS
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FISKN
+    description: "Account number of the master record with the fiscal address"
+    data_element: FISKN_D
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KNAZK
+    description: "Working Time Calendar"
+    data_element: KNAZK
+    check_table: TFACD
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KNRZA
+    description: "Account number of an alternative payer"
+    data_element: KNRZA
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KONZS
+    description: "Group key"
+    data_element: KONZS
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KTOKD
+    description: "Customer Account Group"
+    data_element: KTOKD
+    check_table: T077D
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KUKLA
+    description: "Customer classification"
+    data_element: KUKLA
+    check_table: TKUKL
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LIFNR
+    description: "Account Number of Vendor or Creditor"
+    data_element: LIFNR
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LIFSD
+    description: "Central delivery block for the customer"
+    data_element: LIFSD_X
+    check_table: TVLS
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LOCCO
+    description: "City Coordinates"
+    data_element: LOCCO
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LOEVM
+    description: "Central Deletion Flag for Master Record"
+    data_element: LOEVM_X
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: NAME3
+    description: "Name 3"
+    data_element: NAME3_GP
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: NAME4
+    description: "Name 4"
+    data_element: NAME4_GP
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: NIELS
+    description: "Nielsen ID"
+    data_element: NIELS
+    check_table: TNLS
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ORT02
+    description: "District"
+    data_element: ORT02_GP
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: PFACH
+    description: "PO Box"
+    data_element: PFACH
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PSTL2
+    description: "P.O. Box Postal Code"
+    data_element: PSTL2
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: COUNC
+    description: "County Code"
+    data_element: COUNC
+    check_table: T005E
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: CITYC
+    description: "City Code"
+    data_element: CITYC
+    check_table: T005G
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: RPMKR
+    description: "Regional Market"
+    data_element: RPMKR
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: SPERR
+    description: "Central posting block"
+    data_element: SPERB_X
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SPRAS
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: STCD1
+    description: "Tax Number 1"
+    data_element: STCD1
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: STCD2
+    description: "Tax Number 2"
+    data_element: STCD2
+    check_table: ~
+    datatype: CHAR
+    length: 11
+    decimals: 0
+    key: false
+  - name: STKZA
+    description: "Indicator: Business Partner Subject to Equalization Tax?"
+    data_element: STKZA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STKZU
+    description: "Liable for VAT"
+    data_element: STKZU
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TELBX
+    description: "Telebox number"
+    data_element: TELBX
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: TELF2
+    description: "Second telephone number"
+    data_element: TELF2
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: TELTX
+    description: "Teletex number"
+    data_element: TELTX
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: TELX1
+    description: "Telex number"
+    data_element: TELX1
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: LZONE
+    description: "Transportation zone to or from which the goods are delivered"
+    data_element: LZONE
+    check_table: TZONE
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: XZEMP
+    description: "Indicator: Is an alternative payer allowed in document?"
+    data_element: XREGU
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VBUND
+    description: "Company ID of trading partner"
+    data_element: RASSC
+    check_table: T880
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: STCEG
+    description: "VAT Registration Number"
+    data_element: STCEG
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: GFORM
+    description: "Legal status"
+    data_element: GFORM
+    check_table: TVGF
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: UMSAT
+    description: "Annual sales"
+    data_element: UMSAT
+    check_table: ~
+    datatype: CURR
+    length: 8
+    decimals: 2
+    key: false
+  - name: UMJAH
+    description: "Year For Which Sales are Given"
+    data_element: UMJAH
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: UWAER
+    description: "Currency of sales figure"
+    data_element: UWAER
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: JMZAH
+    description: "Yearly number of employees"
+    data_element: JMZAH
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: JMJAH
+    description: "Year for which the number of employees is given"
+    data_element: JMJAH
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: STKZN
+    description: "Natural Person"
+    data_element: STKZN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TXJCD
+    description: "Tax Jurisdiction"
+    data_element: TXJCD
+    check_table: TTXJ
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: PERIV
+    description: "Fiscal Year Variant"
+    data_element: PERIV
+    check_table: T009
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KTOCD
+    description: "Reference Account Group for One-Time Account (Customer)"
+    data_element: KTOCD
+    check_table: T077D
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PFORT
+    description: "PO Box city"
+    data_element: PFORT_GP
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: DUEFL
+    description: "Status of Data Transfer into Subsequent Release"
+    data_element: DUEFL_BKPF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SPERZ
+    description: "Payment Block"
+    data_element: SPERZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FITYP
+    description: "Tax type"
+    data_element: J_1AFITP_D
+    check_table: J_1AFITP
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: STCDT
+    description: "Tax Number Type"
+    data_element: J_1ATOID
+    check_table: J_1ATODC
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: STCD3
+    description: "Tax Number 3"
+    data_element: STCD3
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: STCD4
+    description: "Tax Number 4"
+    data_element: STCD4
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: STCD5
+    description: "Tax Number 5"
+    data_element: STCD5
+    check_table: ~
+    datatype: CHAR
+    length: 60
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: LAND1
+    check_table: T005
+    check_field: LAND1
+  - field: REGIO
+    check_table: T005S
+    check_field: REGIO
+  - field: AUFSD
+    check_table: TVAST
+    check_field: AUFSP
+  - field: BRSCH
+    check_table: T016
+    check_field: BRSCH
+  - field: FAKSD
+    check_table: TVFS
+    check_field: FAKSP
+  - field: FISKN
+    check_table: KNA1
+    check_field: KUNNR
+  - field: KNAZK
+    check_table: TFACD
+    check_field: IDENT
+  - field: KNRZA
+    check_table: KNA1
+    check_field: KUNNR
+  - field: KTOKD
+    check_table: T077D
+    check_field: KTOKD
+  - field: KUKLA
+    check_table: TKUKL
+    check_field: KUKLA
+  - field: LIFNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: LIFSD
+    check_table: TVLS
+    check_field: LIFSP
+  - field: NIELS
+    check_table: TNLS
+    check_field: NIELS
+  - field: COUNC
+    check_table: T005E
+    check_field: COUNC
+  - field: CITYC
+    check_table: T005G
+    check_field: CITYC
+  - field: SPRAS
+    check_table: T002
+    check_field: SPRAS
+  - field: LZONE
+    check_table: TZONE
+    check_field: ZONE1
+  - field: VBUND
+    check_table: T880
+    check_field: RCOMP
+  - field: GFORM
+    check_table: TVGF
+    check_field: GFORM
+  - field: UWAER
+    check_table: TCURC
+    check_field: WAERS
+  - field: TXJCD
+    check_table: TTXJ
+    check_field: TXJCD
+  - field: PERIV
+    check_table: T009
+    check_field: PERIV
+  - field: KTOCD
+    check_table: T077D
+    check_field: KTOKD
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+  - field: FITYP
+    check_table: J_1AFITP
+    check_field: J_1AFITP
+  - field: STCDT
+    check_table: J_1ATODC
+    check_field: J_1ATODC
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

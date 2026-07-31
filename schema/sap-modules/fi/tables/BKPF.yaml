@@ -1,0 +1,944 @@
+table: BKPF
+module: FI
+description: "Accounting Document Header — one row per FI document (company code, fiscal year, posting/document dates, currency, reference)."
+source: https://leanx.eu/en/sap/table/bkpf.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: BELNR
+    description: "Accounting Document Number"
+    data_element: BELNR_D
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: GJAHR
+    description: "Fiscal Year"
+    data_element: GJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: BLART
+    description: "Document Type"
+    data_element: BLART
+    check_table: T003
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: BLDAT
+    description: "Document Date in Document"
+    data_element: BLDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BUDAT
+    description: "Posting Date in the Document"
+    data_element: BUDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: MONAT
+    description: "Fiscal Period"
+    data_element: MONAT
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: CPUDT
+    description: "Day On Which Accounting Document Was Entered"
+    data_element: CPUDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: CPUTM
+    description: "Time of Entry"
+    data_element: CPUTM
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Date of the Last Document Change by Transaction"
+    data_element: AEDAT_BKPF
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: UPDDT
+    description: "Date of the Last Document Update"
+    data_element: UPDDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: WWERT
+    description: "Translation Date"
+    data_element: WWERT_D
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: USNAM
+    description: "User name"
+    data_element: USNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: TCODE
+    description: "Transaction Code"
+    data_element: TCODE
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: BVORG
+    description: "Number of Cross-Company Code Posting Transaction"
+    data_element: BVORG
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: XBLNR
+    description: "Reference Document Number"
+    data_element: XBLNR1
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: DBBLG
+    description: "Recurring Entry Document Number"
+    data_element: DBBLG
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: STBLG
+    description: "Reverse Document Number"
+    data_element: STBLG
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: STJAH
+    description: "Reverse document fiscal year"
+    data_element: STJAH
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: BKTXT
+    description: "Document Header Text"
+    data_element: BKTXT
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: KURSF
+    description: "Exchange rate"
+    data_element: KURSF
+    check_table: ~
+    datatype: DEC
+    length: 9
+    decimals: 5
+    key: false
+  - name: KZWRS
+    description: "Currency Key for the Group Currency"
+    data_element: KZWRS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: KZKRS
+    description: "Group Currency Exchange Rate"
+    data_element: KZKRS
+    check_table: ~
+    datatype: DEC
+    length: 9
+    decimals: 5
+    key: false
+  - name: BSTAT
+    description: "Document Status"
+    data_element: BSTAT_D
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XNETB
+    description: "Indicator: Document posted net?"
+    data_element: XNETB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FRATH
+    description: "Unplanned delivery costs"
+    data_element: FRATH
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: XRUEB
+    description: "Indicator: Document is posted to a previous period"
+    data_element: XRUEB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GLVOR
+    description: "Business Transaction"
+    data_element: GLVOR
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: GRPID
+    description: "Batch Input Session Name"
+    data_element: GRPID_BKPF
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: DOKID
+    description: "Document Name in the Archive System"
+    data_element: DOKID_BKPF
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: ARCID
+    description: "Extract ID Document Header"
+    data_element: EXTID_BKPF
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: IBLAR
+    description: "Internal Document Type for Document Control"
+    data_element: IBLAR
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: AWTYP
+    description: "Reference Transaction"
+    data_element: AWTYP
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: AWKEY
+    description: "Reference Key"
+    data_element: AWKEY
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: FIKRS
+    description: "Financial Management Area"
+    data_element: FIKRS
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: HWAER
+    description: "Local Currency"
+    data_element: HWAER
+    check_table: ~
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: HWAE2
+    description: "Currency Key of Second Local Currency"
+    data_element: HWAE2
+    check_table: ~
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: HWAE3
+    description: "Currency Key of Third Local Currency"
+    data_element: HWAE3
+    check_table: ~
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: KURS2
+    description: "Exchange Rate for the Second Local Currency"
+    data_element: KURS2
+    check_table: ~
+    datatype: DEC
+    length: 9
+    decimals: 5
+    key: false
+  - name: KURS3
+    description: "Exchange Rate for the Third Local Currency"
+    data_element: KURS3
+    check_table: ~
+    datatype: DEC
+    length: 9
+    decimals: 5
+    key: false
+  - name: BASW2
+    description: "Source Currency for Currency Translation"
+    data_element: CURSR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BASW3
+    description: "Source Currency for Currency Translation"
+    data_element: CURSR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: UMRD2
+    description: "Translation Date Type for Second Local Currency"
+    data_element: UMRD2
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: UMRD3
+    description: "Translation Date Type for Third Local Currency"
+    data_element: UMRD3
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XSTOV
+    description: "Indicator: Document is flagged for reversal"
+    data_element: XSTOV
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STODT
+    description: "Planned Date for the Reverse Posting"
+    data_element: STODT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: XMWST
+    description: "Calculate tax automatically"
+    data_element: XMWST
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CURT2
+    description: "Currency Type of Second Local Currency"
+    data_element: CURT2
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: CURT3
+    description: "Currency Type of Third Local Currency"
+    data_element: CURT3
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KUTY2
+    description: "Exchange Rate Type"
+    data_element: KURST
+    check_table: TCURV
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KUTY3
+    description: "Exchange Rate Type"
+    data_element: KURST
+    check_table: TCURV
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: XSNET
+    description: "G/L account amounts entered exclude tax"
+    data_element: XSNET
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUSBK
+    description: "Source Company Code"
+    data_element: AUSBK
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: XUSVR
+    description: "Indicator: US taxes changed at detail level?"
+    data_element: XUSVR_BKPF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DUEFL
+    description: "Status of Data Transfer into Subsequent Release"
+    data_element: DUEFL_BKPF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AWSYS
+    description: "Logical System"
+    data_element: LOGSYSTEM
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: TXKRS
+    description: "Exchange Rate for Taxes"
+    data_element: TXKRS_BKPF
+    check_table: ~
+    datatype: DEC
+    length: 9
+    decimals: 5
+    key: false
+  - name: LOTKZ
+    description: "Lot Number for Requests"
+    data_element: PSO_LOTKZ
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: XWVOF
+    description: "Indicator: Customer bill of exchange payment before due date"
+    data_element: XWVOF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STGRD
+    description: "Reason for Reversal"
+    data_element: STGRD
+    check_table: T041C
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PPNAM
+    description: "Name of User Who Parked this Document"
+    data_element: PPNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: BRNCH
+    description: "Branch Number"
+    data_element: J_1ABRNCH
+    check_table: J_1BBRANCH
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: NUMPG
+    description: "Number of pages of invoice"
+    data_element: J_1ANOPG
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: ADISC
+    description: "Indicator: entry represents a discount document"
+    data_element: J_1ADISC
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XREF1_HD
+    description: "Reference Key 1 Internal for Document Header"
+    data_element: XREF1_HD
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: XREF2_HD
+    description: "Reference Key 2 Internal for Document Header"
+    data_element: XREF2_HD
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: XREVERSAL
+    description: "Specifies whether doc. is reversal doc. or reversed doc."
+    data_element: XREVERSAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: REINDAT
+    description: "Invoice Receipt Date"
+    data_element: REINDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: RLDNR
+    description: "Ledger in General Ledger Accounting"
+    data_element: FAGL_RLDNR
+    check_table: T882G
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LDGRP
+    description: "Ledger Group"
+    data_element: FAGL_LDGRP
+    check_table: FAGL_TLDGRP
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PROPMANO
+    description: "Real Estate Management Mandate"
+    data_element: RE_MANDAT
+    check_table: ~
+    datatype: CHAR
+    length: 13
+    decimals: 0
+    key: false
+  - name: XBLNR_ALT
+    description: "Alternative Reference Number"
+    data_element: XBLNR_ALT
+    check_table: ~
+    datatype: CHAR
+    length: 26
+    decimals: 0
+    key: false
+  - name: VATDATE
+    description: "Tax Reporting Date"
+    data_element: VATDATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: DOCCAT
+    description: "Classification of an FI Document"
+    data_element: DOCUMENT_CATEGORY
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: XSPLIT
+    description: "FI Document Originates from Split Posting (Indicator)"
+    data_element: SPLIT_POSTING
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CASH_ALLOC
+    description: "Cash-Relevant Document"
+    data_element: FAGL_CASH_ALLOC
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FOLLOW_ON
+    description: "Follow-on document indicator"
+    data_element: FAGL_FOLLOW_ON
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XREORG
+    description: "Doc. Contains Open Item that Was Transferred During Reorg."
+    data_element: FAGL_R_XDOC_REORG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SUBSET
+    description: "Defines subset of components for the FI/CO interface"
+    data_element: ACC_SUBSET
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KURST
+    description: "Exchange Rate Type"
+    data_element: KURST
+    check_table: TCURV
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KURSX
+    description: "Market Data Exchange Rate"
+    data_element: GLE_FXR_DTE_RATEX28
+    check_table: ~
+    datatype: DEC
+    length: 28
+    decimals: 14
+    key: false
+  - name: KUR2X
+    description: "Market Data Exchange Rate 2"
+    data_element: GLE_FXR_DTE_RATE2X28
+    check_table: ~
+    datatype: DEC
+    length: 28
+    decimals: 14
+    key: false
+  - name: KUR3X
+    description: "Market Data Exchange Rate 3"
+    data_element: GLE_FXR_DTE_RATE3X28
+    check_table: ~
+    datatype: DEC
+    length: 28
+    decimals: 14
+    key: false
+  - name: XMCA
+    description: "Document Originates from Multi Currency Accounting"
+    data_element: GLE_DTE_MCA_XMCA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PSOTY
+    description: "Document category payment requests"
+    data_element: PSOTY_D
+    check_table: PSOTP
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PSOAK
+    description: "Reason"
+    data_element: PSOAK
+    check_table: PSO12
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PSOKS
+    description: "Region"
+    data_element: PSOKS
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PSOSG
+    description: "Reason for reversal - IS-PS requests"
+    data_element: PSOSG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PSOFN
+    description: "IS-PS: File number"
+    data_element: PSOFN
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: INTFORM
+    description: "Interest Formula"
+    data_element: FM_INTFORM
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: INTDATE
+    description: "Interest Calc. Date"
+    data_element: FM_INTDATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PSOBT
+    description: "Posting Day"
+    data_element: PSOBT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PSOZL
+    description: "Actual posting"
+    data_element: PSOZL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PSODT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PSOTM
+    description: "Last changed at"
+    data_element: PSOTM
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: FM_UMART
+    description: "Type of Payment Transfer"
+    data_element: FM_UMART
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CCINS
+    description: "Payment cards: Card type"
+    data_element: CCINS_30F
+    check_table: TCRIN
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: CCNUM
+    description: "Payment cards: Card number"
+    data_element: CCNUM_30F
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: SSBLK
+    description: "Payment Statistical Sampling Block"
+    data_element: SSBLK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BATCH
+    description: "Lot Number for Documents"
+    data_element: LOTKZ
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SNAME
+    description: "User Name"
+    data_element: UNAME
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: SAMPLED
+    description: "Sampled Invoice by Payment Certification"
+    data_element: SAMPLED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EXCLUDE_FLAG
+    description: "PPA Exclude Indicator"
+    data_element: EXCLUDE_FLG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BLIND
+    description: "Budgetary Ledger Indicator"
+    data_element: FM_BLIND
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: OFFSET_STATUS
+    description: "Treasury Offset Status"
+    data_element: FMFG_OFFSET_STATUS
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: OFFSET_REFER_DAT
+    description: "Date Record Referred to Treasury"
+    data_element: FMFG_REFERRED_OFFSET_DAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PENRC
+    description: "Reason for late payment"
+    data_element: PENRC
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KNUMV
+    description: "Number of the document condition"
+    data_element: KNUMV
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RECHN
+    description: "Indicator: post invoice"
+    data_element: XRECH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: AUSBK
+    check_table: T001
+    check_field: BUKRS
+  - field: BLART
+    check_table: T003
+    check_field: BLART
+  - field: BRNCH
+    check_table: J_1BBRANCH
+    check_field: BRANCH
+  - field: CCINS
+    check_table: TCRIN
+    check_field: CCINS
+  - field: KURST
+    check_table: TCURV
+    check_field: KURST
+  - field: KUTY2
+    check_table: TCURV
+    check_field: KURST
+  - field: KUTY3
+    check_table: TCURV
+    check_field: KURST
+  - field: KZWRS
+    check_table: TCURC
+    check_field: WAERS
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: LDGRP
+    check_table: FAGL_TLDGRP
+    check_field: LDGRP
+  - field: PSOAK
+    check_table: PSO12
+    check_field: PSOAK
+  - field: PSOTY
+    check_table: PSOTP
+    check_field: PSOTYP
+  - field: RLDNR
+    check_table: T882G
+    check_field: RLDNR
+  - field: STGRD
+    check_table: T041C
+    check_field: STGRD
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

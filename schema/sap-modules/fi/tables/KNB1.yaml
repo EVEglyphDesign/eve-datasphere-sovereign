@@ -1,0 +1,714 @@
+table: KNB1
+module: FI
+description: "Customer Master (Company Code) — company-code-specific customer control data: reconciliation account, payment terms, dunning, insurance."
+source: https://leanx.eu/en/sap/table/knb1.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: KUNNR
+    description: "Customer Number"
+    data_element: KUNNR
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: PERNR
+    description: "Personnel Number"
+    data_element: PERNR_D
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on which the Record Was Created"
+    data_element: ERDAT_RF
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM_RF
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: SPERR
+    description: "Posting block for company code"
+    data_element: SPERB_B
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LOEVM
+    description: "Deletion Flag for Master Record (Company Code Level)"
+    data_element: LOEVM_B
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZUAWA
+    description: "Key for sorting according to assignment numbers"
+    data_element: DZUAWA
+    check_table: TZUN
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: BUSAB
+    description: "Accounting clerk"
+    data_element: BUSAB
+    check_table: T001S
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: AKONT
+    description: "Reconciliation Account in General Ledger"
+    data_element: AKONT
+    check_table: SKB1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BEGRU
+    description: "Authorization Group"
+    data_element: BRGRU
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KNRZE
+    description: "Head office account number (in branch accounts)"
+    data_element: KNRZE
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KNRZB
+    description: "Account number of an alternative payer"
+    data_element: KNRZB
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ZAMIM
+    description: "Indicator: Payment notice to customer (with cleared items)?"
+    data_element: DZAMIM
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZAMIV
+    description: "Indicator: payment notice to sales department?"
+    data_element: DZAMIV
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZAMIR
+    description: "Indicator: payment notice to legal department?"
+    data_element: DZAMIR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZAMIB
+    description: "Indicator: Payment notice to the accounting department?"
+    data_element: DZAMIB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZAMIO
+    description: "Indicator: payment notice to customer (w/o cleared items)?"
+    data_element: DZAMIO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZWELS
+    description: "List of the Payment Methods to be Considered"
+    data_element: DZWELS
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: XVERR
+    description: "Indicator: Clearing between customer and vendor?"
+    data_element: XVERR_KNB1
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZAHLS
+    description: "Block Key for Payment"
+    data_element: DZAHLS
+    check_table: T008
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZTERM
+    description: "Terms of Payment Key"
+    data_element: DZTERM
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: WAKON
+    description: "Terms of payment key for bill of exchange charges"
+    data_element: WAKON
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VZSKZ
+    description: "Interest calculation indicator"
+    data_element: VZSKZ
+    check_table: T056
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ZINDT
+    description: "Key date of the last interest calculation"
+    data_element: DZINDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ZINRT
+    description: "Interest calculation frequency in months"
+    data_element: DZINRT
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: EIKTO
+    description: "Our account number at customer"
+    data_element: EIKTO_D
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ZSABE
+    description: "User at customer"
+    data_element: DZSABE_D
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: KVERM
+    description: "Memo"
+    data_element: KVERM
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: FDGRV
+    description: "Planning group"
+    data_element: FDGRV
+    check_table: T035
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: VRBKZ
+    description: "Export credit insurance institution number"
+    data_element: VRBKZ
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: VLIBB
+    description: "Amount Insured"
+    data_element: VLIBB
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: VRSZL
+    description: "Insurance lead months"
+    data_element: VRSZL
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: VRSPR
+    description: "Deductible percentage rate"
+    data_element: VRSPR
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: VRSNR
+    description: "Insurance number"
+    data_element: VRSNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: VERDT
+    description: "Insurance validity date"
+    data_element: VERDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PERKZ
+    description: "Collective invoice variant"
+    data_element: PERKZ_KNB1
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XDEZV
+    description: "Indicator: Local processing?"
+    data_element: XDEZV
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XAUSZ
+    description: "Indicator for periodic account statements"
+    data_element: XAUSZ
+    check_table: T048K
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WEBTR
+    description: "Bill of exchange limit (in local currency)"
+    data_element: WEBTR
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: REMIT
+    description: "Next payee"
+    data_element: REMIT
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: DATLZ
+    description: "Date of the last interest calculation run"
+    data_element: DATLZ
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: XZVER
+    description: "Indicator: Record Payment History?"
+    data_element: XZVER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TOGRU
+    description: "Tolerance group for the business partner/G/L account"
+    data_element: TOGRU
+    check_table: T043G
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KULTG
+    description: "Probable time until check is paid"
+    data_element: KULTG
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: HBKID
+    description: "Short Key for a House Bank"
+    data_element: HBKID
+    check_table: T012
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: XPORE
+    description: "Indicator: Pay all items separately?"
+    data_element: XPORE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BLNKZ
+    description: "Subsidy indicator for determining the reduction rates"
+    data_element: BLNKZ
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ALTKN
+    description: "Previous Master Record Number"
+    data_element: ALTKN
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ZGRUP
+    description: "Key for Payment Grouping"
+    data_element: DZGRUP
+    check_table: TZGR
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: URLID
+    description: "Short Key for Known/Negotiated Leave"
+    data_element: URLID
+    check_table: T052A
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: MGRUP
+    description: "Key for dunning notice grouping"
+    data_element: MGRUP
+    check_table: T047R
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LOCKB
+    description: "Key of the Lockbox to Which the Customer Is To Pay"
+    data_element: LOCKB
+    check_table: T049L
+    datatype: CHAR
+    length: 7
+    decimals: 0
+    key: false
+  - name: UZAWE
+    description: "Payment Method Supplement"
+    data_element: UZAWE
+    check_table: T042F
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: EKVBD
+    description: "Account Number of Buying Group"
+    data_element: EKVBD
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SREGL
+    description: "Selection Rule for Payment Advices"
+    data_element: SREGL
+    check_table: T053A
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: XEDIP
+    description: "Indicator: Send Payment Advices by EDI"
+    data_element: XEDIP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FRGRP
+    description: "Release Approval Group"
+    data_element: FRGRP
+    check_table: VBWF08
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VRSDG
+    description: "Reason Code Conversion Version"
+    data_element: VRSDG
+    check_table: T053V
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: TLFXS
+    description: "Accounting clerk's fax number at the customer/vendor"
+    data_element: TLFXS
+    check_table: ~
+    datatype: CHAR
+    length: 31
+    decimals: 0
+    key: false
+  - name: INTAD
+    description: "Internet address of partner company clerk"
+    data_element: INTAD
+    check_table: ~
+    datatype: CHAR
+    length: 130
+    decimals: 0
+    key: false
+  - name: XKNZB
+    description: "Indicator: Alternative payer using account number"
+    data_element: XKNZB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GUZTE
+    description: "Payment Terms Key for Credit Memos"
+    data_element: GUZTE
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: GRICD
+    description: "Activity Code for Gross Income Tax"
+    data_element: J_1AGICD_D
+    check_table: J_1AGICD
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: GRIDT
+    description: "Distribution Type for Employment Tax"
+    data_element: J_1ADTYP_D
+    check_table: J_1ADTYP
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: WBRSL
+    description: "Value Adjustment Key"
+    data_element: WBRSL
+    check_table: T044G
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: CONFS
+    description: "Status of Change Authorization (Company Code Level)"
+    data_element: CONFS_B
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: UPDAT
+    description: "Date on Which the Changes Were Confirmed"
+    data_element: UPDAT_RF
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: UPTIM
+    description: "Time of Last Change Confirmation"
+    data_element: UPTIM_RF
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: NODEL
+    description: "Deletion bock for master record (company code level)"
+    data_element: NODEL_B
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TLFNS
+    description: "Accounting clerk's telephone number at business partner"
+    data_element: TLFNS
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: CESSION_KZ
+    description: "Accounts Receivable Pledging Indicator"
+    data_element: CESSION_KZ
+    check_table: TCESSION
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: AVSND
+    description: "Indicator: Send Payment Advice by XML"
+    data_element: AVSND
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AD_HASH
+    description: "E-Mail Address for Avis: Hash Value"
+    data_element: ADHASH
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: QLAND
+    description: "Withholding Tax Country Key"
+    data_element: QLAND
+    check_table: T005Q
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: INTERCOCD
+    description: "Intercompany code"
+    data_element: OIU_INTERCOCD
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: KUNNR
+    check_table: KNA1
+    check_field: KUNNR
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: AKONT
+    check_table: SKB1
+    check_field: SAKNR
+  - field: BUSAB
+    check_table: T001S
+    check_field: BUSAB
+  - field: KNRZE
+    check_table: KNA1
+    check_field: KUNNR
+  - field: KNRZB
+    check_table: KNA1
+    check_field: KUNNR
+  - field: ZAHLS
+    check_table: T008
+    check_field: ZAHLS
+  - field: VZSKZ
+    check_table: T056
+    check_field: VZSKZ
+  - field: FDGRV
+    check_table: T035
+    check_field: GRUPP
+  - field: XAUSZ
+    check_table: T048K
+    check_field: XAUSZ
+  - field: REMIT
+    check_table: KNA1
+    check_field: KUNNR
+  - field: TOGRU
+    check_table: T043G
+    check_field: TOGRU
+  - field: HBKID
+    check_table: T012
+    check_field: HBKID
+  - field: ZGRUP
+    check_table: TZGR
+    check_field: ZGRUP
+  - field: URLID
+    check_table: T052A
+    check_field: URLID
+  - field: MGRUP
+    check_table: T047R
+    check_field: MGRUP
+  - field: LOCKB
+    check_table: T049L
+    check_field: LOCKB
+  - field: UZAWE
+    check_table: T042F
+    check_field: UZAWE
+  - field: EKVBD
+    check_table: KNA1
+    check_field: KUNNR
+  - field: SREGL
+    check_table: T053A
+    check_field: SREGL
+  - field: FRGRP
+    check_table: VBWF08
+    check_field: FRGRP
+  - field: VRSDG
+    check_table: T053V
+    check_field: VRSDG
+  - field: GRICD
+    check_table: J_1AGICD
+    check_field: J_1AGICD
+  - field: GRIDT
+    check_table: J_1ADTYP
+    check_field: J_1ADTYP
+  - field: WBRSL
+    check_table: T044G
+    check_field: WBRSL
+  - field: CESSION_KZ
+    check_table: TCESSION
+    check_field: CESSION_KZ
+  - field: QLAND
+    check_table: T005Q
+    check_field: QLAND
+  - field: INTERCOCD
+    check_table: T001
+    check_field: BUKRS
+  - field: ZUAWA
+    check_table: TZUN
+    check_field: ZUAWA
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

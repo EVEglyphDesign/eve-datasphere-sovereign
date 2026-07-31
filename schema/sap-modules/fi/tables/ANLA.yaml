@@ -1,0 +1,768 @@
+table: ANLA
+module: FI
+description: "Asset Master Record Segment — fixed asset master data: class, capitalization date, acquisition, leasing, and land-register attributes."
+source: https://leanx.eu/en/sap/table/anla.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: ~
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T093C
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: ANLN1
+    description: "Main Asset Number"
+    data_element: ANLN1
+    check_table: ANLH
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: true
+  - name: ANLN2
+    description: "Asset Subnumber"
+    data_element: ANLN2
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: ANLKL
+    description: "Asset Class"
+    data_element: ANLKL
+    check_table: ANKA
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: GEGST
+    description: "Technical asset number"
+    data_element: GEGST
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: ANLAR
+    description: "Asset types"
+    data_element: ANLAR
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed on"
+    data_element: AEDAT_ANLA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: XLOEV
+    description: "Indicator: Account marked for deletion?"
+    data_element: XLOEV
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XSPEB
+    description: "Indicator: Asset Locked to Acquisition Postings"
+    data_element: XSPEB_ANLA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FELEI
+    description: "Screen layout for Asset Accounting"
+    data_element: FELEI
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KTOGR
+    description: "Account determination"
+    data_element: KTOGR
+    check_table: T095A
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: XOPVW
+    description: "Asset under construct. with line item settlement"
+    data_element: OPVWA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ANLTP
+    description: "Asset Category"
+    data_element: ANLTP
+    check_table: ~
+    datatype: NUMC
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZUJHR
+    description: "Fiscal year in which first acquisition was posted"
+    data_element: DZUJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: ZUPER
+    description: "Period in which first acquisition was posted"
+    data_element: DZUPER
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: ZUGDT
+    description: "Asset value date of the first posting"
+    data_element: DZUGDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AKTIV
+    description: "Asset capitalization date"
+    data_element: AKTIVD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ABGDT
+    description: "Asset value date for the last retirement"
+    data_element: ABGDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: DEAKT
+    description: "Deactivation date"
+    data_element: DEAKT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: GPLAB
+    description: "Planned retirement date"
+    data_element: GPLAB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BSTDT
+    description: "Asset purchase order date"
+    data_element: BSTDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ORD41
+    description: "Evaluation group 1"
+    data_element: ORD41
+    check_table: T087
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ORD42
+    description: "Evaluation group 2"
+    data_element: ORD42
+    check_table: T087
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ORD43
+    description: "Evaluation group 3"
+    data_element: ORD43
+    check_table: T087
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ORD44
+    description: "Evaluation group 4"
+    data_element: ORD44
+    check_table: T087
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ANLUE
+    description: "Asset super number"
+    data_element: ANLUE
+    check_table: T087U
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ZUAWA
+    description: "Key for sorting according to assignment numbers"
+    data_element: DZUAWA
+    check_table: TZUN
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: ANEQK
+    description: "Indicator: Historical management"
+    data_element: ANEQK
+    check_table: ~
+    datatype: NUMC
+    length: 1
+    decimals: 0
+    key: false
+  - name: ANEQS
+    description: "Completeness indicator for the asset"
+    data_element: ANEQS
+    check_table: ~
+    datatype: NUMC
+    length: 1
+    decimals: 0
+    key: false
+  - name: LIFNR
+    description: "Account number of vendor (other key word)"
+    data_element: AM_LIFNR
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LAND1
+    description: "Asset's country of origin"
+    data_element: AM_LAND1
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LIEFE
+    description: "Name of asset supplier"
+    data_element: LIEFE
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: HERST
+    description: "Manufacturer of asset"
+    data_element: HERST
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: EIGKZ
+    description: "Property indicator"
+    data_element: EIGKZ
+    check_table: T097
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AIBN1
+    description: "Original asset that was transferred"
+    data_element: AIBN1
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AIBN2
+    description: "Original asset that was transferred"
+    data_element: AIBN2
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: AIBDT
+    description: "Original acquisition date of AuC/ transferred asset"
+    data_element: AIBDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: URJHR
+    description: "Fiscal year of original acquisition"
+    data_element: URJHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: URWRT
+    description: "Original acquisition value"
+    data_element: URWRT
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ANTEI
+    description: "In-house production percentage"
+    data_element: ANTEI
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: PROJN
+    description: "Old: Project number: No longer used --> PS_POSNR"
+    data_element: PROJN
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: EAUFN
+    description: "Investment Order"
+    data_element: AM_AUFNR
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: MEINS
+    description: "Base Unit of Measure"
+    data_element: MEINS
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: MENGE
+    description: "Quantity"
+    data_element: AM_MENGE
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: TYPBZ
+    description: "Asset type name"
+    data_element: TYPBZ_ANLA
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: IZWEK
+    description: "Reason for investment"
+    data_element: IZWEK
+    check_table: T087I
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: INKEN
+    description: "Inventory indicator"
+    data_element: INKEN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: IVDAT
+    description: "Last inventory date"
+    data_element: IVDAT_ANLA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: INVZU
+    description: "Supplementary inventory specifications"
+    data_element: INVZU_ANLA
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: VMGLI
+    description: "Property classification key"
+    data_element: VMGLI
+    check_table: T092
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: XVRMW
+    description: "Manual net worth tax value"
+    data_element: XVRMW
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WRTMA
+    description: "Manual net worth tax value"
+    data_element: WRTMA
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: EHWRT
+    description: "Assessed value"
+    data_element: EHWRT
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: VBUND
+    description: "Company ID of trading partner"
+    data_element: RASSC
+    check_table: T880
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: SPRAS
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: TXT50
+    description: "Asset description"
+    data_element: TXA50_ANLT
+    check_table: ~
+    datatype: CHAR
+    length: 50
+    decimals: 0
+    key: false
+  - name: TXA50
+    description: "Additional asset description"
+    data_element: TXA50_MORE
+    check_table: ~
+    datatype: CHAR
+    length: 50
+    decimals: 0
+    key: false
+  - name: LEAFI
+    description: "Leasing company"
+    data_element: LEAFI
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LVDAT
+    description: "Leasing agreement date"
+    data_element: LVDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: LKDAT
+    description: "Leasing agreement notice date"
+    data_element: LKDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: LEABG
+    description: "Lease start date"
+    data_element: LEABG
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: LEJAR
+    description: "Length of lease in years"
+    data_element: LEJAR
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: LEPER
+    description: "Length of lease in periods"
+    data_element: LEPER
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: LRYTH
+    description: "Lease payment cycle"
+    data_element: LRYTH
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: LEGEB
+    description: "Periodic lease payment paid to leasing company/lessor"
+    data_element: LEGEB
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: XAKTIV
+    description: "Indicator: Capitalize fixed asset"
+    data_element: XAKTIV
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ANUPD
+    description: "Indicator: Type of change to table"
+    data_element: ANUPD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LBLNR
+    description: "No. of last document with which posting to asset was made"
+    data_element: LBLNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AIMMO
+    description: "Indicator: real estate"
+    data_element: AIMMO
+    check_table: ~
+    datatype: NUMC
+    length: 1
+    decimals: 0
+    key: false
+  - name: OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: LEART
+    description: "Leasing type"
+    data_element: LEART
+    check_table: T083L
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LVORS
+    description: "Advance payments"
+    data_element: LVORS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GDLGRP
+    description: "Evaluation group 5"
+    data_element: GDLGRP
+    check_table: T087G
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: POSNR
+    description: "WBS element investment project"
+    data_element: AM_POSNR
+    check_table: PRPS
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: XERWRT
+    description: "Indicator: Ignore memo value"
+    data_element: XERWRT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XAFABCH
+    description: "Asset acquired used"
+    data_element: XAFABCH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XANLGR
+    description: "Indicator: Asset is a group asset"
+    data_element: XANLGR_1
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MCOA1
+    description: "Search term for matchcode search"
+    data_element: MCOA1
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: XINVM
+    description: "Asset under Construction for Investment Measures"
+    data_element: IM_XINVM
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SERNR
+    description: "Serial number"
+    data_element: AM_SERNR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: UMWKZ
+    description: "Reason for environmental investment"
+    data_element: AM_UMWKZ
+    check_table: T087K
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: LRVDAT
+    description: "Date of last revaluation"
+    data_element: AM_LRVDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: BUKRS
+    check_table: T093C
+    check_field: BUKRS
+  - field: ANLN1
+    check_table: ANLH
+    check_field: ANLN1
+  - field: ANLKL
+    check_table: ANKA
+    check_field: ANLKL
+  - field: KTOGR
+    check_table: T095A
+    check_field: KTOGR
+  - field: ORD41
+    check_table: T087
+    check_field: ORDNR
+  - field: ORD42
+    check_table: T087
+    check_field: ORDNR
+  - field: ORD43
+    check_table: T087
+    check_field: ORDNR
+  - field: ORD44
+    check_table: T087
+    check_field: ORDNR
+  - field: ANLUE
+    check_table: T087U
+    check_field: ANLUE
+  - field: ZUAWA
+    check_table: TZUN
+    check_field: ZUAWA
+  - field: LIFNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: LAND1
+    check_table: T005
+    check_field: LAND1
+  - field: EIGKZ
+    check_table: T097
+    check_field: EIGKZ
+  - field: MEINS
+    check_table: T006
+    check_field: MSEHI
+  - field: IZWEK
+    check_table: T087I
+    check_field: IZWEK
+  - field: VMGLI
+    check_table: T092
+    check_field: VMGLI
+  - field: VBUND
+    check_table: T880
+    check_field: RCOMP
+  - field: SPRAS
+    check_table: T002
+    check_field: SPRAS
+  - field: LEAFI
+    check_table: LFA1
+    check_field: LIFNR
+  - field: OBJNR
+    check_table: ONR00
+    check_field: OBJNR
+  - field: LEART
+    check_table: T083L
+    check_field: LEART
+  - field: GDLGRP
+    check_table: T087G
+    check_field: GDLGRP
+  - field: POSNR
+    check_table: PRPS
+    check_field: PSPNR
+  - field: UMWKZ
+    check_table: T087K
+    check_field: UMWKZ
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

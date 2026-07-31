@@ -1,0 +1,392 @@
+table: SKB1
+module: FI
+description: "G/L Account Master (Company Code) — company-code-specific G/L account control data (open item mgmt, tolerance, tax, interest)."
+source: https://leanx.eu/en/sap/table/skb1.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: SAKNR
+    description: "G/L Account Number"
+    data_element: SAKNR
+    check_table: SKA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: BEGRU
+    description: "Authorization Group"
+    data_element: BRGRU
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BUSAB
+    description: "Accounting clerk"
+    data_element: BUSAB
+    check_table: T001S
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: DATLZ
+    description: "Date of the last interest calculation run"
+    data_element: DATLZ
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on which the Record Was Created"
+    data_element: ERDAT_RF
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM_RF
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: FDGRV
+    description: "Planning group"
+    data_element: FDGRV
+    check_table: T035
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: FDLEV
+    description: "Planning level"
+    data_element: FDLEV
+    check_table: T036
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FIPLS
+    description: "Financial Budget Item"
+    data_element: FIPLS
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: FSTAG
+    description: "Field status group"
+    data_element: FSTAG
+    check_table: T004F
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: HBKID
+    description: "Short Key for a House Bank"
+    data_element: HBKID
+    check_table: T012
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: HKTID
+    description: "ID for account details"
+    data_element: HKTID
+    check_table: T012K
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: KDFSL
+    description: "Key for Exchange Rate Differences in Foreign Currency Accts"
+    data_element: KDFSL
+    check_table: T030S
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: MITKZ
+    description: "Account is reconciliation account"
+    data_element: MITKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MWSKZ
+    description: "Tax Category in Account Master Record"
+    data_element: SMWSK
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: STEXT
+    description: "G/L account additional text"
+    data_element: STEXT_SKB1
+    check_table: ~
+    datatype: CHAR
+    length: 50
+    decimals: 0
+    key: false
+  - name: VZSKZ
+    description: "Interest calculation indicator"
+    data_element: VZSKZ
+    check_table: T056
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Account currency"
+    data_element: WAERS_SKB1
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: WMETH
+    description: "Indicator: account managed in external system"
+    data_element: WMETH
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: XGKON
+    description: "Cash receipt account / cash disbursement account"
+    data_element: XGKON
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XINTB
+    description: "Indicator: Is account only posted to automatically?"
+    data_element: XINTB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XKRES
+    description: "Indicator: Can Line Items Be Displayed by Account?"
+    data_element: XKRES
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XLOEB
+    description: "Indicator: Account marked for deletion?"
+    data_element: XLOEV
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XNKON
+    description: "Indicator: Supplement for automatic postings?"
+    data_element: XNKON
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XOPVW
+    description: "Indicator: Open item management?"
+    data_element: XOPVW
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XSPEB
+    description: "Indicator: Is Account Blocked for Posting?"
+    data_element: XSPEB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZINDT
+    description: "Key date of the last interest calculation"
+    data_element: DZINDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ZINRT
+    description: "Interest calculation frequency in months"
+    data_element: DZINRT
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: ZUAWA
+    description: "Key for sorting according to assignment numbers"
+    data_element: DZUAWA
+    check_table: TZUN
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: ALTKT
+    description: "Alternative account number in company code"
+    data_element: ALTKT_SKB1
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: XMITK
+    description: "Indicator: Reconcil.acct ready for input at time of posting?"
+    data_element: XMITK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RECID
+    description: "Recovery Indicator"
+    data_element: JV_RECIND
+    check_table: T8JJ
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FIPOS
+    description: "Commitment Item"
+    data_element: FIPOS
+    check_table: ~
+    datatype: CHAR
+    length: 14
+    decimals: 0
+    key: false
+  - name: XMWNO
+    description: "Indicator: Tax code is not a required field"
+    data_element: XMWNO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XSALH
+    description: "Indicator: Only Manage Balances in Local Currency"
+    data_element: XSALH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BEWGP
+    description: "Valuation Group"
+    data_element: BEWGP
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: INFKY
+    description: "Inflation Key"
+    data_element: J_1AIFSKS
+    check_table: J_1AINFSKS
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: TOGRU
+    description: "Tolerance Group for G/L Accounts"
+    data_element: TOGRU_S
+    check_table: T043S
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: XLGCLR
+    description: "Clearing Specific to Ledger Groups"
+    data_element: XLGCLR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MCAKEY
+    description: "MCA Key"
+    data_element: GLE_DTE_MCA_MCAKEY
+    check_table: GLE_MCA_TMCAKEY
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: SAKNR
+    check_table: SKA1
+    check_field: SAKNR
+  - field: BUSAB
+    check_table: T001S
+    check_field: BUSAB
+  - field: FDGRV
+    check_table: T035
+    check_field: GRUPP
+  - field: FDLEV
+    check_table: T036
+    check_field: EBENE
+  - field: FSTAG
+    check_table: T004F
+    check_field: FSTAG
+  - field: HBKID
+    check_table: T012
+    check_field: HBKID
+  - field: HKTID
+    check_table: T012K
+    check_field: HKTID
+  - field: KDFSL
+    check_table: T030S
+    check_field: KDFSL
+  - field: INFKY
+    check_table: J_1AINFSKS
+    check_field: J_1AIFSKS
+  - field: RECID
+    check_table: T8JJ
+    check_field: RECID
+  - field: TOGRU
+    check_table: T043S
+    check_field: TOGRU
+  - field: VZSKZ
+    check_table: T056
+    check_field: VZSKZ
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: ZUAWA
+    check_table: TZUN
+    check_field: ZUAWA
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

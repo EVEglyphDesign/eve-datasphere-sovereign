@@ -1,0 +1,173 @@
+table: SKA1
+module: FI
+description: "G/L Account Master (Chart of Accounts) — chart-of-accounts-level G/L account attributes shared across all company codes."
+source: https://leanx.eu/en/sap/table/ska1.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: KTOPL
+    description: "Chart of Accounts"
+    data_element: KTOPL
+    check_table: T004
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: SAKNR
+    description: "G/L Account Number"
+    data_element: SAKNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: XBILK
+    description: "Indicator: Account is a balance sheet account?"
+    data_element: XBILK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SAKAN
+    description: "G/L account number, significant length"
+    data_element: SAKAN
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BILKT
+    description: "Group Account Number"
+    data_element: BILKT
+    check_table: SKA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on which the Record Was Created"
+    data_element: ERDAT_RF
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM_RF
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: GVTYP
+    description: "P&L statement account type"
+    data_element: GVTYP
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KTOKS
+    description: "G/L Account Group"
+    data_element: KTOKS
+    check_table: T077S
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: MUSTR
+    description: "Number of the sample account"
+    data_element: MUSTR
+    check_table: SKM1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: VBUND
+    description: "Company ID of trading partner"
+    data_element: RASSC
+    check_table: T880
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: XLOEV
+    description: "Indicator: Account marked for deletion?"
+    data_element: XLOEV
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XSPEA
+    description: "Indicator: account is blocked for creation?"
+    data_element: XSPEA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XSPEB
+    description: "Indicator: Is Account Blocked for Posting?"
+    data_element: XSPEB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XSPEP
+    description: "Indicator: account blocked for planning?"
+    data_element: XSPEP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MCOD1
+    description: "Search Term for Using Matchcode"
+    data_element: MCODF
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: FUNC_AREA
+    description: "Functional Area"
+    data_element: FKBER
+    check_table: TFKB
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: KTOPL
+    check_table: T004
+    check_field: KTOPL
+  - field: BILKT
+    check_table: SKA1
+    check_field: BILKT
+  - field: KTOKS
+    check_table: T077S
+    check_field: KTOKS
+  - field: MUSTR
+    check_table: SKM1
+    check_field: MUSTR
+  - field: VBUND
+    check_table: T880
+    check_field: VBUND
+  - field: FUNC_AREA
+    check_table: TFKB
+    check_field: FKBER
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.
