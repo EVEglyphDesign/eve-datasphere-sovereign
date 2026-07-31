@@ -1,0 +1,92 @@
+table: CSKA
+module: CO
+description: "Cost Elements (Data Dependent on Chart of Accounts) — chart-of-accounts-level master data linking cost elements to G/L accounts."
+source: https://leanx.eu/en/sap/table/cska.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: KTOPL
+    description: "Chart of Accounts"
+    data_element: KTOPL
+    check_table: T004
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: KSTAR
+    description: "Cost Element"
+    data_element: KSTAR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: ERSDA
+    description: "Created on"
+    data_element: ERFDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: USNAM
+    description: "Entered by"
+    data_element: ERFNM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: STEKZ
+    description: "Cost element is tax-relevant"
+    data_element: STEUK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZAHKZ
+    description: "Cost element affecting payment"
+    data_element: KZZAH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KSTSN
+    description: "Cost element"
+    data_element: KSTSN
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: FUNC_AREA
+    description: "Functional Area"
+    data_element: FKBER
+    check_table: TFKB
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: FUNC_AREA
+    check_table: TFKB
+    check_field: MANDT
+  - field: FUNC_AREA
+    check_table: TFKB
+    check_field: FKBER
+  - field: KTOPL
+    check_table: T004
+    check_field: MANDT
+  - field: KTOPL
+    check_table: T004
+    check_field: KTOPL
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

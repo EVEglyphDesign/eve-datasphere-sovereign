@@ -1,0 +1,395 @@
+table: COBK
+module: CO
+description: "CO Object: Document Header — header record for CO postings, linking CO line items (COEP) to originating business transactions."
+source: https://leanx.eu/en/sap/table/cobk.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: BELNR
+    description: "Document Number"
+    data_element: CO_BELNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: GJAHR
+    description: "Fiscal Year"
+    data_element: GJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: VERSN
+    description: "Version in CO Document Header"
+    data_element: VERSN_COBK
+    check_table: TKA09
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: VRGNG
+    description: "CO Business Transaction"
+    data_element: CO_VORGANG
+    check_table: TJ01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: TIMESTMP
+    description: "Time created (Greenwich Meantime)"
+    data_element: RKE_HZSTMP
+    check_table: ~
+    datatype: DEC
+    length: 16
+    decimals: 0
+    key: false
+  - name: PERAB
+    description: "From Period"
+    data_element: CO_PERAB
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: PERBI
+    description: "To period"
+    data_element: CO_PERBI
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: BLDAT
+    description: "Document Date"
+    data_element: CO_BLDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BUDAT
+    description: "Posting Date"
+    data_element: CO_BUDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: CPUDT
+    description: "Date Document Was Created"
+    data_element: CO_CPUDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: USNAM
+    description: "User Name"
+    data_element: SYUNAME
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: BLTXT
+    description: "Document Header Text"
+    data_element: CO_BLTXT
+    check_table: ~
+    datatype: CHAR
+    length: 50
+    decimals: 0
+    key: false
+  - name: STFLG
+    description: "Identifier for reversal document"
+    data_element: CO_STFLG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STOKZ
+    description: "Indicator: Document Has Been Reversed"
+    data_element: CO_STOKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: REFBT
+    description: "Document type of reference document"
+    data_element: CO_REFBT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: REFBN
+    description: "Reference Document Number"
+    data_element: CO_REFBN
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: REFBK
+    description: "Company code of FI document"
+    data_element: CO_REFBK
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: REFGJ
+    description: "Fiscal year of reference document"
+    data_element: CO_REFGJ
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: BLART
+    description: "Document type of FI reference document"
+    data_element: CO_REFBA
+    check_table: T003
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ORGVG
+    description: "Original CO business transaction"
+    data_element: CO_ORGVG
+    check_table: T022
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SUMBZ
+    description: "Number of posting lines for local objects"
+    data_element: CO_SUMBZ
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: DELBZ
+    description: "Number of deleted line items"
+    data_element: CO_DELBZ
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: WSDAT
+    description: "Value Date for Currency Translation"
+    data_element: WSDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: KURST
+    description: "Exchange Rate Type"
+    data_element: KURST
+    check_table: TCURV
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VARNR
+    description: "CO actual postings fast input: Variant"
+    data_element: CO_VARNR
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: KWAER
+    description: "Controlling area currency"
+    data_element: KWAER
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: CTYP1
+    description: "Currency Type 1 in CO Standard Ledger"
+    data_element: CO_CTYP1
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: CTYP2
+    description: "Currency Type 2 in CO Standard Ledger"
+    data_element: CO_CTYP2
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: CTYP3
+    description: "Currency Type 3 in CO Standard Ledger"
+    data_element: CO_CTYP3
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: CTYP4
+    description: "Currency Type 4 in CO Standard Ledger"
+    data_element: CO_CTYP4
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: AWTYP
+    description: "Reference Transaction"
+    data_element: AWTYP
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: AWORG
+    description: "Reference Organizational Units"
+    data_element: AWORG
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LOGSYSTEM
+    description: "Logical System"
+    data_element: LOGSYSTEM
+    check_table: TBDLS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: CPUTM
+    description: "Time of Entry"
+    data_element: CPUTM
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: ALEBZ
+    description: "Number of posting rows sent to external systems"
+    data_element: CO_ALEBZ
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: ALEBN
+    description: "For ALE: CO Document Number in Generating System"
+    data_element: CO_ALEBN
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AWSYS
+    description: "Logical system of source document"
+    data_element: AWSYS
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AWREF_REV
+    description: "Reversal: Reverse Document Reference Document Number"
+    data_element: AWREF_REV
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AWORG_REV
+    description: "Reversal: Reverse Document Reference Organization"
+    data_element: AWORG_REV
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: VALDT
+    description: "Special Valuation Date for Cost Accounting"
+    data_element: CO_VALDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: BLART
+    check_table: T003
+    check_field: BLART
+  - field: BLART
+    check_table: T003
+    check_field: MANDT
+  - field: KOKRS
+    check_table: TKA01
+    check_field: MANDT
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: KURST
+    check_table: TCURV
+    check_field: KURST
+  - field: KURST
+    check_table: TCURV
+    check_field: MANDT
+  - field: KWAER
+    check_table: TCURC
+    check_field: MANDT
+  - field: KWAER
+    check_table: TCURC
+    check_field: WAERS
+  - field: LOGSYSTEM
+    check_table: TBDLS
+    check_field: LOGSYS
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: ORGVG
+    check_table: T022
+    check_field: ACTIVITY
+  - field: REFBK
+    check_table: T001
+    check_field: MANDT
+  - field: REFBK
+    check_table: T001
+    check_field: BUKRS
+  - field: VERSN
+    check_table: TKA09
+    check_field: KOKRS
+  - field: VERSN
+    check_table: TKA09
+    check_field: VERSN
+  - field: VERSN
+    check_table: TKA09
+    check_field: MANDT
+  - field: VRGNG
+    check_table: TJ01
+    check_field: VRGNG
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

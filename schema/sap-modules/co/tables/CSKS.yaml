@@ -1,0 +1,802 @@
+table: CSKS
+module: CO
+description: "Cost Center Master Data — time-dependent master data for cost centers, the organizational unit for controlling area cost collection."
+source: https://leanx.eu/en/sap/table/csks.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: ~
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: KOSTL
+    description: "Cost Center"
+    data_element: KOSTL
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: DATBI
+    description: "Valid To Date"
+    data_element: DATBI
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: DATAB
+    description: "Valid-From Date"
+    data_element: DATAB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: BKZKP
+    description: "Lock Indicator for Actual Primary Postings"
+    data_element: BKZKP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PKZKP
+    description: "Lock Indicator for Plan Primary Costs"
+    data_element: PKZKP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: GSBER
+    description: "Business Area"
+    data_element: GSBER
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KOSAR
+    description: "Cost Center Category"
+    data_element: KOSAR
+    check_table: TKA05
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VERAK
+    description: "Person Responsible"
+    data_element: VERAK
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: VERAK_USER
+    description: "User Responsible"
+    data_element: VERAK_USER
+    check_table: USR02
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: KALSM
+    description: "Costing Sheet"
+    data_element: AUFKALSM
+    check_table: T683
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: TXJCD
+    description: "Tax Jurisdiction"
+    data_element: TXJCD
+    check_table: TTXJ
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: PRCTR
+    description: "Profit Center"
+    data_element: PRCTR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LOGSYSTEM
+    description: "Logical System"
+    data_element: LOGSYSTEM
+    check_table: TBDLS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ERSDA
+    description: "Created on"
+    data_element: ERFDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: USNAM
+    description: "Entered by"
+    data_element: ERFNM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: BKZKS
+    description: "Lock Indicator for Actual Secondary Costs"
+    data_element: BKZKS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BKZER
+    description: "Lock Indicator for Actual Revenue Postings"
+    data_element: BKZER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BKZOB
+    description: "Lock Indicator for Commitment Update"
+    data_element: BKZOB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PKZKS
+    description: "Lock Indicator for Plan Secondary Costs"
+    data_element: PKZKS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PKZER
+    description: "Lock Indicator for Planning Revenues"
+    data_element: PKZER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VMETH
+    description: "Indicator for Allowed Allocation Methods"
+    data_element: VMETH
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: MGEFL
+    description: "Indicator for Recording Consumption Quantities"
+    data_element: MGEFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ABTEI
+    description: "Department"
+    data_element: ABTEI
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: NKOST
+    description: "Subsequent cost center"
+    data_element: NKOST
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KVEWE
+    description: "Usage of the condition table"
+    data_element: KVEWE
+    check_table: T681V
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KAPPL
+    description: "Application"
+    data_element: KAPPL
+    check_table: T681A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KOSZSCHL
+    description: "CO-CCA Overhead Key"
+    data_element: KOSZSCHL
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: LAND1
+    description: "Country Key"
+    data_element: LAND1
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: ANRED
+    description: "Title"
+    data_element: ANRED
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: NAME1
+    description: "Name 1"
+    data_element: NAME1_GP
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: NAME2
+    description: "Name 2"
+    data_element: NAME2_GP
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: NAME3
+    description: "Name 3"
+    data_element: NAME3_GP
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: NAME4
+    description: "Name 4"
+    data_element: NAME4_GP
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: ORT01
+    description: "City"
+    data_element: ORT01_GP
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: ORT02
+    description: "District"
+    data_element: ORT02_GP
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: STRAS
+    description: "House number and street"
+    data_element: STRAS_GP
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: PFACH
+    description: "PO Box"
+    data_element: PFACH
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PSTLZ
+    description: "Postal Code"
+    data_element: PSTLZ
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PSTL2
+    description: "P.O. Box Postal Code"
+    data_element: PSTL2
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: REGIO
+    description: "Region (State, Province, County)"
+    data_element: REGIO
+    check_table: T005S
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: SPRAS
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: TELBX
+    description: "Telebox number"
+    data_element: TELBX
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: TELF1
+    description: "First telephone number"
+    data_element: TELF1
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: TELF2
+    description: "Second telephone number"
+    data_element: TELF2
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: TELFX
+    description: "Fax Number"
+    data_element: TELFX
+    check_table: ~
+    datatype: CHAR
+    length: 31
+    decimals: 0
+    key: false
+  - name: TELTX
+    description: "Teletex number"
+    data_element: TELTX
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: TELX1
+    description: "Telex number"
+    data_element: TELX1
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: DATLT
+    description: "Data communication line no."
+    data_element: DATLT
+    check_table: ~
+    datatype: CHAR
+    length: 14
+    decimals: 0
+    key: false
+  - name: DRNAM
+    description: "Printer destination for CCtr report"
+    data_element: KDNAM
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KHINR
+    description: "Standard Hierarchy Area"
+    data_element: KHINR
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: CCKEY
+    description: "Cost collector key"
+    data_element: CCKEY
+    check_table: ~
+    datatype: CHAR
+    length: 23
+    decimals: 0
+    key: false
+  - name: KOMPL
+    description: "Completion flag for the cost center master record"
+    data_element: KSKOM
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAKZ
+    description: "Indicator. object is statistical"
+    data_element: STAKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: FUNKT
+    description: "Function of cost center"
+    data_element: FUNKT_DLK
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: AFUNK
+    description: "Alternative function of cost center"
+    data_element: AFUNK_DLK
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: CPI_TEMPL
+    description: "Template for Activity-Independent Formula Planning"
+    data_element: CCA_TEMPL_CPI
+    check_table: COTPL
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: CPD_TEMPL
+    description: "Template for Activity-Dependent Formula Planning"
+    data_element: CCA_TEMPL_CPD
+    check_table: COTPL
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: FUNC_AREA
+    description: "Functional Area"
+    data_element: FKBER
+    check_table: TFKB
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: SCI_TEMPL
+    description: "Template: Activity-Independent Allocation to Cost Center"
+    data_element: CCA_TEMPL_SCI
+    check_table: COTPL
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SCD_TEMPL
+    description: "Template: Activity-Dependent Allocation to Cost Center"
+    data_element: CCA_TEMPL_SCD
+    check_table: COTPL
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: VNAME
+    description: "Joint Venture"
+    data_element: JV_NAME
+    check_table: T8JV
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: RECID
+    description: "Recovery Indicator"
+    data_element: JV_RECIND
+    check_table: T8JJ
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ETYPE
+    description: "Equity type"
+    data_element: JV_ETYPE
+    check_table: T8JG
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: JV_OTYPE
+    description: "Joint Venture Object Type"
+    data_element: JV_OTYPE
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: JV_JIBCL
+    description: "JIB/JIBE Class"
+    data_element: JV_JIBCL
+    check_table: T8J6A
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: JV_JIBSA
+    description: "JIB/JIBE Subclass A"
+    data_element: JV_JIBSA
+    check_table: T8J6C
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: FERC_IND
+    description: "Regulatory indicator"
+    data_element: FE_IND
+    check_table: FERC_C7
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: BUKRS
+    check_table: T001
+    check_field: MANDT
+  - field: CPD_TEMPL
+    check_table: COTPL
+    check_field: MANDT
+  - field: CPD_TEMPL
+    check_table: COTPL
+    check_field: KOKRS
+  - field: CPD_TEMPL
+    check_table: COTPL
+    check_field: CLASS
+  - field: CPD_TEMPL
+    check_table: COTPL
+    check_field: TEMPLATE
+  - field: CPI_TEMPL
+    check_table: COTPL
+    check_field: MANDT
+  - field: CPI_TEMPL
+    check_table: COTPL
+    check_field: KOKRS
+  - field: CPI_TEMPL
+    check_table: COTPL
+    check_field: CLASS
+  - field: CPI_TEMPL
+    check_table: COTPL
+    check_field: TEMPLATE
+  - field: ETYPE
+    check_table: T8JG
+    check_field: FDATE
+  - field: ETYPE
+    check_table: T8JG
+    check_field: ETYPE
+  - field: ETYPE
+    check_table: T8JG
+    check_field: VNAME
+  - field: ETYPE
+    check_table: T8JG
+    check_field: MANDT
+  - field: ETYPE
+    check_table: T8JG
+    check_field: BUKRS
+  - field: FERC_IND
+    check_table: FERC_C7
+    check_field: MANDT
+  - field: FERC_IND
+    check_table: FERC_C7
+    check_field: IND
+  - field: FUNC_AREA
+    check_table: TFKB
+    check_field: MANDT
+  - field: FUNC_AREA
+    check_table: TFKB
+    check_field: FKBER
+  - field: GSBER
+    check_table: TGSB
+    check_field: GSBER
+  - field: GSBER
+    check_table: TGSB
+    check_field: MANDT
+  - field: JV_JIBCL
+    check_table: T8J6A
+    check_field: CLASS
+  - field: JV_JIBCL
+    check_table: T8J6A
+    check_field: MANDT
+  - field: JV_JIBCL
+    check_table: T8J6A
+    check_field: BUKRS
+  - field: JV_JIBSA
+    check_table: T8J6C
+    check_field: MANDT
+  - field: JV_JIBSA
+    check_table: T8J6C
+    check_field: BUKRS
+  - field: JV_JIBSA
+    check_table: T8J6C
+    check_field: CLASS
+  - field: JV_JIBSA
+    check_table: T8J6C
+    check_field: SUBCLASS
+  - field: KALSM
+    check_table: T683
+    check_field: MANDT
+  - field: KALSM
+    check_table: T683
+    check_field: KVEWE
+  - field: KALSM
+    check_table: T683
+    check_field: KAPPL
+  - field: KALSM
+    check_table: T683
+    check_field: KALSM
+  - field: KAPPL
+    check_table: T681A
+    check_field: KAPPL
+  - field: KOKRS
+    check_table: TKA01
+    check_field: MANDT
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: KOSAR
+    check_table: TKA05
+    check_field: KOSAR
+  - field: KOSAR
+    check_table: TKA05
+    check_field: MANDT
+  - field: KVEWE
+    check_table: T681V
+    check_field: KVEWE
+  - field: LAND1
+    check_table: T005
+    check_field: MANDT
+  - field: LAND1
+    check_table: T005
+    check_field: LAND1
+  - field: LOGSYSTEM
+    check_table: TBDLS
+    check_field: LOGSYS
+  - field: OBJNR
+    check_table: ONR00
+    check_field: OBJNR
+  - field: OBJNR
+    check_table: ONR00
+    check_field: MANDT
+  - field: RECID
+    check_table: T8JJ
+    check_field: BUKRS
+  - field: RECID
+    check_table: T8JJ
+    check_field: RECID
+  - field: RECID
+    check_table: T8JJ
+    check_field: MANDT
+  - field: REGIO
+    check_table: T005S
+    check_field: MANDT
+  - field: REGIO
+    check_table: T005S
+    check_field: LAND1
+  - field: REGIO
+    check_table: T005S
+    check_field: BLAND
+  - field: SCD_TEMPL
+    check_table: COTPL
+    check_field: TEMPLATE
+  - field: SCD_TEMPL
+    check_table: COTPL
+    check_field: CLASS
+  - field: SCD_TEMPL
+    check_table: COTPL
+    check_field: KOKRS
+  - field: SCD_TEMPL
+    check_table: COTPL
+    check_field: MANDT
+  - field: SCI_TEMPL
+    check_table: COTPL
+    check_field: TEMPLATE
+  - field: SCI_TEMPL
+    check_table: COTPL
+    check_field: CLASS
+  - field: SCI_TEMPL
+    check_table: COTPL
+    check_field: KOKRS
+  - field: SCI_TEMPL
+    check_table: COTPL
+    check_field: MANDT
+  - field: SPRAS
+    check_table: T002
+    check_field: SPRAS
+  - field: TXJCD
+    check_table: TTXJ
+    check_field: MANDT
+  - field: TXJCD
+    check_table: TTXJ
+    check_field: KALSM
+  - field: TXJCD
+    check_table: TTXJ
+    check_field: TXJCD
+  - field: VERAK_USER
+    check_table: USR02
+    check_field: BNAME
+  - field: VERAK_USER
+    check_table: USR02
+    check_field: MANDT
+  - field: VNAME
+    check_table: T8JV
+    check_field: VNAME
+  - field: VNAME
+    check_table: T8JV
+    check_field: BUKRS
+  - field: VNAME
+    check_table: T8JV
+    check_field: MANDT
+  - field: WAERS
+    check_table: TCURC
+    check_field: MANDT
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+  - field: WERKS
+    check_table: T001W
+    check_field: MANDT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

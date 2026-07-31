@@ -1,0 +1,102 @@
+table: CEPCT
+module: CO
+description: "Profit Center Master Data Texts — language-dependent short and long text descriptions for profit centers defined in CEPC."
+source: https://leanx.eu/en/sap/table/cepct.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: SPRAS
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: true
+  - name: PRCTR
+    description: "Profit Center"
+    data_element: PRCTR
+    check_table: CEPC
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: DATBI
+    description: "Valid To Date"
+    data_element: DATBI
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: CEPC
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KTEXT
+    description: "General Name"
+    data_element: KTEXT
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: LTEXT
+    description: "Long Text"
+    data_element: LTEXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: MCTXT
+    description: "Search term for matchcode search"
+    data_element: MCPCT
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: KOKRS
+    check_table: CEPC
+    check_field: MANDT
+  - field: KOKRS
+    check_table: CEPC
+    check_field: PRCTR
+  - field: KOKRS
+    check_table: CEPC
+    check_field: DATBI
+  - field: KOKRS
+    check_table: CEPC
+    check_field: KOKRS
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: PRCTR
+    check_table: CEPC
+    check_field: MANDT
+  - field: PRCTR
+    check_table: CEPC
+    check_field: PRCTR
+  - field: PRCTR
+    check_table: CEPC
+    check_field: DATBI
+  - field: PRCTR
+    check_table: CEPC
+    check_field: KOKRS
+  - field: SPRAS
+    check_table: T002
+    check_field: SPRAS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

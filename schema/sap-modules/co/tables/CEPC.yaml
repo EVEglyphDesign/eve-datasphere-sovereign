@@ -1,0 +1,512 @@
+table: CEPC
+module: CO
+description: "Profit Center Master Data — time-dependent master data for profit centers, the internal profitability reporting unit that feeds ACDOCA."
+source: https://leanx.eu/en/sap/table/cepc.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: PRCTR
+    description: "Profit Center"
+    data_element: PRCTR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: DATBI
+    description: "Valid To Date"
+    data_element: DATBI
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: DATAB
+    description: "Valid-From Date"
+    data_element: DATAB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERSDA
+    description: "Created on"
+    data_element: ERFDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: USNAM
+    description: "Entered by"
+    data_element: ERFNM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: MERKMAL
+    description: "Field name of CO-PA characteristic"
+    data_element: FDMERKMAL
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: ABTEI
+    description: "Department"
+    data_element: ABTEIL
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: VERAK
+    description: "Person Responsible for Profit Center"
+    data_element: VERAPC
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: VERAK_USER
+    description: "User Responsible for the Profit Center"
+    data_element: VERAPC_USER
+    check_table: USR02
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: NPRCTR
+    description: "Successor profit center"
+    data_element: NPRCTR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LAND1
+    description: "Country Key"
+    data_element: LAND1
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: ANRED
+    description: "Title"
+    data_element: ANRED
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: NAME1
+    description: "Name 1"
+    data_element: NAME1_GP
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: NAME2
+    description: "Name 2"
+    data_element: NAME2_GP
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: NAME3
+    description: "Name 3"
+    data_element: NAME3_GP
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: NAME4
+    description: "Name 4"
+    data_element: NAME4_GP
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: ORT01
+    description: "City"
+    data_element: ORT01_GP
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: ORT02
+    description: "District"
+    data_element: ORT02_GP
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: STRAS
+    description: "House number and street"
+    data_element: STRAS_GP
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: PFACH
+    description: "PO Box"
+    data_element: PFACH
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PSTLZ
+    description: "Postal Code"
+    data_element: PSTLZ
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PSTL2
+    description: "P.O. Box Postal Code"
+    data_element: PSTL2
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SPRAS
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: TELBX
+    description: "Telebox number"
+    data_element: TELBX
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: TELF1
+    description: "First telephone number"
+    data_element: TELF1
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: TELF2
+    description: "Second telephone number"
+    data_element: TELF2
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: TELFX
+    description: "Fax Number"
+    data_element: TELFX
+    check_table: ~
+    datatype: CHAR
+    length: 31
+    decimals: 0
+    key: false
+  - name: TELTX
+    description: "Teletex number"
+    data_element: TELTX
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: TELX1
+    description: "Telex number"
+    data_element: TELX1
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: DATLT
+    description: "Data communication line no."
+    data_element: DATLT
+    check_table: ~
+    datatype: CHAR
+    length: 14
+    decimals: 0
+    key: false
+  - name: DRNAM
+    description: "Printer name for profit center"
+    data_element: PCDNAM
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KHINR
+    description: "Profit center area"
+    data_element: PHINR
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VNAME
+    description: "Joint Venture"
+    data_element: JV_NAME
+    check_table: T8JV
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: RECID
+    description: "Recovery Indicator"
+    data_element: JV_RECIND
+    check_table: T8JJ
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ETYPE
+    description: "Equity type"
+    data_element: JV_ETYPE
+    check_table: T8JE
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: TXJCD
+    description: "Tax Jurisdiction"
+    data_element: TXJCD
+    check_table: TTXJ
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: REGIO
+    description: "Region (State, Province, County)"
+    data_element: REGIO
+    check_table: T005S
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: KVEWE
+    description: "Usage of the condition table"
+    data_element: KVEWE
+    check_table: T681V
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KAPPL
+    description: "Application"
+    data_element: KAPPL
+    check_table: T681A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KALSM
+    description: "Procedure (Pricing, Output Control, Acct. Det., Costing,...)"
+    data_element: KALSM_D
+    check_table: T683
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: LOGSYSTEM
+    description: "Logical System"
+    data_element: LOGSYSTEM
+    check_table: TBDLS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LOCK_IND
+    description: "Lock indicator"
+    data_element: LOCK_IND
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PCA_TEMPLATE
+    description: "Template for Formula Planning in Profit Centers"
+    data_element: PCA_TEMPLATE
+    check_table: COTPL
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SEGMENT
+    description: "Segment for Segmental Reporting"
+    data_element: FB_SEGMENT
+    check_table: FAGL_SEGM
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: BUKRS
+    check_table: T001
+    check_field: MANDT
+  - field: ETYPE
+    check_table: T8JE
+    check_field: ETYPE
+  - field: ETYPE
+    check_table: T8JE
+    check_field: BUKRS
+  - field: ETYPE
+    check_table: T8JE
+    check_field: MANDT
+  - field: KALSM
+    check_table: T683
+    check_field: KALSM
+  - field: KALSM
+    check_table: T683
+    check_field: KAPPL
+  - field: KALSM
+    check_table: T683
+    check_field: KVEWE
+  - field: KALSM
+    check_table: T683
+    check_field: MANDT
+  - field: KAPPL
+    check_table: T681A
+    check_field: KAPPL
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: KOKRS
+    check_table: TKA01
+    check_field: MANDT
+  - field: KVEWE
+    check_table: T681V
+    check_field: KVEWE
+  - field: LAND1
+    check_table: T005
+    check_field: MANDT
+  - field: LAND1
+    check_table: T005
+    check_field: LAND1
+  - field: LOGSYSTEM
+    check_table: TBDLS
+    check_field: LOGSYS
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: PCA_TEMPLATE
+    check_table: COTPL
+    check_field: CLASS
+  - field: PCA_TEMPLATE
+    check_table: COTPL
+    check_field: KOKRS
+  - field: PCA_TEMPLATE
+    check_table: COTPL
+    check_field: MANDT
+  - field: PCA_TEMPLATE
+    check_table: COTPL
+    check_field: TEMPLATE
+  - field: RECID
+    check_table: T8JJ
+    check_field: RECID
+  - field: RECID
+    check_table: T8JJ
+    check_field: BUKRS
+  - field: RECID
+    check_table: T8JJ
+    check_field: MANDT
+  - field: REGIO
+    check_table: T005S
+    check_field: LAND1
+  - field: REGIO
+    check_table: T005S
+    check_field: BLAND
+  - field: REGIO
+    check_table: T005S
+    check_field: MANDT
+  - field: SEGMENT
+    check_table: FAGL_SEGM
+    check_field: MANDT
+  - field: SEGMENT
+    check_table: FAGL_SEGM
+    check_field: SEGMENT
+  - field: SPRAS
+    check_table: T002
+    check_field: SPRAS
+  - field: TXJCD
+    check_table: TTXJ
+    check_field: MANDT
+  - field: TXJCD
+    check_table: TTXJ
+    check_field: KALSM
+  - field: TXJCD
+    check_table: TTXJ
+    check_field: TXJCD
+  - field: VERAK_USER
+    check_table: USR02
+    check_field: BNAME
+  - field: VERAK_USER
+    check_table: USR02
+    check_field: MANDT
+  - field: VNAME
+    check_table: T8JV
+    check_field: MANDT
+  - field: VNAME
+    check_table: T8JV
+    check_field: BUKRS
+  - field: VNAME
+    check_table: T8JV
+    check_field: VNAME
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: WAERS
+    check_table: TCURC
+    check_field: MANDT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

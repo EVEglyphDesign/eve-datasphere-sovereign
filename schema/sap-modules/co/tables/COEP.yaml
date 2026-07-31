@@ -1,0 +1,823 @@
+table: COEP
+module: CO
+description: "CO Object: Line Items (by Period) — actual/plan cost line items posted to CO objects, the granular source feeding cost center and order actuals."
+source: https://leanx.eu/en/sap/table/coep.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: BELNR
+    description: "Document Number"
+    data_element: CO_BELNR
+    check_table: COBK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: BUZEI
+    description: "Posting row"
+    data_element: CO_BUZEI
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: true
+  - name: PERIO
+    description: "Period"
+    data_element: CO_PERIO
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: true
+  - name: WTGBTR
+    description: "Total Value in Transaction Currency"
+    data_element: WTGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WOGBTR
+    description: "Total Value in Object Currency"
+    data_element: WOGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKGBTR
+    description: "Total Value in Controlling Area Currency"
+    data_element: WKGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKFBTR
+    description: "Fixed Value in Controlling Area Currency"
+    data_element: WKFXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: PAGBTR
+    description: "Total Price Variance in CO Area Currency"
+    data_element: PAGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: PAFBTR
+    description: "Fixed Price Variance in CO Area Currency"
+    data_element: PAFXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: MEGBTR
+    description: "Total Quantity"
+    data_element: MEGXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEFBTR
+    description: "Fixed Quantity"
+    data_element: MEFXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MBGBTR
+    description: "Total quantity entered"
+    data_element: MBGXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MBFBTR
+    description: "Fixed quantity entered"
+    data_element: MBFXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: LEDNR
+    description: "Ledger for Controlling objects"
+    data_element: LEDNR
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: true
+  - name: GJAHR
+    description: "Fiscal Year"
+    data_element: GJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: WRTTP
+    description: "Value Type"
+    data_element: CO_WRTTP
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: VERSN
+    description: "Version"
+    data_element: VERSN
+    check_table: TKA09
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: true
+  - name: KSTAR
+    description: "Cost Element"
+    data_element: KSTAR
+    check_table: CSKA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: HRKFT
+    description: "CO key subnumber"
+    data_element: CO_SUBKEY
+    check_table: COKEY
+    datatype: CHAR
+    length: 14
+    decimals: 0
+    key: true
+  - name: VRGNG
+    description: "CO Business Transaction"
+    data_element: CO_VORGANG
+    check_table: TJ01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: PAROB
+    description: "Partner Object"
+    data_element: PAROB
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: PAROB1
+    description: "Partner object (always filled)"
+    data_element: PAROB1
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: USPOB
+    description: "Source Object (Cost Center/Activity Type)"
+    data_element: USPOB
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: VBUND
+    description: "Company ID of trading partner"
+    data_element: RASSC
+    check_table: T880
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: PARGB
+    description: "Trading partner's business area"
+    data_element: PARGB
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BEKNZ
+    description: "Debit/credit indicator"
+    data_element: BEKNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TWAER
+    description: "Transaction Currency"
+    data_element: TWAER
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: OWAER
+    description: "Currency Key"
+    data_element: OWAER
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: MEINH
+    description: "Unit of Measure"
+    data_element: CO_MEINH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: MEINB
+    description: "Posted Unit of Measure"
+    data_element: MEINB
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: MVFLG
+    description: "Quantity Complete/Incomplete"
+    data_element: CO_MVFLG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SGTXT
+    description: "Segment text"
+    data_element: CO_SGTXT
+    check_table: ~
+    datatype: CHAR
+    length: 50
+    decimals: 0
+    key: false
+  - name: REFBZ
+    description: "Posting row of reference document"
+    data_element: CO_REFBZ
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: ZLENR
+    description: "Document Item Number"
+    data_element: DZLENR
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: BW_REFBZ
+    description: "Posting Row in Operative Version"
+    data_element: BW_REFBZ
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: GKONT
+    description: "Offsetting Account Number"
+    data_element: GKONT
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: GKOAR
+    description: "Offsetting Account Type"
+    data_element: GKOAR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: RBEST
+    description: "Category of Reference Purchase Order"
+    data_element: CO_RBEST
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: EBELN
+    description: "Purchasing Document Number"
+    data_element: EBELN
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: EBELP
+    description: "Item Number of Purchasing Document"
+    data_element: EBELP
+    check_table: ~
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: ZEKKN
+    description: "Sequential Number of Account Assignment"
+    data_element: DZEKKN
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: ERLKZ
+    description: "Completion indicator for line item"
+    data_element: KBLERLKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PERNR
+    description: "Personnel Number"
+    data_element: PERNR_D
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: BTRKL
+    description: "Amount Class for Value in Controlling Area Currency"
+    data_element: CO_BTRKL
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: OBJNR_N1
+    description: "Auxiliary account assignment 1"
+    data_element: OBJNR_N1
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: OBJNR_N2
+    description: "Auxiliary account assignment 2"
+    data_element: OBJNR_N2
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: OBJNR_N3
+    description: "Auxiliary account assignment 3"
+    data_element: OBJNR_N3
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: PAOBJNR
+    description: "Profitability Segment Number (CO-PA)"
+    data_element: RKEOBJNR
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: BELTP
+    description: "Debit type"
+    data_element: BP_INOUT
+    check_table: ~
+    datatype: NUMC
+    length: 1
+    decimals: 0
+    key: false
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: GSBER
+    description: "Business Area"
+    data_element: GSBER
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: FKBER
+    description: "Functional Area"
+    data_element: FKBER
+    check_table: TFKB
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: SCOPE
+    description: "Object Class"
+    data_element: SCOPE_CV
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LOGSYSO
+    description: "Logical system of object"
+    data_element: LOGSYSO
+    check_table: TBDLS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PKSTAR
+    description: "Cost element of partner"
+    data_element: PKSTAR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PBUKRS
+    description: "Company code of partner"
+    data_element: PBUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PFKBER
+    description: "Partner Functional Area"
+    data_element: SFKBER
+    check_table: TFKB
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: PSCOPE
+    description: "Partner object class"
+    data_element: PSCOPE_CV
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LOGSYSP
+    description: "Logical system of partner object"
+    data_element: LOGSYSP
+    check_table: TBDLS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: DABRZ
+    description: "Reference Date for Settlement"
+    data_element: DABRBEZ
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BWSTRAT
+    description: "Strategy for Determining an Allocation Price"
+    data_element: BWSTRAT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: OBJNR_HK
+    description: "Object Number of Origin Object"
+    data_element: OBJNR_HK
+    check_table: ~
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: TIMESTMP
+    description: "Time created (Greenwich Meantime)"
+    data_element: RKE_HZSTMP
+    check_table: ~
+    datatype: DEC
+    length: 16
+    decimals: 0
+    key: false
+  - name: QMNUM
+    description: "Notification No"
+    data_element: QMNUM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: GEBER
+    description: "Fund"
+    data_element: FM_FUND
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PGEBER
+    description: "Partner Fund"
+    data_element: FM_PFUND
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: GRANT_NBR
+    description: "Grant"
+    data_element: GM_GRANT_NBR
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: PGRANT_NBR
+    description: "Partner Grant"
+    data_element: GM_GRANT_PARTNER
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: REFBZ_FI
+    description: "Posting Item of FI Reference Document"
+    data_element: REFBZ_FI
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: SEGMENT
+    description: "Segment for Segmental Reporting"
+    data_element: FB_SEGMENT
+    check_table: FAGL_SEGM
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PSEGMENT
+    description: "Partner Segment for Segmental Reporting"
+    data_element: FB_PSEGMENT
+    check_table: FAGL_SEGM
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BUDGET_PD
+    description: "FM: Budget Period"
+    data_element: FM_BUDGET_PERIOD
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PBUDGET_PD
+    description: "FM: Partner Budget Period"
+    data_element: FM_PBUDGET_PERIOD
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PRODPER
+    description: "Production Month for JVA in CO"
+    data_element: PRODPER
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: BELNR
+    check_table: COBK
+    check_field: MANDT
+  - field: BELNR
+    check_table: COBK
+    check_field: KOKRS
+  - field: BELNR
+    check_table: COBK
+    check_field: BELNR
+  - field: BUKRS
+    check_table: T001
+    check_field: MANDT
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: FKBER
+    check_table: TFKB
+    check_field: MANDT
+  - field: FKBER
+    check_table: TFKB
+    check_field: FKBER
+  - field: GSBER
+    check_table: TGSB
+    check_field: MANDT
+  - field: GSBER
+    check_table: TGSB
+    check_field: GSBER
+  - field: HRKFT
+    check_table: COKEY
+    check_field: MANDT
+  - field: HRKFT
+    check_table: COKEY
+    check_field: HRKFT
+  - field: KOKRS
+    check_table: TKA01
+    check_field: MANDT
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: KSTAR
+    check_table: CSKA
+    check_field: KTOPL
+  - field: KSTAR
+    check_table: CSKA
+    check_field: KSTAR
+  - field: KSTAR
+    check_table: CSKA
+    check_field: MANDT
+  - field: LOGSYSO
+    check_table: TBDLS
+    check_field: LOGSYS
+  - field: LOGSYSP
+    check_table: TBDLS
+    check_field: LOGSYS
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MATNR
+    check_table: MARA
+    check_field: MANDT
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: MEINB
+    check_table: T006
+    check_field: MANDT
+  - field: MEINB
+    check_table: T006
+    check_field: MSEHI
+  - field: MEINH
+    check_table: T006
+    check_field: MANDT
+  - field: MEINH
+    check_table: T006
+    check_field: MSEHI
+  - field: OBJNR
+    check_table: ONR00
+    check_field: MANDT
+  - field: OBJNR
+    check_table: ONR00
+    check_field: OBJNR
+  - field: OBJNR_N1
+    check_table: ONR00
+    check_field: MANDT
+  - field: OBJNR_N1
+    check_table: ONR00
+    check_field: OBJNR
+  - field: OBJNR_N2
+    check_table: ONR00
+    check_field: MANDT
+  - field: OBJNR_N2
+    check_table: ONR00
+    check_field: OBJNR
+  - field: OBJNR_N3
+    check_table: ONR00
+    check_field: MANDT
+  - field: OBJNR_N3
+    check_table: ONR00
+    check_field: OBJNR
+  - field: OWAER
+    check_table: TCURC
+    check_field: MANDT
+  - field: OWAER
+    check_table: TCURC
+    check_field: WAERS
+  - field: PARGB
+    check_table: TGSB
+    check_field: MANDT
+  - field: PARGB
+    check_table: TGSB
+    check_field: GSBER
+  - field: PAROB
+    check_table: ONR00
+    check_field: MANDT
+  - field: PAROB
+    check_table: ONR00
+    check_field: OBJNR
+  - field: PAROB1
+    check_table: ONR00
+    check_field: MANDT
+  - field: PAROB1
+    check_table: ONR00
+    check_field: OBJNR
+  - field: PBUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: PBUKRS
+    check_table: T001
+    check_field: MANDT
+  - field: PFKBER
+    check_table: TFKB
+    check_field: MANDT
+  - field: PFKBER
+    check_table: TFKB
+    check_field: FKBER
+  - field: PSEGMENT
+    check_table: FAGL_SEGM
+    check_field: MANDT
+  - field: PSEGMENT
+    check_table: FAGL_SEGM
+    check_field: SEGMENT
+  - field: SEGMENT
+    check_table: FAGL_SEGM
+    check_field: SEGMENT
+  - field: SEGMENT
+    check_table: FAGL_SEGM
+    check_field: MANDT
+  - field: TWAER
+    check_table: TCURC
+    check_field: MANDT
+  - field: TWAER
+    check_table: TCURC
+    check_field: WAERS
+  - field: USPOB
+    check_table: ONR00
+    check_field: OBJNR
+  - field: USPOB
+    check_table: ONR00
+    check_field: MANDT
+  - field: VBUND
+    check_table: T880
+    check_field: RCOMP
+  - field: VBUND
+    check_table: T880
+    check_field: MANDT
+  - field: VERSN
+    check_table: TKA09
+    check_field: MANDT
+  - field: VERSN
+    check_table: TKA09
+    check_field: KOKRS
+  - field: VERSN
+    check_table: TKA09
+    check_field: VERSN
+  - field: VRGNG
+    check_table: TJ01
+    check_field: VRGNG
+  - field: WERKS
+    check_table: T001W
+    check_field: MANDT
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.
