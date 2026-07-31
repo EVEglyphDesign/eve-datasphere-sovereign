@@ -1,0 +1,20 @@
+# Never commit customer data
+*.csv
+*.parquet
+*.sqlite
+*.db
+data/
+extracts/
+seed-dumps/
+
+# Local envs
+.env
+.env.*
+*.pem
+*.key
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+*.swp
