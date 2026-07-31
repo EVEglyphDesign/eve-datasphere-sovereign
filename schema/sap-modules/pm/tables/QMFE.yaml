@@ -1,0 +1,557 @@
+table: QMFE
+module: PM
+description: "Notification item (defect) records — one row per reported problem/defect on a QMEL notification, with catalog codes and defect quantities."
+source: https://leanx.eu/en/sap/table/qmfe.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: QMNUM
+    description: "Notification No"
+    data_element: QMNUM
+    check_table: QMEL
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: true
+  - name: FENUM
+    description: "Item Number in Item Record"
+    data_element: FELFD
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: FETXT
+    description: "Notification Item Short Text"
+    data_element: FETXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: FEKAT
+    description: "Catalog Type - Problems/Defects"
+    data_element: FEKAT
+    check_table: TQ15
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FEGRP
+    description: "Code Group - Problem"
+    data_element: FEGRP
+    check_table: QPGR
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: FECOD
+    description: "Problem or Damage Code"
+    data_element: FECOD
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: FEVER
+    description: "Version Number"
+    data_element: QVERSNR
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: OTKAT
+    description: "Catalog Type - Object Parts"
+    data_element: OTKAT
+    check_table: TQ15
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: OTGRP
+    description: "Code Group - Object Parts"
+    data_element: OTGRP
+    check_table: QPGR
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: OTEIL
+    description: "Part of Object"
+    data_element: OTEIL
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: OTVER
+    description: "Version Number"
+    data_element: QVERSNR
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: BAUTL
+    description: "Assembly"
+    data_element: BAUTL
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: EBORT
+    description: "Installation Point for Subitem"
+    data_element: EBORT
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: INDTX
+    description: "Object Long Text Available"
+    data_element: INDLTX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZMLA
+    description: "Primary language indicator for text segment"
+    data_element: KZMLA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ERZEIT
+    description: "Time, at Which Record Was Added"
+    data_element: ERZEIT
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: AEZEIT
+    description: "Time of Change"
+    data_element: AEZEIT
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: KZORG
+    description: "Originating Defect"
+    data_element: KZORG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WDFEH
+    description: "Repetitive Defect"
+    data_element: WDFEH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FEQKLAS
+    description: "Defect Class"
+    data_element: QFEHLKLAS
+    check_table: TQ17
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FCOAUFNR
+    description: "Order Number (CO Order) for Item"
+    data_element: QCOAUFNR
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: FMGFRD
+    description: "Defective Quantity for Item (External)"
+    data_element: QMGFRD
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: FMGEIG
+    description: "Defective Quantity for Item (Internal)"
+    data_element: QMGEIG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: FMGEIN
+    description: "Unit of Measure for Item"
+    data_element: QMGEIN
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ANZFEHLER
+    description: "Number of Defects Found"
+    data_element: QANZFEHL4
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: FEHLBEW
+    description: "Defect Valuation"
+    data_element: QFEHLBEW
+    check_table: ~
+    datatype: DEC
+    length: 16
+    decimals: 3
+    key: false
+  - name: UNITFLBEW
+    description: "Unit for Defect Valuation"
+    data_element: QUNITFLBEW
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: FEART
+    description: "Report Type for Defects Recording"
+    data_element: QFEART
+    check_table: TQ86
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: PNLKN
+    description: "Current Node Number from Order Counter APLZL"
+    data_element: QLFNKN
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: MERKNR
+    description: "Inspection Characteristic Number"
+    data_element: QMERKNRP
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: PROBENR
+    description: "Sample Number"
+    data_element: QPROBENR
+    check_table: QASV
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: PHYNR
+    description: "Physical Sample Number"
+    data_element: QPHYSPRNR
+    check_table: QPRS
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: PRUEFLINR
+    description: "Single-Unit Number for the Unit to Be Inspected"
+    data_element: QPRUEFLINR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: CROBJTY
+    description: "Object types of the CIM resource"
+    data_element: CR_OBJTY
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ARBPL
+    description: "Object ID of the Work Center"
+    data_element: LGWID
+    check_table: CRID
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: ARBPLWERK
+    description: "Plant for Work Center"
+    data_element: QARBPWERKS
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: FENUMORG
+    description: "Number of Original Item to Which Reference Is Made"
+    data_element: QFENUMORG
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: KZSYSFE
+    description: "Systematic Defect"
+    data_element: QKZSYSFE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZLOESCH
+    description: "Delete Data Record"
+    data_element: QKZLOESCH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: POSNR
+    description: "Sort Number for Item"
+    data_element: QLFDPOS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: HERPOS
+    description: "Origin of Item Record"
+    data_element: QMFEHERK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUTKZ
+    description: "Data Record Created with Function 'Create with Copy Model'"
+    data_element: QAUTKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: EKORG
+    description: "Purchasing Organization"
+    data_element: EKORG
+    check_table: T024E
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: INFNR
+    description: "Number of Purchasing Info Record"
+    data_element: INFNR
+    check_table: EINA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KOSTL
+    description: "Cost Center"
+    data_element: KOSTL
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LSTAR
+    description: "Activity Type"
+    data_element: LSTAR
+    check_table: CSLA
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: PRZNR
+    description: "Business Process"
+    data_element: CO_PRZNR
+    check_table: CBPR
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: MENGE
+    description: "Defective Quantity for Item (Internal)"
+    data_element: QMGPOS
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: EQUNR
+    description: "Equipment Number"
+    data_element: EQUNR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: TPLNR
+    description: "Functional Location"
+    data_element: TPLNR
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: ARBPL
+    check_table: CRID
+    check_field: OBJTY
+  - field: ARBPL
+    check_table: CRID
+    check_field: OBJID
+  - field: ARBPLWERK
+    check_table: T001W
+    check_field: WERKS
+  - field: BAUTL
+    check_table: MARA
+    check_field: MATNR
+  - field: EKORG
+    check_table: T024E
+    check_field: EKORG
+  - field: FCOAUFNR
+    check_table: AUFK
+    check_field: AUFNR
+  - field: FEART
+    check_table: TQ86
+    check_field: FEART
+  - field: FEGRP
+    check_table: QPGR
+    check_field: CODEGRUPPE
+  - field: FEGRP
+    check_table: QPGR
+    check_field: KATALOGART
+  - field: FEKAT
+    check_table: TQ15
+    check_field: KATALOGART
+  - field: FEQKLAS
+    check_table: TQ17
+    check_field: FEHLKLASSE
+  - field: FMGEIN
+    check_table: T006
+    check_field: MSEHI
+  - field: INFNR
+    check_table: EINA
+    check_field: INFNR
+  - field: KOSTL
+    check_table: CSKS
+    check_field: KOSTL
+  - field: KOSTL
+    check_table: CSKS
+    check_field: KOKRS
+  - field: LSTAR
+    check_table: CSLA
+    check_field: KOKRS
+  - field: LSTAR
+    check_table: CSLA
+    check_field: LSTAR
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: OTGRP
+    check_table: QPGR
+    check_field: CODEGRUPPE
+  - field: OTGRP
+    check_table: QPGR
+    check_field: KATALOGART
+  - field: OTKAT
+    check_table: TQ15
+    check_field: KATALOGART
+  - field: PHYNR
+    check_table: QPRS
+    check_field: PHYNR
+  - field: PROBENR
+    check_table: QASV
+    check_field: VORGLFNR
+  - field: PROBENR
+    check_table: QASV
+    check_field: PROBENR
+  - field: PROBENR
+    check_table: QASV
+    check_field: MERKNR
+  - field: PROBENR
+    check_table: QASV
+    check_field: PRUEFLOS
+  - field: PRZNR
+    check_table: CBPR
+    check_field: KOKRS
+  - field: PRZNR
+    check_table: CBPR
+    check_field: PRZNR
+  - field: QMNUM
+    check_table: QMEL
+    check_field: QMNUM
+  - field: UNITFLBEW
+    check_table: T006
+    check_field: MSEHI
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

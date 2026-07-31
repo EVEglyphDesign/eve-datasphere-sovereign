@@ -1,0 +1,462 @@
+table: AFIH
+module: PM
+description: "Maintenance order header — the master record for a plant maintenance work order: equipment reference, planning plant, priority, dates, notification linkage."
+source: https://leanx.eu/en/sap/table/afih.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: AUFNR
+    description: "Order Number"
+    data_element: AUFNR
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: true
+  - name: ARTPR
+    description: "Priority Type"
+    data_element: ARTPR
+    check_table: T356A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: PRIOK
+    description: "Priority"
+    data_element: PRIOK
+    check_table: T356
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: EQUNR
+    description: "Equipment Number"
+    data_element: EQUNR
+    check_table: EQUI
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: BAUTL
+    description: "Assembly"
+    data_element: BAUTL
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: ILOAN
+    description: "Location and account assignment for technical object"
+    data_element: ILOAN
+    check_table: ILOA
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ILOAI
+    description: "ILOA Individual"
+    data_element: ILOAI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ANLZU
+    description: "Syst.Condition"
+    data_element: ANLZU
+    check_table: T357M
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: IWERK
+    description: "Maintenance Planning Plant"
+    data_element: IWERK
+    check_table: T399I
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: INGPR
+    description: "Planner Group for Customer Service and Plant Maintenance"
+    data_element: INGRP
+    check_table: T024I
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: APGRP
+    description: "Responsible planner group/department"
+    data_element: VAGRP
+    check_table: T024A
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: PM_OBJTY
+    description: "Object Type of CIM Resources for Work Center"
+    data_element: PM_OBJTY
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: GEWRK
+    description: "Object ID of the Work Center"
+    data_element: LGWID
+    check_table: CRID
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: KUNUM
+    description: "Customer Number"
+    data_element: KUNUM
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ANING
+    description: "Name of Person Reponsible for System"
+    data_element: ANING
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: GAUZT
+    description: "Planned downtime in hours"
+    data_element: GAUZT
+    check_table: ~
+    datatype: DEC
+    length: 16
+    decimals: 3
+    key: false
+  - name: GAUEH
+    description: "Unit for Breakdown Duration"
+    data_element: MAUEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ANLBD
+    description: "Date until which the system is available"
+    data_element: ANLBD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ANLVD
+    description: "Date from which the system is available"
+    data_element: ANLVD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ANLBZ
+    description: "Time until which the system is available"
+    data_element: ANLBZ
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: ANLVZ
+    description: "Time from Which System is Available"
+    data_element: ANLVZ
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: INSPK
+    description: "Name of Person Responsible for Technical Inspection"
+    data_element: INSPK
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: DATAN
+    description: "Date of Technical Inspection"
+    data_element: DATAN
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: WARPL
+    description: "Maintenance Plan"
+    data_element: WARPL
+    check_table: MPLA
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ABNUM
+    description: "Maintenance Plan Call Number"
+    data_element: ABNUM
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: WAPOS
+    description: "Maintenance item"
+    data_element: WAPOS
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: LAUFN
+    description: "Order number"
+    data_element: LAUFN
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: OBKNR
+    description: "Object list number"
+    data_element: OBJKNR
+    check_table: SER00
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: REVNR
+    description: "Revision for Plant Maintenance and Customer Service"
+    data_element: REVNI
+    check_table: T352R
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: ADDAT
+    description: "PM Order: Reference Date"
+    data_element: ADDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ADUHR
+    description: "Time of Reference Date"
+    data_element: ADUHR
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: IPHAS
+    description: "Maintenance Processing Phase"
+    data_element: PM_PHASE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ILART
+    description: "Maintenance activity type"
+    data_element: ILA
+    check_table: T353I
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: QMNUM
+    description: "Notification No"
+    data_element: QMNUM
+    check_table: QMEL
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: HISDA
+    description: "PM request: History date"
+    data_element: HISDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AKKNZ
+    description: "Order Category Indicator Plant Maintenance"
+    data_element: AKKNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLKNZ
+    description: "Maintenance order planning indicator"
+    data_element: AUF_PLKNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SERIALNR
+    description: "Serial Number"
+    data_element: GERNR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: SERMAT
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: DEVICEID
+    description: "Additional Device Data"
+    data_element: DEVICEID
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: SCREENTY
+    description: "Scenario or Subscreen Category"
+    data_element: SCRTP
+    check_table: TQBT
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ADPSP
+    description: "Reference Element PM/PS"
+    data_element: ADDCOMPARE_CORE
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: RSUPG
+    description: "Upgrade Order Indicator"
+    data_element: RSUPG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: /ISDFPS/OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ~
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: /ISDFPS/MEQUI
+    description: "Master Equipment"
+    data_element: /ISDFPS/MEQUI
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: UII
+    description: "Unique Item Identifier"
+    data_element: UII_CHAR72
+    check_table: ~
+    datatype: CHAR
+    length: 72
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: ANLZU
+    check_table: T357M
+    check_field: ANLZU
+  - field: APGRP
+    check_table: T024A
+    check_field: WERKS
+  - field: APGRP
+    check_table: T024A
+    check_field: FEVOR
+  - field: ARTPR
+    check_table: T356A
+    check_field: ARTPR
+  - field: AUFNR
+    check_table: AUFK
+    check_field: AUFNR
+  - field: BAUTL
+    check_table: MARA
+    check_field: MATNR
+  - field: EQUNR
+    check_table: EQUI
+    check_field: EQUNR
+  - field: GAUEH
+    check_table: T006
+    check_field: MSEHI
+  - field: GEWRK
+    check_table: CRID
+    check_field: OBJID
+  - field: GEWRK
+    check_table: CRID
+    check_field: OBJTY
+  - field: ILART
+    check_table: T353I
+    check_field: ILART
+  - field: ILOAN
+    check_table: ILOA
+    check_field: ILOAN
+  - field: INGPR
+    check_table: T024I
+    check_field: INGRP
+  - field: INGPR
+    check_table: T024I
+    check_field: IWERK
+  - field: IWERK
+    check_table: T399I
+    check_field: IWERK
+  - field: KUNUM
+    check_table: KNA1
+    check_field: KUNNR
+  - field: LAUFN
+    check_table: AUFK
+    check_field: AUFNR
+  - field: OBKNR
+    check_table: SER00
+    check_field: OBKNR
+  - field: PRIOK
+    check_table: T356
+    check_field: ARTPR
+  - field: PRIOK
+    check_table: T356
+    check_field: PRIOK
+  - field: QMNUM
+    check_table: QMEL
+    check_field: QMNUM
+  - field: REVNR
+    check_table: T352R
+    check_field: REVNR
+  - field: REVNR
+    check_table: T352R
+    check_field: IWERK
+  - field: SCREENTY
+    check_table: TQBT
+    check_field: SCREENTY
+  - field: SERMAT
+    check_table: MARA
+    check_field: MATNR
+  - field: WARPL
+    check_table: MPLA
+    check_field: WARPL
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

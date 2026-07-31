@@ -1,0 +1,2215 @@
+table: QALS
+module: QM
+description: "Inspection lot record — THE quality spine table. One row per inspection lot: origin, status bitfield, sampling, usage decision, quantities posted, full account assignment."
+source: https://leanx.eu/en/sap/table/qals.html
+fields:
+  - name: MANDANT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: PRUEFLOS
+    description: "Inspection Lot Number"
+    data_element: QPLOS
+    check_table: ~
+    datatype: NUMC
+    length: 12
+    decimals: 0
+    key: true
+  - name: WERK
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: ART
+    description: "Inspection Type"
+    data_element: QPART
+    check_table: TQ30
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: true
+  - name: HERKUNFT
+    description: "Inspection Lot Origin"
+    data_element: QHERK
+    check_table: TQ31
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: true
+  - name: OBTYP
+    description: "Object Category"
+    data_element: J_OBTYP
+    check_table: TJ03
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: true
+  - name: STSMA
+    description: "Status Profile"
+    data_element: J_STSMA
+    check_table: TJ20
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: true
+  - name: QMATAUTH
+    description: "Material Authorization Group for Activities in QM"
+    data_element: QMATAUTH
+    check_table: TQ01B
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: true
+  - name: STAT11
+    description: "GR blocked stock"
+    data_element: KZWES
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: INSMK
+    description: "Quantity Is or Was in Inspection Stock"
+    data_element: QVINSMK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT01
+    description: "Inspection Lot is Created Automatically"
+    data_element: QSTAT01
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT02
+    description: "Partial Lots Exist"
+    data_element: QKZQALT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT04
+    description: "Data Record Was Changed Using Customer Exit"
+    data_element: QUSER_EXIT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT06
+    description: "Record Appraisal Costs in Individual QM Order"
+    data_element: QKZPRFKOST
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT07
+    description: "Inspection with Inspection Points"
+    data_element: QKZFERTPRF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT08
+    description: "Automatic Usage Decision Planned"
+    data_element: QAUTO_VE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT09
+    description: "Source Inspection"
+    data_element: QABNAHMPRF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT10
+    description: "Inspection Specifications from Configuration"
+    data_element: QCONF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT14
+    description: "Completion of Short-Term Inspection"
+    data_element: QSTAT14
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT16
+    description: "Inspection Specifications from Batch Determination"
+    data_element: QCHARG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT18
+    description: "Control of Inspection Lot Creation (Lot Summary)"
+    data_element: Q1WELOS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT19
+    description: "Documentation Required for Inspection Lot"
+    data_element: QSTAT19
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT20
+    description: "Inspection Plan Required"
+    data_element: QSTAT20
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT21
+    description: "Enter Sample Manually"
+    data_element: QSTAT21
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT22
+    description: "Inspect with Material Specification"
+    data_element: QSPEZUEBER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT23
+    description: "Inspection Lot Approval"
+    data_element: QKZGENLOS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT24
+    description: "Digital Signature for Insp. Lot in Results Recording"
+    data_element: SIG_IL_RES
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT25
+    description: "Digital Signature for Insp. Lot when Usage Decision Made"
+    data_element: SIG_IL_USA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT29
+    description: "Digital Signature for Confirmation of Phys.-Sample Drawing"
+    data_element: SIG_IL_SDR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT26
+    description: "Indicator: Approved batch record required"
+    data_element: XGCHP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT27
+    description: "Inspection Lot is an R/2 Inspection Lot"
+    data_element: QSTAT27
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT28
+    description: "Select Characteristics Manually"
+    data_element: QSTAT28
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT31
+    description: "Trigger Sample Calculation Manually"
+    data_element: QSTAT31
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT34
+    description: "Stock Postings Completed"
+    data_element: QSTAT34
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT35
+    description: "Usage Decision Has Been Made"
+    data_element: QSTAT35
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT45
+    description: "Material as Dynamic Modification Criterion"
+    data_element: QSTAT45
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT46
+    description: "Vendor as Dynamic Modification Criterion"
+    data_element: QSTAT46
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT47
+    description: "Manufacturer as Dynamic Modification Criterion"
+    data_element: QSTAT47
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT48
+    description: "Customer as Dynamic Modification Criterion"
+    data_element: QSTAT48
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT49
+    description: "Machine as Dynamic Modification Criterion"
+    data_element: QSTAT49
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT50
+    description: "Project as Dynamic Modification Criterion"
+    data_element: QSTAT50
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZSKIPLOT
+    description: "Lot Skipped"
+    data_element: QKZSKIPLOT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DYN
+    description: "Skips Allowed"
+    data_element: QDYN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: HPZ
+    description: "100% Inspection"
+    data_element: QHPZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EIN
+    description: "Serial Number Management Possible"
+    data_element: QEINZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ANZSN
+    description: "Number of serial numbers"
+    data_element: ANZSN
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: KZDYNERF
+    description: "Dynamic Modification Is Carried Out"
+    data_element: QKZDYNERF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DYNHEAD
+    description: "Level at Which Dynamic Modification Parameters Are Defined"
+    data_element: QDYNHEAD
+    check_table: TQ39A
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STPRVER
+    description: "Sampling Procedure"
+    data_element: QSTPRVER
+    check_table: QDSV
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: EXTNUM
+    description: "External Numbering of Units to be Inspected"
+    data_element: QEXTNUM
+    check_table: TQ12
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAFO
+    description: "Update group for statistics update"
+    data_element: STAFO
+    check_table: TMCB
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: STAT30
+    description: "Origin of Inspection Lot Unit of Measure for LIS Interface"
+    data_element: QUNITORIGIN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QINFSTATUS
+    description: "QINF Status"
+    data_element: QINFSTATUS
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: ENSTEHDAT
+    description: "Date of Lot Creation"
+    data_element: QENTST
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ENTSTEZEIT
+    description: "Time of Lot Creation"
+    data_element: QENTSTZEIT
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: ERSTELLER
+    description: "Name of User Who Created the Data Record"
+    data_element: QERSTELLER
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERSTELDAT
+    description: "Date on Which the Data Record Was Created"
+    data_element: QDATUMERST
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERSTELZEIT
+    description: "Time of Lot Creation"
+    data_element: QERSTEZEIT
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: AENDERER
+    description: "Name of User who Most Recently Changed the Data Record"
+    data_element: QAENDERER
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AENDERDAT
+    description: "Date on Which Data Record Was Changed"
+    data_element: QDATUMAEND
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENDERZEIT
+    description: "Time of Lot Change"
+    data_element: QAENDEZEIT
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: PASTRTERM
+    description: "Inspection Start Date"
+    data_element: QPRSTART
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PASTRZEIT
+    description: "Inspection Start Time"
+    data_element: QSTARTZEIT
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: PAENDTERM
+    description: "End Date of the Inspection"
+    data_element: QPRENDE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PAENDZEIT
+    description: "Inspection End Time"
+    data_element: QENDEZEIT
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: PLNTY
+    description: "Task List Type"
+    data_element: PLNTY
+    check_table: TCA01
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLNNR
+    description: "Key for Task List Group"
+    data_element: PLNNR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: PPLVERW
+    description: "Task list usage"
+    data_element: PLN_VERWE
+    check_table: T411
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: PLNAL
+    description: "Group Counter"
+    data_element: PLNAL
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ZAEHL
+    description: "Internal counter"
+    data_element: CIM_COUNT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: ZKRIZ
+    description: "Counter for additional criteria"
+    data_element: DZKRIZ
+    check_table: ~
+    datatype: NUMC
+    length: 7
+    decimals: 0
+    key: false
+  - name: STAT15
+    description: "Production Resource/Tool Saved for Insp. Lot"
+    data_element: QFHM_MODE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SLWBEZ
+    description: "Identification for the Inspection Point Field Combination"
+    data_element: QSLWBEZ
+    check_table: TQ79
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: STAT13
+    description: "Inspection Point Type"
+    data_element: QPPKTTYP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PPKZTLZU
+    description: "Partial Lot Assignment in an Inspection During Production"
+    data_element: QPPKZTLZU
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZAEHL1
+    description: "Internal counter"
+    data_element: CIM_COUNT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: PRBNAVERF
+    description: "Sample-Drawing Procedure"
+    data_element: QPRZIEHVER
+    check_table: QPRVK
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: PRBNAVV
+    description: "Version No. of the Sample-Drawing Procedure"
+    data_element: QVERSNPRZV
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: STAT12
+    description: "Confirmation Required for Physical-Sample Drawing"
+    data_element: QKZQUIT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SELMATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: SELREVLV
+    description: "Revision Level"
+    data_element: REVLV
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: SELWERK
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SELLIFNR
+    description: "Vendor Account Number"
+    data_element: ELIFN
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: STAT17
+    description: "Manufacturer Part No. Processing Active"
+    data_element: QHERST
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SELHERST
+    description: "Number of Manufacturer"
+    data_element: QLIFNR
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SELKUNNR
+    description: "Account Number of Customer"
+    data_element: EKUNN
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SELPPLVERW
+    description: "Task list usage"
+    data_element: PLN_VERWE
+    check_table: T411
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: GUELTIGAB
+    description: "Key Date for Selecting Records or Changing Task Lists"
+    data_element: QSTICHTAG
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AUFNR
+    description: "Order Number"
+    data_element: AUFNR
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AUFPL
+    description: "Routing number of operations in the order"
+    data_element: CO_AUFPL
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: CUOBJ
+    description: "Configuration (internal object number)"
+    data_element: CUOBJ
+    check_table: ~
+    datatype: NUMC
+    length: 18
+    decimals: 0
+    key: false
+  - name: CUOBJ_CH
+    description: "Internal object number of the batch classification"
+    data_element: CUOBJ_CH
+    check_table: ~
+    datatype: NUMC
+    length: 18
+    decimals: 0
+    key: false
+  - name: VERID
+    description: "Production Version"
+    data_element: VERID
+    check_table: MKAL
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SA_AUFNR
+    description: "Run schedule header number"
+    data_element: SA_AUFNR
+    check_table: SAFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: KUNNR
+    description: "Customer (Ship-To Party)"
+    data_element: QKUNWE
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LIFNR
+    description: "Vendor Account Number"
+    data_element: ELIFN
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: HERSTELLER
+    description: "Number of Manufacturer"
+    data_element: QLIFNR
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: EMATNR
+    description: "Material Number Corresponding to Manufacturer Part Number"
+    data_element: EMATN
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: REVLV
+    description: "Revision Level"
+    data_element: REVLV
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: XCHPF
+    description: "Batch management requirement indicator"
+    data_element: XCHPF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CHARG
+    description: "Batch Number"
+    data_element: CHARG_D
+    check_table: MCH1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LAGORTCHRG
+    description: "Storage Location"
+    data_element: LGORT_D
+    check_table: MCHB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ZEUGNISBIS
+    description: "Valid-To Date for The Batch Certificate"
+    data_element: QZEUGBIS
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: VFDAT
+    description: "Shelf Life Expiration or Best-Before Date"
+    data_element: VFDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: LICHN
+    description: "Vendor Batch Number"
+    data_element: LICHN
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: SOBKZ
+    description: "Special Stock Indicator"
+    data_element: SOBKZ
+    check_table: T148
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PS_PSP_PNR
+    description: "Valuated Sales Order Stock WBS Element"
+    data_element: MAT_PSPNR
+    check_table: PRPS
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: KDAUF
+    description: "Sales Order Number of Valuated Sales Order Stock"
+    data_element: MAT_KDAUF
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KDPOS
+    description: "Sales Order Item of Valuated Sales Order Stock"
+    data_element: MAT_KDPOS
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: EKORG
+    description: "Purchasing Organization"
+    data_element: EKORG
+    check_table: T024E
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: EBELN
+    description: "Purchasing Document Number"
+    data_element: EBELN
+    check_table: EKKO
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: EBELP
+    description: "Item Number of Purchasing Document"
+    data_element: EBELP
+    check_table: EKPO
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: ETENR
+    description: "Delivery Schedule Line Counter"
+    data_element: EETEN
+    check_table: EKET
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: BLART
+    description: "Document Type"
+    data_element: BLART
+    check_table: T003
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: MJAHR
+    description: "Material Document Year"
+    data_element: MJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: MBLNR
+    description: "Number of Material Document"
+    data_element: MBLNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ZEILE
+    description: "Item in Material Document"
+    data_element: MBLPO
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: BUDAT
+    description: "Posting Date in the Document"
+    data_element: BUDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BWART
+    description: "Movement Type (Inventory Management)"
+    data_element: BWART
+    check_table: T156
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: WERKVORG
+    description: "Plant Where Stock for Inspection Lot Is Held"
+    data_element: QWERKVORG
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LAGORTVORG
+    description: "Storage Location for Inspection Lot Stock"
+    data_element: QLGORTVORG
+    check_table: T001L
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LGNUM
+    description: "Warehouse Number / Warehouse Complex"
+    data_element: LGNUM
+    check_table: T300
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LGTYP
+    description: "Storage Type"
+    data_element: LGTYP
+    check_table: T301
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LGPLA
+    description: "Storage Bin"
+    data_element: LGPLA
+    check_table: LAGP
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LS_KDAUF
+    description: "Sales Order Number"
+    data_element: KDAUF
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LS_KDPOS
+    description: "Item Number in Sales Order"
+    data_element: KDPOS
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: LS_VBELN
+    description: "Delivery"
+    data_element: VBELN_VL
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LS_POSNR
+    description: "Delivery Item"
+    data_element: POSNR_VL
+    check_table: VBUP
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: LS_ABRVW
+    description: "Delivery Category"
+    data_element: QABRVW
+    check_table: TVLV
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LS_ROUTE
+    description: "Route"
+    data_element: ROUTE
+    check_table: TVRO
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: LS_LLAND
+    description: "Country of Destination"
+    data_element: LLAND
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LS_KUNAG
+    description: "Sold-to party"
+    data_element: KUNAG
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LS_VKORG
+    description: "Sales Organization"
+    data_element: VKORG
+    check_table: TVKO
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LS_KDMAT
+    description: "Material belonging to the customer"
+    data_element: KDMAT
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: SPRACHE
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: KTEXTLOS
+    description: "Short Text"
+    data_element: QKURZTEXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: LTEXTKZ
+    description: "Long Text Exists For Inspection Lot"
+    data_element: QLTEXTLOS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KTEXTMAT
+    description: "Short Text for Inspection Object"
+    data_element: QKTEXTOBJ
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: ZUSMKZAEHL
+    description: "Number of Characteristics Recorded Additionally"
+    data_element: QZUSMKZHL
+    check_table: ~
+    datatype: INT2
+    length: 5
+    decimals: 0
+    key: false
+  - name: OFFENNLZMK
+    description: "Number of Outstanding Short-Term Chars Which Require Conf."
+    data_element: QOFFENLZMK
+    check_table: ~
+    datatype: INT2
+    length: 5
+    decimals: 0
+    key: false
+  - name: OFFEN_LZMK
+    description: "Number of Outstanding Long-Term Chars Which Require Conf."
+    data_element: QOFFELZMK
+    check_table: ~
+    datatype: INT2
+    length: 5
+    decimals: 0
+    key: false
+  - name: LOSMENGE
+    description: "Inspection Lot Quantity"
+    data_element: QLOSMENGE
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: MENGENEINH
+    description: "Base Unit of Measure for The Inspection Lot Quantity"
+    data_element: QLOSMENGEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ANZGEB
+    description: "QM - No. of Containers"
+    data_element: QANZGEB
+    check_table: ~
+    datatype: QUAN
+    length: 6
+    decimals: 3
+    key: false
+  - name: GEBEH
+    description: "Lot Container"
+    data_element: QGEBEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: LVS_STIKZ
+    description: "Indicator: what has happened to insp.sample (QM) in WM"
+    data_element: LVS_STIKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LVS_STIMG
+    description: "Sample in base unit of measure provided by WM"
+    data_element: LVS_STIMG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: GESSTICHPR
+    description: "Sample Size"
+    data_element: QGESTICH
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: EINHPROBE
+    description: "Base Unit of Measure for the Sample Unit"
+    data_element: QPROBEMGEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: DYNREGEL
+    description: "Dynamic Modification Rule"
+    data_element: QDDR
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: STAT44
+    description: "Time of Dynamic Modification in Inspection Lot"
+    data_element: QDYNTIME
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PRSTUFE
+    description: "Inspection Stage"
+    data_element: QPRSTUFE
+    check_table: QDPS
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: PRSCHAERFE
+    description: "Inspection Severity"
+    data_element: QPRSCHAERF
+    check_table: QDEP
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: LMENGE01
+    description: "Quantity Posted to Unrestricted-Use Stock"
+    data_element: QLMENGE01F
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LMENGE02
+    description: "Quantity Posted to Scrap"
+    data_element: QLMENGE02F
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LMENGE03
+    description: "Quantity Posted to Sample"
+    data_element: QLMENGE03F
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LMENGE04
+    description: "Quantity Posted to Blocked Stock"
+    data_element: QLMENGE04F
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LMENGE05
+    description: "Quantity Posted to Reserves"
+    data_element: QLMENGE05F
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LMENGE06
+    description: "Quantity Posted to Another Material"
+    data_element: QLMENGE06F
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: MATNRNEU
+    description: "Material Number to Which the Quantity is Posted"
+    data_element: QMATNRNEU
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: CHARGNEU
+    description: "Batch to Which Goods Are Transferred"
+    data_element: QCHARGNEU
+    check_table: MCH1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LMENGE07
+    description: "Quantity Returned to Vendor"
+    data_element: QLMENGE07F
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LMENGE08
+    description: "Other Quantity Posted from Inspection Lot Stock"
+    data_element: QLMENGE08F
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LMENGE09
+    description: "Other Quantity (2) Posted from Inspection Lot Stock"
+    data_element: QLMENGE09F
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LMENGEZUB
+    description: "Quantity That Must Be Posted"
+    data_element: QLMENGEZUB
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LMENGELZ
+    description: "Sample Quantity for Long-Term Characteristics"
+    data_element: QLMENGELZ
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LMENGEPR
+    description: "Quantity Actually Inspected"
+    data_element: QLMENGEPR
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LMENGEZER
+    description: "Quantity Destroyed During Inspection"
+    data_element: QLMENGEZER
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LMENGEIST
+    description: "Actual Lot Quantity"
+    data_element: QLMENGEIST
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LMENGESCH
+    description: "Defective Quantity in Inspected Quantity"
+    data_element: QLMENGESCH
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LTEXTKZBB
+    description: "Logs Exist for Usage Decision"
+    data_element: QLTEXTKZBB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ANTEIL
+    description: "Share of Scrap in Inspection Lot"
+    data_element: QAUSANTEIL
+    check_table: ~
+    datatype: DEC
+    length: 16
+    decimals: 3
+    key: false
+  - name: QKZVERF
+    description: "Procedure for Calculating Quality Score"
+    data_element: QKZVERF
+    check_table: TQ06
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: STAT03
+    description: "Usage Decision Mmode (UD Origin)"
+    data_element: QMODUS_UD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QPMATLOS
+    description: "Allowed Share of Scrap"
+    data_element: QPMATLOS
+    check_table: ~
+    datatype: DEC
+    length: 16
+    decimals: 3
+    key: false
+  - name: AUFNR_CO
+    description: "Order Number for Recording Appraisal Costs"
+    data_element: QAUFNR_CO
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: KZVBR
+    description: "Consumption Posting"
+    data_element: KZVBR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KNTTP
+    description: "Account Assignment Category"
+    data_element: KNTTP
+    check_table: T163K
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PSTYP
+    description: "Item Category in Purchasing Document"
+    data_element: PSTYP
+    check_table: T163
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT05
+    description: "Account Assignment Key: Inspection Lot"
+    data_element: QKZQALSKNT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KOSTL
+    description: "Cost Center"
+    data_element: KOSTL
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AUFPS
+    description: "Item Number of Reservation/Dependent Requirement"
+    data_element: RSPOS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: ANLN1
+    description: "Main Asset Number"
+    data_element: ANLN1
+    check_table: ANLH
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ANLN2
+    description: "Asset Subnumber"
+    data_element: ANLN2
+    check_table: ANLA
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KONT_PSPNR
+    description: "Work Breakdown Structure Element (WBS Element)"
+    data_element: PS_PSP_PNR
+    check_table: PRPS
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: NPLNR
+    description: "Network Number for Account Assignment"
+    data_element: NPLNR
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: APLZL
+    description: "Internal counter"
+    data_element: CIM_COUNT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: KONT_KDAUF
+    description: "Sales Order Number"
+    data_element: KDAUF
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KONT_KDPOS
+    description: "Item Number in Sales Order"
+    data_element: KDPOS
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: IMKEY
+    description: "Internal Key for Real Estate Object"
+    data_element: IMKEY
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: DABRZ
+    description: "Reference Date for Settlement"
+    data_element: DABRBEZ
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: KSTRG
+    description: "Cost Object"
+    data_element: KSTRG
+    check_table: CKPH
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: PAOBJNR
+    description: "Profitability Segment Number (CO-PA)"
+    data_element: RKEOBJNR
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: PRCTR
+    description: "Profit Center"
+    data_element: PRCTR
+    check_table: CEPC
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: GSBER
+    description: "Business Area"
+    data_element: GSBER
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KONTO
+    description: "G/L Account Number"
+    data_element: SAKNR
+    check_table: SKA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SERNP
+    description: "Serial Number Profile"
+    data_element: SERAIL
+    check_table: T377P
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LOS_REF
+    description: "Inspection Lot Number Which Is Referenced"
+    data_element: QLOS_REF
+    check_table: QALS
+    datatype: NUMC
+    length: 12
+    decimals: 0
+    key: false
+  - name: BEARBSTATU
+    description: "Field Not Used as of 3.0 Field Reserved for SAP"
+    data_element: Q_UNUSED02
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: STAT32
+    description: "Inspection lot for stability study"
+    data_element: QSTABI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT33
+    description: "Indicator: Multiple Specifications"
+    data_element: Q_MS_FLG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT36
+    description: "Field Not Used as of 3.0 Field Reserved for SAP"
+    data_element: Q_UNUSED01
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT37
+    description: "Field Not Used as of 3.0 Field Reserved for SAP"
+    data_element: Q_UNUSED01
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT38
+    description: "Field Not Used as of 3.0 Field Reserved for SAP"
+    data_element: Q_UNUSED01
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT39
+    description: "Field Not Used as of 3.0 Field Reserved for SAP"
+    data_element: Q_UNUSED01
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT40
+    description: "Field Not Used as of 3.0 Field Reserved for SAP"
+    data_element: Q_UNUSED01
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT41
+    description: "Field Not Used as of 3.0 Field Reserved for SAP"
+    data_element: Q_UNUSED01
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT42
+    description: "Field Not Used as of 3.0 Field Reserved for SAP"
+    data_element: Q_UNUSED01
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT43
+    description: "Field Not Used as of 3.0 Field Reserved for SAP"
+    data_element: Q_UNUSED01
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MENGU
+    description: "Field Not Used as of 3.0 Field Reserved for SAP"
+    data_element: Q_UNUSED01
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZPZADR
+    description: "Field Not Used as of 3.0 Field Reserved for SAP"
+    data_element: Q_UNUSED01
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZPRADR
+    description: "Field Not Used as of 3.0 Field Reserved for SAP"
+    data_element: Q_UNUSED01
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZUSCH
+    description: "Field Not Used as of 3.0 Field Reserved for SAP"
+    data_element: Q_UNUSED01
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZUSTD
+    description: "Field Not Used as of 3.0 Field Reserved for SAP"
+    data_element: Q_UNUSED01
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZERSTLIEF
+    description: "Field Not Used as of 3.0 Field Reserved for SAP"
+    data_element: Q_UNUSED01
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZERSTMUST
+    description: "Field Not Used as of 3.0 Field Reserved for SAP"
+    data_element: Q_UNUSED01
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ADDON_DUMMY
+    description: "Dummy Field for ADDON Structures in QM"
+    data_element: QDUMMY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WARPL
+    description: "Maintenance Plan"
+    data_element: WARPL
+    check_table: MPLA
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: WAPOS
+    description: "Maintenance item"
+    data_element: WAPOS
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: ABNUM
+    description: "Maintenance Plan Call Number"
+    data_element: ABNUM
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: STRAT
+    description: "Maintenance strategy"
+    data_element: STRAT
+    check_table: T351
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: TRIALID
+    description: "Trial Number"
+    data_element: RMXTE_TRIALID
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: RESPONSIBLE
+    description: "Responsible"
+    data_element: ESEREALO
+    check_table: ~
+    datatype: CHAR
+    length: 45
+    decimals: 0
+    key: false
+  - name: INSP_DOC_NUMBER
+    description: "Inspection Document Number from External System"
+    data_element: QINSP_DOC_NUMBER
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: LOG_SYSTEM
+    description: "Logical system"
+    data_element: LOGSYS
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: GESSTICHPR_EXT
+    description: "Sample Size from External System"
+    data_element: QGESTICH_EXT
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: EINHPROBE_EXT
+    description: "Unit of Measure of External Sample"
+    data_element: QPROBEMGEH_EXT
+    check_table: ~
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: PRIO_PUNKTE
+    description: "Priority Points"
+    data_element: QPRIO_PUNKTE
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: SIGN_TYPE_RR
+    description: "Signature Type: Inspection Lot Results Recording"
+    data_element: SIGN_TYPE_RR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SIGN_TYPE_UD
+    description: "Signature Type: Inspection Lot Usage Decision"
+    data_element: SIGN_TYPE_UD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SIGN_TYPE_SM
+    description: "Signature Type: Physical-Sample Drawing"
+    data_element: SIGN_TYPE_SM
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SIGNSTRAT_RR
+    description: "Signature Strategy: Inspection Lot Results Recording"
+    data_element: SIGNSTRAT_RR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: SIGNSTRAT_UD
+    description: "Signature Strategy with Individual Signature: Usage Decision"
+    data_element: SIGNSTRAT_UD
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: SIGNSTRAT_SM
+    description: "Signature Strategy w. Ind.Signature: Physical-Sample Drawing"
+    data_element: SIGNSTRAT_SM
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: ANLN1
+    check_table: ANLH
+    check_field: ANLN1
+  - field: ANLN2
+    check_table: ANLA
+    check_field: ANLN1
+  - field: ANLN2
+    check_table: ANLA
+    check_field: ANLN2
+  - field: ART
+    check_table: TQ30
+    check_field: ART
+  - field: AUFNR
+    check_table: AUFK
+    check_field: AUFNR
+  - field: AUFNR_CO
+    check_table: AUFK
+    check_field: AUFNR
+  - field: BLART
+    check_table: T003
+    check_field: BLART
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: BWART
+    check_table: T156
+    check_field: BWART
+  - field: CHARG
+    check_table: MCH1
+    check_field: MATNR
+  - field: CHARG
+    check_table: MCH1
+    check_field: CHARG
+  - field: CHARGNEU
+    check_table: MCH1
+    check_field: MATNR
+  - field: CHARGNEU
+    check_table: MCH1
+    check_field: CHARGNEU
+  - field: DYNHEAD
+    check_table: TQ39A
+    check_field: DYNLEVEL
+  - field: DYNREGEL
+    check_table: QDDR
+    check_field: DYNREGEL
+  - field: EBELN
+    check_table: EKKO
+    check_field: EBELN
+  - field: EBELP
+    check_table: EKPO
+    check_field: EBELN
+  - field: EBELP
+    check_table: EKPO
+    check_field: EBELP
+  - field: EINHPROBE
+    check_table: T006
+    check_field: MSEHI
+  - field: EKORG
+    check_table: T024E
+    check_field: EKORG
+  - field: EMATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: ETENR
+    check_table: EKET
+    check_field: EBELN
+  - field: ETENR
+    check_table: EKET
+    check_field: EBELP
+  - field: ETENR
+    check_table: EKET
+    check_field: ETENR
+  - field: EXTNUM
+    check_table: TQ12
+    check_field: EXTNUM
+  - field: GEBEH
+    check_table: T006
+    check_field: MSEHI
+  - field: GSBER
+    check_table: TGSB
+    check_field: GSBER
+  - field: HERKUNFT
+    check_table: TQ31
+    check_field: HERKUNFT
+  - field: HERSTELLER
+    check_table: LFA1
+    check_field: LIFNR
+  - field: KDAUF
+    check_table: VBUK
+    check_field: VBELN
+  - field: KNTTP
+    check_table: T163K
+    check_field: KNTTP
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: KONTO
+    check_table: SKA1
+    check_field: KTOPL
+  - field: KONTO
+    check_table: SKA1
+    check_field: SAKNR
+  - field: KONT_KDAUF
+    check_table: VBUK
+    check_field: VBELN
+  - field: KONT_PSPNR
+    check_table: PRPS
+    check_field: PSPNR
+  - field: KOSTL
+    check_table: CSKS
+    check_field: KOKRS
+  - field: KOSTL
+    check_table: CSKS
+    check_field: KOSTL
+  - field: KSTRG
+    check_table: CKPH
+    check_field: KSTRG
+  - field: KUNNR
+    check_table: KNA1
+    check_field: KUNNR
+  - field: LAGORTCHRG
+    check_table: MCHB
+    check_field: MATNR
+  - field: LAGORTCHRG
+    check_table: MCHB
+    check_field: WERKS
+  - field: LAGORTCHRG
+    check_table: MCHB
+    check_field: LGORT
+  - field: LAGORTCHRG
+    check_table: MCHB
+    check_field: CHARG
+  - field: LAGORTVORG
+    check_table: T001L
+    check_field: WERKS
+  - field: LAGORTVORG
+    check_table: T001L
+    check_field: LGORT
+  - field: LGNUM
+    check_table: T300
+    check_field: LGNUM
+  - field: LGPLA
+    check_table: LAGP
+    check_field: LGNUM
+  - field: LGPLA
+    check_table: LAGP
+    check_field: LGTYP
+  - field: LGPLA
+    check_table: LAGP
+    check_field: LGPLA
+  - field: LGTYP
+    check_table: T301
+    check_field: LGNUM
+  - field: LGTYP
+    check_table: T301
+    check_field: LGTYP
+  - field: LIFNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: LOS_REF
+    check_table: QALS
+    check_field: PRUEFLOS
+  - field: LS_ABRVW
+    check_table: TVLV
+    check_field: ABRVW
+  - field: LS_KDAUF
+    check_table: VBUK
+    check_field: VBELN
+  - field: LS_KUNAG
+    check_table: KNA1
+    check_field: KUNNR
+  - field: LS_LLAND
+    check_table: T005
+    check_field: LAND1
+  - field: LS_POSNR
+    check_table: VBUP
+    check_field: VBELN
+  - field: LS_POSNR
+    check_table: VBUP
+    check_field: POSNR
+  - field: LS_ROUTE
+    check_table: TVRO
+    check_field: ROUTE
+  - field: LS_VBELN
+    check_table: VBUK
+    check_field: VBELN
+  - field: LS_VKORG
+    check_table: TVKO
+    check_field: VKORG
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: MATNRNEU
+    check_table: MARA
+    check_field: MATNR
+  - field: MENGENEINH
+    check_table: T006
+    check_field: MSEHI
+  - field: NPLNR
+    check_table: AUFK
+    check_field: AUFNR
+  - field: OBJNR
+    check_table: ONR00
+    check_field: OBJNR
+  - field: OBTYP
+    check_table: TJ03
+    check_field: OBTYP
+  - field: PLNTY
+    check_table: TCA01
+    check_field: PLNTY
+  - field: PPLVERW
+    check_table: T411
+    check_field: VERWE
+  - field: PRBNAVERF
+    check_table: QPRVK
+    check_field: PRZIEHVERF
+  - field: PRBNAVERF
+    check_table: QPRVK
+    check_field: VERSION
+  - field: PRCTR
+    check_table: CEPC
+    check_field: PRCTR
+  - field: PRSCHAERFE
+    check_table: QDEP
+    check_field: PRSCHAERFE
+  - field: PRSTUFE
+    check_table: QDPS
+    check_field: DYNREGEL
+  - field: PRSTUFE
+    check_table: QDPS
+    check_field: PRSTUFE
+  - field: PSTYP
+    check_table: T163
+    check_field: PSTYP
+  - field: PS_PSP_PNR
+    check_table: PRPS
+    check_field: PSPNR
+  - field: QKZVERF
+    check_table: TQ06
+    check_field: QKZVERF
+  - field: QMATAUTH
+    check_table: TQ01B
+    check_field: QMATAUTH
+  - field: SA_AUFNR
+    check_table: SAFK
+    check_field: AUFNR
+  - field: SELHERST
+    check_table: LFA1
+    check_field: LIFNR
+  - field: SELKUNNR
+    check_table: KNA1
+    check_field: KUNNR
+  - field: SELMATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: SELPPLVERW
+    check_table: T411
+    check_field: VERWE
+  - field: SELWERK
+    check_table: T001W
+    check_field: WERKS
+  - field: SERNP
+    check_table: T377P
+    check_field: SERAIL
+  - field: SLWBEZ
+    check_table: TQ79
+    check_field: SLWBEZ
+  - field: SOBKZ
+    check_table: T148
+    check_field: SOBKZ
+  - field: SPRACHE
+    check_table: T002
+    check_field: SPRAS
+  - field: STAFO
+    check_table: TMCB
+    check_field: STAFO
+  - field: STPRVER
+    check_table: QDSV
+    check_field: STICHPRVER
+  - field: STRAT
+    check_table: T351
+    check_field: STRAT
+  - field: STSMA
+    check_table: TJ20
+    check_field: STSMA
+  - field: VERID
+    check_table: MKAL
+    check_field: MATNR
+  - field: VERID
+    check_table: MKAL
+    check_field: WERK
+  - field: VERID
+    check_table: MKAL
+    check_field: VERID
+  - field: WARPL
+    check_table: MPLA
+    check_field: WARPL
+  - field: WERK
+    check_table: T001W
+    check_field: WERKS
+  - field: WERKVORG
+    check_table: T001W
+    check_field: WERKS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -1,0 +1,399 @@
+table: MPLA
+module: PM
+description: "Maintenance plan header — defines a preventive maintenance strategy/cycle for scheduling recurring maintenance calls against equipment or functional locations."
+source: https://leanx.eu/en/sap/table/mpla.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: false
+  - name: WARPL
+    description: "Maintenance Plan"
+    data_element: WARPL
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: true
+  - name: ERKNZ
+    description: "Creation indicator"
+    data_element: ERKNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AEKNZ
+    description: "Change indicator"
+    data_element: AEKNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ERSDT
+    description: "Date of creation"
+    data_element: EDATUM
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: WPTXT
+    description: "Maintenance Plan Text"
+    data_element: WPTXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: STRAT
+    description: "Maintenance strategy"
+    data_element: STRAT
+    check_table: T351
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: ABRHO
+    description: "Scheduling Period"
+    data_element: ABRHO
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: EQUNR
+    description: "Equipment Number"
+    data_element: EQUNR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: TPLNR
+    description: "Functional Location"
+    data_element: TPLNR
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: KUNUM
+    description: "Customer Number"
+    data_element: KUNUM
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LTKNZ
+    description: "Long Text Indicator"
+    data_element: MPLTX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LVORM
+    description: "Indicator: maintenance plan locked against calls"
+    data_element: ABSTOP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ANZPS
+    description: "Number of maintenance items in the maintenance plan"
+    data_element: ANZMPOS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: ABNUM
+    description: "Maintenance Plan Call Number"
+    data_element: ABNUM
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: LANGU
+    description: "Language key of the long text"
+    data_element: MPLANGU
+    check_table: ~
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: VSPOS
+    description: "Shift Factor for Late Completion"
+    data_element: VERSCHPLUS
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: VSNEG
+    description: "Shift Factor for Early Completion"
+    data_element: VERSCHNEG
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: TOPOS
+    description: "Tolerance for Late Completion (%)"
+    data_element: TOLERPLUS
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: TONEG
+    description: "Tolerance for Early Completion (%)"
+    data_element: TOLERNEG
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: SFAKT
+    description: "Cycle modification factor"
+    data_element: SFAKT
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 2
+    key: false
+  - name: STICH
+    description: "Scheduling indicator"
+    data_element: TERMKNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TGOON
+    description: "Scheduling to reoccur when lead float reached"
+    data_element: TGON
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: HORIZ
+    description: "Call horizon for maintenance plan calls"
+    data_element: HORIZONT
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: HORIZ_DAYS
+    description: "Call horizon for maintenance plan calls"
+    data_element: HORIZONT
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: HORIZ_QUALIFIER
+    description: "Calculation Type of Call Horizon"
+    data_element: EAM_CC_CALLHORIZON_QUALIFIER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ANDOR
+    description: "Indicator for OR or AND link"
+    data_element: ANDOR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KNAUT
+    description: "Reserved"
+    data_element: KNZABR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BEGRU
+    description: "Technical object authorization group"
+    data_element: IAUTG
+    check_table: T370B
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ~
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: MPTYP
+    description: "Maintenance plan category"
+    data_element: MPTYP
+    check_table: T399W
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: HUNIT
+    description: "Unit in scheduling interval"
+    data_element: HUNIT
+    check_table: ~
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: STADT
+    description: "Start date"
+    data_element: STADT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: SZAEH
+    description: "Start counter reading"
+    data_element: SZAEHC
+    check_table: ~
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: CALL_CONFIRM
+    description: "Only Create New Call Object After Completing Predecessor"
+    data_element: CALL_CONFIRM
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLAN_SORT
+    description: "Sort field for maintenance plans"
+    data_element: PLAN_SORT
+    check_table: T399G
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: FABKL
+    description: "Factory calendar key"
+    data_element: FABKL
+    check_table: TFACD
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PUFFP
+    description: "Lead Float in Days"
+    data_element: PUFF_VORL
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: PUFFN
+    description: "Follow-up float in days"
+    data_element: PUFF_NACHL
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: START_DATE
+    description: "Start Date for Scheduling"
+    data_element: DATE_START
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: START_TIME
+    description: "Start Time for Scheduling"
+    data_element: TIME_START
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: CALL_UPDATE_IND
+    description: "Indicator for Adapting Basic Dates of Call Object"
+    data_element: IND_CALL_UPDATE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: IND_MPLA_API
+    description: "Maintenance Plan Was Created/Changed by API"
+    data_element: IND_MPLA_API
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: MCP_SF
+    description: "Shift Factor for Multiple Counter Plan"
+    data_element: MCP_SF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: BEGRU
+    check_table: T370B
+    check_field: BEGRU
+  - field: FABKL
+    check_table: TFACD
+    check_field: IDENT
+  - field: MPTYP
+    check_table: T399W
+    check_field: MPTYP
+  - field: PLAN_SORT
+    check_table: T399G
+    check_field: PLAN_SORT
+  - field: STRAT
+    check_table: T351
+    check_field: STRAT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

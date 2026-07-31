@@ -1,0 +1,439 @@
+table: IMPTT
+module: PM
+description: "Measuring point master — the sensor key surface. Defines a measurement or counter location on a piece of equipment or functional location."
+source: https://leanx.eu/en/sap/table/imptt.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: POINT
+    description: "Measuring Point"
+    data_element: IMRC_POINT
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: true
+  - name: MPOBJ
+    description: "Object Number for the Measuring Point Object"
+    data_element: IMRC_MPOBJ
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: true
+  - name: PSORT
+    description: "Position Number of the Object Measuring Point (Sort Field)"
+    data_element: IMRC_PSORT
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: true
+  - name: PSORTR
+    description: "Indicator: Position Number Comes From Reference MeasPoint"
+    data_element: IMRCRPSORT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PTTXT
+    description: "Description of Measuring Point"
+    data_element: IMRC_PTTXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: MLANG
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZLTX
+    description: "Indicator: Long text exists"
+    data_element: ILOM_KZLTX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MPTYP
+    description: "Measuring Point Category"
+    data_element: IMRC_MPTYP
+    check_table: T370P
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: IRFMP
+    description: "Indicator: MeasPoint Is a Reference Measuring Point"
+    data_element: IMRC_IRFMP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on which the object was created"
+    data_element: ICRDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of User Who Created the Object"
+    data_element: ICRNA
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Date on which the object was last changed"
+    data_element: IUPDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of the user who last changed the object"
+    data_element: IUPNA
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: BEGRU
+    description: "Technical object authorization group"
+    data_element: IAUTG
+    check_table: T370B
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: INACT
+    description: "Indicator: Measuring Point Inactive"
+    data_element: IMRC_INACT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LVORM
+    description: "Deletion Flag for 2-Level Deletion Logic"
+    data_element: IMRC_DEL2
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LOCAS
+    description: "Assembly for Localization of Measuring Point"
+    data_element: IMRC_LOCAS
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: REFMP
+    description: "Reference Meas.Pt"
+    data_element: IMRC_REFMP
+    check_table: IMPTT
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ATINN
+    description: "Internal characteristic"
+    data_element: ATINN
+    check_table: CABN
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: ATINNR
+    description: "Indicator: Charac Comes From Reference Measuring Point"
+    data_element: IMRCRATINN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EXPON
+    description: "Power of Ten Exponent for Floating Point Display"
+    data_element: IMRC_EXPON
+    check_table: ~
+    datatype: INT2
+    length: 5
+    decimals: 0
+    key: false
+  - name: DECIM
+    description: "Number of Decimal Places for Number Display"
+    data_element: IMRC_DECIM
+    check_table: ~
+    datatype: INT2
+    length: 5
+    decimals: 0
+    key: false
+  - name: DESIR
+    description: "Measuring Point Target Value"
+    data_element: IMRC_DESIR
+    check_table: ~
+    datatype: DEC
+    length: 16
+    decimals: 3
+    key: false
+  - name: DESIRI
+    description: "Indicator: Associated Number Field Contains a Value"
+    data_element: IVALU
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DESIRR
+    description: "Indicator: Target Value Comes From Reference Measuring Point"
+    data_element: IMRCRDESIR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DSTXT
+    description: "Aditional Short Text for Measuring Point"
+    data_element: IMRC_DSTXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: DSTXTR
+    description: "Indicator: Additional Text Comes From Reference MeasPoint"
+    data_element: IMRCRDSTXT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MRMIN
+    description: "Lower Measurement Range Limit/Minimum Total Counter Reading"
+    data_element: IMRC_MRMIN
+    check_table: ~
+    datatype: DEC
+    length: 16
+    decimals: 3
+    key: false
+  - name: MRMINI
+    description: "Indicator: Associated Number Field Contains a Value"
+    data_element: IVALU
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MRMAX
+    description: "Upper Measurement Range Limit/Maximum Total Counter Reading"
+    data_element: IMRC_MRMAX
+    check_table: ~
+    datatype: DEC
+    length: 16
+    decimals: 3
+    key: false
+  - name: MRMAXI
+    description: "Indicator: Associated Number Field Contains a Value"
+    data_element: IVALU
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MRNGU
+    description: "Measurement Range Unit"
+    data_element: IMRC_MRNGU
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: INDCT
+    description: "Indicator to Show that Measuring Point Is a Counter"
+    data_element: IMRC_INDCT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: INDRV
+    description: "Indicator: Counter Runs Backwards"
+    data_element: IMRC_INDRV
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: INDTR
+    description: "Indicator That Measurement Reading Transfer is Supported"
+    data_element: IMRC_INDTR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TRANS
+    description: "Measuring Point from Which Meas. Reading Was Transferred"
+    data_element: IMRC_TRANS
+    check_table: IMPTT
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: CJUMP
+    description: "Counter Overflow Reading in SI Unit"
+    data_element: IMRC_CJUMP
+    check_table: ~
+    datatype: DEC
+    length: 16
+    decimals: 3
+    key: false
+  - name: CJUMPI
+    description: "Indicator: Associated Number Field Contains a Value"
+    data_element: IVALU
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PYEAR
+    description: "Annual Estimate in SI Unit"
+    data_element: IMRC_PYEAR
+    check_table: ~
+    datatype: DEC
+    length: 16
+    decimals: 3
+    key: false
+  - name: PYEARI
+    description: "Indicator: Associated Number Field Contains a Value"
+    data_element: IVALU
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CODCT
+    description: "Catalog Type - Measurement Reading Valuation Code"
+    data_element: IMRC_CODCT
+    check_table: TQ15
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CODGR
+    description: "Code Group - Measurement Reading Valuation Code"
+    data_element: IMRC_CODGR
+    check_table: QPGR
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: CODGRR
+    description: "Indicator: Code Group Comes From Reference Measuring Point"
+    data_element: IMRCRCODGR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CDSUF
+    description: "Indicator: Valuation Code Sufficient for Measurmnt. Document"
+    data_element: IMRC_CDSUF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MODTR
+    description: "Mode of Counter Reading Transfer"
+    data_element: IMRC_MODTR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: INDTRR
+    description: "Indicator: Measurement Transfer Comes from Ref. Meas. Point"
+    data_element: IMRCRINDTR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LOGSYS
+    description: "Logical System"
+    data_element: /ISDFPS/LOGSYS
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LOGSYS_CHG
+    description: "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+    data_element: TZNTSTMPS
+    check_table: ~
+    datatype: DEC
+    length: 15
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: ATINN
+    check_table: CABN
+    check_field: ADZHL
+  - field: ATINN
+    check_table: CABN
+    check_field: ATINN
+  - field: BEGRU
+    check_table: T370B
+    check_field: BEGRU
+  - field: CODCT
+    check_table: TQ15
+    check_field: KATALOGART
+  - field: CODGR
+    check_table: QPGR
+    check_field: CODEGRUPPE
+  - field: CODGR
+    check_table: QPGR
+    check_field: KATALOGART
+  - field: LOCAS
+    check_table: MARA
+    check_field: MATNR
+  - field: MLANG
+    check_table: T002
+    check_field: SPRAS
+  - field: MPOBJ
+    check_table: ONR00
+    check_field: OBJNR
+  - field: MPTYP
+    check_table: T370P
+    check_field: MPTYP
+  - field: MRNGU
+    check_table: T006
+    check_field: MSEHI
+  - field: REFMP
+    check_table: IMPTT
+    check_field: POINT
+  - field: TRANS
+    check_table: IMPTT
+    check_field: POINT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

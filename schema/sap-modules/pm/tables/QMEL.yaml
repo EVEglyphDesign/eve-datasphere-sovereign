@@ -1,0 +1,1285 @@
+table: QMEL
+module: PM
+description: "Quality/Maintenance notification header — defect, activity, and task notifications raised against equipment or functional locations. Bridges PM and QM."
+source: https://leanx.eu/en/sap/table/qmel.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: QMNUM
+    description: "Notification No"
+    data_element: QMNUM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: true
+  - name: QMART
+    description: "Notification Type"
+    data_element: QMART
+    check_table: TQ80
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: QMTXT
+    description: "Short Text"
+    data_element: QMTXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: ARTPR
+    description: "Priority Type"
+    data_element: ARTPR
+    check_table: T356A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PRIOK
+    description: "Priority"
+    data_element: PRIOK
+    check_table: T356
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: MZEIT
+    description: "Time of Notification"
+    data_element: MZEIT
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: QMDAT
+    description: "Date of Notification"
+    data_element: QMDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: QMNAM
+    description: "Name of Person Reporting Notification"
+    data_element: QMNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: STRMN
+    description: "Required start date"
+    data_element: STRMN
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: STRUR
+    description: "Required Start Time"
+    data_element: STRUR
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: LTRMN
+    description: "Required End Date"
+    data_element: LTRMN
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: LTRUR
+    description: "Requested End Time"
+    data_element: LTRUR
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: AUFNR
+    description: "Order Number"
+    data_element: AUFNR
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: VERID
+    description: "Production Version"
+    data_element: VERID
+    check_table: MKAL
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: RM_MATNR
+    description: "Material number of the production version"
+    data_element: RM_MATNR
+    check_table: MKAL
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: RM_WERKS
+    description: "Plant of production version"
+    data_element: RM_WERKS
+    check_table: MKAL
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SA_AUFNR
+    description: "Run schedule header number"
+    data_element: SA_AUFNR
+    check_table: SAFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: REVLV
+    description: "Revision Level"
+    data_element: REVLV
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: MATKL
+    description: "Material Group"
+    data_element: MATKL
+    check_table: T023
+    datatype: CHAR
+    length: 9
+    decimals: 0
+    key: false
+  - name: PRDHA
+    description: "Product hierarchy"
+    data_element: PRODH_D
+    check_table: T179
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: KZKRI
+    description: "Indicator: Critical part"
+    data_element: KZKRI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZDKZ
+    description: "Documentation required indicator"
+    data_element: KZDKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KUNUM_C
+    description: "Account Number of Customer"
+    data_element: QKUNUM
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: FEKNZ
+    description: "Error Records Exist"
+    data_element: FEKNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MAKNZ
+    description: "Task Records Exist"
+    data_element: MAKNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: OBJNR
+    description: "Object Number for Status Management"
+    data_element: QMOBJNR
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: QMDAB
+    description: "Date for Notification Completion"
+    data_element: QMDAB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: QMZAB
+    description: "Completion Time of Notification"
+    data_element: QMZAB
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: RBNR
+    description: "Catalog Profile"
+    data_element: RBNR
+    check_table: T352B
+    datatype: CHAR
+    length: 9
+    decimals: 0
+    key: false
+  - name: RBNRI
+    description: "Origin of Notifications Catalog Profile"
+    data_element: RBNRI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: INDTX
+    description: "Object Long Text Available"
+    data_element: INDLTX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZMLA
+    description: "Primary language indicator for text segment"
+    data_element: KZMLA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: HERKZ
+    description: "Origin of Notification"
+    data_element: HERKZ
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: BEZDT
+    description: "Notification Reference Date"
+    data_element: BEZDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BEZUR
+    description: "Notification Reference Time"
+    data_element: BEZUR_D
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: LIFNUM
+    description: "Vendor Account Number"
+    data_element: LIFNUM
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BUNAME
+    description: "Author of a Q/PM Notification"
+    data_element: BUNAME
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: VBELN
+    description: "Sales Order Number"
+    data_element: KDAUF
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BSTNK
+    description: "Customer purchase order number"
+    data_element: BSTKD
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: BSTDK
+    description: "Customer purchase order date"
+    data_element: BSTDK
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: SPART
+    description: "Division"
+    data_element: SPART
+    check_table: TSPA
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: VKORG
+    description: "Sales Organization"
+    data_element: VKORG
+    check_table: TVKO
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VTWEG
+    description: "Distribution Channel"
+    data_element: VTWEG
+    check_table: TVTW
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ADRNR
+    description: "Addresses: Address Number"
+    data_element: CADNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AEZEIT
+    description: "Time of Change"
+    data_element: AEZEIT
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: ERZEIT
+    description: "Time, at Which Record Was Added"
+    data_element: ERZEIT
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: MAWERK
+    description: "Plant for Material"
+    data_element: QMAWERKS
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: QMKAT
+    description: "Catalog Type - Coding"
+    data_element: QMKAT
+    check_table: TQ15
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QMGRP
+    description: "Code Group - Coding"
+    data_element: QMGRP
+    check_table: QPGR
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: QMCOD
+    description: "Coding"
+    data_element: QMCOD
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: AUSWIRK
+    description: "Key for a Scenario"
+    data_element: QSCENARIO
+    check_table: TQ81
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: TEILEV
+    description: "Usage of Parts"
+    data_element: QTEILEV
+    check_table: TQ81V
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PRUEFLOS
+    description: "Inspection Lot Number"
+    data_element: QPLOS
+    check_table: QALS
+    datatype: NUMC
+    length: 12
+    decimals: 0
+    key: false
+  - name: CHARG
+    description: "Batch Number"
+    data_element: CHARG_D
+    check_table: MCH1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LGORTCHARG
+    description: "Storage Location of Batch"
+    data_element: QLGORTCHAR
+    check_table: T001L
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LICHN
+    description: "Vendor Batch Number"
+    data_element: LICHN
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: HERSTELLER
+    description: "Number of Manufacturer"
+    data_element: QLIFNR
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: EMATNR
+    description: "Material Number Corresponding to Manufacturer Part Number"
+    data_element: EMATN
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: EKORG
+    description: "Purchasing Organization"
+    data_element: EKORG
+    check_table: T024E
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BKGRP
+    description: "Purchasing Group"
+    data_element: BKGRP
+    check_table: T024
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LGORTVORG
+    description: "Storage Location for Inspection Lot Stock"
+    data_element: QLGORTVORG
+    check_table: T001L
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: FERTAUFNR
+    description: "Order Number (Production Order)"
+    data_element: FERTAUFNR
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: FERTAUFPL
+    description: "Plan Number for Operations in Order (Production Order)"
+    data_element: FERTAUFPL
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: EBELN
+    description: "Purchasing Document Number"
+    data_element: EBELN
+    check_table: EKKO
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: EBELP
+    description: "Item Number of Purchasing Document"
+    data_element: QEBELP
+    check_table: EKPO
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: MJAHR
+    description: "Material Document Year"
+    data_element: MJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: MBLNR
+    description: "Number of Material Document"
+    data_element: MBLNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: MBLPO
+    description: "Item in Material Document"
+    data_element: QMBLPO
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: LS_KDAUF
+    description: "Sales Order Number"
+    data_element: KDAUF
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LS_KDPOS
+    description: "Item number of the SD document"
+    data_element: POSNR
+    check_table: VBUP
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: LS_VBELN
+    description: "Delivery"
+    data_element: VBELN_VL
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LS_POSNR
+    description: "Delivery Item"
+    data_element: QPOSNR_VL
+    check_table: VBUP
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: CROBJTY
+    description: "Object types of the CIM resource"
+    data_element: CR_OBJTY
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ARBPL
+    description: "Object ID of the Work Center"
+    data_element: LGWID
+    check_table: CRID
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: ARBPLWERK
+    description: "Plant for Work Center"
+    data_element: QARBPWERKS
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: FEART
+    description: "Report Type for Defects Recording"
+    data_element: QFEART
+    check_table: TQ86
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: PNLKN
+    description: "Current Node Number from Order Counter APLZL"
+    data_element: QLFNKN
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: MGEIG
+    description: "Defective Quantity (Internal)"
+    data_element: MGEIG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: MGFRD
+    description: "Defective Quantity (External)"
+    data_element: MGFRD
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: MGEIN
+    description: "Unit of Measure"
+    data_element: MGEIN
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: BZMNG
+    description: "General Reference Quantity"
+    data_element: QBZMNG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: RKMNG
+    description: "Complaint Quantity"
+    data_element: RKMNG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: RGMNG
+    description: "Return Delivery Quantity"
+    data_element: RGMNG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: RKDAT
+    description: "Date of Return Delivery"
+    data_element: RKDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: COAUFNR
+    description: "Order Number (QM Order)"
+    data_element: COAUFNR
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: QWRNUM
+    description: "Reference Notification Number"
+    data_element: QWRNUM
+    check_table: QMEL
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: REFNUM
+    description: "External Reference Number"
+    data_element: QMEXTNR
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: KDMAT
+    description: "Material Number Used by Customer"
+    data_element: MATNR_KU
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: IDNLF
+    description: "Material Number Used by Vendor"
+    data_element: IDNLF
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: SERIALNR
+    description: "Serial Number"
+    data_element: GERNR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: KZLOESCH
+    description: "Delete Data Record"
+    data_element: KZLOESCH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PRODDAT
+    description: "Production Date"
+    data_element: QPRODDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: DEVICEID
+    description: "Additional Device Data"
+    data_element: DEVICEID
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: VKBUR
+    description: "Sales Office"
+    data_element: VKBUR
+    check_table: TVKBZ
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VKGRP
+    description: "Sales Group"
+    data_element: VKGRP
+    check_table: TVBVK
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: AUTKZ
+    description: "Data Record Created with Function 'Create with Copy Model'"
+    data_element: QAUTKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BEDID
+    description: "ID of the capacity requirements record"
+    data_element: BEDID
+    check_table: ~
+    datatype: NUMC
+    length: 12
+    decimals: 0
+    key: false
+  - name: BEDZL
+    description: "Internal counter"
+    data_element: CIM_COUNT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: PROFIL_TYP
+    description: "Object Type"
+    data_element: OTYPE
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PROFIL_ID
+    description: "Object ID"
+    data_element: OBJEKTID
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: HANDLE
+    description: "Globally unique identifier (linked to time segment, etc)"
+    data_element: TSEGGUID
+    check_table: ~
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: TSEGFL
+    description: "Time segment exists"
+    data_element: TSEGEXISTS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TSEGTP
+    description: "Template"
+    data_element: TSEGTEMPLA
+    check_table: TTSEGTPLH
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: TZONSO
+    description: "Time Zone for Notification"
+    data_element: TZONSO
+    check_table: TTZZ
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: TZONID
+    description: "Origin of Time Zone in Notification"
+    data_element: TZONSMID
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FUNKTION
+    description: "Keys for Function in Action Box"
+    data_element: QNFUNKTION
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PSP_NR
+    description: "WBS Element"
+    data_element: PS_POSNR
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: ESTIMATED_COSTS
+    description: "Estimated Costs for a Claim"
+    data_element: PS_COSTS
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: CLAIMED_COSTS
+    description: "Costs Claimed"
+    data_element: COSTS_CLAIM
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: RESULT_COSTS
+    description: "Costs Accepted"
+    data_element: COSTS_RESULT
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: CHANCE
+    description: "Chance of Completing a Claim"
+    data_element: PS_CHANCE
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: OPPONENT
+    description: "Partner Type"
+    data_element: PS_OPPONENT
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KALNR
+    description: "Cost Estimate Number for Cost Est. w/o Qty Structure"
+    data_element: CK_KALNR
+    check_table: ~
+    datatype: NUMC
+    length: 12
+    decimals: 0
+    key: false
+  - name: KALVAR
+    description: "Costing Variant for Postprocessing with Unit Costing"
+    data_element: CK_KALVAR
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: OBJNR_REAL
+    description: "Object number of real CO account assignment"
+    data_element: J_OBJNR_REAL
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: OBJNR_STAT
+    description: "Auxiliary account assignment 1"
+    data_element: OBJNR_N1
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: PHASE
+    description: "Notification Processing Phase"
+    data_element: QM_PHASE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: /ISDFPS/OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ~
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: LOGSYSTEM
+    description: "Logical System"
+    data_element: LOGSYSTEM
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: /ISDFPS/MEQUI
+    description: "Master Equipment"
+    data_element: /ISDFPS/MEQUI
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: SHN_OBJTY
+    description: "Object types of the CIM resource"
+    data_element: CR_OBJTY
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: SHN_OBJID
+    description: "Object ID of the resource"
+    data_element: CR_OBJID
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: SHN_FUNCT_LOC
+    description: "Functional Location"
+    data_element: TPLNR
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: SHN_EQUIPMENT
+    description: "Equipment Number"
+    data_element: EQUNR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: SHN_ORIGIN
+    description: "Origin or Use of Shift Note or Report"
+    data_element: COCF_SRN_ORIGIN
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: UII
+    description: "Unique Item Identifier"
+    data_element: UII_CHAR72
+    check_table: ~
+    datatype: CHAR
+    length: 72
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: ARBPL
+    check_table: CRID
+    check_field: OBJTY
+  - field: ARBPL
+    check_table: CRID
+    check_field: OBJID
+  - field: ARBPLWERK
+    check_table: T001W
+    check_field: WERKS
+  - field: ARTPR
+    check_table: T356A
+    check_field: ARTPR
+  - field: AUFNR
+    check_table: AUFK
+    check_field: AUFNR
+  - field: AUSWIRK
+    check_table: TQ81
+    check_field: AUSWIRK
+  - field: BKGRP
+    check_table: T024
+    check_field: EKGRP
+  - field: CHARG
+    check_table: MCH1
+    check_field: MATNR
+  - field: CHARG
+    check_table: MCH1
+    check_field: CHARG
+  - field: COAUFNR
+    check_table: AUFK
+    check_field: AUFNR
+  - field: EBELN
+    check_table: EKKO
+    check_field: EBELN
+  - field: EBELP
+    check_table: EKPO
+    check_field: EBELN
+  - field: EBELP
+    check_table: EKPO
+    check_field: EBELP
+  - field: EKORG
+    check_table: T024E
+    check_field: EKORG
+  - field: EMATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: FEART
+    check_table: TQ86
+    check_field: FEART
+  - field: FERTAUFNR
+    check_table: AUFK
+    check_field: AUFNR
+  - field: HERSTELLER
+    check_table: LFA1
+    check_field: LIFNR
+  - field: KUNUM_C
+    check_table: KNA1
+    check_field: KUNNR
+  - field: LGORTCHARG
+    check_table: T001L
+    check_field: WERKS
+  - field: LGORTCHARG
+    check_table: T001L
+    check_field: LGORT
+  - field: LGORTVORG
+    check_table: T001L
+    check_field: WERKS
+  - field: LGORTVORG
+    check_table: T001L
+    check_field: LGORT
+  - field: LIFNUM
+    check_table: LFA1
+    check_field: LIFNR
+  - field: LS_KDAUF
+    check_table: VBUK
+    check_field: VBELN
+  - field: LS_KDPOS
+    check_table: VBUP
+    check_field: VBELN
+  - field: LS_KDPOS
+    check_table: VBUP
+    check_field: POSNR
+  - field: LS_POSNR
+    check_table: VBUP
+    check_field: VBELN
+  - field: LS_POSNR
+    check_table: VBUP
+    check_field: POSNR
+  - field: LS_VBELN
+    check_table: VBUK
+    check_field: VBELN
+  - field: MATKL
+    check_table: T023
+    check_field: MATKL
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: MAWERK
+    check_table: T001W
+    check_field: WERKS
+  - field: MGEIN
+    check_table: T006
+    check_field: MSEHI
+  - field: OBJNR
+    check_table: ONR00
+    check_field: OBJNR
+  - field: OBJNR_REAL
+    check_table: ONR00
+    check_field: OBJNR
+  - field: OBJNR_STAT
+    check_table: ONR00
+    check_field: OBJNR
+  - field: PRDHA
+    check_table: T179
+    check_field: PRODH
+  - field: PRIOK
+    check_table: T356
+    check_field: ARTPR
+  - field: PRIOK
+    check_table: T356
+    check_field: PRIOK
+  - field: PRUEFLOS
+    check_table: QALS
+    check_field: PRUEFLOS
+  - field: QMART
+    check_table: TQ80
+    check_field: QMART
+  - field: QMGRP
+    check_table: QPGR
+    check_field: KATALOGART
+  - field: QMGRP
+    check_table: QPGR
+    check_field: CODEGRUPPE
+  - field: QMKAT
+    check_table: TQ15
+    check_field: KATALOGART
+  - field: QWRNUM
+    check_table: QMEL
+    check_field: QMNUM
+  - field: RBNR
+    check_table: T352B
+    check_field: RBNR
+  - field: RM_MATNR
+    check_table: MKAL
+    check_field: MATNR
+  - field: RM_MATNR
+    check_table: MKAL
+    check_field: WERKS
+  - field: RM_MATNR
+    check_table: MKAL
+    check_field: VERID
+  - field: RM_WERKS
+    check_table: MKAL
+    check_field: MATNR
+  - field: RM_WERKS
+    check_table: MKAL
+    check_field: WERKS
+  - field: RM_WERKS
+    check_table: MKAL
+    check_field: VERID
+  - field: SA_AUFNR
+    check_table: SAFK
+    check_field: AUFNR
+  - field: SPART
+    check_table: TSPA
+    check_field: SPART
+  - field: TEILEV
+    check_table: TQ81V
+    check_field: TEILEV
+  - field: TSEGTP
+    check_table: TTSEGTPLH
+    check_field: TEPL
+  - field: TZONSO
+    check_table: TTZZ
+    check_field: TZONE
+  - field: VBELN
+    check_table: VBUK
+    check_field: VBELN
+  - field: VERID
+    check_table: MKAL
+    check_field: MATNR
+  - field: VERID
+    check_table: MKAL
+    check_field: WERKS
+  - field: VERID
+    check_table: MKAL
+    check_field: VERID
+  - field: VKBUR
+    check_table: TVKBZ
+    check_field: VKORG
+  - field: VKBUR
+    check_table: TVKBZ
+    check_field: VTWEG
+  - field: VKBUR
+    check_table: TVKBZ
+    check_field: SPART
+  - field: VKBUR
+    check_table: TVKBZ
+    check_field: VKBUR
+  - field: VKGRP
+    check_table: TVBVK
+    check_field: VKBUR
+  - field: VKGRP
+    check_table: TVBVK
+    check_field: VKGRP
+  - field: VKORG
+    check_table: TVKO
+    check_field: VKORG
+  - field: VTWEG
+    check_table: TVTW
+    check_field: VTWEG
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

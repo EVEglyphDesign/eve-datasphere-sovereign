@@ -1,0 +1,301 @@
+table: QMAT
+module: QM
+description: "Inspection type — material/plant parameters controlling how an inspection type behaves for a given material at a given plant (sampling, task list use, stock posting)."
+source: https://leanx.eu/en/sap/table/qmat.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: ART
+    description: "Inspection Type"
+    data_element: QPART
+    check_table: TQ30
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: true
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: true
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: PPL
+    description: "Inspection with Task List"
+    data_element: QPPL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SPEZUEBER
+    description: "Inspect with Material Specification"
+    data_element: QSPEZUEBER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CONF
+    description: "Inspection Specifications from Configuration"
+    data_element: QCONF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TLS
+    description: "Inspection Specifications from Batch Determination"
+    data_element: QCHARG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: APP
+    description: "Automatic Specification Assignment"
+    data_element: QAPP_D
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MER
+    description: "Inspect by Characteristics"
+    data_element: QMERK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: INSMK
+    description: "Post to Inspection Stock"
+    data_element: QINSMK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AVE
+    description: "Automatic Usage Decision Planned"
+    data_element: QAUTO_VE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STICHPRVER
+    description: "Sampling Procedure"
+    data_element: QSTPRVER
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: DYNREGEL
+    description: "Dynamic Modification Rule"
+    data_element: QDYNREGEL
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: SPROZ
+    description: "Inspection Percentage"
+    data_element: QSPROZ
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: HPZ
+    description: "100% Inspection"
+    data_element: QHPZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DYN
+    description: "Skips Allowed"
+    data_element: QDYN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MPB
+    description: "Enter the Sample Manually"
+    data_element: QMPB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MST
+    description: "Trigger Sample Calculation Manually"
+    data_element: QMST
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EIN
+    description: "Serial Number Management Possible"
+    data_element: QEINZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MPDAU
+    description: "Average Inspection Duration"
+    data_element: QMPDAU
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: CHG
+    description: "Control of Inspection Lot Creation (Lot Summary)"
+    data_element: Q1WELOS
+    check_table: TQ32C
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QKZVERF
+    description: "Procedure for Calculating Quality Score"
+    data_element: TQ06
+    check_table: TQ06
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: QPMAT
+    description: "Allowed Share of Scrap (Percent) in Inspection Lot"
+    data_element: QAUSSCHUSS
+    check_table: ~
+    datatype: DEC
+    length: 6
+    decimals: 4
+    key: false
+  - name: KZPRFKOST
+    description: "Record Appraisal Costs in Individual QM Order"
+    data_element: QKZPRFKOST
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUFNR_CO
+    description: "Order Number for Recording Appraisal Costs"
+    data_element: QAUFNR_CO
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AKTIV
+    description: "Inspection Type - Material Combination is Active"
+    data_element: QMATAKTIV
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: APA
+    description: "Preferred Inspection Type"
+    data_element: QAPA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AFR
+    description: "Inspection for Handling Unit"
+    data_element: QAFR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MMA
+    description: "Field Not Used as of 3.0 Field Reserved for SAP"
+    data_element: Q_UNUSED01
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FEH
+    description: "Field Not Used as of 3.0 Field Reserved for SAP"
+    data_element: Q_UNUSED01
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PRFRQ
+    description: "Field Not Used as of 3.0 Field Reserved for SAP"
+    data_element: QPRFRQ
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: NKMPR
+    description: "Field Not Used as of 3.0 Field Reserved for SAP"
+    data_element: QNKMPR
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: MS_FLAG
+    description: "Indicator: Multiple Specifications"
+    data_element: Q_MS_FLG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: ART
+    check_table: TQ30
+    check_field: ART
+  - field: AUFNR_CO
+    check_table: AUFK
+    check_field: AUFNR
+  - field: CHG
+    check_table: TQ32C
+    check_field: HERKUNFT
+  - field: CHG
+    check_table: TQ32C
+    check_field: EINWELOS
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: QKZVERF
+    check_table: TQ06
+    check_field: QKZVERF
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

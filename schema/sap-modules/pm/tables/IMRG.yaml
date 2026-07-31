@@ -1,0 +1,492 @@
+table: IMRG
+module: PM
+description: "Measurement document — individual sensor readings and counter values recorded against a measuring point (IMPTT). The raw observation stream."
+source: https://leanx.eu/en/sap/table/imrg.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: MDOCM
+    description: "Measurement Document"
+    data_element: IMRC_MDOCM
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: true
+  - name: POINT
+    description: "Measuring Point"
+    data_element: IMRC_POINT
+    check_table: IMPTT
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: true
+  - name: IDATE
+    description: "Date of the Measurement"
+    data_element: IMRC_IDATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ITIME
+    description: "Time of Measurement"
+    data_element: IMRC_ITIME
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: INVTS
+    description: "Inverted Time Stamp: 99.999.999.999 - Seconds AD"
+    data_element: IMRC_INVTS
+    check_table: ~
+    datatype: NUMC
+    length: 11
+    decimals: 0
+    key: false
+  - name: CNTRG
+    description: "Indicator: Counter Reading Document"
+    data_element: IMRC_CNTRG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MDTXT
+    description: "Measurement Document Text"
+    data_element: IMRC_MDTXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: MLANG
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZLTX
+    description: "Indicator: Long text exists"
+    data_element: ILOM_KZLTX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: READR
+    description: "Person who Took the Measurement Reading"
+    data_element: IMRC_READR
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on which the object was created"
+    data_element: ICRDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERUHR
+    description: "Time at which the object was created"
+    data_element: ICRTM
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of User Who Created the Object"
+    data_element: ICRNA
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Date on which the object was last changed"
+    data_element: IUPDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of the user who last changed the object"
+    data_element: IUPNA
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: LVORM
+    description: "Deletion Flag for 1-Level Deletion Logic"
+    data_element: IMRC_DEL1
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GENER
+    description: "Origin Indicator"
+    data_element: IMRC_GENER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PRUEFLOS
+    description: "Inspection Lot Number"
+    data_element: QPLOS
+    check_table: QALS
+    datatype: NUMC
+    length: 12
+    decimals: 0
+    key: false
+  - name: VORGLFNR
+    description: "Current Node Number from Order Counter APLZL"
+    data_element: QLFNKN
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: MERKNR
+    description: "Inspection Characteristic Number"
+    data_element: QMERKNRP
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: DETAILERG
+    description: "Development reserve: Format NUMC, length 8"
+    data_element: RESERVE_NUMC_008
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: ROOTD
+    description: "Source Document for Measurement Reading Transfer"
+    data_element: IMRC_ROOTD
+    check_table: IMRG
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: TOLTY
+    description: "CIM Resource Object Type for Production Resources/Tools"
+    data_element: IMRC_TOLTY
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: TOLID
+    description: "Production Resource/Tool Object ID"
+    data_element: IMRC_TOLID
+    check_table: CRID
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: WOOBJ
+    description: "Object Number of Order"
+    data_element: IMRC_WOOBJ
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: DOCAF
+    description: "Indicator: MeasDoc. Created After Associated Task"
+    data_element: IMRC_DOCAF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: READG
+    description: "Measurement Reading/Total Counter Reading in SI Unit"
+    data_element: IMRC_READG
+    check_table: ~
+    datatype: DEC
+    length: 16
+    decimals: 3
+    key: false
+  - name: READGI
+    description: "Indicator: Associated Number Field Contains a Value"
+    data_element: IVALU
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RECDV
+    description: "Measurement Reading in Unit of Entry"
+    data_element: IMRC_RECDV
+    check_table: ~
+    datatype: DEC
+    length: 16
+    decimals: 3
+    key: false
+  - name: RECDVI
+    description: "Indicator: Associated Number Field Contains a Value"
+    data_element: IVALU
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RECDU
+    description: "Unit of Measurement for Document Entry"
+    data_element: IMRC_RECDU
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: CNTRR
+    description: "Counter Reading in SI Unit"
+    data_element: IMRC_CNTRR
+    check_table: ~
+    datatype: DEC
+    length: 16
+    decimals: 3
+    key: false
+  - name: CNTRRI
+    description: "Indicator: Associated Number Field Contains a Value"
+    data_element: IVALU
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CDIFF
+    description: "Counter Reading Difference in SI Unit"
+    data_element: IMRC_CDIFF
+    check_table: ~
+    datatype: DEC
+    length: 16
+    decimals: 3
+    key: false
+  - name: CDIFFI
+    description: "Indicator: Associated Number Field Contains a Value"
+    data_element: IVALU
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: IDIFF
+    description: "Indicator: Counter Reading Entered as Difference"
+    data_element: IMRC_IDIFF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EXCHG
+    description: "Indicator: Counter Replaced"
+    data_element: IMRC_EXCHG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TOTEX
+    description: "Indicator: Total Counter Reading Set Externally"
+    data_element: IMRC_TOTEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CODCT
+    description: "Catalog Type - Measurement Reading Valuation Code"
+    data_element: IMRC_CODCT
+    check_table: TQ15
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CODGR
+    description: "Code Group - Measurement Reading Valuation Code"
+    data_element: IMRC_CODGR
+    check_table: QPGR
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: VLCOD
+    description: "Valuation Code"
+    data_element: IMRC_VLCOD
+    check_table: QPCD
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: CVERS
+    description: "Version Number"
+    data_element: QVERSNR
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: PREST
+    description: "Processing Status"
+    data_element: IMRC_PREST
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CANCL
+    description: "Reversal Indicator"
+    data_element: IMRC_CANCL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WOOB1
+    description: "Object Number of Order Operation/Confirmation Counter etc."
+    data_element: IMRC_WOOB1
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: PROBENR
+    description: "Number of the Partial Sample"
+    data_element: QSTIPRONR
+    check_table: QASV
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: MBEWERTG
+    description: "Inspection Result Valuation"
+    data_element: QMBEWERTG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: INTVL
+    description: "Indicator that Document Refers to Time Interval"
+    data_element: IMRC_INTVL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: IDAT1
+    description: "Date of Interval Start"
+    data_element: IMRC_IDAT1
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ITIM1
+    description: "Time of Interval Start"
+    data_element: IMRC_ITIM1
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: TMSTP_BW
+    description: "Time Stamp for BW Delta Extraction"
+    data_element: TSTMP_BW_EXTRACT
+    check_table: ~
+    datatype: DEC
+    length: 16
+    decimals: 0
+    key: false
+  - name: LOGSYSTEM
+    description: "Logical System"
+    data_element: LOGSYSTEM
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: CODCT
+    check_table: TQ15
+    check_field: KATALOGART
+  - field: CODGR
+    check_table: QPGR
+    check_field: CODEGRUPPE
+  - field: CODGR
+    check_table: QPGR
+    check_field: KATALOGART
+  - field: MLANG
+    check_table: T002
+    check_field: SPRAS
+  - field: POINT
+    check_table: IMPTT
+    check_field: POINT
+  - field: PROBENR
+    check_table: QASV
+    check_field: PRUEFLOS
+  - field: PROBENR
+    check_table: QASV
+    check_field: PROBENR
+  - field: PROBENR
+    check_table: QASV
+    check_field: MERKNR
+  - field: PROBENR
+    check_table: QASV
+    check_field: VORGLFNR
+  - field: PRUEFLOS
+    check_table: QALS
+    check_field: PRUEFLOS
+  - field: RECDU
+    check_table: T006
+    check_field: MSEHI
+  - field: ROOTD
+    check_table: IMRG
+    check_field: MDOCM
+  - field: TOLID
+    check_table: CRID
+    check_field: OBJTY
+  - field: TOLID
+    check_table: CRID
+    check_field: OBJID
+  - field: VLCOD
+    check_table: QPCD
+    check_field: VERSION
+  - field: VLCOD
+    check_table: QPCD
+    check_field: KATALOGART
+  - field: VLCOD
+    check_table: QPCD
+    check_field: CODEGRUPPE
+  - field: VLCOD
+    check_table: QPCD
+    check_field: CODE
+  - field: WOOB1
+    check_table: ONR00
+    check_field: OBJNR
+  - field: WOOBJ
+    check_table: ONR00
+    check_field: OBJNR
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

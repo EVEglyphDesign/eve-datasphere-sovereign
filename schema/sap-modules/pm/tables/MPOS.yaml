@@ -1,0 +1,637 @@
+table: MPOS
+module: PM
+description: "Maintenance item — a single equipment/task-list assignment within a maintenance plan (MPLA), the line-item detail that generates maintenance call objects."
+source: https://leanx.eu/en/sap/table/mpos.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: WAPOS
+    description: "Maintenance item"
+    data_element: WAPOS
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: true
+  - name: WARPL
+    description: "Maintenance Plan"
+    data_element: WARPL
+    check_table: MPLA
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: true
+  - name: WSTRA
+    description: "Maintenance strategy"
+    data_element: STRAT
+    check_table: T351
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: true
+  - name: WPPOS
+    description: "Item in the maintenance plan"
+    data_element: WPPOS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: PSTXT
+    description: "Item Short Text"
+    data_element: POSTXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: EQUNR
+    description: "Equipment Number"
+    data_element: EQUNR
+    check_table: EQUI
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: OBKNR
+    description: "Object list number"
+    data_element: OBJKNR
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: ERKNZ
+    description: "Creation indicator"
+    data_element: ERKNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AEKNZ
+    description: "Change indicator"
+    data_element: AEKNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERSDT
+    description: "Date of creation"
+    data_element: EDATUM
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: PLNTY
+    description: "Task List Type"
+    data_element: PLNTY
+    check_table: TCA01
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLNNR
+    description: "Key for Task List Group"
+    data_element: PLNNR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: PLNAL
+    description: "Group Counter"
+    data_element: PLNAL
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: STATUS
+    description: "Maintenance Item Status"
+    data_element: MPSTAT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LTKNZ
+    description: "Long Text Indicator"
+    data_element: MPLTX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WPGRP
+    description: "Planner Group for Customer Service and Plant Maintenance"
+    data_element: INGRP
+    check_table: T024I
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: OBJTY
+    description: "Object types of the CIM resource"
+    data_element: CR_OBJTY
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: GEWRK
+    description: "Object ID of the Work Center"
+    data_element: LGWID
+    check_table: CRID
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: IWERK
+    description: "Maintenance Planning Plant"
+    data_element: IWERK
+    check_table: T399I
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LANGU
+    description: "Language key of the long text"
+    data_element: MPLANGU
+    check_table: ~
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: ILOAN
+    description: "Location and account assignment for technical object"
+    data_element: ILOAN
+    check_table: ILOA
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ILOAI
+    description: "ILOA Individual"
+    data_element: ILOAI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LAUFN
+    description: "Order number"
+    data_element: LAUFN
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: BAUTL
+    description: "Assembly"
+    data_element: BAUTL
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: ANLZU
+    description: "Syst.Condition"
+    data_element: ANLZU
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUART
+    description: "Order Type"
+    data_element: AUFART
+    check_table: T003O
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: INACT
+    description: "Indicator that maintenance item is inactive"
+    data_element: INACT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ILART
+    description: "Maintenance activity type"
+    data_element: ILA
+    check_table: T353I
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: GSBER
+    description: "Business Area"
+    data_element: GSBER
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: IND_ABRVO
+    description: "Indicator showing settlement rule maintained"
+    data_element: IND_ABRVO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PSPEL
+    description: "Work Breakdown Structure Element (WBS Element)"
+    data_element: PS_PSP_PNR
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: STD_NETZ
+    description: "Key for Task List Group"
+    data_element: PLNNR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: STD_AVO
+    description: "Number of the task list node"
+    data_element: PLNKN
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: KDAUF
+    description: "Sales Document"
+    data_element: VBELN_VA
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KDPOS
+    description: "Sales Document Item"
+    data_element: POSNR_VA
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: MITYP
+    description: "Maintenance item category"
+    data_element: MITYP
+    check_table: T399P
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: BSTNR
+    description: "Purchase Order Number"
+    data_element: BSTNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BSTPO
+    description: "Purchase Order Item Number"
+    data_element: BSTPO
+    check_table: ~
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: PACKNO
+    description: "Package number"
+    data_element: PACKNO
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: NETPR
+    description: "Net price"
+    data_element: NETPR
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: SAKTO
+    description: "Cost Element"
+    data_element: KSTAR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AUFNR
+    description: "Settlement order"
+    data_element: ILOM_ORDST
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: APFKT
+    description: "Execution factor for whole task list"
+    data_element: APFKT
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: SCRRENTY
+    description: "SCREEN TYPE: for order-order category (see domain)"
+    data_element: SCREENTY
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SERIALNR
+    description: "Serial Number"
+    data_element: GERNR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: SERMAT
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: DEVICEID
+    description: "Additional Device Data"
+    data_element: DEVICEID
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: QMNUM
+    description: "Notification No"
+    data_element: QMNUM
+    check_table: QMEL
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: QMART
+    description: "Notification Type"
+    data_element: QMART
+    check_table: TQ80
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LBLNI
+    description: "Entry Sheet Number"
+    data_element: LBLNI
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: TASK_DETERMINE
+    description: "Automatic task determination in the notification"
+    data_element: TASK_DETERMINE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PRIOK
+    description: "Priority"
+    data_element: PRIOK
+    check_table: T356
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QMKAT
+    description: "Catalog Type - Coding"
+    data_element: QMKAT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QMGRP
+    description: "Code Group - Coding"
+    data_element: QMGRP
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: QMCOD
+    description: "Coding"
+    data_element: QMCOD
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PHYNR
+    description: "Physical Sample Number"
+    data_element: QPHYSPRNR
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ART
+    description: "Inspection Type"
+    data_element: QPART
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: PRUEFLOS
+    description: "Inspection Lot Number"
+    data_element: QPLOS
+    check_table: ~
+    datatype: NUMC
+    length: 12
+    decimals: 0
+    key: false
+  - name: TSTMP_BW
+    description: "Time Stamp for BI Delta Extraction"
+    data_element: TSTMP_BW_EXT
+    check_table: ~
+    datatype: DEC
+    length: 16
+    decimals: 0
+    key: false
+  - name: NO_AUFRELKZ
+    description: "Do Not Release Immediately"
+    data_element: NO_AUFRELKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DESNUM
+    description: "CU: Design Number"
+    data_element: /CUM/DESNUM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: CYCLESEQIND
+    description: "Cycle Set Sequence"
+    data_element: CYCLESETSEQ
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: ADPSP
+    description: "Reference Element PM/PS"
+    data_element: ADDCOMPARE_CORE
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: IND_MPOS_API
+    description: "Maintenance Item Was Created/Changed by API"
+    data_element: IND_MPOS_API
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: AUART
+    check_table: T003O
+    check_field: AUART
+  - field: BAUTL
+    check_table: MARA
+    check_field: MATNR
+  - field: EQUNR
+    check_table: EQUI
+    check_field: EQUNR
+  - field: GEWRK
+    check_table: CRID
+    check_field: OBJTY
+  - field: GEWRK
+    check_table: CRID
+    check_field: OBJID
+  - field: GSBER
+    check_table: TGSB
+    check_field: GSBER
+  - field: ILART
+    check_table: T353I
+    check_field: ILART
+  - field: ILOAN
+    check_table: ILOA
+    check_field: ILOAN
+  - field: IWERK
+    check_table: T399I
+    check_field: IWERK
+  - field: LAUFN
+    check_table: AUFK
+    check_field: AUFNR
+  - field: MITYP
+    check_table: T399P
+    check_field: MITYP
+  - field: OBJNR
+    check_table: ONR00
+    check_field: OBJNR
+  - field: PLNTY
+    check_table: TCA01
+    check_field: PLNTY
+  - field: PRIOK
+    check_table: T356
+    check_field: PRIOK
+  - field: PRIOK
+    check_table: T356
+    check_field: ARTPR
+  - field: QMART
+    check_table: TQ80
+    check_field: QMART
+  - field: QMNUM
+    check_table: QMEL
+    check_field: QMNUM
+  - field: SERMAT
+    check_table: MARA
+    check_field: MATNR
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: WARPL
+    check_table: MPLA
+    check_field: WARPL
+  - field: WPGRP
+    check_table: T024I
+    check_field: INGRP
+  - field: WPGRP
+    check_table: T024I
+    check_field: IWERK
+  - field: WSTRA
+    check_table: T351
+    check_field: STRAT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

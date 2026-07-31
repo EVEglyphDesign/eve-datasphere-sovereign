@@ -1,0 +1,319 @@
+table: QINF
+module: QM
+description: "Quality info record — material/vendor-level quality agreement: release status, vendor QM system, source inspection control."
+source: https://leanx.eu/en/sap/table/qinf.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: true
+  - name: ZAEHL
+    description: "Internal Counter for DB Objects"
+    data_element: Q_COUNT
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: true
+  - name: ERSTELLER
+    description: "Name of User who Created the Q-Info Record"
+    data_element: QINFERST
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERSTELLDAT
+    description: "Create Date of Q-Info Record"
+    data_element: QINFERSTDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENDERER
+    description: "Name of User who Most Recently Changed the Q-Info Record"
+    data_element: QINFAEND
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AENDERDAT
+    description: "Change Date of Q-Info Record"
+    data_element: QINFAENDDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: LIEFERANT
+    description: "Vendor Account Number"
+    data_element: ELIFN
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: WERK
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: FREI_DAT
+    description: "Date Until Which the Release Is Valid"
+    data_element: QFREIDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: FREI_MGKZ
+    description: "Release Quantity Is Active"
+    data_element: QFREIMGKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ME
+    description: "Base Unit of Measure for the Material"
+    data_element: QBSTME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: FREI_MNG
+    description: "Quantity Released for the Material"
+    data_element: QFREIMG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: BEST_MG
+    description: "Quantity Ordered for the Material"
+    data_element: QBSTMG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: DAT_RUECK
+    description: "Date when the Ordered Quantity Was Reset"
+    data_element: QRSDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: SPERRGRUND
+    description: "Blocking reason"
+    data_element: QSPERRGR
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: SPRACHE
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: SPERRFKT
+    description: "Function That Will Be Blocked"
+    data_element: QSPERRFKT
+    check_table: TQ04A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: QVVORH
+    description: "Quality Assurance Agreement Exists"
+    data_element: QQSVVORH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: NOINSP
+    description: "Inspection Control in the QM Info Record"
+    data_element: QNOINSP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QSSYSFAM
+    description: "Vendor's QM system"
+    data_element: QSSYS_IST
+    check_table: TQ02B
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: QSSYSDAT
+    description: "Validity date of certification"
+    data_element: QQSSYSDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: VARIABNAHM
+    description: "Inspection Type for Insp. Lot Origin (Source Inspection)"
+    data_element: QINFVAR1
+    check_table: TQ30
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: LTEXTKZ
+    description: "Inspection Characteristic Long Text Exists"
+    data_element: QLTEXTKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SPRAS
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLOS
+    description: "Inspection Lot No. in QINF for Current Status"
+    data_element: QPLOSQINF
+    check_table: QALS
+    datatype: NUMC
+    length: 12
+    decimals: 0
+    key: false
+  - name: PLOS2
+    description: "Inspection Lot No. in QINF for Next Status"
+    data_element: QPLOSQINF2
+    check_table: QALS
+    datatype: NUMC
+    length: 12
+    decimals: 0
+    key: false
+  - name: STSMA
+    description: "Status Profile Assigned to Quality Info Record"
+    data_element: QSTSMAQINF
+    check_table: TJ20
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: OBJNR
+    description: "QINF Object Number in Status Management"
+    data_element: QINFOBJNR
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: NOINSPABN
+    description: "No GR Inspection if Source Inspection Lot Exists"
+    data_element: QNOWEABN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VORLABN
+    description: "Lot Creation Lead Time (in Days) for Source Inspection"
+    data_element: QVORLABN
+    check_table: ~
+    datatype: INT1
+    length: 3
+    decimals: 0
+    key: false
+  - name: REVLV
+    description: "Revision Level"
+    data_element: REVLV
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LOEKZ
+    description: "Deletion Flag"
+    data_element: QLOEKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CERTCONTROL
+    description: "Control of Certificate Receipt"
+    data_element: QCERTCONTROL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: LIEFERANT
+    check_table: LFA1
+    check_field: LIFNR
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: ME
+    check_table: T006
+    check_field: MSEHI
+  - field: OBJNR
+    check_table: ONR00
+    check_field: OBJNR
+  - field: PLOS
+    check_table: QALS
+    check_field: PRUEFLOS
+  - field: PLOS2
+    check_table: QALS
+    check_field: PRUEFLOS
+  - field: QSSYSFAM
+    check_table: TQ02B
+    check_field: QSSYSFAM
+  - field: SPERRFKT
+    check_table: TQ04A
+    check_field: SPERRFKT
+  - field: SPRACHE
+    check_table: T002
+    check_field: SPRAS
+  - field: SPRAS
+    check_table: T002
+    check_field: SPRAS
+  - field: STSMA
+    check_table: TJ20
+    check_field: STSMA
+  - field: VARIABNAHM
+    check_table: TQ30
+    check_field: ART
+  - field: WERK
+    check_table: T001W
+    check_field: WERKS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.
