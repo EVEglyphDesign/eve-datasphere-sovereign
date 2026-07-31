@@ -1,0 +1,188 @@
+# PM (Plant Maintenance / Enterprise Asset Management) — table inventory
+# Sources: SAP Help Portal, leanx.eu, public community references.
+# Priority tables have field manifests under tables/<name>.yaml
+module: PM
+description: "Plant Maintenance / Enterprise Asset Management — equipment master, functional locations, maintenance orders, notifications, plans."
+
+tables:
+  # ------------- Equipment master -------------
+  - name: EQUI
+    description: "Equipment master data — individual technical object"
+    domain: equipment
+    manifest: tables/EQUI.yaml
+  - name: EQKT
+    description: "Equipment short texts (multilingual)"
+    domain: equipment
+    manifest: tables/EQKT.yaml
+  - name: EQUZ
+    description: "Equipment time segments — historical validity windows"
+    domain: equipment
+    manifest: tables/EQUZ.yaml
+  - name: EQBS
+    description: "Serial number stock information"
+    domain: equipment
+  - name: EQSE
+    description: "Serial number records"
+    domain: equipment
+  - name: FLEET
+    description: "Fleet object-specific data for technical objects"
+    domain: equipment
+  - name: IHGNS
+    description: "Plant maintenance permits"
+    domain: equipment
+  - name: IHSG
+    description: "Table of permits for plant maintenance (with long texts)"
+    domain: equipment
+
+  # ------------- Functional locations -------------
+  - name: IFLOT
+    description: "Functional Location (Table) — installation location hierarchy"
+    domain: functional_location
+    manifest: tables/IFLOT.yaml
+  - name: IFLOTX
+    description: "Functional Location short texts (multilingual)"
+    domain: functional_location
+    manifest: tables/IFLOTX.yaml
+  - name: IRLOT
+    description: "Reference Functional Location"
+    domain: functional_location
+  - name: IRLOTX
+    description: "Reference Functional Location short texts"
+    domain: functional_location
+  - name: ILOA
+    description: "PM Object Location and Account Assignment"
+    domain: functional_location
+    manifest: tables/ILOA.yaml
+  - name: IHPA
+    description: "Plant Maintenance Partners — humans/organizations linked to object"
+    domain: functional_location
+    manifest: tables/IHPA.yaml
+
+  # ------------- Maintenance orders -------------
+  - name: AUFK
+    description: "Order master data (also carries PM/CS orders)"
+    domain: order
+  - name: AFIH
+    description: "Order header — PM/CS specifics"
+    domain: order
+  - name: AFKO
+    description: "Order header — planning/production order pieces used by PM"
+    domain: order
+  - name: AFPO
+    description: "Order item (order detail)"
+    domain: order
+  - name: AFVC
+    description: "Order operations within an order"
+    domain: order
+  - name: AFVV
+    description: "Order operation quantities/values"
+    domain: order
+  - name: AFFH
+    description: "PRT (Production Resource/Tool) assignment for the order"
+    domain: order
+  - name: AFFT
+    description: "Order process instructions"
+    domain: order
+  - name: AFFV
+    description: "Order process instruction values"
+    domain: order
+  - name: PMCO
+    description: "Cost structure/overview for the maintenance order"
+    domain: order
+  - name: PMPL
+    description: "Print data for maintenance order"
+    domain: order
+  - name: MCIPMIS
+    description: "Order data for PMIS"
+    domain: order
+
+  # ------------- Notifications -------------
+  - name: QMEL
+    description: "Notification header (maintenance/quality)"
+    domain: notification
+  - name: QMFE
+    description: "Notification items (defects)"
+    domain: notification
+  - name: QMSM
+    description: "Notification tasks"
+    domain: notification
+  - name: QMMA
+    description: "Notification activities"
+    domain: notification
+  - name: QMUR
+    description: "Notification causes"
+    domain: notification
+  - name: VIQMEL
+    description: "PM notification view — the PM-facing projection of QMEL"
+    domain: notification
+
+  # ------------- Measuring points / readings (the Piano keyboard) -------------
+  - name: IMPTT
+    description: "Measuring Point"
+    domain: measurement
+  - name: IMPTX
+    description: "Measuring Point short text"
+    domain: measurement
+  - name: IMRG
+    description: "Measurement documents / readings"
+    domain: measurement
+
+  # ------------- Maintenance plans / task lists -------------
+  - name: MPLA
+    description: "Maintenance plan header"
+    domain: plan
+  - name: MPOS
+    description: "Maintenance plan item"
+    domain: plan
+  - name: MHIS
+    description: "Maintenance plan history"
+    domain: plan
+  - name: MHIO
+    description: "Maintenance plan call header"
+    domain: plan
+  - name: PLKO
+    description: "Task list header"
+    domain: task_list
+  - name: PLPO
+    description: "Task list operation"
+    domain: task_list
+  - name: PLMK
+    description: "Task list characteristics"
+    domain: task_list
+
+  # ------------- Customizing / catalog (small check tables) -------------
+  - name: T370S
+    description: "Functional Location Structure Indicators"
+    domain: customizing
+  - name: T370F
+    description: "Functional Location Category"
+    domain: customizing
+  - name: T370K
+    description: "Type of Technical Object"
+    domain: customizing
+  - name: T370T
+    description: "Equipment Categories"
+    domain: customizing
+  - name: T370C
+    description: "ABC indicator for technical objects"
+    domain: customizing
+  - name: T370B
+    description: "Technical object authorization group"
+    domain: customizing
+  - name: T399I
+    description: "Planning plant parameters"
+    domain: customizing
+  - name: T024I
+    description: "Maintenance planner groups"
+    domain: customizing
+  - name: T352B
+    description: "Catalog profile (technical report)"
+    domain: customizing
+  - name: T357
+    description: "Plant Section"
+    domain: customizing
+  - name: T499S
+    description: "Location (of maintenance object)"
+    domain: customizing
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

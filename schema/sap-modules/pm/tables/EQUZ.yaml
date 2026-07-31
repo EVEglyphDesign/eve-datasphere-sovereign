@@ -1,0 +1,416 @@
+# EQUZ — Equipment time segments — validity windows and time-dependent segments of the equipment record.
+# Source: https://leanx.eu/sap/table/equz/
+# Sovereign SAP data model manifest. Canon shape — do not rearrange.
+
+table: EQUZ
+module: PM
+description: "Equipment time segments — validity windows and time-dependent segments of the equipment record."
+source: https://leanx.eu/sap/table/equz/
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: EQUNR
+    description: "Equipment Number"
+    data_element: EQUNR
+    check_table: EQUI
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: true
+  - name: DATBI
+    description: "Valid To Date"
+    data_element: DATBI
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: EQLFN
+    description: "Consecutive numbering of EquipUsagePeriods on same day"
+    data_element: EQLFN
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: true
+  - name: EQUZN
+    description: "Number of next EquipUsagePeriod on same day"
+    data_element: EQNNR
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: TIMBI
+    description: "Equipment usage period time stamp"
+    data_element: TIMBI
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: ESTAI
+    description: "SAP Development Reserve: Format CHAR, Length 1"
+    data_element: RESERVE_CHAR_001
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ESTAE
+    description: "SAP Development Reserve: Format CHAR, Length 4"
+    data_element: RESERVE_CHAR_004
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: STNAM
+    description: "SAP Development Reserve: Format CHAR, Length 12"
+    data_element: RESERVE_CHAR_012
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: LVORM
+    description: "SAP Development Reserve: Format CHAR, Length 1"
+    data_element: RESERVE_CHAR_001
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DATAB
+    description: "Valid-From Date"
+    data_element: DATAB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: IWERK
+    description: "Maintenance Planning Plant"
+    data_element: IWERK
+    check_table: T399I
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: IWERKI
+    description: "Data origin indicator"
+    data_element: INHER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SUBMT
+    description: "Construction type material of the object"
+    data_element: SUBMT
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: MAPAR
+    description: "Manufacturer part number"
+    data_element: MAPAR
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: HEQUI
+    description: "Superordinate Equipment"
+    data_element: HEQUI
+    check_table: EQUI
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: HEQNR
+    description: "Equipment position at InstallLoc (Superior Equip./FunctLoc)"
+    data_element: HEQNR
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: INGRP
+    description: "Planner Group for Customer Service and Plant Maintenance"
+    data_element: INGRP
+    check_table: T024I
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: INGRPI
+    description: "Data origin indicator"
+    data_element: INHER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PM_OBJTY
+    description: "Object Type of CIM Resources for Work Center"
+    data_element: PM_OBJTY
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: GEWRK
+    description: "Object ID of the Work Center"
+    data_element: LGWID
+    check_table: CRID
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: GEWRKI
+    description: "Data origin indicator"
+    data_element: INHER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TIDNR
+    description: "Technical identification number"
+    data_element: TIDNR
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: TIDNRI
+    description: "Data origin indicator"
+    data_element: INHER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ILOAN
+    description: "Location and account assignment for technical object"
+    data_element: ILOAN
+    check_table: ILOA
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: KUND1
+    description: "Customer number"
+    data_element: KUND1
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KUND2
+    description: "End customer number"
+    data_element: KUND2
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KUND3
+    description: "Operator"
+    data_element: KUND3
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LIZNR
+    description: "Equipment license number"
+    data_element: LIZNR
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: RBNR
+    description: "Catalog Profile"
+    data_element: RBNR
+    check_table: T352B
+    datatype: CHAR
+    length: 9
+    decimals: 0
+    key: false
+  - name: EZDAT
+    description: "Date, intended for SAP internal use"
+    data_element: EQDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: EZBER
+    description: "Technical information, intended for SAP internal use"
+    data_element: EQBER
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: EZNUM
+    description: "Numerical field, intended for SAP internal use"
+    data_element: EQNUM
+    check_table: ~
+    datatype: NUMC
+    length: 9
+    decimals: 0
+    key: false
+  - name: RBNR_I
+    description: "Data origin indicator"
+    data_element: INHER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: IBLNR
+    description: "Physical Inventory Document"
+    data_element: IBLNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BLDAT
+    description: "Document Date in Document"
+    data_element: BLDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PVS_FOCUS
+    description: "Internal Identification for PVS Objects"
+    data_element: PVS_GUID_CCC
+    check_table: ~
+    datatype: RAW
+    length: 16
+    decimals: 0
+    key: false
+  - name: PPEGUID
+    description: "Internal Identification for PVS Objects"
+    data_element: PVS_GUID_CCC
+    check_table: ~
+    datatype: RAW
+    length: 16
+    decimals: 0
+    key: false
+  - name: TECHS
+    description: "Parameter Variant/Standard Variant"
+    data_element: TECHS
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: FUNCID
+    description: "Function Identifier"
+    data_element: CCC_FUNCID
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: FRCFIT
+    description: "Indicator: Forced Installation/Dismantling"
+    data_element: CCC_FRCFIT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FRCRMV
+    description: "Force Dismantling Flag"
+    data_element: CCC_FRCRMV
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: EQUNR
+    check_table: EQUI
+    check_field: EQUNR
+  - field: GEWRK
+    check_table: CRID
+    check_field: OBJID
+  - field: HEQUI
+    check_table: EQUI
+    check_field: EQUNR
+  - field: ILOAN
+    check_table: ILOA
+    check_field: ILOAN
+  - field: INGRP
+    check_table: T024I
+    check_field: INGRP
+  - field: IWERK
+    check_table: T399I
+    check_field: IWERK
+  - field: KUND1
+    check_table: KNA1
+    check_field: KUNNR
+  - field: KUND2
+    check_table: KNA1
+    check_field: KUNNR
+  - field: KUND3
+    check_table: KNA1
+    check_field: KUNNR
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: RBNR
+    check_table: T352B
+    check_field: RBNR
+  - field: SUBMT
+    check_table: MARA
+    check_field: MATNR
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

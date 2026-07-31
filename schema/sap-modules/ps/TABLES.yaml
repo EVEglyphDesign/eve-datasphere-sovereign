@@ -1,0 +1,33 @@
+# PS (Project System) — table inventory
+module: PS
+description: "Project System — projects, WBS elements, networks, activities."
+
+tables:
+  - name: PROJ
+    description: "Project master data"
+    domain: project
+  - name: PRPS
+    description: "WBS (Work Breakdown Structure) Element Master Data"
+    domain: wbs
+  - name: PRHI
+    description: "WBS hierarchy"
+    domain: wbs
+  - name: PRTE
+    description: "Scheduling data for project"
+    domain: schedule
+  - name: PRTX
+    description: "PS: Text lines for WBS"
+    domain: wbs
+
+  # Networks / activities
+  - name: NAST
+    description: "Network header"
+    domain: network
+  - name: AFKO
+    description: "Order header (also carries network header when TCJT-AUTYP = 20)"
+    domain: network
+  - name: AFVC
+    description: "Network activity"
+    domain: network
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -1,0 +1,68 @@
+# HR (Human Resources) — table inventory
+module: HR
+description: "Human Resources — personnel administration, organizational management, time management, payroll clusters."
+
+# Note: HR uses infotype (PA*/PB*) and cluster tables (PCL*) heavily.
+# Personnel infotypes are stored in PA<nnnn> and PB<nnnn> tables where <nnnn> is the 4-digit infotype.
+
+tables:
+  # Personnel administration infotypes (representative subset — the full set is 0000-9999)
+  - name: PA0000
+    description: "HR Master Record: Infotype 0000 (Actions)"
+    domain: pa_infotype
+  - name: PA0001
+    description: "HR Master Record: Infotype 0001 (Org. Assignment)"
+    domain: pa_infotype
+  - name: PA0002
+    description: "HR Master Record: Infotype 0002 (Personal Data)"
+    domain: pa_infotype
+  - name: PA0006
+    description: "HR Master Record: Infotype 0006 (Addresses)"
+    domain: pa_infotype
+  - name: PA0007
+    description: "HR Master Record: Infotype 0007 (Planned Working Time)"
+    domain: pa_infotype
+  - name: PA0008
+    description: "HR Master Record: Infotype 0008 (Basic Pay)"
+    domain: pa_infotype
+  - name: PA0014
+    description: "HR Master Record: Infotype 0014 (Recurring Payments/Deductions)"
+    domain: pa_infotype
+  - name: PA0105
+    description: "HR Master Record: Infotype 0105 (Communication — email, SAP user, etc.)"
+    domain: pa_infotype
+
+  # Organizational Management
+  - name: HRP1000
+    description: "Object infotype 1000 — organizational unit, position, job, task"
+    domain: om_infotype
+  - name: HRP1001
+    description: "Relationships between OM objects"
+    domain: om_infotype
+  - name: HRP1002
+    description: "OM Description texts"
+    domain: om_infotype
+
+  # Time
+  - name: PA2001
+    description: "HR Time Recording: Infotype 2001 (Absences)"
+    domain: time
+  - name: PA2002
+    description: "HR Time Recording: Infotype 2002 (Attendances)"
+    domain: time
+
+  # Payroll clusters (encoded — accessed via cluster reader)
+  - name: PCL1
+    description: "HR Cluster — TS/TE (time evaluation results)"
+    domain: cluster
+  - name: PCL2
+    description: "HR Cluster — payroll results (RT, WPBP, etc.)"
+    domain: cluster
+  - name: PCL3
+    description: "HR Cluster — applicant data"
+    domain: cluster
+  - name: PCL4
+    description: "HR Cluster — change documents"
+    domain: cluster
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -1,0 +1,65 @@
+# PP (Production Planning) — table inventory
+module: PP
+description: "Production Planning — BOM, routings, production orders, MRP, capacity."
+
+tables:
+  # BOM
+  - name: MAST
+    description: "Material to BOM Link"
+    domain: bom
+  - name: STKO
+    description: "BOM Header"
+    domain: bom
+  - name: STPO
+    description: "BOM Item"
+    domain: bom
+  - name: STAS
+    description: "BOM Item Selection"
+    domain: bom
+
+  # Routing
+  - name: MAPL
+    description: "Assignment of task lists to materials"
+    domain: routing
+  - name: PLKO
+    description: "Task List — Header"
+    domain: routing
+  - name: PLPO
+    description: "Task List — Operation"
+    domain: routing
+  - name: PLAB
+    description: "Task List — Sequences"
+    domain: routing
+  - name: PLMZ
+    description: "Task List — Material components"
+    domain: routing
+
+  # Production order
+  - name: AUFK
+    description: "Order master data (also carries PP orders)"
+    domain: order
+  - name: AFKO
+    description: "Order Header — planning/production"
+    domain: order
+  - name: AFPO
+    description: "Order Item"
+    domain: order
+  - name: AFVC
+    description: "Order Operation Data"
+    domain: order
+  - name: AFRU
+    description: "Order Completion Confirmations"
+    domain: order
+
+  # MRP / planning
+  - name: MDVM
+    description: "MRP list"
+    domain: mrp
+  - name: MDKP
+    description: "MRP document header"
+    domain: mrp
+  - name: MDTB
+    description: "MRP table (relations)"
+    domain: mrp
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

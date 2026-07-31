@@ -1,0 +1,88 @@
+# MM (Materials Management) — table inventory
+module: MM
+description: "Materials Management — material master, purchasing, inventory, vendor evaluation."
+
+tables:
+  # Material master
+  - name: MARA
+    description: "General Material Data (universal material master)"
+    domain: material_master
+  - name: MAKT
+    description: "Material Descriptions (multilingual)"
+    domain: material_master
+  - name: MARC
+    description: "Plant Data for Material"
+    domain: material_master
+  - name: MARD
+    description: "Storage Location Data for Material"
+    domain: material_master
+  - name: MBEW
+    description: "Material Valuation"
+    domain: material_master
+  - name: MVKE
+    description: "Sales Data for Material"
+    domain: material_master
+  - name: MLGN
+    description: "Warehouse Number data for material"
+    domain: material_master
+  - name: MLGT
+    description: "Storage type/bin data for material"
+    domain: material_master
+  - name: MCH1
+    description: "Batches (Cross-Plant)"
+    domain: batch
+  - name: MCHA
+    description: "Batches"
+    domain: batch
+  - name: MCHB
+    description: "Batch Stocks"
+    domain: batch
+
+  # Purchase requisition
+  - name: EBAN
+    description: "Purchase Requisition"
+    domain: purchase_requisition
+  - name: EBKN
+    description: "Purchase Requisition Account Assignment"
+    domain: purchase_requisition
+
+  # Purchase order
+  - name: EKKO
+    description: "Purchasing Document Header"
+    domain: purchase_order
+  - name: EKPO
+    description: "Purchasing Document Item"
+    domain: purchase_order
+  - name: EKBE
+    description: "History per Purchasing Document (GR/IR)"
+    domain: purchase_order
+  - name: EKET
+    description: "Purchasing Document: Delivery Schedules"
+    domain: purchase_order
+  - name: EKKN
+    description: "Purchase Order Account Assignment"
+    domain: purchase_order
+
+  # Info records / source lists
+  - name: EINA
+    description: "Purchasing Info Record — General"
+    domain: source_info
+  - name: EINE
+    description: "Purchasing Info Record — Purchasing Organization"
+    domain: source_info
+  - name: EORD
+    description: "Purchasing Source List"
+    domain: source_info
+
+  # Inventory movements
+  - name: MKPF
+    description: "Material Document Header"
+    domain: movement
+  - name: MSEG
+    description: "Material Document Segment (line items)"
+    domain: movement
+  - name: MATDOC
+    description: "S/4HANA unified material document table"
+    domain: movement
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

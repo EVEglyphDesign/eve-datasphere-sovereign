@@ -1,0 +1,462 @@
+# ILOA — PM Object Location and Account Assignment — the accounting/organizational bridge from equipment/functional location to cost center, WBS, asset, business area.
+# Source: https://leanx.eu/sap/table/iloa/
+# Sovereign SAP data model manifest. Canon shape — do not rearrange.
+
+table: ILOA
+module: PM
+description: "PM Object Location and Account Assignment — the accounting/organizational bridge from equipment/functional location to cost center, WBS, asset, business area."
+source: https://leanx.eu/sap/table/iloa/
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: ILOAN
+    description: "Location and account assignment for technical object"
+    data_element: ILOAN
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: true
+  - name: TPLNR
+    description: "Functional Location"
+    data_element: TPLNR
+    check_table: IFLOT
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: ABCKZ
+    description: "ABC indicator for technical object"
+    data_element: ABCKZ
+    check_table: T370C
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ABCKZI
+    description: "Data origin for ABC indicator field"
+    data_element: INH_ABCKZI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EQFNR
+    description: "Sort field"
+    data_element: EQFNR
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: EQFNRI
+    description: "Data origin for sort field"
+    data_element: INH_EQFNRI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SWERK
+    description: "Maintenance plant"
+    data_element: SWERK
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SWERKI
+    description: "Data origin for maintenance plant field"
+    data_element: INH_SWERKI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STORT
+    description: "Location of maintenance object"
+    data_element: PMLOC
+    check_table: T499S
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: STORTI
+    description: "Data origin for location field"
+    data_element: INH_STORTI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MSGRP
+    description: "Room"
+    data_element: RAUMNR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: MSGRPI
+    description: "Data origin for room number field"
+    data_element: INH_MSGRPI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BEBER
+    description: "Plant section"
+    data_element: BEBER
+    check_table: T357
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: BEBERI
+    description: "Data origin for plant section field"
+    data_element: INH_BEBERI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CR_OBJTY
+    description: "Object types of the CIM resource"
+    data_element: CR_OBJTY
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PPSID
+    description: "Object ID of PP work center"
+    data_element: PPSID
+    check_table: CRID
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: PPSIDI
+    description: "Data origin for PP work center field"
+    data_element: INH_PPSIDI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GSBER
+    description: "Business Area"
+    data_element: GSBER
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: GSBERI
+    description: "Data origin for business area field"
+    data_element: INH_GSBERI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KOKRSI
+    description: "Data origin for controlling area field"
+    data_element: INH_KOKRSI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KOSTL
+    description: "Cost Center"
+    data_element: KOSTL
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KOSTLI
+    description: "Data origin for cost center field"
+    data_element: INH_KOSTLI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PROID
+    description: "Work Breakdown Structure Element (WBS Element)"
+    data_element: PS_PSP_PNR
+    check_table: PRPS
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: PROIDI
+    description: "Data origin for WBS element field"
+    data_element: INH_PROIDI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BUKRSI
+    description: "Data origin for company code field"
+    data_element: INH_BUKRSI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ANLNR
+    description: "Main Asset Number"
+    data_element: ANLN1
+    check_table: ANLH
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ANLNRI
+    description: "Data origin for asset main no./sub-no. fields"
+    data_element: INH_ANLNRI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ANLUN
+    description: "Asset Subnumber"
+    data_element: ANLN2
+    check_table: ANLA
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ANLUNI
+    description: "Data origin indicator"
+    data_element: INHER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DAUFN
+    description: "Standing order number"
+    data_element: DAUFN
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: DAUFNI
+    description: "Data origin of standing order number field"
+    data_element: INH_DAUFNI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUFNR
+    description: "Settlement order"
+    data_element: ILOM_ORDST
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AUFNRI
+    description: "Data origin for settlement order field"
+    data_element: INH_AUFNRI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TPLNRI
+    description: "Data origin for functional location field"
+    data_element: INH_TPLNRI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VKORG
+    description: "Sales Organization"
+    data_element: VKORG
+    check_table: TVKO
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VKORGI
+    description: "Data origin for sales organization field"
+    data_element: INH_VKORGI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VTWEG
+    description: "Distribution Channel"
+    data_element: VTWEG
+    check_table: TVKOV
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: VTWEGI
+    description: "Data origin of distribution channel field"
+    data_element: INH_VTWEGI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SPART
+    description: "Division"
+    data_element: SPART
+    check_table: TVTA
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: SPARTI
+    description: "Data origin for division field"
+    data_element: INH_SPARTI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ADRNR
+    description: "Address number"
+    data_element: AD_ADDRNUM
+    check_table: ADRC
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ADRNRI
+    description: "Data origin for address field"
+    data_element: INH_ADRNRI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: OWNER
+    description: "Object reference indicator"
+    data_element: ILOM_OWNER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VKBUR
+    description: "Sales Office"
+    data_element: VKBUR
+    check_table: TVKBZ
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VKGRP
+    description: "Sales Group"
+    data_element: VKGRP
+    check_table: TVBVK
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: ABCKZ
+    check_table: T370C
+    check_field: ABCKZ
+  - field: ADRNR
+    check_table: ADRC
+    check_field: ADDRNUMBER
+  - field: ANLNR
+    check_table: ANLH
+    check_field: ANLN1
+  - field: ANLUN
+    check_table: ANLA
+    check_field: ANLN2
+  - field: AUFNR
+    check_table: AUFK
+    check_field: AUFNR
+  - field: BEBER
+    check_table: T357
+    check_field: BEBER
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: DAUFN
+    check_table: AUFK
+    check_field: AUFNR
+  - field: GSBER
+    check_table: TGSB
+    check_field: GSBER
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: KOSTL
+    check_table: CSKS
+    check_field: KOSTL
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: PPSID
+    check_table: CRID
+    check_field: OBJID
+  - field: PROID
+    check_table: PRPS
+    check_field: PSPNR
+  - field: SPART
+    check_table: TVTA
+    check_field: SPART
+  - field: STORT
+    check_table: T499S
+    check_field: STAND
+  - field: SWERK
+    check_table: T001W
+    check_field: WERKS
+  - field: TPLNR
+    check_table: IFLOT
+    check_field: TPLNR
+  - field: VKBUR
+    check_table: TVKBZ
+    check_field: VKBUR
+  - field: VKGRP
+    check_table: TVBVK
+    check_field: VKGRP
+  - field: VKORG
+    check_table: TVKO
+    check_field: VKORG
+  - field: VTWEG
+    check_table: TVKOV
+    check_field: VTWEG
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

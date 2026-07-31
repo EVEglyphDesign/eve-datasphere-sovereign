@@ -1,0 +1,143 @@
+# FI (Financial Accounting) — table inventory
+# Sources: SAP Help Portal, leanx.eu, public community references.
+module: FI
+description: "Financial Accounting — GL, AR, AP, Asset Accounting, Bank Accounting. The ACDOCA-facing side of the ledger."
+
+tables:
+  # ------------- Universal Journal (S/4HANA) -------------
+  - name: ACDOCA
+    description: "Universal Journal Entry Line Items — S/4HANA. THE canonical line-level table. Every FI/CO posting flows through here."
+    domain: universal_journal
+  - name: ACDOCP
+    description: "Universal Journal Plan Data"
+    domain: universal_journal
+  - name: ACDOCU
+    description: "Universal Journal Update Records"
+    domain: universal_journal
+
+  # ------------- Classic FI Documents (ECC + coexistence in S/4) -------------
+  - name: BKPF
+    description: "Accounting Document Header"
+    domain: document
+  - name: BSEG
+    description: "Accounting Document Segment (line items)"
+    domain: document
+  - name: BSAK
+    description: "Cleared vendor items"
+    domain: document
+  - name: BSAS
+    description: "Cleared G/L account items"
+    domain: document
+  - name: BSAD
+    description: "Cleared customer items"
+    domain: document
+  - name: BSIK
+    description: "Open vendor items"
+    domain: document
+  - name: BSIS
+    description: "Open G/L account items"
+    domain: document
+  - name: BSID
+    description: "Open customer items"
+    domain: document
+
+  # ------------- Chart of Accounts / GL Master -------------
+  - name: SKA1
+    description: "G/L Account Master (Chart of Accounts)"
+    domain: gl_master
+  - name: SKB1
+    description: "G/L account master (Company Code)"
+    domain: gl_master
+  - name: SKAT
+    description: "G/L Account Master Record — Descriptions"
+    domain: gl_master
+  - name: T001
+    description: "Company Codes"
+    domain: org
+  - name: T001W
+    description: "Plants/Branches"
+    domain: org
+  - name: TGSB
+    description: "Business Areas"
+    domain: org
+
+  # ------------- General Ledger (New GL / Classic) -------------
+  - name: FAGLFLEXA
+    description: "New GL Actual Line Items (superseded by ACDOCA in S/4HANA)"
+    domain: ledger
+  - name: FAGLFLEXT
+    description: "New GL totals table"
+    domain: ledger
+  - name: GLT0
+    description: "Classic G/L totals"
+    domain: ledger
+
+  # ------------- Vendor (AP) master -------------
+  - name: LFA1
+    description: "Vendor Master (General Section)"
+    domain: vendor_master
+  - name: LFB1
+    description: "Vendor Master (Company Code)"
+    domain: vendor_master
+  - name: LFBK
+    description: "Vendor Master (Bank Details)"
+    domain: vendor_master
+  - name: LFM1
+    description: "Vendor Master Record: Purchasing Organization Data"
+    domain: vendor_master
+
+  # ------------- Customer (AR) master -------------
+  - name: KNA1
+    description: "General Data in Customer Master"
+    domain: customer_master
+  - name: KNB1
+    description: "Customer Master (Company Code)"
+    domain: customer_master
+  - name: KNBK
+    description: "Customer Master (Bank Details)"
+    domain: customer_master
+  - name: KNVV
+    description: "Customer Master Sales Data"
+    domain: customer_master
+
+  # ------------- Asset Accounting -------------
+  - name: ANLA
+    description: "Asset Master Record Segment"
+    domain: asset_master
+  - name: ANLB
+    description: "Depreciation terms"
+    domain: asset_master
+  - name: ANLC
+    description: "Asset Value Fields"
+    domain: asset_master
+  - name: ANLH
+    description: "Main asset number"
+    domain: asset_master
+  - name: ANLZ
+    description: "Time-dependent asset allocations"
+    domain: asset_master
+  - name: ANEK
+    description: "Asset transactions header"
+    domain: asset_transaction
+  - name: ANEP
+    description: "Asset transactions line items"
+    domain: asset_transaction
+  - name: ANEA
+    description: "Asset transactions depreciation area"
+    domain: asset_transaction
+
+  # ------------- Bank Accounting -------------
+  - name: FEBEP
+    description: "Electronic Bank Statement Line Items"
+    domain: bank
+  - name: FEBKO
+    description: "Electronic Bank Statement Header"
+    domain: bank
+  - name: T012
+    description: "House Banks"
+    domain: bank_master
+  - name: T012K
+    description: "House Bank Accounts"
+    domain: bank_master
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

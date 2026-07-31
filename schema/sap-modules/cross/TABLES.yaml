@@ -1,0 +1,134 @@
+# Cross-Application — table inventory
+module: CROSS
+description: "Cross-application check tables — DDIC metadata, addresses, clients, currencies, languages, units of measure, object numbers."
+
+tables:
+  # Client + system
+  - name: T000
+    description: "Clients (the tenant-defining table)"
+    domain: system
+
+  # DDIC (metadata about the data model itself — the model's own model)
+  - name: DD02L
+    description: "SAP tables — dictionary directory of tables"
+    domain: ddic
+  - name: DD02T
+    description: "R/3 DD: SAP table texts"
+    domain: ddic
+  - name: DD03L
+    description: "Table Fields — the field-level dictionary"
+    domain: ddic
+  - name: DD03T
+    description: "DD: Texts for fields (language dependent)"
+    domain: ddic
+  - name: DD04L
+    description: "Data elements"
+    domain: ddic
+  - name: DD04T
+    description: "R/3 DD: Data element texts"
+    domain: ddic
+  - name: DD01L
+    description: "Domains"
+    domain: ddic
+  - name: DD01T
+    description: "R/3 DD: domain texts"
+    domain: ddic
+  - name: DD07L
+    description: "Fixed values for domains"
+    domain: ddic
+  - name: DD08L
+    description: "Relationship definitions (foreign keys)"
+    domain: ddic
+  - name: DD09L
+    description: "Technical settings of tables"
+    domain: ddic
+  - name: DD12L
+    description: "Secondary indexes"
+    domain: ddic
+  - name: DD25L
+    description: "Aggregate header (Views, MC Objects, Lock Objects)"
+    domain: ddic
+  - name: DD30L
+    description: "Search helps"
+    domain: ddic
+  - name: DD40L
+    description: "Table types (internal tables defined in DD)"
+    domain: ddic
+
+  # Addresses (Business Address Services)
+  - name: ADRC
+    description: "Addresses (Business Address Services) — the shared address store"
+    domain: address
+  - name: ADR2
+    description: "Telephone numbers (BAS)"
+    domain: address
+  - name: ADR3
+    description: "Fax numbers (BAS)"
+    domain: address
+  - name: ADR6
+    description: "E-mail addresses (BAS)"
+    domain: address
+
+  # Currencies + units + languages
+  - name: TCURC
+    description: "Currency Codes"
+    domain: currency
+  - name: TCURR
+    description: "Exchange rates"
+    domain: currency
+  - name: TCURT
+    description: "Currency Code Names"
+    domain: currency
+  - name: T006
+    description: "Units of Measurement"
+    domain: uom
+  - name: T006A
+    description: "Language-dependent unit texts"
+    domain: uom
+  - name: T002
+    description: "Language Keys (Component BC-I18)"
+    domain: language
+  - name: T005
+    description: "Countries"
+    domain: country
+
+  # Object numbers / status / classification
+  - name: ONR00
+    description: "General Object Number"
+    domain: object
+  - name: JEST
+    description: "Object status (individual statuses)"
+    domain: status
+  - name: JSTO
+    description: "Object status master data"
+    domain: status
+  - name: TJ02
+    description: "System status"
+    domain: status
+  - name: TJ03
+    description: "Object types (for J_OBTYP)"
+    domain: object
+
+  # Classification / characteristics
+  - name: KLAH
+    description: "Class Header Data"
+    domain: classification
+  - name: CABN
+    description: "Characteristic — attributes"
+    domain: classification
+  - name: CAWN
+    description: "Characteristic values"
+    domain: classification
+  - name: AUSP
+    description: "Characteristic Values (classification)"
+    domain: classification
+
+  # Change documents
+  - name: CDHDR
+    description: "Change Document Header"
+    domain: change
+  - name: CDPOS
+    description: "Change Document Item"
+    domain: change
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

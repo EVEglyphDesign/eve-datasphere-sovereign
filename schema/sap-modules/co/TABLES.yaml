@@ -1,0 +1,76 @@
+# CO (Controlling) — table inventory
+module: CO
+description: "Controlling — cost centers, profit centers, internal orders, activity-based costing, profitability. In S/4HANA, CO line items unified into ACDOCA."
+
+tables:
+  - name: COEP
+    description: "CO Object: Line Items by Period (classic)"
+    domain: line_item
+  - name: COBK
+    description: "CO Object: Document header"
+    domain: line_item
+  - name: COSS
+    description: "CO Object: Cost Totals for Internal Postings"
+    domain: totals
+  - name: COSP
+    description: "CO Object: Cost Totals for External Postings"
+    domain: totals
+
+  # Cost center master
+  - name: CSKS
+    description: "Cost Center Master Data"
+    domain: cost_center
+  - name: CSKT
+    description: "Cost Center Texts"
+    domain: cost_center
+  - name: CSKA
+    description: "Cost Elements"
+    domain: cost_element
+  - name: CSKB
+    description: "Cost Elements (Controlling Area)"
+    domain: cost_element
+
+  # Profit center
+  - name: CEPC
+    description: "Profit Center Master Data"
+    domain: profit_center
+  - name: CEPCT
+    description: "Profit Center Texts"
+    domain: profit_center
+
+  # Internal orders
+  - name: AUFK
+    description: "Order master data (shared with PM/CS/PS)"
+    domain: internal_order
+
+  # Activity
+  - name: CSLA
+    description: "Activity Master"
+    domain: activity
+  - name: CSLT
+    description: "Activity Type Texts"
+    domain: activity
+
+  # Profitability Analysis (COPA)
+  - name: CE1
+    description: "COPA operating concern line items (client-generated: CE1XXXX)"
+    domain: copa
+  - name: CE2
+    description: "COPA line items — actual (client-generated)"
+    domain: copa
+  - name: CE3
+    description: "COPA totals (client-generated)"
+    domain: copa
+  - name: CE4
+    description: "COPA characteristics (client-generated)"
+    domain: copa
+
+  # Controlling org
+  - name: TKA01
+    description: "Controlling Areas"
+    domain: org
+  - name: TKA02
+    description: "Controlling area assignment"
+    domain: org
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

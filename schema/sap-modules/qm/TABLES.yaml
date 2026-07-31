@@ -1,0 +1,39 @@
+# QM (Quality Management) — table inventory
+module: QM
+description: "Quality Management — inspection lots, notifications, characteristics, master inspection characteristics."
+
+tables:
+  - name: QALS
+    description: "Inspection lot record"
+    domain: inspection
+  - name: QAMR
+    description: "Characteristic results during inspection processing"
+    domain: inspection
+  - name: QASR
+    description: "Sample results for inspection characteristics"
+    domain: inspection
+  - name: QAVE
+    description: "Inspection processing — usage decision"
+    domain: inspection
+
+  - name: QMEL
+    description: "Quality Notification header (shared with PM)"
+    domain: notification
+  - name: QMFE
+    description: "Notification items (defects)"
+    domain: notification
+  - name: QMSM
+    description: "Notification tasks"
+    domain: notification
+
+  - name: QPMK
+    description: "Master Inspection Characteristics"
+    domain: master
+  - name: QPMT
+    description: "Master Inspection Characteristics — texts"
+    domain: master
+  - name: QMAT
+    description: "Inspection Type — material parameters"
+    domain: master
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

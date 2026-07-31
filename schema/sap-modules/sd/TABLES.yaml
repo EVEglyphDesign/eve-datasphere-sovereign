@@ -1,0 +1,79 @@
+# SD (Sales & Distribution) — table inventory
+module: SD
+description: "Sales & Distribution — customer, sales orders, delivery, billing, pricing."
+
+tables:
+  # Sales orders
+  - name: VBAK
+    description: "Sales Document — Header"
+    domain: sales_order
+  - name: VBAP
+    description: "Sales Document — Item"
+    domain: sales_order
+  - name: VBEP
+    description: "Sales Document — Schedule Line"
+    domain: sales_order
+  - name: VBUK
+    description: "Sales Document — Header Status"
+    domain: sales_order
+  - name: VBUP
+    description: "Sales Document — Item Status"
+    domain: sales_order
+  - name: VBKD
+    description: "Sales Document — Business Data"
+    domain: sales_order
+  - name: VBPA
+    description: "Sales Document — Partner"
+    domain: sales_order
+
+  # Delivery
+  - name: LIKP
+    description: "SD Document: Delivery Header"
+    domain: delivery
+  - name: LIPS
+    description: "SD Document: Delivery Item"
+    domain: delivery
+
+  # Billing
+  - name: VBRK
+    description: "Billing Document Header"
+    domain: billing
+  - name: VBRP
+    description: "Billing Document Item"
+    domain: billing
+
+  # Pricing / conditions
+  - name: KONV
+    description: "Conditions (Transaction Data)"
+    domain: pricing
+  - name: KONH
+    description: "Condition Header"
+    domain: pricing
+  - name: KONP
+    description: "Condition Item"
+    domain: pricing
+  - name: A004
+    description: "Material condition record (example — many A/B/C/D/E/M/K tables)"
+    domain: pricing
+
+  # Sales org master
+  - name: TVKO
+    description: "Sales Organizations"
+    domain: org
+  - name: TVKOV
+    description: "Distribution channels per sales org"
+    domain: org
+  - name: TVTA
+    description: "Sales area assignment"
+    domain: org
+  - name: TVKBZ
+    description: "Sales Office — assignment to sales org"
+    domain: org
+  - name: TVBVK
+    description: "Sales Groups per Sales Office"
+    domain: org
+  - name: TSPA
+    description: "Divisions"
+    domain: org
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

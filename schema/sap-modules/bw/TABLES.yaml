@@ -1,0 +1,26 @@
+# BW (Business Warehouse / Analytical) — table inventory
+module: BW
+description: "Business Warehouse / analytical structures. In S/4HANA these are largely subsumed by CDS views and Embedded Analytics, but the classic tables still exist and Datasphere/BW/4HANA maintain them."
+
+tables:
+  # DataStore Objects (DSOs) — customer-generated table names
+  - name: /BIC/A*
+    description: "Active tables for standard DSOs (customer-generated names)"
+    domain: dso
+  - name: /BI0/*
+    description: "SAP-delivered InfoProviders"
+    domain: infoprovider
+  - name: RSDIOBJ
+    description: "InfoObject Directory"
+    domain: metadata
+  - name: RSDCUBE
+    description: "InfoCube Directory"
+    domain: metadata
+  - name: RSDODSO
+    description: "DSO Directory"
+    domain: metadata
+  - name: RSMONFACT
+    description: "Load run monitoring facts"
+    domain: admin
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

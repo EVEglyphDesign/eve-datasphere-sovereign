@@ -1,0 +1,155 @@
+# IHPA — Plant Maintenance Partners — humans and organizations linked to a technical object. Foundation of the Layer-3 interaction record for equipment.
+# Source: https://leanx.eu/sap/table/ihpa/
+# Sovereign SAP data model manifest. Canon shape — do not rearrange.
+
+table: IHPA
+module: PM
+description: "Plant Maintenance Partners — humans and organizations linked to a technical object. Foundation of the Layer-3 interaction record for equipment."
+source: https://leanx.eu/sap/table/ihpa/
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: true
+  - name: PARVW
+    description: "Partner Function"
+    data_element: PARVW
+    check_table: TPAR
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: COUNTER
+    description: "Counter for differentiation 6-digit"
+    data_element: I_COUNT
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: true
+  - name: OBTYP
+    description: "Object Category"
+    data_element: J_OBTYP
+    check_table: TJ03
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: true
+  - name: PARNR
+    description: "Partner"
+    data_element: I_PARNR
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: true
+  - name: INHER
+    description: "Data origin indicator"
+    data_element: INHER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERZEIT
+    description: "Time, at Which Record Was Added"
+    data_element: ERZEIT
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AEZEIT
+    description: "Time of Change"
+    data_element: AEZEIT
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: KZLOESCH
+    description: "Delete Data Record"
+    data_element: KZLOESCH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ADRNR
+    description: "Address number"
+    data_element: AD_ADDRNUM
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: TZONSP
+    description: "Time Zone for Partner"
+    data_element: TZONSP
+    check_table: TTZZ
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: OBJNR
+    check_table: ONR00
+    check_field: OBJNR
+  - field: OBTYP
+    check_table: TJ03
+    check_field: OBTYP
+  - field: PARVW
+    check_table: TPAR
+    check_field: PARVW
+  - field: TZONSP
+    check_table: TTZZ
+    check_field: TZONE
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -1,0 +1,702 @@
+# EQUI — Equipment master data — individual business object maintained independently. Reactor pumps, valves, sensors, fleet units.
+# Source: https://leanx.eu/sap/table/equi/
+# Sovereign SAP data model manifest. Canon shape — do not rearrange.
+
+table: EQUI
+module: PM
+description: "Equipment master data — individual business object maintained independently. Reactor pumps, valves, sensors, fleet units."
+source: https://leanx.eu/sap/table/equi/
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: EQUNR
+    description: "Equipment Number"
+    data_element: EQUNR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: true
+  - name: ERDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: EQASP
+    description: "Language in Which the Piece of Equipment was Entered"
+    data_element: EQASP
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: BEGRU
+    description: "Technical object authorization group"
+    data_element: IAUTG
+    check_table: T370B
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: EQTYP
+    description: "Equipment category"
+    data_element: EQTYP
+    check_table: T370T
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EQART
+    description: "Type of Technical Object"
+    data_element: EQART
+    check_table: T370K
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LVORM
+    description: "SAP Development Reserve: Format CHAR, Length 1"
+    data_element: RESERVE_CHAR_001
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: INVNR
+    description: "Inventory number"
+    data_element: INVNR
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: GROES
+    description: "Size/dimension"
+    data_element: GROSS
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: BRGEW
+    description: "Weight of object"
+    data_element: OBJ_WEIGHT
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: GEWEI
+    description: "Unit of weight"
+    data_element: WEIGHT_UNIT
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ANSDT
+    description: "Acquisition date"
+    data_element: ANDTI
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ANSWT
+    description: "Acquisition Value"
+    data_element: ANSWT
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: ELIEF
+    description: "Vendor number"
+    data_element: ELIEF
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: GWLEN
+    description: "Date on which the warranty ends"
+    data_element: GWLEN
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: GWLDT
+    description: "Warranty Date"
+    data_element: GWLDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: WDBWT
+    description: "Equipment replacement value"
+    data_element: WDBWT
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: HERST
+    description: "Manufacturer of asset"
+    data_element: HERST
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: HERLD
+    description: "Country of manufacture"
+    data_element: HERLD
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: HZEIN
+    description: "Manufacturer drawing number"
+    data_element: HZEIN
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: SERGE
+    description: "Manufacturer serial number"
+    data_element: SERGE
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: TYPBZ
+    description: "Manufacturer model number"
+    data_element: TYPBZ
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: BAUJJ
+    description: "Year of construction"
+    data_element: BAUJJ
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BAUMM
+    description: "Month of construction"
+    data_element: BAUMM
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: APLKZ
+    description: "Indicator: Task List Exists"
+    data_element: APLKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AULDT
+    description: "First delivery date of the equipment"
+    data_element: AULDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: INBDT
+    description: "Start-up Date of the Technical Object"
+    data_element: ILOM_DATAB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: GERNR
+    description: "Serial Number"
+    data_element: GERNR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: EQLFN
+    description: "Consecutive numbering of EquipUsagePeriods on same day"
+    data_element: EQLFN
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: GWLDV
+    description: "Warranty date for Sales and Distribution"
+    data_element: GWLDV
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: EQDAT
+    description: "Date, intended for SAP internal use"
+    data_element: EQDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: EQBER
+    description: "Technical information, intended for SAP internal use"
+    data_element: EQBER
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: EQNUM
+    description: "Numerical field, intended for SAP internal use"
+    data_element: EQNUM
+    check_table: ~
+    datatype: NUMC
+    length: 9
+    decimals: 0
+    key: false
+  - name: OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ~
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: EQSNR
+    description: "EQSE Number"
+    data_element: EQSNR
+    check_table: EQSE
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: CUOBJ
+    description: "Configuration (internal object number)"
+    data_element: CUOBJ
+    check_table: ~
+    datatype: NUMC
+    length: 18
+    decimals: 0
+    key: false
+  - name: KRFKZ
+    description: "Referenced Configuration"
+    data_element: KRFKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KMATN
+    description: "Configurable Material"
+    data_element: KMATN
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: SERNR
+    description: "Serial Number"
+    data_element: GERNR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: WERK
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LAGER
+    description: "Storage Location"
+    data_element: LGORT_D
+    check_table: T001L
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: CHARGE
+    description: "Batch Number"
+    data_element: CHARG_D
+    check_table: MCH1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KUNDE
+    description: "Customer to Whom Serial Number was Delivered"
+    data_element: KUNDSE
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: WARPL
+    description: "Maintenance Plan"
+    data_element: WARPL
+    check_table: MPLA
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: IMRC_POINT
+    description: "Measuring Point"
+    data_element: IMRC_POINT
+    check_table: IMPTT
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: REVLV
+    description: "Revision Level"
+    data_element: REVLV
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: MGANR
+    description: "Master warranty number"
+    data_element: MGANR
+    check_table: BGMK
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: BEGRUI
+    description: "Data origin for authorization group field"
+    data_element: INH_BEGRUI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: S_EQUI
+    description: "Equipment data exists"
+    data_element: EQUIP_KNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: S_SERIAL
+    description: "Serial data when maintaining equipment"
+    data_element: KZKSD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: S_KONFI
+    description: "Configuration supported"
+    data_element: KONFKNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: S_SALE
+    description: "Sales equipment"
+    data_element: SDKNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: S_FHM
+    description: "Equip. category relevant to production resources and tools"
+    data_element: FHMKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: S_ELSE
+    description: "Indicator: Other Data Active"
+    data_element: ELSE_KNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: S_ISU
+    description: "IS-U data"
+    data_element: ISU_KNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: S_EQBS
+    description: "EQSI Exists"
+    data_element: KZEQBS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: S_FLEET
+    description: "Indicator: Fleet object active"
+    data_element: FLEET_KNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BSTVP
+    description: "Stock Check for Serial Numbers"
+    data_element: BSTVP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SPARTE
+    description: "Division"
+    data_element: SPARTE
+    check_table: TSPA
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: HANDLE
+    description: "SAP Development Reserve: Integration of Date Segment (Key)"
+    data_element: ITOBTMP_TSEGGUID
+    check_table: ~
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: TSEGTP
+    description: "SAP Development Reserve: Integration Date Segment (Template)"
+    data_element: ITOBTMP_TSEGTEMPLA
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: EMATN
+    description: "Material Number Corresponding to Manufacturer Part Number"
+    data_element: EMATN
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: ACT_CHANGE_AA
+    description: "Change Equipment Master when Changing Asset"
+    data_element: AAPM_ACT_CHANGE_AA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: S_CC
+    description: "Configuration Control Data"
+    data_element: CCC_KNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DATLWB
+    description: "Date of Last Goods Movement"
+    data_element: DATLWB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: UII
+    description: "Unique Item Identifier"
+    data_element: UII_CHAR72
+    check_table: ~
+    datatype: CHAR
+    length: 72
+    decimals: 0
+    key: false
+  - name: IUID_TYPE
+    description: "Structure Type of UII"
+    data_element: IUID_TYPE
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: UII_PLANT
+    description: "Plant Responsible for UII"
+    data_element: UII_PLANT
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: EQUI_SRTYPE
+    description: "Shift Report Type"
+    data_element: COCF_SR_SRTYPE
+    check_table: COCF_CU_SRTYPE
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: EQUI_SNTYPE
+    description: "Shift Note Type"
+    data_element: COCF_SN_SNTYPE
+    check_table: TQ80
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: EQLB_DUTY
+    description: "Logbook Duty"
+    data_element: DIACL_DUTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EQLB_HIDE
+    description: "Hide Logbook Display"
+    data_element: DIACL_HIDE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: BEGRU
+    check_table: T370B
+    check_field: BEGRU
+  - field: CHARGE
+    check_table: MCH1
+    check_field: CHARG
+  - field: ELIEF
+    check_table: LFA1
+    check_field: LIFNR
+  - field: EQART
+    check_table: T370K
+    check_field: EQART
+  - field: EQASP
+    check_table: T002
+    check_field: SPRAS
+  - field: EQSNR
+    check_table: EQSE
+    check_field: EQSNR
+  - field: EQTYP
+    check_table: T370T
+    check_field: EQTYP
+  - field: EQUI_SNTYPE
+    check_table: TQ80
+    check_field: QMART
+  - field: EQUI_SRTYPE
+    check_table: COCF_CU_SRTYPE
+    check_field: SRTYPE
+  - field: GEWEI
+    check_table: T006
+    check_field: MSEHI
+  - field: HERLD
+    check_table: T005
+    check_field: LAND1
+  - field: IMRC_POINT
+    check_table: IMPTT
+    check_field: POINT
+  - field: KMATN
+    check_table: MARA
+    check_field: MATNR
+  - field: KUNDE
+    check_table: KNA1
+    check_field: KUNNR
+  - field: LAGER
+    check_table: T001L
+    check_field: LGORT
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: MGANR
+    check_table: BGMK
+    check_field: MGANR
+  - field: SPARTE
+    check_table: TSPA
+    check_field: SPART
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: WARPL
+    check_table: MPLA
+    check_field: WARPL
+  - field: WERK
+    check_table: T001W
+    check_field: WERKS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

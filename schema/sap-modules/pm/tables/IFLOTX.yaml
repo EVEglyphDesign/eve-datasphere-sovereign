@@ -1,0 +1,77 @@
+# IFLOTX — Functional Location short texts — multilingual descriptions of functional locations.
+# Source: https://leanx.eu/sap/table/iflotx/
+# Sovereign SAP data model manifest. Canon shape — do not rearrange.
+
+table: IFLOTX
+module: PM
+description: "Functional Location short texts — multilingual descriptions of functional locations."
+source: https://leanx.eu/sap/table/iflotx/
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: TPLNR
+    description: "Functional Location"
+    data_element: TPLNR
+    check_table: IFLOT
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: SPRAS
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: true
+  - name: PLTXT
+    description: "Description of functional location"
+    data_element: PLTXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: KZLTX
+    description: "Indicator: Long text exists"
+    data_element: ILOM_KZLTX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZMLA
+    description: "Primary language indicator for text segment"
+    data_element: KZMLA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLTXU
+    description: "Description of functional location in capital letters"
+    data_element: ILOM_PLTXU
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: SPRAS
+    check_table: T002
+    check_field: SPRAS
+  - field: TPLNR
+    check_table: IFLOT
+    check_field: TPLNR
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

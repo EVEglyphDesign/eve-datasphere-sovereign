@@ -1,0 +1,541 @@
+# IFLOT — Functional Location — hierarchical installation location for technical objects. Reactor building, subsystem, position in the plant tree.
+# Source: https://leanx.eu/sap/table/iflot/
+# Sovereign SAP data model manifest. Canon shape — do not rearrange.
+
+table: IFLOT
+module: PM
+description: "Functional Location — hierarchical installation location for technical objects. Reactor building, subsystem, position in the plant tree."
+source: https://leanx.eu/sap/table/iflot/
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: TPLNR
+    description: "Functional Location"
+    data_element: TPLNR
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: MLANG
+    description: "Primary language for object texts"
+    data_element: MLANG
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: TPLKZ
+    description: "Functional location structure indicator"
+    data_element: TPLKZ
+    check_table: T370S
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: FLTYP
+    description: "Functional location category"
+    data_element: FLTYP
+    check_table: T370F
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TPLMA
+    description: "Superior functional location"
+    data_element: TPLMA
+    check_table: IFLOT
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on which the object was created"
+    data_element: ICRDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of User Who Created the Object"
+    data_element: ICRNA
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Date on which the object was last changed"
+    data_element: IUPDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of the user who last changed the object"
+    data_element: IUPNA
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: DATAB
+    description: "Start-up Date of the Technical Object"
+    data_element: ILOM_DATAB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BEGRU
+    description: "Technical object authorization group"
+    data_element: IAUTG
+    check_table: T370B
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: TRPNR
+    description: "Reference functional location"
+    data_element: TRPNR
+    check_table: IRLOT
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: PSTAE
+    description: "SAP Development reserve: Format CHAR, length 4"
+    data_element: RESERVE_CHAR_004
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: STNAM
+    description: "SAP Development Reserve: Format CHAR, Length 12"
+    data_element: RESERVE_CHAR_012
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: LVORM
+    description: "SAP Development Reserve: Format CHAR, Length 1"
+    data_element: RESERVE_CHAR_001
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SUBMT
+    description: "Construction type material of the object"
+    data_element: SUBMT
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: SUBMTI
+    description: "Data origin for construction type field"
+    data_element: INH_SUBMTI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MAPAR
+    description: "Manufacturer part number"
+    data_element: MAPAR
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: MAPARI
+    description: "SAP Development Reserve: Format CHAR, Length 1"
+    data_element: RESERVE_CHAR_001
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: IEQUI
+    description: "Installation of equipment allowed at the functional location"
+    data_element: IEQUI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: IEQUII
+    description: "Data origin for equip. inst. allowed field"
+    data_element: INH_IEQUII
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EINZL
+    description: "Single equipment installation at functional location"
+    data_element: EINZL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EINZLI
+    description: "Data origin for authorization group field"
+    data_element: INH_BEGRUI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: IWERK
+    description: "Maintenance Planning Plant"
+    data_element: IWERK
+    check_table: T399I
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: IWERKI
+    description: "Data origin for planning plant field"
+    data_element: INH_IWERKI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: INGRP
+    description: "Planner Group for Customer Service and Plant Maintenance"
+    data_element: INGRP
+    check_table: T024I
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: INGRPI
+    description: "Data origin for maintenance planner group field"
+    data_element: INH_INGRPI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PM_OBJTY
+    description: "Object Type of CIM Resources for Work Center"
+    data_element: PM_OBJTY
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LGWID
+    description: "Object ID of the Work Center"
+    data_element: LGWID
+    check_table: CRID
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: LGWIDI
+    description: "Data Origin for the Field 'Work Center'"
+    data_element: INH_LGWIDI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RBNR
+    description: "Catalog Profile"
+    data_element: RBNR
+    check_table: T352B
+    datatype: CHAR
+    length: 9
+    decimals: 0
+    key: false
+  - name: RBNR_I
+    description: "Data origin for maintenance catalog field"
+    data_element: INH_RBNR_I
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ILOAN
+    description: "Location and account assignment for technical object"
+    data_element: ILOA
+    check_table: ILOA
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: POSNR
+    description: "Position in superior technical object"
+    data_element: ILOM_POSNR
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ISTYP
+    description: "Object category for Industry Solutions (IS)"
+    data_element: ILOM_ISTYP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PREMS
+    description: "Premise"
+    data_element: ILOM_PREMS
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: EQART
+    description: "Type of Technical Object"
+    data_element: EQART
+    check_table: T370K
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: INVNR
+    description: "Inventory number"
+    data_element: INVNR
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: GROES
+    description: "Size/dimension"
+    data_element: GROSS
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: BRGEW
+    description: "Gross Weight"
+    data_element: BRGEW
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: GEWEI
+    description: "Weight Unit"
+    data_element: GEWEI
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ANSWT
+    description: "Acquisition Value"
+    data_element: ANSWT
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: ANSDT
+    description: "Acquisition date"
+    data_element: ANDTI
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: HERST
+    description: "Manufacturer of asset"
+    data_element: HERST
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: HERLD
+    description: "Country of manufacture"
+    data_element: HERLD
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: BAUJJ
+    description: "Year of construction"
+    data_element: BAUJJ
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BAUMM
+    description: "Month of construction"
+    data_element: BAUMM
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: TYPBZ
+    description: "Manufacturer model number"
+    data_element: TYPBZ
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: EMATN
+    description: "Material Number Corresponding to Manufacturer Part Number"
+    data_element: EMATN
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: SERGE
+    description: "Manufacturer serial number"
+    data_element: SERGE
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: HANDLE
+    description: "SAP Development Reserve: Integration of Date Segment (Key)"
+    data_element: ITOBTMP_TSEGGUID
+    check_table: ~
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: TSEGTP
+    description: "SAP Development Reserve: Integration Date Segment (Template)"
+    data_element: ITOBTMP_TSEGTEMPLA
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: FLLB_DUTY
+    description: "Logbook Duty"
+    data_element: DIACL_DUTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLLB_HIDE
+    description: "Hide Logbook Display"
+    data_element: DIACL_HIDE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: IFLOT_SRTYPE
+    description: "Shift Report Type for Object"
+    data_element: ILOM_SR_SRTYPE
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: IFLOT_SNTYPE
+    description: "Notification Type for Shift Note for Object"
+    data_element: ILOM_SN_SNTYPE
+    check_table: TQ80
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: BEGRU
+    check_table: T370B
+    check_field: BEGRU
+  - field: EQART
+    check_table: T370K
+    check_field: EQART
+  - field: FLTYP
+    check_table: T370F
+    check_field: FLTYP
+  - field: GEWEI
+    check_table: T006
+    check_field: MSEHI
+  - field: HERLD
+    check_table: T005
+    check_field: LAND1
+  - field: IFLOT_SNTYPE
+    check_table: TQ80
+    check_field: QMART
+  - field: ILOAN
+    check_table: ILOA
+    check_field: ILOAN
+  - field: INGRP
+    check_table: T024I
+    check_field: INGRP
+  - field: IWERK
+    check_table: T399I
+    check_field: IWERK
+  - field: LGWID
+    check_table: CRID
+    check_field: OBJID
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MLANG
+    check_table: T002
+    check_field: SPRAS
+  - field: OBJNR
+    check_table: ONR00
+    check_field: OBJNR
+  - field: RBNR
+    check_table: T352B
+    check_field: RBNR
+  - field: SUBMT
+    check_table: MARA
+    check_field: MATNR
+  - field: TPLKZ
+    check_table: T370S
+    check_field: TPLKZ
+  - field: TPLMA
+    check_table: IFLOT
+    check_field: TPLNR
+  - field: TRPNR
+    check_table: IRLOT
+    check_field: TRPNR
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

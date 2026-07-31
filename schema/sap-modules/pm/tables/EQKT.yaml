@@ -1,0 +1,77 @@
+# EQKT — Equipment short texts — multilingual descriptions of equipment records.
+# Source: https://leanx.eu/sap/table/eqkt/
+# Sovereign SAP data model manifest. Canon shape — do not rearrange.
+
+table: EQKT
+module: PM
+description: "Equipment short texts — multilingual descriptions of equipment records."
+source: https://leanx.eu/sap/table/eqkt/
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: EQUNR
+    description: "Equipment Number"
+    data_element: EQUNR
+    check_table: EQUI
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: true
+  - name: SPRAS
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: true
+  - name: EQKTX
+    description: "Description of technical object"
+    data_element: KTX01
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: KZLTX
+    description: "Long Text Indicator"
+    data_element: KZLTA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TXASP
+    description: "Primary language indicator for text segment"
+    data_element: KZMLA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EQKTU
+    description: "Equipment description in capital letters"
+    data_element: EQKTU
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: EQUNR
+    check_table: EQUI
+    check_field: EQUNR
+  - field: SPRAS
+    check_table: T002
+    check_field: SPRAS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.
