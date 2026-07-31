@@ -1,0 +1,178 @@
+table: CSKB
+module: CO
+description: "Cost Elements (Data Dependent on Controlling Area) — the controlling-area-level extension of a cost element (CSKA), time-sliced, carrying the cost-element category and, for secondary cost elements, the allocation cost center/order. This is the check table AUFK-KSTAR points at for the order's settlement cost element."
+source: https://leanx.eu/en/sap/table/cskb.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: ~
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: KSTAR
+    description: "Cost Element"
+    data_element: KSTAR
+    check_table: CSKA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: DATBI
+    description: "Valid To Date"
+    data_element: DATBI
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: DATAB
+    description: "Valid-From Date"
+    data_element: DATAB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: KATYP
+    description: "Cost element category"
+    data_element: KATYP
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ERSDA
+    description: "Created on"
+    data_element: ERFDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: USNAM
+    description: "Entered by"
+    data_element: ERFNM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: EIGEN
+    description: "Cost element attributes"
+    data_element: EIGEN
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: PLAZU
+    description: "Indicator for planning access"
+    data_element: PLAZU
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLAOR
+    description: "Indicator for the planning location"
+    data_element: PLAOR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLAUS
+    description: "Indicators for planning user"
+    data_element: PLAUS
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KOSTL
+    description: "Cost Center (allocation cost center for secondary cost elements)"
+    data_element: KOSTL
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AUFNR
+    description: "Order Number (allocation order for secondary cost elements)"
+    data_element: AUFNR
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: MGEFL
+    description: "Indicator for Recording Consumption Quantities"
+    data_element: MGEFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MSEHI
+    description: "Unit of Measurement"
+    data_element: MSEHI
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: DEAKT
+    description: "Indicator: Cost element deactivated"
+    data_element: CO_DEAKT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LOEVM
+    description: "Indicator: Cost element is flagged for deletion"
+    data_element: CO_LOEFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RECID
+    description: "Recovery Indicator"
+    data_element: JV_RECIND
+    check_table: T8JJ
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: AUFNR
+    check_table: AUFK
+    check_field: AUFNR
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: KOSTL
+    check_table: CSKS
+    check_field: KOSTL
+  - field: KSTAR
+    check_table: CSKA
+    check_field: KSTAR
+  - field: MSEHI
+    check_table: T006
+    check_field: MSEHI
+  - field: RECID
+    check_table: T8JJ
+    check_field: RECID
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

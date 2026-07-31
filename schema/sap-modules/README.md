@@ -9,12 +9,12 @@ This directory mirrors the SAP data model, module by module, as YAML manifests. 
 | Module | Description | Inventory | Field manifests |
 |---|---|---|---|
 | **[PM](pm/)** — Plant Maintenance / EAM | Equipment, functional locations, maintenance orders, notifications, measuring points, plans | [TABLES.yaml](pm/TABLES.yaml) | 7 landed |
-| **[FI](fi/)** — Financial Accounting | Universal Journal (ACDOCA), classic FI docs, GL master, AR/AP master, Asset Accounting, bank | [TABLES.yaml](fi/TABLES.yaml) | pending |
-| **[CO](co/)** — Controlling | Cost centers, profit centers, internal orders, activity types, COPA | [TABLES.yaml](co/TABLES.yaml) | pending |
-| **[MM](mm/)** — Materials Management | Material master, purchasing, inventory movements, batches | [TABLES.yaml](mm/TABLES.yaml) | pending |
-| **[SD](sd/)** — Sales & Distribution | Sales orders, delivery, billing, pricing conditions, sales org | [TABLES.yaml](sd/TABLES.yaml) | pending |
-| **[PP](pp/)** — Production Planning | BOM, routings, production orders, MRP | [TABLES.yaml](pp/TABLES.yaml) | pending |
-| **[QM](qm/)** — Quality Management | Inspection lots, notifications, master inspection characteristics | [TABLES.yaml](qm/TABLES.yaml) | pending |
+| **[FI](fi/)** — Financial Accounting | Universal Journal (ACDOCA), classic FI docs, GL master, AR/AP master, Asset Accounting, bank | [TABLES.yaml](fi/TABLES.yaml) | 10 landed |
+| **[CO](co/)** — Controlling | Cost centers, profit centers, internal orders, activity types, COPA | [TABLES.yaml](co/TABLES.yaml) | 11 landed |
+| **[MM](mm/)** — Materials Management | Material master, purchasing, inventory movements, batches | [TABLES.yaml](mm/TABLES.yaml) | 8 landed |
+| **[SD](sd/)** — Sales & Distribution | Sales orders, delivery, billing, pricing conditions, sales org | [TABLES.yaml](sd/TABLES.yaml) | 7 landed |
+| **[PP](pp/)** — Production Planning | BOM, routings, production orders, MRP | [TABLES.yaml](pp/TABLES.yaml) | 8 landed |
+| **[QM](qm/)** — Quality Management | Inspection lots, notifications, master inspection characteristics | [TABLES.yaml](qm/TABLES.yaml) | 3 landed |
 | **[PS](ps/)** — Project System | Projects, WBS, networks, activities | [TABLES.yaml](ps/TABLES.yaml) | pending |
 | **[HR](hr/)** — Human Resources | Personnel infotypes (PA*/PB*), Org Mgmt (HRP*), time, payroll clusters (PCL*) | [TABLES.yaml](hr/TABLES.yaml) | pending |
 | **[BW](bw/)** — Business Warehouse | InfoObjects, InfoProviders, DSOs, load monitoring | [TABLES.yaml](bw/TABLES.yaml) | pending |

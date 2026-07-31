@@ -1,0 +1,457 @@
+table: AUFK
+module: CO
+description: "Order master data — the header record shared by every SAP order type (internal order, maintenance order, service order, WBS-linked order): order number, order type, controlling area, responsible/settlement cost center, status, and settlement cost element. This is the SAP analogue the CDK repair order keys on directly (AUFK-AUFNR)."
+source: https://leanx.eu/en/sap/table/aufk.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: AUFNR
+    description: "Order Number"
+    data_element: AUFNR
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: true
+  - name: AUART
+    description: "Order Type"
+    data_element: AUFART
+    check_table: T003O
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: AUTYP
+    description: "Order category"
+    data_element: AUFTYP
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: REFNR
+    description: "Reference order number"
+    data_element: AUFREFNR
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Entered by"
+    data_element: AUFERFNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Created on"
+    data_element: AUFERFDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Last changed by"
+    data_element: AUFAENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Change date for Order Master"
+    data_element: AUFAEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: KTEXT
+    description: "Description"
+    data_element: AUFTEXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: LTEXT
+    description: "Long Text Exists"
+    data_element: AUFLTEXT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: GSBER
+    description: "Business Area"
+    data_element: GSBER
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KOSTV
+    description: "Responsible cost center"
+    data_element: AUFKOSTV
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Order Currency"
+    data_element: AUFWAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: ASTNR
+    description: "Order status"
+    data_element: AUFASTNR
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: STDAT
+    description: "Date of last status change"
+    data_element: AUFSTDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PHAS0
+    description: "Phase \"Order created\""
+    data_element: AUFPHAS0
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PHAS1
+    description: "Phase \"Order released\""
+    data_element: AUFPHAS1
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PHAS2
+    description: "Phase \"order completed\""
+    data_element: AUFPHAS2
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PHAS3
+    description: "Phase \"order closed\""
+    data_element: AUFPHAS3
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PDAT1
+    description: "Planned release date"
+    data_element: AUFPDAT1
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PDAT2
+    description: "Planned completion date"
+    data_element: AUFPDAT2
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PDAT3
+    description: "Planned closing date"
+    data_element: AUFPDAT3
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: IDAT1
+    description: "Release date"
+    data_element: AUFIDAT1
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: IDAT2
+    description: "Technical completion date"
+    data_element: AUFIDAT2
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: IDAT3
+    description: "Close date"
+    data_element: AUFIDAT3
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: OBJID
+    description: "Object ID"
+    data_element: CCOBJID
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LOEKZ
+    description: "Deletion flag"
+    data_element: AUFLOEKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KALSM
+    description: "Costing Sheet"
+    data_element: AUFKALSM
+    check_table: T683
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: ZSCHL
+    description: "Overhead key"
+    data_element: AUFZSCHL
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: KSTAR
+    description: "Settlement cost element"
+    data_element: AUFKSTAR
+    check_table: CSKB
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KOSTL
+    description: "Cost center for basic settlement"
+    data_element: AUFKOSTL
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SAKNR
+    description: "G/L account for basic settlement"
+    data_element: AUFSAKNR
+    check_table: SKB1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SETNM
+    description: "Allocation set"
+    data_element: AUFSETNM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: USER0
+    description: "Applicant"
+    data_element: AUFUSER0
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: USER2
+    description: "Person responsible"
+    data_element: AUFUSER2
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: USER4
+    description: "Estimated total costs of order"
+    data_element: AUFUSER4
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: USER6
+    description: "Department"
+    data_element: AUFUSER6
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: PRCTR
+    description: "Profit Center"
+    data_element: PRCTR
+    check_table: CEPC
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PSPEL
+    description: "Work breakdown structure element (WBS element)"
+    data_element: PS_PSP_ELE
+    check_table: PRPS
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: FUNC_AREA
+    description: "Functional Area"
+    data_element: FKBER
+    check_table: TFKB
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: KDAUF
+    description: "Sales Order Number"
+    data_element: KDAUF
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KDPOS
+    description: "Item Number in Sales Order"
+    data_element: KDPOS
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: AUFEX
+    description: "External order number"
+    data_element: AUFEX
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: LOGSYSTEM
+    description: "Logical System"
+    data_element: LOGSYSTEM
+    check_table: TBDLS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: AUART
+    check_table: T003O
+    check_field: AUART
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: FUNC_AREA
+    check_table: TFKB
+    check_field: FKBER
+  - field: GSBER
+    check_table: TGSB
+    check_field: GSBER
+  - field: KALSM
+    check_table: T683
+    check_field: KALSM
+  - field: KDAUF
+    check_table: VBUK
+    check_field: VBELN
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: KOSTL
+    check_table: CSKS
+    check_field: KOSTL
+  - field: KOSTV
+    check_table: CSKS
+    check_field: KOSTL
+  - field: KSTAR
+    check_table: CSKB
+    check_field: KSTAR
+  - field: LOGSYSTEM
+    check_table: TBDLS
+    check_field: LOGSYS
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: OBJNR
+    check_table: ONR00
+    check_field: OBJNR
+  - field: PRCTR
+    check_table: CEPC
+    check_field: PRCTR
+  - field: PSPEL
+    check_table: PRPS
+    check_field: PSPNR
+  - field: REFNR
+    check_table: AUFK
+    check_field: AUFNR
+  - field: SAKNR
+    check_table: SKB1
+    check_field: SAKNR
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

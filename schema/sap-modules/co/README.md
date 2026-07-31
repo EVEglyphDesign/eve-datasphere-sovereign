@@ -12,7 +12,7 @@ Accounting.
 
 ## Table inventory
 
-See [`TABLES.yaml`](TABLES.yaml) for the full inventory (18 tables spanning
+See [`TABLES.yaml`](TABLES.yaml) for the full inventory (19 tables spanning
 line items/totals, cost center master, cost elements, profit centers,
 internal orders, activity types, and COPA).
 
@@ -25,10 +25,15 @@ decimals, sourced from public [leanx.eu](https://leanx.eu) reference pages:
 |---|---|---|
 | **COEP** | [tables/COEP.yaml](tables/COEP.yaml) | CO Object: Line Items by Period — the granular actual/plan posting record for cost centers, orders, and other CO objects. Key: `KOKRS + BELNR + BUZEI + PERIO + OBJNR + GJAHR + WRTTP + VERSN + KSTAR + HRKFT + VRGNG`. |
 | **COBK** | [tables/COBK.yaml](tables/COBK.yaml) | CO Object: Document Header — one header per CO document, linking line items back to the originating business transaction. Key: `KOKRS + BELNR + GJAHR`. |
+| **COSS** | [tables/COSS.yaml](tables/COSS.yaml) | CO Object: Cost Totals for Internal Postings — 16-period totals bucket for internally generated CO postings (allocations, assessments, distributions). Key: `OBJNR + GJAHR + WRTTP + VERSN + KSTAR + HRKFT + VRGNG + PAROB`. |
+| **COSP** | [tables/COSP.yaml](tables/COSP.yaml) | CO Object: Cost Totals for External Postings — 16-period totals bucket for CO postings sourced outside Controlling (FI, MM). Key: `OBJNR + GJAHR + WRTTP + VERSN + KSTAR + HRKFT + VRGNG + VBUND`. |
 | **CSKS** | [tables/CSKS.yaml](tables/CSKS.yaml) | Cost Center Master Data — the organizational unit that collects costs within a controlling area, time-sliced by validity period. Key: `KOKRS + KOSTL + DATBI + DATAB`. |
+| **CSKT** | [tables/CSKT.yaml](tables/CSKT.yaml) | Cost Center Texts — language-dependent short/long names for a cost center. Key: `SPRAS + KOKRS + KOSTL + DATBI`. |
 | **CSKA** | [tables/CSKA.yaml](tables/CSKA.yaml) | Cost Elements (chart-of-accounts level) — the CO-side twin of a G/L account, classifying what kind of cost or revenue is being tracked. Key: `KTOPL + KSTAR`. |
+| **CSKB** | [tables/CSKB.yaml](tables/CSKB.yaml) | Cost Elements (Controlling Area level) — time-sliced controlling-area extension of a cost element, carrying category and allocation cost center/order. Key: `KOKRS + KSTAR + DATBI`. |
 | **CEPC** | [tables/CEPC.yaml](tables/CEPC.yaml) | Profit Center Master Data — the internal profitability reporting unit; feeds `PRCTR` on ACDOCA lines directly. Key: `PRCTR + DATBI + KOKRS`. |
 | **CEPCT** | [tables/CEPCT.yaml](tables/CEPCT.yaml) | Profit Center Texts — language-dependent short/long names for profit centers. Key: `SPRAS + PRCTR + DATBI`. |
+| **AUFK** | [tables/AUFK.yaml](tables/AUFK.yaml) | Order master data — the header shared by every SAP order type (internal order, maintenance order, service order). **This is the table the CDK Drive repair order keys against**: `AUFK-AUFNR` is the SAP analogue of a CDK repair-order number. Key: `MANDT + AUFNR`. |
 
 ## How CO feeds the Universal Journal
 

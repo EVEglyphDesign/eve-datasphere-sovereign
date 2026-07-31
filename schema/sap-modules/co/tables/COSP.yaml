@@ -1,0 +1,1273 @@
+table: COSP
+module: CO
+description: "CO Object: Cost Totals for External Postings — period-bucketed totals (16 posting periods per row) for CO postings originating outside Controlling (FI journal entries, MM goods movements, invoices) against any CO object. The aggregate counterpart to the COEP line-item table for externally sourced costs."
+source: https://leanx.eu/en/sap/table/cosp.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: LEDNR
+    description: "Ledger for Controlling objects"
+    data_element: LEDNR
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: true
+  - name: GJAHR
+    description: "Fiscal Year"
+    data_element: GJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: WRTTP
+    description: "Value Type"
+    data_element: CO_WRTTP
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: VERSN
+    description: "Version"
+    data_element: VERSN
+    check_table: TKA09
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: true
+  - name: KSTAR
+    description: "Cost Element"
+    data_element: KSTAR
+    check_table: CSKA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: HRKFT
+    description: "CO key subnumber"
+    data_element: CO_SUBKEY
+    check_table: ~
+    datatype: CHAR
+    length: 14
+    decimals: 0
+    key: true
+  - name: VRGNG
+    description: "CO Business Transaction"
+    data_element: CO_VORGANG
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: VBUND
+    description: "Company ID of trading partner"
+    data_element: RASSC
+    check_table: T880
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: true
+  - name: PARGB
+    description: "Trading partner's business area"
+    data_element: PARGB
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BEKNZ
+    description: "Debit/credit indicator"
+    data_element: BEKNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TWAER
+    description: "Transaction Currency"
+    data_element: TWAER
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: PERBL
+    description: "Period block"
+    data_element: PERBL
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: MEINH
+    description: "Unit of Measure"
+    data_element: CO_MEINH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: WTG001
+    description: "Total Value in Transaction Currency"
+    data_element: WTGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WTG002
+    description: "Total Value in Transaction Currency"
+    data_element: WTGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WTG003
+    description: "Total Value in Transaction Currency"
+    data_element: WTGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WTG004
+    description: "Total Value in Transaction Currency"
+    data_element: WTGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WTG005
+    description: "Total Value in Transaction Currency"
+    data_element: WTGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WTG006
+    description: "Total Value in Transaction Currency"
+    data_element: WTGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WTG007
+    description: "Total Value in Transaction Currency"
+    data_element: WTGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WTG008
+    description: "Total Value in Transaction Currency"
+    data_element: WTGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WTG009
+    description: "Total Value in Transaction Currency"
+    data_element: WTGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WTG010
+    description: "Total Value in Transaction Currency"
+    data_element: WTGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WTG011
+    description: "Total Value in Transaction Currency"
+    data_element: WTGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WTG012
+    description: "Total Value in Transaction Currency"
+    data_element: WTGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WTG013
+    description: "Total Value in Transaction Currency"
+    data_element: WTGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WTG014
+    description: "Total Value in Transaction Currency"
+    data_element: WTGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WTG015
+    description: "Total Value in Transaction Currency"
+    data_element: WTGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WTG016
+    description: "Total Value in Transaction Currency"
+    data_element: WTGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WOG001
+    description: "Total Value in Object Currency"
+    data_element: WOGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WOG002
+    description: "Total Value in Object Currency"
+    data_element: WOGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WOG003
+    description: "Total Value in Object Currency"
+    data_element: WOGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WOG004
+    description: "Total Value in Object Currency"
+    data_element: WOGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WOG005
+    description: "Total Value in Object Currency"
+    data_element: WOGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WOG006
+    description: "Total Value in Object Currency"
+    data_element: WOGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WOG007
+    description: "Total Value in Object Currency"
+    data_element: WOGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WOG008
+    description: "Total Value in Object Currency"
+    data_element: WOGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WOG009
+    description: "Total Value in Object Currency"
+    data_element: WOGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WOG010
+    description: "Total Value in Object Currency"
+    data_element: WOGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WOG011
+    description: "Total Value in Object Currency"
+    data_element: WOGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WOG012
+    description: "Total Value in Object Currency"
+    data_element: WOGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WOG013
+    description: "Total Value in Object Currency"
+    data_element: WOGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WOG014
+    description: "Total Value in Object Currency"
+    data_element: WOGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WOG015
+    description: "Total Value in Object Currency"
+    data_element: WOGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WOG016
+    description: "Total Value in Object Currency"
+    data_element: WOGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKG001
+    description: "Total Value in Controlling Area Currency"
+    data_element: WKGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKG002
+    description: "Total Value in Controlling Area Currency"
+    data_element: WKGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKG003
+    description: "Total Value in Controlling Area Currency"
+    data_element: WKGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKG004
+    description: "Total Value in Controlling Area Currency"
+    data_element: WKGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKG005
+    description: "Total Value in Controlling Area Currency"
+    data_element: WKGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKG006
+    description: "Total Value in Controlling Area Currency"
+    data_element: WKGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKG007
+    description: "Total Value in Controlling Area Currency"
+    data_element: WKGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKG008
+    description: "Total Value in Controlling Area Currency"
+    data_element: WKGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKG009
+    description: "Total Value in Controlling Area Currency"
+    data_element: WKGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKG010
+    description: "Total Value in Controlling Area Currency"
+    data_element: WKGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKG011
+    description: "Total Value in Controlling Area Currency"
+    data_element: WKGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKG012
+    description: "Total Value in Controlling Area Currency"
+    data_element: WKGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKG013
+    description: "Total Value in Controlling Area Currency"
+    data_element: WKGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKG014
+    description: "Total Value in Controlling Area Currency"
+    data_element: WKGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKG015
+    description: "Total Value in Controlling Area Currency"
+    data_element: WKGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKG016
+    description: "Total Value in Controlling Area Currency"
+    data_element: WKGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKF001
+    description: "Fixed Value in Controlling Area Currency"
+    data_element: WKFXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKF002
+    description: "Fixed Value in Controlling Area Currency"
+    data_element: WKFXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKF003
+    description: "Fixed Value in Controlling Area Currency"
+    data_element: WKFXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKF004
+    description: "Fixed Value in Controlling Area Currency"
+    data_element: WKFXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKF005
+    description: "Fixed Value in Controlling Area Currency"
+    data_element: WKFXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKF006
+    description: "Fixed Value in Controlling Area Currency"
+    data_element: WKFXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKF007
+    description: "Fixed Value in Controlling Area Currency"
+    data_element: WKFXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKF008
+    description: "Fixed Value in Controlling Area Currency"
+    data_element: WKFXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKF009
+    description: "Fixed Value in Controlling Area Currency"
+    data_element: WKFXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKF010
+    description: "Fixed Value in Controlling Area Currency"
+    data_element: WKFXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKF011
+    description: "Fixed Value in Controlling Area Currency"
+    data_element: WKFXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKF012
+    description: "Fixed Value in Controlling Area Currency"
+    data_element: WKFXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKF013
+    description: "Fixed Value in Controlling Area Currency"
+    data_element: WKFXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKF014
+    description: "Fixed Value in Controlling Area Currency"
+    data_element: WKFXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKF015
+    description: "Fixed Value in Controlling Area Currency"
+    data_element: WKFXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WKF016
+    description: "Fixed Value in Controlling Area Currency"
+    data_element: WKFXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: PAG001
+    description: "Total Price Variance in CO Area Currency"
+    data_element: PAGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: PAG002
+    description: "Total Price Variance in CO Area Currency"
+    data_element: PAGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: PAG003
+    description: "Total Price Variance in CO Area Currency"
+    data_element: PAGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: PAG004
+    description: "Total Price Variance in CO Area Currency"
+    data_element: PAGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: PAG005
+    description: "Total Price Variance in CO Area Currency"
+    data_element: PAGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: PAG006
+    description: "Total Price Variance in CO Area Currency"
+    data_element: PAGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: PAG007
+    description: "Total Price Variance in CO Area Currency"
+    data_element: PAGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: PAG008
+    description: "Total Price Variance in CO Area Currency"
+    data_element: PAGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: PAG009
+    description: "Total Price Variance in CO Area Currency"
+    data_element: PAGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: PAG010
+    description: "Total Price Variance in CO Area Currency"
+    data_element: PAGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: PAG011
+    description: "Total Price Variance in CO Area Currency"
+    data_element: PAGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: PAG012
+    description: "Total Price Variance in CO Area Currency"
+    data_element: PAGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: PAG013
+    description: "Total Price Variance in CO Area Currency"
+    data_element: PAGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: PAG014
+    description: "Total Price Variance in CO Area Currency"
+    data_element: PAGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: PAG015
+    description: "Total Price Variance in CO Area Currency"
+    data_element: PAGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: PAG016
+    description: "Total Price Variance in CO Area Currency"
+    data_element: PAGXXX
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: MEG001
+    description: "Total Quantity"
+    data_element: MEGXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEG002
+    description: "Total Quantity"
+    data_element: MEGXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEG003
+    description: "Total Quantity"
+    data_element: MEGXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEG004
+    description: "Total Quantity"
+    data_element: MEGXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEG005
+    description: "Total Quantity"
+    data_element: MEGXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEG006
+    description: "Total Quantity"
+    data_element: MEGXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEG007
+    description: "Total Quantity"
+    data_element: MEGXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEG008
+    description: "Total Quantity"
+    data_element: MEGXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEG009
+    description: "Total Quantity"
+    data_element: MEGXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEG010
+    description: "Total Quantity"
+    data_element: MEGXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEG011
+    description: "Total Quantity"
+    data_element: MEGXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEG012
+    description: "Total Quantity"
+    data_element: MEGXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEG013
+    description: "Total Quantity"
+    data_element: MEGXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEG014
+    description: "Total Quantity"
+    data_element: MEGXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEG015
+    description: "Total Quantity"
+    data_element: MEGXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEG016
+    description: "Total Quantity"
+    data_element: MEGXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEF001
+    description: "Fixed Quantity"
+    data_element: MEFXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEF002
+    description: "Fixed Quantity"
+    data_element: MEFXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEF003
+    description: "Fixed Quantity"
+    data_element: MEFXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEF004
+    description: "Fixed Quantity"
+    data_element: MEFXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEF005
+    description: "Fixed Quantity"
+    data_element: MEFXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEF006
+    description: "Fixed Quantity"
+    data_element: MEFXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEF007
+    description: "Fixed Quantity"
+    data_element: MEFXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEF008
+    description: "Fixed Quantity"
+    data_element: MEFXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEF009
+    description: "Fixed Quantity"
+    data_element: MEFXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEF010
+    description: "Fixed Quantity"
+    data_element: MEFXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEF011
+    description: "Fixed Quantity"
+    data_element: MEFXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEF012
+    description: "Fixed Quantity"
+    data_element: MEFXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEF013
+    description: "Fixed Quantity"
+    data_element: MEFXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEF014
+    description: "Fixed Quantity"
+    data_element: MEFXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEF015
+    description: "Fixed Quantity"
+    data_element: MEFXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MEF016
+    description: "Fixed Quantity"
+    data_element: MEFXXX
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MUV001
+    description: "Quantities Incomplete"
+    data_element: MUVXX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MUV002
+    description: "Quantities Incomplete"
+    data_element: MUVXX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MUV003
+    description: "Quantities Incomplete"
+    data_element: MUVXX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MUV004
+    description: "Quantities Incomplete"
+    data_element: MUVXX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MUV005
+    description: "Quantities Incomplete"
+    data_element: MUVXX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MUV006
+    description: "Quantities Incomplete"
+    data_element: MUVXX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MUV007
+    description: "Quantities Incomplete"
+    data_element: MUVXX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MUV008
+    description: "Quantities Incomplete"
+    data_element: MUVXX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MUV009
+    description: "Quantities Incomplete"
+    data_element: MUVXX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MUV010
+    description: "Quantities Incomplete"
+    data_element: MUVXX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MUV011
+    description: "Quantities Incomplete"
+    data_element: MUVXX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MUV012
+    description: "Quantities Incomplete"
+    data_element: MUVXX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MUV013
+    description: "Quantities Incomplete"
+    data_element: MUVXX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MUV014
+    description: "Quantities Incomplete"
+    data_element: MUVXX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MUV015
+    description: "Quantities Incomplete"
+    data_element: MUVXX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MUV016
+    description: "Quantities Incomplete"
+    data_element: MUVXX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BELTP
+    description: "Debit type"
+    data_element: BP_INOUT
+    check_table: ~
+    datatype: NUMC
+    length: 1
+    decimals: 0
+    key: false
+  - name: TIMESTMP
+    description: "Time created (Greenwich Meantime)"
+    data_element: RKE_HZSTMP
+    check_table: ~
+    datatype: DEC
+    length: 16
+    decimals: 0
+    key: false
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: FKBER
+    description: "Functional Area"
+    data_element: FKBER
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: SEGMENT
+    description: "Segment for Segmental Reporting"
+    data_element: FB_SEGMENT
+    check_table: FAGL_SEGM
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: GEBER
+    description: "Fund"
+    data_element: FM_FUND
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: GRANT_NBR
+    description: "Grant"
+    data_element: GM_GRANT_NBR
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: BUDGET_PD
+    description: "FM: Budget Period"
+    data_element: FM_BUDGET_PERIOD
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: KSTAR
+    check_table: CSKA
+    check_field: KSTAR
+  - field: KSTAR
+    check_table: CSKA
+    check_field: KTOPL
+  - field: KSTAR
+    check_table: CSKA
+    check_field: MANDT
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MEINH
+    check_table: T006
+    check_field: MSEHI
+  - field: MEINH
+    check_table: T006
+    check_field: MANDT
+  - field: OBJNR
+    check_table: ONR00
+    check_field: OBJNR
+  - field: OBJNR
+    check_table: ONR00
+    check_field: MANDT
+  - field: PARGB
+    check_table: TGSB
+    check_field: MANDT
+  - field: PARGB
+    check_table: TGSB
+    check_field: GSBER
+  - field: SEGMENT
+    check_table: FAGL_SEGM
+    check_field: SEGMENT
+  - field: SEGMENT
+    check_table: FAGL_SEGM
+    check_field: MANDT
+  - field: TWAER
+    check_table: TCURC
+    check_field: MANDT
+  - field: TWAER
+    check_table: TCURC
+    check_field: WAERS
+  - field: VBUND
+    check_table: T880
+    check_field: RCOMP
+  - field: VBUND
+    check_table: T880
+    check_field: MANDT
+  - field: VERSN
+    check_table: TKA09
+    check_field: MANDT
+  - field: VERSN
+    check_table: TKA09
+    check_field: KOKRS
+  - field: VERSN
+    check_table: TKA09
+    check_field: VERSN
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

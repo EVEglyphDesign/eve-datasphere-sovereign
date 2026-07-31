@@ -71,12 +71,15 @@ Key design commitments:
 ```
 docs/
   DOCTRINE-ESG-ACDOCA-EXTENSION.md   The governing doctrine (DRAFT v0)
+  DOCTRINE-SYMMETRIC-ALIGNMENT.md    One identity across every twin (DRAFT v0)
   thesis.md                          Positioning
 schema/
   acdoca/                            Layer 1 — the transactional spine (real-time CDC)
   datasphere-parity/                 Scaffolding: SAP base structures reproduced as sovereign DDL
   master-data/                       Feeders: customer/vendor/material/org/chart-of-accounts
   extensions/                        Layer 2 (ESG score) + Layer 3 (interaction record) columns
+  sap-modules/                       Field-level SAP table YAMLs by module (FI, CO, MM, SD, PM, PP, QM…)
+  feeders/                           Non-SAP systems of record (e.g. CDK Drive DMS) mapped into the spine
 replication/                         CDC pipelines, cadence config, DR-seeding runbooks
 governance/                          Sovereignty guarantees + copyright footer
 agents/                              Agents that read the sovereign ledger (never SAP directly)
@@ -97,6 +100,7 @@ Aligned with sister repos in the EVEglyphDesign canon:
 
 - [dmzopen-ai](https://github.com/EVEglyphDesign/dmzopen-ai) — sovereign enterprise AI positioning
 - [eve-hawkins-sovereign-enterprise](https://github.com/EVEglyphDesign/eve-hawkins-sovereign-enterprise) — sovereign enterprise thesis for dealer networks
+- [eve-hawkins-cdk-twin](https://github.com/EVEglyphDesign/eve-hawkins-cdk-twin) — the CDK Drive DMS twin for Peterbilt Atlantic; the first non-SAP feeder aligned into this spine under `schema/feeders/`
 - [eve-hyperloop](https://github.com/EVEglyphDesign/eve-hyperloop) — SAP lock-in escalation watch
 - [enterprise-grade-criteria](https://github.com/EVEglyphDesign/enterprise-grade-criteria) — audit rubric for AI platform sovereignty claims
 
@@ -104,7 +108,23 @@ Aligned with sister repos in the EVEglyphDesign canon:
 
 ## Status
 
-**v0 — scaffolding.** Repository structure, thesis, positioning, and initial Datasphere-parity schema tree are being laid down. Next: seed the ACDOCA field-level DDL and the first vertical reference model.
+**v0 — scaffolding, first feeder lane open.** Repository structure, thesis, positioning,
+and initial Datasphere-parity schema tree are laid down. The CO module's cost-object gap
+is closed — `AUFK`, `COSS`, `COSP`, `CSKB`, and `CSKT` now have field-level YAML, closing
+the crosswalk the [CDK Drive twin](https://github.com/EVEglyphDesign/eve-hawkins-cdk-twin)
+keys its repair-order identity on (`AUFK-AUFNR`). A full reconciliation of every module's
+table inventory against its field-level definitions is recorded in
+[`schema/sap-modules/RECONCILIATION-NOTE.md`](schema/sap-modules/RECONCILIATION-NOTE.md) —
+several modules (`PS`, `HR`, `BW`, `CROSS`) remain entirely undefined at field level, and
+`CROSS` in particular carries load-bearing check-tables (`T000`, `ONR00`, `TCURC`, `ADRC`)
+referenced everywhere but defined nowhere yet. The non-SAP feeder lane is open under
+[`schema/feeders/`](schema/feeders/), with the CDK Drive → ACDOCA mapping and projection
+worked through for the Hawkins / Peterbilt Atlantic dealer group — the first system of
+record in this canon with no SAP instance behind it at all. The symmetric-identity rule
+governing all of this is now stated as doctrine in
+[`docs/DOCTRINE-SYMMETRIC-ALIGNMENT.md`](docs/DOCTRINE-SYMMETRIC-ALIGNMENT.md) (DRAFT v0,
+awaiting Apex ratification). Next: seed the ACDOCA field-level DDL itself and the first
+vertical reference model.
 
 ---
 
