@@ -1,0 +1,616 @@
+table: LIKP
+module: SD
+description: "Outbound delivery header data — shipping and goods-issue control for the SD delivery step."
+source: https://leanx.eu/en/sap/table/likp.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: VBELN
+    description: "Delivery"
+    data_element: VBELN_VL
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: CHAR
+    datatype: 12
+    length: 0
+    decimals: 0
+    key: false
+  - name: ERZET
+    description: "Entry time"
+    data_element: ERZET
+    check_table: TIMS
+    datatype: 6
+    length: 0
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: DATS
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: BZIRK
+    description: "Sales district"
+    data_element: BZIRK
+    check_table: T171
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: VSTEL
+    description: "Shipping Point/Receiving Point"
+    data_element: VSTEL
+    check_table: TVST
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VKORG
+    description: "Sales Organization"
+    data_element: VKORG
+    check_table: TVKO
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LFART
+    description: "Delivery Type"
+    data_element: LFART
+    check_table: TVLK
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: AUTLF
+    description: "Complete delivery defined for each sales order?"
+    data_element: AUTLF
+    check_table: CHAR
+    datatype: 1
+    length: 0
+    decimals: 0
+    key: false
+  - name: WADAT
+    description: "Planned goods movement date"
+    data_element: WADAK
+    check_table: DATS
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: LDDAT
+    description: "Loading Date"
+    data_element: LDDAT
+    check_table: DATS
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: LFDAT
+    description: "Delivery Date"
+    data_element: LFDAT_V
+    check_table: DATS
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: KODAT
+    description: "Picking Date"
+    data_element: KODAT
+    check_table: DATS
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: INCO1
+    description: "Incoterms (Part 1)"
+    data_element: INCO1
+    check_table: TINC
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: INCO2
+    description: "Incoterms (Part 2)"
+    data_element: INCO2
+    check_table: CHAR
+    datatype: 28
+    length: 0
+    decimals: 0
+    key: false
+  - name: ROUTE
+    description: "Route"
+    data_element: ROUTE
+    check_table: TVRO
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: FAKSK
+    description: "Billing block in SD document"
+    data_element: FAKSK
+    check_table: TVFS
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LIFSK
+    description: "Delivery block (document header)"
+    data_element: LIFSK
+    check_table: TVLS
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: VBTYP
+    description: "SD document category"
+    data_element: VBTYP
+    check_table: CHAR
+    datatype: 1
+    length: 0
+    decimals: 0
+    key: false
+  - name: LPRIO
+    description: "Delivery Priority"
+    data_element: LPRIO
+    check_table: TPRIO
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: VSBED
+    description: "Shipping Conditions"
+    data_element: VSBED
+    check_table: TVSB
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KUNNR
+    description: "Ship-to party"
+    data_element: KUNWE
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KUNAG
+    description: "Sold-to party"
+    data_element: KUNAG
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KDGRP
+    description: "Customer group"
+    data_element: KDGRP
+    check_table: T151
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: BTGEW
+    description: "Total Weight"
+    data_element: GSGEW
+    check_table: QUAN
+    datatype: 15
+    length: 3
+    decimals: 0
+    key: false
+  - name: NTGEW
+    description: "Net weight"
+    data_element: NTGEW_15
+    check_table: QUAN
+    datatype: 15
+    length: 3
+    decimals: 0
+    key: false
+  - name: GEWEI
+    description: "Weight Unit"
+    data_element: GEWEI
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: VOLUM
+    description: "Volume"
+    data_element: VOLUM_15
+    check_table: QUAN
+    datatype: 15
+    length: 3
+    decimals: 0
+    key: false
+  - name: VOLEH
+    description: "Volume unit"
+    data_element: VOLEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ANZPK
+    description: "Total number of packages in delivery"
+    data_element: ANZPK
+    check_table: NUMC
+    datatype: 5
+    length: 0
+    decimals: 0
+    key: false
+  - name: LFUHR
+    description: "Time of delivery"
+    data_element: LFUHR
+    check_table: TIMS
+    datatype: 6
+    length: 0
+    decimals: 0
+    key: false
+  - name: LSTEL
+    description: "Loading Point"
+    data_element: LSTEL
+    check_table: TVLA
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: TRAGR
+    description: "Transportation Group"
+    data_element: TRAGR
+    check_table: TTGR
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: FKARV
+    description: "Proposed billing type for a delivery-related billing doc."
+    data_element: FKARV
+    check_table: TVFK
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: FKDAT
+    description: "Billing date for billing index and printout"
+    data_element: FKDAT
+    check_table: DATS
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: KALSM
+    description: "Procedure (Pricing, Output Control, Acct. Det., Costing,...)"
+    data_element: KALSM_D
+    check_table: T683
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: KNUMV
+    description: "Number of the document condition"
+    data_element: KNUMV
+    check_table: CHAR
+    datatype: 10
+    length: 0
+    decimals: 0
+    key: false
+  - name: WAERK
+    description: "SD Document Currency"
+    data_element: WAERK
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: VKBUR
+    description: "Sales Office"
+    data_element: VKBUR
+    check_table: TVBUR
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: STWAE
+    description: "Statistics currency"
+    data_element: STWAE
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: EXNUM
+    description: "Number of foreign trade data in MM and SD documents"
+    data_element: EXNUM
+    check_table: EIKP
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: CHAR
+    datatype: 12
+    length: 0
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: DATS
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: LGNUM
+    description: "Warehouse Number / Warehouse Complex"
+    data_element: LGNUM
+    check_table: T300
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: KKBER
+    description: "Credit control area"
+    data_element: KKBER
+    check_table: T014
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KNKLI
+    description: "Customer's account number with credit limit reference"
+    data_element: KNKLI
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: CTLPC
+    description: "Credit management: Risk category"
+    data_element: CTLPC_CM
+    check_table: T691A
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: CMWAE
+    description: "Currency key of credit control area"
+    data_element: WAERS_CM
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: AMTBL
+    description: "Released credit value of the document"
+    data_element: AMTBL_CM
+    check_table: CURR
+    datatype: 15
+    length: 2
+    decimals: 0
+    key: false
+  - name: BOLNR
+    description: "Bill of lading"
+    data_element: BOLNR
+    check_table: CHAR
+    datatype: 35
+    length: 0
+    decimals: 0
+    key: false
+  - name: LIFNR
+    description: "Vendor Account Number"
+    data_element: ELIFN
+    check_table: CHAR
+    datatype: 10
+    length: 0
+    decimals: 0
+    key: false
+  - name: TRATY
+    description: "Means-of-Transport Type"
+    data_element: TRATY
+    check_table: TVTY
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: TRAID
+    description: "Means of Transport ID"
+    data_element: TRAID
+    check_table: CHAR
+    datatype: 20
+    length: 0
+    decimals: 0
+    key: false
+  - name: BLDAT
+    description: "Document Date in Document"
+    data_element: BLDAT
+    check_table: DATS
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: WADAT_IST
+    description: "Actual Goods Movement Date"
+    data_element: WADAT_IST
+    check_table: DATS
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: TRSPG
+    description: "Shipment Blocking Reason"
+    data_element: TRSPG
+    check_table: TTSG
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LIFEX
+    description: "External Identification of Delivery Note"
+    data_element: LIFEX
+    check_table: CHAR
+    datatype: 35
+    length: 0
+    decimals: 0
+    key: false
+  - name: TERNR
+    description: "Order Number"
+    data_element: AUFNR
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: NETWR
+    description: "Net Value of the Sales Order in Document Currency"
+    data_element: NETWR_AK
+    check_table: CURR
+    datatype: 15
+    length: 2
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Receiving plant for deliveries"
+    data_element: EMPFW
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VBUND
+    description: "Company ID"
+    data_element: VBUND
+    check_table: CHAR
+    datatype: 6
+    length: 0
+    decimals: 0
+    key: false
+  - name: PODAT
+    description: "Date (proof of delivery)"
+    data_element: PODAT
+    check_table: DATS
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: XBLNR
+    description: "Reference Document Number"
+    data_element: XBLNR_LIKP
+    check_table: CHAR
+    datatype: 25
+    length: 0
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: BZIRK
+    check_table: T171
+    check_field: BZIRK
+  - field: CTLPC
+    check_table: T691A
+    check_field: CTLPC
+  - field: EXNUM
+    check_table: EIKP
+    check_field: EXNUM
+  - field: FAKSK
+    check_table: TVFS
+    check_field: FAKSP
+  - field: FKARV
+    check_table: TVFK
+    check_field: FKART
+  - field: GEWEI
+    check_table: T006
+    check_field: MSEHI
+  - field: INCO1
+    check_table: TINC
+    check_field: INCO1
+  - field: KALSM
+    check_table: T683
+    check_field: KALSM
+  - field: KDGRP
+    check_table: T151
+    check_field: KDGRP
+  - field: KKBER
+    check_table: T014
+    check_field: KKBER
+  - field: KNKLI
+    check_table: KNA1
+    check_field: KUNNR
+  - field: KUNAG
+    check_table: KNA1
+    check_field: KUNNR
+  - field: KUNNR
+    check_table: KNA1
+    check_field: KUNNR
+  - field: LFART
+    check_table: TVLK
+    check_field: LFART
+  - field: LGNUM
+    check_table: T300
+    check_field: LGNUM
+  - field: LIFSK
+    check_table: TVLS
+    check_field: LIFSP
+  - field: LPRIO
+    check_table: TPRIO
+    check_field: LPRIO
+  - field: LSTEL
+    check_table: TVLA
+    check_field: LSTEL
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: ROUTE
+    check_table: TVRO
+    check_field: ROUTE
+  - field: TERNR
+    check_table: AUFK
+    check_field: AUFNR
+  - field: TRAGR
+    check_table: TTGR
+    check_field: TRAGR
+  - field: TRATY
+    check_table: TVTY
+    check_field: TRATY
+  - field: TRSPG
+    check_table: TTSG
+    check_field: TRSPG
+  - field: VBELN
+    check_table: VBUK
+    check_field: VBELN
+  - field: VKBUR
+    check_table: TVBUR
+    check_field: VKBUR
+  - field: VKORG
+    check_table: TVKO
+    check_field: VKORG
+  - field: VOLEH
+    check_table: T006
+    check_field: MSEHI
+  - field: VSBED
+    check_table: TVSB
+    check_field: VSBED
+  - field: VSTEL
+    check_table: TVST
+    check_field: VSTEL
+  - field: WAERK
+    check_table: TCURC
+    check_field: WAERS
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

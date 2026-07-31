@@ -1,0 +1,508 @@
+table: VBRK
+module: SD
+description: "Billing document header data — invoice/credit/debit memo header, links to FI via BELNR."
+source: https://leanx.eu/en/sap/table/vbrk.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: VBELN
+    description: "Billing Document"
+    data_element: VBELN_VF
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: FKART
+    description: "Billing Type"
+    data_element: FKART
+    check_table: TVFK
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: FKTYP
+    description: "Billing category"
+    data_element: FKTYP
+    check_table: CHAR
+    datatype: 1
+    length: 0
+    decimals: 0
+    key: false
+  - name: VBTYP
+    description: "SD document category"
+    data_element: VBTYP
+    check_table: CHAR
+    datatype: 1
+    length: 0
+    decimals: 0
+    key: false
+  - name: WAERK
+    description: "SD Document Currency"
+    data_element: WAERK
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: VKORG
+    description: "Sales Organization"
+    data_element: VKORG
+    check_table: TVKO
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VTWEG
+    description: "Distribution Channel"
+    data_element: VTWEG
+    check_table: TVTW
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KALSM
+    description: "Sales and Distribution: Pricing Procedure in Pricing"
+    data_element: KALSMASD
+    check_table: T683
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: KNUMV
+    description: "Number of the document condition"
+    data_element: KNUMV
+    check_table: CHAR
+    datatype: 10
+    length: 0
+    decimals: 0
+    key: false
+  - name: VSBED
+    description: "Shipping Conditions"
+    data_element: VSBED
+    check_table: TVSB
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FKDAT
+    description: "Billing date for billing index and printout"
+    data_element: FKDAT
+    check_table: DATS
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: BELNR
+    description: "Accounting Document Number"
+    data_element: BELNR_D
+    check_table: CHAR
+    datatype: 10
+    length: 0
+    decimals: 0
+    key: false
+  - name: GJAHR
+    description: "Fiscal Year"
+    data_element: GJAHR
+    check_table: NUMC
+    datatype: 4
+    length: 0
+    decimals: 0
+    key: false
+  - name: POPER
+    description: "Posting period"
+    data_element: POPER
+    check_table: NUMC
+    datatype: 3
+    length: 0
+    decimals: 0
+    key: false
+  - name: KDGRP
+    description: "Customer group"
+    data_element: KDGRP
+    check_table: T151
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: BZIRK
+    description: "Sales district"
+    data_element: BZIRK
+    check_table: T171
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: INCO1
+    description: "Incoterms (Part 1)"
+    data_element: INCO1
+    check_table: TINC
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: INCO2
+    description: "Incoterms (Part 2)"
+    data_element: INCO2
+    check_table: CHAR
+    datatype: 28
+    length: 0
+    decimals: 0
+    key: false
+  - name: RFBSK
+    description: "Status for transfer to accounting"
+    data_element: RFBSK
+    check_table: CHAR
+    datatype: 1
+    length: 0
+    decimals: 0
+    key: false
+  - name: ZTERM
+    description: "Terms of Payment Key"
+    data_element: DZTERM
+    check_table: CHAR
+    datatype: 4
+    length: 0
+    decimals: 0
+    key: false
+  - name: ZLSCH
+    description: "Payment Method"
+    data_element: SCHZW_BSEG
+    check_table: T042Z
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LAND1
+    description: "Country of Destination"
+    data_element: LLAND
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: REGIO
+    description: "Region (State, Province, County)"
+    data_element: REGIO
+    check_table: T005S
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: NETWR
+    description: "Net Value in Document Currency"
+    data_element: NETWR
+    check_table: CURR
+    datatype: 15
+    length: 2
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: CHAR
+    datatype: 12
+    length: 0
+    decimals: 0
+    key: false
+  - name: ERZET
+    description: "Entry time"
+    data_element: ERZET
+    check_table: TIMS
+    datatype: 6
+    length: 0
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: DATS
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: KUNRG
+    description: "Payer"
+    data_element: KUNRG
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KUNAG
+    description: "Sold-to party"
+    data_element: KUNAG
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: STWAE
+    description: "Statistics currency"
+    data_element: STWAE
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: EXNUM
+    description: "Number of foreign trade data in MM and SD documents"
+    data_element: EXNUM
+    check_table: EIKP
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: STCEG
+    description: "VAT Registration Number"
+    data_element: STCEG
+    check_table: CHAR
+    datatype: 20
+    length: 0
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: DATS
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: SFAKN
+    description: "Cancelled billing document number"
+    data_element: SFAKN
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KNUMA
+    description: "Agreement (various conditions grouped together)"
+    data_element: KNUMA
+    check_table: KONA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KURST
+    description: "Exchange Rate Type"
+    data_element: KURST
+    check_table: TCURV
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SPART
+    description: "Division"
+    data_element: SPART
+    check_table: TSPA
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KKBER
+    description: "Credit control area"
+    data_element: KKBER
+    check_table: T014
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KNKLI
+    description: "Customer's account number with credit limit reference"
+    data_element: KNKLI
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: CMWAE
+    description: "Currency key of credit control area"
+    data_element: WAERS_CM
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: BSTNK_VF
+    description: "Customer purchase order number"
+    data_element: BSTKD
+    check_table: CHAR
+    datatype: 35
+    length: 0
+    decimals: 0
+    key: false
+  - name: VBUND
+    description: "Company ID of trading partner"
+    data_element: RASSC
+    check_table: T880
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: XBLNR
+    description: "Reference Document Number"
+    data_element: XBLNR_V1
+    check_table: CHAR
+    datatype: 16
+    length: 0
+    decimals: 0
+    key: false
+  - name: ZUONR
+    description: "Assignment number"
+    data_element: ORDNR_V
+    check_table: CHAR
+    datatype: 18
+    length: 0
+    decimals: 0
+    key: false
+  - name: MWSBK
+    description: "Tax amount in document currency"
+    data_element: MWSBP
+    check_table: CURR
+    datatype: 13
+    length: 2
+    decimals: 0
+    key: false
+  - name: LOGSYS
+    description: "Logical system"
+    data_element: LOGSYS
+    check_table: CHAR
+    datatype: 10
+    length: 0
+    decimals: 0
+    key: false
+  - name: FKSTO
+    description: "Billing document is cancelled"
+    data_element: FKSTO
+    check_table: CHAR
+    datatype: 1
+    length: 0
+    decimals: 0
+    key: false
+  - name: RPLNR
+    description: "Number of payment card plan type"
+    data_element: RPLNR
+    check_table: FPLA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BUPLA
+    description: "Business Place"
+    data_element: BUPLA
+    check_table: J_1BBRANCH
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: STGRD
+    description: "Reason for Reversal"
+    data_element: STGRD
+    check_table: T041C
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: BUPLA
+    check_table: J_1BBRANCH
+    check_field: BRANCH
+  - field: BZIRK
+    check_table: T171
+    check_field: BZIRK
+  - field: FKART
+    check_table: TVFK
+    check_field: FKART
+  - field: INCO1
+    check_table: TINC
+    check_field: INCO1
+  - field: KALSM
+    check_table: T683
+    check_field: KALSM
+  - field: KDGRP
+    check_table: T151
+    check_field: KDGRP
+  - field: KKBER
+    check_table: T014
+    check_field: KKBER
+  - field: KNKLI
+    check_table: KNA1
+    check_field: KUNNR
+  - field: KNUMA
+    check_table: KONA
+    check_field: KNUMA
+  - field: KUNAG
+    check_table: KNA1
+    check_field: KUNNR
+  - field: KUNRG
+    check_table: KNA1
+    check_field: KUNNR
+  - field: KURST
+    check_table: TCURV
+    check_field: KURST
+  - field: LAND1
+    check_table: T005
+    check_field: LAND1
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: REGIO
+    check_table: T005S
+    check_field: BLAND
+  - field: RPLNR
+    check_table: FPLA
+    check_field: FPLNR
+  - field: SFAKN
+    check_table: VBUK
+    check_field: VBELN
+  - field: SPART
+    check_table: TSPA
+    check_field: SPART
+  - field: STGRD
+    check_table: T041C
+    check_field: STGRD
+  - field: STWAE
+    check_table: TCURC
+    check_field: WAERS
+  - field: VBELN
+    check_table: VBUK
+    check_field: VBELN
+  - field: VBUND
+    check_table: T880
+    check_field: RCOMP
+  - field: VKORG
+    check_table: TVKO
+    check_field: VKORG
+  - field: VSBED
+    check_table: TVSB
+    check_field: VSBED
+  - field: VTWEG
+    check_table: TVTW
+    check_field: VTWEG
+  - field: WAERK
+    check_table: TCURC
+    check_field: WAERS
+  - field: ZLSCH
+    check_table: T042Z
+    check_field: ZLSCH
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

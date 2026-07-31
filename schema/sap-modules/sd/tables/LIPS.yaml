@@ -1,0 +1,715 @@
+table: LIPS
+module: SD
+description: "Outbound delivery item data — quantities, batches, and warehouse detail per delivery line."
+source: https://leanx.eu/en/sap/table/lips.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: VBELN
+    description: "Delivery"
+    data_element: VBELN_VL
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: POSNR
+    description: "Delivery Item"
+    data_element: POSNR_VL
+    check_table: VBUP
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: true
+  - name: PSTYV
+    description: "Delivery item category"
+    data_element: PSTYV_VL
+    check_table: TVPT
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: CHAR
+    datatype: 12
+    length: 0
+    decimals: 0
+    key: false
+  - name: ERZET
+    description: "Entry time"
+    data_element: ERZET
+    check_table: TIMS
+    datatype: 6
+    length: 0
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: DATS
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: MATWA
+    description: "Material entered"
+    data_element: MATWA
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: MATKL
+    description: "Material Group"
+    data_element: MATKL
+    check_table: T023
+    datatype: CHAR
+    length: 9
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LGORT
+    description: "Storage Location"
+    data_element: LGORT_D
+    check_table: T001L
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: CHARG
+    description: "Batch Number"
+    data_element: CHARG_D
+    check_table: MCHA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KDMAT
+    description: "Material belonging to the customer"
+    data_element: KDMAT
+    check_table: CHAR
+    datatype: 35
+    length: 0
+    decimals: 0
+    key: false
+  - name: PRODH
+    description: "Product hierarchy"
+    data_element: PRODH_D
+    check_table: T179
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: LFIMG
+    description: "Actual quantity delivered (in sales units)"
+    data_element: LFIMG
+    check_table: QUAN
+    datatype: 13
+    length: 3
+    decimals: 0
+    key: false
+  - name: MEINS
+    description: "Base Unit of Measure"
+    data_element: MEINS
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: VRKME
+    description: "Sales unit"
+    data_element: VRKME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: NTGEW
+    description: "Net weight"
+    data_element: NTGEW_15
+    check_table: QUAN
+    datatype: 15
+    length: 3
+    decimals: 0
+    key: false
+  - name: BRGEW
+    description: "Gross weight"
+    data_element: BRGEW_15
+    check_table: QUAN
+    datatype: 15
+    length: 3
+    decimals: 0
+    key: false
+  - name: GEWEI
+    description: "Weight Unit"
+    data_element: GEWEI
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: VOLUM
+    description: "Volume"
+    data_element: VOLUM_15
+    check_table: QUAN
+    datatype: 15
+    length: 3
+    decimals: 0
+    key: false
+  - name: VOLEH
+    description: "Volume unit"
+    data_element: VOLEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: FAKSP
+    description: "Block"
+    data_element: FAKSP
+    check_table: TVFS
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: MBDAT
+    description: "Material Staging/Availability Date"
+    data_element: MBDAT
+    check_table: DATS
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: LGMNG
+    description: "Actual quantity delivered in stockkeeping units"
+    data_element: LGMNG
+    check_table: QUAN
+    datatype: 13
+    length: 3
+    decimals: 0
+    key: false
+  - name: ARKTX
+    description: "Short text for sales order item"
+    data_element: ARKTX
+    check_table: CHAR
+    datatype: 40
+    length: 0
+    decimals: 0
+    key: false
+  - name: LGPBE
+    description: "Storage Bin"
+    data_element: LGPBE
+    check_table: CHAR
+    datatype: 10
+    length: 0
+    decimals: 0
+    key: false
+  - name: VBELV
+    description: "Originating document"
+    data_element: VBELV
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: POSNV
+    description: "Originating item"
+    data_element: POSNV
+    check_table: VBUP
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: VGBEL
+    description: "Document number of the reference document"
+    data_element: VGBEL
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: VGPOS
+    description: "Item number of the reference item"
+    data_element: VGPOS
+    check_table: VBUP
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: FKREL
+    description: "Relevant for Billing"
+    data_element: FKREL
+    check_table: CHAR
+    datatype: 1
+    length: 0
+    decimals: 0
+    key: false
+  - name: LADGR
+    description: "Loading Group"
+    data_element: LADGR
+    check_table: TLGR
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: TRAGR
+    description: "Transportation Group"
+    data_element: TRAGR
+    check_table: TTGR
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LGNUM
+    description: "Warehouse Number / Warehouse Complex"
+    data_element: LGNUM
+    check_table: T300
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LGTYP
+    description: "Storage Type"
+    data_element: LGTYP
+    check_table: T301
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LGPLA
+    description: "Storage Bin"
+    data_element: LGPLA
+    check_table: LAGP
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BWART
+    description: "Movement Type (Inventory Management)"
+    data_element: BWART
+    check_table: T156
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: MTART
+    description: "Material Type"
+    data_element: MTART
+    check_table: T134
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BWTAR
+    description: "Valuation Type"
+    data_element: BWTAR_D
+    check_table: T149D
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: MTVFP
+    description: "Checking Group for Availability Check"
+    data_element: MTVFP
+    check_table: TMVF
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: GSBER
+    description: "Business Area"
+    data_element: GSBER
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VKBUR
+    description: "Sales Office"
+    data_element: VKBUR
+    check_table: TVBUR
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VKGRP
+    description: "Sales Group"
+    data_element: VKGRP
+    check_table: TVKGR
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: VTWEG
+    description: "Distribution Channel"
+    data_element: VTWEG
+    check_table: TVTW
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: SPART
+    description: "Division"
+    data_element: SPART
+    check_table: TSPA
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: WAVWR
+    description: "Cost in document currency"
+    data_element: WAVWR
+    check_table: CURR
+    datatype: 13
+    length: 2
+    decimals: 0
+    key: false
+  - name: SOBKZ
+    description: "Special Stock Indicator"
+    data_element: SOBKZ
+    check_table: T148
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: DATS
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: KOSTL
+    description: "Cost Center"
+    data_element: KOSTL
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PAOBJNR
+    description: "Profitability Segment Number (CO-PA)"
+    data_element: RKEOBJNR
+    check_table: NUMC
+    datatype: 10
+    length: 0
+    decimals: 0
+    key: false
+  - name: PRCTR
+    description: "Profit Center"
+    data_element: PRCTR
+    check_table: CHAR
+    datatype: 10
+    length: 0
+    decimals: 0
+    key: false
+  - name: PS_PSP_PNR
+    description: "Work Breakdown Structure Element (WBS Element)"
+    data_element: PS_PSP_PNR
+    check_table: NUMC
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: AUFNR
+    description: "Order Number"
+    data_element: AUFNR
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: KDAUF
+    description: "Sales Order Number"
+    data_element: KDAUF
+    check_table: CHAR
+    datatype: 10
+    length: 0
+    decimals: 0
+    key: false
+  - name: KDPOS
+    description: "Item Number in Sales Order"
+    data_element: KDPOS
+    check_table: NUMC
+    datatype: 6
+    length: 0
+    decimals: 0
+    key: false
+  - name: KNTTP
+    description: "Account Assignment Category"
+    data_element: KNTTP
+    check_table: T163K
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: NETPR
+    description: "Net price"
+    data_element: NETPR
+    check_table: CURR
+    datatype: 11
+    length: 2
+    decimals: 0
+    key: false
+  - name: NETWR
+    description: "Net Value in Document Currency"
+    data_element: NETWR
+    check_table: CURR
+    datatype: 15
+    length: 2
+    decimals: 0
+    key: false
+  - name: KPEIN
+    description: "Condition pricing unit"
+    data_element: KPEIN
+    check_table: DEC
+    datatype: 5
+    length: 0
+    decimals: 0
+    key: false
+  - name: KMEIN
+    description: "Condition unit"
+    data_element: KMEIN
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: WKTNR
+    description: "Value contract no."
+    data_element: WKTNR
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: WKTPS
+    description: "Value contract item"
+    data_element: WKTPS
+    check_table: VBUP
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: RSNUM
+    description: "Number of Reservation/Dependent Requirement"
+    data_element: RSNUM
+    check_table: NUMC
+    datatype: 10
+    length: 0
+    decimals: 0
+    key: false
+  - name: RSPOS
+    description: "Item Number of Reservation/Dependent Requirement"
+    data_element: RSPOS
+    check_table: NUMC
+    datatype: 4
+    length: 0
+    decimals: 0
+    key: false
+  - name: VGTYP
+    description: "SD document category"
+    data_element: VBTYP
+    check_table: CHAR
+    datatype: 1
+    length: 0
+    decimals: 0
+    key: false
+  - name: KONTO
+    description: "G/L Account Number"
+    data_element: SAKNR
+    check_table: CHAR
+    datatype: 10
+    length: 0
+    decimals: 0
+    key: false
+  - name: VFDAT
+    description: "Shelf Life Expiration or Best-Before Date"
+    data_element: VFDAT
+    check_table: DATS
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: HSDAT
+    description: "Date of Manufacture"
+    data_element: HSDAT
+    check_table: DATS
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: LFBNR
+    description: "Document No. of a Reference Document"
+    data_element: LFBNR
+    check_table: CHAR
+    datatype: 10
+    length: 0
+    decimals: 0
+    key: false
+  - name: LFPOS
+    description: "Item of a Reference Document"
+    data_element: LFPOS
+    check_table: NUMC
+    datatype: 4
+    length: 0
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: AUFNR
+    check_table: AUFK
+    check_field: AUFNR
+  - field: BWART
+    check_table: T156
+    check_field: BWART
+  - field: BWTAR
+    check_table: T149D
+    check_field: BWTAR
+  - field: CHARG
+    check_table: MCHA
+    check_field: CHARG
+  - field: GEWEI
+    check_table: T006
+    check_field: MSEHI
+  - field: GSBER
+    check_table: TGSB
+    check_field: GSBER
+  - field: KMEIN
+    check_table: T006
+    check_field: MSEHI
+  - field: KNTTP
+    check_table: T163K
+    check_field: KNTTP
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: KOSTL
+    check_table: CSKS
+    check_field: KOSTL
+  - field: LADGR
+    check_table: TLGR
+    check_field: LADGR
+  - field: LGNUM
+    check_table: T300
+    check_field: LGNUM
+  - field: LGORT
+    check_table: T001L
+    check_field: LGORT
+  - field: LGPLA
+    check_table: LAGP
+    check_field: LGPLA
+  - field: LGTYP
+    check_table: T301
+    check_field: LGTYP
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MATKL
+    check_table: T023
+    check_field: MATKL
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: MATWA
+    check_table: MARA
+    check_field: MATNR
+  - field: MEINS
+    check_table: T006
+    check_field: MSEHI
+  - field: MTART
+    check_table: T134
+    check_field: MTART
+  - field: MTVFP
+    check_table: TMVF
+    check_field: MTVFP
+  - field: POSNR
+    check_table: VBUP
+    check_field: POSNR
+  - field: POSNV
+    check_table: VBUP
+    check_field: POSNR
+  - field: PRODH
+    check_table: T179
+    check_field: PRODH
+  - field: PSTYV
+    check_table: TVPT
+    check_field: PSTYV
+  - field: SOBKZ
+    check_table: T148
+    check_field: SOBKZ
+  - field: SPART
+    check_table: TSPA
+    check_field: SPART
+  - field: TRAGR
+    check_table: TTGR
+    check_field: TRAGR
+  - field: VBELN
+    check_table: VBUK
+    check_field: VBELN
+  - field: VBELV
+    check_table: VBUK
+    check_field: VBELN
+  - field: VGBEL
+    check_table: VBUK
+    check_field: VBELN
+  - field: VGPOS
+    check_table: VBUP
+    check_field: POSNR
+  - field: VKBUR
+    check_table: TVBUR
+    check_field: VKBUR
+  - field: VKGRP
+    check_table: TVKGR
+    check_field: VKGRP
+  - field: VOLEH
+    check_table: T006
+    check_field: MSEHI
+  - field: VRKME
+    check_table: T006
+    check_field: MSEHI
+  - field: VTWEG
+    check_table: TVTW
+    check_field: VTWEG
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+  - field: WKTNR
+    check_table: VBUK
+    check_field: VBELN
+  - field: WKTPS
+    check_table: VBUP
+    check_field: POSNR
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

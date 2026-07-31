@@ -1,0 +1,612 @@
+table: VBRP
+module: SD
+description: "Billing document item data — invoiced quantities and net/tax values per billing line."
+source: https://leanx.eu/en/sap/table/vbrp.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: VBELN
+    description: "Billing Document"
+    data_element: VBELN_VF
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: POSNR
+    description: "Billing item"
+    data_element: POSNR_VF
+    check_table: VBUP
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: true
+  - name: FKIMG
+    description: "Actual Invoiced Quantity"
+    data_element: FKIMG
+    check_table: QUAN
+    datatype: 13
+    length: 3
+    decimals: 0
+    key: false
+  - name: VRKME
+    description: "Sales unit"
+    data_element: VRKME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: MEINS
+    description: "Base Unit of Measure"
+    data_element: MEINS
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: NTGEW
+    description: "Net weight"
+    data_element: NTGEW_15
+    check_table: QUAN
+    datatype: 15
+    length: 3
+    decimals: 0
+    key: false
+  - name: BRGEW
+    description: "Gross weight"
+    data_element: BRGEW_15
+    check_table: QUAN
+    datatype: 15
+    length: 3
+    decimals: 0
+    key: false
+  - name: GEWEI
+    description: "Weight Unit"
+    data_element: GEWEI
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: VOLUM
+    description: "Volume"
+    data_element: VOLUM_15
+    check_table: QUAN
+    datatype: 15
+    length: 3
+    decimals: 0
+    key: false
+  - name: VOLEH
+    description: "Volume unit"
+    data_element: VOLEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: GSBER
+    description: "Business Area"
+    data_element: GSBER
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PRSDT
+    description: "Date for pricing and exchange rate"
+    data_element: PRSDT
+    check_table: DATS
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: FBUDA
+    description: "Date on which services rendered"
+    data_element: FBUDA
+    check_table: DATS
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: NETWR
+    description: "Net value of the billing item in document currency"
+    data_element: NETWR_FP
+    check_table: CURR
+    datatype: 15
+    length: 2
+    decimals: 0
+    key: false
+  - name: VBELV
+    description: "Originating document"
+    data_element: VBELV
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: POSNV
+    description: "Originating item"
+    data_element: POSNV
+    check_table: VBUP
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: VGBEL
+    description: "Document number of the reference document"
+    data_element: VGBEL
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: VGPOS
+    description: "Item number of the reference item"
+    data_element: VGPOS
+    check_table: VBUP
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: VGTYP
+    description: "Document category of preceding SD document"
+    data_element: VBTYP_V
+    check_table: CHAR
+    datatype: 1
+    length: 0
+    decimals: 0
+    key: false
+  - name: AUBEL
+    description: "Sales Document"
+    data_element: VBELN_VA
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AUPOS
+    description: "Sales Document Item"
+    data_element: POSNR_VA
+    check_table: VBUP
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: ARKTX
+    description: "Short text for sales order item"
+    data_element: ARKTX
+    check_table: CHAR
+    datatype: 40
+    length: 0
+    decimals: 0
+    key: false
+  - name: PMATN
+    description: "Pricing Reference Material"
+    data_element: PMATN
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: CHARG
+    description: "Batch Number"
+    data_element: CHARG_D
+    check_table: MCHA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: MATKL
+    description: "Material Group"
+    data_element: MATKL
+    check_table: T023
+    datatype: CHAR
+    length: 9
+    decimals: 0
+    key: false
+  - name: PSTYV
+    description: "Sales document item category"
+    data_element: PSTYV
+    check_table: CHAR
+    datatype: 4
+    length: 0
+    decimals: 0
+    key: false
+  - name: PRODH
+    description: "Product hierarchy"
+    data_element: PRODH_D
+    check_table: T179
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: VSTEL
+    description: "Shipping Point/Receiving Point"
+    data_element: VSTEL
+    check_table: TVST
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SPART
+    description: "Division"
+    data_element: SPART
+    check_table: TSPA
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ALAND
+    description: "Departure country (country from which the goods are sent)"
+    data_element: ALAND
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: KONDM
+    description: "Material Pricing Group"
+    data_element: KONDM
+    check_table: T178
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KTGRM
+    description: "Account assignment group for this material"
+    data_element: KTGRM
+    check_table: TVKM
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KOSTL
+    description: "Cost Center"
+    data_element: KOSTL
+    check_table: CHAR
+    datatype: 10
+    length: 0
+    decimals: 0
+    key: false
+  - name: BONUS
+    description: "Volume rebate group"
+    data_element: BONUS
+    check_table: TVBO
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PROVG
+    description: "Commission group"
+    data_element: PROVG
+    check_table: TVPR
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: VKGRP
+    description: "Sales Group"
+    data_element: VKGRP
+    check_table: TVKGR
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: VKBUR
+    description: "Sales Office"
+    data_element: VKBUR
+    check_table: TVBUR
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: CHAR
+    datatype: 12
+    length: 0
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: DATS
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: ERZET
+    description: "Entry time"
+    data_element: ERZET
+    check_table: TIMS
+    datatype: 6
+    length: 0
+    decimals: 0
+    key: false
+  - name: BWTAR
+    description: "Valuation Type"
+    data_element: BWTAR_D
+    check_table: T149D
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LGORT
+    description: "Storage Location"
+    data_element: LGORT_D
+    check_table: T001L
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: WAVWR
+    description: "Cost in document currency"
+    data_element: WAVWR
+    check_table: CURR
+    datatype: 13
+    length: 2
+    decimals: 0
+    key: false
+  - name: PRCTR
+    description: "Profit Center"
+    data_element: PRCTR
+    check_table: CHAR
+    datatype: 10
+    length: 0
+    decimals: 0
+    key: false
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PAOBJNR
+    description: "Profitability Segment Number (CO-PA)"
+    data_element: RKEOBJNR
+    check_table: NUMC
+    datatype: 10
+    length: 0
+    decimals: 0
+    key: false
+  - name: PS_PSP_PNR
+    description: "Work Breakdown Structure Element (WBS Element)"
+    data_element: PS_PSP_PNR
+    check_table: NUMC
+    datatype: 8
+    length: 0
+    decimals: 0
+    key: false
+  - name: AUFNR
+    description: "Order Number"
+    data_element: AUFNR
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: TXJCD
+    description: "Tax Jurisdiction"
+    data_element: TXJCD
+    check_table: CHAR
+    datatype: 15
+    length: 0
+    decimals: 0
+    key: false
+  - name: FPLNR
+    description: "Billing plan number / invoicing plan number"
+    data_element: FPLNR
+    check_table: FPLA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: FPLTR
+    description: "Item for billing plan/invoice plan/payment cards"
+    data_element: FPLTR
+    check_table: NUMC
+    datatype: 6
+    length: 0
+    decimals: 0
+    key: false
+  - name: MWSBP
+    description: "Tax amount in document currency"
+    data_element: MWSBP
+    check_table: CURR
+    datatype: 13
+    length: 2
+    decimals: 0
+    key: false
+  - name: MWSKZ
+    description: "Tax on sales/purchases code"
+    data_element: MWSKZ
+    check_table: CHAR
+    datatype: 2
+    length: 0
+    decimals: 0
+    key: false
+  - name: WKTNR
+    description: "Value contract no."
+    data_element: WKTNR
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: WKTPS
+    description: "Value contract item"
+    data_element: WKTPS
+    check_table: VBUP
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: SGTXT
+    description: "Item Text"
+    data_element: SGTXT
+    check_table: CHAR
+    datatype: 50
+    length: 0
+    decimals: 0
+    key: false
+  - name: VERTN
+    description: "Contract Number"
+    data_element: RANL
+    check_table: CHAR
+    datatype: 13
+    length: 0
+    decimals: 0
+    key: false
+  - name: RRREL
+    description: "Revenue recognition category"
+    data_element: RR_RELTYP
+    check_table: CHAR
+    datatype: 1
+    length: 0
+    decimals: 0
+    key: false
+  - name: LOGSYS
+    description: "Logical system"
+    data_element: LOGSYS
+    check_table: CHAR
+    datatype: 10
+    length: 0
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: ALAND
+    check_table: T005
+    check_field: LAND1
+  - field: AUBEL
+    check_table: VBUK
+    check_field: VBELN
+  - field: AUFNR
+    check_table: AUFK
+    check_field: AUFNR
+  - field: AUPOS
+    check_table: VBUP
+    check_field: POSNR
+  - field: BONUS
+    check_table: TVBO
+    check_field: BONUS
+  - field: BWTAR
+    check_table: T149D
+    check_field: BWTAR
+  - field: CHARG
+    check_table: MCHA
+    check_field: CHARG
+  - field: FPLNR
+    check_table: FPLA
+    check_field: FPLNR
+  - field: GEWEI
+    check_table: T006
+    check_field: MSEHI
+  - field: GSBER
+    check_table: TGSB
+    check_field: GSBER
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: KONDM
+    check_table: T178
+    check_field: KONDM
+  - field: KTGRM
+    check_table: TVKM
+    check_field: KTGRM
+  - field: LGORT
+    check_table: T001L
+    check_field: LGORT
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MATKL
+    check_table: T023
+    check_field: MATKL
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: MEINS
+    check_table: T006
+    check_field: MSEHI
+  - field: PMATN
+    check_table: MARA
+    check_field: MATNR
+  - field: POSNR
+    check_table: VBUP
+    check_field: POSNR
+  - field: POSNV
+    check_table: VBUP
+    check_field: POSNR
+  - field: PRODH
+    check_table: T179
+    check_field: PRODH
+  - field: PROVG
+    check_table: TVPR
+    check_field: PROVG
+  - field: SPART
+    check_table: TSPA
+    check_field: SPART
+  - field: VBELN
+    check_table: VBUK
+    check_field: VBELN
+  - field: VBELV
+    check_table: VBUK
+    check_field: VBELN
+  - field: VGBEL
+    check_table: VBUK
+    check_field: VBELN
+  - field: VGPOS
+    check_table: VBUP
+    check_field: POSNR
+  - field: VKBUR
+    check_table: TVBUR
+    check_field: VKBUR
+  - field: VKGRP
+    check_table: TVKGR
+    check_field: VKGRP
+  - field: VOLEH
+    check_table: T006
+    check_field: MSEHI
+  - field: VRKME
+    check_table: T006
+    check_field: MSEHI
+  - field: VSTEL
+    check_table: TVST
+    check_field: VSTEL
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+  - field: WKTNR
+    check_table: VBUK
+    check_field: VBELN
+  - field: WKTPS
+    check_table: VBUP
+    check_field: POSNR
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

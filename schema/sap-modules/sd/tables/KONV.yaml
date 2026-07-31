@@ -1,0 +1,380 @@
+table: KONV
+module: SD
+description: "Transaction-level pricing conditions — the condition/pricing engine behind order, delivery, and billing net values."
+source: https://leanx.eu/en/sap/table/konv.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: KNUMV
+    description: "Number of the document condition"
+    data_element: KNUMV
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: KPOSN
+    description: "Condition item number"
+    data_element: KPOSN
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: true
+  - name: STUNR
+    description: "Step number"
+    data_element: STUNR
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: true
+  - name: ZAEHK
+    description: "Condition counter"
+    data_element: DZAEHK
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: true
+  - name: KAPPL
+    description: "Application"
+    data_element: KAPPL
+    check_table: T681A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: KSCHL
+    description: "Condition type"
+    data_element: KSCHA
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: KDATU
+    description: "Condition pricing date"
+    data_element: KDATU
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: KRECH
+    description: "Calculation type for condition"
+    data_element: KRECH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: KAWRT
+    description: "Condition base value"
+    data_element: KAWRT
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: KBETR
+    description: "Rate (condition amount or percentage)"
+    data_element: KBETR
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: KKURS
+    description: "Condition exchange rate for conversion to local currency"
+    data_element: KKURS
+    check_table: ~
+    datatype: DEC
+    length: 9
+    decimals: 5
+    key: false
+  - name: KPEIN
+    description: "Condition pricing unit"
+    data_element: KPEIN
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 0
+    key: false
+  - name: KMEIN
+    description: "Condition unit in the document"
+    data_element: KVMEI
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: KNTYP
+    description: "Condition category (examples: tax, freight, price, cost)"
+    data_element: KNTYP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KSTAT
+    description: "Condition is used for statistics"
+    data_element: KSTAT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KNPRS
+    description: "Scale Type"
+    data_element: STFKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KRUEK
+    description: "Condition is Relevant for Accrual (e.g. Freight)"
+    data_element: KRUEK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KRELI
+    description: "Condition for invoice list"
+    data_element: KRELI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KHERK
+    description: "Origin of the condition"
+    data_element: KHERK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KGRPE
+    description: "Group condition"
+    data_element: KGRPE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KOUPD
+    description: "Condition update"
+    data_element: KOUPD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KNUMH
+    description: "Condition record number"
+    data_element: KNUMH
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KVSL1
+    description: "Account key"
+    data_element: KVSL1
+    check_table: T687
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: SAKN1
+    description: "G/L Account Number"
+    data_element: SAKNR
+    check_table: SKA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: MWSK1
+    description: "Tax on sales/purchases code"
+    data_element: MWSKZ
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KVSL2
+    description: "Account key - accruals / provisions"
+    data_element: KVSL2
+    check_table: T687
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: SAKN2
+    description: "Number of Provision Account"
+    data_element: SAKNR_ACCR
+    check_table: SKA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LIFNR
+    description: "Account Number of Vendor or Creditor"
+    data_element: LIFNR
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KUNNR
+    description: "Customer number (rebate recipient)"
+    data_element: KUNNR_KO
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KDIFF
+    description: "Rounding-off difference of the condition"
+    data_element: KDIFF
+    check_table: ~
+    datatype: CURR
+    length: 5
+    decimals: 2
+    key: false
+  - name: KWERT
+    description: "Condition value"
+    data_element: KWERT
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: KSTEU
+    description: "Condition control"
+    data_element: KSTEU
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KINAK
+    description: "Condition is inactive"
+    data_element: KINAK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KOAID
+    description: "Condition class"
+    data_element: KOAID
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KMXAW
+    description: "Indicator for maximum condition base value"
+    data_element: KMXAW
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KMXWR
+    description: "Indicator for maximum condition amount"
+    data_element: KMXWR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZBZG
+    description: "Scale basis indicator"
+    data_element: KZBZG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KSTBS
+    description: "Scale base value of the condition"
+    data_element: KSTBS
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: KONMS
+    description: "Condition scale unit of measure"
+    data_element: KONMS
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: KONWS
+    description: "Scale currency"
+    data_element: KONWS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: KAPPL
+    check_table: T681A
+    check_field: KAPPL
+  - field: KMEIN
+    check_table: T006
+    check_field: MSEHI
+  - field: KONMS
+    check_table: T006
+    check_field: MSEHI
+  - field: KONWS
+    check_table: TCURC
+    check_field: WAERS
+  - field: KUNNR
+    check_table: KNA1
+    check_field: KUNNR
+  - field: KVSL1
+    check_table: T687
+    check_field: KVSL1
+  - field: KVSL2
+    check_table: T687
+    check_field: KVSL1
+  - field: LIFNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: SAKN1
+    check_table: SKA1
+    check_field: SAKNR
+  - field: SAKN2
+    check_table: SKA1
+    check_field: SAKNR
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.
