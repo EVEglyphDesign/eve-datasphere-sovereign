@@ -1,0 +1,615 @@
+table: EBAN
+module: MM
+description: "Purchase Requisition - internal request to purchasing to procure a material or service."
+source: https://leanx.eu/en/sap/table/eban.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: BANFN
+    description: "Purchase Requisition Number"
+    data_element: BANFN
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: BNFPO
+    description: "Item Number of Purchase Requisition"
+    data_element: BNFPO
+    check_table: ~
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: true
+  - name: BSART
+    description: "Purchase Requisition Document Type"
+    data_element: BBSRT
+    check_table: T161
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BSTYP
+    description: "Purchasing Document Category"
+    data_element: BSTYP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LOEKZ
+    description: "Deletion Indicator in Purchasing Document"
+    data_element: ELOEK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STATU
+    description: "Processing status of purchase requisition"
+    data_element: BANST
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FRGKZ
+    description: "Release Indicator"
+    data_element: FRGKZ
+    check_table: T161S
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FRGZU
+    description: "Release status"
+    data_element: FRGZU
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: FRGST
+    description: "Release Strategy in Purchase Requisition"
+    data_element: FRGST
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: EKGRP
+    description: "Purchasing Group"
+    data_element: EKGRP
+    check_table: T024
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AFNAM
+    description: "Name of Requisitioner/Requester"
+    data_element: AFNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: TXZ01
+    description: "Short Text"
+    data_element: TXZ01
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Plant"
+    data_element: EWERK
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LGORT
+    description: "Storage Location"
+    data_element: LGORT_D
+    check_table: T001L
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: MATKL
+    description: "Material Group"
+    data_element: MATKL
+    check_table: T023
+    datatype: CHAR
+    length: 9
+    decimals: 0
+    key: false
+  - name: MENGE
+    description: "Purchase Requisition Quantity"
+    data_element: BAMNG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: MEINS
+    description: "Purchase Requisition Unit of Measure"
+    data_element: BAMEI
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: BADAT
+    description: "Requisition (Request) Date"
+    data_element: BADAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: LFDAT
+    description: "Item Delivery Date"
+    data_element: EINDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: FRGDT
+    description: "Purchase Requisition Release Date"
+    data_element: FRGDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PREIS
+    description: "Price in Purchase Requisition"
+    data_element: BAPRE
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: PEINH
+    description: "Price Unit"
+    data_element: EPEIN
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 0
+    key: false
+  - name: PSTYP
+    description: "Item Category in Purchasing Document"
+    data_element: PSTYP
+    check_table: T163
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KNTTP
+    description: "Account Assignment Category"
+    data_element: KNTTP
+    check_table: T163K
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WEPOS
+    description: "Goods Receipt Indicator"
+    data_element: WEPOS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: REPOS
+    description: "Invoice Receipt Indicator"
+    data_element: REPOS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LIFNR
+    description: "Desired Vendor"
+    data_element: WLIEF
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: FLIEF
+    description: "Fixed Vendor"
+    data_element: FLIEF
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: EKORG
+    description: "Purchasing Organization"
+    data_element: EKORG
+    check_table: T024E
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KONNR
+    description: "Number of Principal Purchase Agreement"
+    data_element: KONNR
+    check_table: EKKO
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KTPNR
+    description: "Item Number of Principal Purchase Agreement"
+    data_element: KTPNR
+    check_table: EKPO
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: INFNR
+    description: "Number of Purchasing Info Record"
+    data_element: INFNR
+    check_table: EINA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: DISPO
+    description: "MRP Controller (Materials Planner)"
+    data_element: DISPO
+    check_table: T024D
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: EBELN
+    description: "Purchase Order Number"
+    data_element: BSTNR
+    check_table: EKKO
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: EBELP
+    description: "Purchase Order Item Number"
+    data_element: BSTPO
+    check_table: EKPO
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: BEDAT
+    description: "Purchase Order Date"
+    data_element: BEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BSMNG
+    description: "Quantity Ordered Against this Purchase Requisition"
+    data_element: BSMNG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: BWTAR
+    description: "Valuation Type"
+    data_element: BWTAR_D
+    check_table: T149D
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RSNUM
+    description: "Number of Reservation/Dependent Requirement"
+    data_element: RSNUM
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: SOBKZ
+    description: "Special Stock Indicator"
+    data_element: SOBKZ
+    check_table: T148
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FIXKZ
+    description: "Purchase Requisition is Fixed"
+    data_element: BAFIX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BMEIN
+    description: "Purchase Order Unit of Measure"
+    data_element: BSTME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: FRGGR
+    description: "Release group"
+    data_element: FRGGR
+    check_table: T16FG
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FRGRL
+    description: "Release Not Yet Completely Effected"
+    data_element: FRGRL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CHARG
+    description: "Batch Number"
+    data_element: CHARG_D
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: FISTL
+    description: "Funds Center"
+    data_element: FISTL
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: GEBER
+    description: "Fund"
+    data_element: BP_GEBER
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: FIPOS
+    description: "Commitment Item"
+    data_element: FIPOS
+    check_table: ~
+    datatype: CHAR
+    length: 14
+    decimals: 0
+    key: false
+  - name: KUNNR
+    description: "Customer"
+    data_element: EKUNNR
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: SPRAS
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: MFRPN
+    description: "Manufacturer Part Number"
+    data_element: MFRPN
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: MFRNR
+    description: "Number of a Manufacturer"
+    data_element: MFRNR
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PLIFZ
+    description: "Planned Delivery Time in Days"
+    data_element: PLIFZ
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: BERID
+    description: "MRP Area"
+    data_element: BERID
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: GRANT_NBR
+    description: "Grant"
+    data_element: GM_GRANT_NBR
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: BANPR
+    description: "Requisition Processing State"
+    data_element: BANPR
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: BLCKD
+    description: "Purchase Requisition Blocked"
+    data_element: BLCKD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BESWK
+    description: "Procuring Plant"
+    data_element: BESWK
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KBLNR
+    description: "Document Number for Earmarked Funds"
+    data_element: KBLNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KBLPOS
+    description: "Earmarked Funds: Document Item"
+    data_element: KBLPOS
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: BSART
+    check_table: T161
+    check_field: BSART
+  - field: FRGKZ
+    check_table: T161S
+    check_field: FRGKZ
+  - field: EKGRP
+    check_table: T024
+    check_field: EKGRP
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+  - field: LGORT
+    check_table: T001L
+    check_field: LGORT
+  - field: MATKL
+    check_table: T023
+    check_field: MATKL
+  - field: MEINS
+    check_table: T006
+    check_field: MSEHI
+  - field: PSTYP
+    check_table: T163
+    check_field: PSTYP
+  - field: KNTTP
+    check_table: T163K
+    check_field: KNTTP
+  - field: LIFNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: FLIEF
+    check_table: LFA1
+    check_field: LIFNR
+  - field: EKORG
+    check_table: T024E
+    check_field: EKORG
+  - field: KONNR
+    check_table: EKKO
+    check_field: EBELN
+  - field: KTPNR
+    check_table: EKPO
+    check_field: EBELP
+  - field: INFNR
+    check_table: EINA
+    check_field: INFNR
+  - field: DISPO
+    check_table: T024D
+    check_field: DISPO
+  - field: EBELN
+    check_table: EKKO
+    check_field: EBELN
+  - field: EBELP
+    check_table: EKPO
+    check_field: EBELP
+  - field: BWTAR
+    check_table: T149D
+    check_field: BWTAR
+  - field: SOBKZ
+    check_table: T148
+    check_field: SOBKZ
+  - field: BMEIN
+    check_table: T006
+    check_field: MSEHI
+  - field: FRGGR
+    check_table: T16FG
+    check_field: FRGGR
+  - field: KUNNR
+    check_table: KNA1
+    check_field: KUNNR
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: SPRAS
+    check_table: T002
+    check_field: SPRAS
+  - field: MFRNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: BESWK
+    check_table: T001W
+    check_field: WERKS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

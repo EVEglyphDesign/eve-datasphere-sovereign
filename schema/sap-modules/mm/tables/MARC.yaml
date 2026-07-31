@@ -1,0 +1,705 @@
+table: MARC
+module: MM
+description: "Plant Data for Material - plant-specific material master extension (MRP, procurement, valuation control)."
+source: https://leanx.eu/en/sap/table/marc.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: true
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: PSTAT
+    description: "Maintenance status"
+    data_element: PSTAT_D
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: LVORM
+    description: "Flag Material for Deletion at Plant Level"
+    data_element: LVOWK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BWTTY
+    description: "Valuation Category"
+    data_element: BWTTY_D
+    check_table: T149C
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XCHAR
+    description: "Batch management indicator (internal)"
+    data_element: XCHAR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MMSTA
+    description: "Plant-Specific Material Status"
+    data_element: MMSTA
+    check_table: T141
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: MMSTD
+    description: "Date from which the plant-specific material status is valid"
+    data_element: MMSTD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: MAABC
+    description: "ABC Indicator"
+    data_element: MAABC
+    check_table: TMABC
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EKGRP
+    description: "Purchasing Group"
+    data_element: EKGRP
+    check_table: T024
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: AUSME
+    description: "Unit of issue"
+    data_element: AUSME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: DISPR
+    description: "Material: MRP profile"
+    data_element: DISPR
+    check_table: MDIP
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: DISMM
+    description: "MRP Type"
+    data_element: DISMM
+    check_table: T438A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: DISPO
+    description: "MRP Controller (Materials Planner)"
+    data_element: DISPO
+    check_table: T024D
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: PLIFZ
+    description: "Planned Delivery Time in Days"
+    data_element: PLIFZ
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: WEBAZ
+    description: "Goods Receipt Processing Time in Days"
+    data_element: WEBAZ
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: PERKZ
+    description: "Period Indicator"
+    data_element: PERKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUSSS
+    description: "Assembly scrap in percent"
+    data_element: AUSSS
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: DISLS
+    description: "Lot size (materials planning)"
+    data_element: DISLS
+    check_table: T439A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: BESKZ
+    description: "Procurement Type"
+    data_element: BESKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SOBSL
+    description: "Special procurement type"
+    data_element: SOBSL
+    check_table: T460A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: MINBE
+    description: "Reorder Point"
+    data_element: MINBE
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: EISBE
+    description: "Safety Stock"
+    data_element: EISBE
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: BSTMI
+    description: "Minimum Lot Size"
+    data_element: BSTMI
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: BSTMA
+    description: "Maximum Lot Size"
+    data_element: BSTMA
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: BSTFE
+    description: "Fixed lot size"
+    data_element: BSTFE
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: BSTRF
+    description: "Rounding value for purchase order quantity"
+    data_element: BSTRF
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: MABST
+    description: "Maximum stock level"
+    data_element: MABST
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: ALTSL
+    description: "Method for Selecting Alternative Bills of Material"
+    data_element: ALTSL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZAUS
+    description: "Discontinuation indicator"
+    data_element: KZAUS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUSDT
+    description: "Effective-Out Date"
+    data_element: AUSDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: NFMAT
+    description: "Follow-Up Material"
+    data_element: NFMAT
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: FHORI
+    description: "Scheduling Margin Key for Floats"
+    data_element: FHORI
+    check_table: T436A
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: FEVOR
+    description: "Production Supervisor"
+    data_element: FEVOR
+    check_table: T024F
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: BEARZ
+    description: "Processing time"
+    data_element: BEARZ
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: RUEZT
+    description: "Setup and teardown time"
+    data_element: RUEZT
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: DZEIT
+    description: "In-house production time"
+    data_element: DZEIT
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: UEETO
+    description: "Overdelivery tolerance limit"
+    data_element: UEETO
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 1
+    key: false
+  - name: UEETK
+    description: "Indicator: Unlimited Overdelivery Allowed"
+    data_element: UEETK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: UNETO
+    description: "Underdelivery tolerance limit"
+    data_element: UNETO
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 1
+    key: false
+  - name: WZEIT
+    description: "Total replenishment lead time (in workdays)"
+    data_element: WZEIT
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: INSMK
+    description: "Post to Inspection Stock"
+    data_element: INSMK_MAT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SSQSS
+    description: "Control Key for Quality Management in Procurement"
+    data_element: QSSPUR
+    check_table: TQ08
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: LADGR
+    description: "Loading Group"
+    data_element: LADGR
+    check_table: TLGR
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: XCHPF
+    description: "Batch management requirement indicator"
+    data_element: XCHPF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLVAR
+    description: "Plan Version"
+    data_element: PLVAR
+    check_table: T778P
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: MTVFP
+    description: "Checking Group for Availability Check"
+    data_element: MTVFP
+    check_table: TMVF
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PERIV
+    description: "Fiscal Year Variant"
+    data_element: PERIV
+    check_table: T009
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: BWSCL
+    description: "Source of Supply"
+    data_element: BWSCL
+    check_table: TMBW1
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KAUTB
+    description: "Indicator: automatic purchase order allowed"
+    data_element: KAUTB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KORDB
+    description: "Indicator: Source list requirement"
+    data_element: KORDB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAWN
+    description: "Commodity Code/Import Code Number for Foreign Trade"
+    data_element: STAWN
+    check_table: T604
+    datatype: CHAR
+    length: 17
+    decimals: 0
+    key: false
+  - name: HERKL
+    description: "Country of origin of the material"
+    data_element: HERKL
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: PRCTR
+    description: "Profit Center"
+    data_element: PRCTR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: STLAN
+    description: "BOM Usage"
+    data_element: STLAN
+    check_table: T416
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLNNR
+    description: "Key for Task List Group"
+    data_element: PLNNR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: LGPRO
+    description: "Issue Storage Location"
+    data_element: LGPRO
+    check_table: T001L
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: DISGR
+    description: "MRP Group"
+    data_element: DISGR
+    check_table: T438M
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: RWPRO
+    description: "Range of coverage profile"
+    data_element: RWPRO
+    check_table: T438R
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: SERNP
+    description: "Serial Number Profile"
+    data_element: SERAIL
+    check_table: T377P
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: RDPRF
+    description: "Rounding Profile"
+    data_element: RDPRF
+    check_table: RDPR
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: STRGR
+    description: "Planning strategy group"
+    data_element: STRGR
+    check_table: T461P
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LGFSB
+    description: "Default storage location for external procurement"
+    data_element: LGFSB
+    check_table: T001L
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: MEGRU
+    description: "Unit of Measure Group"
+    data_element: MEGRU
+    check_table: TWMEG
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: MFRGR
+    description: "Material freight group"
+    data_element: MFRGR
+    check_table: TMFG
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: DIBER
+    description: "Indicator: MRP area exists"
+    data_element: DIBER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XMCNG
+    description: "Negative stocks allowed in plant"
+    data_element: XMCNG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SHFLG
+    description: "Safety time indicator (with or without safety time)"
+    data_element: SHFLG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SHZET
+    description: "Safety time (in workdays)"
+    data_element: SHZET
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: VSPVB
+    description: "Proposed Supply Area in Material Master Record"
+    data_element: VSPVB
+    check_table: PVBE
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LFMON
+    description: "Current period (posting period)"
+    data_element: LFMON
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: LFGJA
+    description: "Fiscal Year of Current Period"
+    data_element: LFGJA
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: EISLO
+    description: "Minimum Safety Stock"
+    data_element: EISLO
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+  - field: BWTTY
+    check_table: T149C
+    check_field: BWTTY
+  - field: MMSTA
+    check_table: T141
+    check_field: MMSTA
+  - field: MAABC
+    check_table: TMABC
+    check_field: MAABC
+  - field: EKGRP
+    check_table: T024
+    check_field: EKGRP
+  - field: AUSME
+    check_table: T006
+    check_field: MSEHI
+  - field: DISPR
+    check_table: MDIP
+    check_field: DISPR
+  - field: DISMM
+    check_table: T438A
+    check_field: DISMM
+  - field: DISPO
+    check_table: T024D
+    check_field: DISPO
+  - field: DISLS
+    check_table: T439A
+    check_field: DISLS
+  - field: SOBSL
+    check_table: T460A
+    check_field: SOBSL
+  - field: NFMAT
+    check_table: MARA
+    check_field: MATNR
+  - field: FHORI
+    check_table: T436A
+    check_field: FHORI
+  - field: FEVOR
+    check_table: T024F
+    check_field: FEVOR
+  - field: SSQSS
+    check_table: TQ08
+    check_field: QM_PUR
+  - field: LADGR
+    check_table: TLGR
+    check_field: LADGR
+  - field: PLVAR
+    check_table: T778P
+    check_field: PLVAR
+  - field: MTVFP
+    check_table: TMVF
+    check_field: MTVFP
+  - field: PERIV
+    check_table: T009
+    check_field: PERIV
+  - field: BWSCL
+    check_table: TMBW1
+    check_field: BWSCL
+  - field: STAWN
+    check_table: T604
+    check_field: STAWN
+  - field: HERKL
+    check_table: T005
+    check_field: LAND1
+  - field: STLAN
+    check_table: T416
+    check_field: STLAN
+  - field: LGPRO
+    check_table: T001L
+    check_field: LGORT
+  - field: DISGR
+    check_table: T438M
+    check_field: MTART
+  - field: RWPRO
+    check_table: T438R
+    check_field: RWPRO
+  - field: SERNP
+    check_table: T377P
+    check_field: SERAIL
+  - field: RDPRF
+    check_table: RDPR
+    check_field: RDPRF
+  - field: STRGR
+    check_table: T461P
+    check_field: STRGR
+  - field: LGFSB
+    check_table: T001L
+    check_field: LGORT
+  - field: MEGRU
+    check_table: TWMEG
+    check_field: MEGRU
+  - field: MFRGR
+    check_table: TMFG
+    check_field: MFRGR
+  - field: VSPVB
+    check_table: PVBE
+    check_field: PRVBE
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

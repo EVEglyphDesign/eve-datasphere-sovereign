@@ -1,0 +1,220 @@
+table: MKPF
+module: MM
+description: "Header: Material Document - header data for a goods movement document (date, user, reference)."
+source: https://leanx.eu/en/sap/table/mkpf.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: MBLNR
+    description: "Number of Material Document"
+    data_element: MBLNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: MJAHR
+    description: "Material Document Year"
+    data_element: MJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: VGART
+    description: "Transaction/Event Type"
+    data_element: VGART
+    check_table: T158V
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: BLART
+    description: "Document Type"
+    data_element: BLART
+    check_table: T003
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: BLAUM
+    description: "Document type of revaluation document"
+    data_element: BLAUM
+    check_table: T003
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: BLDAT
+    description: "Document Date in Document"
+    data_element: BLDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BUDAT
+    description: "Posting Date in the Document"
+    data_element: BUDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: CPUDT
+    description: "Day On Which Accounting Document Was Entered"
+    data_element: CPUDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: CPUTM
+    description: "Time of Entry"
+    data_element: CPUTM
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: USNAM
+    description: "User name"
+    data_element: USNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: TCODE
+    description: "Not More Closely Defined Area"
+    data_element: CHAR4
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: XBLNR
+    description: "Reference Document Number"
+    data_element: XBLNR1
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: BKTXT
+    description: "Document Header Text"
+    data_element: BKTXT
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: FRATH
+    description: "Unplanned delivery costs"
+    data_element: FRATH
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: FRBNR
+    description: "Number of Bill of Lading at Time of Goods Receipt"
+    data_element: FRBNR1
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: WEVER
+    description: "Version for Printing GR/GI Slip"
+    data_element: WEVER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XABLN
+    description: "Goods Receipt/Issue Slip Number"
+    data_element: XABLN
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AWSYS
+    description: "Logical System"
+    data_element: LOGSYSTEM
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: TCODE2
+    description: "Transaction Code"
+    data_element: TCODE
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: EXNUM
+    description: "Number of foreign trade data in MM and SD documents"
+    data_element: EXNUM
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LE_VBELN
+    description: "Delivery"
+    data_element: VBELN_VL
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KNUMV
+    description: "Number of the document condition"
+    data_element: KNUMV
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LFSNR
+    description: "Number of External Delivery Note"
+    data_element: LFSNR1
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: BLART
+    check_table: T003
+    check_field: BLART
+  - field: BLAUM
+    check_table: T003
+    check_field: BLART
+  - field: VGART
+    check_table: T158V
+    check_field: VGART
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

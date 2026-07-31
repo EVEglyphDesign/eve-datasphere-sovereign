@@ -1,0 +1,631 @@
+table: MARA
+module: MM
+description: "General Material Data - client-level material master (core attributes shared across all plants)."
+source: https://leanx.eu/en/sap/table/mara.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: true
+  - name: ERSDA
+    description: "Created On"
+    data_element: ERSDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: LAEDA
+    description: "Date of Last Change"
+    data_element: LAEDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: VPSTA
+    description: "Maintenance status of complete material"
+    data_element: VPSTA
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: PSTAT
+    description: "Maintenance status"
+    data_element: PSTAT_D
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: LVORM
+    description: "Flag Material for Deletion at Client Level"
+    data_element: LVOMA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MTART
+    description: "Material Type"
+    data_element: MTART
+    check_table: T134
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: MBRSH
+    description: "Industry sector"
+    data_element: MBRSH
+    check_table: T137
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MATKL
+    description: "Material Group"
+    data_element: MATKL
+    check_table: T023
+    datatype: CHAR
+    length: 9
+    decimals: 0
+    key: false
+  - name: BISMT
+    description: "Old material number"
+    data_element: BISMT
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: MEINS
+    description: "Base Unit of Measure"
+    data_element: MEINS
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: BSTME
+    description: "Purchase Order Unit of Measure"
+    data_element: BSTME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: WRKST
+    description: "Basic Material"
+    data_element: WRKST
+    check_table: TWSPR
+    datatype: CHAR
+    length: 48
+    decimals: 0
+    key: false
+  - name: NORMT
+    description: "Industry Standard Description"
+    data_element: NORMT
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: LABOR
+    description: "Laboratory/design office"
+    data_element: LABOR
+    check_table: T024L
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: EKWSL
+    description: "Purchasing Value Key"
+    data_element: EKWSL
+    check_table: T405
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BRGEW
+    description: "Gross Weight"
+    data_element: BRGEW
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: NTGEW
+    description: "Net Weight"
+    data_element: NTGEW
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: GEWEI
+    description: "Weight Unit"
+    data_element: GEWEI
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: VOLUM
+    description: "Volume"
+    data_element: VOLUM
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: VOLEH
+    description: "Volume unit"
+    data_element: VOLEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: BEHVO
+    description: "Container requirements"
+    data_element: BEHVO
+    check_table: T144
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: RAUBE
+    description: "Storage conditions"
+    data_element: RAUBE
+    check_table: T142
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: TEMPB
+    description: "Temperature conditions indicator"
+    data_element: TEMPB
+    check_table: T143
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: DISST
+    description: "Low-Level Code"
+    data_element: DISST
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: TRAGR
+    description: "Transportation Group"
+    data_element: TRAGR
+    check_table: TTGR
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: STOFF
+    description: "Hazardous material number"
+    data_element: STOFF
+    check_table: MGEF
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: SPART
+    description: "Division"
+    data_element: SPART
+    check_table: TSPA
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: EANNR
+    description: "European Article Number (EAN)"
+    data_element: EANNR
+    check_table: ~
+    datatype: CHAR
+    length: 13
+    decimals: 0
+    key: false
+  - name: BWVOR
+    description: "Procurement rule"
+    data_element: BWVOR
+    check_table: T6WP1
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SAISO
+    description: "Season Category"
+    data_element: SAISO
+    check_table: T6WSP
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: EAN11
+    description: "International Article Number (EAN/UPC)"
+    data_element: EAN11
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: NUMTP
+    description: "Category of International Article Number (EAN)"
+    data_element: NUMTP
+    check_table: TNTP
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LAENG
+    description: "Length"
+    data_element: LAENG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: BREIT
+    description: "Width"
+    data_element: BREIT
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: HOEHE
+    description: "Height"
+    data_element: HOEHE
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: MEABM
+    description: "Unit of Dimension for Length/Width/Height"
+    data_element: MEABM
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: PRDHA
+    description: "Product hierarchy"
+    data_element: PRODH_D
+    check_table: T179
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: CADKZ
+    description: "CAD Indicator"
+    data_element: CADKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QMPUR
+    description: "QM in Procurement is Active"
+    data_element: QMPUR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XCHPF
+    description: "Batch management requirement indicator"
+    data_element: XCHPF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZKFG
+    description: "Configurable Material"
+    data_element: KZKFG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BEGRU
+    description: "Authorization Group"
+    data_element: BEGRU
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: DATAB
+    description: "Valid-From Date"
+    data_element: DATAB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: LIQDT
+    description: "Deletion date"
+    data_element: LIQDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: EXTWG
+    description: "External Material Group"
+    data_element: EXTWG
+    check_table: TWEW
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: SATNR
+    description: "Cross-Plant Configurable Material"
+    data_element: SATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: ATTYP
+    description: "Material Category"
+    data_element: ATTYP
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: MSTAE
+    description: "Cross-Plant Material Status"
+    data_element: MSTAE
+    check_table: T141
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: MSTAV
+    description: "Cross-distribution-chain material status"
+    data_element: MSTAV
+    check_table: TVMS
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: MSTDE
+    description: "Date from which the cross-plant material status is valid"
+    data_element: MSTDE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: MSTDV
+    description: "Date from which the X-distr.-chain material status is valid"
+    data_element: MSTDV
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: MHDRZ
+    description: "Minimum Remaining Shelf Life"
+    data_element: MHDRZ
+    check_table: ~
+    datatype: DEC
+    length: 4
+    decimals: 0
+    key: false
+  - name: MHDHB
+    description: "Total shelf life"
+    data_element: MHDHB
+    check_table: ~
+    datatype: DEC
+    length: 4
+    decimals: 0
+    key: false
+  - name: MFRPN
+    description: "Manufacturer Part Number"
+    data_element: MFRPN
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: MFRNR
+    description: "Number of a Manufacturer"
+    data_element: MFRNR
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PROFL
+    description: "Dangerous Goods Indicator Profile"
+    data_element: ADGE_PROFL
+    check_table: TDG41
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: SERLV
+    description: "Level of Explicitness for Serial Number"
+    data_element: SERLV
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MTPOS_MARA
+    description: "General item category group"
+    data_element: MTPOS_MARA
+    check_table: TPTM
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SLED_BBD
+    description: "Expiration Date"
+    data_element: SLED_BBD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GTIN_VARIANT
+    description: "Global Trade Item Number Variant"
+    data_element: GTIN_VARIANT
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: WEORA
+    description: "Acceptance At Origin"
+    data_element: WEORA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: HERKL
+    description: "Country of origin of the material"
+    data_element: HERKL
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: PMATA
+    description: "Pricing Reference Material"
+    data_element: PMATN
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MTART
+    check_table: T134
+    check_field: MTART
+  - field: MBRSH
+    check_table: T137
+    check_field: MBRSH
+  - field: MATKL
+    check_table: T023
+    check_field: MATKL
+  - field: MEINS
+    check_table: T006
+    check_field: MSEHI
+  - field: BSTME
+    check_table: T006
+    check_field: MSEHI
+  - field: LABOR
+    check_table: T024L
+    check_field: LABOR
+  - field: EKWSL
+    check_table: T405
+    check_field: EKWSL
+  - field: GEWEI
+    check_table: T006
+    check_field: MSEHI
+  - field: VOLEH
+    check_table: T006
+    check_field: MSEHI
+  - field: BEHVO
+    check_table: T144
+    check_field: BEHVO
+  - field: RAUBE
+    check_table: T142
+    check_field: RAUBE
+  - field: TEMPB
+    check_table: T143
+    check_field: TEMPB
+  - field: TRAGR
+    check_table: TTGR
+    check_field: TRAGR
+  - field: STOFF
+    check_table: MGEF
+    check_field: STOFF
+  - field: SPART
+    check_table: TSPA
+    check_field: SPART
+  - field: NUMTP
+    check_table: TNTP
+    check_field: NUMTP
+  - field: MEABM
+    check_table: T006
+    check_field: MSEHI
+  - field: PRDHA
+    check_table: T179
+    check_field: PRODH
+  - field: EXTWG
+    check_table: TWEW
+    check_field: EXTWG
+  - field: SATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: MSTAE
+    check_table: T141
+    check_field: MMSTA
+  - field: MSTAV
+    check_table: TVMS
+    check_field: VMSTA
+  - field: MFRNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: PROFL
+    check_table: TDG41
+    check_field: PROFL
+  - field: MTPOS_MARA
+    check_table: TPTM
+    check_field: MTPOS
+  - field: HERKL
+    check_table: T005
+    check_field: LAND1
+  - field: PMATA
+    check_table: MARA
+    check_field: MATNR
+  - field: WRKST
+    check_table: TWSPR
+    check_field: WRKST
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

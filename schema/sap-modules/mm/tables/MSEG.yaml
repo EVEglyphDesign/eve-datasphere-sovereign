@@ -1,0 +1,660 @@
+table: MSEG
+module: MM
+description: "Document Segment: Material - line-item goods movement data; feeds FI via the BSEG posting chain."
+source: https://leanx.eu/en/sap/table/mseg.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: ~
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: MBLNR
+    description: "Number of Material Document"
+    data_element: MBLNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: MJAHR
+    description: "Material Document Year"
+    data_element: MJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: ZEILE
+    description: "Item in Material Document"
+    data_element: MBLPO
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: BWART
+    description: "Movement Type (Inventory Management)"
+    data_element: BWART
+    check_table: T156
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LGORT
+    description: "Storage Location"
+    data_element: LGORT_D
+    check_table: T001L
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: CHARG
+    description: "Batch Number"
+    data_element: CHARG_D
+    check_table: MCHA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: INSMK
+    description: "Stock Type"
+    data_element: MB_INSMK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SOBKZ
+    description: "Special Stock Indicator"
+    data_element: SOBKZ
+    check_table: T148
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LIFNR
+    description: "Vendor Account Number"
+    data_element: ELIFN
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KUNNR
+    description: "Account Number of Customer"
+    data_element: EKUNN
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KDAUF
+    description: "Sales Order Number"
+    data_element: KDAUF
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KDPOS
+    description: "Item Number in Sales Order"
+    data_element: KDPOS
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: SHKZG
+    description: "Debit/Credit Indicator"
+    data_element: SHKZG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: DMBTR
+    description: "Amount in Local Currency"
+    data_element: DMBTR
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: BWTAR
+    description: "Valuation Type"
+    data_element: BWTAR_D
+    check_table: T149D
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: MENGE
+    description: "Quantity"
+    data_element: MENGE_D
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: MEINS
+    description: "Base Unit of Measure"
+    data_element: MEINS
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ERFMG
+    description: "Quantity in Unit of Entry"
+    data_element: ERFMG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: ERFME
+    description: "Unit of Entry"
+    data_element: ERFME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: EBELN
+    description: "Purchase Order Number"
+    data_element: BSTNR
+    check_table: EKKO
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: EBELP
+    description: "Item Number of Purchasing Document"
+    data_element: EBELP
+    check_table: EKPO
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: LFBJA
+    description: "Fiscal Year of a Reference Document"
+    data_element: LFBJA
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: LFBNR
+    description: "Document No. of a Reference Document"
+    data_element: LFBNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LFPOS
+    description: "Item of a Reference Document"
+    data_element: LFPOS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: SMBLN
+    description: "Number of Material Document"
+    data_element: MBLNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SMBLP
+    description: "Item in Material Document"
+    data_element: MBLPO
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: ELIKZ
+    description: "'Delivery Completed' Indicator"
+    data_element: ELIKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SGTXT
+    description: "Item Text"
+    data_element: SGTXT
+    check_table: ~
+    datatype: CHAR
+    length: 50
+    decimals: 0
+    key: false
+  - name: EQUNR
+    description: "Equipment Number"
+    data_element: EQUNR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: GSBER
+    description: "Business Area"
+    data_element: GSBER
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KOSTL
+    description: "Cost Center"
+    data_element: KOSTL
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AUFNR
+    description: "Order Number"
+    data_element: AUFNR
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ANLN1
+    description: "Main Asset Number"
+    data_element: ANLN1
+    check_table: ANLH
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ANLN2
+    description: "Asset Subnumber"
+    data_element: ANLN2
+    check_table: ANLA
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: GJAHR
+    description: "Fiscal Year"
+    data_element: GJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BELNR
+    description: "Accounting Document Number"
+    data_element: BELNR_D
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BUZEI
+    description: "Number of Line Item Within Accounting Document"
+    data_element: BUZEI
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: RSNUM
+    description: "Number of Reservation/Dependent Requirement"
+    data_element: RSNUM
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: RSPOS
+    description: "Item Number of Reservation/Dependent Requirement"
+    data_element: RSPOS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: UMMAT
+    description: "Receiving/Issuing Material"
+    data_element: UMMAT
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: UMWRK
+    description: "Receiving/Issuing Plant"
+    data_element: UMWRK
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: UMLGO
+    description: "Receiving/Issuing Storage Location"
+    data_element: UMLGO
+    check_table: T001L
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: UMCHA
+    description: "Receiving/Issuing Batch"
+    data_element: UMCHA
+    check_table: MCHA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: UMBAR
+    description: "Valuation Type of Transfer Batch"
+    data_element: UMBAR
+    check_table: T149D
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LGNUM
+    description: "Warehouse Number / Warehouse Complex"
+    data_element: LGNUM
+    check_table: T300
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LGTYP
+    description: "Storage Type"
+    data_element: LGTYP
+    check_table: T301
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LGPLA
+    description: "Storage Bin"
+    data_element: LGPLA
+    check_table: LAGP
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: TBNUM
+    description: "Transfer Requirement Number"
+    data_element: TBNUM
+    check_table: LTBK
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: TANUM
+    description: "Transfer Order Number"
+    data_element: TANUM
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: GRUND
+    description: "Reason for Movement"
+    data_element: MB_GRBEW
+    check_table: T157D
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: PRCTR
+    description: "Profit Center"
+    data_element: PRCTR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PS_PSP_PNR
+    description: "Work Breakdown Structure Element (WBS Element)"
+    data_element: PS_PSP_PNR
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: SAKTO
+    description: "G/L Account Number"
+    data_element: SAKNR
+    check_table: SKA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: VFDAT
+    description: "Shelf Life Expiration or Best-Before Date"
+    data_element: VFDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: GEBER
+    description: "Fund"
+    data_element: BP_GEBER
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: FISTL
+    description: "Funds Center"
+    data_element: FISTL
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: FIPOS
+    description: "Commitment Item"
+    data_element: FIPOS
+    check_table: FMFPO
+    datatype: CHAR
+    length: 14
+    decimals: 0
+    key: false
+  - name: MWSKZ
+    description: "Tax on sales/purchases code"
+    data_element: MWSKZ
+    check_table: T007A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: TXJCD
+    description: "Tax Jurisdiction"
+    data_element: TXJCD
+    check_table: TTXJ
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: GRANT_NBR
+    description: "Grant"
+    data_element: GM_GRANT_NBR
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: KBLNR
+    description: "Document Number for Earmarked Funds"
+    data_element: KBLNR_FI
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KBLPOS
+    description: "Earmarked Funds: Document Item"
+    data_element: KBLPOS
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: BWART
+    check_table: T156
+    check_field: BWART
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+  - field: LGORT
+    check_table: T001L
+    check_field: LGORT
+  - field: CHARG
+    check_table: MCHA
+    check_field: CHARG
+  - field: SOBKZ
+    check_table: T148
+    check_field: SOBKZ
+  - field: LIFNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: KUNNR
+    check_table: KNA1
+    check_field: KUNNR
+  - field: KDAUF
+    check_table: VBUK
+    check_field: VBELN
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: BWTAR
+    check_table: T149D
+    check_field: BWTAR
+  - field: MEINS
+    check_table: T006
+    check_field: MSEHI
+  - field: ERFME
+    check_table: T006
+    check_field: MSEHI
+  - field: EBELN
+    check_table: EKKO
+    check_field: EBELN
+  - field: EBELP
+    check_table: EKPO
+    check_field: EBELP
+  - field: GSBER
+    check_table: TGSB
+    check_field: GSBER
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: KOSTL
+    check_table: CSKS
+    check_field: KOSTL
+  - field: AUFNR
+    check_table: AUFK
+    check_field: AUFNR
+  - field: ANLN1
+    check_table: ANLH
+    check_field: ANLN1
+  - field: ANLN2
+    check_table: ANLA
+    check_field: ANLN2
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: UMMAT
+    check_table: MARA
+    check_field: MATNR
+  - field: UMWRK
+    check_table: T001W
+    check_field: WERKS
+  - field: UMLGO
+    check_table: T001L
+    check_field: LGORT
+  - field: UMCHA
+    check_table: MCHA
+    check_field: CHARG
+  - field: UMBAR
+    check_table: T149D
+    check_field: BWTAR
+  - field: LGNUM
+    check_table: T300
+    check_field: LGNUM
+  - field: LGTYP
+    check_table: T301
+    check_field: LGTYP
+  - field: LGPLA
+    check_table: LAGP
+    check_field: LGPLA
+  - field: TBNUM
+    check_table: LTBK
+    check_field: TBNUM
+  - field: GRUND
+    check_table: T157D
+    check_field: GRUND
+  - field: SAKTO
+    check_table: SKA1
+    check_field: SAKNR
+  - field: FIPOS
+    check_table: FMFPO
+    check_field: FIPOS
+  - field: MWSKZ
+    check_table: T007A
+    check_field: MWSKZ
+  - field: TXJCD
+    check_table: TTXJ
+    check_field: TXJCD
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

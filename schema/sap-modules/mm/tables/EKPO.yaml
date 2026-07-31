@@ -1,0 +1,608 @@
+table: EKPO
+module: MM
+description: "Purchasing Document Item - line-item data (material, quantity, price, account assignment) for purchasing documents."
+source: https://leanx.eu/en/sap/table/ekpo.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: EBELN
+    description: "Purchasing Document Number"
+    data_element: EBELN
+    check_table: EKKO
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: EBELP
+    description: "Item Number of Purchasing Document"
+    data_element: EBELP
+    check_table: ~
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: true
+  - name: LOEKZ
+    description: "Deletion Indicator in Purchasing Document"
+    data_element: ELOEK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STATUR
+    description: "FQ status"
+    data_element: ASTAT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Purchasing Document Item Change Date"
+    data_element: PAEDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: TXZ01
+    description: "Short Text"
+    data_element: TXZ01
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: EMATN
+    description: "Material Number"
+    data_element: EMATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Plant"
+    data_element: EWERK
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LGORT
+    description: "Storage Location"
+    data_element: LGORT_D
+    check_table: T001L
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BEDNR
+    description: "Requirement Tracking Number"
+    data_element: BEDNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: MATKL
+    description: "Material Group"
+    data_element: MATKL
+    check_table: T023
+    datatype: CHAR
+    length: 9
+    decimals: 0
+    key: false
+  - name: INFNR
+    description: "Number of Purchasing Info Record"
+    data_element: INFNR
+    check_table: EINA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: MENGE
+    description: "Purchase Order Quantity"
+    data_element: BSTMG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: MEINS
+    description: "Purchase Order Unit of Measure"
+    data_element: BSTME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: NETPR
+    description: "Net Price in Purchasing Document (in Document Currency)"
+    data_element: BPREI
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: PEINH
+    description: "Price Unit"
+    data_element: EPEIN
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 0
+    key: false
+  - name: NETWR
+    description: "Net Order Value in PO Currency"
+    data_element: BWERT
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: BRTWR
+    description: "Gross order value in PO currency"
+    data_element: BBWERT
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: MWSKZ
+    description: "Tax on sales/purchases code"
+    data_element: MWSKZ
+    check_table: T007A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: INSMK
+    description: "Stock Type"
+    data_element: INSMK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BWTAR
+    description: "Valuation Type"
+    data_element: BWTAR_D
+    check_table: T149D
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BWTTY
+    description: "Valuation Category"
+    data_element: BWTTY_D
+    check_table: T149C
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ELIKZ
+    description: "'Delivery Completed' Indicator"
+    data_element: ELIKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EREKZ
+    description: "Final Invoice Indicator"
+    data_element: EREKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PSTYP
+    description: "Item Category in Purchasing Document"
+    data_element: PSTYP
+    check_table: T163
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KNTTP
+    description: "Account Assignment Category"
+    data_element: KNTTP
+    check_table: T163K
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZVBR
+    description: "Consumption Posting"
+    data_element: KZVBR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WEPOS
+    description: "Goods Receipt Indicator"
+    data_element: WEPOS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WEUNB
+    description: "Goods Receipt, Non-Valuated"
+    data_element: WEUNB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: REPOS
+    description: "Invoice Receipt Indicator"
+    data_element: REPOS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WEBRE
+    description: "Indicator: GR-Based Invoice Verification"
+    data_element: WEBRE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KONNR
+    description: "Number of Principal Purchase Agreement"
+    data_element: KONNR
+    check_table: EKKO
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KTPNR
+    description: "Item Number of Principal Purchase Agreement"
+    data_element: KTPNR
+    check_table: EKPO
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: LMEIN
+    description: "Base Unit of Measure"
+    data_element: LAGME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: BSTYP
+    description: "Purchasing Document Category"
+    data_element: BSTYP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KUNNR
+    description: "Customer"
+    data_element: EKUNNR
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PLIFZ
+    description: "Planned Delivery Time in Days"
+    data_element: EPLIF
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: NTGEW
+    description: "Net Weight"
+    data_element: ENTGE
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: GEWEI
+    description: "Unit of Weight"
+    data_element: EGEWE
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: TXJCD
+    description: "Tax Jurisdiction"
+    data_element: TXJCD
+    check_table: TTXJ
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: SOBKZ
+    description: "Special Stock Indicator"
+    data_element: SOBKZ
+    check_table: T148
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BSTAE
+    description: "Confirmation Control Key"
+    data_element: BSTAE
+    check_table: T163L
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KO_PRCTR
+    description: "Profit Center"
+    data_element: PRCTR
+    check_table: CEPC
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BRGEW
+    description: "Gross Weight"
+    data_element: BRGEW
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: VOLUM
+    description: "Volume"
+    data_element: VOLUM
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: VOLEH
+    description: "Volume unit"
+    data_element: VOLEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: INCO1
+    description: "Incoterms (Part 1)"
+    data_element: INCO1
+    check_table: TINC
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: EMLIF
+    description: "Vendor to be supplied/who is to receive delivery"
+    data_element: EMLIF
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SATNR
+    description: "Cross-Plant Configurable Material"
+    data_element: SATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: BANFN
+    description: "Purchase Requisition Number"
+    data_element: BANFN
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BNFPO
+    description: "Item Number of Purchase Requisition"
+    data_element: BNFPO
+    check_table: EBAN
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: MTART
+    description: "Material Type"
+    data_element: MTART
+    check_table: T134
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: RETPO
+    description: "Returns Item"
+    data_element: RETPO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MFRPN
+    description: "Manufacturer Part Number"
+    data_element: MFRPN
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: MFRNR
+    description: "Number of a Manufacturer"
+    data_element: MFRNR
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: GRANT_NBR
+    description: "Grant"
+    data_element: GM_GRANT_NBR
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: FKBER
+    description: "Functional Area"
+    data_element: FKBER
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: RESLO
+    description: "Issuing Storage Location for Stock Transport Order"
+    data_element: RESLO
+    check_table: T001L
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ANZSN
+    description: "Number of serial numbers"
+    data_element: ANZSN
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: WEORA
+    description: "Acceptance At Origin"
+    data_element: WEORA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: EBELN
+    check_table: EKKO
+    check_field: EBELN
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: EMATN
+    check_table: MARA
+    check_field: MATNR
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+  - field: LGORT
+    check_table: T001L
+    check_field: LGORT
+  - field: MATKL
+    check_table: T023
+    check_field: MATKL
+  - field: INFNR
+    check_table: EINA
+    check_field: INFNR
+  - field: MEINS
+    check_table: T006
+    check_field: MSEHI
+  - field: MWSKZ
+    check_table: T007A
+    check_field: MWSKZ
+  - field: BWTAR
+    check_table: T149D
+    check_field: BWTAR
+  - field: BWTTY
+    check_table: T149C
+    check_field: BWTTY
+  - field: PSTYP
+    check_table: T163
+    check_field: PSTYP
+  - field: KNTTP
+    check_table: T163K
+    check_field: KNTTP
+  - field: KONNR
+    check_table: EKKO
+    check_field: EBELN
+  - field: KTPNR
+    check_table: EKPO
+    check_field: EBELP
+  - field: LMEIN
+    check_table: T006
+    check_field: MSEHI
+  - field: KUNNR
+    check_table: KNA1
+    check_field: KUNNR
+  - field: GEWEI
+    check_table: T006
+    check_field: MSEHI
+  - field: TXJCD
+    check_table: TTXJ
+    check_field: TXJCD
+  - field: SOBKZ
+    check_table: T148
+    check_field: SOBKZ
+  - field: BSTAE
+    check_table: T163L
+    check_field: BSTAE
+  - field: KO_PRCTR
+    check_table: CEPC
+    check_field: PRCTR
+  - field: VOLEH
+    check_table: T006
+    check_field: MSEHI
+  - field: INCO1
+    check_table: TINC
+    check_field: INCO1
+  - field: EMLIF
+    check_table: LFA1
+    check_field: LIFNR
+  - field: SATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: BNFPO
+    check_table: EBAN
+    check_field: BNFPO
+  - field: MTART
+    check_table: T134
+    check_field: MTART
+  - field: MFRNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: RESLO
+    check_table: T001L
+    check_field: LGORT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -1,0 +1,379 @@
+table: MBEW
+module: MM
+description: "Material Valuation - valuation-area-level pricing, stock value, and valuation class for a material."
+source: https://leanx.eu/en/sap/table/mbew.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: true
+  - name: BWKEY
+    description: "Valuation Area"
+    data_element: BWKEY
+    check_table: T001K
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: BWTAR
+    description: "Valuation Type"
+    data_element: BWTAR_D
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: LVORM
+    description: "Deletion flag for all material data of a valuation type"
+    data_element: LVOBA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LBKUM
+    description: "Total Valuated Stock"
+    data_element: LBKUM
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: SALK3
+    description: "Value of Total Valuated Stock"
+    data_element: SALK3
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: VPRSV
+    description: "Price control indicator"
+    data_element: VPRSV
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VERPR
+    description: "Moving Average Price/Periodic Unit Price"
+    data_element: VERPR
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: STPRS
+    description: "Standard price"
+    data_element: STPRS
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: PEINH
+    description: "Price Unit"
+    data_element: PEINH
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 0
+    key: false
+  - name: BKLAS
+    description: "Valuation Class"
+    data_element: BKLAS
+    check_table: T025
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SALKV
+    description: "Value based on moving average price (only with price ctrl S)"
+    data_element: SALKV
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: VMKUM
+    description: "Total valuated stock in previous period"
+    data_element: VMKUM
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: VMSAL
+    description: "Value of total valuated stock in previous period"
+    data_element: VMSAL
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: VJKUM
+    description: "Total Valuated Stock in Previous Year"
+    data_element: VJKUM
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: VJSAL
+    description: "Value of total valuated stock in previous year"
+    data_element: VJSAL
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: LFGJA
+    description: "Fiscal Year of Current Period"
+    data_element: LFGJA
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: LFMON
+    description: "Current period (posting period)"
+    data_element: LFMON
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: BWTTY
+    description: "Valuation Category"
+    data_element: BWTTY_D
+    check_table: T149
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STPRV
+    description: "Previous price"
+    data_element: STPRV
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: LAEPR
+    description: "Date of the last price change"
+    data_element: LAEPR
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ZKPRS
+    description: "Future price"
+    data_element: DZKPRS
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: ZKDAT
+    description: "Date as of which the price is valid"
+    data_element: DZKDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BWPRS
+    description: "Valuation price based on tax law: level 1"
+    data_element: BWPRS
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: BWPRH
+    description: "Valuation price based on commercial law: level 1"
+    data_element: BWPRH
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: KALSC
+    description: "Overhead key (deactivated)"
+    data_element: KALSC
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: XLIFO
+    description: "LIFO/FIFO-Relevant"
+    data_element: XLIFO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PSTAT
+    description: "Maintenance status"
+    data_element: PSTAT_D
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: KALN1
+    description: "Cost Estimate Number - Product Costing"
+    data_element: CK_KALNR1
+    check_table: ~
+    datatype: NUMC
+    length: 12
+    decimals: 0
+    key: false
+  - name: KALNR
+    description: "Cost Estimate Number for Cost Est. w/o Qty Structure"
+    data_element: CK_KALNR
+    check_table: ~
+    datatype: NUMC
+    length: 12
+    decimals: 0
+    key: false
+  - name: HRKFT
+    description: "Origin Group as Subdivision of Cost Element"
+    data_element: HRKFT
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: EKALR
+    description: "Material Is Costed with Quantity Structure"
+    data_element: CK_EKALREL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VPLPR
+    description: "Previous planned price"
+    data_element: VPLPR
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: MLMAA
+    description: "Material ledger activated at material level"
+    data_element: CK_ML_MAAC
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MLAST
+    description: "Material Price Determination: Control"
+    data_element: CK_ML_ABST
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LPLPR
+    description: "Current Planned Price"
+    data_element: CK_LPLPR
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: VKSAL
+    description: "Value of Total Valuated Stock at Sales Price"
+    data_element: VKSAL
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: SPERW
+    description: "Physical Inventory Blocking Indicator"
+    data_element: SPERR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EKLAS
+    description: "Valuation Class for Sales Order Stock"
+    data_element: EKLAS
+    check_table: T025
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: QKLAS
+    description: "Valuation Class for Project Stock"
+    data_element: QKLAS
+    check_table: T025
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BWPEI
+    description: "Price unit for valuation prices based on tax/commercial law"
+    data_element: BWPEI
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 0
+    key: false
+  - name: OKLAS
+    description: "Valuation Class for Special Stock at the Vendor"
+    data_element: OKLAS
+    check_table: T025
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: BWKEY
+    check_table: T001K
+    check_field: BWKEY
+  - field: BKLAS
+    check_table: T025
+    check_field: BKLAS
+  - field: BWTTY
+    check_table: T149
+    check_field: BWTTY
+  - field: EKLAS
+    check_table: T025
+    check_field: BKLAS
+  - field: QKLAS
+    check_table: T025
+    check_field: BKLAS
+  - field: OKLAS
+    check_table: T025
+    check_field: BKLAS
+  - field: HRKFT
+    check_table: TKKH1
+    check_field: HRKFT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

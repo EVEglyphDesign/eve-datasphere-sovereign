@@ -1,0 +1,500 @@
+table: EKKO
+module: MM
+description: "Purchasing Document Header - header data (vendor, terms, org) for POs, contracts, and scheduling agreements."
+source: https://leanx.eu/en/sap/table/ekko.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: EBELN
+    description: "Purchasing Document Number"
+    data_element: EBELN
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BSTYP
+    description: "Purchasing Document Category"
+    data_element: EBSTYP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BSART
+    description: "Purchasing Document Type"
+    data_element: ESART
+    check_table: T161
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LOEKZ
+    description: "Deletion Indicator in Purchasing Document"
+    data_element: ELOEK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STATU
+    description: "Status of Purchasing Document"
+    data_element: ESTAK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: LIFNR
+    description: "Vendor Account Number"
+    data_element: ELIFN
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SPRAS
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZTERM
+    description: "Terms of Payment Key"
+    data_element: DZTERM
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: EKORG
+    description: "Purchasing Organization"
+    data_element: EKORG
+    check_table: T024E
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: EKGRP
+    description: "Purchasing Group"
+    data_element: BKGRP
+    check_table: T024
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: WKURS
+    description: "Exchange Rate"
+    data_element: WKURS
+    check_table: ~
+    datatype: DEC
+    length: 9
+    decimals: 5
+    key: false
+  - name: BEDAT
+    description: "Purchasing Document Date"
+    data_element: EBDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: KDATB
+    description: "Start of Validity Period"
+    data_element: KDATB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: KDATE
+    description: "End of Validity Period"
+    data_element: KDATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ANGNR
+    description: "Quotation Number"
+    data_element: ANGNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LLIEF
+    description: "Supplying Vendor"
+    data_element: LLIEF
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KUNNR
+    description: "Customer Number"
+    data_element: KUNNR
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KONNR
+    description: "Number of Principal Purchase Agreement"
+    data_element: KONNR
+    check_table: EKKO
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AUTLF
+    description: "Complete Delivery Stipulated for Each Purchase Order"
+    data_element: KMPLF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WEAKT
+    description: "Indicator: Goods Receipt Message"
+    data_element: WEAKT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RESWK
+    description: "Supplying (Issuing) Plant in Stock Transport Order"
+    data_element: RESWK
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: INCO1
+    description: "Incoterms (Part 1)"
+    data_element: INCO1
+    check_table: TINC
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: INCO2
+    description: "Incoterms (Part 2)"
+    data_element: INCO2
+    check_table: ~
+    datatype: CHAR
+    length: 28
+    decimals: 0
+    key: false
+  - name: KNUMV
+    description: "Number of the document condition"
+    data_element: KNUMV
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KALSM
+    description: "Procedure (Pricing, Output Control, Acct. Det., Costing,...)"
+    data_element: KALSM_D
+    check_table: T683
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: LIFRE
+    description: "Different Invoicing Party"
+    data_element: LIFRE
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: EXNUM
+    description: "Number of foreign trade data in MM and SD documents"
+    data_element: EXNUM
+    check_table: EIKP
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LOGSY
+    description: "Logical System"
+    data_element: LOGSYSTEM
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: FRGGR
+    description: "Release group"
+    data_element: FRGGR
+    check_table: T16FG
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FRGSX
+    description: "Release Strategy"
+    data_element: FRGSX
+    check_table: T16FS
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FRGKE
+    description: "Release Indicator: Purchasing Document"
+    data_element: FRGKE
+    check_table: T16FB
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FRGZU
+    description: "Release status"
+    data_element: FRGZU
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: FRGRL
+    description: "Release Not Yet Completely Effected"
+    data_element: FRGRL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LANDS
+    description: "Country for Tax Return"
+    data_element: LAND1_STML
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: ADRNR
+    description: "Address number"
+    data_element: AD_ADDRNUM
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: STCEG
+    description: "VAT Registration Number"
+    data_element: STCEG
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: PROCSTAT
+    description: "Purchasing document processing state"
+    data_element: MEPROCSTATE
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: RLWRT
+    description: "Total value at time of release"
+    data_element: RLWRT
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: REVNO
+    description: "Version number in Purchasing"
+    data_element: REVNO
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: DPTYP
+    description: "Down Payment Indicator"
+    data_element: ME_DPTYP
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: DPPCT
+    description: "Down Payment Percentage"
+    data_element: ME_DPPCNT
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: DPAMT
+    description: "Down Payment Amount in Document Currency"
+    data_element: ME_DPAMNT
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: DPDAT
+    description: "Due Date for Down Payment"
+    data_element: ME_DPDDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: LEGAL_CONTRACT
+    description: "Legal Contract Number"
+    data_element: LEGAL_CONTRACT_ID
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: DESCRIPTION
+    description: "Contract Name"
+    data_element: CONTRACT_DESCRIPTION
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: RELEASE_DATE
+    description: "Release Date of Contract"
+    data_element: RELEASE_DATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: VSART
+    description: "Shipping type"
+    data_element: VERSART
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: SUBMI
+    description: "Collective Number"
+    data_element: SUBMI
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: MEMORY
+    description: "Purchase order not yet complete"
+    data_element: MEMER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: BSART
+    check_table: T161
+    check_field: BSART
+  - field: LIFNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: SPRAS
+    check_table: T002
+    check_field: SPRAS
+  - field: EKORG
+    check_table: T024E
+    check_field: EKORG
+  - field: EKGRP
+    check_table: T024
+    check_field: EKGRP
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: LLIEF
+    check_table: LFA1
+    check_field: LIFNR
+  - field: KUNNR
+    check_table: KNA1
+    check_field: KUNNR
+  - field: KONNR
+    check_table: EKKO
+    check_field: EBELN
+  - field: RESWK
+    check_table: T001W
+    check_field: WERKS
+  - field: INCO1
+    check_table: TINC
+    check_field: INCO1
+  - field: KALSM
+    check_table: T683
+    check_field: KALSM
+  - field: LIFRE
+    check_table: LFA1
+    check_field: LIFNR
+  - field: EXNUM
+    check_table: EIKP
+    check_field: EXNUM
+  - field: FRGGR
+    check_table: T16FG
+    check_field: FRGGR
+  - field: FRGSX
+    check_table: T16FS
+    check_field: FRGSX
+  - field: FRGKE
+    check_table: T16FB
+    check_field: FRGKE
+  - field: LANDS
+    check_table: T005
+    check_field: LAND1
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.
