@@ -128,9 +128,16 @@ the clearing event, for the Hawkins / Peterbilt Atlantic dealer group — the fi
 of record in this canon with no SAP instance behind it at all. The symmetric-identity
 rule governing all of this is stated as doctrine in
 [`docs/DOCTRINE-SYMMETRIC-ALIGNMENT.md`](docs/DOCTRINE-SYMMETRIC-ALIGNMENT.md) (DRAFT v0,
-awaiting Apex ratification). Next: `BSAS`/`BSIS` (G/L open/cleared items — the
-reconciliation-account counterpart to the subledgers just closed) and `EKBE` (purchase
-order history), per the ranked list in the reconciliation note.
+awaiting Apex ratification). The two tables named as the last blocking failures in the
+CDK twin's crosswalk validator are now field-level defined: [`PA0001`](schema/sap-modules/hr/tables/PA0001.yaml)
+(HR org assignment — the employee/technician master analogue, opening the HR module) and
+[`AFRU`](schema/sap-modules/pp/tables/AFRU.yaml) (order completion confirmations — the
+technician time-punch analogue). `CATSDB` was checked and found referenced only in the
+CDK feeder mapping doc, never inventoried in any module's `TABLES.yaml` — recorded as an
+open finding in the reconciliation note rather than fabricated. Next: `BSAS`/`BSIS` (G/L
+open/cleared items — the reconciliation-account counterpart to the subledgers just
+closed) and `EKBE` (purchase order history), per the ranked list in the reconciliation
+note.
 
 ---
 

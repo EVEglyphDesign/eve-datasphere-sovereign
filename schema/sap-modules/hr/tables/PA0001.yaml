@@ -1,0 +1,430 @@
+table: PA0001
+module: HR
+description: "HR Master Record: Infotype 0001 (Organizational Assignment) — the personnel administration infotype that carries an employee's org placement: personnel number, name, cost centre, org unit, position, job, personnel area/subarea, employee group/subgroup, and the validity interval (BEGDA/ENDDA) under which that assignment holds. This is the SAP analogue the CDK twin's employee/technician master keys on: personnel number ↔ technician ID, cost centre ↔ department, org unit/position ↔ role."
+source: https://leanx.eu/en/sap/table/pa0001.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: PERNR
+    description: "Personnel Number"
+    data_element: PERSNO
+    check_table: PA0003
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: SUBTY
+    description: "Subtype"
+    data_element: SUBTY
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: OBJPS
+    description: "Object Identification"
+    data_element: OBJPS
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: SPRPS
+    description: "Lock Indicator for HR Master Data Record"
+    data_element: SPRPS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: ENDDA
+    description: "End Date — validity interval end for this org-assignment record"
+    data_element: ENDDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: BEGDA
+    description: "Start Date — validity interval start for this org-assignment record"
+    data_element: BEGDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: SEQNR
+    description: "Number of Infotype Record with Same Key"
+    data_element: SEQNR
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: true
+  - name: AEDTM
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: UNAME
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: HISTO
+    description: "Historical Record Flag"
+    data_element: HISTO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ITXEX
+    description: "Text Exists for Infotype"
+    data_element: ITXEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: REFEX
+    description: "Reference Fields Exist (Primary/Secondary Costs)"
+    data_element: PRFEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ORDEX
+    description: "Confirmation Fields Exist"
+    data_element: ORDEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ITBLD
+    description: "Infotype Screen Control"
+    data_element: ITBLD
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PREAS
+    description: "Reason for Changing Master Data"
+    data_element: PREAS
+    check_table: T530E
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: GRPVL
+    description: "Grouping Value for Personnel Assignments"
+    data_element: PCCE_GPVAL
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Personnel Area — the CDK analogue's rooftop/location grouping"
+    data_element: PERSA
+    check_table: T500P
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PERSG
+    description: "Employee Group"
+    data_element: PERSG
+    check_table: T501
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PERSK
+    description: "Employee Subgroup"
+    data_element: PERSK
+    check_table: T503K
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: VDSK1
+    description: "Organizational Key"
+    data_element: VDSK1
+    check_table: T527O
+    datatype: CHAR
+    length: 14
+    decimals: 0
+    key: false
+  - name: GSBER
+    description: "Business Area"
+    data_element: GSBER
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BTRTL
+    description: "Personnel Subarea"
+    data_element: BTRTL
+    check_table: T001P
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: JUPER
+    description: "Legal Person"
+    data_element: JUPER
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ABKRS
+    description: "Payroll Area"
+    data_element: ABKRS
+    check_table: T549A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ANSVH
+    description: "Work Contract"
+    data_element: ANSVH
+    check_table: T542A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KOSTL
+    description: "Cost Center — the CDK analogue's department field"
+    data_element: KOSTL
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ORGEH
+    description: "Organizational Unit"
+    data_element: ORGEH
+    check_table: T527X
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: PLANS
+    description: "Position — the CDK analogue's role/title field"
+    data_element: PLANS
+    check_table: T528B
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: STELL
+    description: "Job"
+    data_element: STELL
+    check_table: T513
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: MSTBR
+    description: "Supervisor Area"
+    data_element: MSTBR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: SACHA
+    description: "Payroll Administrator"
+    data_element: SACHA
+    check_table: T526
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: SACHP
+    description: "Administrator for HR Master Data"
+    data_element: SACHP
+    check_table: T526
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: SACHZ
+    description: "Administrator for Time Recording"
+    data_element: SACHZ
+    check_table: T526
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: SNAME
+    description: "Employee's Name (sortable, last name first) — the CDK analogue's technician name-reference field"
+    data_element: SMNAM
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: ENAME
+    description: "Formatted Name of Employee or Applicant — the CDK analogue's technician display-name field"
+    data_element: EMNAM
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: OTYPE
+    description: "Object Type"
+    data_element: OTYPE
+    check_table: T778O
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: SBMOD
+    description: "Administrator Group"
+    data_element: SBMOD
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: FISTL
+    description: "Funds Center"
+    data_element: FISTL
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: GEBER
+    description: "Fund"
+    data_element: BP_GEBER
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: FKBER
+    description: "Functional Area"
+    data_element: FKBER
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: GRANT_NBR
+    description: "Grant"
+    data_element: GM_GRANT_NBR
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: SGMNT
+    description: "Segment for Segmental Reporting"
+    data_element: FB_SEGMENT
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BUDGET_PD
+    description: "FM: Budget Period"
+    data_element: FM_BUDGET_PERIOD
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: ABKRS
+    check_table: T549A
+    check_field: ABKRS
+  - field: ANSVH
+    check_table: T542A
+    check_field: ANSVH
+  - field: BTRTL
+    check_table: T001P
+    check_field: BTRTL
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: GSBER
+    check_table: TGSB
+    check_field: GSBER
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: KOSTL
+    check_table: CSKS
+    check_field: KOSTL
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: ORGEH
+    check_table: T527X
+    check_field: ORGEH
+  - field: OTYPE
+    check_table: T778O
+    check_field: OTYPE
+  - field: PERNR
+    check_table: PA0003
+    check_field: PERNR
+  - field: PERSG
+    check_table: T501
+    check_field: PERSG
+  - field: PERSK
+    check_table: T503K
+    check_field: PERSK
+  - field: PLANS
+    check_table: T528B
+    check_field: PLANS
+  - field: PREAS
+    check_table: T530E
+    check_field: PREAS
+  - field: STELL
+    check_table: T513
+    check_field: STELL
+  - field: VDSK1
+    check_table: T527O
+    check_field: VDSK1
+  - field: WERKS
+    check_table: T500P
+    check_field: PERSA
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

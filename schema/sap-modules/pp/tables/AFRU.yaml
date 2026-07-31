@@ -1,0 +1,250 @@
+table: AFRU
+module: PP
+description: "Order Completion Confirmations — the SAP analogue for the CDK twin's technician time-punch: confirmation number and counter, the order/operation the time was punched against, work centre (via the object-ID/capacity linkage), personnel number, actual duration and unit, start/finish date and time, posting date, and the reversal indicator. SAP's real AFRU carries well over 100 fields, most of them PDC (plant data collection), business-process (CO-PA), and mill-industry extension columns with no analogue in a dealer time-punch; this definition carries the confirmation identity, order/operation linkage, personnel, timing, quantity, and reversal fields a dealer tie-out actually consumes. Accuracy over padding: fields listed below are real AFRU fields confirmed against source, not the entire table."
+source: https://leanx.eu/en/sap/table/afru.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: RUECK
+    description: "Completion confirmation number for the operation — the CDK analogue's time-punch confirmation number"
+    data_element: CO_RUECK
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: true
+  - name: RMZHL
+    description: "Confirmation counter — the CDK analogue's time-punch line/sequence number"
+    data_element: CO_RMZHL
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: ERSDA
+    description: "Confirmation entry date"
+    data_element: RU_ERSDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of the person who entered the confirmation"
+    data_element: RU_ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERZET
+    description: "Confirmation entry time"
+    data_element: RU_ERZET
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: LAEDA
+    description: "Date of Last Change"
+    data_element: LAEDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: BUDAT
+    description: "Posting date"
+    data_element: BUCHDATUM
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ARBID
+    description: "Object ID — the work centre / capacity object the confirmed time was booked against, the CDK analogue's work-centre/bay reference"
+    data_element: OBJEKTID
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Plant — the CDK analogue's rooftop/location field"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LTXA1
+    description: "Confirmation text — the CDK analogue's punch/labour-line free-text note"
+    data_element: CO_RTEXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: ISMNW
+    description: "Actual work — the CDK analogue's actual duration value"
+    data_element: ISMNW
+    check_table: ~
+    datatype: QUAN
+    length: 7
+    decimals: 1
+    key: false
+  - name: ISMNE
+    description: "Unit for work — the CDK analogue's actual duration unit"
+    data_element: ARBEITE
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: IDAUR
+    description: "Actual Duration for Confirmation"
+    data_element: IDAUR
+    check_table: ~
+    datatype: QUAN
+    length: 5
+    decimals: 1
+    key: false
+  - name: IDAUE
+    description: "Unit for actual duration"
+    data_element: IDAURE
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: PERNR
+    description: "Personnel number — the technician who booked the confirmation, keys to PA0001-PERNR"
+    data_element: CO_PERNR
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: ISDD
+    description: "Confirmed date for start of execution — the CDK analogue's punch-in date"
+    data_element: RU_ISDD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ISDZ
+    description: "Confirmed time for 'Execution start' — the CDK analogue's punch-in time"
+    data_element: RU_ISDZ
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: IEDD
+    description: "Confirmed date for execution finish — the CDK analogue's punch-out date"
+    data_element: RU_IEDD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: IEDZ
+    description: "Confirmed time for 'Execution finish' — the CDK analogue's punch-out time"
+    data_element: RU_IEDZ
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: AUFPL
+    description: "Routing number of operations in the order"
+    data_element: CO_AUFPL
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: APLZL
+    description: "General counter for order — links to the AFVC operation this confirmation was posted against"
+    data_element: CO_APLZL
+    check_table: AFVC
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: AUFNR
+    description: "Order Number — the repair order this time punch was booked against, keys to AUFK-AUFNR"
+    data_element: AUFNR
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: VORNR
+    description: "Operation/Activity Number — the specific labour line/operation within the order this punch confirms"
+    data_element: VORNR
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: AUERU
+    description: "Partial/Final Confirmation indicator"
+    data_element: AUERU_VS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STOKZ
+    description: "Indicator: Document Has Been Reversed — the CDK analogue's time-punch reversal indicator"
+    data_element: CO_STOKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STZHL
+    description: "Confirmation counter of cancelled confirmation — points at the RMZHL of the confirmation this one reverses"
+    data_element: CO_STZHL
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: APLZL
+    check_table: AFVC
+    check_field: APLZL
+  - field: AUFNR
+    check_table: AUFK
+    check_field: AUFNR
+  - field: ISMNE
+    check_table: T006
+    check_field: MSEHI
+  - field: IDAUE
+    check_table: T006
+    check_field: MSEHI
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

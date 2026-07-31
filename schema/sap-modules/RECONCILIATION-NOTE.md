@@ -8,6 +8,41 @@ alignment — this note exists so nobody has to re-derive that fact.
 
 ## Closed this pass
 
+**HR and PP time/personnel spine** — the two tables named as the last blocking failures
+in the CDK twin's crosswalk validator, sourced field-level from
+[leanx.eu](https://leanx.eu) (see each file's `source:`):
+
+- [`PA0001`](hr/tables/PA0001.yaml) — HR Master Record: Infotype 0001 (Organizational
+  Assignment), the SAP analogue for the CDK employee/technician master. Personnel number
+  (`PERNR`), name (`SNAME`/`ENAME`), cost centre (`KOSTL`), org unit (`ORGEH`), position
+  (`PLANS`), personnel area/subarea (`WERKS`/`BTRTL`), employee group/subgroup
+  (`PERSG`/`PERSK`), and the `BEGDA`/`ENDDA` validity interval every infotype record
+  carries. This closes HR's entire-module-unstarted gap at the one table the crosswalk
+  actually needs; the other 16 inventoried HR tables (infotypes, OM, payroll clusters)
+  remain undefined and are not claimed otherwise.
+- [`AFRU`](pp/tables/AFRU.yaml) — Order Completion Confirmations, the SAP analogue for the
+  CDK technician time-punch. Confirmation number and counter (`RUECK`/`RMZHL`), order and
+  operation (`AUFNR`/`APLZL`/`VORNR`), work-centre object (`ARBID`), personnel number
+  (`PERNR`), actual duration and unit (`ISMNW`/`ISMNE`, `IDAUR`/`IDAUE`), start/finish date
+  and time (`ISDD`/`ISDZ`/`IEDD`/`IEDZ`), posting date (`BUDAT`), and the reversal
+  indicator (`STOKZ`, with `STZHL` pointing at the reversed confirmation). SAP's real AFRU
+  carries well over 100 fields, most of them PDC/business-process/mill-industry extension
+  columns with no dealer analogue; this definition is scoped to the fields a dealer
+  tie-out actually consumes, following the same scoping discipline already applied to
+  `T001` — stated explicitly in the file's `description`, not silently truncated.
+
+**`CATSDB` — checked, not closed.** `CATSDB` (CATS time sheet database) is referenced in
+[`schema/feeders/cdk-dms/mapping.md`](../feeders/cdk-dms/mapping.md) as the SAP analogue
+for the CDK technician-time-punch feeder lane, but it does not appear in any module's
+`TABLES.yaml` inventory — not PP, not HR, not CROSS. There is nothing to close: an
+inventory entry was never made, so under this doctrine there is no promise outstanding,
+only a mapping-doc reference that should be read as INFERRED until `CATSDB` is actually
+inventoried and defined. Recorded here rather than fabricated, so the next lane does not
+assume it was silently skipped.
+
+PP module is now 9/17 inventoried tables landed at field level (was 8/17). HR module is
+now 1/17 (was 0/17, entire module unstarted).
+
 **FI open-item subledgers** — the accounting-schedule reconciliation targets named
 explicitly in the ALIGNMENT_BRIEF, sourced field-level from [leanx.eu](https://leanx.eu)
 (see each file's `source:`):
@@ -70,10 +105,10 @@ padded or silently dropped.
 | MM | 24 | 8 | 16 | `MAKT` (material texts), `MARD` (storage-location stock), `EKBE` (PO history — sublet/parts receipt tie-out), `MATDOC` (S/4 unified material document) |
 | PM | 53 | 14 | 39 | `AFKO`/`AFPO`/`AFVC`/`AFVV` (order operations — labour-line detail), `EQBS`/`EQSE` |
 | SD | 21 | 7 | 14 | `VBUK`/`VBUP` (sales doc status — `AUFK-KDAUF` foreign key target, 61/41 references), `VBPA`, pricing condition masters |
-| PP | 17 | 8 | 9 | `AFRU` (order confirmations — technician time-punch analogue) |
+| PP | 17 | 9 | 8 | `AFKO`/`AFPO`/`AFVC` remain the next PP priority (order operations, labour-line detail) |
 | QM | 10 | 3 | 7 | `QMEL`/`QMFE` (notifications — warranty-claim analogue) |
 | PS | 8 | 0 | 8 | Entire module unstarted (`PROJ`, `PRPS`, `AFKO`, `AFVC`) |
-| HR | 17 | 0 | 17 | Entire module unstarted (infotypes, org management, payroll clusters) |
+| HR | 17 | 1 | 16 | `PA0001` (org assignment) now defined; `PA0002`/`PA0007`/`PA0008` (personal data, planned working time, basic pay) and OM/payroll cluster tables remain undefined |
 | BW | 6 | 0 | 6 | Entire module unstarted |
 | CROSS | 39 | 7 | 32 | `T005` (countries, 30 references), `T002` (languages, 48 references), `TGSB` cross-listed above, `ADRC`/`ADR2`/`ADR3`/`ADR6` (addresses), the entire DDIC layer (`DD02L` etc.) |
 
