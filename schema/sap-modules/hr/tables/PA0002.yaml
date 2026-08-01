@@ -1,0 +1,608 @@
+table: PA0002
+module: HR
+description: "HR Master Record: Infotype 0002 (Personal Data) — the employee's personal identity data: legal name components (last/first/birth/nickname/middle name), title and name affixes, gender, date and place of birth, nationality (up to three), marital status and date, number of children, communication language, religious denomination, and personnel ID number, keyed by personnel number under the same validity-interval pattern as PA0001 Organizational Assignment. SAP's real table carries additional Japan-localization name-script fields (Katakana/Romaji); this definition carries the complete field list as sourced. This infotype is personal data in the strict sense — it holds an identifiable employee's legal identity, birth, and family-status details — and any mirrored copy must be handled under consent-scoped access controls."
+source: https://leanx.eu/en/sap/table/pa0002.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: PERNR
+    description: "Personnel Number"
+    data_element: PERSNO
+    check_table: PA0003
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: SUBTY
+    description: "Subtype"
+    data_element: SUBTY
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: OBJPS
+    description: "Object Identification"
+    data_element: OBJPS
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: SPRPS
+    description: "Lock Indicator for HR Master Data Record"
+    data_element: SPRPS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: ENDDA
+    description: "End Date — validity interval end for this personal-data record"
+    data_element: ENDDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: BEGDA
+    description: "Start Date — validity interval start for this personal-data record"
+    data_element: BEGDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: SEQNR
+    description: "Number of Infotype Record with Same Key"
+    data_element: SEQNR
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: true
+  - name: AEDTM
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: UNAME
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: HISTO
+    description: "Historical Record Flag"
+    data_element: HISTO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ITXEX
+    description: "Text Exists for Infotype"
+    data_element: ITXEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: REFEX
+    description: "Reference Fields Exist (Primary/Secondary Costs)"
+    data_element: PRFEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ORDEX
+    description: "Confirmation Fields Exist"
+    data_element: ORDEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ITBLD
+    description: "Infotype Screen Control"
+    data_element: ITBLD
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PREAS
+    description: "Reason for Changing Master Data"
+    data_element: PREAS
+    check_table: T530E
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FLAG1
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLAG2
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLAG3
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLAG4
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RESE1
+    description: "Reserved Field/Unused Field of Length 2"
+    data_element: NUSED2
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: RESE2
+    description: "Reserved Field/Unused Field of Length 2"
+    data_element: NUSED2
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: GRPVL
+    description: "Grouping Value for Personnel Assignments"
+    data_element: PCCE_GPVAL
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: INITS
+    description: "Initials"
+    data_element: INITS
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: NACHN
+    description: "Last Name"
+    data_element: PAD_NACHN
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: NAME2
+    description: "Name at Birth"
+    data_element: PAD_NAME2
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: NACH2
+    description: "Second Name"
+    data_element: PAD_NACH2
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: VORNA
+    description: "First Name"
+    data_element: PAD_VORNA
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: CNAME
+    description: "Complete Name"
+    data_element: PAD_CNAME
+    check_table: ~
+    datatype: CHAR
+    length: 80
+    decimals: 0
+    key: false
+  - name: TITEL
+    description: "Title"
+    data_element: TITEL
+    check_table: T535N
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: TITL2
+    description: "Second Title"
+    data_element: TITL2
+    check_table: T535N
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: NAMZU
+    description: "Other Title"
+    data_element: NAMZU
+    check_table: T535N
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: VORSW
+    description: "Name Prefix"
+    data_element: VORSW
+    check_table: T535N
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: VORS2
+    description: "Second Name Prefix"
+    data_element: VORS2
+    check_table: T535N
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: RUFNM
+    description: "Nickname"
+    data_element: PAD_RUFNM
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: MIDNM
+    description: "Middle Name"
+    data_element: PAD_MIDNM
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: KNZNM
+    description: "Name Format Indicator for Employee in a List"
+    data_element: KNZNM
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: ANRED
+    description: "Form-of-Address Key"
+    data_element: ANRDE
+    check_table: T522G
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GESCH
+    description: "Gender Key"
+    data_element: GESCH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GBDAT
+    description: "Date of Birth"
+    data_element: GBDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: GBLND
+    description: "Country of Birth"
+    data_element: GBLND
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: GBDEP
+    description: "State"
+    data_element: GBDEP
+    check_table: T005S
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: GBORT
+    description: "Birthplace"
+    data_element: PAD_GBORT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: NATIO
+    description: "Nationality"
+    data_element: NATSL
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: NATI2
+    description: "Second Nationality"
+    data_element: NATS2
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: NATI3
+    description: "Third Nationality"
+    data_element: NATS3
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: SPRSL
+    description: "Communication Language"
+    data_element: PAD_SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: KONFE
+    description: "Religious Denomination Key"
+    data_element: KONFE
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FAMST
+    description: "Marital Status Key"
+    data_element: FAMST
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FAMDT
+    description: "Valid From Date of Current Marital Status"
+    data_element: FAMDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ANZKD
+    description: "Number of Children"
+    data_element: ANZKD
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: NACON
+    description: "Name Connection"
+    data_element: NACON
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PERMO
+    description: "Modifier for Personnel Identifier"
+    data_element: PIDMO
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PERID
+    description: "Personnel ID Number"
+    data_element: PRDNI
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: GBPAS
+    description: "Date of Birth According to Passport"
+    data_element: GBPAS
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: FNAMK
+    description: "First Name (Katakana)"
+    data_element: P22J_PFNMK
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: LNAMK
+    description: "Last Name (Katakana)"
+    data_element: P22J_PLNMK
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: FNAMR
+    description: "First Name (Romaji)"
+    data_element: P22J_PFNMR
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: LNAMR
+    description: "Last Name (Romaji)"
+    data_element: P22J_PLNMR
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: NABIK
+    description: "Name of Birth (Katakana)"
+    data_element: P22J_PNBIK
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: NABIR
+    description: "Name of Birth (Romaji)"
+    data_element: P22J_PNBIR
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: NICKK
+    description: "Koseki (Katakana)"
+    data_element: P22J_PNCKK
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: NICKR
+    description: "Koseki (Romaji)"
+    data_element: P22J_PNCKR
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: GBJHR
+    description: "Year of Birth"
+    data_element: GBJHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: GBMON
+    description: "Month of Birth"
+    data_element: GBMON
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: GBTAG
+    description: "Birth Date (to Month/Year)"
+    data_element: GBTAG
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: NCHMC
+    description: "Last Name (Field for Search Help)"
+    data_element: NACHNMC
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: VNAMC
+    description: "First Name (Field for Search Help)"
+    data_element: VORNAMC
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: NAMZ2
+    description: "Name Affix for Name at Birth"
+    data_element: NAMZ2
+    check_table: T535N
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: PERNR
+    check_table: PA0003
+    check_field: PERNR
+  - field: PREAS
+    check_table: T530E
+    check_field: PREAS
+  - field: ANRED
+    check_table: T522G
+    check_field: ANRED
+  - field: GBDEP
+    check_table: T005S
+    check_field: BLAND
+  - field: GBLND
+    check_table: T005
+    check_field: LAND1
+  - field: NAMZ2
+    check_table: T535N
+    check_field: TITEL
+  - field: NAMZU
+    check_table: T535N
+    check_field: TITEL
+  - field: NATI2
+    check_table: T005
+    check_field: LAND1
+  - field: NATI3
+    check_table: T005
+    check_field: LAND1
+  - field: NATIO
+    check_table: T005
+    check_field: LAND1
+  - field: SPRSL
+    check_table: T002
+    check_field: SPRAS
+  - field: TITEL
+    check_table: T535N
+    check_field: TITEL
+  - field: TITL2
+    check_table: T535N
+    check_field: TITEL
+  - field: VORS2
+    check_table: T535N
+    check_field: TITEL
+  - field: VORSW
+    check_table: T535N
+    check_field: TITEL
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

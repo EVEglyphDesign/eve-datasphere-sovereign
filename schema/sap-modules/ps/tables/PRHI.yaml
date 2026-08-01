@@ -1,0 +1,82 @@
+table: PRHI
+module: PS
+description: "Work Breakdown Structure, Edges (Hierarchy Pointer) — the linked-list structure that encodes the WBS hierarchy for a project: for every WBS element (POSNR) it records its parent project (PSPHI) plus its superior element (UP), first subordinate (DOWN), and left/right sibling pointers within the tree. PRPS carries the WBS element as a flat master-data row with a level number (STUFE) but does not itself encode traversal order; PRHI is the table SAP's hierarchy-walk function modules (e.g. GET_PROJECT_HIERARCHY) actually read to reconstruct parent/child/sibling order. Every UP/DOWN/LEFT/RIGHT pointer resolves back to a PSPNR on PRPS, and PSPHI resolves to PROJ — so PRHI is pure structure, carrying no descriptive or financial attributes of its own."
+source: https://leanx.eu/en/sap/table/prhi.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: POSNR
+    description: "WBS Element"
+    data_element: PS_POSNR
+    check_table: PRPS
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: PSPHI
+    description: "Current number of the appropriate project"
+    data_element: PS_PSPHI
+    check_table: PROJ
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: UP
+    description: "Number of the superior WBS element"
+    data_element: PS_PHIUP
+    check_table: PRPS
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: DOWN
+    description: "Number of the 1st subordinate WBS element"
+    data_element: PS_PHIDO
+    check_table: PRPS
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: LEFT
+    description: "Number of the left adjacent position in the WBS"
+    data_element: PS_PHILE
+    check_table: PRPS
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: RIGHT
+    description: "Number of the right adjacent position in the WBS"
+    data_element: PS_PHIRI
+    check_table: PRPS
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: POSNR
+    check_table: PRPS
+    check_field: PSPNR
+  - field: PSPHI
+    check_table: PROJ
+    check_field: PSPNR
+  - field: UP
+    check_table: PRPS
+    check_field: PSPNR
+  - field: DOWN
+    check_table: PRPS
+    check_field: PSPNR
+  - field: LEFT
+    check_table: PRPS
+    check_field: PSPNR
+  - field: RIGHT
+    check_table: PRPS
+    check_field: PSPNR
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

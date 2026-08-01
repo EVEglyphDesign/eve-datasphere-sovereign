@@ -1,0 +1,242 @@
+table: TVKO
+module: SD
+description: "Organizational check table: sales organizations — the master list of sales organizations that every SD document's VKORG field validates against, carrying the sales org's company code assignment, statistics currency, address, and default purchasing/plant/storage-location references for intercompany processing. Carried complete as a small organizational customizing table."
+source: https://leanx.eu/en/sap/table/tvko.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: VKORG
+    description: "Sales Organization"
+    data_element: VKORG
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: WAERS
+    description: "Statistics currency"
+    data_element: WAERS_V
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: BUKRS
+    description: "Company code of the sales organization"
+    data_element: VKBUK
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ADRNR
+    description: "Address"
+    data_element: ADRNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: TXNAM_ADR
+    description: "Text name for form text module short address"
+    data_element: TXNAM_ADR
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: TXNAM_KOP
+    description: "Text name for form text module letter header"
+    data_element: TXNAM_KOP
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: TXNAM_FUS
+    description: "Text name for formula text module footer lines"
+    data_element: TXNAM_FUS
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: TXNAM_GRU
+    description: "Text name for form text module: Greeting"
+    data_element: TXNAM_GRU
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: VKOAU
+    description: "Reference sales org.for sales doc.types (by sales area)"
+    data_element: VKOAU
+    check_table: TVKO
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KUNNR
+    description: "Customer number for intercompany billing"
+    data_element: KUNIV
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BOAVO
+    description: "Rebate processing active in the sales organization"
+    data_element: BOAVO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VKOKL
+    description: "Sales organization calendar"
+    data_element: VKOKL
+    check_table: TFACD
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: EKORG
+    description: "Purchasing Organization"
+    data_element: EKORG
+    check_table: T024E
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: EKGRP
+    description: "Purchasing Group"
+    data_element: EKGRP
+    check_table: T024
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LIFNR
+    description: "Account Number of Vendor or Creditor"
+    data_element: LIFNR
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BSART
+    description: "Order Type (Purchasing)"
+    data_element: BSART
+    check_table: T161
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BWART
+    description: "Movement Type (Inventory Management)"
+    data_element: BWARTWE
+    check_table: T156
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LGORT
+    description: "Storage Location"
+    data_element: LGORT_D
+    check_table: T001L
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: TXNAM_SDB
+    description: "Text names for layout-set module SDS sender"
+    data_element: TXNAM_SDB
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: MWSKZ
+    description: "Tax code for SD documents"
+    data_element: J_1AMWSKZ
+    check_table: T007A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: XSTCEG
+    description: "Determining the VAT registration number"
+    data_element: XSTCEG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MAXBI
+    description: "Maximum Number of Items in Billing Document"
+    data_element: MAXBI
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: VKOAU
+    check_table: TVKO
+    check_field: VKORG
+  - field: KUNNR
+    check_table: KNA1
+    check_field: KUNNR
+  - field: VKOKL
+    check_table: TFACD
+    check_field: IDENT
+  - field: EKORG
+    check_table: T024E
+    check_field: EKORG
+  - field: EKGRP
+    check_table: T024
+    check_field: EKGRP
+  - field: LIFNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+  - field: BSART
+    check_table: T161
+    check_field: BSART
+  - field: BWART
+    check_table: T156
+    check_field: BWART
+  - field: LGORT
+    check_table: T001L
+    check_field: LGORT
+  - field: MWSKZ
+    check_table: T007A
+    check_field: MWSKZ
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

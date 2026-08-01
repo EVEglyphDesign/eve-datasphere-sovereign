@@ -1,0 +1,287 @@
+table: IRLOT
+module: PM
+description: "Reference Functional Location (Table) — the reference-functional-location master used as a structure template that concrete functional locations (IFLOT) can inherit from, carrying its own equipment/material assignment, planning plant/planner group, and object-number linkage into status management. Small, complete table."
+source: https://leanx.eu/en/sap/table/irlot.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: TRPNR
+    description: "Reference functional location"
+    data_element: TRPNR
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: MLANG
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: TPLKZ
+    description: "Edit mask for functional location labeling"
+    data_element: TPLKZ
+    check_table: T370S
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: RLTYP
+    description: "Structure indicator for reference functional locations"
+    data_element: RLTYP
+    check_table: T370R
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: TRPMA
+    description: "Superior reference functional location"
+    data_element: TRPMA
+    check_table: IRLOT
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on which the object was created"
+    data_element: ICRDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of user who created the object"
+    data_element: ICRNA
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Date on which the object was last changed"
+    data_element: IUPDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of the user who last changed the object"
+    data_element: IUPNA
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: BEGRU
+    description: "Technical object authorization group"
+    data_element: IAUTG
+    check_table: T370B
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LVORM
+    description: "Deletion Flag for 2-Level Deletion Logic"
+    data_element: IMRC_DEL2
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SUBMT
+    description: "Assembly (material number of the technical object)"
+    data_element: ISUBM
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: MAPAR
+    description: "Assembly indicator"
+    data_element: IMAPA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: IEQUI
+    description: "Equipment installed at this reference functional location"
+    data_element: IEQUI
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: IEQUII
+    description: "Indicator: Equipment installed at ref. functional location"
+    data_element: IEQUII
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EINZL
+    description: "Indicator: Single equipment/serial number for FL/assembly"
+    data_element: IEINZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EINZLI
+    description: "Indicator: comes from reference functional location"
+    data_element: IEINZI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: IWERK
+    description: "Maintenance planning plant"
+    data_element: IWERK
+    check_table: T399I
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: IWERKI
+    description: "Indicator: planning plant comes from ref. functional loc."
+    data_element: IWERKI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: INGRP
+    description: "Planner Group"
+    data_element: INGRP
+    check_table: T024I
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: INGRPI
+    description: "Indicator: planner group comes from ref. functional loc."
+    data_element: INGRPI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PM_OBJTY
+    description: "Distinguishes between PM and CS objects"
+    data_element: PM_OBJTY
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LGWID
+    description: "Work center ID"
+    data_element: GEWRK_D
+    check_table: CRID
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: LGWIDI
+    description: "Indicator: work center comes from ref. functional location"
+    data_element: LGWIDI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RBNR
+    description: "Catalog profile"
+    data_element: QRBNR
+    check_table: T352B
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: RBNR_I
+    description: "Indicator: catalog profile comes from ref. functional loc."
+    data_element: RBNR_I
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ABCKZ
+    description: "ABC Indicator"
+    data_element: ABCKZ
+    check_table: T370C
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ABCKZI
+    description: "Indicator: ABC indicator comes from ref. functional loc."
+    data_element: ABCKZI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: ABCKZ
+    check_table: T370C
+    check_field: ABCKZ
+  - field: BEGRU
+    check_table: T370B
+    check_field: BEGRU
+  - field: INGRP
+    check_table: T024I
+    check_field: INGRP
+  - field: IWERK
+    check_table: T399I
+    check_field: IWERK
+  - field: LGWID
+    check_table: CRID
+    check_field: OBJID
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MLANG
+    check_table: T002
+    check_field: SPRAS
+  - field: OBJNR
+    check_table: ONR00
+    check_field: OBJNR
+  - field: RBNR
+    check_table: T352B
+    check_field: RBNR
+  - field: RLTYP
+    check_table: T370R
+    check_field: RLTYP
+  - field: SUBMT
+    check_table: MARA
+    check_field: MATNR
+  - field: TPLKZ
+    check_table: T370S
+    check_field: TPLKZ
+  - field: TRPMA
+    check_table: IRLOT
+    check_field: TRPNR
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

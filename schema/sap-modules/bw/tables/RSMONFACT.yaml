@@ -1,0 +1,160 @@
+table: RSMONFACT
+module: BW
+description: "Fact table monitor — the request-monitor status table for InfoCube data loads: one row per request (RNR, the technical request ID also seen as 0REQUID in query/InfoCube data) and data packet (DP_NR) posted into an InfoCube's fact table, carrying the record counts at each stage of the update pipeline (selected, sent, converted, updated, inserted, errored, not-updated, and routed-to-ODS) plus the number of cubes the packet was posted to (ANZ_CUBES), the target InfoCube's internal ID (IC_ID), the packet-source type (IDOC_ODS_TYP) and IDoc number for IDoc-based loads, and a message/caller reference for the monitor's status log entry. This is the table BW's load-monitor (transaction RSMO) reads to show green/yellow/red request status; it is the audit trail proving how many records a given load actually moved into a fact table, independent of the fact table's own content."
+source: https://leanx.eu/en/sap/table/rsmonfact.html
+fields:
+  - name: RNR
+    description: "Request number for the data transfer"
+    data_element: RSREQUNR
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: DP_NR
+    description: "Data packet number"
+    data_element: RSDATAPID
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: true
+  - name: TIMESTAMP
+    description: "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+    data_element: RSTIMESTMP
+    check_table: ~
+    datatype: DEC
+    length: 15
+    decimals: 0
+    key: false
+  - name: REQ_SELECT
+    description: "Number of Selected Data Records (Absolute)"
+    data_element: RSNUMRECORD
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: REQ_SEND
+    description: "Number of Sent Data Records (Absolute)"
+    data_element: RSNUMRECORD
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: REQ_CONV_SUM
+    description: "Number of Converted Data Records (Absolute)"
+    data_element: RSNUMRECORD
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: REQ_FORT_SUM
+    description: "Number of Data Records Passed On (Absolute)"
+    data_element: RSNUMRECORD
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: REQ_UPDATE_SUM
+    description: "Number of Updated Data Records (Absolute)"
+    data_element: RSNUMRECORD
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: REQ_INSERT_SUM
+    description: "Number of Inserted Data Records (Absolute)"
+    data_element: RSNUMRECORD
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: REQ_ERROR_SUM
+    description: "Number of Erroneous Data Records (Absolute)"
+    data_element: RSNUMRECORD
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: REQ_NOTUPD_SUM
+    description: "Number of Data Records Not Updated (Absolute)"
+    data_element: RSNUMRECORD
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: REQ_ODS
+    description: "Number of Data Records Routed to the ODS (Absolute)"
+    data_element: RSNUMRECORD
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: ANZ_CUBES
+    description: "Number of InfoCubes the data packet was posted to"
+    data_element: NUM10
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: IC_ID
+    description: "InfoCube ID"
+    data_element: RSINFOC_ID
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: IDOC_ODS_TYP
+    description: "Data packet type (IDoc, ODS, old method ...)"
+    data_element: RSDP_TYP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: IDOCNUM
+    description: "IDoc number"
+    data_element: EDI_DOCNUM
+    check_table: ~
+    datatype: NUMC
+    length: 16
+    decimals: 0
+    key: false
+  - name: MESS_ID
+    description: "Message ID"
+    data_element: RSMESS_ID
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: RSCALLER
+    description: "Caller"
+    data_element: RSCALLER
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ERRORFLAG
+    description: "Single-Character Indicator"
+    data_element: CHAR1
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys: []
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

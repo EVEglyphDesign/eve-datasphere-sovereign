@@ -1,0 +1,488 @@
+table: AFFH
+module: PM
+description: "PRT assignment data for the work order — assigns production resources/tools (PRTs) to maintenance-order operations: usage windows, planned/confirmed/remaining quantities and usage values, and the CIM-resource (work center/PRT master) reference. Links AFVC operations to the resources they consume during execution."
+source: https://leanx.eu/en/sap/table/affh.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: AUFPL
+    description: "Routing number of operations in the order"
+    data_element: CO_AUFPL
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: true
+  - name: PZLFH
+    description: "Item counter for production resources/tools"
+    data_element: PZLFH
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: LOEKZ
+    description: "Deletion Indicator"
+    data_element: LKENZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PARKZ
+    description: "Indicator: inactive changes"
+    data_element: PARKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DATUI
+    description: "Date record created on"
+    data_element: ANDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: USERI
+    description: "User who created record"
+    data_element: ANNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: DATUC
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: USERC
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: OBJTY
+    description: "Object types of the CIM resource"
+    data_element: CR_OBJTY
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: OBJID
+    description: "Object ID of the resource"
+    data_element: CR_OBJID
+    check_table: CRID
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: PLNTY_KEY
+    description: "Task List Type"
+    data_element: PLNTY
+    check_table: TCA01
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLNNR_KEY
+    description: "Key for Task List Group"
+    data_element: PLNNR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: PZLFH_KEY
+    description: "Item counter for production resources/tools"
+    data_element: PZLFH
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: ZAEHL_KEY
+    description: "Internal counter"
+    data_element: CIM_COUNT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: OBJCT
+    description: "Object of a task list"
+    data_element: OBJCT_D
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: APLZL
+    description: "Internal counter"
+    data_element: CIM_COUNT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: PSNFH
+    description: "Item Number for Production Resource/Tool"
+    data_element: PSNFH
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: STEUF
+    description: "Control key for management of production resources/tools"
+    data_element: STEUF
+    check_table: TCF10
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KZKBL
+    description: "Indicator: Create load records for prod. resources/tools"
+    data_element: KZKBL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BZOFFB
+    description: "Reference date to start of production resource/tool usage"
+    data_element: BZOFFB
+    check_table: TCA54
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: OFFSTB
+    description: "Offset to start of production resource/tool usage"
+    data_element: OFFSTB
+    check_table: ~
+    datatype: QUAN
+    length: 5
+    decimals: 0
+    key: false
+  - name: EHOFFB
+    description: "Offset unit for start of prod. resource/tool usage"
+    data_element: EHOFFB
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: BZOFFE
+    description: "Reference date for end of production resource/tool usage"
+    data_element: BZOFFE
+    check_table: TCA54
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: OFFSTE
+    description: "Offset to finish of production resource/tool usage"
+    data_element: OFFSTE
+    check_table: ~
+    datatype: QUAN
+    length: 5
+    decimals: 0
+    key: false
+  - name: EHOFFE
+    description: "Offset unit for end of production resource/tool usage"
+    data_element: EHOFFE
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: FSFHD
+    description: "Earliest scheduled start (date) for PRT usage"
+    data_element: CF_FSFHD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: FEFHD
+    description: "Earliest scheduled finish (date) of PRT usage"
+    data_element: CF_FEFHD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: SSFHD
+    description: "Latest scheduled start (date) for PRT usage"
+    data_element: CF_SSFHD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: SEFHD
+    description: "Latest scheduled finish (date) of PRT usage"
+    data_element: CF_SEFHD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ISFHD
+    description: "Actual start (date) of PRT usage"
+    data_element: CF_ISFHD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: IEFHD
+    description: "Actual finish (date) of PRT usage"
+    data_element: CF_IEFHD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: DAUFL
+    description: "Duration of PRT usage"
+    data_element: CF_DAUFL
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: DAUEH
+    description: "Time unit for duration of PRT usage"
+    data_element: CF_DAUEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: MGEINH
+    description: "Quantity unit of production resource/tool"
+    data_element: MGEINH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: MGVGW
+    description: "Standard value for the PRT quantity"
+    data_element: MGVGW
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: MGSOL
+    description: "Total planned quantity of production resource/tool"
+    data_element: MGSOL
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: MGIST
+    description: "Confirmed quantity of production resource/tool"
+    data_element: MGIST
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: MGRST
+    description: "Remaining quantity of the production resource/tool"
+    data_element: MGRST
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: MGAUS
+    description: "Quantity of checked-out production resources/tools"
+    data_element: MGAUS
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: MGFORM
+    description: "Formula for calculating the total quantity of PRT"
+    data_element: CF_MGFORM
+    check_table: TC25
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: EWEINH
+    description: "Usage value unit of the production resource/tool"
+    data_element: EWEINH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: EWVGW
+    description: "Standard usage value for production resources/tools"
+    data_element: EWVGW
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: EWSOL
+    description: "Total planned usage value of production resource/tool"
+    data_element: EWSOL
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: EWIST
+    description: "Actual usage value for production resource/tool"
+    data_element: EWIST
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: EWRST
+    description: "Remaining usage value of the production resource/tool"
+    data_element: EWRST
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: EWFORM
+    description: "Formula for calculating the total usage value of PRT"
+    data_element: CF_EWFORM
+    check_table: TC25
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: TXTSP
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: KTSCH
+    description: "Standard text key for production resources/tools"
+    data_element: CF_KTSCH
+    check_table: T435
+    datatype: CHAR
+    length: 7
+    decimals: 0
+    key: false
+  - name: TXTZ1
+    description: "First line of text for production resources/tools"
+    data_element: TXTZ1
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: OBJTYPE
+    description: "Change indicator"
+    data_element: OCM_OBJ_TYPE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CH_PROC
+    description: "Process that has lead to the change of an object"
+    data_element: OCM_CH_PROC
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AENNR
+    description: "Change Number"
+    data_element: AENNR
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: BZOFFB
+    check_table: TCA54
+    check_field: BZOFF
+  - field: BZOFFE
+    check_table: TCA54
+    check_field: BZOFF
+  - field: DAUEH
+    check_table: T006
+    check_field: MSEHI
+  - field: EHOFFB
+    check_table: T006
+    check_field: MSEHI
+  - field: EHOFFE
+    check_table: T006
+    check_field: MSEHI
+  - field: EWEINH
+    check_table: T006
+    check_field: MSEHI
+  - field: EWFORM
+    check_table: TC25
+    check_field: IDENT
+  - field: KTSCH
+    check_table: T435
+    check_field: VLSCH
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MGEINH
+    check_table: T006
+    check_field: MSEHI
+  - field: MGFORM
+    check_table: TC25
+    check_field: IDENT
+  - field: OBJID
+    check_table: CRID
+    check_field: OBJID
+  - field: OBJNR
+    check_table: ONR00
+    check_field: OBJNR
+  - field: PLNTY_KEY
+    check_table: TCA01
+    check_field: PLNTY
+  - field: STEUF
+    check_table: TCF10
+    check_field: STEUF
+  - field: TXTSP
+    check_table: T002
+    check_field: SPRAS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

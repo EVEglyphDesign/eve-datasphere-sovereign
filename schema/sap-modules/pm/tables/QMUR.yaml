@@ -1,0 +1,279 @@
+table: QMUR
+module: PM
+description: "Quality notification - causes — the failure-cause record any reliability analysis depends on. Ties a cause (URNUM) to a specific defect item (FENUM) on a notification (QMNUM), carrying the cause catalog code/group/coding, the responsible party (PARVW/PARNR), the affected assembly (BAUTL), and the quantity/percentage of the defect attributable to this cause (URMENGE/INVOLVPERC). Small, complete table."
+source: https://leanx.eu/en/sap/table/qmur.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: QMNUM
+    description: "Notification Number"
+    data_element: QMNUM
+    check_table: QMEL
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: true
+  - name: FENUM
+    description: "Defect item number"
+    data_element: FENUM
+    check_table: QMFE
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: URNUM
+    description: "Cause number"
+    data_element: URNUM
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on which the record was created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: URTXT
+    description: "Cause text"
+    data_element: URTXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: URKAT
+    description: "Catalog type for causes"
+    data_element: URKAT
+    check_table: TQ15
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: URGRP
+    description: "Cause: code group"
+    data_element: URGRP
+    check_table: QPGR
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: URCOD
+    description: "Cause: coding"
+    data_element: URCOD
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: URVER
+    description: "Version number of code"
+    data_element: CODEVERSION
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: INDTX
+    description: "Indicator: long text exists"
+    data_element: KZTEXT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZMLA
+    description: "Indicator: text in more than one language"
+    data_element: KZMLA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ERZEIT
+    description: "Time record was created"
+    data_element: ERZEIT
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: AEZEIT
+    description: "Time record was changed"
+    data_element: AEZEIT
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: VUKAT
+    description: "Catalog type for cause verification"
+    data_element: URKAT
+    check_table: TQ15
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VUGRP
+    description: "Code group for cause verification"
+    data_element: URGRP
+    check_table: QPGR
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: VUCOD
+    description: "Coding for cause verification"
+    data_element: URCOD
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PARVW
+    description: "Partner Function"
+    data_element: PARVW
+    check_table: TPAR
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PARNR
+    description: "Number of partner (customer, vendor, employee)"
+    data_element: PARNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BAUTL
+    description: "Assembly (material number of technical object)"
+    data_element: TEXTBAUTL
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: URMENGE
+    description: "Quantity affected by this cause"
+    data_element: URMENGE
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: URMGEIN
+    description: "Unit of measure for cause quantity"
+    data_element: URMGEIN
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: KZLOESCH
+    description: "Deletion Indicator"
+    data_element: KZLOESCH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QURNUM
+    description: "Reference cause number"
+    data_element: QURNUM
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: AUTKZ
+    description: "Indicator: automatically generated cause"
+    data_element: AUTKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: INVOLVPERC
+    description: "Percentage to which the cause is involved in the defect"
+    data_element: QM_INVOLVPERC
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: BAUTL
+    check_table: MARA
+    check_field: MATNR
+  - field: FENUM
+    check_table: QMFE
+    check_field: QMNUM
+  - field: FENUM
+    check_table: QMFE
+    check_field: FENUM
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: PARVW
+    check_table: TPAR
+    check_field: PARVW
+  - field: QMNUM
+    check_table: QMEL
+    check_field: QMNUM
+  - field: URGRP
+    check_table: QPGR
+    check_field: CODEGRUPPE
+  - field: URGRP
+    check_table: QPGR
+    check_field: KATALOGART
+  - field: URKAT
+    check_table: TQ15
+    check_field: KATALOGART
+  - field: URMGEIN
+    check_table: T006
+    check_field: MSEHI
+  - field: VUGRP
+    check_table: QPGR
+    check_field: CODEGRUPPE
+  - field: VUGRP
+    check_table: QPGR
+    check_field: KATALOGART
+  - field: VUKAT
+    check_table: TQ15
+    check_field: KATALOGART
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

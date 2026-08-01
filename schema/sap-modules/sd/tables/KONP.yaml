@@ -1,0 +1,494 @@
+table: KONP
+module: SD
+description: "Condition item — the pricing master record rate/value line under KONH, holding the actual amount, percentage, or scale that a condition record resolves to. Condition-access tables (e.g. A004) point to KNUMH, which joins KONH (header) to KONP (item, keyed additionally by KOPOS) to retrieve the rate applied when KONV builds the transaction-level pricing snapshot on a sales document. SAP's real table carries roughly 90 fields (including several industry-specific IS-OIL fields); this definition is scoped to the key, calculation/scale, currency, quantity, account/partner, and validity fields the pricing engine and any pricing crosswalk consume — never silently truncated below that scope."
+source: https://leanx.eu/en/sap/table/konp.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: KNUMH
+    description: "Condition record number"
+    data_element: KNUMH
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: KOPOS
+    description: "Sequential number of the condition"
+    data_element: KOPOS
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: true
+  - name: KAPPL
+    description: "Application"
+    data_element: KAPPL
+    check_table: T681A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KSCHL
+    description: "Condition type"
+    data_element: KSCHA
+    check_table: T685
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KNUMT
+    description: "Number of texts"
+    data_element: KNUMT
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: STFKZ
+    description: "Scale Type"
+    data_element: STFKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZBZG
+    description: "Scale basis indicator"
+    data_element: KZBZG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KSTBM
+    description: "Condition scale quantity"
+    data_element: KSTBM
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: KONMS
+    description: "Condition scale unit of measure"
+    data_element: KONMS
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: KSTBW
+    description: "Scale value"
+    data_element: KSTBW
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: KONWS
+    description: "Scale currency"
+    data_element: KONWS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: KRECH
+    description: "Calculation type for condition"
+    data_element: KRECH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KBETR
+    description: "Rate (condition amount or percentage) where no scale exists"
+    data_element: KBETR_KOND
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: KONWA
+    description: "Rate unit (currency or percentage)"
+    data_element: KONWA
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: KPEIN
+    description: "Condition pricing unit"
+    data_element: KPEIN
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 0
+    key: false
+  - name: KMEIN
+    description: "Condition unit"
+    data_element: KMEIN
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: PRSCH
+    description: "Scale Group"
+    data_element: SCLGR
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KUMZA
+    description: "Numerator for converting condition units to base units"
+    data_element: KUMZA
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 0
+    key: false
+  - name: KUMNE
+    description: "Denominator for converting condition units to base units"
+    data_element: KUMNE
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 0
+    key: false
+  - name: MEINS
+    description: "Base Unit of Measure"
+    data_element: MEINS
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: MXWRT
+    description: "Lower limit of the condition rate/amount"
+    data_element: MXWRT
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: GKWRT
+    description: "Upper limit for the condition rate"
+    data_element: GKWRT
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: PKWRT
+    description: "Planned condition value"
+    data_element: PKWRT
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: KWAEH
+    description: "Condition currency (for cumulation fields)"
+    data_element: KWAEH
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: KZNEP
+    description: "Condition exclusion indicator"
+    data_element: KZNEP
+    check_table: T686A
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KUNNR
+    description: "Customer Number"
+    data_element: KUNNR
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LIFNR
+    description: "Account Number of Vendor or Creditor"
+    data_element: LIFNR
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: MWSK1
+    description: "Tax on sales/purchases code"
+    data_element: MWSKZ
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LOEVM_KO
+    description: "Deletion Indicator for Condition Item"
+    data_element: LOEVM_KO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BOMAT
+    description: "Material for rebate settlement"
+    data_element: BOMAT
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: KBRUE
+    description: "Accrual Amount"
+    data_element: KBRUE
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: KSPAE
+    description: "Rebate was set up retroactively"
+    data_element: KSPAE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BOSTA
+    description: "Condition Record Status (Rebate)"
+    data_element: BOSTA_CR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KNUMA_PI
+    description: "Promotion"
+    data_element: KNUMA_PI
+    check_table: KONA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KNUMA_AG
+    description: "Sales deal"
+    data_element: KNUMA_AG
+    check_table: KONA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KNUMA_SQ
+    description: "Sales quote"
+    data_element: KNUMA_SQ
+    check_table: KONA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: VALTG
+    description: "Additional value days"
+    data_element: VALTG
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: VALDT
+    description: "Fixed value date"
+    data_element: VALDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ZTERM
+    description: "Terms of Payment Key"
+    data_element: DZTERM
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ANZAUF
+    description: "Maximum number of sales orders per condition record"
+    data_element: ANZAUF
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: MIKBAS
+    description: "Minimum condition base value"
+    data_element: MIKBAS
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: MXKBAS
+    description: "Maximum condition base value"
+    data_element: MXKBAS
+    check_table: ~
+    datatype: QUAN
+    length: 15
+    decimals: 3
+    key: false
+  - name: KOMXWRT
+    description: "Maximum condition value"
+    data_element: KOMXWRT
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: VKKAL
+    description: "Sales Price Calculation: Relevant to pricing"
+    data_element: VKKAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AKTNR
+    description: "Promotion"
+    data_element: WAKTION
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KNUMA_BO
+    description: "Agreement (subsequent settlement)"
+    data_element: KNUMA_BO
+    check_table: KONA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: MWSK2
+    description: "Withholding tax code"
+    data_element: WT_WITHCD
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: VERTT
+    description: "Contract Type"
+    data_element: RANTYP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VERTN
+    description: "Contract Number"
+    data_element: RANL
+    check_table: ~
+    datatype: CHAR
+    length: 13
+    decimals: 0
+    key: false
+  - name: VBEWA
+    description: "Flow Type"
+    data_element: SBEWART
+    check_table: TZB0A
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: MDFLG
+    description: "Indicator: Matrix maintenance"
+    data_element: MDFLG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KFRST
+    description: "Release status"
+    data_element: KFRST
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: UASTA
+    description: "Status of business volume comparison for a condition"
+    data_element: UASTA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: KAPPL
+    check_table: T681A
+    check_field: KAPPL
+  - field: KSCHL
+    check_table: T685
+    check_field: KSCHL
+  - field: KONMS
+    check_table: T006
+    check_field: MSEHI
+  - field: KONWS
+    check_table: TCURC
+    check_field: WAERS
+  - field: KONWA
+    check_table: TCURC
+    check_field: WAERS
+  - field: KMEIN
+    check_table: T006
+    check_field: MSEHI
+  - field: MEINS
+    check_table: T006
+    check_field: MSEHI
+  - field: KWAEH
+    check_table: TCURC
+    check_field: WAERS
+  - field: KZNEP
+    check_table: T686A
+    check_field: KZNEP
+  - field: KUNNR
+    check_table: KNA1
+    check_field: KUNNR
+  - field: LIFNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: BOMAT
+    check_table: MARA
+    check_field: MATNR
+  - field: KNUMA_PI
+    check_table: KONA
+    check_field: KNUMA
+  - field: KNUMA_AG
+    check_table: KONA
+    check_field: KNUMA
+  - field: KNUMA_SQ
+    check_table: KONA
+    check_field: KNUMA
+  - field: KNUMA_BO
+    check_table: KONA
+    check_field: KNUMA
+  - field: VBEWA
+    check_table: TZB0A
+    check_field: SBEWART
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

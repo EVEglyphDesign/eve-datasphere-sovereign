@@ -1,0 +1,54 @@
+table: T499S
+module: PM
+description: "Location — customizing table listing the valid plant locations (site/building-level location codes, e.g. STAND) per plant (WERKS), each with a descriptive text and an address-number link. Referenced by STORT on ILOA (the address/location segment shared by equipment, functional locations and orders), which records the location of the maintenance object attached to that record — note ILOA's field is named STORT while this table's key field is named STAND, both carrying data element STORT_T499S. Carried complete — small customizing table."
+source: https://leanx.eu/en/sap/table/t499s.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: STAND
+    description: "Location"
+    data_element: STORT_T499S
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: KTEXT
+    description: "Text, 40 Characters Long"
+    data_element: TEXT40
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: ADDRNUM
+    description: "Address number"
+    data_element: AD_ADDRNUM
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

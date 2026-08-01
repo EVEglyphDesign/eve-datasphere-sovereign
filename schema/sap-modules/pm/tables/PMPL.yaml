@@ -1,0 +1,129 @@
+table: PMPL
+module: PM
+description: "PM: Print log — records each print/output event for a PM application (order, notification, permit, etc.), the paper/form used, the output device, and the number of copies, giving an audit trail of what was printed, by whom, and when. Small, complete table."
+source: https://leanx.eu/en/sap/table/pmpl.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: PM_APPL
+    description: "PM Application"
+    data_element: PM_APPL
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: PRINT_KEY
+    description: "Print key"
+    data_element: PM_PRINT_KEY
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: true
+  - name: PM_PAPER
+    description: "PM paper type"
+    data_element: PM_PAPER
+    check_table: T390
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: COPY_NR
+    description: "Number of copies"
+    data_element: PM_COPY_NR
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: ABAPNAME
+    description: "Report/print program name"
+    data_element: PM_ABAPNAME
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: FORM
+    description: "Form Name"
+    data_element: FORMNAME
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: UNAME
+    description: "User name"
+    data_element: DYUSER
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: DATUM
+    description: "Print date"
+    data_element: PM_PDATUM
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: UZEIT
+    description: "Print time"
+    data_element: PM_PUZEIT
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: TDDEST
+    description: "Spool: Output Device"
+    data_element: RSPOPNAME
+    check_table: TSP03
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PM_DELTA_P
+    description: "Indicator: reprint (delta print)"
+    data_element: PM_DELTA_P
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TDTELENUM
+    description: "Spool: Fax number"
+    data_element: RSTELE
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: TDTELELAND
+    description: "Spool: Country prefix for fax number"
+    data_element: RSTELELA
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: PM_PAPER
+    check_table: T390
+    check_field: PM_PAPER
+  - field: TDDEST
+    check_table: TSP03
+    check_field: PDEST
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

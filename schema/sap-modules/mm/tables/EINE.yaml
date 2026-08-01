@@ -1,0 +1,524 @@
+table: EINE
+module: MM
+description: "Purchasing Info Record: Purchasing Organization Data — the purchasing-organization-specific half of a purchasing info record, one row per info record per purchasing org per info-record category per plant, carrying the pricing and procurement conditions (net price, price unit, planned delivery time, over/underdelivery tolerances, incoterms, tax code, GR-based invoice-verification flag) that a sourcing or price-comparison lane consumes. Paired one-to-many back to EINA, which carries the organization-independent vendor/material facts; together they are the purchasing-info-record lane. SAP's real table carries additional country/industry-specific extension fields (Brazilian NCM, oil-industry excise-duty handling, transportation-chain staging); this definition is scoped to the core procurement-pricing fields plus the fields the model consumes."
+source: https://leanx.eu/en/sap/table/eine.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: INFNR
+    description: "Number of Purchasing Info Record"
+    data_element: INFNR
+    check_table: EINA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: EKORG
+    description: "Purchasing Organization"
+    data_element: EKORG
+    check_table: T024E
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: ESOKZ
+    description: "Purchasing info record category"
+    data_element: ESOKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: WERKS
+    description: "Plant"
+    data_element: EWERK
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: LOEKZ
+    description: "Purch. info: Purch. organization data flagged for deletion"
+    data_element: ILOEE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: EKGRP
+    description: "Purchasing Group"
+    data_element: BKGRP
+    check_table: T024
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: BONUS
+    description: "Indicator: Volume-Based Rebate"
+    data_element: WRBON
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MGBON
+    description: "Indicator: Quantity-Based Volume Rebate"
+    data_element: MGBON
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MINBM
+    description: "Minimum Purchase Order Quantity"
+    data_element: MINBM
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: NORBM
+    description: "Standard Purchase Order Quantity"
+    data_element: NORBM
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: APLFZ
+    description: "Planned Delivery Time in Days"
+    data_element: PLIFZ
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: UEBTO
+    description: "Overdelivery Tolerance Limit"
+    data_element: UEBTO
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 1
+    key: false
+  - name: UEBTK
+    description: "Indicator: Unlimited Overdelivery Allowed"
+    data_element: UEBTK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: UNTTO
+    description: "Underdelivery Tolerance Limit"
+    data_element: UNTTO
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 1
+    key: false
+  - name: ANGNR
+    description: "Quotation Number"
+    data_element: ANGNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ANGDT
+    description: "Quotation Validity Date"
+    data_element: ANGDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ANFNR
+    description: "RFQ Number"
+    data_element: ANFNR
+    check_table: EKKO
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ANFPS
+    description: "Item Number of RFQ"
+    data_element: ANFPS
+    check_table: EKPO
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: ABSKZ
+    description: "Rejection Indicator"
+    data_element: ABSKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BSTYP
+    description: "Purchasing Document Category"
+    data_element: BSTYP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EBELN
+    description: "Purchasing Document Number"
+    data_element: EBELN
+    check_table: EKKO
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: EBELP
+    description: "Item Number of Purchasing Document"
+    data_element: EBELP
+    check_table: EKPO
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: DATLB
+    description: "Date of Last PO or Sched. Agreement Document in Info Record"
+    data_element: DATLB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: NETPR
+    description: "Net Price in Purchasing Info Record"
+    data_element: IPREI
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: PEINH
+    description: "Price Unit"
+    data_element: EPEIN
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 0
+    key: false
+  - name: BPRME
+    description: "Order Price Unit (Purchasing)"
+    data_element: BBPRM
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: PRDAT
+    description: "Price Valid Until"
+    data_element: PRGBI
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BPUMZ
+    description: "Numerator for Conversion of Order Price Unit into Order Unit"
+    data_element: BPUMZ
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 0
+    key: false
+  - name: BPUMN
+    description: "Denominator for Conv. of Order Price Unit into Order Unit"
+    data_element: BPUMN
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 0
+    key: false
+  - name: MTXNO
+    description: "Material Master Record PO Text Not Relevant"
+    data_element: MTXNO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WEBRE
+    description: "Indicator: GR-Based Invoice Verification"
+    data_element: WEBRE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EFFPR
+    description: "Effective Price in Purchasing Info Record"
+    data_element: EFFPR
+    check_table: ~
+    datatype: CURR
+    length: 11
+    decimals: 2
+    key: false
+  - name: EKKOL
+    description: "Condition Group with Vendor"
+    data_element: EKKOG
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SKTOF
+    description: "Item Does Not Qualify for Cash Discount"
+    data_element: ESKTOF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZABS
+    description: "Order Acknowledgment Requirement"
+    data_element: KZABS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MWSKZ
+    description: "Tax on sales/purchases code"
+    data_element: MWSKZ
+    check_table: T007A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: BWTAR
+    description: "Valuation Type"
+    data_element: BWTAR_D
+    check_table: T149D
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: EBONU
+    description: "Settlement Group 1 (Purchasing)"
+    data_element: EBONU
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: EVERS
+    description: "Shipping Instructions"
+    data_element: EVERS
+    check_table: T027A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: EXPRF
+    description: "Export/Import Procedure for Foreign Trade"
+    data_element: EXPRF
+    check_table: T616
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: BSTAE
+    description: "Confirmation Control Key"
+    data_element: BSTAE
+    check_table: T163L
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: MEPRF
+    description: "Price Determination (Pricing) Date Control"
+    data_element: MEPRF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: INCO1
+    description: "Incoterms (Part 1)"
+    data_element: INCO1
+    check_table: TINC
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: INCO2
+    description: "Incoterms (Part 2)"
+    data_element: INCO2
+    check_table: ~
+    datatype: CHAR
+    length: 28
+    decimals: 0
+    key: false
+  - name: XERSN
+    description: "No Evaluated Receipt Settlement (ERS)"
+    data_element: XERSN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EBON2
+    description: "Settlement Group 2 (Rebate Settlement, Purchasing)"
+    data_element: EBON2
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: EBON3
+    description: "Settlement Group 3 (Rebate Settlement, Purchasing)"
+    data_element: EBON3
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: EBONF
+    description: "Item Not Relevant to Subseq. (Period-End Rebate) Settlement"
+    data_element: EBONF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MHDRZ
+    description: "Minimum Remaining Shelf Life"
+    data_element: MHDRZ
+    check_table: ~
+    datatype: DEC
+    length: 4
+    decimals: 0
+    key: false
+  - name: VERID
+    description: "Production Version"
+    data_element: VERID
+    check_table: MKAL
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BSTMA
+    description: "Maximum Purchase Order Quantity"
+    data_element: MAXBM
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: RDPRF
+    description: "Rounding Profile"
+    data_element: RDPRF
+    check_table: RDPR
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: MEGRU
+    description: "Unit of Measure Group"
+    data_element: MEGRU
+    check_table: TWMEG
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: INFNR
+    check_table: EINA
+    check_field: INFNR
+  - field: EKORG
+    check_table: T024E
+    check_field: EKORG
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+  - field: EKGRP
+    check_table: T024
+    check_field: EKGRP
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: ANFNR
+    check_table: EKKO
+    check_field: EBELN
+  - field: ANFPS
+    check_table: EKPO
+    check_field: EBELP
+  - field: EBELN
+    check_table: EKKO
+    check_field: EBELN
+  - field: EBELP
+    check_table: EKPO
+    check_field: EBELP
+  - field: BPRME
+    check_table: T006
+    check_field: MSEHI
+  - field: MWSKZ
+    check_table: T007A
+    check_field: MWSKZ
+  - field: BWTAR
+    check_table: T149D
+    check_field: BWTAR
+  - field: EVERS
+    check_table: T027A
+    check_field: EVERS
+  - field: EXPRF
+    check_table: T616
+    check_field: EXPRF
+  - field: BSTAE
+    check_table: T163L
+    check_field: BSTAE
+  - field: INCO1
+    check_table: TINC
+    check_field: INCO1
+  - field: VERID
+    check_table: MKAL
+    check_field: VERID
+  - field: RDPRF
+    check_table: RDPR
+    check_field: RDPRF
+  - field: MEGRU
+    check_table: TWMEG
+    check_field: MEGRU
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

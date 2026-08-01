@@ -1,0 +1,603 @@
+table: PLMK
+module: PM
+description: "Inspection plan characteristics — the quality/inspection characteristics assigned to a task-list operation (inspection points on a PM/QM task list node), carrying the master-inspection-characteristic reference, tolerance/target-value definition, sampling procedure, and long-text/short-text control. SAP's real table carries 140+ fields, including five repeating catalog-selection slots (KATAB1-5/KATALGART1-5/AUSWMENGE1-5/etc.) for multiple-choice valuation; this definition is scoped to the full key, master-characteristic linkage (QPMK_REF/VERWMERKM), value/tolerance/limit fields, sampling and formula fields, and status/validity fields a reliability or quality-inspection crosswalk consumes — never silently truncate beyond that scope."
+source: https://leanx.eu/en/sap/table/plmk.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: PLNTY
+    description: "Task List Type"
+    data_element: PLNTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: PLNNR
+    description: "Key for Task List Group"
+    data_element: PLNNR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: true
+  - name: PLNKN
+    description: "Number of the task list node"
+    data_element: PLNKN
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: KZEINSTELL
+    description: "Indicator: characteristic used for machine setting"
+    data_element: QM_KZEINSTELL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: MERKNR
+    description: "Characteristic number"
+    data_element: MERKNR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: ZAEHL
+    description: "Internal counter"
+    data_element: CIM_COUNT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: GUELTIGAB
+    description: "Effective from date of characteristic version"
+    data_element: QM_AENFROM
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: SERNV
+    description: "Indicator: serial numbers permitted"
+    data_element: QM_KZSERN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LOEKZ
+    description: "Deletion Indicator"
+    data_element: LKENZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PARKZ
+    description: "Indicator: inactive changes"
+    data_element: PARKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AENDERGNR
+    description: "Change number"
+    data_element: AENNR
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERSTELLER
+    description: "Name of person who created object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERSTELLDAT
+    description: "Date on which record was created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENDERER
+    description: "Name of Person who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AENDERDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: STEUERKZ
+    description: "Control indicator for characteristic"
+    data_element: QM_STEUERKZ
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: QMTB_WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PMETHODE
+    description: "Inspection method"
+    data_element: QPMETHODE
+    check_table: QMTB
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: PMTVERSION
+    description: "Change status of inspection method"
+    data_element: QM_AENVERSION
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: QPMK_REF
+    description: "Master inspection characteristic"
+    data_element: QPMK
+    check_table: QPMK
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: QPMK_ZAEHL
+    description: "Version of master inspection characteristic"
+    data_element: QM_AENDNR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: VERWMERKM
+    description: "Indicator: characteristic is a reference characteristic"
+    data_element: QM_VERWMERKM
+    check_table: QPMK
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MKVERSION
+    description: "Version of the characteristic"
+    data_element: QM_AENVERSION
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: MKVERSDAT
+    description: "Date on which characteristic version becomes effective"
+    data_element: QM_AENFROM
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: MERKGEW
+    description: "Characteristic weighting"
+    data_element: QM_GEWICHT
+    check_table: TQ17A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PROBENR
+    description: "Sample-drawing number"
+    data_element: QM_PROBENR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: PRUEFQUALI
+    description: "Inspection qualification"
+    data_element: QPRUEFART
+    check_table: TQ11
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: TOLERANZSL
+    description: "Tolerance key"
+    data_element: QTOLKEY
+    check_table: TQ29
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: KURZTEXT
+    description: "Short text for characteristic"
+    data_element: QM_KURZTEXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: LTEXTKZ
+    description: "Indicator: Long text exists"
+    data_element: TEXTKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STELLEN
+    description: "Number of decimal places"
+    data_element: QM_STELLEN
+    check_table: ~
+    datatype: NUMC
+    length: 1
+    decimals: 0
+    key: false
+  - name: MASSEINHSW
+    description: "Unit of measurement for target value"
+    data_element: QM_MASSEINHSW
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: SOLLWERT
+    description: "Target value of quantitative characteristic"
+    data_element: QM_SOLLWERT
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: TOLERANZOB
+    description: "Upper tolerance limit"
+    data_element: QM_TOLERANZOB
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: TOLERANZUN
+    description: "Lower tolerance limit"
+    data_element: QM_TOLERANZUN
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: KLASANZAHL
+    description: "Number of classes for classed recording"
+    data_element: QM_KLASANZAHL
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: KLASBREITE
+    description: "Class width for classed recording"
+    data_element: QM_KLASBREITE
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: KLASMITTE
+    description: "Mean value of first class for classed recording"
+    data_element: QM_KLASMITTE
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: GRENZEOB1
+    description: "Upper specification limit 1"
+    data_element: QM_GRENZEOB
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: GRENZEUN1
+    description: "Lower specification limit 1"
+    data_element: QM_GRENZEUN
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: PLAUSIOBEN
+    description: "Plausibility limit upper"
+    data_element: QM_PLAUSIOBEN
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: PLAUSIUNTE
+    description: "Plausibility limit lower"
+    data_element: QM_PLAUSIUNTE
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: STICHPRVER
+    description: "Sampling procedure"
+    data_element: QSTICHPRVERF
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: FAKPLANME
+    description: "Sample unit of measure"
+    data_element: QM_FAKPLANME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: FAKPROBME
+    description: "Sample size unit of measure"
+    data_element: QM_FAKPROBME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: PROBEMGEH
+    description: "Sample unit of measure (relative quantity)"
+    data_element: QM_PROBEMGEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: PRUEFEINH
+    description: "Inspection unit"
+    data_element: QM_PRUEFEINH
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: DYNKRIT
+    description: "Dynamic modification rule criterion"
+    data_element: QDYNKRIT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FORMELSL
+    description: "Indicator: characteristic value determined by formula"
+    data_element: QM_FORMELSL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FORMEL1
+    description: "Formula for value determination"
+    data_element: QM_FORMEL
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: FORMEL2
+    description: "Formula for tolerance determination"
+    data_element: QM_FORMEL
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: CHARACT_ID1
+    description: "Reference to Physical Sample Characteristic ID"
+    data_element: QPPS_CHAR_GUID
+    check_table: ~
+    datatype: RAW
+    length: 16
+    decimals: 0
+    key: false
+  - name: QERGDATH
+    description: "History of results recording"
+    data_element: QERGDATH
+    check_table: TQ73
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: EEANTVERF
+    description: "Sample-drawing procedure"
+    data_element: QPROBENVERF
+    check_table: TQ72
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: QDYNREGEL
+    description: "Dynamic modification rule"
+    data_element: QDYNREGEL
+    check_table: QDDR
+    datatype: CHAR
+    length: 7
+    decimals: 0
+    key: false
+  - name: DYNMERKREF
+    description: "Reference characteristic for dynamic modification"
+    data_element: QM_DYNMERKREF
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: PZLFH
+    description: "Item counter for production resources/tools"
+    data_element: PZLFH
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: CODEGRQUAL
+    description: "Code group for qualitative characteristics"
+    data_element: QM_CODEGRQUAL
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: CODEQUAL
+    description: "Catalog type for qualitative characteristics"
+    data_element: QM_CODEQUAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SPCKRIT
+    description: "SPC criterion"
+    data_element: QSPC_KRIT
+    check_table: QPSP
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: INPPROC
+    description: "Value entry"
+    data_element: QM_INPPROC
+    check_table: TQ71
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: RES_PLAN
+    description: "Indicator: results recording planned"
+    data_element: QM_RES_PLAN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CTRMETH
+    description: "Control method for the characteristic"
+    data_element: QM_CTRMETH
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: CHAORIG
+    description: "Origin of the characteristic"
+    data_element: QM_CHAORIG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CHAORIG_GUID
+    description: "GUID of the object the characteristic originates from"
+    data_element: QM_CHAORIG_GUID
+    check_table: ~
+    datatype: RAW
+    length: 16
+    decimals: 0
+    key: false
+  - name: NO_INSPECTION
+    description: "Indicator: characteristic not relevant for inspection"
+    data_element: QM_NO_INSPECTION
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QP_CHAORIG_ID
+    description: "ID of the object the characteristic originates from"
+    data_element: QP_CHAORIG_ID
+    check_table: ~
+    datatype: CHAR
+    length: 32
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MASSEINHSW
+    check_table: T006
+    check_field: MSEHI
+  - field: MERKGEW
+    check_table: TQ17A
+    check_field: GEWICHT
+  - field: EEANTVERF
+    check_table: TQ72
+    check_field: PROBENVERF
+  - field: FAKPLANME
+    check_table: T006
+    check_field: MSEHI
+  - field: FAKPROBME
+    check_table: T006
+    check_field: MSEHI
+  - field: INPPROC
+    check_table: TQ71
+    check_field: INPPROC
+  - field: PMETHODE
+    check_table: QMTB
+    check_field: PMETHODE
+  - field: PROBEMGEH
+    check_table: T006
+    check_field: MSEHI
+  - field: PRUEFQUALI
+    check_table: TQ11
+    check_field: PRUEFART
+  - field: QDYNREGEL
+    check_table: QDDR
+    check_field: DYNREGEL
+  - field: QERGDATH
+    check_table: TQ73
+    check_field: ERGDATH
+  - field: QMTB_WERKS
+    check_table: T001W
+    check_field: WERKS
+  - field: QPMK_REF
+    check_table: QPMK
+    check_field: QPMK
+  - field: SPCKRIT
+    check_table: QPSP
+    check_field: SPC_KRIT
+  - field: TOLERANZSL
+    check_table: TQ29
+    check_field: TOLKEY
+  - field: VERWMERKM
+    check_table: QPMK
+    check_field: QPMK
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -1,0 +1,286 @@
+table: QAVE
+module: QM
+description: "Inspection Processing: Usage Decision — the final disposition record for an inspection lot (or partial lot/single unit), carrying the selected-set/code-group/code combination, valuation, follow-up action, quality score, and who/when recorded or changed the decision. The usage-decision table alongside the measured-value tables QAMR/QASR."
+source: https://leanx.eu/en/sap/table/qave.html
+fields:
+  - name: MANDANT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: PRUEFLOS
+    description: "Inspection Lot Number"
+    data_element: QPLOS
+    check_table: QALS
+    datatype: NUMC
+    length: 12
+    decimals: 0
+    key: true
+  - name: KZART
+    description: "Inspection Lot, Partial Lot, Single Unit, Interval"
+    data_element: QKZART
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: ZAEHLER
+    description: "Counter for Usage Decision"
+    data_element: QVEZAEHLER
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: true
+  - name: VKATART
+    description: "Catalog"
+    data_element: QKATART
+    check_table: TQ15
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VWERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VAUSWAHLMG
+    description: "Selected Set of the Usage Decision"
+    data_element: QVMENGE
+    check_table: QPAM
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: VCODEGRP
+    description: "Code Group of the Usage Decision"
+    data_element: QVGRUPPE
+    check_table: QPGR
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: VCODE
+    description: "Usage Decision Code"
+    data_element: QVCODE
+    check_table: QPCD
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VERSIONAM
+    description: "Version Number of the Selected Set Record"
+    data_element: QVERSVE
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: VERSIONCD
+    description: "Version Number of the Code Record"
+    data_element: QVERSNRCD
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: VBEWERTUNG
+    description: "Code Valuation"
+    data_element: QBEWERTUNG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DBEWERTUNG
+    description: "Dynamic Modif. Valuation According to Worst Case Principle"
+    data_element: QDBEWERT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VFOLGEAKTI
+    description: "Follow-Up Action"
+    data_element: QFOLGEAKTI
+    check_table: TQ07
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: QKENNZAHL
+    description: "Quality Score"
+    data_element: QKENNZAHL
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: LTEXTKZ
+    description: "Long Text for Usage Decision"
+    data_element: QLTEXTAVE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VNAME
+    description: "Person who Made the Usage Decision"
+    data_element: QVNAME
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: VDATUM
+    description: "Date of Code Used for Usage Decision"
+    data_element: QVEDATUM
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: VEZEITERF
+    description: "Time when Usage Decision Was Recorded"
+    data_element: QVEZEITERF
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: VAENAME
+    description: "Person who Changed the Usage Decision"
+    data_element: QVAENAME
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: VAEDATUM
+    description: "Change Date of Usage Decision"
+    data_element: QVAEDATUM
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: VEZEITAEN
+    description: "Time when Usage Decision Changed"
+    data_element: QVEZEITAEN
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: STAFO
+    description: "Update group for statistics update"
+    data_element: STAFO
+    check_table: TMCB
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: TEILLOS
+    description: "Partial lot number"
+    data_element: QTLOS
+    check_table: QALT
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: VORGLFNR
+    description: "Current Node Number from Order Counter APLZL"
+    data_element: QLFNKN
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDANT
+    check_table: T000
+    check_field: MANDT
+  - field: PRUEFLOS
+    check_table: QALS
+    check_field: PRUEFLOS
+  - field: PRUEFLOS
+    check_table: QALS
+    check_field: MANDANT
+  - field: STAFO
+    check_table: TMCB
+    check_field: MANDT
+  - field: STAFO
+    check_table: TMCB
+    check_field: STAFO
+  - field: TEILLOS
+    check_table: QALT
+    check_field: TEILLOS
+  - field: TEILLOS
+    check_table: QALT
+    check_field: PRUEFLOS
+  - field: TEILLOS
+    check_table: QALT
+    check_field: MANDANT
+  - field: VAUSWAHLMG
+    check_table: QPAM
+    check_field: MANDT
+  - field: VAUSWAHLMG
+    check_table: QPAM
+    check_field: WERKS
+  - field: VAUSWAHLMG
+    check_table: QPAM
+    check_field: KATALOGART
+  - field: VAUSWAHLMG
+    check_table: QPAM
+    check_field: AUSWAHLMGE
+  - field: VCODE
+    check_table: QPCD
+    check_field: VERSION
+  - field: VCODE
+    check_table: QPCD
+    check_field: MANDT
+  - field: VCODE
+    check_table: QPCD
+    check_field: KATALOGART
+  - field: VCODE
+    check_table: QPCD
+    check_field: CODEGRUPPE
+  - field: VCODE
+    check_table: QPCD
+    check_field: CODE
+  - field: VCODEGRP
+    check_table: QPGR
+    check_field: MANDT
+  - field: VCODEGRP
+    check_table: QPGR
+    check_field: KATALOGART
+  - field: VCODEGRP
+    check_table: QPGR
+    check_field: CODEGRUPPE
+  - field: VFOLGEAKTI
+    check_table: TQ07
+    check_field: FOLGEAKTI
+  - field: VFOLGEAKTI
+    check_table: TQ07
+    check_field: MANDT
+  - field: VKATART
+    check_table: TQ15
+    check_field: KATALOGART
+  - field: VKATART
+    check_table: TQ15
+    check_field: MANDT
+  - field: VWERKS
+    check_table: T001W
+    check_field: WERKS
+  - field: VWERKS
+    check_table: T001W
+    check_field: MANDT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -1,0 +1,410 @@
+table: VBKD
+module: SD
+description: "Sales document business data — header- and item-level commercial terms (price group, Incoterms, payment terms, exchange rates for pricing, billing plan reference, customer PO reference) that condition the pricing and billing of a sales document. Can occur once per document (header, POSNR = '000000') or per item where item-specific business data overrides the header. SAP's real table carries roughly 130 fields, many industry-specific (IS-OIL, tax, SEPA); this definition is scoped to the key, pricing/currency, payment, and reference fields the SD pricing and billing model consumes — never silently truncated below that scope."
+source: https://leanx.eu/en/sap/table/vbkd.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: VBELN
+    description: "Sales and Distribution Document Number"
+    data_element: VBELN
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: POSNR
+    description: "Item number of the SD document"
+    data_element: POSNR
+    check_table: VBUP
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: true
+  - name: KONDA
+    description: "Price group (customer)"
+    data_element: KONDA
+    check_table: T188
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KDGRP
+    description: "Customer group"
+    data_element: KDGRP
+    check_table: T151
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: BZIRK
+    description: "Sales district"
+    data_element: BZIRK
+    check_table: T171
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: PLTYP
+    description: "Price list type"
+    data_element: PLTYP
+    check_table: T189
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: INCO1
+    description: "Incoterms (Part 1)"
+    data_element: INCO1
+    check_table: TINC
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: INCO2
+    description: "Incoterms (Part 2)"
+    data_element: INCO2
+    check_table: ~
+    datatype: CHAR
+    length: 28
+    decimals: 0
+    key: false
+  - name: PERFK
+    description: "Invoice dates (calendar identification)"
+    data_element: PERFK
+    check_table: TFACD
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PERRL
+    description: "Invoice list schedule (calendar identification)"
+    data_element: PERRL
+    check_table: TFACD
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KURRF
+    description: "Exchange rate for FI postings"
+    data_element: KURRF
+    check_table: ~
+    datatype: DEC
+    length: 9
+    decimals: 5
+    key: false
+  - name: VALTG
+    description: "Additional value days"
+    data_element: VALTG
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: VALDT
+    description: "Fixed value date"
+    data_element: VALDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ZTERM
+    description: "Terms of Payment Key"
+    data_element: DZTERM
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ZLSCH
+    description: "Payment Method"
+    data_element: SCHZW_BSEG
+    check_table: T042Z
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KTGRD
+    description: "Account assignment group for this customer"
+    data_element: KTGRD
+    check_table: TVKT
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KURSK
+    description: "Exchange Rate for Price Determination"
+    data_element: KURSK
+    check_table: ~
+    datatype: DEC
+    length: 9
+    decimals: 5
+    key: false
+  - name: PRSDT
+    description: "Date for pricing and exchange rate"
+    data_element: PRSDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: FKDAT
+    description: "Billing date for billing index and printout"
+    data_element: FKDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: FBUDA
+    description: "Date on which services rendered"
+    data_element: FBUDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: GJAHR
+    description: "Fiscal Year"
+    data_element: GJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: POPER
+    description: "Posting period"
+    data_element: POPER
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: STCUR
+    description: "Exchange rate for statistics"
+    data_element: STCUR
+    check_table: ~
+    datatype: DEC
+    length: 9
+    decimals: 5
+    key: false
+  - name: FPLNR
+    description: "Billing plan number / invoicing plan number"
+    data_element: FPLNR
+    check_table: FPLA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: WAKTION
+    description: "Promotion"
+    data_element: WAKTION
+    check_table: WAKH
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ABTNR
+    description: "Department number"
+    data_element: ABTNR
+    check_table: TSAB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BSTKD
+    description: "Customer purchase order number"
+    data_element: BSTKD
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: BSTDK
+    description: "Customer purchase order date"
+    data_element: BSTDK
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BSARK
+    description: "Customer purchase order type"
+    data_element: BSARK
+    check_table: T176
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: IHREZ
+    description: "Your Reference"
+    data_element: IHREZ
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: BSTKD_E
+    description: "Ship-to Party's Purchase Order Number"
+    data_element: BSTKD_E
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: BSTDK_E
+    description: "Ship-to party's PO date"
+    data_element: BSTDK_E
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: WKWAE
+    description: "Value contract currency"
+    data_element: WKWAE
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: WKKUR
+    description: "Exchange rate in value contract currency"
+    data_element: WKKUR
+    check_table: ~
+    datatype: DEC
+    length: 9
+    decimals: 5
+    key: false
+  - name: DELCO
+    description: "Agreed delivery time"
+    data_element: DELCO
+    check_table: TVDC
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: BEMOT
+    description: "Accounting Indicator"
+    data_element: BEMOT
+    check_table: TBMOT
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FAKTF
+    description: "Billing form"
+    data_element: FAKTF
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: VSART
+    description: "Shipping type"
+    data_element: VSARTTR
+    check_table: T173
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: SDABW
+    description: "Special processing indicator"
+    data_element: SDABW
+    check_table: TVSAK
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: FKBER
+    description: "Functional Area"
+    data_element: FKBER
+    check_table: TFKB
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: VKONT
+    description: "Contract Account Number"
+    data_element: CORR_VKONT_KK
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: VBELN
+    check_table: VBUK
+    check_field: VBELN
+  - field: POSNR
+    check_table: VBUP
+    check_field: POSNR
+  - field: KONDA
+    check_table: T188
+    check_field: KONDA
+  - field: KDGRP
+    check_table: T151
+    check_field: KDGRP
+  - field: BZIRK
+    check_table: T171
+    check_field: BZIRK
+  - field: PLTYP
+    check_table: T189
+    check_field: PLTYP
+  - field: INCO1
+    check_table: TINC
+    check_field: INCO1
+  - field: PERFK
+    check_table: TFACD
+    check_field: IDENT
+  - field: PERRL
+    check_table: TFACD
+    check_field: IDENT
+  - field: ZLSCH
+    check_table: T042Z
+    check_field: ZLSCH
+  - field: KTGRD
+    check_table: TVKT
+    check_field: KTGRD
+  - field: FPLNR
+    check_table: FPLA
+    check_field: FPLNR
+  - field: WAKTION
+    check_table: WAKH
+    check_field: AKTNR
+  - field: ABTNR
+    check_table: TSAB
+    check_field: ABTNR
+  - field: BSARK
+    check_table: T176
+    check_field: BSARK
+  - field: WKWAE
+    check_table: TCURC
+    check_field: WAERS
+  - field: DELCO
+    check_table: TVDC
+    check_field: DELCO
+  - field: BEMOT
+    check_table: TBMOT
+    check_field: BEMOT
+  - field: VSART
+    check_table: T173
+    check_field: VSART
+  - field: SDABW
+    check_table: TVSAK
+    check_field: SDABW
+  - field: FKBER
+    check_table: TFKB
+    check_field: FKBER
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

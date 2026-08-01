@@ -1,0 +1,122 @@
+table: MLGT
+module: MM
+description: "Material Data for Each Storage Type — the storage-type-specific bin and quantity control data for a material within a warehouse number, one row per material per warehouse number per storage type. Completes the warehouse-management material pair started by MLGN (warehouse-number-level defaults), narrowing down to the fixed bin, min/max/control/replenishment quantities, and picking area a specific storage type uses for that material. A small, complete check/control table by SAP's own standard — carried in full."
+source: https://leanx.eu/en/sap/table/mlgt.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: true
+  - name: LGNUM
+    description: "Warehouse Number / Warehouse Complex"
+    data_element: LGNUM
+    check_table: MLGN
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: true
+  - name: LGTYP
+    description: "Storage Type"
+    data_element: LGTYP
+    check_table: T301
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: true
+  - name: LVORM
+    description: "Deletion flag for all material data of a storage type"
+    data_element: LVOLT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LGPLA
+    description: "Storage Bin"
+    data_element: LGPLA
+    check_table: LAGP
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LPMAX
+    description: "Maximum storage bin quantity"
+    data_element: MLGT_LPMAX
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LPMIN
+    description: "Minimum storage bin quantity"
+    data_element: MLGT_LPMIN
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: MAMNG
+    description: "Control quantity"
+    data_element: MLGT_MAMNG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: NSMNG
+    description: "Replenishment quantity"
+    data_element: MLGT_NSMNG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: KOBER
+    description: "Picking Area"
+    data_element: KOBER
+    check_table: T30A
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: RDMNG
+    description: "Rounding qty"
+    data_element: MLGT_RDMNG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: LGNUM
+    check_table: MLGN
+    check_field: LGNUM
+  - field: LGTYP
+    check_table: T301
+    check_field: LGTYP
+  - field: LGPLA
+    check_table: LAGP
+    check_field: LGPLA
+  - field: KOBER
+    check_table: T30A
+    check_field: KOBER
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -1,0 +1,27 @@
+table: T370B
+module: PM
+description: "Technical Object Authorization Group — customizing table listing the valid authorization groups used to restrict access to technical objects. Referenced by BEGRU on EQUI (equipment authorization group) and IFLOT (functional location authorization group), which govern who may display or change that master record. Carried complete — small customizing table."
+source: https://leanx.eu/en/sap/table/t370b.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: BEGRU
+    description: "Technical object authorization group"
+    data_element: IAUTG
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

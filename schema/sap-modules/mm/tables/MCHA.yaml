@@ -1,0 +1,335 @@
+table: MCHA
+module: MM
+description: "Batches — the plant-specific batch master, one row per material per plant per batch, extending MCH1's cross-plant batch attributes with plant-level facts (valuation type via BWTAR) needed once a batch is stocked at a given plant. Sits between MCH1 (batch header) and MCHB (batch stock quantities by storage location) in the batch lane."
+source: https://leanx.eu/en/sap/table/mcha.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: true
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: MARC
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: CHARG
+    description: "Batch Number"
+    data_element: CHARG_D
+    check_table: MCH1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: LVORM
+    description: "Deletion Flag for All Data on a Batch at a Plant"
+    data_element: LVOCA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ERSDA
+    description: "Created On"
+    data_element: ERSDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: LAEDA
+    description: "Date of Last Change"
+    data_element: LAEDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: VERAB
+    description: "Availability date"
+    data_element: VERAB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: VFDAT
+    description: "Shelf Life Expiration or Best-Before Date"
+    data_element: VFDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ZUSCH
+    description: "Batch status key"
+    data_element: DZUSCH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZUSTD
+    description: "Batch in Restricted-Use Stock"
+    data_element: DZUSTD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZAEDT
+    description: "Date of last status change"
+    data_element: DZAEDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: LIFNR
+    description: "Vendor Account Number"
+    data_element: ELIFN
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LICHA
+    description: "Vendor Batch Number"
+    data_element: LICHN
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: VLCHA
+    description: "Original batch number (deactivated)"
+    data_element: VLCHN
+    check_table: MCHA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: VLWRK
+    description: "Original plant (deactivated)"
+    data_element: VLWRK
+    check_table: MARC
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VLMAT
+    description: "Original material (deactivated)"
+    data_element: VLMAT
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: BWTAR
+    description: "Valuation Type"
+    data_element: BWTAR_D
+    check_table: MBEW
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: CHAME
+    description: "Unit of issue for batch (deactivated)"
+    data_element: CHAME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: LWEDT
+    description: "Date of last goods receipt"
+    data_element: LWEDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: FVDT1
+    description: "Date for unrestricted use"
+    data_element: FVDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: FVDT2
+    description: "Date for unrestricted use"
+    data_element: FVDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: FVDT3
+    description: "Date for unrestricted use"
+    data_element: FVDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: FVDT4
+    description: "Date for unrestricted use"
+    data_element: FVDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: FVDT5
+    description: "Date for unrestricted use"
+    data_element: FVDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: FVDT6
+    description: "Date for unrestricted use"
+    data_element: FVDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: HERKL
+    description: "Country of origin of the material"
+    data_element: HERKL
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: HERKR
+    description: "Region of origin of material (non-preferential origin)"
+    data_element: HERKR
+    check_table: T005S
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: MTVER
+    description: "Export/import material group"
+    data_element: MTVER
+    check_table: TVFM
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: QNDAT
+    description: "Next Inspection Date"
+    data_element: QNPDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: HSDAT
+    description: "Date of Manufacture"
+    data_element: HSDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: CUOBJ_BM
+    description: "Internal object no.: Batch classification"
+    data_element: CUOBJ_BM
+    check_table: ~
+    datatype: NUMC
+    length: 18
+    decimals: 0
+    key: false
+  - name: DEACT_BM
+    description: "Batch is no longer active"
+    data_element: DEACT_BM
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BATCH_TYPE
+    description: "Type of Batch"
+    data_element: BATCH_TYPE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: WERKS
+    check_table: MARC
+    check_field: WERKS
+  - field: CHARG
+    check_table: MCH1
+    check_field: CHARG
+  - field: LIFNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: VLCHA
+    check_table: MCHA
+    check_field: CHARG
+  - field: VLWRK
+    check_table: MARC
+    check_field: WERKS
+  - field: VLMAT
+    check_table: MARA
+    check_field: MATNR
+  - field: BWTAR
+    check_table: MBEW
+    check_field: BWTAR
+  - field: CHAME
+    check_table: T006
+    check_field: MSEHI
+  - field: HERKL
+    check_table: T005
+    check_field: LAND1
+  - field: HERKR
+    check_table: T005S
+    check_field: BLAND
+  - field: MTVER
+    check_table: TVFM
+    check_field: MTVER
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

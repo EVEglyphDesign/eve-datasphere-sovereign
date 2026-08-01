@@ -1,0 +1,27 @@
+table: TSPA
+module: SD
+description: "Organizational check table: sales divisions — the master list of divisions (SPART) that every SD document's division field validates against, and the target of the reference-division fields on TVTA. SAP's real table is minimal at the client/key level (division text and further attributes live on language-dependent and extension tables); this definition carries the base key structure as sourced. Carried complete as a small organizational customizing table."
+source: https://leanx.eu/en/sap/table/tspa.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: SPART
+    description: "Division"
+    data_element: SPART
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

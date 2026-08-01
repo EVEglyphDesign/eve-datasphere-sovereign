@@ -1,0 +1,497 @@
+table: PLMZ
+module: PP
+description: "Allocation of Bill of Material Items to Operations — assigns BOM component line items (STLTY/STLNR/STLAL/STLKN) to task-list operations (PLNTY/PLNNR/PLNAL/PLNKN), carrying cutting measures, backflush, and account-assignment attributes. Task-list component allocation beside the sequence tables PLKO/PLPO and BOM item table STPO."
+source: https://leanx.eu/en/sap/table/plmz.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: PLNTY
+    description: "Task List Type"
+    data_element: PLNTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: PLNNR
+    description: "Key for Task List Group"
+    data_element: PLNNR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: true
+  - name: ZUONR
+    description: "No. for material comp. allocation to task list"
+    data_element: CIM_ZUORD
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: ZAEHL
+    description: "Internal counter"
+    data_element: CIM_COUNT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: DATUV
+    description: "Valid-From Date"
+    data_element: DATUV
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: TECHV
+    description: "Technical status from"
+    data_element: TECHV
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AENNR
+    description: "Change Number"
+    data_element: AENNR
+    check_table: AENR
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: LOEKZ
+    description: "Deletion Indicator"
+    data_element: LKENZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PARKZ
+    description: "Indicator: inactive changes"
+    data_element: PARKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLNAL
+    description: "Group Counter"
+    data_element: PLNAL
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PLNFL
+    description: "Sequence"
+    data_element: PLNFOLGE
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: PLNKN
+    description: "Task list node number for operation"
+    data_element: CIM_PLNKN
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: STLTY
+    description: "BOM category"
+    data_element: STLTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STLNR
+    description: "Bill of material"
+    data_element: STNUM
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: STLAL
+    description: "Alternative BOM"
+    data_element: STALT
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: STLKN
+    description: "Node Number"
+    data_element: KNTNR
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: WERK_STL
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: MAST
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ZUDIV
+    description: "Integral divisor for cutting measures"
+    data_element: DZUDIV
+    check_table: ~
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: ZUMS1
+    description: "Cutting measure 1"
+    data_element: DZUMS1
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: ZUMS2
+    description: "Cutting measure 2"
+    data_element: DZUMS2
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: ZUMS3
+    description: "Cutting measure 3"
+    data_element: DZUMS3
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: ZUMEI
+    description: "Unit for cutting measures"
+    data_element: DZUMEI
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: IMENG
+    description: "Component quantity"
+    data_element: KMPMG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: IMEIN
+    description: "Component unit of measure"
+    data_element: KMPME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ANDAT
+    description: "Date record created on"
+    data_element: ANDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ANNAM
+    description: "User who created record"
+    data_element: ANNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Change date for which no change record is created"
+    data_element: CIM_AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: RGEKZ
+    description: "Indicator: Backflush"
+    data_element: RGEKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STLST
+    description: "Order level"
+    data_element: AUFST
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: STLWG
+    description: "Order path"
+    data_element: AUFWG
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: REFKN
+    description: "Number of the task list node"
+    data_element: PLNKN
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: GP_MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: GP_WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: GP_UVORN
+    description: "Suboperation"
+    data_element: UVORN
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: GP_KRIT1
+    description: "Planning object"
+    data_element: PLOBJ
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: GP_FREET
+    description: "Line text: SOP"
+    data_element: LINTX
+    check_table: ~
+    datatype: CHAR
+    length: 60
+    decimals: 0
+    key: false
+  - name: AOBAR
+    description: "Type of relationship"
+    data_element: AOBAR
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ZEINH
+    description: "Unit for the time interval between relationships"
+    data_element: AOBDAUEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: DAUER
+    description: "Time interval between relationships"
+    data_element: AOBDAUER
+    check_table: ~
+    datatype: QUAN
+    length: 5
+    decimals: 1
+    key: false
+  - name: DMENG
+    description: "Average component quantity"
+    data_element: DKMPMG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: KNTTP
+    description: "Account Assignment Category"
+    data_element: KNTTP
+    check_table: T163K
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLGEX
+    description: "Indicator: External procurement"
+    data_element: FLGEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VORAB
+    description: "Ind: Preliminary order"
+    data_element: VORABKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STRECKE
+    description: "Ind.: Third-party requisition"
+    data_element: STRECKE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STLTY_W
+    description: "BOM category"
+    data_element: STLTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STLNR_W
+    description: "Bill of material"
+    data_element: STNUM
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: STLAL_W
+    description: "Alternative BOM"
+    data_element: STALT
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KANTE
+    description: "Path in exploded BOM tree"
+    data_element: KANTE_K
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: LGORT
+    description: "Storage location storage resource"
+    data_element: LGORT_RES
+    check_table: T001L
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: DISP
+    description: "Relevancy to Materials Planning/Generation of Purchase Req."
+    data_element: DISP_PLUS_1
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PRODFLOWID
+    description: "Product Flow Indicator"
+    data_element: PRDFLID
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BEIKZ
+    description: "Material Provision Indicator"
+    data_element: BEIKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: AENNR
+    check_table: AENR
+    check_field: MANDT
+  - field: AENNR
+    check_table: AENR
+    check_field: AENNR
+  - field: IMEIN
+    check_table: T006
+    check_field: MSEHI
+  - field: IMEIN
+    check_table: T006
+    check_field: MANDT
+  - field: KNTTP
+    check_table: T163K
+    check_field: KNTTP
+  - field: KNTTP
+    check_table: T163K
+    check_field: MANDT
+  - field: LGORT
+    check_table: T001L
+    check_field: LGORT
+  - field: LGORT
+    check_table: T001L
+    check_field: MANDT
+  - field: WERK_STL
+    check_table: MAST
+    check_field: STLAL
+  - field: WERK_STL
+    check_table: MAST
+    check_field: STLNR
+  - field: WERK_STL
+    check_table: MAST
+    check_field: STLAN
+  - field: WERK_STL
+    check_table: MAST
+    check_field: WERKS
+  - field: WERK_STL
+    check_table: MAST
+    check_field: MATNR
+  - field: WERK_STL
+    check_table: MAST
+    check_field: MANDT
+  - field: ZEINH
+    check_table: T006
+    check_field: MANDT
+  - field: ZEINH
+    check_table: T006
+    check_field: MSEHI
+  - field: ZUMEI
+    check_table: T006
+    check_field: MANDT
+  - field: ZUMEI
+    check_table: T006
+    check_field: MSEHI
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

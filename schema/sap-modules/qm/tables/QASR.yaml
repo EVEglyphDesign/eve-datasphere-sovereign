@@ -1,0 +1,728 @@
+table: QASR
+module: QM
+description: "Sample Results for Inspection Characteristics — the per-partial-sample measured-value record for one inspection characteristic within an inspection lot (statistics, defect counts, valuation, defect-code assignment), keyed one level finer than QAMR by PROBENR. One of the two measured-value tables alongside QAMR (characteristic-level results); rolls up to the usage decision in QAVE."
+source: https://leanx.eu/en/sap/table/qasr.html
+fields:
+  - name: MANDANT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: PRUEFLOS
+    description: "Inspection Lot Number"
+    data_element: QPLOS
+    check_table: QALS
+    datatype: NUMC
+    length: 12
+    decimals: 0
+    key: true
+  - name: VORGLFNR
+    description: "Current Node Number from Order Counter APLZL"
+    data_element: QLFNKN
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: MERKNR
+    description: "Inspection Characteristic Number"
+    data_element: QMERKNRP
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: PROBENR
+    description: "Number of the Partial Sample"
+    data_element: QSTIPRONR
+    check_table: QASV
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: true
+  - name: SATZSTATUS
+    description: "Results Record Status"
+    data_element: QBEASTATUS
+    check_table: TQ76
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ATTRIBUT
+    description: "Attribute of the Results Record (Valid, Invalid,...)"
+    data_element: QATTRIBUT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QERGDATH
+    description: "Origin of Results Data"
+    data_element: QERGDATH
+    check_table: TQ73
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ERSTELLER
+    description: "Name of User Who Created the Data Record"
+    data_element: QERSTELLER
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERSTELLDAT
+    description: "Date on Which the Data Record Was Created"
+    data_element: QDATUMERST
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENDERER
+    description: "Name of User who Most Recently Changed the Data Record"
+    data_element: QAENDERER
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AENDERDAT
+    description: "Date on Which Data Record Was Changed"
+    data_element: QDATUMAEND
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: MBEWERTG
+    description: "Inspection Result Valuation"
+    data_element: QMBEWERTG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DBEWERTG
+    description: "Valuation of the Characteristic for Dynamic Modification"
+    data_element: QDBEWERTG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PRUEFER
+    description: "Name of the Inspector"
+    data_element: QPRUEFER
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: PRUEFDATUV
+    description: "Inspection Start Date"
+    data_element: QPRUEFDATV
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PRUEFDATUB
+    description: "End Date of the Inspection"
+    data_element: QPRUEFDATB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PRUEFZEITV
+    description: "Starting Time of the Inspection"
+    data_element: QPRUEFZTV
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: PRUEFZEITB
+    description: "End Time of the Inspection"
+    data_element: QPRUEFZTB
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: PRUEFBEMKT
+    description: "Short Text"
+    data_element: QKURZTEXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: PRLTEXTKZ
+    description: "Inspection Characteristic Long Text Exists"
+    data_element: QLTEXTKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LTEXTSPR
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: ISTSTPUMF
+    description: "Number of Recorded Sample Units"
+    data_element: QISTSTPUMF
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: ANZFEHLEH
+    description: "Number of Nonconforming Sample Units"
+    data_element: QANZFEHEH2
+    check_table: ~
+    datatype: INT2
+    length: 5
+    decimals: 0
+    key: false
+  - name: ANTEILNI
+    description: "Not Initialized for Fraction"
+    data_element: QNIANTEIL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ANTEIL
+    description: "Estimated Fraction of Nonconforming Sample Units"
+    data_element: QANTEIL
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: ANZFEHLER
+    description: "Number of Defects Found"
+    data_element: QANZFEHL2
+    check_table: ~
+    datatype: INT2
+    length: 5
+    decimals: 0
+    key: false
+  - name: ANZWERTO
+    description: "Number of Measured Values Above the Tolerance Range"
+    data_element: QANZWERTO2
+    check_table: ~
+    datatype: INT2
+    length: 5
+    decimals: 0
+    key: false
+  - name: ANZWERTU
+    description: "Number of Measured Values Below the Tolerance Range"
+    data_element: QANZWERTU2
+    check_table: ~
+    datatype: INT2
+    length: 5
+    decimals: 0
+    key: false
+  - name: ANZWERTG
+    description: "Number of Inspected Sample Units"
+    data_element: QANZWERTG2
+    check_table: ~
+    datatype: INT2
+    length: 5
+    decimals: 0
+    key: false
+  - name: MAXWERTNI
+    description: "Value Not Initial if Set"
+    data_element: QNINITIAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MEDIANNI
+    description: "Value Not Initial if Set"
+    data_element: QNINITIAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MINWERTNI
+    description: "Value Not Initial if Set"
+    data_element: QNINITIAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MITTELWNI
+    description: "Value Not Initial if Set"
+    data_element: QNINITIAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VARIANZNI
+    description: "Value Not Initial if Set"
+    data_element: QNINITIAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MOMENT3NI
+    description: "Value Not Initial if Set"
+    data_element: QNINITIAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MOMENT4NI
+    description: "Value Not Initial if Set"
+    data_element: QNINITIAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ANTEILONI
+    description: "Value Not Initial if Set"
+    data_element: QNINITIAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ANTEILUNI
+    description: "Value Not Initial if Set"
+    data_element: QNINITIAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MAXWERT
+    description: "Maximum Value of the Valid Measured Values"
+    data_element: QMAXWERT
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: MEDIANWERT
+    description: "Median of Valid Measured Values"
+    data_element: QMEDIANWRT
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: MINWERT
+    description: "Minimum Value of the Valid Measured Values"
+    data_element: QMINWERT
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: MITTELWERT
+    description: "Arithmetic Mean of Valid Measured Values"
+    data_element: QMITTELWRT
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: VARIANZ
+    description: "Dispersion (Variance) of Valid Measured Values"
+    data_element: QVARIANZ
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: MOMENT3
+    description: "Third Central Moment of Valid Measured Values"
+    data_element: QMOMENT3
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: MOMENT4
+    description: "Fourth Central Moment of Valid Measured Values"
+    data_element: QMOMENT4
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: ANTEILO
+    description: "Estimated Fraction Above the Tolerance Range"
+    data_element: QANTEILO
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: ANTEILU
+    description: "Estimated Fraction Below the Tolerance Range"
+    data_element: QANTEILU
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: KATALGART1
+    description: "Catalog Type of Assigned Code Group or Selected Set"
+    data_element: QKATAUSW
+    check_table: TQ15
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GRUPPE1
+    description: "Code Group"
+    data_element: QCODEGRP
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: CODE1
+    description: "Code"
+    data_element: QCODE
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VERSION1
+    description: "Version Number"
+    data_element: QVERSNR
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: KATALGART2
+    description: "Catalog Type of Assigned Code Group or Selected Set"
+    data_element: QKATAUSW
+    check_table: TQ15
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GRUPPE2
+    description: "Code Group"
+    data_element: QCODEGRP
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: CODE2
+    description: "Code"
+    data_element: QCODE
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VERSION2
+    description: "Version Number"
+    data_element: QVERSNR
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: KATALGART3
+    description: "Catalog Type of Assigned Code Group or Selected Set"
+    data_element: QKATAUSW
+    check_table: TQ15
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GRUPPE3
+    description: "Code Group"
+    data_element: QCODEGRP
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: CODE3
+    description: "Code"
+    data_element: QCODE
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VERSION3
+    description: "Version Number"
+    data_element: QVERSNR
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: KATALGART4
+    description: "Catalog Type of Assigned Code Group or Selected Set"
+    data_element: QKATAUSW
+    check_table: TQ15
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GRUPPE4
+    description: "Code Group"
+    data_element: QCODEGRP
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: CODE4
+    description: "Code"
+    data_element: QCODE
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VERSION4
+    description: "Version Number"
+    data_element: QVERSNR
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: KATALGART5
+    description: "Catalog Type of Assigned Code Group or Selected Set"
+    data_element: QKATAUSW
+    check_table: TQ15
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GRUPPE5
+    description: "Code Group"
+    data_element: QCODEGRP
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: CODE5
+    description: "Code"
+    data_element: QCODE
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VERSION5
+    description: "Version Number"
+    data_element: QVERSNR
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: FEHLKLAS
+    description: "Defect Class"
+    data_element: QFEHLKLAS
+    check_table: TQ17
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: SENDEFLAG
+    description: "Characteristic Result Confirmation from Control Station"
+    data_element: QSENDEFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MASCHINE
+    description: "General Information"
+    data_element: QMASCHINE
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: POSITION
+    description: "Test Position"
+    data_element: QPRPOS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: AENDBELEG
+    description: "Create Change Documents During Results Recording"
+    data_element: QKZAENBEL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZBEWERTG
+    description: "Valuation Copied or Forced"
+    data_element: QKZBEWERTG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZEITERSTL
+    description: "Time at which data record was created"
+    data_element: QZEITERSTL
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: ZEITAEND
+    description: "Time at which data record was last changed"
+    data_element: QZEITAEND
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: ORIGINAL_INPUT
+    description: "Original Value Before Input Processing"
+    data_element: QORIGINAL_INPUT
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: DIFF_DEC_PLACES
+    description: "Different Number of Decimal Places"
+    data_element: QDIFF_DEC_PLACES
+    check_table: ~
+    datatype: INT2
+    length: 5
+    decimals: 0
+    key: false
+  - name: INPPROC_READY
+    description: "Input Processing Successfully Completed"
+    data_element: QINPPROC_READY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SIGN_ID
+    description: "Digital Signature for Process"
+    data_element: SIGN_GUID_22_CHG
+    check_table: ~
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: SIGN_STATE
+    description: "Status of Signature Process"
+    data_element: SIGN_STATE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDANT
+    check_table: T000
+    check_field: MANDT
+  - field: PRUEFLOS
+    check_table: QALS
+    check_field: MANDANT
+  - field: PRUEFLOS
+    check_table: QALS
+    check_field: PRUEFLOS
+  - field: PROBENR
+    check_table: QASV
+    check_field: MANDANT
+  - field: PROBENR
+    check_table: QASV
+    check_field: PRUEFLOS
+  - field: PROBENR
+    check_table: QASV
+    check_field: VORGLFNR
+  - field: PROBENR
+    check_table: QASV
+    check_field: MERKNR
+  - field: PROBENR
+    check_table: QASV
+    check_field: PROBENR
+  - field: SATZSTATUS
+    check_table: TQ76
+    check_field: STATUS
+  - field: QERGDATH
+    check_table: TQ73
+    check_field: MANDT
+  - field: QERGDATH
+    check_table: TQ73
+    check_field: QERGDATH
+  - field: LTEXTSPR
+    check_table: T002
+    check_field: SPRAS
+  - field: KATALGART1
+    check_table: TQ15
+    check_field: MANDT
+  - field: KATALGART1
+    check_table: TQ15
+    check_field: KATALOGART
+  - field: KATALGART2
+    check_table: TQ15
+    check_field: MANDT
+  - field: KATALGART2
+    check_table: TQ15
+    check_field: KATALOGART
+  - field: KATALGART3
+    check_table: TQ15
+    check_field: MANDT
+  - field: KATALGART3
+    check_table: TQ15
+    check_field: KATALOGART
+  - field: KATALGART4
+    check_table: TQ15
+    check_field: MANDT
+  - field: KATALGART4
+    check_table: TQ15
+    check_field: KATALOGART
+  - field: KATALGART5
+    check_table: TQ15
+    check_field: MANDT
+  - field: KATALGART5
+    check_table: TQ15
+    check_field: KATALOGART
+  - field: FEHLKLAS
+    check_table: TQ17
+    check_field: MANDT
+  - field: FEHLKLAS
+    check_table: TQ17
+    check_field: FEHLKLASSE
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -1,0 +1,217 @@
+table: KONH
+module: SD
+description: "Condition header — the pricing master record header behind every condition record (rebate agreement, price list, promotion). Grouped with KONP (condition items/rates) as the master-data pair that condition-access tables such as A004 point to via KNUMH; document-level pricing captured in KONV during order/delivery/billing processing is a runtime snapshot of what KONH/KONP defined at the time of pricing."
+source: https://leanx.eu/en/sap/table/konh.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: KNUMH
+    description: "Condition record number"
+    data_element: KNUMH
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: KVEWE
+    description: "Usage of the condition table"
+    data_element: KVEWE
+    check_table: T681V
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KOTABNR
+    description: "Condition table"
+    data_element: KOTABNR
+    check_table: T681
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: KAPPL
+    description: "Application"
+    data_element: KAPPL
+    check_table: T681A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KSCHL
+    description: "Condition type"
+    data_element: KSCHA
+    check_table: T685
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VAKEY
+    description: "Variable key 100 bytes"
+    data_element: VAKEY
+    check_table: ~
+    datatype: CHAR
+    length: 100
+    decimals: 0
+    key: false
+  - name: DATAB
+    description: "Valid-From Date"
+    data_element: DATAB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: DATBI
+    description: "Valid To Date"
+    data_element: DATBI
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: KOSRT
+    description: "Search term for conditions"
+    data_element: KOSRT
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KZUST
+    description: "Responsibility in SD for condition/material"
+    data_element: KZUST
+    check_table: T686C
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: KNUMA_PI
+    description: "Promotion"
+    data_element: KNUMA_PI
+    check_table: KONA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KNUMA_AG
+    description: "Sales deal"
+    data_element: KNUMA_AG
+    check_table: KONA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KNUMA_SQ
+    description: "Sales quote"
+    data_element: KNUMA_SQ
+    check_table: KONA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KNUMA_SD
+    description: "Standard agreement"
+    data_element: KNUMA_SD
+    check_table: KONA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AKTNR
+    description: "Promotion"
+    data_element: WAKTION
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KNUMA_BO
+    description: "Agreement (subsequent settlement)"
+    data_element: KNUMA_BO
+    check_table: KONA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LICNO
+    description: "Tax exemption license number"
+    data_element: LICNO
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: LICDT
+    description: "Date license granted"
+    data_element: LICDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: VADAT
+    description: "Variable Data Part"
+    data_element: VADAT_KO
+    check_table: ~
+    datatype: CHAR
+    length: 100
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: KVEWE
+    check_table: T681V
+    check_field: KVEWE
+  - field: KOTABNR
+    check_table: T681
+    check_field: KOTABNR
+  - field: KAPPL
+    check_table: T681A
+    check_field: KAPPL
+  - field: KSCHL
+    check_table: T685
+    check_field: KSCHL
+  - field: KZUST
+    check_table: T686C
+    check_field: KZUST
+  - field: KNUMA_PI
+    check_table: KONA
+    check_field: KNUMA
+  - field: KNUMA_AG
+    check_table: KONA
+    check_field: KNUMA
+  - field: KNUMA_SQ
+    check_table: KONA
+    check_field: KNUMA
+  - field: KNUMA_SD
+    check_table: KONA
+    check_field: KNUMA
+  - field: KNUMA_BO
+    check_table: KONA
+    check_field: KNUMA
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -1,0 +1,98 @@
+table: A004
+module: SD
+description: "Condition access table for material pricing — one of the standard SD pricing-procedure access sequence tables, keyed on sales organization, distribution channel and material, resolving to the KNUMH condition record number that joins into KONH/KONP to fetch the actual rate. Shows how a price is found: the pricing procedure walks an access sequence of tables like A004 in priority order until a valid, date-effective condition record is located."
+source: https://leanx.eu/en/sap/table/a004.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: KAPPL
+    description: "Application"
+    data_element: KAPPL
+    check_table: T681A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: KSCHL
+    description: "Condition type"
+    data_element: KSCHA
+    check_table: T685
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: VKORG
+    description: "Sales Organization"
+    data_element: VKORG
+    check_table: TVKO
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: VTWEG
+    description: "Distribution Channel"
+    data_element: VTWEG
+    check_table: TVTW
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: true
+  - name: DATBI
+    description: "Validity end date of the condition record"
+    data_element: KODATBI
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: DATAB
+    description: "Validity start date of the condition record"
+    data_element: KODATAB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: KNUMH
+    description: "Condition record number"
+    data_element: KNUMH
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: KAPPL
+    check_table: T681A
+    check_field: KAPPL
+  - field: KSCHL
+    check_table: T685
+    check_field: KSCHL
+  - field: VKORG
+    check_table: TVKO
+    check_field: VKORG
+  - field: VTWEG
+    check_table: TVTW
+    check_field: VTWEG
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

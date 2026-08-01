@@ -1,0 +1,572 @@
+table: MVKE
+module: MM
+description: "Sales Data for Material — the sales-organization/distribution-channel view of a material, one row per material per sales org per distribution channel, sitting alongside the plant-level MARC and storage-location MARD data already defined here. MVKE carries the commercial attributes (sales status, delivering plant, minimum order/delivery quantities, material pricing/rebate/commission groups, product hierarchy) that an order-to-cash or pricing lane consumes when a material is sold rather than merely stocked or procured."
+source: https://leanx.eu/en/sap/table/mvke.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: true
+  - name: VKORG
+    description: "Sales Organization"
+    data_element: VKORG
+    check_table: TVKO
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: VTWEG
+    description: "Distribution Channel"
+    data_element: VTWEG
+    check_table: TVTW
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: LVORM
+    description: "Ind.: Flag material for deletion at distribution chain level"
+    data_element: LVOVK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VERSG
+    description: "Material statistics group"
+    data_element: STGMA
+    check_table: TVSM
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BONUS
+    description: "Volume rebate group"
+    data_element: BONUS
+    check_table: TVBO
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PROVG
+    description: "Commission group"
+    data_element: PROVG
+    check_table: TVPR
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: SKTOF
+    description: "Cash discount indicator"
+    data_element: SKTOF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VMSTA
+    description: "Distribution-chain-specific material status"
+    data_element: VMSTA
+    check_table: TVMS
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: VMSTD
+    description: "Date from which distr.-chain-spec. material status is valid"
+    data_element: VMSTD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AUMNG
+    description: "Minimum order quantity in base unit of measure"
+    data_element: MINAU
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LFMNG
+    description: "Minimum delivery quantity in delivery note processing"
+    data_element: MINLF
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: EFMNG
+    description: "Minimum make-to-order quantity"
+    data_element: MINEF
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: SCMNG
+    description: "Delivery unit"
+    data_element: SCHRT
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: SCHME
+    description: "Unit of measure of delivery unit"
+    data_element: SCHME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: VRKME
+    description: "Sales unit"
+    data_element: VRKME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: MTPOS
+    description: "Item category group from material master"
+    data_element: MTPOS
+    check_table: TPTM
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: DWERK
+    description: "Delivering Plant (Own or External)"
+    data_element: DWERK_EXT
+    check_table: TVKWZ
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PRODH
+    description: "Product hierarchy"
+    data_element: PRODH_D
+    check_table: T179
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: PMATN
+    description: "Pricing Reference Material"
+    data_element: PMATN
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: KONDM
+    description: "Material Pricing Group"
+    data_element: KONDM
+    check_table: T178
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KTGRM
+    description: "Account assignment group for this material"
+    data_element: KTGRM
+    check_table: TVKM
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: MVGR1
+    description: "Material group 1"
+    data_element: MVGR1
+    check_table: TVM1
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: MVGR2
+    description: "Material group 2"
+    data_element: MVGR2
+    check_table: TVM2
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: MVGR3
+    description: "Material group 3"
+    data_element: MVGR3
+    check_table: TVM3
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: MVGR4
+    description: "Material group 4"
+    data_element: MVGR4
+    check_table: TVM4
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: MVGR5
+    description: "Material group 5"
+    data_element: MVGR5
+    check_table: TVM5
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: SSTUF
+    description: "Assortment grade"
+    data_element: SSTUF
+    check_table: TWSS
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PFLKS
+    description: "External assortment priority"
+    data_element: PFLKS
+    check_table: TWSP
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LSTFL
+    description: "Listing procedure for store or other assortment categories"
+    data_element: LSTFL
+    check_table: TWLV
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LSTVZ
+    description: "Listing procedure for distr. center assortment categories"
+    data_element: LSTVZ
+    check_table: TWLV
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LSTAK
+    description: "Listing functions (assortments) are active"
+    data_element: LSTAK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LDVFL
+    description: "Date from which listed in the store"
+    data_element: LDVFL
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: LDBFL
+    description: "Date to which listed in the store"
+    data_element: LDBFL
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: LDVZL
+    description: "Date from which listed in the distribution center"
+    data_element: LDVZL
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: LDBZL
+    description: "Date to which listed in the central warehouse/distr. center"
+    data_element: LDBZL
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: VDVFL
+    description: "Date from which sold in the store"
+    data_element: VDVFL
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: VDBFL
+    description: "Date to which sold in the store"
+    data_element: VDBFL
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: VDVZL
+    description: "Date from which sold in the distribution center"
+    data_element: VDVZL
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: VDBZL
+    description: "Date to which sold in the distribution center"
+    data_element: VDBZL
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PRAT1
+    description: "ID for product attribute 1"
+    data_element: PRAT1
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PRAT2
+    description: "ID for product attribute 2"
+    data_element: PRAT2
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PRAT3
+    description: "ID for product attribute 3"
+    data_element: PRAT3
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PRAT4
+    description: "ID for product attribute 4"
+    data_element: PRAT4
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PRAT5
+    description: "ID for product attribute 5"
+    data_element: PRAT5
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PRAT6
+    description: "ID for product attribute 6"
+    data_element: PRAT6
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PRAT7
+    description: "ID for product attribute 7"
+    data_element: PRAT7
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PRAT8
+    description: "ID for product attribute 8"
+    data_element: PRAT8
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PRAT9
+    description: "ID for product attribute 9"
+    data_element: PRAT9
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PRATA
+    description: "ID for product attribute 10"
+    data_element: PRATA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RDPRF
+    description: "Rounding Profile"
+    data_element: RDPRF
+    check_table: RDPR
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: MEGRU
+    description: "Unit of Measure Group"
+    data_element: MEGRU
+    check_table: TWMEG
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LFMAX
+    description: "Maximum delivery quantity in store order processing"
+    data_element: MAXLF
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: RJART
+    description: "Flag rackjobber material"
+    data_element: RJART
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PBIND
+    description: "Indicator for price fixing"
+    data_element: PBIND
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VAVME
+    description: "Variable Sales Unit Not Allowed"
+    data_element: VAVME
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MATKC
+    description: "Competition characterization of a material"
+    data_element: MATKC
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PVMSO
+    description: "Material sorting in product proposal"
+    data_element: PVMSO
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: PLGTP
+    description: "Price Band Category"
+    data_element: WRF_PLGTP
+    check_table: TWPT
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: VKORG
+    check_table: TVKO
+    check_field: VKORG
+  - field: VTWEG
+    check_table: TVTW
+    check_field: VTWEG
+  - field: VERSG
+    check_table: TVSM
+    check_field: STGMA
+  - field: BONUS
+    check_table: TVBO
+    check_field: BONUS
+  - field: PROVG
+    check_table: TVPR
+    check_field: PROVG
+  - field: VMSTA
+    check_table: TVMS
+    check_field: VMSTA
+  - field: SCHME
+    check_table: T006
+    check_field: MSEHI
+  - field: VRKME
+    check_table: T006
+    check_field: MSEHI
+  - field: MTPOS
+    check_table: TPTM
+    check_field: MTPOS
+  - field: DWERK
+    check_table: TVKWZ
+    check_field: WERKS
+  - field: PRODH
+    check_table: T179
+    check_field: PRODH
+  - field: PMATN
+    check_table: MARA
+    check_field: MATNR
+  - field: KONDM
+    check_table: T178
+    check_field: KONDM
+  - field: KTGRM
+    check_table: TVKM
+    check_field: KTGRM
+  - field: MVGR1
+    check_table: TVM1
+    check_field: MVGR1
+  - field: MVGR2
+    check_table: TVM2
+    check_field: MVGR2
+  - field: MVGR3
+    check_table: TVM3
+    check_field: MVGR3
+  - field: MVGR4
+    check_table: TVM4
+    check_field: MVGR4
+  - field: MVGR5
+    check_table: TVM5
+    check_field: MVGR5
+  - field: SSTUF
+    check_table: TWSS
+    check_field: SSTUF
+  - field: PFLKS
+    check_table: TWSP
+    check_field: PFLKS
+  - field: LSTFL
+    check_table: TWLV
+    check_field: LSTFL
+  - field: LSTVZ
+    check_table: TWLV
+    check_field: LSTFL
+  - field: RDPRF
+    check_table: RDPR
+    check_field: RDPRF
+  - field: MEGRU
+    check_table: TWMEG
+    check_field: MEGRU
+  - field: PLGTP
+    check_table: TWPT
+    check_field: PLGTP
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

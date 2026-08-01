@@ -1,0 +1,429 @@
+table: FLEET
+module: PM
+description: "Fleet Attributes — the vehicle master extension to the general equipment/object master (keyed on OBJNR), carrying VIN/chassis number, licence plate and its expiry, dimensions, engine and fuel type, odometer/hour-meter replacement readings, load capacity, and speed limits. This is the table a logistics or dealer digital twin keys on: it is the only PM table that carries licence-plate, VIN-equivalent (FLEET_VIN/CHASSIS_NUM), fuel-type, and odometer (REPLA_ODOM) fields, making it the natural join point between a maintenance-order/equipment record and an external vehicle/telematics or dealer system."
+source: https://leanx.eu/en/sap/table/fleet.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: true
+  - name: OBJECT_GRP
+    description: "Fleet Object: Object type group"
+    data_element: /SAPTRX/FLEET_OBJECT_GRP
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: FLEET_CAT
+    description: "Fleet Category"
+    data_element: /SAPTRX/FLEET_CATEGORY
+    check_table: T370FLT
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: FLEET_NUM
+    description: "Vehicle Number"
+    data_element: /SAPTRX/FLEET_NUM
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: FLEET_VIN
+    description: "Vehicle Identification Number"
+    data_element: /SAPTRX/FLEET_VIN
+    check_table: ~
+    datatype: CHAR
+    length: 24
+    decimals: 0
+    key: false
+  - name: CHASSIS_NUM
+    description: "Chassis Number"
+    data_element: /SAPTRX/FLEET_CHASSISNUM
+    check_table: ~
+    datatype: CHAR
+    length: 24
+    decimals: 0
+    key: false
+  - name: LICENSE_NUM
+    description: "License Plate Number"
+    data_element: /SAPTRX/FLEET_LICENSE_NUM
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: EXPIRY_DATE
+    description: "Expiry date of license plate"
+    data_element: /SAPTRX/FLEET_EXPIRY_DATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: FLEET_HGT
+    description: "Fleet Object: Height"
+    data_element: /SAPTRX/FLEET_HGT
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: FLEET_WID
+    description: "Fleet Object: Width"
+    data_element: /SAPTRX/FLEET_WID
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: FLEET_LEN
+    description: "Fleet Object: Length"
+    data_element: /SAPTRX/FLEET_LEN
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: DIM_UNIT
+    description: "Unit of Measurement"
+    data_element: MSEHI
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: PRI_CALC
+    description: "Priority Number of PM Calculation"
+    data_element: /SAPTRX/FLEET_PRI_CALC
+    check_table: T370CLC
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: REPLA_DATE
+    description: "Date of Last Counter Replacement"
+    data_element: /SAPTRX/FLEET_REPLA_DATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: REPLA_ODOM
+    description: "Odometer Reading at Time of Counter Replacement"
+    data_element: /SAPTRX/FLEET_REPLA_ODOM
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: REPLA_OPH
+    description: "Operating Hours at Time of Counter Replacement"
+    data_element: /SAPTRX/FLEET_REPLA_OPH
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: NUM_AXLE
+    description: "Number of Axles"
+    data_element: /SAPTRX/FLEET_NUM_AXLE
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: MAX_OCCUPANTS
+    description: "Maximum Number of Occupants"
+    data_element: /SAPTRX/FLEET_MAX_OCCUP
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: CARD_NUM
+    description: "Fuel Card Number"
+    data_element: /SAPTRX/FLEET_CARD_NUM
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: KEY_NUM
+    description: "Key Number"
+    data_element: /SAPTRX/FLEET_KEY_NUM
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: FLEET_USE
+    description: "Fleet Object: Usage"
+    data_element: /SAPTRX/FLEET_USAGE
+    check_table: T370USG
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ENGINE_TYPE
+    description: "Fleet Object: Engine Type"
+    data_element: /SAPTRX/FLEET_ENGINE_TYPE
+    check_table: T370ENG
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ENGINE_POWER
+    description: "Fleet Object: Engine power"
+    data_element: /SAPTRX/FLEET_ENGINE_POWER
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: UNIT_POWER
+    description: "Unit of Measurement"
+    data_element: MSEHI
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ENGINE_CYL
+    description: "Fleet Object: Number of engine cylinders"
+    data_element: /SAPTRX/FLEET_ENGINE_CYL
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: ENGINE_CAP
+    description: "Fleet Object: Engine capacity"
+    data_element: /SAPTRX/FLEET_ENGINE_CAP
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: UNIT_CAP
+    description: "Unit of Measurement"
+    data_element: MSEHI
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ENGINE_SNR
+    description: "Fleet Object: Engine Serial Number"
+    data_element: /SAPTRX/FLEET_ENGINE_SNR
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: FUEL_PRI
+    description: "Fleet Object: Fuel Type"
+    data_element: /SAPTRX/FLEET_FUEL
+    check_table: T370FLD
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: FUEL_SEC
+    description: "Fleet Object: Fuel Type"
+    data_element: /SAPTRX/FLEET_FUEL
+    check_table: T370FLD
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: OIL_TYPE
+    description: "Fleet Object: Fuel Type"
+    data_element: /SAPTRX/FLEET_FUEL
+    check_table: T370FLD
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: GROSS_WGT
+    description: "Fleet Object: Gross weight"
+    data_element: /SAPTRX/FLEET_GROSS_WGT
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: LOAD_WGT
+    description: "Fleet Object: Load weight"
+    data_element: /SAPTRX/FLEET_LOAD_WGT
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: WGT_UNIT
+    description: "Unit of Measurement"
+    data_element: MSEHI
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: LOAD_HGT
+    description: "Fleet Object: Load height"
+    data_element: /SAPTRX/FLEET_LOAD_HGT
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: LOAD_WID
+    description: "Fleet Object: Load width"
+    data_element: /SAPTRX/FLEET_LOAD_WID
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: LOAD_LEN
+    description: "Fleet Object: Load length"
+    data_element: /SAPTRX/FLEET_LOAD_LEN
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: LOAD_DIM_UNIT
+    description: "Unit of Measurement"
+    data_element: MSEHI
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: LOAD_VOL
+    description: "Fleet Object: Load volume"
+    data_element: /SAPTRX/FLEET_LOAD_VOL
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: VOL_UNIT
+    description: "Unit of Measurement"
+    data_element: MSEHI
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: NO_COMPART
+    description: "Fleet Object: Number of compartments"
+    data_element: /SAPTRX/FLEET_NUM_COMPART
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: SPEED_MAX
+    description: "Fleet Object: Maximum speed"
+    data_element: /SAPTRX/FLEET_SPEED_MAX
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: SPEED_UNIT
+    description: "Unit of Measurement"
+    data_element: MSEHI
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: CONSUMP_TOL
+    description: "Fleet object: Consumption tolerance"
+    data_element: /SAPTRX/FLEET_CONSUMP_TOL
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: CONSUMP_MOVE
+    description: "Fleet object: Consumption movement"
+    data_element: /SAPTRX/FLEET_CONSUMP_MOVE
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: IS_SI_UNIT
+    description: "Indicator: fields with units of measure use the SI system"
+    data_element: /SAPTRX/FLEET_IS_SI_UNIT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: DIM_UNIT
+    check_table: T006
+    check_field: MSEHI
+  - field: FLEET_CAT
+    check_table: T370FLT
+    check_field: FLEET_CAT
+  - field: FLEET_USE
+    check_table: T370USG
+    check_field: FLEET_USE
+  - field: FUEL_PRI
+    check_table: T370FLD
+    check_field: FUEL_TYPE
+  - field: FUEL_SEC
+    check_table: T370FLD
+    check_field: FUEL_TYPE
+  - field: LOAD_DIM_UNIT
+    check_table: T006
+    check_field: MSEHI
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: OBJNR
+    check_table: ONR00
+    check_field: OBJNR
+  - field: OIL_TYPE
+    check_table: T370FLD
+    check_field: FUEL_TYPE
+  - field: PRI_CALC
+    check_table: T370CLC
+    check_field: PRI_CALC
+  - field: SPEED_UNIT
+    check_table: T006
+    check_field: MSEHI
+  - field: UNIT_CAP
+    check_table: T006
+    check_field: MSEHI
+  - field: UNIT_POWER
+    check_table: T006
+    check_field: MSEHI
+  - field: VOL_UNIT
+    check_table: T006
+    check_field: MSEHI
+  - field: WGT_UNIT
+    check_table: T006
+    check_field: MSEHI
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

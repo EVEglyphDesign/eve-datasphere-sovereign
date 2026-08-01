@@ -1,0 +1,139 @@
+table: EQBS
+module: PM
+description: "Serial Number Stock Segment — the inventory-management stock segment (plant, storage location, batch, special-stock indicator) attached to a serialized equipment master (EQUI), linking a piece of serial-managed equipment to its MM stock position. Small, complete table."
+source: https://leanx.eu/en/sap/table/eqbs.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: EQUNR
+    description: "Equipment Number"
+    data_element: EQUNR
+    check_table: EQUI
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: true
+  - name: LBBSA
+    description: "Stock Category"
+    data_element: LBBSA
+    check_table: T156C
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: B_WERK
+    description: "Plant"
+    data_element: BWERK
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: B_LAGER
+    description: "Storage Location"
+    data_element: BLGORT
+    check_table: T001L
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: B_CHARGE
+    description: "Batch Number"
+    data_element: BCHARG
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SOBKZ
+    description: "Special Stock Indicator"
+    data_element: SOBKZ
+    check_table: T148
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KUNNR
+    description: "Customer Number"
+    data_element: KUNNR
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LIFNR
+    description: "Account Number of Vendor or Creditor"
+    data_element: LIFNR
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KDAUF
+    description: "Sales Order Number"
+    data_element: KDAUF
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KDPOS
+    description: "Item Number in Sales Order"
+    data_element: KDPOS
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: PS_PSP_PNR
+    description: "Work Breakdown Structure Element (WBS Element)"
+    data_element: PS_PSP_PNR
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: DISUB_OWNER
+    description: "Owner of the stock (in case of third-party stocks)"
+    data_element: DISUB_OWNER
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: B_LAGER
+    check_table: T001L
+    check_field: LGORT
+  - field: B_WERK
+    check_table: T001W
+    check_field: WERKS
+  - field: EQUNR
+    check_table: EQUI
+    check_field: EQUNR
+  - field: KDAUF
+    check_table: VBUK
+    check_field: VBELN
+  - field: KUNNR
+    check_table: KNA1
+    check_field: KUNNR
+  - field: LBBSA
+    check_table: T156C
+    check_field: LBBSA
+  - field: LIFNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: SOBKZ
+    check_table: T148
+    check_field: SOBKZ
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

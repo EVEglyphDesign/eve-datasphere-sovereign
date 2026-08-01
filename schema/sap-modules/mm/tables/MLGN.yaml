@@ -1,0 +1,267 @@
+table: MLGN
+module: MM
+description: "Material Data for Each Warehouse Number — the warehouse-level (WM) master data for a material, one row per material per warehouse number, carrying the storage-strategy defaults (put-away/picking storage-type indicators, loading-equipment quantities and units, storage-unit types, bulk-storage and 2-step-picking flags) that classic Warehouse Management uses to place and remove stock. Paired with MLGT for the storage-type-specific bin assignment; together they are the WM-material lane that sits alongside MARD's IM-level stock quantities."
+source: https://leanx.eu/en/sap/table/mlgn.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: true
+  - name: LGNUM
+    description: "Warehouse Number / Warehouse Complex"
+    data_element: LGNUM
+    check_table: T300
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: true
+  - name: LVORM
+    description: "Deletion flag for all material data of a warehouse number"
+    data_element: LVOLN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LGBKZ
+    description: "Storage Section Indicators"
+    data_element: LVS_LGBKZ
+    check_table: T304
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LTKZE
+    description: "Storage type indicator for stock placement"
+    data_element: MLGN_LTKZE
+    check_table: T305
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LTKZA
+    description: "Storage type indicator for stock removal"
+    data_element: MLGN_LTKZA
+    check_table: T305
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LHMG1
+    description: "Loading equipment quantity 1"
+    data_element: LVS_LHMNG1
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LHMG2
+    description: "Loading equipment quantity 2"
+    data_element: LVS_LHMNG2
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LHMG3
+    description: "Loading equipment quantity 3"
+    data_element: LVS_LHMNG3
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LHME1
+    description: "Unit of measure for loading equipment quantity 1"
+    data_element: LHMEH1
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: LHME2
+    description: "Unit of measure for loading equipment quantity 2"
+    data_element: LHMEH2
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: LHME3
+    description: "Unit of measure for loading equipment quantity 3"
+    data_element: LHMEH3
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: LETY1
+    description: "1st storage unit type"
+    data_element: LVS_LETYP1
+    check_table: T307
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LETY2
+    description: "2nd storage unit type"
+    data_element: LVS_LETYP2
+    check_table: T307
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LETY3
+    description: "3rd storage unit type"
+    data_element: LVS_LETYP3
+    check_table: T307
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LVSME
+    description: "Warehouse Management Unit of Measure"
+    data_element: LVS_LVSME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: KZZUL
+    description: "Indicator: Allow addition to existing stock"
+    data_element: MLGN_KZZUL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BLOCK
+    description: "Bulk storage indicator"
+    data_element: LVS_BLOCK2
+    check_table: T338
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KZMBF
+    description: "Indicator: Message to inventory management"
+    data_element: KZMBF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BSSKZ
+    description: "Special movement indicator for warehouse management"
+    data_element: LVS_BSSKZ
+    check_table: T306
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MKAPV
+    description: "Capacity usage"
+    data_element: MLGN_MKAPV
+    check_table: ~
+    datatype: DEC
+    length: 11
+    decimals: 3
+    key: false
+  - name: BEZME
+    description: "Unit of measure for capacity consumption"
+    data_element: MLGN_BEZME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: PLKPT
+    description: "Picking storage type for rough-cut and detailed planning"
+    data_element: MLGN_PLKPT
+    check_table: T301
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: VOMEM
+    description: "Default for unit of measure from material master record"
+    data_element: MLGN_VOMEM
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: L2SKR
+    description: "Material relevance for 2-step picking"
+    data_element: MLGN_L2SKR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: LGNUM
+    check_table: T300
+    check_field: LGNUM
+  - field: LGBKZ
+    check_table: T304
+    check_field: LGBKZ
+  - field: LTKZE
+    check_table: T305
+    check_field: LGTKZ
+  - field: LTKZA
+    check_table: T305
+    check_field: LGTKZ
+  - field: LHME1
+    check_table: T006
+    check_field: MSEHI
+  - field: LHME2
+    check_table: T006
+    check_field: MSEHI
+  - field: LHME3
+    check_table: T006
+    check_field: MSEHI
+  - field: LETY1
+    check_table: T307
+    check_field: LETYP
+  - field: LETY2
+    check_table: T307
+    check_field: LETYP
+  - field: LETY3
+    check_table: T307
+    check_field: LETYP
+  - field: LVSME
+    check_table: T006
+    check_field: MSEHI
+  - field: BLOCK
+    check_table: T338
+    check_field: BLOCK
+  - field: BSSKZ
+    check_table: T306
+    check_field: BSSKZ
+  - field: BEZME
+    check_table: T006
+    check_field: MSEHI
+  - field: PLKPT
+    check_table: T301
+    check_field: LGTYP
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

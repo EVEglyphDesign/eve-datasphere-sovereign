@@ -1,0 +1,238 @@
+table: VBUP
+module: SD
+description: "Sales document item status — the item-level counterpart to VBUK, carrying per-item confirmation, delivery, goods-movement, billing, rejection, credit, picking, packing and incompletion status. NOTE ON RELEASE: VBUP is an ECC-era status table. In S/4HANA, SAP replaced VBUP (and its header-level counterpart VBUK) with status fields carried directly on VBAP (item) and VBAK (header) — VBUK/VBUP still exist as compatibility views/tables in S/4HANA for backward compatibility, but new status logic reads VBAP/VBAK directly. This model must read both releases: consult VBUP/VBUK for ECC systems and VBAP/VBAK status fields for S/4HANA systems. SAP's real table carries roughly 60 fields, most of them single-character status indicators (several industry-specific, e.g. OI/OIA Oil & Gas invoice cycles, MILL_VS steel); this definition is scoped to the key and the core cross-functional status fields (confirmation, delivery, goods movement, billing, rejection, overall processing, incompletion, credit) that the model consumes — never silently truncated below that scope."
+source: https://leanx.eu/en/sap/table/vbup.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: VBELN
+    description: "Sales and Distribution Document Number"
+    data_element: VBELN
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: POSNR
+    description: "Item number of the SD document"
+    data_element: POSNR
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: true
+  - name: RFSTA
+    description: "Reference status"
+    data_element: RFSTA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RFGSA
+    description: "Overall status of reference"
+    data_element: RFGSA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BESTA
+    description: "Confirmation Status of Document Item"
+    data_element: BESTA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LFSTA
+    description: "Delivery status"
+    data_element: LFSTA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LFGSA
+    description: "Overall delivery status of the item"
+    data_element: LFGSA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WBSTA
+    description: "Goods movement status"
+    data_element: WBSTA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FKSTA
+    description: "Billing status of delivery-related billing documents"
+    data_element: FKSTA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FKSAA
+    description: "Billing Status for Order-Related Billing Documents"
+    data_element: FKSAA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ABSTA
+    description: "Rejection status for SD item"
+    data_element: ABSTA_VB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GBSTA
+    description: "Overall processing status of the SD document item"
+    data_element: GBSTA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KOSTA
+    description: "Picking status/Putaway status"
+    data_element: KOSTA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LVSTA
+    description: "Status of warehouse management activities"
+    data_element: LVSTA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: UVALL
+    description: "General Incompletion Status of Item"
+    data_element: UVALL_UP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: UVVLK
+    description: "Incompletion status of the item with regard to delivery"
+    data_element: UVVLK_UP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: UVFAK
+    description: "Item Incompletion Status with Respect to Billing"
+    data_element: UVFAK_UP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: UVPRS
+    description: "Pricing for item is incomplete"
+    data_element: UVPRS_UP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FKIVP
+    description: "Intercompany Billing Status"
+    data_element: FKIVP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PKSTA
+    description: "Packing status of item"
+    data_element: PKSTA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KOQUA
+    description: "Confirmation status of picking/putaway"
+    data_element: KOQUA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: COSTA
+    description: "Confirmation status for ALE"
+    data_element: COSTA_D
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DCSTA
+    description: "Delay status"
+    data_element: DCSTA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RRSTA
+    description: "Revenue determination status"
+    data_element: RR_STATUS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FSSTA
+    description: "Billing block status for items"
+    data_element: FSSTA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LSSTA
+    description: "Delivery block status for item"
+    data_element: LSSTA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PDSTA
+    description: "POD status on item level"
+    data_element: PDSTA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: VBELN
+    check_table: VBUK
+    check_field: VBELN
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -1,0 +1,678 @@
+table: PA0008
+module: HR
+description: "HR Master Record: Infotype 0008 (Basic Pay) — the employee's compensation record: pay scale type/area/group/level, annual salary, and up to 40 repeating wage-type slots (LGA01-LGA40, each with its amount BET_nn, number ANZ_nn, unit EIN_nn, operation indicator OPK_nn, and indirect-valuation flag IND_nn), keyed by personnel number under the same validity-interval pattern as PA0001 Organizational Assignment. SAP's real table carries 40 repeating wage-type slot groups (roughly 190 fields in total); this definition is scoped to the full key, all organizational/pay-scale reference fields, and the first 8 wage-type slots (LGA01-LGA08 and their BET/ANZ/EIN/OPK/IND companions) as representative of the repeating pattern — it does not silently truncate, and a crosswalk needing slots 9-40 should extend the same repeating five-field pattern. This infotype is personal data — it discloses an identifiable employee's actual pay — and any mirrored copy must be handled under consent-scoped access controls."
+source: https://leanx.eu/en/sap/table/pa0008.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: PERNR
+    description: "Personnel Number"
+    data_element: PERSNO
+    check_table: PA0003
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: SUBTY
+    description: "Subtype"
+    data_element: SUBTY
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: OBJPS
+    description: "Object Identification"
+    data_element: OBJPS
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: SPRPS
+    description: "Lock Indicator for HR Master Data Record"
+    data_element: SPRPS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: ENDDA
+    description: "End Date — validity interval end for this basic-pay record"
+    data_element: ENDDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: BEGDA
+    description: "Start Date — validity interval start for this basic-pay record"
+    data_element: BEGDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: SEQNR
+    description: "Number of Infotype Record with Same Key"
+    data_element: SEQNR
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: true
+  - name: AEDTM
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: UNAME
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: HISTO
+    description: "Historical Record Flag"
+    data_element: HISTO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PREAS
+    description: "Reason for Changing Master Data"
+    data_element: PREAS
+    check_table: T530E
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: GRPVL
+    description: "Grouping Value for Personnel Assignments"
+    data_element: PCCE_GPVAL
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: TRFAR
+    description: "Pay Scale Type"
+    data_element: TRFAR
+    check_table: T510A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: TRFGB
+    description: "Pay Scale Area"
+    data_element: TRFGB
+    check_table: T510G
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: TRFGR
+    description: "Pay Scale Group"
+    data_element: TRFGR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: TRFST
+    description: "Pay Scale Level"
+    data_element: TRFST
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: STVOR
+    description: "Date of Next Increase"
+    data_element: STVOR
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ORZST
+    description: "Cost of Living Allowance Level"
+    data_element: ORTZS
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PARTN
+    description: "Partnership"
+    data_element: PARTN
+    check_table: T577
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: VGLTA
+    description: "Comparison Pay Scale Type"
+    data_element: VGLTA
+    check_table: T510A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: VGLGB
+    description: "Comparison Pay Scale Area"
+    data_element: VGLGB
+    check_table: T510G
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: VGLGR
+    description: "Comparison Pay Scale Group"
+    data_element: VGLTG
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: VGLST
+    description: "Comparison Pay Scale Level"
+    data_element: VGLST
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: VGLSV
+    description: "Date of Next Increase (Comparison)"
+    data_element: STVOR
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BSGRD
+    description: "Capacity Utilization Level"
+    data_element: BSGRD
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: DIVGV
+    description: "Working Hours per Payroll Period"
+    data_element: DIVGV
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: ANSAL
+    description: "Annual Salary"
+    data_element: ANSAL_15
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: ANCUR
+    description: "Currency Key for Annual Salary"
+    data_element: ANCUR
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: FALGK
+    description: "Case Group Catalog"
+    data_element: FALGK
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: FALGR
+    description: "Case Group"
+    data_element: FALGR
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: LGA01
+    description: "Wage Type — recurring/one-time pay component slot 1 of 40 (representative of LGA01-LGA40)"
+    data_element: LGART
+    check_table: T512Z
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BET01
+    description: "Wage Type Amount for Payments — slot 1"
+    data_element: PAD_AMT7S
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ANZ01
+    description: "Number — slot 1"
+    data_element: ANZHL
+    check_table: ~
+    datatype: DEC
+    length: 7
+    decimals: 2
+    key: false
+  - name: EIN01
+    description: "Time/Measurement Unit — slot 1"
+    data_element: PT_ZEINH
+    check_table: T538A
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: OPK01
+    description: "Operation Indicator for Wage Types — slot 1"
+    data_element: OPKEN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LGA02
+    description: "Wage Type — slot 2 of 40"
+    data_element: LGART
+    check_table: T512Z
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BET02
+    description: "Wage Type Amount for Payments — slot 2"
+    data_element: PAD_AMT7S
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ANZ02
+    description: "Number — slot 2"
+    data_element: ANZHL
+    check_table: ~
+    datatype: DEC
+    length: 7
+    decimals: 2
+    key: false
+  - name: EIN02
+    description: "Time/Measurement Unit — slot 2"
+    data_element: PT_ZEINH
+    check_table: T538A
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: OPK02
+    description: "Operation Indicator for Wage Types — slot 2"
+    data_element: OPKEN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LGA03
+    description: "Wage Type — slot 3 of 40"
+    data_element: LGART
+    check_table: T512Z
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BET03
+    description: "Wage Type Amount for Payments — slot 3"
+    data_element: PAD_AMT7S
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ANZ03
+    description: "Number — slot 3"
+    data_element: ANZHL
+    check_table: ~
+    datatype: DEC
+    length: 7
+    decimals: 2
+    key: false
+  - name: EIN03
+    description: "Time/Measurement Unit — slot 3"
+    data_element: PT_ZEINH
+    check_table: T538A
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: OPK03
+    description: "Operation Indicator for Wage Types — slot 3"
+    data_element: OPKEN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LGA04
+    description: "Wage Type — slot 4 of 40"
+    data_element: LGART
+    check_table: T512Z
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BET04
+    description: "Wage Type Amount for Payments — slot 4"
+    data_element: PAD_AMT7S
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ANZ04
+    description: "Number — slot 4"
+    data_element: ANZHL
+    check_table: ~
+    datatype: DEC
+    length: 7
+    decimals: 2
+    key: false
+  - name: EIN04
+    description: "Time/Measurement Unit — slot 4"
+    data_element: PT_ZEINH
+    check_table: T538A
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: OPK04
+    description: "Operation Indicator for Wage Types — slot 4"
+    data_element: OPKEN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LGA05
+    description: "Wage Type — slot 5 of 40"
+    data_element: LGART
+    check_table: T512Z
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BET05
+    description: "Wage Type Amount for Payments — slot 5"
+    data_element: PAD_AMT7S
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ANZ05
+    description: "Number — slot 5"
+    data_element: ANZHL
+    check_table: ~
+    datatype: DEC
+    length: 7
+    decimals: 2
+    key: false
+  - name: EIN05
+    description: "Time/Measurement Unit — slot 5"
+    data_element: PT_ZEINH
+    check_table: T538A
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: OPK05
+    description: "Operation Indicator for Wage Types — slot 5"
+    data_element: OPKEN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LGA06
+    description: "Wage Type — slot 6 of 40"
+    data_element: LGART
+    check_table: T512Z
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BET06
+    description: "Wage Type Amount for Payments — slot 6"
+    data_element: PAD_AMT7S
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ANZ06
+    description: "Number — slot 6"
+    data_element: ANZHL
+    check_table: ~
+    datatype: DEC
+    length: 7
+    decimals: 2
+    key: false
+  - name: EIN06
+    description: "Time/Measurement Unit — slot 6"
+    data_element: PT_ZEINH
+    check_table: T538A
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: OPK06
+    description: "Operation Indicator for Wage Types — slot 6"
+    data_element: OPKEN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LGA07
+    description: "Wage Type — slot 7 of 40"
+    data_element: LGART
+    check_table: T512Z
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BET07
+    description: "Wage Type Amount for Payments — slot 7"
+    data_element: PAD_AMT7S
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ANZ07
+    description: "Number — slot 7"
+    data_element: ANZHL
+    check_table: ~
+    datatype: DEC
+    length: 7
+    decimals: 2
+    key: false
+  - name: EIN07
+    description: "Time/Measurement Unit — slot 7"
+    data_element: PT_ZEINH
+    check_table: T538A
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: OPK07
+    description: "Operation Indicator for Wage Types — slot 7"
+    data_element: OPKEN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LGA08
+    description: "Wage Type — slot 8 of 40"
+    data_element: LGART
+    check_table: T512Z
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BET08
+    description: "Wage Type Amount for Payments — slot 8"
+    data_element: PAD_AMT7S
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ANZ08
+    description: "Number — slot 8"
+    data_element: ANZHL
+    check_table: ~
+    datatype: DEC
+    length: 7
+    decimals: 2
+    key: false
+  - name: EIN08
+    description: "Time/Measurement Unit — slot 8"
+    data_element: PT_ZEINH
+    check_table: T538A
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: OPK08
+    description: "Operation Indicator for Wage Types — slot 8"
+    data_element: OPKEN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CPIND
+    description: "Planned Compensation Type"
+    data_element: P_CPIND
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLAGA
+    description: "General Flag"
+    data_element: FLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: PERNR
+    check_table: PA0003
+    check_field: PERNR
+  - field: PREAS
+    check_table: T530E
+    check_field: PREAS
+  - field: TRFAR
+    check_table: T510A
+    check_field: TRFAR
+  - field: TRFGB
+    check_table: T510G
+    check_field: TRFGB
+  - field: VGLTA
+    check_table: T510A
+    check_field: TRFAR
+  - field: VGLGB
+    check_table: T510G
+    check_field: TRFGB
+  - field: PARTN
+    check_table: T577
+    check_field: AUSPR
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: ANCUR
+    check_table: TCURC
+    check_field: WAERS
+  - field: LGA01
+    check_table: T512Z
+    check_field: LGART
+  - field: LGA02
+    check_table: T512Z
+    check_field: LGART
+  - field: LGA03
+    check_table: T512Z
+    check_field: LGART
+  - field: LGA04
+    check_table: T512Z
+    check_field: LGART
+  - field: LGA05
+    check_table: T512Z
+    check_field: LGART
+  - field: LGA06
+    check_table: T512Z
+    check_field: LGART
+  - field: LGA07
+    check_table: T512Z
+    check_field: LGART
+  - field: LGA08
+    check_table: T512Z
+    check_field: LGART
+  - field: EIN01
+    check_table: T538A
+    check_field: ZEINH
+  - field: EIN02
+    check_table: T538A
+    check_field: ZEINH
+  - field: EIN03
+    check_table: T538A
+    check_field: ZEINH
+  - field: EIN04
+    check_table: T538A
+    check_field: ZEINH
+  - field: EIN05
+    check_table: T538A
+    check_field: ZEINH
+  - field: EIN06
+    check_table: T538A
+    check_field: ZEINH
+  - field: EIN07
+    check_table: T538A
+    check_field: ZEINH
+  - field: EIN08
+    check_table: T538A
+    check_field: ZEINH
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

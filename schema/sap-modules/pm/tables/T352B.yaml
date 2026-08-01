@@ -1,0 +1,121 @@
+table: T352B
+module: PM
+description: "Catalog Profile (maintenance-plan / notification catalog control) — customizing table controlling which catalogs (damage, cause, activity, task, object-part groupings) and notification category are active for a catalog profile. Referenced by RBNR on EQUZ (equipment time-segment catalog profile) and IFLOT (functional location catalog profile), which drive the coding catalogs available when recording findings against that technical object. Carried complete — small customizing table."
+source: https://leanx.eu/en/sap/table/t352b.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: RBNR
+    description: "Catalog Profile"
+    data_element: RBNR
+    check_table: ~
+    datatype: CHAR
+    length: 9
+    decimals: 0
+    key: true
+  - name: FEGRP
+    description: "Field Is No Longer Used"
+    data_element: QNBENUTZ
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: URGRP
+    description: "Field Is No Longer Used"
+    data_element: QNBENUTZ
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: MAGRP
+    description: "Field Is No Longer Used"
+    data_element: QNBENUTZ
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: MFGRP
+    description: "Field Is No Longer Used"
+    data_element: QNBENUTZ
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: OTGRP
+    description: "Field Is No Longer Used"
+    data_element: QNBENUTZ
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: FRKLS
+    description: "Classification"
+    data_element: FRKLS
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: FRKLSKZ
+    description: "Include Screen for Classification"
+    data_element: FRKLSKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QMTYP
+    description: "Notification Category"
+    data_element: QMTYP
+    check_table: TQ8T
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: UNITFLBEW
+    description: "Unit for Defect Valuation"
+    data_element: QUNITFLBEW
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: DECIMALS
+    description: "Number of Places to the Right of a Decimal Point (Accuracy)"
+    data_element: QSTELLEN
+    check_table: ~
+    datatype: INT1
+    length: 3
+    decimals: 0
+    key: false
+  - name: MSGTP
+    description: "Message Type"
+    data_element: QMSGTP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: QMTYP
+    check_table: TQ8T
+    check_field: QMTYP
+  - field: UNITFLBEW
+    check_table: T006
+    check_field: MSEHI
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

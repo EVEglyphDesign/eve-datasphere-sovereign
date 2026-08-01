@@ -1,0 +1,428 @@
+table: AFVV
+module: PM
+description: "DB structure of the quantities/dates/values in the operation — one row per order operation (AUFPL/APLZL) carrying standard-value quantities, scheduled and actual execution/setup/teardown dates and times, work, and confirmation quantities that drive PM order operation costing and scheduling. SAP's real table carries 190+ fields (six parallel standard-value slots, forecast/business-process variants, and PS-specific date sets); this definition is scoped to the key, the unit-of-measure/base-quantity fields, the six standard-value pairs, confirmed/scrap/work quantities, and the earliest/latest/actual scheduling date-time fields a PM execution or crosswalk model consumes — never silently truncate beyond that scope."
+source: https://leanx.eu/en/sap/table/afvv.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: AUFPL
+    description: "Routing number of operations in the order"
+    data_element: CO_AUFPL
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: true
+  - name: APLZL
+    description: "General counter for order"
+    data_element: CO_APLZL
+    check_table: AFVC
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: MEINH
+    description: "Unit of Measure for Activity/Operation"
+    data_element: VORME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: UMREN
+    description: "Denominator for converting rtg and op units of measure"
+    data_element: CP_UMREN
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 0
+    key: false
+  - name: UMREZ
+    description: "Numerator for converting task list and oper. un. of measure"
+    data_element: CP_UMREZ
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 0
+    key: false
+  - name: BMSCH
+    description: "Base Quantity"
+    data_element: BMSCH
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: VGE01
+    description: "Unit of measure for the standard value"
+    data_element: VGWRTEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: VGW01
+    description: "Standard Value"
+    data_element: VGWRT
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: VGE02
+    description: "Unit of measure for the standard value"
+    data_element: VGWRTEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: VGW02
+    description: "Standard Value"
+    data_element: VGWRT
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: VGE03
+    description: "Unit of measure for the standard value"
+    data_element: VGWRTEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: VGW03
+    description: "Standard Value"
+    data_element: VGWRT
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: VGE04
+    description: "Unit of measure for the standard value"
+    data_element: VGWRTEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: VGW04
+    description: "Standard Value"
+    data_element: VGWRT
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: VGE05
+    description: "Unit of measure for the standard value"
+    data_element: VGWRTEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: VGW05
+    description: "Standard Value"
+    data_element: VGWRT
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: VGE06
+    description: "Unit of measure for the standard value"
+    data_element: VGWRTEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: VGW06
+    description: "Standard Value"
+    data_element: VGWRT
+    check_table: ~
+    datatype: QUAN
+    length: 9
+    decimals: 3
+    key: false
+  - name: DAUNO
+    description: "Normal duration of the activity"
+    data_element: DAUNOR
+    check_table: ~
+    datatype: QUAN
+    length: 5
+    decimals: 1
+    key: false
+  - name: DAUNE
+    description: "Normal duration/unit"
+    data_element: DAUNORE
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ARBEI
+    description: "Work involved in the activity"
+    data_element: ARBEIT
+    check_table: ~
+    datatype: QUAN
+    length: 7
+    decimals: 1
+    key: false
+  - name: ARBEH
+    description: "Unit for work"
+    data_element: ARBEITE
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: MGVRG
+    description: "Operation Quantity"
+    data_element: MGVRG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: ASVRG
+    description: "Operation scrap"
+    data_element: ASVRG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LMNGA
+    description: "Total Yield Confirmed"
+    data_element: LMNGA
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: XMNGA
+    description: "Total scrap quantity confirmed"
+    data_element: XMNGA
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: GMNGA
+    description: "Confirmed yield in order unit of measure"
+    data_element: GMNGA
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: ISMNW
+    description: "Actual work"
+    data_element: CO_ISMNW
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: RMNGA
+    description: "Total confirmed rework quantity"
+    data_element: RMNGA
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: FSAVD
+    description: "Earliest scheduled start: Execution (date)"
+    data_element: FSAVD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: FSEDD
+    description: "Earliest scheduled finish: Execution (date)"
+    data_element: FSEDD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: SSAVD
+    description: "Latest scheduled start: Execution (date)"
+    data_element: SSAVD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: SSEDD
+    description: "Latest scheduled finish: Execution (date)"
+    data_element: SSEDD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ISAVD
+    description: "Actual operation start (date)"
+    data_element: ISAVD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: IEAVD
+    description: "Actual finish of operation (date)"
+    data_element: IEAVD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ISDD
+    description: "Actual start: Execution (date)"
+    data_element: ISDD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ISDZ
+    description: "Actual start: Execution/setup (time)"
+    data_element: ISDZ
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: IEDD
+    description: "Actual finish: Execution (date)"
+    data_element: IEDD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: IEDZ
+    description: "Actual finish: Execution (time)"
+    data_element: IEDZ
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: PEDD
+    description: "Forecast finish date of operation from confirmation"
+    data_element: CO_PEDD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PEDZ
+    description: "Forecast finish time of operation from confirmation"
+    data_element: CO_PEDZ
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: WARTZ
+    description: "Queue time used for scheduling"
+    data_element: WARTEZEIT
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: RUEST
+    description: "Setup time"
+    data_element: RUEST
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: BEARZ
+    description: "Processing time"
+    data_element: BEARZEIT
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: ABRUE
+    description: "Teardown"
+    data_element: ABRUE
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: LIEGZ
+    description: "Wait time used for scheduling"
+    data_element: LIEGEZEIT
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: TRANZ
+    description: "Move time used for scheduling"
+    data_element: TRANSZEIT
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+foreign_keys:
+  - field: APLZL
+    check_table: AFVC
+    check_field: AUFPL
+  - field: APLZL
+    check_table: AFVC
+    check_field: APLZL
+  - field: ARBEH
+    check_table: T006
+    check_field: MSEHI
+  - field: DAUNE
+    check_table: T006
+    check_field: MSEHI
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MEINH
+    check_table: T006
+    check_field: MSEHI
+  - field: VGE01
+    check_table: T006
+    check_field: MSEHI
+  - field: VGE02
+    check_table: T006
+    check_field: MSEHI
+  - field: VGE03
+    check_table: T006
+    check_field: MSEHI
+  - field: VGE04
+    check_table: T006
+    check_field: MSEHI
+  - field: VGE05
+    check_table: T006
+    check_field: MSEHI
+  - field: VGE06
+    check_table: T006
+    check_field: MSEHI
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

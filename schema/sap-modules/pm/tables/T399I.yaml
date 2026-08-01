@@ -1,0 +1,60 @@
+table: T399I
+module: PM
+description: "Planning Plant Parameters — customizing table holding control parameters per maintenance planning plant (IWERK): the default current-date rule for PM order start/end dates and the default units of measure for normal duration and work. Referenced by IWERK on EQUZ (equipment time-segment planning plant), IFLOT (functional location planning plant) and AFIH (maintenance order header planning plant), which all designate the plant responsible for planning that object or order. Carried complete — small customizing table."
+source: https://leanx.eu/en/sap/table/t399i.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: IWERK
+    description: "Maintenance Planning Plant"
+    data_element: IWERK
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: DTVOR
+    description: "Default current date for start/end dates in PM order"
+    data_element: DTVOR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DAUNE
+    description: "Normal duration/unit"
+    data_element: DAUNORE
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ARBEH
+    description: "Unit for work"
+    data_element: ARBEITE
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: IWERK
+    check_table: T001W
+    check_field: WERKS
+  - field: DAUNE
+    check_table: T006
+    check_field: MSEHI
+  - field: ARBEH
+    check_table: T006
+    check_field: MSEHI
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

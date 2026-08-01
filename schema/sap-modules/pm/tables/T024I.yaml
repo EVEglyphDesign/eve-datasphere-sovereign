@@ -1,0 +1,73 @@
+table: T024I
+module: PM
+description: "Maintenance Planner Groups — customizing table defining the planner groups (INGRP) that own and schedule maintenance work at a given maintenance planning plant (IWERK). Every PM master and transactional record that assigns responsibility for planning a technical object or order checks against this table: EQUZ-INGRP (equipment time-segment planner group), IFLOT-INGRP (functional location planner group), and AFIH-INGPR (maintenance order header planner group) all validate here. Carried complete — small customizing table."
+source: https://leanx.eu/en/sap/table/t024i.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: IWERK
+    description: "Maintenance Planning Plant"
+    data_element: IWERK
+    check_table: T399I
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: INGRP
+    description: "Planner Group for Customer Service and Plant Maintenance"
+    data_element: INGRP
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: true
+  - name: INNAM
+    description: "Name of the Maintenance Planner Group"
+    data_element: INNAM
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: INTEL
+    description: "Maintenance Planner Group Telephone Number"
+    data_element: INTEL
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AUART_WP
+    description: "Order Type"
+    data_element: AUFART
+    check_table: T003O
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SMTP_ADDR
+    description: "E-Mail Address"
+    data_element: AD_SMTPADR
+    check_table: ~
+    datatype: CHAR
+    length: 241
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: IWERK
+    check_table: T399I
+    check_field: IWERK
+  - field: AUART_WP
+    check_table: T003O
+    check_field: AUART
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

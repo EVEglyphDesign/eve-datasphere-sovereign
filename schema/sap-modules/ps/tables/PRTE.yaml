@@ -1,0 +1,262 @@
+table: PRTE
+module: PS
+description: "Scheduling Data for Project Item — one row per WBS element (POSNR, resolving to PRPS-PSPNR, under project PSPHI resolving to PROJ) carrying the full basic/forecast/actual date triad (start, finish, duration and unit for each) plus the derived earliest/latest scheduled start and finish dates and the manual-override/activity-derived indicator flags that the PS scheduling engine (network scheduling roll-up to WBS) writes back after each scheduling run. This is the date-bearing counterpart to PRPS: PRPS carries the WBS master record and status, PRTE carries when that WBS element is actually scheduled to happen."
+source: https://leanx.eu/en/sap/table/prte.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: POSNR
+    description: "WBS Element"
+    data_element: PS_POSNR
+    check_table: PRPS
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: PSPHI
+    description: "Current number of the appropriate project"
+    data_element: PS_PSPHI
+    check_table: PROJ
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: PSTRT
+    description: "WBS element: Basic start date"
+    data_element: PS_PSTRT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ESTRT
+    description: "Forecasted start date of the WBS element"
+    data_element: PS_ESTRT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ISTRT
+    description: "Actual start date for the WBS element"
+    data_element: PS_ISTRT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PENDE
+    description: "WBS element: Basic finish date"
+    data_element: PS_PENDE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: EENDE
+    description: "Forecasted finish date of the WBS element"
+    data_element: PS_EENDE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: IENDE
+    description: "Actual finish date of the WBS element"
+    data_element: PS_IENDE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PDAUR
+    description: "Length (duration) of the basic dates in the WBS element"
+    data_element: PS_PDAUR
+    check_table: ~
+    datatype: QUAN
+    length: 5
+    decimals: 1
+    key: false
+  - name: EDAUR
+    description: "Forecasted length (duration) of the WBS element"
+    data_element: PS_EDAUR
+    check_table: ~
+    datatype: QUAN
+    length: 5
+    decimals: 1
+    key: false
+  - name: IDAUR
+    description: "Actual length (duration) of the WBS element"
+    data_element: PS_IDAUR
+    check_table: ~
+    datatype: QUAN
+    length: 5
+    decimals: 1
+    key: false
+  - name: IEINH
+    description: "Unit for duration of actual WBS element dates"
+    data_element: PS_IEINH
+    check_table: ~
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: EEINH
+    description: "Unit for duration of WBS element planned dates"
+    data_element: PS_EEINH
+    check_table: ~
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: PEINH
+    description: "Unit for duration of basic WBS element dates"
+    data_element: PS_PEINH
+    check_table: ~
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: FLGVG
+    description: "Indicator: There are activities for the WBS elements"
+    data_element: PS_FLGVG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLGEW
+    description: "Indicator: Expected dates from the activities"
+    data_element: PS_FLGEW
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLGEM
+    description: "Indicator: Forecast dates set manually"
+    data_element: PS_FLGEM
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLGVM
+    description: "Indicator: Basic dates set manually"
+    data_element: PS_FLGVM
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLGIM
+    description: "Indicator: Actual dates set manually"
+    data_element: PS_FLGIM
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLGVI
+    description: "Indicator: Actual dates from the activities"
+    data_element: PS_FLGVI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PSTRM
+    description: "Earliest scheduled start date (Basic)"
+    data_element: PS_GSTRS
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PETRM
+    description: "Latest scheduled finish date (Basic)"
+    data_element: PS_GLTRS
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ESTRM
+    description: "Scheduled start date (Forecast)"
+    data_element: PS_GSTPP
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: EETRM
+    description: "Latest scheduled finish date (Forecast)"
+    data_element: PS_GLTPP
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: VISTR
+    description: "Tentative actual start date for WBS element"
+    data_element: PS_ISTVORL
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: VIEND
+    description: "Tentative actual finish date for WBS element"
+    data_element: PS_IENVORL
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PSTRS
+    description: "Latest scheduled start date (Basic)"
+    data_element: PS_GSTRE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PETRF
+    description: "Earliest scheduled finish date (Basic)"
+    data_element: PS_GETRE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ESTRS
+    description: "Latest scheduled start date (Forecast)"
+    data_element: PS_GSTRP
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: EETRF
+    description: "Earliest scheduled finish date (Forecast)"
+    data_element: PS_GLTRP
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: POSNR
+    check_table: PRPS
+    check_field: PSPNR
+  - field: PSPHI
+    check_table: PROJ
+    check_field: PSPNR
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

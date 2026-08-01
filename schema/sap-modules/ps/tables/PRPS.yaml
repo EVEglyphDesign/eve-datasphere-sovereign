@@ -1,0 +1,831 @@
+table: PRPS
+module: PS
+description: "WBS (Work Breakdown Structure) Element Master Data — one row per WBS element (PSPNR), the cost object that appears on ACDOCA as PS_PSP_PNR. Tie explicitly: fi/tables/ACDOCA.yaml carries a PS_PSP_PNR field with check_table PRPS and a foreign_keys entry resolving PS_PSP_PNR -> PRPS.PSPNR — every Universal Journal line item account-assigned to a WBS element resolves back to exactly one row in this table. PRPS carries the external WBS identifier (POSID) and short text, the parent project link (PSPHI -> PROJ.PSPNR), hierarchy level (STUFE), organizational assignment (company code, business area, controlling area, profit center, plant), the account-assignment/billing/planning indicator flags that determine whether the element can receive postings, costing-sheet and overhead-key links, responsible/requesting cost center links, and the object number (OBJNR) that ties this WBS element into the shared CO/status-management object-number space. SAP's real PRPS table carries roughly 106 fields, including Joint Venture Accounting fields (VNAME/RECID/ETYPE/OTYPE/JIBCL/JIBSA), production-lot fields (VLPSP/VLPKZ/SORT1-3), and generic-project-planning GUID fields (CGPL_*); this definition is scoped to the key, cost-object, organizational, hierarchy, and account-assignment-control fields the model consumes — no field has been silently dropped from those categories."
+source: https://leanx.eu/en/sap/table/prps.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: PSPNR
+    description: "WBS Element (internal number) — this is the field ACDOCA's PS_PSP_PNR resolves to"
+    data_element: PS_POSNR
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: POSID
+    description: "Work Breakdown Structure Element (WBS Element) — external identifier"
+    data_element: PS_POSID
+    check_table: ~
+    datatype: CHAR
+    length: 24
+    decimals: 0
+    key: false
+  - name: POST1
+    description: "PS: Short description (1st text line)"
+    data_element: PS_POST1
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: PSPHI
+    description: "Current number of the appropriate project"
+    data_element: PS_PSPHI
+    check_table: PROJ
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: POSKI
+    description: "WBS element short identification"
+    data_element: PS_POSKI
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Date on which object was last changed"
+    data_element: UPDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: VERNR
+    description: "Number of the responsible person (project manager)"
+    data_element: PS_VERNR
+    check_table: TCJ04
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: VERNA
+    description: "Name of responsible person (Project manager)"
+    data_element: PS_VERNA
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: ASTNR
+    description: "Applicant number"
+    data_element: PS_ASTNR
+    check_table: TCJ05
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: ASTNA
+    description: "Applicant"
+    data_element: PS_ASTNA
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: PBUKR
+    description: "Company code for WBS element"
+    data_element: PS_PBUKR
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PGSBR
+    description: "Business area for WBS element"
+    data_element: PS_PGSBR
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PKOKR
+    description: "Controlling area for WBS element"
+    data_element: PS_PKOKR
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PRCTR
+    description: "Profit Center"
+    data_element: PRCTR
+    check_table: CEPC
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PRART
+    description: "Project type"
+    data_element: PS_PRART
+    check_table: TCJ1
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: STUFE
+    description: "Level in Project Hierarchy"
+    data_element: PS_STUFE
+    check_table: ~
+    datatype: INT1
+    length: 3
+    decimals: 0
+    key: false
+  - name: PLAKZ
+    description: "Indicator: Planning element"
+    data_element: PS_PLAKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BELKZ
+    description: "Indicator: Account assignment element"
+    data_element: PS_BELKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FAKKZ
+    description: "Indicator: Billing element"
+    data_element: PS_FAKKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: NPFAZ
+    description: "Relationship of network activity to production order"
+    data_element: PS_NPFAR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZUORD
+    description: "Network assignment"
+    data_element: PS_ZUORD
+    check_table: ~
+    datatype: NUMC
+    length: 1
+    decimals: 0
+    key: false
+  - name: TRMEQ
+    description: "Indicator: WBS dates detailed by activity dates"
+    data_element: PS_TRMEQ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KVEWE
+    description: "Usage of the condition table"
+    data_element: KVEWE
+    check_table: T681V
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KAPPL
+    description: "Application"
+    data_element: KAPPL
+    check_table: T681A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KALSM
+    description: "Costing Sheet"
+    data_element: AUFKALSM
+    check_table: T683
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: ZSCHL
+    description: "Overhead key"
+    data_element: AUFZSCHL
+    check_table: TKZSL
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: ABGSL
+    description: "Results Analysis Key"
+    data_element: ABGR_SCHL
+    check_table: TKKAA
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: AKOKR
+    description: "Controlling area of requesting cost center"
+    data_element: PS_AKOKR
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: AKSTL
+    description: "Requesting cost center"
+    data_element: PS_AKSTL
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: FKOKR
+    description: "Controlling area of responsible cost center"
+    data_element: PS_FKOKR
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: FKSTL
+    description: "Responsible cost center"
+    data_element: PS_FKSTL
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: FABKL
+    description: "Factory calendar key"
+    data_element: FABKL
+    check_table: TFACD
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PSPRI
+    description: "Priority"
+    data_element: NW_PRIO
+    check_table: TCN07
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EQUNR
+    description: "Equipment Number"
+    data_element: EQUNR
+    check_table: EQUI
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: TPLNR
+    description: "Functional Location"
+    data_element: TPLNR
+    check_table: IFLOT
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: PWPOS
+    description: "WBS element currency"
+    data_element: PS_PWPOS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: TXTSP
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: SLWID
+    description: "Key word ID for user-defined fields"
+    data_element: SLWID
+    check_table: TCN00
+    datatype: CHAR
+    length: 7
+    decimals: 0
+    key: false
+  - name: KOSTL
+    description: "Cost center to which costs are actually posted"
+    data_element: PS_KOSTL
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KTRG
+    description: "Cost Object"
+    data_element: KSTRG
+    check_table: CKPH
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: BERST
+    description: "Authorization key for project master data"
+    data_element: PS_BERST
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: BERTR
+    description: "Authorization key for project dates (WBS)"
+    data_element: PS_BERTR
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: BERKO
+    description: "Authorization key for costs and revenues"
+    data_element: PS_BERKO
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: BERBU
+    description: "Authorization key for project budget"
+    data_element: PS_BERBU
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: CLASF
+    description: "Indicator: WBS element used in project summarization"
+    data_element: PS_CLASF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SPSNR
+    description: "Std WBS: Internal project item number (w/exit on ID)"
+    data_element: PS_SPSNR
+    check_table: PRPSS
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: SCOPE
+    description: "Object Class"
+    data_element: SCOPE_CV
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: XSTAT
+    description: "Statistical WBS element"
+    data_element: PS_XSTAT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TXJCD
+    description: "Tax Jurisdiction"
+    data_element: TXJCD
+    check_table: TTXJ
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: ZSCHM
+    description: "Interest Profile for Project/Order Interest Calculation"
+    data_element: PS_ZSCHM
+    check_table: TPI01
+    datatype: CHAR
+    length: 7
+    decimals: 0
+    key: false
+  - name: IMPRF
+    description: "Investment measure profile"
+    data_element: IM_PROFIL
+    check_table: TAPRF
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: EVGEW
+    description: "Aggregation weight for POC (PS progress)"
+    data_element: EV_WEIGHTD
+    check_table: ~
+    datatype: DEC
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENNR
+    description: "Change Number"
+    data_element: AENNR
+    check_table: AENR
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: SUBPR
+    description: "Sub-project in work breakdown structure"
+    data_element: PS_SUBPR
+    check_table: PRTP
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: POSTU
+    description: "PS: Short description (1st text line) in all caps"
+    data_element: PS_POSTU
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: PLINT
+    description: "Indicator for Integrated Planning"
+    data_element: PLINT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LOEVM
+    description: "Deletion Indicator"
+    data_element: LOEVM
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZBWS
+    description: "Valuation of Special Stock"
+    data_element: KZBWS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FPLNR
+    description: "Billing plan number / invoicing plan number"
+    data_element: FPLNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: TADAT
+    description: "Technically complete date"
+    data_element: TABGDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: IZWEK
+    description: "Reason for investment"
+    data_element: IZWEK
+    check_table: T087I
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ISIZE
+    description: "Scale of investment objects"
+    data_element: IM_SIZECL
+    check_table: TAIF5
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: IUMKZ
+    description: "Reason for environmental investment"
+    data_element: AM_UMWKZ
+    check_table: T087K
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: ABUKR
+    description: "Requesting company code"
+    data_element: IM_ABUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: GRPKZ
+    description: "Indicator: Grouping WBS element"
+    data_element: GRPSPKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PGPRF
+    description: "Distribution profile"
+    data_element: PGPROFID
+    check_table: TPGPRF
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: LOGSYSTEM
+    description: "Logical System"
+    data_element: LOGSYSTEM
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: STORT
+    description: "Location"
+    data_element: PS_STORT
+    check_table: T499S
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: FUNC_AREA
+    description: "Functional Area"
+    data_element: FKBER
+    check_table: TFKB
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: KLVAR
+    description: "Costing Variant"
+    data_element: CK_KLVAR
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KALNR
+    description: "Cost Estimate Number for Cost Est. w/o Qty Structure"
+    data_element: CK_KALNR
+    check_table: ~
+    datatype: NUMC
+    length: 12
+    decimals: 0
+    key: false
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: VNAME
+    description: "Joint Venture"
+    data_element: JV_NAME
+    check_table: T8JV
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: RECID
+    description: "Recovery Indicator"
+    data_element: JV_RECIND
+    check_table: T8JJ
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ETYPE
+    description: "Equity type"
+    data_element: JV_ETYPE
+    check_table: T8JE
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: OTYPE
+    description: "Joint Venture Object Type"
+    data_element: JV_OTYPE
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: JIBCL
+    description: "JIB/JIBE Class"
+    data_element: JV_JIBCL
+    check_table: T8J6A
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: JIBSA
+    description: "JIB/JIBE Subclass A"
+    data_element: JV_JIBSA
+    check_table: T8J6C
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: FERC_IND
+    description: "Regulatory indicator"
+    data_element: FE_IND
+    check_table: FERC_C7
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PRPS_STATUS
+    description: "Status Combination"
+    data_element: ACTCMB_DELE
+    check_table: ACTCMB_TAB
+    datatype: INT1
+    length: 3
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: PSPHI
+    check_table: PROJ
+    check_field: PSPNR
+  - field: PBUKR
+    check_table: T001
+    check_field: BUKRS
+  - field: PGSBR
+    check_table: TGSB
+    check_field: GSBER
+  - field: PKOKR
+    check_table: TKA01
+    check_field: KOKRS
+  - field: PRCTR
+    check_table: CEPC
+    check_field: PRCTR
+  - field: PRART
+    check_table: TCJ1
+    check_field: PRART
+  - field: KVEWE
+    check_table: T681V
+    check_field: KVEWE
+  - field: KAPPL
+    check_table: T681A
+    check_field: KAPPL
+  - field: KALSM
+    check_table: T683
+    check_field: KALSM
+  - field: ZSCHL
+    check_table: TKZSL
+    check_field: ZSCHL
+  - field: ABGSL
+    check_table: TKKAA
+    check_field: ABGSL
+  - field: AKOKR
+    check_table: TKA01
+    check_field: KOKRS
+  - field: AKSTL
+    check_table: CSKS
+    check_field: KOSTL
+  - field: FKOKR
+    check_table: TKA01
+    check_field: KOKRS
+  - field: FKSTL
+    check_table: CSKS
+    check_field: KOSTL
+  - field: FABKL
+    check_table: TFACD
+    check_field: IDENT
+  - field: PSPRI
+    check_table: TCN07
+    check_field: NPRIO
+  - field: EQUNR
+    check_table: EQUI
+    check_field: EQUNR
+  - field: TPLNR
+    check_table: IFLOT
+    check_field: TPLNR
+  - field: PWPOS
+    check_table: TCURC
+    check_field: WAERS
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+  - field: TXTSP
+    check_table: T002
+    check_field: SPRAS
+  - field: SLWID
+    check_table: TCN00
+    check_field: SLWID
+  - field: KOSTL
+    check_table: CSKS
+    check_field: KOSTL
+  - field: KTRG
+    check_table: CKPH
+    check_field: KSTRG
+  - field: SPSNR
+    check_table: PRPSS
+    check_field: PSPNR
+  - field: TXJCD
+    check_table: TTXJ
+    check_field: TXJCD
+  - field: ZSCHM
+    check_table: TPI01
+    check_field: ZSCHM
+  - field: IMPRF
+    check_table: TAPRF
+    check_field: IVPRO
+  - field: AENNR
+    check_table: AENR
+    check_field: AENNR
+  - field: SUBPR
+    check_table: PRTP
+    check_field: SUBPR
+  - field: IZWEK
+    check_table: T087I
+    check_field: IZWEK
+  - field: ISIZE
+    check_table: TAIF5
+    check_field: SIZECL
+  - field: IUMKZ
+    check_table: T087K
+    check_field: UMWKZ
+  - field: ABUKR
+    check_table: T001
+    check_field: BUKRS
+  - field: PGPRF
+    check_table: TPGPRF
+    check_field: PROFID
+  - field: STORT
+    check_table: T499S
+    check_field: STAND
+  - field: FUNC_AREA
+    check_table: TFKB
+    check_field: FKBER
+  - field: VNAME
+    check_table: T8JV
+    check_field: VNAME
+  - field: RECID
+    check_table: T8JJ
+    check_field: RECID
+  - field: ETYPE
+    check_table: T8JE
+    check_field: ETYPE
+  - field: JIBCL
+    check_table: T8J6A
+    check_field: CLASS
+  - field: JIBSA
+    check_table: T8J6C
+    check_field: SUBCLASS
+  - field: FERC_IND
+    check_table: FERC_C7
+    check_field: IND
+  - field: PRPS_STATUS
+    check_table: ACTCMB_TAB
+    check_field: ACTCMB
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

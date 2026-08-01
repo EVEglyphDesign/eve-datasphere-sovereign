@@ -1,0 +1,256 @@
+table: PA0000
+module: HR
+description: "HR Master Record: Infotype 0000 (Actions) — the employment-event record for a personnel number: every hire, transfer, re-organization, and termination is written here as a dated action (MASSN) with a reason (MASSG) and the resulting employment/customer/special-payment status flags (STAT1/STAT2/STAT3), under the same validity-interval key pattern (BEGDA/ENDDA/SEQNR) as PA0001 Organizational Assignment, which this infotype's actions actually trigger. This infotype carries personal data — it records an identifiable employee's employment history and status — and any mirrored copy must be handled under consent-scoped access controls."
+source: https://leanx.eu/en/sap/table/pa0000.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: PERNR
+    description: "Personnel Number"
+    data_element: PERSNO
+    check_table: PA0003
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: SUBTY
+    description: "Subtype"
+    data_element: SUBTY
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: OBJPS
+    description: "Object Identification"
+    data_element: OBJPS
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: SPRPS
+    description: "Lock Indicator for HR Master Data Record"
+    data_element: SPRPS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: ENDDA
+    description: "End Date — validity interval end for this action record"
+    data_element: ENDDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: BEGDA
+    description: "Start Date — validity interval start for this action record; effective date of the hire/transfer/termination"
+    data_element: BEGDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: SEQNR
+    description: "Number of Infotype Record with Same Key"
+    data_element: SEQNR
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: true
+  - name: AEDTM
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: UNAME
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: HISTO
+    description: "Historical Record Flag"
+    data_element: HISTO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ITXEX
+    description: "Text Exists for Infotype"
+    data_element: ITXEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: REFEX
+    description: "Reference Fields Exist (Primary/Secondary Costs)"
+    data_element: PRFEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ORDEX
+    description: "Confirmation Fields Exist"
+    data_element: ORDEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ITBLD
+    description: "Infotype Screen Control"
+    data_element: ITBLD
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PREAS
+    description: "Reason for Changing Master Data"
+    data_element: PREAS
+    check_table: T530E
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FLAG1
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLAG2
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLAG3
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLAG4
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RESE1
+    description: "Reserved Field/Unused Field of Length 2"
+    data_element: NUSED2
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: RESE2
+    description: "Reserved Field/Unused Field of Length 2"
+    data_element: NUSED2
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: GRPVL
+    description: "Grouping Value for Personnel Assignments"
+    data_element: PCCE_GPVAL
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: MASSN
+    description: "Action Type — hire, transfer, termination and other personnel action codes"
+    data_element: MASSN
+    check_table: T529A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: MASSG
+    description: "Reason for Action"
+    data_element: MASSG
+    check_table: T530
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: STAT1
+    description: "Customer-Specific Status"
+    data_element: STAT1
+    check_table: T529U
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT2
+    description: "Employment Status"
+    data_element: STAT2
+    check_table: T529U
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STAT3
+    description: "Special Payment Status"
+    data_element: STAT3
+    check_table: T529U
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: PERNR
+    check_table: PA0003
+    check_field: PERNR
+  - field: PREAS
+    check_table: T530E
+    check_field: PREAS
+  - field: MASSN
+    check_table: T529A
+    check_field: MASSN
+  - field: MASSG
+    check_table: T530
+    check_field: MASSG
+  - field: STAT1
+    check_table: T529U
+    check_field: STATV
+  - field: STAT2
+    check_table: T529U
+    check_field: STATV
+  - field: STAT3
+    check_table: T529U
+    check_field: STATV
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

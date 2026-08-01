@@ -1,0 +1,382 @@
+table: VBEP
+module: SD
+description: "Sales document schedule line data — one or more delivery schedule lines per sales document item, each carrying requested/confirmed quantities and the delivery, material availability, transportation, loading and goods-issue dates the shipping and MRP processes plan against. Sits below VBAP in the SD document hierarchy (VBAK header / VBAP item / VBEP schedule line)."
+source: https://leanx.eu/en/sap/table/vbep.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: VBELN
+    description: "Sales Document"
+    data_element: VBELN_VA
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: POSNR
+    description: "Sales Document Item"
+    data_element: POSNR_VA
+    check_table: VBUP
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: true
+  - name: ETENR
+    description: "Delivery Schedule Line Number"
+    data_element: ETENR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: ETTYP
+    description: "Schedule line category"
+    data_element: ETTYP
+    check_table: TVEP
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LFREL
+    description: "Item is relevant for delivery"
+    data_element: LFREL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EDATU
+    description: "Schedule line date"
+    data_element: EDATU
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: EZEIT
+    description: "Arrival time"
+    data_element: EZEIT_VBEP
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: WMENG
+    description: "Order quantity in sales units"
+    data_element: WMENG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: BMENG
+    description: "Confirmed Quantity"
+    data_element: BMENG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: VRKME
+    description: "Sales unit"
+    data_element: VRKME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: LMENG
+    description: "Required quantity for mat.management in stockkeeping units"
+    data_element: LMENG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: MEINS
+    description: "Base Unit of Measure"
+    data_element: MEINS
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: BDDAT
+    description: "Requirement date (deadline for procurement)"
+    data_element: BDDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BDART
+    description: "Requirement type"
+    data_element: BDART
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: VBELE
+    description: "Business document number"
+    data_element: VBELE
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: POSNE
+    description: "Business item number"
+    data_element: POSNE
+    check_table: VBUP
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: ETENE
+    description: "Schedule line"
+    data_element: ETENE
+    check_table: VBEP
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: RSDAT
+    description: "Earliest possible reservation date"
+    data_element: RSDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BANFN
+    description: "Purchase Requisition Number"
+    data_element: BANFN
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BSART
+    description: "Order Type (Purchasing)"
+    data_element: BSART
+    check_table: T161
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: WEPOS
+    description: "Confirmation status of schedule line (incl.ALE)"
+    data_element: WEPOS_A
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: REPOS
+    description: "Invoice Receipt Indicator"
+    data_element: REPOS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LRGDT
+    description: "Return date for returnable packaging"
+    data_element: LRGDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: TDDAT
+    description: "Transportation Planning Date"
+    data_element: TDDAT_D
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: MBDAT
+    description: "Material Staging/Availability Date"
+    data_element: MBDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: LDDAT
+    description: "Loading Date"
+    data_element: LDDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: WADAT
+    description: "Goods Issue Date"
+    data_element: WADAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: CMENG
+    description: "Corrected quantity in sales unit"
+    data_element: CMENG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LIFSP
+    description: "Schedule line blocked for delivery"
+    data_element: LIFSP_EP
+    check_table: TVLS
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ABART
+    description: "Release type"
+    data_element: ABART
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ABRUF
+    description: "Forecast Delivery schedule number"
+    data_element: ABRUF
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: BWART
+    description: "Movement Type (Inventory Management)"
+    data_element: BWART
+    check_table: T156
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: BNFPO
+    description: "Item Number of Purchase Requisition"
+    data_element: BNFPO
+    check_table: EBAN
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: ETART
+    description: "Schedule line type EDI"
+    data_element: EDI_ETTYP
+    check_table: TVET
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUFNR
+    description: "Order Number"
+    data_element: AUFNR
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: PLNUM
+    description: "Planned order number"
+    data_element: PLNUM
+    check_table: PLAF
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SERNR
+    description: "BOM explosion number"
+    data_element: SERNR
+    check_table: SNUM
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: AULWE
+    description: "Route Schedule"
+    data_element: AULWE
+    check_table: VALW
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: HANDOVERDATE
+    description: "Handover Date at the Handover Location"
+    data_element: HANDOVER_DATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: VBELN
+    check_table: VBUK
+    check_field: VBELN
+  - field: POSNR
+    check_table: VBUP
+    check_field: POSNR
+  - field: VBELE
+    check_table: VBUK
+    check_field: VBELN
+  - field: POSNE
+    check_table: VBUP
+    check_field: POSNR
+  - field: ETENE
+    check_table: VBEP
+    check_field: ETENR
+  - field: ETTYP
+    check_table: TVEP
+    check_field: ETTYP
+  - field: VRKME
+    check_table: T006
+    check_field: MSEHI
+  - field: MEINS
+    check_table: T006
+    check_field: MSEHI
+  - field: BSART
+    check_table: T161
+    check_field: BSART
+  - field: LIFSP
+    check_table: TVLS
+    check_field: LIFSP
+  - field: BWART
+    check_table: T156
+    check_field: BWART
+  - field: BNFPO
+    check_table: EBAN
+    check_field: BNFPO
+  - field: ETART
+    check_table: TVET
+    check_field: ETART
+  - field: AUFNR
+    check_table: AUFK
+    check_field: AUFNR
+  - field: PLNUM
+    check_table: PLAF
+    check_field: PLNUM
+  - field: SERNR
+    check_table: SNUM
+    check_field: SERNR
+  - field: AULWE
+    check_table: VALW
+    check_field: AULWE
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

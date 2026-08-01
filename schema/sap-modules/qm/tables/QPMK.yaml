@@ -1,0 +1,662 @@
+table: QPMK
+module: QM
+description: "Master Inspection Characteristic — the reusable, plant-specific master definition of an inspection characteristic (target value, tolerance/specification limits, class widths, plausibility limits, rejection defect codes, control-indicator string). Referenced by inspection-plan characteristics; its text is carried in QPMT. Wide table — carries the full field set as published by the source (74 fields), including all tolerance/limit/class fields and rejection defect-code assignments; no truncation applied."
+source: https://leanx.eu/en/sap/table/qpmk.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: ZAEHLER
+    description: "Plant for the Master Inspection Characteristic"
+    data_element: QZAEHLER
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: MKMNR
+    description: "Master Inspection Characteristics"
+    data_element: QMERKNR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: true
+  - name: VERSION
+    description: "Version Number of the Master Inspection Characteristic"
+    data_element: QVERSNRMK
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: true
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: GUELTIGAB
+    description: "Valid-From Date"
+    data_element: DATUV
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: SORTFELD
+    description: "Search Field"
+    data_element: QSORTFELD
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: CHARACT_ID1
+    description: "Characteristic Description for Quality Data Exchange"
+    data_element: QCHARACT_ID1
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: LOEKZ
+    description: "Status of Master Record"
+    data_element: QLOESCHKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LSPER
+    description: "Data Record Is Used"
+    data_element: QVERW
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KONSISTENT
+    description: "Copy Model/Reference Characteristic"
+    data_element: QVOLLST
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUTOR
+    description: "Name of User Who Created the Data Record"
+    data_element: QERSTELLER
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: DATES
+    description: "Date on Which the Data Record Was Created"
+    data_element: QDATUMERST
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AEAUT
+    description: "Name of User who Most Recently Changed the Data Record"
+    data_element: QAENDERER
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: DATAE
+    description: "Date on Which Data Record Was Changed"
+    data_element: QDATUMAEND
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: STEUERKZ
+    description: "Cntrl Indicator String for Insp. Char./Master Insp. Char."
+    data_element: QMKCONTROL
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: MERKGEW
+    description: "Weighting of the Characteristic"
+    data_element: QMERKGEW
+    check_table: TQ17A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PRFQL
+    description: "Inspector Qualification"
+    data_element: QPRQUALIF
+    check_table: TQ11
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: DUMMY10
+    description: "Text Line for Additional Information"
+    data_element: QTXT10
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: DUMMY20
+    description: "Text Line for Additional Information"
+    data_element: QTXT20
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: DUMMY40
+    description: "Text Line for Additional Information"
+    data_element: QTXT40
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: QAUTH
+    description: "Authorization Group QM Basic Data"
+    data_element: QMASTAUTH
+    check_table: TQ01D
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: TOLERANZSL
+    description: "Tolerance Key"
+    data_element: QTOLERANZ
+    check_table: TQ29
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: STELLEN
+    description: "Number of Places to the Right of a Decimal Point (Accuracy)"
+    data_element: QSTELLEN
+    check_table: ~
+    datatype: INT1
+    length: 3
+    decimals: 0
+    key: false
+  - name: MASSEINHSW
+    description: "Unit of Measurement, in Which Quantitative Data Is Stored"
+    data_element: QMASSEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: SOLLWERT
+    description: "Target Value for a Quantitative Characteristic"
+    data_element: QSOLLWERTE
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: SOLLWNI
+    description: "Value Not Initial if Set"
+    data_element: QNINITIAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TOLERANZOB
+    description: "Upper Specification Limit"
+    data_element: QTOLOB
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: TOLOBNI
+    description: "Value Not Initial if Set"
+    data_element: QNINITIAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TOLERANZUN
+    description: "Lower Tolerance Limit"
+    data_element: QTOLUN
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: TOLUNNI
+    description: "Value Not Initial if Set"
+    data_element: QNINITIAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KLASANZAHL
+    description: "Number of Value Classes for Inspection Results"
+    data_element: QKLASSZAHL
+    check_table: ~
+    datatype: INT1
+    length: 3
+    decimals: 0
+    key: false
+  - name: KLASBREITE
+    description: "Class Width"
+    data_element: QKLASSBR
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: KLASBRNI
+    description: "Value Not Initial if Set"
+    data_element: QNINITIAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KLASMITTE
+    description: "Class Midpoint"
+    data_element: QKLASSMIT
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: KLASMINI
+    description: "Value Not Initial if Set"
+    data_element: QNINITIAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GRENZEOB1
+    description: "First Upper Specification Limit"
+    data_element: QGRENZOB1
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: GRENZOB1NI
+    description: "Value Not Initial if Set"
+    data_element: QNINITIAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GRENZEUN1
+    description: "First Lower Specification Limit"
+    data_element: QGRENZUN1
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: GRENZUN1NI
+    description: "Value Not Initial if Set"
+    data_element: QNINITIAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GRENZEOB2
+    description: "Second Upper Specification Limit"
+    data_element: QGRENZOB2
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: GRENZOB2NI
+    description: "Value Not Initial if Set"
+    data_element: QNINITIAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GRENZEUN2
+    description: "Second Lower Specification Limit"
+    data_element: QGRENZUN2
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: GRENZUN2NI
+    description: "Value Not Initial if Set"
+    data_element: QNINITIAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLAUSIOBEN
+    description: "Upper Plausibility Limit"
+    data_element: QPLAUSIOB
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: PLAUSIOBNI
+    description: "Value Not Initial if Set"
+    data_element: QNINITIAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLAUSIUNTE
+    description: "Lower Plausibility Limit"
+    data_element: QPLAUSIUN
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: PLAUSIUNNI
+    description: "Value Not Initial if Set"
+    data_element: QNINITIAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TOLERWEIOB
+    description: "Change to Upper Specification Limit"
+    data_element: QTOLWOB
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: TOLWOBNI
+    description: "Value Not Initial if Set"
+    data_element: QNINITIAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TOLERWEIUN
+    description: "Change to Lower Specification Limit"
+    data_element: QTOLWUN
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: TOLWUNNI
+    description: "Value Not Initial if Set"
+    data_element: QNINITIAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TOLERWAB
+    description: "Date from Which the Tolerance Change Is Valid"
+    data_element: QTOLWAB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: TOLERWBIS
+    description: "Date Until Which the Tolerance Change Is Valid"
+    data_element: QTOLWBIS
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: CODEGR9U
+    description: "Defect Code Group for Rejection at Lower Tolerance"
+    data_element: QCODEGRPU
+    check_table: QPGR
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: CODE9U
+    description: "Defect Code for Rejection at Lower Specification Limit"
+    data_element: QCODEU
+    check_table: QPCD
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: CODEVR9U
+    description: "Version Number"
+    data_element: QVERSNR
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: CODEGR9O
+    description: "Defect Code Group for Rejection at Upper Tolerance"
+    data_element: QCODEGRPO
+    check_table: QPGR
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: CODE9O
+    description: "Defect Code for Rejection at Upper Specification Limit"
+    data_element: QCODEO
+    check_table: QPCD
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: CODEVR9O
+    description: "Version Number"
+    data_element: QVERSNR
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: ATINN
+    description: "Internal characteristic"
+    data_element: ATINN
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: EEANTVERF
+    description: "Fraction Calculation"
+    data_element: QEANTVERF
+    check_table: TQ72
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: CODEGRQUAL
+    description: "Defect Code Group for General Rejection"
+    data_element: QCODEGRPQL
+    check_table: QPGR
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: CODEQUAL
+    description: "Defect Code for Rejection: General"
+    data_element: QCODEQL
+    check_table: QPCD
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: INPPROC
+    description: "Parameters for Input Processing in QM Results Recording"
+    data_element: QINPPROC
+    check_table: TQ71
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: SPEC_DET_RULE
+    description: "Specification Determination Rule"
+    data_element: QASDR_SPEC_DET_RULE
+    check_table: QASDRI_SPECDET
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: SPEC_DET_ACTIVE
+    description: "Active Indicator for Specification Determination Rule"
+    data_element: QASDR_SDR_ACTIVE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PARAMETER1
+    description: "Parameters for Specification Determination"
+    data_element: QASDR_SDR_PARAMETER
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: PARAMETER2
+    description: "Parameters for Specification Determination"
+    data_element: QASDR_SDR_PARAMETER
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+  - field: WERKS
+    check_table: T001W
+    check_field: MANDT
+  - field: MERKGEW
+    check_table: TQ17A
+    check_field: MERKKLASSE
+  - field: MERKGEW
+    check_table: TQ17A
+    check_field: MANDT
+  - field: PRFQL
+    check_table: TQ11
+    check_field: PRFQL
+  - field: PRFQL
+    check_table: TQ11
+    check_field: MANDT
+  - field: QAUTH
+    check_table: TQ01D
+    check_field: QMASTAUTH
+  - field: TOLERANZSL
+    check_table: TQ29
+    check_field: TOLERANZSL
+  - field: TOLERANZSL
+    check_table: TQ29
+    check_field: MANDT
+  - field: MASSEINHSW
+    check_table: T006
+    check_field: MANDT
+  - field: MASSEINHSW
+    check_table: T006
+    check_field: MSEHI
+  - field: CODEGR9U
+    check_table: QPGR
+    check_field: CODEGRUPPE
+  - field: CODEGR9U
+    check_table: QPGR
+    check_field: MANDT
+  - field: CODE9U
+    check_table: QPCD
+    check_field: VERSION
+  - field: CODE9U
+    check_table: QPCD
+    check_field: CODE
+  - field: CODE9U
+    check_table: QPCD
+    check_field: CODEGRUPPE
+  - field: CODE9U
+    check_table: QPCD
+    check_field: MANDT
+  - field: CODEGR9O
+    check_table: QPGR
+    check_field: CODEGRUPPE
+  - field: CODEGR9O
+    check_table: QPGR
+    check_field: MANDT
+  - field: CODE9O
+    check_table: QPCD
+    check_field: VERSION
+  - field: CODE9O
+    check_table: QPCD
+    check_field: CODE
+  - field: CODE9O
+    check_table: QPCD
+    check_field: CODEGRUPPE
+  - field: CODE9O
+    check_table: QPCD
+    check_field: MANDT
+  - field: EEANTVERF
+    check_table: TQ72
+    check_field: MANDT
+  - field: EEANTVERF
+    check_table: TQ72
+    check_field: ANTVERF
+  - field: CODEGRQUAL
+    check_table: QPGR
+    check_field: MANDT
+  - field: CODEGRQUAL
+    check_table: QPGR
+    check_field: CODEGRUPPE
+  - field: CODEQUAL
+    check_table: QPCD
+    check_field: MANDT
+  - field: CODEQUAL
+    check_table: QPCD
+    check_field: CODEGRUPPE
+  - field: CODEQUAL
+    check_table: QPCD
+    check_field: CODE
+  - field: CODEQUAL
+    check_table: QPCD
+    check_field: VERSION
+  - field: INPPROC
+    check_table: TQ71
+    check_field: INPPROC
+  - field: SPEC_DET_RULE
+    check_table: QASDRI_SPECDET
+    check_field: SPEC_DET_RULE
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

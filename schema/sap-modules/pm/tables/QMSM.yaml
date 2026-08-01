@@ -1,0 +1,497 @@
+table: QMSM
+module: PM
+description: "Quality Notification Tasks — the task record for a quality notification (QMEL): task catalog/code, follow-up action, responsible-party assignment, planned/actual start-finish dates and times. Modeled here under PM per this registry's shared-structures convention (quality-notification family owned by PM, not QM)."
+source: https://leanx.eu/en/sap/table/qmsm.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: QMNUM
+    description: "Notification No"
+    data_element: QMNUM
+    check_table: QMEL
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: true
+  - name: MANUM
+    description: "Sequential Task Number"
+    data_element: MANUM
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: MNKAT
+    description: "Catalog Type - Tasks"
+    data_element: MAKAT
+    check_table: TQ15
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MNGRP
+    description: "Code Group - Tasks"
+    data_element: MAGRP
+    check_table: QPGR
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: MNCOD
+    description: "Task Code"
+    data_element: MNCOD
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: MNVER
+    description: "Version Number"
+    data_element: QVERSNR
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: FOLGEACT
+    description: "Follow-Up Action for Task"
+    data_element: QMFOLACT
+    check_table: TQ07
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: FOLACTPROT
+    description: "Log for Follow-Up Action"
+    data_element: QMFOAPROT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MATXT
+    description: "Short Text for Task"
+    data_element: MATXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PSTER
+    description: "Planned Start Date"
+    data_element: PSTER
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PETER
+    description: "Planned finish date"
+    data_element: PETER
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: OBJNR
+    description: "Object Number for Status Management"
+    data_element: QMOBJNR
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: INDTX
+    description: "Object Long Text Available"
+    data_element: INDLTX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZMLA
+    description: "Primary language indicator for text segment"
+    data_element: KZMLA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PSTUR
+    description: "Planned Start Time for Task"
+    data_element: PSTUR
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: PETUR
+    description: "Planned Finish Time for Task"
+    data_element: PETUR
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: ERLNAM
+    description: "Person Who Completed the Task"
+    data_element: QMSMERLNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERLDAT
+    description: "Date on Which the Task Was Completed"
+    data_element: QMSMERLDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERLZEIT
+    description: "Time at Which Task Was Completed"
+    data_element: QMSMERLTIM
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: WDVDAT
+    description: "Date on Which Task Was Resubmitted"
+    data_element: QMSMWDVDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: FENUM
+    description: "Item Number in Item Record"
+    data_element: FELFD
+    check_table: QMFE
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: URNUM
+    description: "Sequential Number for Cause"
+    data_element: URNUM
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: ERZEIT
+    description: "Time, at Which Record Was Added"
+    data_element: ERZEIT
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: AEZEIT
+    description: "Time of Change"
+    data_element: AEZEIT
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: PARVW
+    description: "Function of Person Responsible for Task"
+    data_element: QMSM_PARVW
+    check_table: TPAR
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PARNR
+    description: "Person Responsible for Task (Partner Number)"
+    data_element: QMSM_PARNR
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: MMENGE
+    description: "Quantity"
+    data_element: QSMMNG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: MMGEIN
+    description: "Unit of Measure for Item"
+    data_element: QMGEIN
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: BAUTL
+    description: "Assembly Affected by the Task"
+    data_element: QMSM_BAUTL
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: KZLOESCH
+    description: "Delete Data Record"
+    data_element: KZLOESCH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QSMNUM
+    description: "Sort Number for Task"
+    data_element: QSMNUM
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: AUTKZ
+    description: "Data Record Created with Function 'Create with Copy Model'"
+    data_element: QAUTKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: HANDLE
+    description: "Globally unique identifier (linked to time segment, etc)"
+    data_element: TSEGGUID
+    check_table: ~
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: TSEGFL
+    description: "Time segment exists"
+    data_element: TSEGEXISTS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TSEGTP
+    description: "Template"
+    data_element: TSEGTEMPLA
+    check_table: TTSEGTPLH
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: TZONSO
+    description: "Time Zone for Notification"
+    data_element: TZONSO
+    check_table: TTZZ
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: TZONSM
+    description: "Time Zone for Task"
+    data_element: TZONSM
+    check_table: TTZZ
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: TZONID
+    description: "Origin of Time Zone in Notification"
+    data_element: TZONSMID
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZACTIONBOX
+    description: "Created Using Action Box"
+    data_element: QNKZACTIONBOX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FUNKTION
+    description: "Keys for Function in Action Box"
+    data_element: QNFUNKTION
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: /SAPSMOSS/NOTE
+    description: "Note number"
+    data_element: /SAPSMOSS/NOTE
+    check_table: ~
+    datatype: NUMC
+    length: 7
+    decimals: 0
+    key: false
+  - name: /SAPSMOSS/REPORT
+    description: "Note created by"
+    data_element: /SAPSMOSS/MEMOREPORT
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: /SAPSMOSS/MTSTMP
+    description: "Time stamp (date + time)"
+    data_element: /SAPSMOSS/MEMOTSTMP
+    check_table: ~
+    datatype: NUMC
+    length: 14
+    decimals: 0
+    key: false
+  - name: ABC_TEMPL
+    description: "Template"
+    data_element: ABC_TEMPL
+    check_table: COTPL
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: EFFECTPERC
+    description: "Effect in Percentage"
+    data_element: QN8D_EFFECTPERC
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: EFFECTTEXT
+    description: "Effect Text"
+    data_element: QN8D_EFFECTTEXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: QMNUM
+    check_table: QMEL
+    check_field: MANDT
+  - field: QMNUM
+    check_table: QMEL
+    check_field: QMNUM
+  - field: MNKAT
+    check_table: TQ15
+    check_field: MANDT
+  - field: MNKAT
+    check_table: TQ15
+    check_field: KATALOGART
+  - field: MNGRP
+    check_table: QPGR
+    check_field: MANDT
+  - field: MNGRP
+    check_table: QPGR
+    check_field: KATALOGART
+  - field: MNGRP
+    check_table: QPGR
+    check_field: CODEGRUPPE
+  - field: FOLGEACT
+    check_table: TQ07
+    check_field: MANDT
+  - field: FOLGEACT
+    check_table: TQ07
+    check_field: FOLGEAKTI
+  - field: OBJNR
+    check_table: ONR00
+    check_field: MANDT
+  - field: OBJNR
+    check_table: ONR00
+    check_field: OBJNR
+  - field: FENUM
+    check_table: QMFE
+    check_field: MANDT
+  - field: FENUM
+    check_table: QMFE
+    check_field: QMNUM
+  - field: FENUM
+    check_table: QMFE
+    check_field: FENUM
+  - field: PARVW
+    check_table: TPAR
+    check_field: MANDT
+  - field: PARVW
+    check_table: TPAR
+    check_field: PARVW
+  - field: MMGEIN
+    check_table: T006
+    check_field: MANDT
+  - field: MMGEIN
+    check_table: T006
+    check_field: MSEHI
+  - field: TSEGTP
+    check_table: TTSEGTPLH
+    check_field: CLIENT
+  - field: TSEGTP
+    check_table: TTSEGTPLH
+    check_field: TEPL
+  - field: TZONSO
+    check_table: TTZZ
+    check_field: CLIENT
+  - field: TZONSO
+    check_table: TTZZ
+    check_field: TZONE
+  - field: TZONSM
+    check_table: TTZZ
+    check_field: CLIENT
+  - field: TZONSM
+    check_table: TTZZ
+    check_field: TZONE
+  - field: ABC_TEMPL
+    check_table: COTPL
+    check_field: MANDT
+  - field: ABC_TEMPL
+    check_table: COTPL
+    check_field: TEMPLATE
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

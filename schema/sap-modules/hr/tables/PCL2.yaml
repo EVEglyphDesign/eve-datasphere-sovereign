@@ -1,0 +1,99 @@
+table: PCL2
+module: HR
+description: "HR Cluster 2 — the payroll results cluster database table (e.g. relation IDs such as RD for domestic payroll results). Its payload (CLUSTD) is stored as compressed, opaque cluster data addressed by a relation-ID/key/cluster-number combination (RELID/SRTFD/SRTF2/CLUSTR), not as readable columns: SAP writes a structured payroll-results internal table into this raw LRAW field via the IMPORT/EXPORT cluster mechanism, and the field contents cannot be interpreted without an ABAP program performing the corresponding IMPORT against the relevant cluster structure (e.g. PCL2's payroll results cluster). A mirror of this table can capture the key fields and the CLUSTD blob as an opaque byte value, but it cannot field-decode wage types, amounts, or any other payroll-result detail — there is no field-level readability without running the original ABAP cluster-import logic. This table is personal data — the cluster blob is, in practice, an employee's full payroll result — and any mirrored copy (key plus opaque blob) must be handled under consent-scoped access controls."
+source: https://leanx.eu/en/sap/table/pcl2.html
+fields:
+  - name: CLIENT
+    description: "Client"
+    data_element: MANDT
+    check_table: ~
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: RELID
+    description: "Area Identification on Import/Export Database PCL2 — identifies which logical cluster relation (e.g. domestic payroll results) this row's blob belongs to"
+    data_element: RELID_PCL2
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: SRTFD
+    description: "PCLx Key — the business key (typically personnel number plus payroll period identifiers) for the clustered record"
+    data_element: PCLKEY
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: true
+  - name: SRTF2
+    description: "Sort Field for PCLx (Duplicate Key)"
+    data_element: PCLSRTFD
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: true
+  - name: HISTO
+    description: "Historical Record Flag"
+    data_element: HISTO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AEDTM
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: UNAME
+    description: "User Name"
+    data_element: UNAME
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: PGMID
+    description: "ABAP: Program Name — the program (typically a payroll driver) that wrote this cluster record"
+    data_element: OLD_PROG
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: VERSN
+    description: "Version in Cluster Files"
+    data_element: PVRSN
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: CLUSTR
+    description: "Cluster for PCLx — the cluster-ID sub-selector within the RELID area (e.g. the specific payroll results cluster)"
+    data_element: PCLCLUSTR
+    check_table: ~
+    datatype: INT2
+    length: 5
+    decimals: 0
+    key: false
+  - name: CLUSTD
+    description: "Compressed cluster payload (opaque raw bytes) — this is where an employee's payroll result (wage types, amounts, tax and deduction detail) actually lives, but it is NOT field-decodable without ABAP IMPORT against SAP's payroll-results cluster structure; a mirror can only store this as a binary blob keyed by RELID/SRTFD/SRTF2/CLUSTR, never as individual readable fields"
+    data_element: PCLDATA
+    check_table: ~
+    datatype: LRAW
+    length: 3900
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: CLIENT
+    check_table: T000
+    check_field: MANDT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

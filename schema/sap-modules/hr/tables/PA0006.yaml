@@ -1,0 +1,554 @@
+table: PA0006
+module: HR
+description: "HR Master Record: Infotype 0006 (Addresses) — an employee's address records (permanent, mailing, emergency-contact, etc. via subtype ANSSA): street, house number, city, district, postal code, country/region, telephone, commute distance, and up to six generic communication-type/number pairs (COM01-06/NUM01-06), keyed by personnel number under the same validity-interval pattern as PA0001 Organizational Assignment. SAP's real table also carries Japan-localization address-script fields (Katakana); this definition carries the complete field list as sourced. This infotype holds an identifiable employee's home address and personal contact details and is personal data — any mirrored copy must be handled under consent-scoped access controls."
+source: https://leanx.eu/en/sap/table/pa0006.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: PERNR
+    description: "Personnel Number"
+    data_element: PERSNO
+    check_table: PA0003
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: SUBTY
+    description: "Subtype — address record type"
+    data_element: SUBTY
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: OBJPS
+    description: "Object Identification"
+    data_element: OBJPS
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: SPRPS
+    description: "Lock Indicator for HR Master Data Record"
+    data_element: SPRPS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: ENDDA
+    description: "End Date — validity interval end for this address record"
+    data_element: ENDDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: BEGDA
+    description: "Start Date — validity interval start for this address record"
+    data_element: BEGDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: SEQNR
+    description: "Number of Infotype Record with Same Key"
+    data_element: SEQNR
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: true
+  - name: AEDTM
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: UNAME
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: HISTO
+    description: "Historical Record Flag"
+    data_element: HISTO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ITXEX
+    description: "Text Exists for Infotype"
+    data_element: ITXEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: REFEX
+    description: "Reference Fields Exist (Primary/Secondary Costs)"
+    data_element: PRFEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ORDEX
+    description: "Confirmation Fields Exist"
+    data_element: ORDEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ITBLD
+    description: "Infotype Screen Control"
+    data_element: ITBLD
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PREAS
+    description: "Reason for Changing Master Data"
+    data_element: PREAS
+    check_table: T530E
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FLAG1
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLAG2
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLAG3
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLAG4
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RESE1
+    description: "Reserved Field/Unused Field of Length 2"
+    data_element: NUSED2
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: RESE2
+    description: "Reserved Field/Unused Field of Length 2"
+    data_element: NUSED2
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: GRPVL
+    description: "Grouping Value for Personnel Assignments"
+    data_element: PCCE_GPVAL
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ANSSA
+    description: "Address Record Type"
+    data_element: ANSSA
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: NAME2
+    description: "Contact Name"
+    data_element: PAD_CONAM
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: STRAS
+    description: "Street and House Number"
+    data_element: PAD_STRAS
+    check_table: ~
+    datatype: CHAR
+    length: 60
+    decimals: 0
+    key: false
+  - name: ORT01
+    description: "City"
+    data_element: PAD_ORT01
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: ORT02
+    description: "District"
+    data_element: PAD_ORT02
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: PSTLZ
+    description: "Postal Code"
+    data_element: PSTLZ_HR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LAND1
+    description: "Country Key"
+    data_element: LAND1
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: TELNR
+    description: "Telephone Number"
+    data_element: TELNR
+    check_table: ~
+    datatype: CHAR
+    length: 14
+    decimals: 0
+    key: false
+  - name: ENTKM
+    description: "Distance in Kilometers"
+    data_element: ENTKM
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: WKWNG
+    description: "Company Housing"
+    data_element: WKWNG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BUSRT
+    description: "Bus Route"
+    data_element: BUSRT
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LOCAT
+    description: "2nd Address Line"
+    data_element: PAD_LOCAT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: ADR03
+    description: "Street 2"
+    data_element: AD_STRSPP1
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: ADR04
+    description: "Street 3"
+    data_element: AD_STRSPP2
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: STATE
+    description: "Region (State, Province, County)"
+    data_element: REGIO
+    check_table: T005S
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: HSNMR
+    description: "House Number"
+    data_element: PAD_HSNMR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: POSTA
+    description: "Identification of an Apartment in a Building"
+    data_element: PAD_POSTA
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BLDNG
+    description: "Building (Number or Code)"
+    data_element: AD_BLD_10
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: FLOOR
+    description: "Floor in Building"
+    data_element: AD_FLOOR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: STRDS
+    description: "Street Abbreviation"
+    data_element: STRDS
+    check_table: T5EVP
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ENTK2
+    description: "Distance in Kilometers"
+    data_element: ENTKM
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: COM01
+    description: "Communication Type"
+    data_element: COMKY
+    check_table: T536B
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: NUM01
+    description: "Communication Number"
+    data_element: COMNR
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: COM02
+    description: "Communication Type"
+    data_element: COMKY
+    check_table: T536B
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: NUM02
+    description: "Communication Number"
+    data_element: COMNR
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: COM03
+    description: "Communication Type"
+    data_element: COMKY
+    check_table: T536B
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: NUM03
+    description: "Communication Number"
+    data_element: COMNR
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: COM04
+    description: "Communication Type"
+    data_element: COMKY
+    check_table: T536B
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: NUM04
+    description: "Communication Number"
+    data_element: COMNR
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: COM05
+    description: "Communication Type"
+    data_element: COMKY
+    check_table: T536B
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: NUM05
+    description: "Communication Number"
+    data_element: COMNR
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: COM06
+    description: "Communication Type"
+    data_element: COMKY
+    check_table: T536B
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: NUM06
+    description: "Communication Number"
+    data_element: COMNR
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: INDRL
+    description: "Indicator for Relationship (Specification Code)"
+    data_element: P22J_INDRL
+    check_table: T577
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: COUNC
+    description: "County Code"
+    data_element: COUNC
+    check_table: T005E
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: RCTVC
+    description: "Municipal City Code"
+    data_element: P22J_RCTVC
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: OR2KK
+    description: "Second Address Line (Katakana)"
+    data_element: P22J_ORKK2
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: CONKK
+    description: "Contact Person (Katakana) (Japan)"
+    data_element: P22J_PCNKK
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: OR1KK
+    description: "First Address Line (Katakana)"
+    data_element: P22J_ORKK1
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: RAILW
+    description: "Social Subscription Railway"
+    data_element: RAILW
+    check_table: ~
+    datatype: NUMC
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: PERNR
+    check_table: PA0003
+    check_field: PERNR
+  - field: PREAS
+    check_table: T530E
+    check_field: PREAS
+  - field: COM01
+    check_table: T536B
+    check_field: COMKY
+  - field: COM02
+    check_table: T536B
+    check_field: COMKY
+  - field: COM03
+    check_table: T536B
+    check_field: COMKY
+  - field: COM04
+    check_table: T536B
+    check_field: COMKY
+  - field: COM05
+    check_table: T536B
+    check_field: COMKY
+  - field: COM06
+    check_table: T536B
+    check_field: COMKY
+  - field: COUNC
+    check_table: T005E
+    check_field: COUNC
+  - field: INDRL
+    check_table: T577
+    check_field: AUSPR
+  - field: LAND1
+    check_table: T005
+    check_field: LAND1
+  - field: STATE
+    check_table: T005S
+    check_field: BLAND
+  - field: STRDS
+    check_table: T5EVP
+    check_field: STRDS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

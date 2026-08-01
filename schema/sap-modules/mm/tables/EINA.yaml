@@ -1,0 +1,351 @@
+table: EINA
+module: MM
+description: "Purchasing Info Record: General Data — the client-wide, purchasing-organization-independent half of a purchasing info record, one row per info-record number, carrying the vendor/material pairing and general facts (vendor's material number, base unit of measure, reminder days, certificate of origin, regular-vendor flag) that hold true across every purchasing organization. Paired one-to-many with EINE, which carries the organization-specific pricing and conditions; together they form the purchasing-info-record lane a sourcing or vendor-evaluation lane consumes."
+source: https://leanx.eu/en/sap/table/eina.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: INFNR
+    description: "Number of Purchasing Info Record"
+    data_element: INFNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: MATKL
+    description: "Material Group"
+    data_element: MATKL
+    check_table: T023
+    datatype: CHAR
+    length: 9
+    decimals: 0
+    key: false
+  - name: LIFNR
+    description: "Vendor Account Number"
+    data_element: ELIFN
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LOEKZ
+    description: "Purchasing info: General data flagged for deletion"
+    data_element: ILOEA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: TXZ01
+    description: "Short Text for Purchasing Info Record"
+    data_element: EINATX
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: SORTL
+    description: "Sort Term for Non-Stock Info Records"
+    data_element: SORTI
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: MEINS
+    description: "Purchase Order Unit of Measure"
+    data_element: BSTME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: UMREZ
+    description: "Numerator for Conversion of Order Unit to Base Unit"
+    data_element: UMBSZ
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 0
+    key: false
+  - name: UMREN
+    description: "Denominator for Conversion of Order Unit to Base Unit"
+    data_element: UMBSN
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 0
+    key: false
+  - name: IDNLF
+    description: "Material Number Used by Vendor"
+    data_element: IDNLF
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: VERKF
+    description: "Salesperson Responsible in the Event of Queries"
+    data_element: VERKF
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: TELF1
+    description: "Vendor's Telephone Number"
+    data_element: TELF0
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: MAHN1
+    description: "Number of Days for First Reminder/Expediter"
+    data_element: MAHN1
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: MAHN2
+    description: "Number of Days for Second Reminder/Expediter"
+    data_element: MAHN2
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: MAHN3
+    description: "Number of Days for Third Reminder/Expediter"
+    data_element: MAHN3
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: URZNR
+    description: "Certificate Number"
+    data_element: URZNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: URZDT
+    description: "Certificate of Origin Valid Until"
+    data_element: URZDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: URZLA
+    description: "Country of Issue of Certificate of Origin"
+    data_element: ULAND
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: URZTP
+    description: "Certificate Category"
+    data_element: URZTP
+    check_table: T069
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: URZZT
+    description: "Number"
+    data_element: URZZT
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: LMEIN
+    description: "Base Unit of Measure"
+    data_element: MEINS
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: REGIO
+    description: "Region (State, Province, County)"
+    data_element: REGIO
+    check_table: T005S
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: VABME
+    description: "Variable Purchase Order Unit Active"
+    data_element: VABME
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LTSNR
+    description: "Vendor Subrange"
+    data_element: LTSNR
+    check_table: WYT1
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: LTSSF
+    description: "Sort Sequence Number"
+    data_element: LTSSF
+    check_table: ~
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: WGLIF
+    description: "Vendor Material Group"
+    data_element: WGLIF
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: RUECK
+    description: "Return Agreement"
+    data_element: W_RUECKNV
+    check_table: TWRV
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LIFAB
+    description: "Available (Deliverable) From"
+    data_element: LIFAB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: LIFBI
+    description: "Available (Deliverable) Until"
+    data_element: LIFBI
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: KOLIF
+    description: "Prior Vendor"
+    data_element: KOLIF
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ANZPU
+    description: "Number of Points"
+    data_element: ANZPU
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: PUNEI
+    description: "Points unit"
+    data_element: PUNEI
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: RELIF
+    description: "Regular Vendor"
+    data_element: RELIF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MFRNR
+    description: "Manufacturer"
+    data_element: MFRNR1
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: MATKL
+    check_table: T023
+    check_field: MATKL
+  - field: LIFNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: MEINS
+    check_table: T006
+    check_field: MSEHI
+  - field: URZLA
+    check_table: T005
+    check_field: LAND1
+  - field: URZTP
+    check_table: T069
+    check_field: URZTP
+  - field: LMEIN
+    check_table: T006
+    check_field: MSEHI
+  - field: REGIO
+    check_table: T005S
+    check_field: BLAND
+  - field: LTSNR
+    check_table: WYT1
+    check_field: LTSNR
+  - field: RUECK
+    check_table: TWRV
+    check_field: RUECV
+  - field: KOLIF
+    check_table: LFA1
+    check_field: LIFNR
+  - field: PUNEI
+    check_table: T006
+    check_field: MSEHI
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

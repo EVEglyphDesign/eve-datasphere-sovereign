@@ -1,0 +1,223 @@
+table: EQSE
+module: PM
+description: "Serial Number Records — the serial-number history/master table linking a material's serial number (MATNR+SERNR) to the equipment master it generated (EQUNR), including creation/change audit fields, plant/storage location/batch/customer context at the time of serialization, and a self-referencing history pointer (HEQSNR) to prior serial-number records. Small, complete table."
+source: https://leanx.eu/en/sap/table/eqse.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: EQSNR
+    description: "Internal serial number"
+    data_element: EQSNR
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: true
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: SERNR
+    description: "Serial number"
+    data_element: GERNR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: EQUNR
+    description: "Equipment Number"
+    data_element: EQUNR
+    check_table: EQUI
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: STATUS
+    description: "Status of the serial number"
+    data_element: STATUS_EQSE
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: WERK
+    description: "Plant"
+    data_element: WERK_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LAGER
+    description: "Storage Location"
+    data_element: LGORT_D
+    check_table: T001L
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: CHARGE
+    description: "Batch Number"
+    data_element: CHARG_D
+    check_table: MCHA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KUNDE
+    description: "Customer Number"
+    data_element: KUNDE
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SDBELN
+    description: "Sales and Distribution Document Number"
+    data_element: SDBELN
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: WABELN
+    description: "Number of Goods Movement (Material Document)"
+    data_element: WABELN
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BLART
+    description: "Document Type"
+    data_element: BLART
+    check_table: T003
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: HEQSNR
+    description: "History: Internal serial number"
+    data_element: HEQSNR
+    check_table: EQSE
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: HSNPOS
+    description: "History: Item number of the serial number in the document"
+    data_element: HSNPOS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: HMATNR
+    description: "History: Material Number"
+    data_element: HMATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: REVLV
+    description: "Indicator: Reversed serial number history"
+    data_element: REVLV
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ~
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: BLART
+    check_table: T003
+    check_field: BLART
+  - field: CHARGE
+    check_table: MCHA
+    check_field: MATNR
+  - field: CHARGE
+    check_table: MCHA
+    check_field: WERKS
+  - field: CHARGE
+    check_table: MCHA
+    check_field: CHARG
+  - field: EQUNR
+    check_table: EQUI
+    check_field: EQUNR
+  - field: HEQSNR
+    check_table: EQSE
+    check_field: EQSNR
+  - field: HMATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: KUNDE
+    check_table: KNA1
+    check_field: KUNNR
+  - field: LAGER
+    check_table: T001L
+    check_field: LGORT
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: SDBELN
+    check_table: VBUK
+    check_field: VBELN
+  - field: WERK
+    check_table: T001W
+    check_field: WERKS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

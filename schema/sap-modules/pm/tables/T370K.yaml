@@ -1,0 +1,27 @@
+table: T370K
+module: PM
+description: "Type of Technical Object — customizing table listing the valid free-text equipment types (a user-defined subclassification, distinct from the equipment category). Referenced by EQART on EQUI (Equipment master) and IFLOT (Functional Location master), which record the technical-object type of every equipment and functional-location record. Carried complete — small customizing table."
+source: https://leanx.eu/en/sap/table/t370k.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: EQART
+    description: "Type of Technical Object"
+    data_element: EQART
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

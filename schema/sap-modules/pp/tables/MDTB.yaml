@@ -1,0 +1,530 @@
+table: MDTB
+module: PP
+description: "MRP Table Items — line items of an MRP list (MDKP header), one row per MRP element (planned order, purchase requisition, sales order, stock, etc.) with dates, quantities, and exception-message keys. The demand-side item record of what the system decided to make or buy. Wide table — carries the full field set as published by the source (60 fields), including all date/quantity/source-reference fields; no truncation applied."
+source: https://leanx.eu/en/sap/table/mdtb.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: ~
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: DTNUM
+    description: "Number of material requirements planning table"
+    data_element: DTNUM
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: true
+  - name: DTPOS
+    description: "Item number of MRP list"
+    data_element: DTPOS
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: true
+  - name: PLAKZ
+    description: "Indicator for planning segment"
+    data_element: PLAKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLANR
+    description: "Planning segment number"
+    data_element: PLANR
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: DAT00
+    description: "Receipt/Requirements date"
+    data_element: DAT00
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: SORT1
+    description: "Sort indicator 01"
+    data_element: SORT1
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SORT2
+    description: "Sort indicator 02"
+    data_element: SORT2
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: DELKZ
+    description: "MRP element"
+    data_element: DELKZ
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: VSTAT
+    description: "Processing Status"
+    data_element: VSTAT_D
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VRFKZ
+    description: "Availability indicator"
+    data_element: VRFKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLUMI
+    description: "Receipt/issue indicator"
+    data_element: PLUMI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MNG01
+    description: "Quantity received or quantity required"
+    data_element: MNG01
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: MNG02
+    description: "Variable scrap quantity"
+    data_element: MNG02
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: MNG03
+    description: "Shortage Quantity"
+    data_element: MNG03
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: DAT01
+    description: "Delivery/order finish date"
+    data_element: DAT01
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: DAT02
+    description: "Start/release date"
+    data_element: DAT02
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: DAT03
+    description: "Opening date"
+    data_element: DAT03
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PERKZ
+    description: "Period Indicator"
+    data_element: PERKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PRPER
+    description: "Forecast period"
+    data_element: PRPER
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: WEBAZ
+    description: "Goods Receipt Processing Time in Days"
+    data_element: WEBAZ
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: FIX01
+    description: "Indicator: fixeing lot size in planned order"
+    data_element: FIX01
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FIX02
+    description: "Indicator: fixing explosion in planned order"
+    data_element: FIX02
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BAART
+    description: "P.O./Order type"
+    data_element: BAART
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BESKZ
+    description: "Procurement Type"
+    data_element: BESKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SOBES
+    description: "Special procurement type"
+    data_element: SOBES
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: UMSKZ
+    description: "Special G/L Indicator"
+    data_element: UMSKZ
+    check_table: T074U
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLART
+    description: "Planning type"
+    data_element: PLART
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUSSL
+    description: "Exception message key"
+    data_element: AUSSL
+    check_table: T458A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: WRK02
+    description: "Planning/production plant"
+    data_element: WRK02
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LGORT
+    description: "Storage Location"
+    data_element: LGORT_D
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: DELNR
+    description: "MRP element number"
+    data_element: DELNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: DELPS
+    description: "MRP element item"
+    data_element: DELPS
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: DELET
+    description: "Schedule Line Number MRP Element"
+    data_element: DELET
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: AUFVR
+    description: "Source number for order"
+    data_element: AUFVR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: POSVR
+    description: "Source item number"
+    data_element: POSVR
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: EINVR
+    description: "Source schedule line number"
+    data_element: EINVR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: UKZ01
+    description: "Indicator: MRP element can be brought forward"
+    data_element: UKZ01
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: UMDAT
+    description: "Rescheduling date"
+    data_element: UMDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: DEL12
+    description: "MRP element number"
+    data_element: DEL12
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: BAUGR
+    description: "Material number of higher-level assembly"
+    data_element: BAUGR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: DELVR
+    description: "MRP element"
+    data_element: DELKZ
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: VERSB
+    description: "Version number for independent requirements"
+    data_element: VERSB
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: OLDSL
+    description: "Key of the second exception message"
+    data_element: OLDSL
+    check_table: T458A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: RDMNG
+    description: "Excess stock quantity"
+    data_element: RDMNG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: PLAAB
+    description: "Material requirements planning segment"
+    data_element: PLAAB
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: TAG00
+    description: "Daily shift (sort indicator 0)"
+    data_element: TAG00
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: ABEKZ
+    description: "Exception indicator"
+    data_element: ABEKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MDFST
+    description: "Production order status: internal ind. for MRP"
+    data_element: MDFST
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MDMNG
+    description: "MRP: quantity field (stock in transit, receipt qty, ...)"
+    data_element: MDMNG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: VERID
+    description: "Production Version"
+    data_element: VERID
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: WRK01
+    description: "Planning Plant"
+    data_element: PLWRK
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SERNR
+    description: "BOM explosion number"
+    data_element: SERNR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: REVLV
+    description: "Revision Level"
+    data_element: REVLV
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: DBSKZ
+    description: "Direct procurement indicator"
+    data_element: DBSKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EXTNL
+    description: "Indicator for External Procurement"
+    data_element: EXTNL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ADINF
+    description: "Field for Additional Information"
+    data_element: MD_ADINF
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: RESLO
+    description: "Issuing Storage Location for Stock Transport Order"
+    data_element: RESLO
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PRIO_URG
+    description: "Requirement Urgency"
+    data_element: PRIO_URG
+    check_table: PURG
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: PRIO_REQ
+    description: "Requirement Priority"
+    data_element: PRIO_REQ
+    check_table: PREQ
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: AUSSL
+    check_table: T458A
+    check_field: MANDT
+  - field: AUSSL
+    check_table: T458A
+    check_field: AUSSL
+  - field: BAUGR
+    check_table: MARA
+    check_field: MANDT
+  - field: BAUGR
+    check_table: MARA
+    check_field: MATNR
+  - field: OLDSL
+    check_table: T458A
+    check_field: MANDT
+  - field: OLDSL
+    check_table: T458A
+    check_field: AUSSL
+  - field: PRIO_REQ
+    check_table: PREQ
+    check_field: MANDT
+  - field: PRIO_REQ
+    check_table: PREQ
+    check_field: PRIO_REQ
+  - field: PRIO_URG
+    check_table: PURG
+    check_field: MANDT
+  - field: PRIO_URG
+    check_table: PURG
+    check_field: PRIO_URG
+  - field: UMSKZ
+    check_table: T074U
+    check_field: MANDT
+  - field: UMSKZ
+    check_table: T074U
+    check_field: UMSKZ
+  - field: WRK02
+    check_table: T001W
+    check_field: MANDT
+  - field: WRK02
+    check_table: T001W
+    check_field: WERKS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

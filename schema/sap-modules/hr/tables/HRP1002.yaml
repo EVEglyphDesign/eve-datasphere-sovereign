@@ -1,0 +1,187 @@
+table: HRP1002
+module: HR
+description: "Infotype 1002 DB Table — the organizational-management object descriptions/free-text table, the third of the three OM tables alongside HRP1000 (object master) and HRP1001 (relationships, the important one since org structure lives in relationship edges, not a hierarchy column): a long-text description for a given object (OTYPE/OBJID/PLVAR), referenced via TABNR into the text/table-extension storage, under a validity interval. This table is personal data when the described object is a person-holding object — any mirrored copy must be handled under consent-scoped access controls."
+source: https://leanx.eu/en/sap/table/hrp1002.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: PLVAR
+    description: "Plan Version"
+    data_element: PLVAR
+    check_table: T778P
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: OTYPE
+    description: "Object Type"
+    data_element: OTYPE
+    check_table: T778O
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: OBJID
+    description: "Object ID"
+    data_element: HROBJID
+    check_table: PLOGI
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: SUBTY
+    description: "Subtype"
+    data_element: SUBTYP
+    check_table: T778U
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: ISTAT
+    description: "Planning Status"
+    data_element: ISTAT_D
+    check_table: T778S
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: BEGDA
+    description: "Start Date — validity interval start for this description record"
+    data_element: BEGDATUM
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: ENDDA
+    description: "End Date — validity interval end for this description record"
+    data_element: ENDDATUM
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: LANGU
+    description: "Language Key"
+    data_element: LANGU
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: true
+  - name: FILLER
+    description: "Dummy Field with Length 9"
+    data_element: DUMMY_9
+    check_table: ~
+    datatype: CHAR
+    length: 9
+    decimals: 0
+    key: true
+  - name: SEQNR
+    description: "Number of Infotype Record with Same Key"
+    data_element: SEQNR
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: true
+  - name: INFTY
+    description: "Infotype"
+    data_element: INFOTYP
+    check_table: T778T
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: OTJID
+    description: "Concatenation of Object Type and Object ID"
+    data_element: OTJID
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AEDTM
+    description: "Changed On"
+    data_element: AEDTM
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: UNAME
+    description: "User Name"
+    data_element: USRNAME
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: REASN
+    description: "Reason"
+    data_element: REASN
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: HISTO
+    description: "Historical Record Flag"
+    data_element: HISTO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ITXNR
+    description: "Text Module for Infotype"
+    data_element: ITXNR
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: TABNR
+    description: "Reference Number to Table Part — points into the associated long-text/table-extension storage"
+    data_element: HRTABNR
+    check_table: HRITABNR
+    datatype: CHAR
+    length: 32
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: PLVAR
+    check_table: T778P
+    check_field: PLVAR
+  - field: OTYPE
+    check_table: T778O
+    check_field: OTYPE
+  - field: OBJID
+    check_table: PLOGI
+    check_field: OBJID
+  - field: SUBTY
+    check_table: T778U
+    check_field: SUBTY
+  - field: ISTAT
+    check_table: T778S
+    check_field: ISTAT
+  - field: LANGU
+    check_table: T002
+    check_field: SPRAS
+  - field: INFTY
+    check_table: T778T
+    check_field: INFTY
+  - field: TABNR
+    check_table: HRITABNR
+    check_field: TABNR
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

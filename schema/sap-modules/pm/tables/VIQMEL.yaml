@@ -1,0 +1,475 @@
+table: VIQMEL
+module: PM
+description: "Generated Table for View — the notification view joining the QMEL notification header with equipment, functional-location, order, maintenance-plan, and organizational master data. This is the notification-reporting surface that any reliability, breakdown, or maintenance-KPI analysis reads from, since it flattens the object hierarchy (equipment/functional-location/order) onto the notification record. SAP's real view carries 250+ fields (it re-exposes most of the QMEL header plus joined reference fields from EQUI/IFLOT/AUFK/MPLA/organizational tables); this definition is scoped to the full key, notification classification and priority fields, all scheduling/reported dates, the equipment/functional-location/order/plan linkage fields, and the core organizational fields a crosswalk or failure-cause analysis (QMMA/QMUR) depends on — never silently truncate beyond that scope."
+source: https://leanx.eu/en/sap/table/viqmel.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: QMNUM
+    description: "Notification Number"
+    data_element: QMNUM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: true
+  - name: QMART
+    description: "Notification type"
+    data_element: QMART
+    check_table: TQ80
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: QMTXT
+    description: "Notification short text"
+    data_element: QMTXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: ARTPR
+    description: "Notification origin"
+    data_element: ARTPR
+    check_table: T356A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PRIOK
+    description: "Priority type"
+    data_element: PRIOK
+    check_table: T356
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PRIOKX
+    description: "Priority"
+    data_element: PRIOX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on which the record was created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: QMDAT
+    description: "Date notification created (in header)"
+    data_element: QMDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: MZEIT
+    description: "Time notification created"
+    data_element: MZEIT
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: STRMN
+    description: "Required start date"
+    data_element: STRMN
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: STRUR
+    description: "Required start time"
+    data_element: STRUR
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: LTRMN
+    description: "Required end date"
+    data_element: LTRMN
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: LTRUR
+    description: "Required end time"
+    data_element: LTRUR
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: MDDAT
+    description: "Malfunction start date"
+    data_element: MDDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: MDZET
+    description: "Time of malfunction"
+    data_element: MDZET
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: MEDAT
+    description: "Malfunction end date"
+    data_element: MEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: METIM
+    description: "Malfunction end time"
+    data_element: METIM
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: MADUR
+    description: "Breakdown duration"
+    data_element: MADUR
+    check_table: ~
+    datatype: DEC
+    length: 12
+    decimals: 3
+    key: false
+  - name: MAUEH
+    description: "Time unit for breakdown duration"
+    data_element: MAUEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: STTXT
+    description: "Object status short text (system status)"
+    data_element: J_STTXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: OBJNR
+    description: "Object number (status management)"
+    data_element: J_OBJNR
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: EQUNR
+    description: "Equipment Number"
+    data_element: EQUNR
+    check_table: EQUI
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: BAUTL
+    description: "Assembly (material number of technical object)"
+    data_element: TEXTBAUTL
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: TPLNR
+    description: "Functional Location"
+    data_element: TPLNR
+    check_table: IFLOT
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: ILOAN
+    description: "Functional location (internal key)"
+    data_element: ILOAN
+    check_table: ILOA
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: AUFNR
+    description: "Order Number"
+    data_element: AUFNR
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: WARPL
+    description: "Maintenance Plan"
+    data_element: WARPL
+    check_table: MPLA
+    datatype: NUMC
+    length: 12
+    decimals: 0
+    key: false
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: SERIALNR
+    description: "Serial number"
+    data_element: GERNR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: KUNUM
+    description: "Customer Number"
+    data_element: KUNUM
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RBNR
+    description: "Catalog profile"
+    data_element: QRBNR
+    check_table: T352B
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: QMKAT
+    description: "Catalog type for coding"
+    data_element: QMKAT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QMGRP
+    description: "Notification: code group"
+    data_element: QMGRP
+    check_table: QPGR
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: QMCOD
+    description: "Notification: coding"
+    data_element: QMCOD
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KOSTL
+    description: "Cost Center"
+    data_element: KOSTL
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: GSBER
+    description: "Business Area"
+    data_element: GSBER
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: IWERK
+    description: "Maintenance planning plant"
+    data_element: IWERK
+    check_table: T399I
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: INGRP
+    description: "Planner Group"
+    data_element: INGRP
+    check_table: T024I
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: VKORG
+    description: "Sales Organization"
+    data_element: VKORG
+    check_table: TVKO
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VTWEG
+    description: "Distribution Channel"
+    data_element: VTWEG
+    check_table: TVTW
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: SPART
+    description: "Division"
+    data_element: SPART
+    check_table: TSPA
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: QMNAM
+    description: "Name of the person who reported the notification"
+    data_element: QMNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: STATUS_ICON
+    description: "Overall status (icon representation)"
+    data_element: J_STATUS_ICO
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: ARTPR
+    check_table: T356A
+    check_field: ARTPR
+  - field: AUFNR
+    check_table: AUFK
+    check_field: AUFNR
+  - field: BAUTL
+    check_table: MARA
+    check_field: MATNR
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: EQUNR
+    check_table: EQUI
+    check_field: EQUNR
+  - field: GSBER
+    check_table: TGSB
+    check_field: GSBER
+  - field: ILOAN
+    check_table: ILOA
+    check_field: ILOAN
+  - field: INGRP
+    check_table: T024I
+    check_field: INGRP
+  - field: IWERK
+    check_table: T399I
+    check_field: IWERK
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: KOSTL
+    check_table: CSKS
+    check_field: KOSTL
+  - field: KUNUM
+    check_table: KNA1
+    check_field: KUNNR
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: MAUEH
+    check_table: T006
+    check_field: MSEHI
+  - field: OBJNR
+    check_table: ONR00
+    check_field: OBJNR
+  - field: PRIOK
+    check_table: T356
+    check_field: PRIOK
+  - field: QMART
+    check_table: TQ80
+    check_field: QMART
+  - field: QMGRP
+    check_table: QPGR
+    check_field: CODEGRUPPE
+  - field: RBNR
+    check_table: T352B
+    check_field: RBNR
+  - field: SPART
+    check_table: TSPA
+    check_field: SPART
+  - field: TPLNR
+    check_table: IFLOT
+    check_field: TPLNR
+  - field: VKORG
+    check_table: TVKO
+    check_field: VKORG
+  - field: VTWEG
+    check_table: TVTW
+    check_field: VTWEG
+  - field: WARPL
+    check_table: MPLA
+    check_field: WARPL
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

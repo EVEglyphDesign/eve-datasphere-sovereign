@@ -1,0 +1,54 @@
+table: T357
+module: PM
+description: "Plant Section — customizing table listing the plant sections (organizational subdivisions of a plant, e.g. a workshop or production line) valid per plant (WERKS), each with a responsible person and phone number. Referenced by ILOA-BEBER (Plant Section) — the address/location segment shared by every equipment, functional location and order — meaning any technical object's plant-section assignment validates against this table. Carried complete — small customizing table."
+source: https://leanx.eu/en/sap/table/t357.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: BEBER
+    description: "Plant section"
+    data_element: BEBER
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: true
+  - name: FING
+    description: "Person Responsible for Company Area"
+    data_element: FING
+    check_table: ~
+    datatype: CHAR
+    length: 14
+    decimals: 0
+    key: false
+  - name: TELE
+    description: "Phone number of person responsible for company area"
+    data_element: TELE
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

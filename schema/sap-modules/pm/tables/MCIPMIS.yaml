@@ -1,0 +1,466 @@
+table: MCIPMIS
+module: PM
+description: "PMIS: Master data characteristics for PMIS before image — the PM information-structure statistics table that snapshots equipment/functional-location master-data characteristics (type, manufacturer, serial number, install date, organizational assignment) at statistics-update time, feeding LIS/PMIS reporting on the object population before a change. Small, complete table."
+source: https://leanx.eu/en/sap/table/mcipmis.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: true
+  - name: STWAE
+    description: "Statistics Currency"
+    data_element: STWAE
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: EQUNR
+    description: "Equipment Number"
+    data_element: EQUNR
+    check_table: EQUI
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: BEGRU
+    description: "Technical object authorization group"
+    data_element: IAUTG
+    check_table: T370B
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: EQTYP
+    description: "Equipment category"
+    data_element: EQTYP
+    check_table: T370T
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EQART
+    description: "Equipment type"
+    data_element: EQART
+    check_table: T370K
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: INVNR
+    description: "Inventory number"
+    data_element: INVNR
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: ANSDT
+    description: "Acquisition date"
+    data_element: ANSDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ELIEF
+    description: "Vendor of manufacturer part number"
+    data_element: LIFNRHERST
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: HERST
+    description: "Manufacturer of Asset"
+    data_element: HERST
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: SERGE
+    description: "Manufacturer serial number"
+    data_element: SERGE
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: TYPBZ
+    description: "Manufacturer model number"
+    data_element: TYPBZ
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: GERNR
+    description: "Serial number"
+    data_element: GERNR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: EQLFN
+    description: "Consecutive number for equipment"
+    data_element: EQLFN
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: BAUJJ
+    description: "Year of construction"
+    data_element: BAUJJ
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: SDATE
+    description: "Date on which statistics record was updated"
+    data_element: MCS_SDATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: TPLNR
+    description: "Functional Location"
+    data_element: TPLNR
+    check_table: IFLOT
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: TPLKZ
+    description: "Edit mask for functional location labeling"
+    data_element: TPLKZ
+    check_table: T370S
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: FLTYP
+    description: "Functional location category"
+    data_element: FLTYP
+    check_table: T370F
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TPLMA
+    description: "Superior functional location"
+    data_element: TPLMA
+    check_table: IFLOT
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: PBEGRU
+    description: "Technical object authorization group (functional location)"
+    data_element: IAUTG
+    check_table: T370B
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: TRPNR
+    description: "Reference functional location"
+    data_element: TRPNR
+    check_table: IRLOT
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: MAPAR
+    description: "Assembly indicator"
+    data_element: IMAPA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: IEQUI
+    description: "Equipment installed at this functional location"
+    data_element: IEQUI
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: EINZL
+    description: "Indicator: single equipment/serial number for FL/assembly"
+    data_element: IEINZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LGWID
+    description: "Work center ID"
+    data_element: GEWRK_D
+    check_table: CRID
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: PM_OBJTY
+    description: "Distinguishes between PM and CS objects"
+    data_element: PM_OBJTY
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ABCKZ
+    description: "ABC Indicator"
+    data_element: ABCKZ
+    check_table: T370C
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EQFNR
+    description: "Equipment sort field"
+    data_element: EQFNR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: SWERK
+    description: "Plant"
+    data_element: SWERK
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: STORT
+    description: "Location"
+    data_element: STORT
+    check_table: T499S
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: MSGRP
+    description: "Sort field for master data messages"
+    data_element: MSGRP
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BEBER
+    description: "Maintenance planning area"
+    data_element: BEBER
+    check_table: T357
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: GSBER
+    description: "Business Area"
+    data_element: GSBER
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KOSTL
+    description: "Cost Center"
+    data_element: KOSTL
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ANLNR
+    description: "Main Asset Number"
+    data_element: ANLN1
+    check_table: ANLH
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ANLUN
+    description: "Asset Subnumber"
+    data_element: ANLN2
+    check_table: ANLA
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: DAUFN
+    description: "Order number (equipment origin/construction order)"
+    data_element: DAUFN
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: SKLSOB
+    description: "Object class"
+    data_element: KLASSIFIZART
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ZEITP
+    description: "Point in time (of statistics update)"
+    data_element: ZEITPUNKT
+    check_table: TMC5
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SUBMT
+    description: "Assembly (material number of the technical object)"
+    data_element: ISUBM
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: ABCKZ
+    check_table: T370C
+    check_field: ABCKZ
+  - field: ANLNR
+    check_table: ANLH
+    check_field: ANLN1
+  - field: ANLUN
+    check_table: ANLA
+    check_field: ANLN2
+  - field: BEBER
+    check_table: T357
+    check_field: BEBER
+  - field: BEGRU
+    check_table: T370B
+    check_field: BEGRU
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: DAUFN
+    check_table: AUFK
+    check_field: AUFNR
+  - field: ELIEF
+    check_table: LFA1
+    check_field: LIFNR
+  - field: EQART
+    check_table: T370K
+    check_field: EQART
+  - field: EQTYP
+    check_table: T370T
+    check_field: EQTYP
+  - field: EQUNR
+    check_table: EQUI
+    check_field: EQUNR
+  - field: FLTYP
+    check_table: T370F
+    check_field: FLTYP
+  - field: GSBER
+    check_table: TGSB
+    check_field: GSBER
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: KOSTL
+    check_table: CSKS
+    check_field: KOSTL
+  - field: LGWID
+    check_table: CRID
+    check_field: OBJID
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: OBJNR
+    check_table: ONR00
+    check_field: OBJNR
+  - field: PBEGRU
+    check_table: T370B
+    check_field: BEGRU
+  - field: STORT
+    check_table: T499S
+    check_field: STORT
+  - field: STWAE
+    check_table: TCURC
+    check_field: WAERS
+  - field: SUBMT
+    check_table: MARA
+    check_field: MATNR
+  - field: SWERK
+    check_table: T001W
+    check_field: WERKS
+  - field: TPLKZ
+    check_table: T370S
+    check_field: TPLKZ
+  - field: TPLMA
+    check_table: IFLOT
+    check_field: TPLNR
+  - field: TPLNR
+    check_table: IFLOT
+    check_field: TPLNR
+  - field: TRPNR
+    check_table: IRLOT
+    check_field: TRPNR
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: ZEITP
+    check_table: TMC5
+    check_field: ZEITPUNKT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

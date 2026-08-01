@@ -1,0 +1,227 @@
+table: VBPA
+module: SD
+description: "Sales document partner — the partner-function table that answers who the sold-to, ship-to, payer, and bill-to actually were on a given sales document (header, POSNR = '000000') or item, each row keyed by PARVW (partner function, e.g. AG sold-to, WE ship-to, RE bill-to, RG payer) and resolving to a customer (KUNNR) or vendor (LIFNR)."
+source: https://leanx.eu/en/sap/table/vbpa.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: VBELN
+    description: "Sales and Distribution Document Number"
+    data_element: VBELN
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: POSNR
+    description: "Item number of the SD document"
+    data_element: POSNR
+    check_table: VBUP
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: true
+  - name: PARVW
+    description: "Partner Function"
+    data_element: PARVW
+    check_table: TPAR
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: KUNNR
+    description: "Customer Number"
+    data_element: KUNNR
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LIFNR
+    description: "Account Number of Vendor or Creditor"
+    data_element: LIFNR
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PERNR
+    description: "Personnel Number"
+    data_element: PERNR_D
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: PARNR
+    description: "Number of contact person"
+    data_element: PARNR
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: ADRNR
+    description: "Address"
+    data_element: ADRNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ABLAD
+    description: "Unloading Point"
+    data_element: ABLAD
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: LAND1
+    description: "Country Key"
+    data_element: LAND1
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: ADRDA
+    description: "Address indicator"
+    data_element: ADRDA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XCPDK
+    description: "Indicator: Is the account a one-time account?"
+    data_element: XCPDK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: HITYP
+    description: "Customer hierarchy type"
+    data_element: HITYP_KH
+    check_table: THIT
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PRFRE
+    description: "Relevant for price determination ID"
+    data_element: PRFRE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BOKRE
+    description: "Indicator: Customer Is Rebate-Relevant"
+    data_element: BOKRE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: HISTUNR
+    description: "Level number within hierarchy"
+    data_element: HISTUNR
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: KNREF
+    description: "Customer description of partner (plant, storage location)"
+    data_element: KNREF
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: LZONE
+    description: "Transportation zone to or from which the goods are delivered"
+    data_element: LZONE
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: HZUOR
+    description: "Assignment to Hierarchy"
+    data_element: HZUOR
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: STCEG
+    description: "VAT Registration Number"
+    data_element: STCEG
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: PARVW_FF
+    description: "Indicator 'further partners in this function' (VBPA2)"
+    data_element: PARTNER_FF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ADRNP
+    description: "Person number"
+    data_element: AD_PERSNUM
+    check_table: ADRP
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KALE
+    description: "Maintain appointments in calendar"
+    data_element: KALE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: VBELN
+    check_table: VBUK
+    check_field: VBELN
+  - field: POSNR
+    check_table: VBUP
+    check_field: POSNR
+  - field: PARVW
+    check_table: TPAR
+    check_field: PARVW
+  - field: KUNNR
+    check_table: KNA1
+    check_field: KUNNR
+  - field: LIFNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: LAND1
+    check_table: T005
+    check_field: LAND1
+  - field: HITYP
+    check_table: THIT
+    check_field: HITYP
+  - field: ADRNP
+    check_table: ADRP
+    check_field: PERSNUMBER
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

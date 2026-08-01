@@ -1,0 +1,41 @@
+table: TVBVK
+module: SD
+description: "Organizational check table: sales groups per sales office — validates which sales groups (VKGRP) are permitted under a given sales office (VKBUR), the assignment that document fields VKBUR/VKGRP on VBAK are checked against. Carried complete as a small organizational customizing table."
+source: https://leanx.eu/en/sap/table/tvbvk.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: VKBUR
+    description: "Sales Office"
+    data_element: VKBUR
+    check_table: TVBUR
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: VKGRP
+    description: "Sales Group"
+    data_element: VKGRP
+    check_table: TVKGR
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: true
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: VKBUR
+    check_table: TVBUR
+    check_field: VKBUR
+  - field: VKGRP
+    check_table: TVKGR
+    check_field: VKGRP
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -1,0 +1,194 @@
+table: TVTA
+module: SD
+description: "Organizational check table: sales area assignments — validates the combination of sales organization, distribution channel and division (VKORG/VTWEG/SPART) that defines a sales area, the fundamental organizational unit every SD sales document is assigned to, and carries the business area, credit control area, and reference-division/channel rules that flow down onto documents in that sales area. Carried complete as a small organizational customizing table."
+source: https://leanx.eu/en/sap/table/tvta.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: VKORG
+    description: "Sales Organization"
+    data_element: VKORG
+    check_table: TVKO
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: VTWEG
+    description: "Distribution Channel"
+    data_element: VTWEG
+    check_table: TVKOV
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: SPART
+    description: "Division"
+    data_element: SPART
+    check_table: TVKOS
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: VTWKU
+    description: "Reference distrib.channel for cust.and material masters"
+    data_element: VTWKU
+    check_table: TVTW
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: SPAKU
+    description: "Reference division for customers"
+    data_element: SPAKU
+    check_table: TSPA
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: VTWKO
+    description: "Reference distribution channel for conditions"
+    data_element: VTWKO
+    check_table: TVTW
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: SPAKO
+    description: "Reference division for conditions"
+    data_element: SPAKO
+    check_table: TSPA
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: MABER
+    description: "Dunning Area"
+    data_element: MABER
+    check_table: T047M
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: VKOAU
+    description: "Reference sales org.for sales doc.types (by sales area)"
+    data_element: VKOAU
+    check_table: TVKO
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VTWAU
+    description: "Distribution channel for sales doc types"
+    data_element: VTWAU
+    check_table: TVTW
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: SPAAU
+    description: "Reference division for document types (by sales area)"
+    data_element: SPAAU
+    check_table: TSPA
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: GSBER
+    description: "Business Area"
+    data_element: GSBER
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: REGGB
+    description: "Rule for determining the business area"
+    data_element: REGGB
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: REVFP
+    description: "Rule for transferring the results of the availability check"
+    data_element: REVFP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FIXMG
+    description: "Delivery date and quantity fixed"
+    data_element: FIXMG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AFIND
+    description: "Promo determination"
+    data_element: AFIND
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KKBER
+    description: "Credit control area"
+    data_element: KKBER
+    check_table: T014
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: VKORG
+    check_table: TVKO
+    check_field: VKORG
+  - field: VTWEG
+    check_table: TVKOV
+    check_field: VTWEG
+  - field: SPART
+    check_table: TVKOS
+    check_field: SPART
+  - field: VTWKU
+    check_table: TVTW
+    check_field: VTWEG
+  - field: SPAKU
+    check_table: TSPA
+    check_field: SPART
+  - field: VTWKO
+    check_table: TVTW
+    check_field: VTWEG
+  - field: SPAKO
+    check_table: TSPA
+    check_field: SPART
+  - field: MABER
+    check_table: T047M
+    check_field: MABER
+  - field: VKOAU
+    check_table: TVKO
+    check_field: VKORG
+  - field: VTWAU
+    check_table: TVTW
+    check_field: VTWEG
+  - field: SPAAU
+    check_table: TSPA
+    check_field: SPART
+  - field: GSBER
+    check_table: TGSB
+    check_field: GSBER
+  - field: KKBER
+    check_table: T014
+    check_field: KKBER
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

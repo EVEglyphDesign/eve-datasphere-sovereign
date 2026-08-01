@@ -1,0 +1,263 @@
+table: EKET
+module: MM
+description: "Scheduling Agreement Schedule Lines — the delivery-schedule detail beneath a PO/scheduling-agreement item, one row per PO item per schedule-line counter, carrying the promised delivery date, scheduled/received/issued quantities, and (for scheduling agreements specifically) the forecast-versus-JIT delivery mechanics that a supply-planning or on-time-delivery lane consumes. SAP's real table carries 75+ fields including SAP Global Trade Services routing, APO location, and open-to-buy (OTB) budget-check extensions; this definition is scoped to the full key, the core date/quantity schedule fields, the goods-movement linkage fields, and the requisition/reservation linkage fields — no fewer than 25 fields, per the wide-table rule."
+source: https://leanx.eu/en/sap/table/eket.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: EBELN
+    description: "Purchasing Document Number"
+    data_element: EBELN
+    check_table: EKKO
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: EBELP
+    description: "Item Number of Purchasing Document"
+    data_element: EBELP
+    check_table: EKPO
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: true
+  - name: ETENR
+    description: "Delivery Schedule Line Counter"
+    data_element: EETEN
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: EINDT
+    description: "Item Delivery Date"
+    data_element: EINDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: SLFDT
+    description: "Statistics-Relevant Delivery Date"
+    data_element: SLFDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: LPEIN
+    description: "Category of Delivery Date"
+    data_element: LPEIN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MENGE
+    description: "Scheduled Quantity"
+    data_element: ETMEN
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: AMENG
+    description: "Previous Quantity (Delivery Schedule Lines)"
+    data_element: VOMNG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: WEMNG
+    description: "Quantity of Goods Received"
+    data_element: WEEMG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: WAMNG
+    description: "Issued Quantity"
+    data_element: WAMNG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: UZEIT
+    description: "Delivery Date Time-Spot"
+    data_element: LZEIT
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: BANFN
+    description: "Purchase Requisition Number"
+    data_element: BANFN
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BNFPO
+    description: "Item Number of Purchase Requisition"
+    data_element: BNFPO
+    check_table: EBAN
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: ESTKZ
+    description: "Creation Indicator (Purchase Requisition/Schedule Lines)"
+    data_element: ESTKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QUNUM
+    description: "Number of Quota Arrangement"
+    data_element: QUNUM
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: QUPOS
+    description: "Quota Arrangement Item"
+    data_element: QUPOS
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: MAHNZ
+    description: "No. of Reminders/Expediters for Schedule Line"
+    data_element: MAHNZE
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: BEDAT
+    description: "Order date of schedule line"
+    data_element: ETBDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: RSNUM
+    description: "Number of Reservation/Dependent Requirement"
+    data_element: RSNUM
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: SERNR
+    description: "BOM explosion number"
+    data_element: SERNR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: FIXKZ
+    description: "Schedule Line is \"Fixed\""
+    data_element: ETFIX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GLMNG
+    description: "Quantity Delivered (Stock Transfer)"
+    data_element: GLMNG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: DABMG
+    description: "Quantity Reduced (MRP)"
+    data_element: DABMG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: CHARG
+    description: "Batch Number"
+    data_element: CHARG_D
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LICHA
+    description: "Vendor Batch Number"
+    data_element: LICHN
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: VERID
+    description: "Production Version"
+    data_element: VERID
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ABART
+    description: "Scheduling agreement release type"
+    data_element: MEABART
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WADAT
+    description: "Goods Issue Date"
+    data_element: WADAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AULWE
+    description: "Route Schedule"
+    data_element: AULWE
+    check_table: VALW
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: EBELN
+    check_table: EKKO
+    check_field: EBELN
+  - field: EBELP
+    check_table: EKPO
+    check_field: EBELP
+  - field: BNFPO
+    check_table: EBAN
+    check_field: BNFPO
+  - field: AULWE
+    check_table: VALW
+    check_field: AULWE
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

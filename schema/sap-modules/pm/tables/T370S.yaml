@@ -1,0 +1,43 @@
+table: T370S
+module: PM
+description: "Functional Location Structure Indicators — customizing table defining the structure indicators that govern the edit mask and hierarchy-level syntax used to build functional location identifiers. Referenced by TPLKZ on IFLOT (Functional Location master), which determines how that functional location's hierarchical label is parsed and displayed. Carried complete — small customizing table."
+source: https://leanx.eu/en/sap/table/t370s.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: TPLKZ
+    description: "Functional location structure indicator"
+    data_element: TPLKZ
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: true
+  - name: EDITM
+    description: "Functional location edit mask"
+    data_element: ILOM_EDITM
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: STUFM
+    description: "Functional Location Hierarchy Levels"
+    data_element: ILOM_HIERA
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

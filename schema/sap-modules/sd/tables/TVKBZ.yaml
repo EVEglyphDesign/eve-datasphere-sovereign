@@ -1,0 +1,63 @@
+table: TVKBZ
+module: SD
+description: "Organizational check table: sales office assignment to sales area — validates which sales offices (VKBUR) are assigned to which sales area (VKORG/VTWEG/SPART), the assignment the VKBUR field on SD documents is checked against in context of the document's sales area. Carried complete as a small organizational customizing table."
+source: https://leanx.eu/en/sap/table/tvkbz.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: VKORG
+    description: "Sales Organization"
+    data_element: VKORG
+    check_table: TVKO
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: VTWEG
+    description: "Distribution Channel"
+    data_element: VTWEG
+    check_table: TVKOV
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: SPART
+    description: "Division"
+    data_element: SPART
+    check_table: TVKOS
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: VKBUR
+    description: "Sales Office"
+    data_element: VKBUR
+    check_table: TVBUR
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: VKORG
+    check_table: TVKO
+    check_field: VKORG
+  - field: VTWEG
+    check_table: TVKOV
+    check_field: VTWEG
+  - field: SPART
+    check_table: TVKOS
+    check_field: SPART
+  - field: VKBUR
+    check_table: TVBUR
+    check_field: VKBUR
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

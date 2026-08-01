@@ -1,0 +1,228 @@
+table: PA0105
+module: HR
+description: "HR Master Record: Infotype 0105 (Communications) — the join between a person and their system identity: communication type (USRTY, e.g. system user ID, e-mail address, and other configured communication channels via subtype T591A) paired with the identifier/number itself (USRID, plus a long-form USRID_LONG for values exceeding 30 characters such as full e-mail addresses), keyed by personnel number under the same validity-interval pattern as PA0001 Organizational Assignment. This is the infotype consuming systems mirror to resolve a PERNR to a login/user ID or e-mail address. This infotype is personal data — it links an identifiable employee to system credentials and contact identifiers such as e-mail — and any mirrored copy must be handled under consent-scoped access controls."
+source: https://leanx.eu/en/sap/table/pa0105.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: PERNR
+    description: "Personnel Number"
+    data_element: PERSNO
+    check_table: PA0003
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: SUBTY
+    description: "Subtype — communication type category"
+    data_element: SUBTY
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: OBJPS
+    description: "Object Identification"
+    data_element: OBJPS
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: SPRPS
+    description: "Lock Indicator for HR Master Data Record"
+    data_element: SPRPS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: ENDDA
+    description: "End Date — validity interval end for this communication record"
+    data_element: ENDDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: BEGDA
+    description: "Start Date — validity interval start for this communication record"
+    data_element: BEGDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: SEQNR
+    description: "Number of Infotype Record with Same Key"
+    data_element: SEQNR
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: true
+  - name: AEDTM
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: UNAME
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: HISTO
+    description: "Historical Record Flag"
+    data_element: HISTO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ITXEX
+    description: "Text Exists for Infotype"
+    data_element: ITXEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: REFEX
+    description: "Reference Fields Exist (Primary/Secondary Costs)"
+    data_element: PRFEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ORDEX
+    description: "Confirmation Fields Exist"
+    data_element: ORDEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ITBLD
+    description: "Infotype Screen Control"
+    data_element: ITBLD
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PREAS
+    description: "Reason for Changing Master Data"
+    data_element: PREAS
+    check_table: T530E
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FLAG1
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLAG2
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLAG3
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLAG4
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RESE1
+    description: "Reserved Field/Unused Field of Length 2"
+    data_element: NUSED2
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: RESE2
+    description: "Reserved Field/Unused Field of Length 2"
+    data_element: NUSED2
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: GRPVL
+    description: "Grouping Value for Personnel Assignments"
+    data_element: PCCE_GPVAL
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: USRTY
+    description: "Communication Type — e.g. system user ID, e-mail, or other configured channel"
+    data_element: USRTY
+    check_table: T591A
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: USRID
+    description: "Communication Identification/Number — the user ID or short-form identifier value for USRTY"
+    data_element: SYSID
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: USRID_LONG
+    description: "Communication: Long Identification/Number — long-form identifier (e.g. full e-mail address) for values exceeding USRID's 30 characters"
+    data_element: COMM_ID_LONG
+    check_table: ~
+    datatype: CHAR
+    length: 241
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: PERNR
+    check_table: PA0003
+    check_field: PERNR
+  - field: PREAS
+    check_table: T530E
+    check_field: PREAS
+  - field: USRTY
+    check_table: T591A
+    check_field: SUBTY
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

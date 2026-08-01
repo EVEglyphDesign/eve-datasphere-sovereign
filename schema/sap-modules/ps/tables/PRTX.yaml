@@ -1,0 +1,43 @@
+table: PRTX
+module: PS
+description: "PS Texts (WBS) — the key/pointer table for WBS element long texts: for a given WBS element (PRPSPNR, resolving to PRPS-PSPNR) and object type (PROBTYP), it holds the internal text-number key (PRTXTKY) used to look up the actual SAPscript/STXL text via READ_TEXT (TDID='LTXT', OBJECT='PMS', NAME derived from the WBS element's object number). PRTX itself carries no text content — it is the join key between a WBS element and its long-text object; the text body lives in the standard text-cluster tables (STXH/STXL) outside this table."
+source: https://sapstack.com/tables/tabledetails.php?table=PRTX
+fields:
+  - name: PRMANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: PROBTYP
+    description: "Object type, projects"
+    data_element: PS_OBTYP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: PRPSPNR
+    description: "WBS Element"
+    data_element: PS_POSNR
+    check_table: PRPS
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: PRTXTKY
+    description: "Internal text number (12-character)"
+    data_element: TXTKY
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: true
+foreign_keys:
+  - field: PRPSPNR
+    check_table: PRPS
+    check_field: PSPNR
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -1,0 +1,426 @@
+table: MARD
+module: MM
+description: "Storage Location Data for Material — carries stock quantities and physical-inventory status at the storage-location level, one row per material per plant per storage location, sitting directly beside the already-defined MARC (plant-level) data. Where MARC governs planning and procurement parameters for a material at a plant, MARD tracks the actual stock buckets (unrestricted, quality inspection, blocked, in-transfer, consignment) that a warehouse or inventory-management lane consumes for on-hand-quantity and physical-inventory reporting."
+source: https://leanx.eu/en/sap/table/mard.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: true
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: MARC
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: LGORT
+    description: "Storage Location"
+    data_element: LGORT_D
+    check_table: T001L
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: PSTAT
+    description: "Maintenance status"
+    data_element: PSTAT_D
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: LVORM
+    description: "Flag Material for Deletion at Storage Location Level"
+    data_element: LVOLG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LFGJA
+    description: "Fiscal Year of Current Period"
+    data_element: LFGJA
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: LFMON
+    description: "Current period (posting period)"
+    data_element: LFMON
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: SPERR
+    description: "Physical Inventory Blocking Indicator"
+    data_element: SPERR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LABST
+    description: "Valuated Unrestricted-Use Stock"
+    data_element: LABST
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: UMLME
+    description: "Stock in transfer (from one storage location to another)"
+    data_element: UMLMD
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: INSME
+    description: "Stock in Quality Inspection"
+    data_element: INSME
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: EINME
+    description: "Total Stock of All Restricted Batches"
+    data_element: EINME
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: SPEME
+    description: "Blocked Stock"
+    data_element: SPEME
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: RETME
+    description: "Blocked Stock Returns"
+    data_element: RETME
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: VMLAB
+    description: "Valuated unrestricted-use stock in previous period"
+    data_element: VMLAB
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: VMUML
+    description: "Stock in Transfer in Previous Period"
+    data_element: VMUML
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: VMINS
+    description: "Stock in Quality Inspection in Previous Period"
+    data_element: VMINS
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: VMEIN
+    description: "Restricted-Use Stock in Previous Period"
+    data_element: VMEIN
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: VMSPE
+    description: "Blocked stock of previous period"
+    data_element: VMSPE
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: VMRET
+    description: "Blocked Stock Returns in Previous Period"
+    data_element: VMRET
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: KZILL
+    description: "Physical inventory indicator for whse stock in current year"
+    data_element: KZILL
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: KZILQ
+    description: "Phys. inventory ind. f. stock in qual. insp. in current year"
+    data_element: KZILQ
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: KZILE
+    description: "Physical inventory indicator for restricted-use stock"
+    data_element: KZILE
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: KZILS
+    description: "Physical inventory indicator for blocked stock"
+    data_element: KZILS
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: KZVLL
+    description: "Physical inventory indicator for stock in previous year"
+    data_element: KZVLL
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: KZVLQ
+    description: "Phys. inventory ind. f. stock in qual. insp. in prev. period"
+    data_element: KZVLQ
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: KZVLE
+    description: "Physical inventory ind. for restricted-use stock, prev.pd"
+    data_element: KZVLE
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: KZVLS
+    description: "Phys. inventory indicator for blocked stock in prev. period"
+    data_element: KZVLS
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: DISKZ
+    description: "Storage location MRP indicator"
+    data_element: DISKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LSOBS
+    description: "Special procurement type at storage location level"
+    data_element: LSOBS
+    check_table: T460A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LMINB
+    description: "Reorder point for storage location MRP"
+    data_element: LMINB
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: LBSTF
+    description: "Replenishment quantity for storage location MRP"
+    data_element: LBSTF
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: HERKL
+    description: "Country of origin of the material"
+    data_element: HERKL
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: EXPPG
+    description: "Preference indicator (deactivated)"
+    data_element: EXPPG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EXVER
+    description: "Export indicator (deactivated)"
+    data_element: EXVER
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LGPBE
+    description: "Storage Bin"
+    data_element: LGPBE
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KLABS
+    description: "Unrestricted-Use Consignment Stock"
+    data_element: KLABS
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: KINSM
+    description: "Consignment Stock in Quality Inspection"
+    data_element: KINSM
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: KEINM
+    description: "Restricted-Use Consignment Stock"
+    data_element: KEINM
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: KSPEM
+    description: "Blocked Consignment Stock"
+    data_element: KSPEM
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: DLINL
+    description: "Date of Last Posted Count for Unrestricted-Use Stock"
+    data_element: DLINL
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PRCTL
+    description: "Profit Center"
+    data_element: PRCTR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ERSDA
+    description: "Created On"
+    data_element: ERSDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: VKLAB
+    description: "Stock value of a value-only material at sales price"
+    data_element: VKLAB
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: VKUML
+    description: "Sales value in stock transfer (SLOc to SLoc)"
+    data_element: VKUML
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: LWMKB
+    description: "Picking area for lean WM"
+    data_element: MARD_KOBER
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: BSKRF
+    description: "Inventory correction factor"
+    data_element: BSKRF
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: MDRUE
+    description: "MARDH rec. already exists for per. before last of MARD per."
+    data_element: MDRUE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MDJIN
+    description: "Fiscal year of current physical inventory indicator"
+    data_element: GJINV
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: WERKS
+    check_table: MARC
+    check_field: WERKS
+  - field: LGORT
+    check_table: T001L
+    check_field: LGORT
+  - field: LSOBS
+    check_table: T460A
+    check_field: SOBSL
+  - field: HERKL
+    check_table: T005
+    check_field: LAND1
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

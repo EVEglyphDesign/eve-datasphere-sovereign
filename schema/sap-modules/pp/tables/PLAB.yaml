@@ -1,0 +1,272 @@
+table: PLAB
+module: PP
+description: "Task List / Standard Network Relationships — defines predecessor/successor relationships between two task-list (or standard network) nodes, with time-interval, calendar, and duration-limit parameters. Supports network-style sequencing beside the task-list sequence/component-allocation tables PLKO/PLPO/PLMZ."
+source: https://leanx.eu/en/sap/table/plab.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: PLNTY
+    description: "Task List Type"
+    data_element: PLNTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: PLNNR
+    description: "Number of the Standard Network"
+    data_element: AOB_PLNNR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: true
+  - name: PLNAL
+    description: "Group Counter"
+    data_element: PLNAL
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: PLNKN
+    description: "Number of the task list node"
+    data_element: PLNKN
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: PLNRN
+    description: "Number of the Standard Network"
+    data_element: AOB_PLNNR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: true
+  - name: ALNRN
+    description: "Group Counter"
+    data_element: PLNAL
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: KNNRN
+    description: "Number of the task list node"
+    data_element: PLNKN
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: AOBAR
+    description: "Type of relationship"
+    data_element: AOBAR
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: MIMAX
+    description: "Indicates whether maximum time interval will be considered"
+    data_element: DAUMIMAX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZAEHL
+    description: "Internal counter"
+    data_element: CIM_COUNT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: DATUV
+    description: "Valid-from date"
+    data_element: CIM_DATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: TECHV
+    description: "Technical status from"
+    data_element: TECHV
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AENNR
+    description: "Change Number"
+    data_element: AENNR
+    check_table: AENR
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ZEINH
+    description: "Unit for the time interval between relationships"
+    data_element: AOBDAUEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: DAUER
+    description: "Time interval between relationships"
+    data_element: AOBDAUER
+    check_table: ~
+    datatype: QUAN
+    length: 5
+    decimals: 1
+    key: false
+  - name: DAUKZ
+    description: "Indicator for the duration of the relationship"
+    data_element: AOBDAUKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VORNC
+    description: "Indicator: maintained after successor"
+    data_element: VORG_NACH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: NCVOR
+    description: "Indicates whether data after predecessor is maintained"
+    data_element: NACH_VORG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LOEKZ
+    description: "Asset class marked for deletion"
+    data_element: LOEKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KALID
+    description: "Factory Calendar"
+    data_element: WFCID
+    check_table: TFACD
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PRZNT
+    description: "% used to calc. time interval between predecessor/successor"
+    data_element: AOB_PRZNT
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: PROVG
+    description: "Key for defining time intervals in a relationship"
+    data_element: AOB_PROVG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ARBID
+    description: "Object ID"
+    data_element: OBJEKTID
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ANDAT
+    description: "Date record created on"
+    data_element: ANDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ANNAM
+    description: "User who created record"
+    data_element: ANNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: DAUERMAX
+    description: "Maximum time interval for relationship"
+    data_element: AOBDAUERM
+    check_table: ~
+    datatype: QUAN
+    length: 5
+    decimals: 1
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: AENNR
+    check_table: AENR
+    check_field: MANDT
+  - field: AENNR
+    check_table: AENR
+    check_field: AENNR
+  - field: KALID
+    check_table: TFACD
+    check_field: IDENT
+  - field: WERKS
+    check_table: T001W
+    check_field: MANDT
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+  - field: ZEINH
+    check_table: T006
+    check_field: MANDT
+  - field: ZEINH
+    check_table: T006
+    check_field: MSEHI
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -1,0 +1,721 @@
+table: PA2001
+module: HR
+description: "HR Time Record: Infotype 2001 (Absences) — one of the two time-evaluation input infotypes (the other being PA2002 Attendances) that pair with the already-defined AFRU confirmations: attendance/absence type (AWART), start/end time, days and hours counted for attendance/absence, payroll, and continued-pay purposes, sickness-tracking dates and indicators, and off-cycle payroll linkage, keyed by personnel number under the same validity-interval pattern as PA0001 Organizational Assignment. This infotype is personal data — it records an identifiable employee's leave, sickness, and absence history, including illness-related indicators — and any mirrored copy must be handled under consent-scoped access controls."
+source: https://leanx.eu/en/sap/table/pa2001.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: PERNR
+    description: "Personnel Number"
+    data_element: PERSNO
+    check_table: PA0003
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: SUBTY
+    description: "Subtype"
+    data_element: SUBTY
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: OBJPS
+    description: "Object Identification"
+    data_element: OBJPS
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: SPRPS
+    description: "Lock Indicator for HR Master Data Record"
+    data_element: SPRPS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: ENDDA
+    description: "End Date — validity interval end for this absence record"
+    data_element: ENDDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: BEGDA
+    description: "Start Date — validity interval start for this absence record"
+    data_element: BEGDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: SEQNR
+    description: "Number of Infotype Record with Same Key"
+    data_element: SEQNR
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: true
+  - name: AEDTM
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: UNAME
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: HISTO
+    description: "Historical Record Flag"
+    data_element: HISTO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ITXEX
+    description: "Text Exists for Infotype"
+    data_element: ITXEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: REFEX
+    description: "Reference Fields Exist (Primary/Secondary Costs)"
+    data_element: PRFEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ORDEX
+    description: "Confirmation Fields Exist"
+    data_element: ORDEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ITBLD
+    description: "Infotype Screen Control"
+    data_element: ITBLD
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PREAS
+    description: "Reason for Changing Master Data"
+    data_element: PREAS
+    check_table: T530E
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FLAG1
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLAG2
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLAG3
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLAG4
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RESE1
+    description: "Reserved Field/Unused Field of Length 2"
+    data_element: NUSED2
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: RESE2
+    description: "Reserved Field/Unused Field of Length 2"
+    data_element: NUSED2
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: GRPVL
+    description: "Grouping Value for Personnel Assignments"
+    data_element: PCCE_GPVAL
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BEGUZ
+    description: "Start Time"
+    data_element: BEGTI
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: ENDUZ
+    description: "End Time"
+    data_element: ENDTI
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: VTKEN
+    description: "Previous Day Indicator"
+    data_element: VTKEN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AWART
+    description: "Attendance or Absence Type"
+    data_element: AWART
+    check_table: T554S
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ABWTG
+    description: "Attendance and Absence Days"
+    data_element: ABWTG
+    check_table: ~
+    datatype: DEC
+    length: 6
+    decimals: 2
+    key: false
+  - name: STDAZ
+    description: "Absence Hours"
+    data_element: ABSTD
+    check_table: ~
+    datatype: DEC
+    length: 7
+    decimals: 2
+    key: false
+  - name: ABRTG
+    description: "Payroll Days"
+    data_element: ABRTG
+    check_table: ~
+    datatype: DEC
+    length: 6
+    decimals: 2
+    key: false
+  - name: ABRST
+    description: "Payroll Hours"
+    data_element: ABRST
+    check_table: ~
+    datatype: DEC
+    length: 7
+    decimals: 2
+    key: false
+  - name: ANRTG
+    description: "Days Credited for Continued Pay"
+    data_element: ANRTG
+    check_table: ~
+    datatype: DEC
+    length: 6
+    decimals: 2
+    key: false
+  - name: LFZED
+    description: "End of Continued Pay"
+    data_element: LFZED
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: KRGED
+    description: "End of Sick Pay"
+    data_element: KRGED
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: KBBEG
+    description: "Certified Start of Sickness"
+    data_element: KBBEG
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: RMDDA
+    description: "Date on Which Illness Was Confirmed"
+    data_element: RMDDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: KENN1
+    description: "Indicator for Subsequent Illness"
+    data_element: KENN1
+    check_table: ~
+    datatype: DEC
+    length: 2
+    decimals: 0
+    key: false
+  - name: KENN2
+    description: "Indicator for Repeated Illness"
+    data_element: KENN2
+    check_table: ~
+    datatype: DEC
+    length: 2
+    decimals: 0
+    key: false
+  - name: KALTG
+    description: "Calendar Days"
+    data_element: KALTG
+    check_table: ~
+    datatype: DEC
+    length: 6
+    decimals: 2
+    key: false
+  - name: URMAN
+    description: "Indicator for Manual Leave Deduction"
+    data_element: URMAN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BEGVA
+    description: "Start Year for Leave Deduction"
+    data_element: BEGVA
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: BWGRL
+    description: "Valuation Basis for Different Payment"
+    data_element: PTM_VBAS7S
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: AUFKZ
+    description: "Extra Pay Indicator"
+    data_element: AUFKN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TRFGR
+    description: "Pay Scale Group"
+    data_element: TRFGR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: TRFST
+    description: "Pay Scale Level"
+    data_element: TRFST
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PRAKN
+    description: "Premium Number"
+    data_element: PRAKN
+    check_table: T510P
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PRAKZ
+    description: "Premium Indicator"
+    data_element: PRAKZ
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: OTYPE
+    description: "Object Type"
+    data_element: OTYPE
+    check_table: T778O
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PLANS
+    description: "Position"
+    data_element: PLANS
+    check_table: T528B
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: MLDDA
+    description: "Reported On"
+    data_element: MLDDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: MLDUZ
+    description: "Reported At"
+    data_element: MLDUZ
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: RMDUZ
+    description: "Sickness Confirmed At"
+    data_element: RMDUZ
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: VORGS
+    description: "Superior Out Sick (Illness)"
+    data_element: VORGS
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: UMSKD
+    description: "Code for Description of Illness"
+    data_element: UMSKD
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: UMSCH
+    description: "Description of Illness"
+    data_element: UMSCH
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: REFNR
+    description: "Reference Number"
+    data_element: RFNUM
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: UNFAL
+    description: "Absent Due to Accident?"
+    data_element: UNFAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STKRV
+    description: "Subtype for Sickness Tracking"
+    data_element: STKRV
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: STUND
+    description: "Subtype for Accident Data"
+    data_element: STUND
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PSARB
+    description: "Work Capacity Percentage"
+    data_element: PSARB
+    check_table: ~
+    datatype: DEC
+    length: 4
+    decimals: 2
+    key: false
+  - name: AINFT
+    description: "Infotype That Maintains 2001"
+    data_element: AINFT
+    check_table: T582A
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: GENER
+    description: "Generation Flag"
+    data_element: PGENER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: HRSIF
+    description: "Set Number of Hours"
+    data_element: HRS_INPFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ALLDF
+    description: "Record Is for Full Day"
+    data_element: ALLDF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: LOGSYS
+    description: "Logical System"
+    data_element: LOGSYS
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AWTYP
+    description: "Reference Transaction"
+    data_element: AWTYP
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: AWREF
+    description: "Reference Document Number"
+    data_element: AWREF
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AWORG
+    description: "Reference Organizational Units"
+    data_element: AWORG
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: DOCSY
+    description: "Logical System for Document (Personnel Time)"
+    data_element: PTM_DOCSY
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: DOCNR
+    description: "Document Number for Time Data"
+    data_element: PTM_DOCNR
+    check_table: ~
+    datatype: NUMC
+    length: 20
+    decimals: 0
+    key: false
+  - name: PAYTY
+    description: "Payroll Type"
+    data_element: PAYTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PAYID
+    description: "Payroll Identifier"
+    data_element: PAYID
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BONDT
+    description: "Off-Cycle Payroll Payment Date"
+    data_element: BONDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: OCRSN
+    description: "Reason for Off-Cycle Payroll"
+    data_element: PAY_OCRSN
+    check_table: T52OCR
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SPPE1
+    description: "End Date for Continued Pay"
+    data_element: SPPEG
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: SPPE2
+    description: "End Date for Continued Pay"
+    data_element: SPPEG
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: SPPE3
+    description: "End Date for Continued Pay"
+    data_element: SPPEG
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: SPPIN
+    description: "Indicator for Manual Modifications"
+    data_element: SPPIN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZKMKT
+    description: "Status of Sickness Notification"
+    data_element: P05_ZKMKT_EN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FAPRS
+    description: "Evaluation Type for Attendances/Absences"
+    data_element: FAPRS
+    check_table: T554H
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: TDLANGU
+    description: "Definition Set for IDs"
+    data_element: TMW_TDLANGU
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: TDSUBLA
+    description: "Definition Subset for IDs"
+    data_element: TMW_TDSUBLA
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: TDTYPE
+    description: "Time Data ID Type"
+    data_element: TDTYPE
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: NXDFL
+    description: "Next Day Indicator"
+    data_element: PTM_NXDFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: PERNR
+    check_table: PA0003
+    check_field: PERNR
+  - field: PREAS
+    check_table: T530E
+    check_field: PREAS
+  - field: AWART
+    check_table: T554S
+    check_field: SUBTY
+  - field: FAPRS
+    check_table: T554H
+    check_field: FAPRS
+  - field: OCRSN
+    check_table: T52OCR
+    check_field: OCRSN
+  - field: OTYPE
+    check_table: T778O
+    check_field: OTYPE
+  - field: PLANS
+    check_table: T528B
+    check_field: PLANS
+  - field: PRAKN
+    check_table: T510P
+    check_field: PRAKN
+  - field: AINFT
+    check_table: T582A
+    check_field: INFTY
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

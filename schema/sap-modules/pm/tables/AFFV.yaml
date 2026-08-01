@@ -1,0 +1,237 @@
+table: AFFV
+module: PM
+description: "Order — process instruction values. Holds the characteristic/characteristic-value pairs recorded against a process instruction on an order operation (AFVC), including numeric range and unit — the results captured when a process instruction is executed. Small, complete table."
+source: https://leanx.eu/en/sap/table/affv.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: AUFPL
+    description: "Routing number of operations in the order"
+    data_element: CO_AUFPL
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: true
+  - name: APLZL
+    description: "General counter for order"
+    data_element: CO_APLZL
+    check_table: AFVC
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: APHZL
+    description: "Internal Sub-Calculation Number"
+    data_element: PLNPH
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: AFTZL
+    description: "Internal process instruction number"
+    data_element: PLNFT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: AFVZL
+    description: "Internal PI characteristic/characteristic value number"
+    data_element: PLNFV
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: PLNTY
+    description: "Task List Type"
+    data_element: PLNTY
+    check_table: TCA01
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLNNR
+    description: "Key for Task List Group"
+    data_element: PLNNR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: PLNKN
+    description: "Number of the task list node"
+    data_element: PLNKN
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: PLNPH
+    description: "Internal Sub-Calculation Number"
+    data_element: PLNPH
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: PLNFT
+    description: "Internal process instruction number"
+    data_element: PLNFT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: PLNFV
+    description: "Internal PI characteristic/characteristic value number"
+    data_element: PLNFV
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: ZAEHL
+    description: "Internal counter"
+    data_element: CIM_COUNT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: FVLNR
+    description: "Line Number of Process Instruction Characteristic"
+    data_element: R_FVNR
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ATINN
+    description: "Internal characteristic"
+    data_element: ATINN
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: ATZHL
+    description: "Int counter"
+    data_element: ATZHL
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: ATWRT
+    description: "Characteristic Value"
+    data_element: ATWRT
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: ATFLV
+    description: "Internal floating point from"
+    data_element: ATFLV
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: ATFLB
+    description: "Internal floating point value to"
+    data_element: ATFLB
+    check_table: ~
+    datatype: FLTP
+    length: 16
+    decimals: 16
+    key: false
+  - name: ATCOD
+    description: "Code for value dependency"
+    data_element: ATCOD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ATAWE
+    description: "Alternative unit"
+    data_element: ATAWE
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ATAW1
+    description: "Alternative unit"
+    data_element: ATAWE
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ATFOR
+    description: "Data type of characteristic"
+    data_element: ATFOR
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: WRTKZ
+    description: "Indicator: Characteristic value assigned"
+    data_element: CO_WRTKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TXTSP
+    description: "Language Key"
+    data_element: LANGU
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: AENNR
+    description: "Change Number"
+    data_element: AENNR
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: APLZL
+    check_table: AFVC
+    check_field: AUFPL
+  - field: APLZL
+    check_table: AFVC
+    check_field: APLZL
+  - field: ATAW1
+    check_table: T006
+    check_field: MSEHI
+  - field: ATAWE
+    check_table: T006
+    check_field: MSEHI
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: PLNTY
+    check_table: TCA01
+    check_field: PLNTY
+  - field: TXTSP
+    check_table: T002
+    check_field: SPRAS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

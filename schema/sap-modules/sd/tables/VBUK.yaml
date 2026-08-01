@@ -1,0 +1,323 @@
+table: VBUK
+module: SD
+description: "Sales document header status and administrative data — the overall header-level status of a sales document across confirmation, delivery, goods movement, billing, credit checks, picking, packing, and rejection. NOTE ON RELEASE: VBUK is an ECC-era status table. In S/4HANA, SAP replaced VBUK (and its item-level counterpart VBUP) with status fields carried directly on VBAK (header) and VBAP (item) — VBUK/VBUP still exist as compatibility views/tables in S/4HANA for backward compatibility, but new status logic reads VBAK/VBAP directly. This model must read both releases: consult VBUK/VBUP for ECC systems and VBAK/VBAP status fields for S/4HANA systems. SAP's real table carries roughly 95 fields, most of them single-character status indicators (many industry-specific, e.g. OI_/OIC_ Oil & Gas, SPE_/HDALL WM); this definition is scoped to the key and the core cross-functional status fields (confirmation, delivery, goods movement, billing, credit, rejection, overall processing, incompletion) that the model consumes — never silently truncated below that scope."
+source: https://leanx.eu/en/sap/table/vbuk.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: VBELN
+    description: "Sales and Distribution Document Number"
+    data_element: VBELN
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: RFSTK
+    description: "Reference document header status"
+    data_element: RFSTK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RFGSK
+    description: "Total reference status of all items"
+    data_element: RFGSK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BESTK
+    description: "Confirmation status"
+    data_element: BESTK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LFSTK
+    description: "Delivery status"
+    data_element: LFSTK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LFGSK
+    description: "Overall delivery status for all items"
+    data_element: LKGSK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WBSTK
+    description: "Total goods movement status"
+    data_element: WBSTK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FKSTK
+    description: "Billing status"
+    data_element: FKSTK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FKSAK
+    description: "Billing status (order-related billing document)"
+    data_element: FKSAK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BUCHK
+    description: "Posting Status of Billing Document"
+    data_element: BUCHK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ABSTK
+    description: "Overall rejection status of all document items"
+    data_element: ABSTK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GBSTK
+    description: "Overall processing status of document"
+    data_element: GBSTK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KOSTK
+    description: "Overall picking / putaway status"
+    data_element: KOSTK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LVSTK
+    description: "Overall status of warehouse management activities"
+    data_element: LVSTK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: UVALL
+    description: "General incompletion status of the header"
+    data_element: UVALL_UK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: UVVLK
+    description: "Header incompletion status concerning delivery"
+    data_element: UVVLK_UK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: UVFAK
+    description: "Header incompletion status with respect to billing"
+    data_element: UVFAK_UK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: UVPRS
+    description: "Document is incomplete with respect to pricing"
+    data_element: UVPRS_UK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VBTYP
+    description: "SD document category"
+    data_element: VBTYP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VBOBJ
+    description: "SD document object"
+    data_element: VBOBJ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: FKIVK
+    description: "Billing totals status for intercompany billing"
+    data_element: FKIVK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RELIK
+    description: "Invoice list status of billing document"
+    data_element: RELIK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PKSTK
+    description: "Overall packing status of all items"
+    data_element: PKSTK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CMGST
+    description: "Overall status of credit checks"
+    data_element: CMGST
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TRSTA
+    description: "Transportation planning status"
+    data_element: TRSTA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KOQUK
+    description: "Status of pick confirmation"
+    data_element: KOQUK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: COSTA
+    description: "Confirmation status for ALE"
+    data_element: COSTA_D
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SAPRL
+    description: "SAP Release"
+    data_element: SAPRL
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: DCSTK
+    description: "Delay status"
+    data_element: DCSTK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VESTK
+    description: "Handling Unit Placed in Stock"
+    data_element: VESTK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RRSTA
+    description: "Revenue determination status"
+    data_element: RR_STATUS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BLOCK
+    description: "Indicator: Document preselected for archiving"
+    data_element: BLOCK_VB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FSSTK
+    description: "Overall billing block status"
+    data_element: FSSTK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LSSTK
+    description: "Overall delivery block status"
+    data_element: LSSTK_G
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SPSTG
+    description: "Overall blocked status"
+    data_element: SPSTG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PDSTK
+    description: "POD status on header level"
+    data_element: PDSTK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VBTYP_EXT
+    description: "Extension of SD Document Category"
+    data_element: TDD_VBTYP_EXT
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

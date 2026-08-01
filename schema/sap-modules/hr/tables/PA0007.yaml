@@ -1,0 +1,375 @@
+table: PA0007
+module: HR
+description: "HR Master Record: Infotype 0007 (Planned Working Time) — the employee's work-schedule assignment: work schedule rule (SCHKZ), time-management status, employment percentage, and the daily/weekly/monthly/annual planned-hours envelope (target plus min/max bounds), keyed by personnel number under the same validity-interval pattern as PA0001 Organizational Assignment. This is the planning-side counterpart to PA2001 Absences and PA2002 Attendances, which record actual time against this planned baseline. This infotype is personal data — it reflects an identifiable employee's individual work-time arrangement (including part-time status) — and any mirrored copy must be handled under consent-scoped access controls."
+source: https://leanx.eu/en/sap/table/pa0007.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: PERNR
+    description: "Personnel Number"
+    data_element: PERSNO
+    check_table: PA0003
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: SUBTY
+    description: "Subtype"
+    data_element: SUBTY
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: OBJPS
+    description: "Object Identification"
+    data_element: OBJPS
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: SPRPS
+    description: "Lock Indicator for HR Master Data Record"
+    data_element: SPRPS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: ENDDA
+    description: "End Date — validity interval end for this planned-working-time record"
+    data_element: ENDDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: BEGDA
+    description: "Start Date — validity interval start for this planned-working-time record"
+    data_element: BEGDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: SEQNR
+    description: "Number of Infotype Record with Same Key"
+    data_element: SEQNR
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: true
+  - name: AEDTM
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: UNAME
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: HISTO
+    description: "Historical Record Flag"
+    data_element: HISTO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ITXEX
+    description: "Text Exists for Infotype"
+    data_element: ITXEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: REFEX
+    description: "Reference Fields Exist (Primary/Secondary Costs)"
+    data_element: PRFEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ORDEX
+    description: "Confirmation Fields Exist"
+    data_element: ORDEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ITBLD
+    description: "Infotype Screen Control"
+    data_element: ITBLD
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PREAS
+    description: "Reason for Changing Master Data"
+    data_element: PREAS
+    check_table: T530E
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FLAG1
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLAG2
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLAG3
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLAG4
+    description: "Reserved Field/Unused Field"
+    data_element: NUSED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RESE1
+    description: "Reserved Field/Unused Field of Length 2"
+    data_element: NUSED2
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: RESE2
+    description: "Reserved Field/Unused Field of Length 2"
+    data_element: NUSED2
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: GRPVL
+    description: "Grouping Value for Personnel Assignments"
+    data_element: PCCE_GPVAL
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SCHKZ
+    description: "Work Schedule Rule"
+    data_element: SCHKN
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: ZTERF
+    description: "Employee Time Management Status"
+    data_element: PT_ZTERF
+    check_table: T555U
+    datatype: NUMC
+    length: 1
+    decimals: 0
+    key: false
+  - name: EMPCT
+    description: "Employment Percentage"
+    data_element: EMPCT
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: MOSTD
+    description: "Monthly Hours"
+    data_element: MOSTD
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: WOSTD
+    description: "Hours per Week"
+    data_element: WOSTD
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: ARBST
+    description: "Daily Working Hours"
+    data_element: STDTG
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: WKWDY
+    description: "Weekly Workdays"
+    data_element: WARST
+    check_table: ~
+    datatype: DEC
+    length: 4
+    decimals: 2
+    key: false
+  - name: JRSTD
+    description: "Annual Working Hours"
+    data_element: JRSTD
+    check_table: ~
+    datatype: DEC
+    length: 7
+    decimals: 2
+    key: false
+  - name: TEILK
+    description: "Indicator Part-Time Employee"
+    data_element: TEILK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MINTA
+    description: "Minimum Number of Work Hours per Day"
+    data_element: MINTA
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: MAXTA
+    description: "Maximum Number of Work Hours per Day"
+    data_element: MAXTA
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: MINWO
+    description: "Minimum Weekly Working Hours"
+    data_element: MINWO
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: MAXWO
+    description: "Maximum Number of Work Hours per Week"
+    data_element: MAXWO
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: MINMO
+    description: "Minimum Number of Work Hours per Month"
+    data_element: MINMO
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: MAXMO
+    description: "Maximum Number of Work Hours per Month"
+    data_element: MAXMO
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: MINJA
+    description: "Minimum Annual Working Hours"
+    data_element: MINJA
+    check_table: ~
+    datatype: DEC
+    length: 7
+    decimals: 2
+    key: false
+  - name: MAXJA
+    description: "Maximum Number of Working Hours per Year"
+    data_element: MAXJA
+    check_table: ~
+    datatype: DEC
+    length: 7
+    decimals: 2
+    key: false
+  - name: DYSCH
+    description: "Create Daily Work Schedule Dynamically"
+    data_element: DYSCH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZTIM
+    description: "Additional Indicator for Time Management"
+    data_element: KZTIM
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: WWEEK
+    description: "Working Week"
+    data_element: WWEEK
+    check_table: T559A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: AWTYP
+    description: "Reference Transaction"
+    data_element: AWTYP
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: PERNR
+    check_table: PA0003
+    check_field: PERNR
+  - field: PREAS
+    check_table: T530E
+    check_field: PREAS
+  - field: WWEEK
+    check_table: T559A
+    check_field: WWEEK
+  - field: ZTERF
+    check_table: T555U
+    check_field: ZTERF
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

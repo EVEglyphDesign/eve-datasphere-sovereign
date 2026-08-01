@@ -1,0 +1,403 @@
+table: RSDODSO
+module: BW
+description: "Directory of all DataStores — the BW metadata catalog row for every DataStore Object (DSO, formerly ODS object), keyed by DSO technical name (ODSOBJECT) and object version (OBJVERS). Carries the InfoArea assignment, Business-Content namespace/release stamp (BWAPPL/CONTREL/CONTTIMESTMP, distinguishing SAP-delivered from customer-created DSOs), the DSO type (ODSOTYPE: standard, write-optimized, direct-update), activation/processing automation flags (AUTOACTIVATEFL, AUTOPROCESSFL), SAP HANA-optimization and delta-consistency flags, and the size-category/data-class settings for the active-data and activation-queue tables. RSDODSO is the master directory the mirror's runtime discovery walks to enumerate which /BIC/A* (active data), /BIC/B* (before-image/change log), and /BIC/00* (activation queue) generated tables exist per DSO in a given customer system — see bw/tables/GENERATED-PATTERNS.yaml for how those generated tables are resolved rather than statically defined."
+source: https://leanx.eu/en/sap/table/rsdodso.html
+fields:
+  - name: ODSOBJECT
+    description: "DataStore Object"
+    data_element: RSDODSOBJECT
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: OBJVERS
+    description: "Object version"
+    data_element: RSOBJVERS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: CONTREL
+    description: "Content release"
+    data_element: RSCONTREL
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: CONTTIMESTMP
+    description: "Content time stamp: Last modification to the object by SAP"
+    data_element: RSCONTTIMESTMP
+    check_table: ~
+    datatype: DEC
+    length: 15
+    decimals: 0
+    key: false
+  - name: OWNER
+    description: "Owner (Person Responsible)"
+    data_element: RSOWNER
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: BWAPPL
+    description: "BW Application (Namespace)"
+    data_element: RSBWAPPL
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: INFOAREA
+    description: "InfoArea"
+    data_element: RSINFOAREA
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: BCTCOMP
+    description: "Obsolete - do not translate"
+    data_element: RSDBCTCOMP
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SUPERPROV
+    description: "Higher-Level InfoProvider"
+    data_element: RSSUPERPROV
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: SUPERTLOGO
+    description: "TLOGO Type of Higher-Level Provider"
+    data_element: RSSUPERTLOGO
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: NCUMTIM
+    description: "Ref. Time-Char. for Non-cums"
+    data_element: RSNCUMTIM
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: PLANNING_MODE
+    description: "DataStore Object: Mode for Use as Planning DSO"
+    data_element: RSDODSO_PLANNING_MODE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ACTVIEWGEN
+    description: "DataStore Object: Active Table Database View to be Generated"
+    data_element: RSDODSO_ACTVIEWGEN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUTOQUALOKFL
+    description: "Set Quality Status to 'OK' Automatically"
+    data_element: RSMAUTOQUALOKFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUTOCOMPRFL
+    description: "Compress Automatically After Roll-Up (or After Load)"
+    data_element: RSMAUTOCOMPRFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: NOEDSFL
+    description: "Flag: Do Not Generate Export DataSource"
+    data_element: RSDODSO_NOEDSFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BEXFL
+    description: "SID Generation"
+    data_element: RSDBEXFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ODSOTYPE
+    description: "Type of DataStore Object"
+    data_element: RSDODSOTYPE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: IMOFL
+    description: "DataStore Object: SAP HANA-Optimized"
+    data_element: RSDODSO_IMOFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DELTACHECK
+    description: "Delta Consistency Check for DataStore"
+    data_element: RSMDELTACHECK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: UOM_IOBJNM
+    description: "Reference InfoObject for Quantity Conversion"
+    data_element: RSDG_UOM_IOBJNM
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: AUTOACTIVATEFL
+    description: "Activate DataStore Object Data Automatically"
+    data_element: RSMAUTOACTIVATEFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUTOPROCESSFL
+    description: "Update Data from DataStore Object Automatically"
+    data_element: RSMAUTOPROCESSFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ODSASIZCAT
+    description: "Size Category for DS Tables of Active Records"
+    data_element: RSDODSASIZCAT
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ODSADATCLS
+    description: "Data Type for DataStore Tables of Active Records"
+    data_element: RSDODSADATCLS
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: ODSMSIZCAT
+    description: "Size Category for DS Activation Queue"
+    data_element: RSDODSMSIZCAT
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ODSMDATCLS
+    description: "Data Class for DS Activation Queue"
+    data_element: RSDODSMDATCLS
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: INSERTONLY
+    description: "Overwriting data records not permitted"
+    data_element: RSINSERTONLY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KEY_NOT_UNIQUE
+    description: "Allow Duplicate Data Records"
+    data_element: RSDODSO_KEY_NOT_UNIQUE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TSTPNM
+    description: "Last changed by"
+    data_element: RSTSTPNM
+    check_table: USR02
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: TIMESTMP
+    description: "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+    data_element: RSTIMESTMP
+    check_table: ~
+    datatype: DEC
+    length: 15
+    decimals: 0
+    key: false
+  - name: BWSTATISTICS
+    description: "Boolean"
+    data_element: RS_BOOL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BWSTATWHM
+    description: "Boolean"
+    data_element: RS_BOOL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QPROPVERS
+    description: "Conversion Version Query Properties"
+    data_element: RSQPROPVERS
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: READMODE
+    description: "Read Mode"
+    data_element: RSRREADMODE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CACHEMODE
+    description: "Cache Mode"
+    data_element: RSRCACHEMODE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CACHEDELAY
+    description: "Cache Validity Period in Seconds"
+    data_element: RSRCACHEDELAY
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: NLREADMODE
+    description: "Read Modus for Near-Line Storage"
+    data_element: RSD_NLREADMODE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: NOPARALLELQDEF
+    description: "no parallel processing"
+    data_element: RRSNOPARALLEL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KIDSEL
+    description: "Use Selection of Structure Elements"
+    data_element: RRKIDSEL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CACHEUSEREXIT
+    description: "Indicator: Do not Use Cache for this Report"
+    data_element: RSRNOCACHEFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: NOHPA
+    description: "Obsolete Field (Do Not Use BWA Index)"
+    data_element: RRSNOHPA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TREXOPS
+    description: "Operations in SAP HANA/BWA"
+    data_element: RSRTREXOPS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PACKFLQDEF
+    description: "Process key figure with high precision"
+    data_element: RSDHIGHPRECFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PARTMODE
+    description: "Partitioning Type"
+    data_element: RSPARTMODE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PARTTIM
+    description: "Partitioning time char."
+    data_element: RSPARTTIM
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: PARTVL_FROM
+    description: "Lower limit (partitioning value)"
+    data_element: RSPARTVL_FROM
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PARTVL_TO
+    description: "Upper Limit (Partitioning Value)"
+    data_element: RSPARTVL_TO
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: MPPFL
+    description: "DataStore Object: Flag for Massively Parallel Processing"
+    data_element: RSDODSO_MPPFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: TSTPNM
+    check_table: USR02
+    check_field: BNAME
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

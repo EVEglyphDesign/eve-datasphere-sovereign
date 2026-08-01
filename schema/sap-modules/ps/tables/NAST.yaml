@@ -1,0 +1,517 @@
+table: NAST
+module: PS
+description: "Message Status — the cross-application output/message-control table (NAST is technically owned by SAP Basis/cross-application message determination, not PS-specific, but is landed under this lane because it is the table that records output/print/EDI/fax status for PS objects such as project and WBS-element correspondence): one row per determined message (KAPPL application, OBJKY object key, KSCHL message/condition type, KSCHL+SPRAS+PARNR+PARVW partner routing) carrying the transmission medium (NACHA), dispatch timing (VSZTP/VSDAT/VSURA/VSURB), processing status (VSTAT) and processing date/time (DATVR/UHRVR), spool/print destination (LDEST/DSNAM/TDNAME), and repeat/change flags. For a PS WBS element or project, OBJKY holds the object's key (e.g. the WBS element or project number) and KAPPL identifies the PS output application, letting the model tie a project/WBS master record to the correspondence and output history generated against it."
+source: https://leanx.eu/en/sap/table/nast.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: KAPPL
+    description: "Application for message conditions"
+    data_element: SNA_KAPPL
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: OBJKY
+    description: "Object key"
+    data_element: NA_OBJKEY
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: KSCHL
+    description: "Message type"
+    data_element: SNA_KSCHL
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: SPRAS
+    description: "Message language"
+    data_element: NA_SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: true
+  - name: PARNR
+    description: "Message partner"
+    data_element: NA_PARNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: PARVW
+    description: "Partner function (for example SH for ship-to party)"
+    data_element: SNA_PARVW
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: ERDAT
+    description: "Date on which status record was created"
+    data_element: NA_ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERUHR
+    description: "Time at which status record was created"
+    data_element: NA_ERUHR
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: ADRNR
+    description: "Address number"
+    data_element: AD_ADDRNUM
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: NACHA
+    description: "Message transmission medium"
+    data_element: NA_NACHA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ANZAL
+    description: "Number of messages (original + copies)"
+    data_element: NA_ANZAL
+    check_table: ~
+    datatype: DEC
+    length: 2
+    decimals: 0
+    key: false
+  - name: VSZTP
+    description: "Dispatch time"
+    data_element: NA_VSZTP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VSDAT
+    description: "Requested date for sending message"
+    data_element: NA_VSDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: VSURA
+    description: "Requested time for sending message (from)"
+    data_element: NA_VSURA
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: VSURB
+    description: "Requested time for sending message (to)"
+    data_element: NA_VSURB
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: MANUE
+    description: "Message processed manually"
+    data_element: NA_MANUE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DATVR
+    description: "Processing date"
+    data_element: NA_DATVR
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: UHRVR
+    description: "Processing time"
+    data_element: NA_UHRVR
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: DATRE
+    description: "Date of the expected response to a message"
+    data_element: NA_DATRE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: USNAM
+    description: "User name"
+    data_element: USNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: VSTAT
+    description: "Processing status of message"
+    data_element: NA_VSTAT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AKTIV
+    description: "Active"
+    data_element: NA_AKTIV
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TCODE
+    description: "Communication strategy"
+    data_element: CSTRATEGY
+    check_table: TCSTR
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LDEST
+    description: "Spool: Output device"
+    data_element: RSPOPNAME
+    check_table: TSP03
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: DSNAM
+    description: "Spool request: Name"
+    data_element: RSPO0NAME
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: DSUF1
+    description: "Spool request: Suffix 1"
+    data_element: RSPO1NAME
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: DSUF2
+    description: "Spool request: Suffix 2"
+    data_element: RSPO2NAME
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: DIMME
+    description: "Print immediately"
+    data_element: TDIMMED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DELET
+    description: "Release after output"
+    data_element: TDDELETE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TELFX
+    description: "Fax number"
+    data_element: NA_TELFX
+    check_table: ~
+    datatype: CHAR
+    length: 31
+    decimals: 0
+    key: false
+  - name: TELX1
+    description: "Telex number"
+    data_element: TELX1
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: TELTX
+    description: "Teletex number"
+    data_element: TELTX
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: AENDE
+    description: "Change message flag"
+    data_element: NA_AENDE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: REPET
+    description: "Repeatability of message"
+    data_element: NA_REPET
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TDNAME
+    description: "Object key (long)"
+    data_element: NA_OBJKY_L
+    check_table: ~
+    datatype: CHAR
+    length: 70
+    decimals: 0
+    key: false
+  - name: TDID
+    description: "Text ID"
+    data_element: TDID
+    check_table: TTXID
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: TDSPRAS
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: EDIKEY
+    description: "Dunning Date (Used in Retail)"
+    data_element: NA_DUNNING_DATE
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: EDITRANS
+    description: "Dunning Time (Used in Retail)"
+    data_element: NA_DUNNING_TIME
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: SNDDR
+    description: "Send: As disregard"
+    data_element: SO_SND_DR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SNDBC
+    description: "Address type (1=Organization, 2=Person, 3=Contact person)"
+    data_element: AD_ADRTYPE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FORFB
+    description: "Requested Status"
+    data_element: BCS_RQST
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PRIFB
+    description: "Setting for Which Statuses Are Reported by Mail"
+    data_element: BCS_STML
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: NAUTO
+    description: "Message determined via conditions"
+    data_element: NA_NAUTO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TDRECEIVER
+    description: "Spool Recipient Name"
+    data_element: SYPRREC
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: TDDIVISION
+    description: "Spool Department Name"
+    data_element: SYPRABT
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: TDOCOVER
+    description: "Print: SAP cover page"
+    data_element: SYPRSAP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TDCOVTITLE
+    description: "Spool Description"
+    data_element: SYPRTXT
+    check_table: ~
+    datatype: CHAR
+    length: 68
+    decimals: 0
+    key: false
+  - name: TDAUTORITY
+    description: "Print: Authorization"
+    data_element: SYPRBER
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: TDARMOD
+    description: "Print: Archiving mode"
+    data_element: SYARMOD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: OPTARCNR
+    description: "Archive number for optical archives"
+    data_element: NA_OPTAR
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: CMFPNR
+    description: "Error management number"
+    data_element: NA_CMF_NR
+    check_table: ~
+    datatype: NUMC
+    length: 12
+    decimals: 0
+    key: false
+  - name: USRNAM
+    description: "WFMC: Address number, 12 characters"
+    data_element: NA_PERS_12
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: EVENT
+    description: "Event"
+    data_element: SWO_EVENT
+    check_table: ~
+    datatype: CHAR
+    length: 32
+    decimals: 0
+    key: false
+  - name: SORT1
+    description: "Sort criteria for message status records"
+    data_element: NAST_SORTK
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: SORT2
+    description: "Sort criteria for message status records"
+    data_element: NAST_SORTK
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: SORT3
+    description: "Sort criteria for message status records"
+    data_element: NAST_SORTK
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: OBJTYPE
+    description: "Object type"
+    data_element: OJ_NAME
+    check_table: TOJTB
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: TDSCHEDULE
+    description: "Send time request"
+    data_element: SKSCHEDULE
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: TLAND
+    description: "Country Key"
+    data_element: LAND1
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: SPRAS
+    check_table: T002
+    check_field: SPRAS
+  - field: TCODE
+    check_table: TCSTR
+    check_field: STRATEGY
+  - field: LDEST
+    check_table: TSP03
+    check_field: PADEST
+  - field: TDID
+    check_table: TTXID
+    check_field: TDID
+  - field: TDSPRAS
+    check_table: T002
+    check_field: SPRAS
+  - field: OBJTYPE
+    check_table: TOJTB
+    check_field: NAME
+  - field: TLAND
+    check_table: T005
+    check_field: LAND1
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

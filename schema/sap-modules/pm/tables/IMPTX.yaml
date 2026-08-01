@@ -1,0 +1,32 @@
+table: IMPTX
+module: PM
+description: |
+  UNSOURCED — no reliable public source could be located for a distinct SAP table named
+  "IMPTX". This entry is deliberately left empty rather than populated with invented fields,
+  per the spec's explicit no-invention rule.
+
+  What was tried:
+  - https://leanx.eu/en/sap/table/imptx.html — returned "Page not found" (http_code_client_error / 404).
+  - https://www.tcodesearch.com/sap-tables/detail?id=IMPTX — blocked by robots.txt (disallow_by_robots),
+    retried with a forced fetch; still blocked.
+  - https://stechno.net (SAP table detail for IMPTX) — blocked by robots.txt (disallow_by_robots).
+  - https://sapdatasheet.org/abap/tabl/imptx.html — resolved only to the site's generic homepage,
+    not an actual table page (effectively not found).
+  - Web search for "IMPTX SAP table" and close variants — surfaced only similarly named but
+    genuinely distinct tables: IMPTT (Measuring Point (Table) — the real measuring-point master,
+    which embeds its own text fields such as PTTXT/DSTXT and already exists in this repo as
+    IMPTT.yaml, written by another agent), IMPT (Measuring Point Structure), IMPU (Texts for
+    capital investment program positions), and IMPR (Investment Program Positions). None of
+    these is IMPTX, and none should be substituted for it.
+
+  Working hypothesis: "IMPTX" may be a mis-transcription of IMPTT (measuring point master, which
+  already carries its own long/short text fields and needs no separate text table), or refers to
+  a customer-namespace/non-standard table not present in any public SAP table reference reachable
+  from this environment. Do not treat IMPTT's field list as a substitute — it is a different table
+  serving a different key, and is already defined elsewhere in this repository.
+source: ~
+status: UNSOURCED
+fields: []
+foreign_keys: []
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

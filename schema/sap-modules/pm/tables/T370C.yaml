@@ -1,0 +1,27 @@
+table: T370C
+module: PM
+description: "ABC Indicator for Technical Objects — customizing table listing the valid ABC classification codes (criticality/priority ranking, e.g. A/B/C) assignable to a technical object. Referenced by ABCKZ on ILOA (the address/location segment shared by equipment, functional locations and orders), which flags the criticality of the object attached to that location record. Carried complete — small customizing table."
+source: https://leanx.eu/en/sap/table/t370c.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: ABCKZ
+    description: "ABC indicator for technical object"
+    data_element: ABCKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

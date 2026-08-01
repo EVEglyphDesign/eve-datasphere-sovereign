@@ -84,6 +84,7 @@ def build():
             mapping[legacy] = {
                 "canonical": name,
                 "latin": " ".join(c["la"] for c in picked) or None,
+                "concepts": [c["en"] for c in picked],
                 "derived": derived,
             }
         register[table["table"]] = {"module": table.get("module", ""), "fields": mapping}

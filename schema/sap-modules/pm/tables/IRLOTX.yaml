@@ -1,0 +1,73 @@
+table: IRLOTX
+module: PM
+description: "Reference Functional Location: Short Texts — the language-dependent short-text table for IRLOT reference functional locations. Small, complete table."
+source: https://leanx.eu/en/sap/table/irlotx.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: TRPNR
+    description: "Reference functional location"
+    data_element: TRPNR
+    check_table: IRLOT
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: SPRAS
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: true
+  - name: PLTXT
+    description: "Description of technical object"
+    data_element: PLTXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: KZLTX
+    description: "Indicator: Long text exists"
+    data_element: ILOM_KZLTX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZMLA
+    description: "Indicator: Text in more than one language"
+    data_element: IMRC_KZMLA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLTXU
+    description: "Description (Uppercase)"
+    data_element: PLTXTUC
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: SPRAS
+    check_table: T002
+    check_field: SPRAS
+  - field: TRPNR
+    check_table: IRLOT
+    check_field: TRPNR
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

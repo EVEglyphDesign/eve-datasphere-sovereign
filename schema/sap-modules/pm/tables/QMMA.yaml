@@ -1,0 +1,269 @@
+table: QMMA
+module: PM
+description: "Quality notification - activities — the tasks/activities recorded against a notification (and optionally a specific defect item, FENUM), carrying the activity's catalog code, classification, planned/actual start-finish dates, and completion flags. Tracks what corrective/follow-up action was taken on a notification. Small, complete table."
+source: https://leanx.eu/en/sap/table/qmma.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: QMNUM
+    description: "Notification Number"
+    data_element: QMNUM
+    check_table: QMEL
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: true
+  - name: MANUM
+    description: "Activity Number"
+    data_element: MANUM
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: FENUM
+    description: "Defect item number"
+    data_element: FENUM
+    check_table: QMFE
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: URNUM
+    description: "Cause number"
+    data_element: URNUM
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: MNKAT
+    description: "Catalog type for activities"
+    data_element: MNKAT
+    check_table: TQ15
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MNGRP
+    description: "Activity: code group"
+    data_element: MNGRP
+    check_table: QPGR
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: MNCOD
+    description: "Activity: coding"
+    data_element: MNCOD
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: MNVER
+    description: "Version number of code"
+    data_element: CODEVERSION
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: MATXT
+    description: "Activity text"
+    data_element: MATXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on which the record was created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: MAKLS
+    description: "Activity classification"
+    data_element: MAKLS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KLAKZ
+    description: "Indicator: activity confirmed"
+    data_element: KZKLAKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PSTER
+    description: "Planned start date of activity"
+    data_element: PSTER
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PETER
+    description: "Planned finish date of activity"
+    data_element: PETER
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: INDTX
+    description: "Indicator: long text exists"
+    data_element: KZTEXT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZMLA
+    description: "Indicator: text in more than one language"
+    data_element: KZMLA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MNGFA
+    description: "Person responsible for activity"
+    data_element: MNGFA
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: PSTUR
+    description: "Planned start time of activity"
+    data_element: PSTUR
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: PETUR
+    description: "Planned finish time of activity"
+    data_element: PETUR
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: ERZEIT
+    description: "Time record was created"
+    data_element: ERZEIT
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: AEZEIT
+    description: "Time record was changed"
+    data_element: AEZEIT
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: KZLOESCH
+    description: "Deletion Indicator"
+    data_element: KZLOESCH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: QMANUM
+    description: "Quantity affected/activity reference number"
+    data_element: QMANUM
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: AUTKZ
+    description: "Indicator: automatically generated activity"
+    data_element: AUTKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZACTIONBOX
+    description: "Indicator: activity from action box"
+    data_element: QM_KZACTIONBOX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FUNKTION
+    description: "Function code that triggered the activity"
+    data_element: QFUNKTION
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: FENUM
+    check_table: QMFE
+    check_field: QMNUM
+  - field: FENUM
+    check_table: QMFE
+    check_field: FENUM
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MNGRP
+    check_table: QPGR
+    check_field: CODEGRUPPE
+  - field: MNGRP
+    check_table: QPGR
+    check_field: KATALOGART
+  - field: MNKAT
+    check_table: TQ15
+    check_field: KATALOGART
+  - field: QMNUM
+    check_table: QMEL
+    check_field: QMNUM
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

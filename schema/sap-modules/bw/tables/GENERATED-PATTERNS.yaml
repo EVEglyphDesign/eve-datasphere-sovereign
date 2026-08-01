@@ -1,0 +1,52 @@
+table: GENERATED-PATTERNS
+module: BW
+status: PATTERN
+description: >
+  This is not a table — it is a documented naming-pattern entry standing in for two whole
+  families of generated database tables that BW creates dynamically and that therefore have
+  no single fixed field-level definition to mirror.
+
+  /BI0/* is the SAP-delivered Business Content namespace. When SAP ships a Business Content
+  InfoObject (for example 0MATERIAL, 0COSTCENTER, 0FISCVARNT), the BW kernel generates the
+  physical master-data tables for it at activation time: /BI0/P<iobj> (time-independent
+  attributes), /BI0/Q<iobj> (time-dependent attributes), /BI0/T<iobj> (texts, often split
+  further into /BI0/T<iobj>T for time-dependent-and-language and similar suffix variants),
+  and /BI0/H<iobj> (hierarchies), plus SID tables such as /BI0/S<iobj>. The <iobj> suffix and
+  the exact set of generated tables depend on which attributes, texts, and hierarchy flags
+  were switched on for that InfoObject in RSDIOBJ (see bw/tables/RSDIOBJ.yaml) — two systems
+  running the same SAP release can still generate different /BI0/* tables for the same
+  InfoObject if one has hierarchies enabled and the other does not.
+
+  /BIC/A* is the customer-generated namespace for the same kind of objects when a customer
+  creates their own InfoObject (technical name starting with Z or Y, e.g. ZCUSTOMER) or their
+  own DataStore Object: BW generates /BIC/A<name> for a DSO's active-data table (with
+  companion /BIC/B<name> for the change log and /BIC/00<technical ID> for the activation
+  queue, per bw/tables/RSDODSO.yaml's ODSOTYPE/ACTVIEWGEN/AUTOACTIVATEFL settings), and the
+  equivalent /BIC/P*, /BIC/Q*, /BIC/T*, /BIC/H*, /BIC/S* master-data tables for a
+  customer-created InfoObject, mirroring the /BI0/* pattern but in the customer namespace.
+
+  In both cases the namespace prefix (/BI0/ or /BIC/) plus a one- or two-letter table-role
+  code plus the InfoObject or DSO technical name is a *generation rule*, not a fixed schema.
+  The actual column list of any single /BI0/P0MATERIAL or /BIC/AZSALES00 table is determined
+  at generation time by the attribute list, compounding, and navigation-attribute settings
+  recorded against that specific InfoObject in RSDIOBJ or that specific DataStore Object in
+  RSDODSO — it varies per InfoObject, per DSO, and per customer system, and can change again
+  the next time someone adds an attribute and reactivates.
+
+  Consequently this mirror does not and cannot carry a static field-level definition for
+  "/BI0/* " or "/BIC/A*" the way it does for a fixed table like PROJ or PRPS. Instead, the
+  runtime discovery process is: read RSDIOBJ to enumerate active InfoObjects and the
+  attribute/text/hierarchy flags that determine which /BI0/* or /BIC/* master-data tables
+  exist for each one, and read RSDODSO to enumerate active DataStore Objects and the flags
+  that determine which /BIC/A*, /BIC/B*, and /BIC/00* tables exist for each one — then
+  resolve the actual generated table name and structure directly against the live system's
+  DDIC (e.g. via SE11/RSD1 or the equivalent HANA catalog view) at the point of use, rather
+  than trusting a static definition that could already be stale relative to that system's
+  current metadata. This file exists so that fact is recorded explicitly in the schema tree
+  instead of being silently absent: the pattern is real and load-bearing, but the schema is
+  discovered, not fixed.
+source: ~
+fields: []
+foreign_keys: []
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -1,0 +1,430 @@
+table: EBKN
+module: MM
+description: "Purchase Requisition Account Assignment — one row per purchase-requisition item per account-assignment sequence, the requisition-side mirror of EKKN: it carries the same cost-object dimensions (G/L account, cost center, order, asset, WBS element, profit center, controlling area) but attaches them to a purchase requisition (EBAN) rather than a purchase order (EKPO). When a requisition converts to a PO, its EBKN account assignment becomes the PO's EKKN account assignment — the two tables are structurally near-identical by design. SAP's real table also carries a handful of customer-namespace Z-fields (ZZREGION, ZZSPREG, ZZSTATE, ZZUSERFLD1) appended by implementation-specific extension — excluded here as non-standard; this definition is scoped to full key plus every standard-SAP account-assignment and cost-object field, no fewer than 25 fields, per the wide-table rule."
+source: https://leanx.eu/en/sap/table/ebkn.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: BANFN
+    description: "Purchase Requisition Number"
+    data_element: BANFN
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: BNFPO
+    description: "Item Number of Purchase Requisition"
+    data_element: BNFPO
+    check_table: EBAN
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: true
+  - name: ZEBKN
+    description: "Serial number for PReq account assignment segment"
+    data_element: DZEBKN
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: true
+  - name: LOEKZ
+    description: "Deletion Indicator in Purchasing Document"
+    data_element: ELOEK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: MENGE
+    description: "Purchase Requisition Quantity"
+    data_element: BAMNG
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: VPROZ
+    description: "Distribution Percentage in Case of Multiple Account Assgt"
+    data_element: VPROZ
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 1
+    key: false
+  - name: SAKTO
+    description: "G/L Account Number"
+    data_element: SAKNR
+    check_table: SKA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: GSBER
+    description: "Business Area"
+    data_element: GSBER
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KOSTL
+    description: "Cost Center"
+    data_element: KOSTL
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PROJN
+    description: "Old: Project number : No longer used --> PS_POSNR"
+    data_element: PROJN
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: VBELN
+    description: "Sales and Distribution Document Number"
+    data_element: VBELN
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: VBELP
+    description: "Sales Document Item"
+    data_element: POSNR_VA
+    check_table: VBUP
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: VETEN
+    description: "Delivery Schedule Line Number"
+    data_element: ETENR
+    check_table: VBEP
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: ANLN1
+    description: "Main Asset Number"
+    data_element: ANLN1
+    check_table: ANLH
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ANLN2
+    description: "Asset Subnumber"
+    data_element: ANLN2
+    check_table: ANLA
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: AUFNR
+    description: "Order Number"
+    data_element: AUFNR
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: WEMPF
+    description: "Goods Recipient/Ship-To Party"
+    data_element: WEMPF
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ABLAD
+    description: "Unloading Point"
+    data_element: ABLAD
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: XBKST
+    description: "Posting to cost center?"
+    data_element: XBKST
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XBAUF
+    description: "Post To Order"
+    data_element: XBAUF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XBPRO
+    description: "Post to project"
+    data_element: XBPRO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KSTRG
+    description: "Cost Object"
+    data_element: KSTRG
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: PAOBJNR
+    description: "Profitability Segment Number (CO-PA)"
+    data_element: RKEOBJNR
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: PRCTR
+    description: "Profit Center"
+    data_element: PRCTR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PS_PSP_PNR
+    description: "Work Breakdown Structure Element (WBS Element)"
+    data_element: PS_PSP_PNR
+    check_table: PRPS
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: NPLNR
+    description: "Network Number for Account Assignment"
+    data_element: NPLNR
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AUFPL
+    description: "Routing number of operations in the order"
+    data_element: CO_AUFPL
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: IMKEY
+    description: "Internal Key for Real Estate Object"
+    data_element: IMKEY
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: APLZL
+    description: "Internal counter"
+    data_element: CIM_COUNT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: VPTNR
+    description: "Partner account number"
+    data_element: JV_PART
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: FIPOS
+    description: "Commitment Item"
+    data_element: FIPOS
+    check_table: FMFPO
+    datatype: CHAR
+    length: 14
+    decimals: 0
+    key: false
+  - name: RECID
+    description: "Recovery Indicator"
+    data_element: JV_RECIND
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FISTL
+    description: "Funds Center"
+    data_element: FISTL
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: GEBER
+    description: "Fund"
+    data_element: BP_GEBER
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: FKBER
+    description: "Functional Area"
+    data_element: FKBER
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: DABRZ
+    description: "Reference Date for Settlement"
+    data_element: DABRBEZ
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: NETWR
+    description: "Net Order Value in PO Currency"
+    data_element: BWERT
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: KBLNR
+    description: "Document Number for Earmarked Funds"
+    data_element: KBLNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KBLPOS
+    description: "Earmarked Funds: Document Item"
+    data_element: KBLPOS
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: LSTAR
+    description: "Activity Type"
+    data_element: LSTAR
+    check_table: CSLA
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: PRZNR
+    description: "Business Process"
+    data_element: CO_PRZNR
+    check_table: CBPR
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: GRANT_NBR
+    description: "Grant"
+    data_element: GM_GRANT_NBR
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: BNFPO
+    check_table: EBAN
+    check_field: BNFPO
+  - field: SAKTO
+    check_table: SKA1
+    check_field: SAKNR
+  - field: GSBER
+    check_table: TGSB
+    check_field: GSBER
+  - field: KOSTL
+    check_table: CSKS
+    check_field: KOSTL
+  - field: VBELN
+    check_table: VBUK
+    check_field: VBELN
+  - field: VBELP
+    check_table: VBUP
+    check_field: POSNR
+  - field: VETEN
+    check_table: VBEP
+    check_field: ETENR
+  - field: ANLN1
+    check_table: ANLH
+    check_field: ANLN1
+  - field: ANLN2
+    check_table: ANLA
+    check_field: ANLN2
+  - field: AUFNR
+    check_table: AUFK
+    check_field: AUFNR
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: PS_PSP_PNR
+    check_table: PRPS
+    check_field: PSPNR
+  - field: NPLNR
+    check_table: AUFK
+    check_field: AUFNR
+  - field: VPTNR
+    check_table: KNA1
+    check_field: KUNNR
+  - field: FIPOS
+    check_table: FMFPO
+    check_field: FIPOS
+  - field: LSTAR
+    check_table: CSLA
+    check_field: LSTAR
+  - field: PRZNR
+    check_table: CBPR
+    check_field: PRZNR
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

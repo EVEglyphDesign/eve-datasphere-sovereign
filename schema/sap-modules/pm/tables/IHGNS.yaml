@@ -1,0 +1,155 @@
+table: IHGNS
+module: PM
+description: "Permit Segment for Plant Maintenance — the approval/authorization workflow segment attached to a permit (via OBJNR+COUNTER), recording who requested, granted, and confirmed the safety permit and the associated valid-from/valid-to and confirmation timestamps. Works alongside IHSG (the object-related permit assignment) to drive the PM permit/safety-clearance process before maintenance work starts. Small, complete table."
+source: https://leanx.eu/en/sap/table/ihgns.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ~
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: true
+  - name: COUNTER
+    description: "Sequential number"
+    data_element: IH_COUNTER
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: COUNTERS
+    description: "Sequential number"
+    data_element: IH_COUNTER
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: GENPAUS
+    description: "Name of person authorizing permit"
+    data_element: IH_GENPAUS
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: GENNAME
+    description: "Name of person requesting the permit"
+    data_element: IH_GENNAME
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: GENDATUM
+    description: "Date of application for permit"
+    data_element: IH_GENDATUM
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: GENTIME
+    description: "Time permit was applied for"
+    data_element: IH_GENTIME
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: GENVDATE
+    description: "Permit valid from"
+    data_element: IH_GENVDATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: GENBDATE
+    description: "Permit valid to"
+    data_element: IH_GENBDATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: GENVTIME
+    description: "Permit valid from (time)"
+    data_element: IH_GENVTIME
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: GENBTIME
+    description: "Permit valid to (time)"
+    data_element: IH_GENBTIME
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: GENINAME
+    description: "Name of person confirming permit"
+    data_element: IH_GENINAME
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: GENIDATE
+    description: "Date permit was confirmed"
+    data_element: IH_GENIDATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: GENITIME
+    description: "Time permit was confirmed"
+    data_element: IH_GENITIME
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: GENIAKT
+    description: "Indicator: permit confirmation active"
+    data_element: IH_GENIAKT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: K_GENEHM
+    description: "Indicator: permit granted"
+    data_element: IH_K_GENEHM
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GENVNAME
+    description: "Name of person who granted the permit"
+    data_element: IH_GENVNAME
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -1,0 +1,274 @@
+table: MAPL
+module: PP
+description: "Assignment of Task Lists to Materials — links a material/plant to a task list group, group counter, and additional-criteria counter. Anchors which routing(s) a material can be produced against; consumed alongside PLKO/PLPO for routing resolution."
+source: https://leanx.eu/en/sap/table/mapl.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: true
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: PLNTY
+    description: "Task List Type"
+    data_element: PLNTY
+    check_table: TCA01
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: PLNNR
+    description: "Key for Task List Group"
+    data_element: PLNNR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: true
+  - name: PLNAL
+    description: "Group Counter"
+    data_element: PLNAL
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: ZKRIZ
+    description: "Counter for additional criteria"
+    data_element: DZKRIZ
+    check_table: ~
+    datatype: NUMC
+    length: 7
+    decimals: 0
+    key: true
+  - name: ZAEHL
+    description: "Internal counter"
+    data_element: CIM_COUNT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: DATUV
+    description: "Valid-From Date"
+    data_element: DATUV
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: TECHV
+    description: "Technical status from"
+    data_element: TECHV
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AENNR
+    description: "Change Number"
+    data_element: AENNR
+    check_table: AENR
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: LOEKZ
+    description: "Deletion Indicator"
+    data_element: LKENZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PARKZ
+    description: "Indicator: inactive changes"
+    data_element: PARKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ANDAT
+    description: "Date record created on"
+    data_element: ANDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ANNAM
+    description: "User who created record"
+    data_element: ANNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: LIFNR
+    description: "Vendor Account Number"
+    data_element: ELIFN
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KUNR
+    description: "Account number of customer"
+    data_element: CPKUNR
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SUCHFELD
+    description: "Search Field for Customer-Specific Task List Selection"
+    data_element: QSUCHFELD
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: VBELN
+    description: "Sales Document"
+    data_element: VBELN_VA
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: POSNR
+    description: "Sales Document Item"
+    data_element: POSNR_VA
+    check_table: VBUP
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: PSPNR
+    description: "Work breakdown structure element (WBS element)"
+    data_element: CS_PSPNR
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: MS_OBJECT
+    description: "Object for Multiple Specifications"
+    data_element: Q_MS_OBJECT
+    check_table: TQMS2
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: MS_OBJTYPE
+    description: "Type of Object for Multiple Specifications"
+    data_element: Q_MS_OBJTYPE
+    check_table: TQMS1
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MATNR
+    check_table: MARA
+    check_field: MANDT
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: WERKS
+    check_table: T001W
+    check_field: MANDT
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+  - field: PLNTY
+    check_table: TCA01
+    check_field: MANDT
+  - field: PLNTY
+    check_table: TCA01
+    check_field: PLNTY
+  - field: AENNR
+    check_table: AENR
+    check_field: MANDT
+  - field: AENNR
+    check_table: AENR
+    check_field: AENNR
+  - field: LIFNR
+    check_table: LFA1
+    check_field: MANDT
+  - field: LIFNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: KUNR
+    check_table: KNA1
+    check_field: MANDT
+  - field: KUNR
+    check_table: KNA1
+    check_field: KUNNR
+  - field: VBELN
+    check_table: VBUK
+    check_field: MANDT
+  - field: VBELN
+    check_table: VBUK
+    check_field: VBELN
+  - field: POSNR
+    check_table: VBUP
+    check_field: MANDT
+  - field: POSNR
+    check_table: VBUP
+    check_field: VBELN
+  - field: POSNR
+    check_table: VBUP
+    check_field: POSNR
+  - field: MS_OBJECT
+    check_table: TQMS2
+    check_field: MANDT
+  - field: MS_OBJECT
+    check_table: TQMS2
+    check_field: OBJECT
+  - field: MS_OBJTYPE
+    check_table: TQMS1
+    check_field: MANDT
+  - field: MS_OBJTYPE
+    check_table: TQMS1
+    check_field: OBJECTTYPE
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -1,0 +1,526 @@
+table: MHIS
+module: PM
+description: "Maintenance plan history — the scheduling-cycle history record for a maintenance plan (WARPL), carrying each cycle's planned/actual call dates, tolerance and shift parameters, completion and confirmation timestamps, and (for time-based/strategy plans) the cycle sequence and offset-based scheduling parameters. Every call MHIO produces has one MHIS history row recording how and when the cycle counter advanced. SAP's real table carries fields beyond the core scheduling set (extended AD*/ADEXT*/ADSYS* offset-scheduling fields); this definition carries the full key, all core cycle/date/tolerance fields, and the extended AD*-prefixed offset-scheduling fields together — no truncation applied since the fetched field count fits within a complete definition."
+source: https://leanx.eu/en/sap/table/mhis.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: WARPL
+    description: "Maintenance Plan"
+    data_element: WARPL
+    check_table: MPLA
+    datatype: NUMC
+    length: 12
+    decimals: 0
+    key: true
+  - name: ABNUM
+    description: "Call number"
+    data_element: ABNUM
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: ZAEHL
+    description: "Sequential number of history record"
+    data_element: MHIS_ZAEHL
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: NPLDA
+    description: "Scheduled call date"
+    data_element: NPLDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: TERMA
+    description: "Type of maintenance call"
+    data_element: TERMART
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STADT
+    description: "Status of cycle at time of maintenance call"
+    data_element: MHIS_STADT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LRMDT
+    description: "Last time the cycle was completed"
+    data_element: LRMDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: OFFZE
+    description: "Time factor for offset from cycle start"
+    data_element: OFFZE
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: OFFZO
+    description: "Cycle unit for offset"
+    data_element: OFFZO
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: ABRUD
+    description: "Date on which maintenance call was completed"
+    data_element: ABRUD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ABRNA
+    description: "Name of the person who completed the maintenance call"
+    data_element: ABRNA
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: SFAKT
+    description: "Cycle modification factor"
+    data_element: SFAKT
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: TERMK
+    description: "Indicator: cycle skipped"
+    data_element: TERMK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VERSCH
+    description: "Scheduling indicator"
+    data_element: VERSCH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TOLER
+    description: "Cycle tolerance (as a percentage)"
+    data_element: TOLER
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: KNNRM
+    description: "Cycle at maximum tolerance"
+    data_element: KNNRM
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: KNPRM
+    description: "Cycle at maximum tolerance (percentage)"
+    data_element: KNPRM
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: NPLDO
+    description: "Scheduled call date (before rescheduling)"
+    data_element: NPLDO
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: NPLDZ
+    description: "Time of call"
+    data_element: NPLDZ
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: MANDA
+    description: "Manually changed call date"
+    data_element: MANDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: OFFLE
+    description: "Time factor for offset from cycle end"
+    data_element: OFFLE
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: OFFLO
+    description: "Cycle unit for offset from cycle end"
+    data_element: OFFLO
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: KNAUT
+    description: "Indicator: cycle automatically generated"
+    data_element: KNAUT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KNASR
+    description: "Indicator: cycle called from array/counter"
+    data_element: KNASR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TSABR
+    description: "Time stamp when maintenance call was completed"
+    data_element: TSABR
+    check_table: ~
+    datatype: DEC
+    length: 15
+    decimals: 0
+    key: false
+  - name: TSVBT
+    description: "Time stamp when call was created"
+    data_element: TSVBT
+    check_table: ~
+    datatype: DEC
+    length: 15
+    decimals: 0
+    key: false
+  - name: TSENQ
+    description: "Time stamp when call object was enqueued"
+    data_element: TSENQ
+    check_table: ~
+    datatype: DEC
+    length: 15
+    decimals: 0
+    key: false
+  - name: TSENM
+    description: "User who enqueued the call object"
+    data_element: TSENM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: HORDA
+    description: "Reference date of the cycle"
+    data_element: HORDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: TSTAT
+    description: "Processing status of the maintenance call"
+    data_element: MTSTAT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FIXDU
+    description: "Time factor for start date of scheduling"
+    data_element: FIXDU
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: FIXDA
+    description: "Fixed start date for scheduling"
+    data_element: FIXDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: VGNUM
+    description: "Sequential number of the previous history record"
+    data_element: MHIS_ZAEHL
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: ZYKZT
+    description: "Cycle length"
+    data_element: ZYKZT
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: ZYKLS
+    description: "Cycle unit"
+    data_element: ZYKLS
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: PUFFP
+    description: "Positive buffer used"
+    data_element: PUFFP
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: PUFFN
+    description: "Negative buffer used"
+    data_element: PUFFN
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: SZAEH
+    description: "Sequential number of cycle set counter"
+    data_element: SZAEH
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: RZAEH
+    description: "Sequential number of cycle counter"
+    data_element: RZAEH
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: NZAEH
+    description: "Number of last cycle set counter"
+    data_element: NZAEH
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: USERMOD
+    description: "User who last changed the history record"
+    data_element: MHIS_USERMOD
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: DEMAND_ID
+    description: "Maintenance demand: unique ID"
+    data_element: /PM4S/MDEM_UID
+    check_table: ~
+    datatype: RAW
+    length: 16
+    decimals: 0
+    key: false
+  - name: DEMAND_NO
+    description: "Maintenance demand number"
+    data_element: /PM4S/MDEM_NO
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: REVISION_NO
+    description: "Revision"
+    data_element: REVNR
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: REV_PLANT
+    description: "Plant for Revisions"
+    data_element: REV_WERKS
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ADPOINT
+    description: "Indicator: date determined via extended scheduling"
+    data_element: /PMOP/ADPOINT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ADANDOR
+    description: "Extended scheduling: AND/OR link of scheduling rules"
+    data_element: /PMOP/ADANDOR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ADTGOON
+    description: "Extended scheduling: continuation indicator"
+    data_element: /PMOP/ADTGOON
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ADCYCLE
+    description: "Extended scheduling: cycle length"
+    data_element: /PMOP/ADCYCLE
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: ADUNIT
+    description: "Extended scheduling: cycle unit"
+    data_element: /PMOP/ADUNIT
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: ADOFFSET
+    description: "Extended scheduling: offset"
+    data_element: /PMOP/ADOFFSET
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: ADNZAEH
+    description: "Extended scheduling: number of last cycle set counter"
+    data_element: /PMOP/ADNZAEH
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: ADSTTIME
+    description: "Extended scheduling: start time"
+    data_element: /PMOP/ADSTTIME
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: ADCONFTIME
+    description: "Extended scheduling: confirmation time"
+    data_element: /PMOP/ADCONFTIME
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: CYCLESEQIND
+    description: "Indicator: cycle sequence relevant"
+    data_element: /PMOP/CYCLESEQIND
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ADEXTSTARTDATE
+    description: "Extended scheduling: external start date"
+    data_element: /PMOP/ADEXTSTARTDATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ADEXTSTARTTIME
+    description: "Extended scheduling: external start time"
+    data_element: /PMOP/ADEXTSTARTTIME
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: ADSYSTARTDATE
+    description: "Extended scheduling: system start date"
+    data_element: /PMOP/ADSYSTARTDATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ADSYSTARTTIME
+    description: "Extended scheduling: system start time"
+    data_element: /PMOP/ADSYSTARTTIME
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: ADOBJECT
+    description: "Extended scheduling: object reference"
+    data_element: /PMOP/ADOBJECT
+    check_table: ~
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: false
+  - name: SETREPEATIND
+    description: "Indicator: cycle set is repeated"
+    data_element: /PMOP/SETREPEATIND
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: IND_MPLA_API
+    description: "Indicator: history changed via maintenance plan API"
+    data_element: IND_MPLA_API
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DUE_DATE_TIME
+    description: "Due date/time as time stamp"
+    data_element: /PMOP/DUE_DATE_TIME
+    check_table: ~
+    datatype: DEC
+    length: 15
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: WARPL
+    check_table: MPLA
+    check_field: WARPL
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

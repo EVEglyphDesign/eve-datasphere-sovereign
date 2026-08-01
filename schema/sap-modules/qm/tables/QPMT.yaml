@@ -1,0 +1,106 @@
+table: QPMT
+module: QM
+description: "Master Inspection Characteristic Text — the language-dependent short text (and long-text existence flags) for a master inspection characteristic (QPMK), keyed by plant/characteristic/version/language."
+source: https://leanx.eu/en/sap/table/qpmt.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: ZAEHLER
+    description: "Plant for the Master Inspection Characteristic"
+    data_element: QZAEHLER
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: MKMNR
+    description: "Master Inspection Characteristics"
+    data_element: QMERKNR
+    check_table: QPMK
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: true
+  - name: VERSION
+    description: "Version Number of the Inspection Method"
+    data_element: QVERSNRPM
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: true
+  - name: SPRACHE
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: true
+  - name: GUELTIGAB
+    description: "Valid-From Date"
+    data_element: DATUV
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: KURZTEXT
+    description: "Short Text"
+    data_element: QKURZTEXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: LTEXTKZ
+    description: "Long Text Exists for the Characteristic"
+    data_element: QLTEXTMK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LTEXTEKZ
+    description: "Long Text for Physical-Sample Drawing of a Characteristic"
+    data_element: QLTEXTEKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GELOESCHT
+    description: "Data Record Was Deleted"
+    data_element: QGEL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MKMNR
+    check_table: QPMK
+    check_field: MANDT
+  - field: MKMNR
+    check_table: QPMK
+    check_field: ZAEHLER
+  - field: MKMNR
+    check_table: QPMK
+    check_field: MKMNR
+  - field: MKMNR
+    check_table: QPMK
+    check_field: VERSION
+  - field: SPRACHE
+    check_table: T002
+    check_field: SPRAS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

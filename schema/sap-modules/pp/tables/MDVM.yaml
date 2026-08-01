@@ -1,0 +1,104 @@
+table: MDVM
+module: PP
+description: "Planning File Entry — flags a material/plant (or other planning object) as due for the next MRP run, carrying net-change and low-level-code re-explosion indicators plus MRP timestamps. The demand-side trigger record of what the system has decided still needs re-planning."
+source: https://leanx.eu/en/sap/table/mdvm.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: ~
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: MAFID
+    description: "Record type"
+    data_element: MAFID
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: MDKEY
+    description: "Total key of MDVM"
+    data_element: MDKEY
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: true
+  - name: GSAEN
+    description: "Net change planning indicator"
+    data_element: GSAEN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AKKEN
+    description: "Net change planning indicator in the planning horizon"
+    data_element: AKKEN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RESDT
+    description: "Reset procurement proposals"
+    data_element: RESDT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: RESAL
+    description: "Re-explode BOM"
+    data_element: RESAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MPSKZ
+    description: "Indicator for MPS items"
+    data_element: MPSKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RHYTD
+    description: "Date for planning (e.g. as per time-phased mat. planning)"
+    data_element: RHYTD
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: USTMP
+    description: "Time stamp of last update for planning file entry"
+    data_element: USTMP
+    check_table: ~
+    datatype: DEC
+    length: 15
+    decimals: 0
+    key: false
+  - name: DSTMP
+    description: "Timestamp of last MRP for planning file entry"
+    data_element: DSTMP
+    check_table: ~
+    datatype: DEC
+    length: 15
+    decimals: 0
+    key: false
+foreign_keys: []
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

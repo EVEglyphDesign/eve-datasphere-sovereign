@@ -1,0 +1,414 @@
+table: RSDCUBE
+module: BW
+description: "Directory of InfoCubes / InfoProvider — the BW metadata catalog row for every InfoCube and generic InfoProvider, keyed by InfoCube technical name (INFOCUBE) and object version (OBJVERS). Carries the InfoArea assignment, the Business-Content namespace/release stamp (BWAPPL/CONTREL/CONTTIMESTMP, distinguishing SAP-delivered from customer-created InfoCubes), the InfoProvider type/subtype (CUBETYPE/CUBESUBTYPE: BasicCube, Aggregate, RemoteCube, VirtualProvider, HANA-model-backed, etc.), the higher-level provider link (SUPERPROV/SUPERTLOGO) for MultiProviders and aggregates, real-time/direct-update mode (TRANSACT), source-system and InfoSource links for remote/virtual providers, and the size-category/data-class settings governing the physical fact and dimension tables generated for the cube. RSDCUBE is the master directory the mirror's runtime discovery walks to enumerate InfoCube-backed generated fact (/BIC/F*) and dimension (/BIC/D*) tables in a customer system; the /BI0/* and /BIC/A* generated master-data namespaces this InfoCube's dimensions reference are documented separately in bw/tables/GENERATED-PATTERNS.yaml. SAP's real RSDCUBE table carries roughly 115 fields, almost all of which are boolean/enum behavior-control switches for query optimization, caching, aggregation, and BWA/HANA acceleration (SV*, CACHE*, AGGR*, PART*); this definition is scoped to the identity, namespace, provider-type, hierarchy, and physical-storage-class fields the model consumes — no field has been silently dropped from those categories, and the full switch-field list is in the source below."
+source: https://leanx.eu/en/sap/table/rsdcube.html
+fields:
+  - name: INFOCUBE
+    description: "InfoCube"
+    data_element: RSINFOCUBE
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: OBJVERS
+    description: "Object version"
+    data_element: RSOBJVERS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: OBJSTAT
+    description: "Object Status"
+    data_element: RSOBJSTAT
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: CONTREL
+    description: "Content release"
+    data_element: RSCONTREL
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: CONTTIMESTMP
+    description: "Content time stamp: Last modification to the object by SAP"
+    data_element: RSCONTTIMESTMP
+    check_table: ~
+    datatype: DEC
+    length: 15
+    decimals: 0
+    key: false
+  - name: OWNER
+    description: "Owner (Person Responsible)"
+    data_element: RSOWNER
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: BWAPPL
+    description: "BW Application (Namespace)"
+    data_element: RSBWAPPL
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ACTIVFL
+    description: "Active and revised version do not agree"
+    data_element: RSACTIVFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PROTECFL
+    description: "Flag: Protected InfoObject, no changes allowed"
+    data_element: RSPROTECFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: INFOAREA
+    description: "InfoArea"
+    data_element: RSINFOAREA
+    check_table: RSDAREA
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: NCUMTIM
+    description: "Ref. Time-Char. for Non-cums"
+    data_element: RSNCUMTIM
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: BCTCOMP
+    description: "Obsolete - do not translate"
+    data_element: RSDBCTCOMP
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SUPERPROV
+    description: "Higher-Level InfoProvider"
+    data_element: RSSUPERPROV
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: SUPERTLOGO
+    description: "TLOGO Type of Higher-Level Provider"
+    data_element: RSSUPERTLOGO
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: CUBETYPE
+    description: "InfoProvider Type"
+    data_element: RSCUBETYPE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CUBESUBTYPE
+    description: "InfoProvider Subtype"
+    data_element: RSCUBESUBTYPE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FUNCNAME
+    description: "Name of Function Module/Class/SAP HANA Model"
+    data_element: RSCUBESVFUNCNAME
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: HDBMODNM
+    description: "SAP HANA Model Name"
+    data_element: RSHDBMODNM
+    check_table: ~
+    datatype: CHAR
+    length: 64
+    decimals: 0
+    key: false
+  - name: BASICCUBE
+    description: "BasicCube for Aggregate"
+    data_element: RSBASICCUBE
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: TRANSACT
+    description: "Real Time / Direct Update"
+    data_element: RSDTRANSACT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SLOGSYS
+    description: "Source system"
+    data_element: RSSLOGSYS
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ISOURCE
+    description: "InfoSource"
+    data_element: RSISOURCE
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: UNIQUE_SOURCE
+    description: "Indicator: Unique Source System"
+    data_element: RSOAUNIQUESOURCE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WRITECLASNM
+    description: "Name of Class for Write Interface"
+    data_element: RSDWRITECLASNM
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: MOLAPFL
+    description: "Flag: with MOLAP cube"
+    data_element: RSMOLAPFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BIA_STATUS
+    description: "RSD: BW Accelerator Status of InfoCube (BWA Indexes)"
+    data_element: RSD_BIA_STATUS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PARTMODE
+    description: "Partitioning Type"
+    data_element: RSPARTMODE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PARTTIM
+    description: "Partitioning time char."
+    data_element: RSPARTTIM
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: PARTVL_FROM
+    description: "Lower limit (partitioning value)"
+    data_element: RSPARTVL_FROM
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PARTVL_TO
+    description: "Upper Limit (Partitioning Value)"
+    data_element: RSPARTVL_TO
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PARTMAXCNT
+    description: "Maximum number of partitions"
+    data_element: RSPARTMAXCNT
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: DIMESIZCAT
+    description: "BW: Size Category for Dimension Tables"
+    data_element: RSDIMESIZCAT
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: DIMEDATCLS
+    description: "BW: Data class for dimension tables"
+    data_element: RSDIMEDATCLS
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: CUBESIZCAT
+    description: "BW: Size Category for InfoCube (Fact) Tables"
+    data_element: RSCUBESIZCAT
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: CUBEDATCLS
+    description: "BW: Data class for InfoCube (fact) tables"
+    data_element: RSCUBEDATCLS
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: BWSTATISTICS
+    description: "Boolean (BW statistics active for this InfoProvider)"
+    data_element: RS_BOOL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BWSTATWHM
+    description: "Boolean"
+    data_element: RS_BOOL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUTOQUALOKFL
+    description: "Set Quality Status to 'OK' Automatically"
+    data_element: RSMAUTOQUALOKFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUTOROLLUPFL
+    description: "Roll up data in the aggregate automatically"
+    data_element: RSMAUTOROLLUPFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUTOCOMPRFL
+    description: "Compress Automatically After Roll-Up (or After Load)"
+    data_element: RSMAUTOCOMPRFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ADIMSIZCAT
+    description: "BW: Size Category for Aggregate Dimension Tables"
+    data_element: RSADIMSIZCAT
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ADIMDATCLS
+    description: "BW: Data class for aggregate dimension tables"
+    data_element: RSADIMDATCLS
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: AGGRSIZCAT
+    description: "BW: Size Category for Aggregate (Fact) Tables"
+    data_element: RSAGGRSIZCAT
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: AGGRDATCLS
+    description: "BW: Default Data Class for Aggregate (Fact) Table"
+    data_element: RSAGGRDATCLS
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: READMODE
+    description: "Read Mode"
+    data_element: RSRREADMODE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CACHEMODE
+    description: "Cache Mode"
+    data_element: RSRCACHEMODE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CACHEDELAY
+    description: "Cache Validity Period in Seconds"
+    data_element: RSRCACHEDELAY
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: false
+  - name: NLREADMODE
+    description: "Read Modus for Near-Line Storage"
+    data_element: RSD_NLREADMODE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TSTPNM
+    description: "Last changed by"
+    data_element: RSTSTPNM
+    check_table: USR02
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: TIMESTMP
+    description: "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+    data_element: RSTIMESTMP
+    check_table: ~
+    datatype: DEC
+    length: 15
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: INFOAREA
+    check_table: RSDAREA
+    check_field: INFOAREA
+  - field: TSTPNM
+    check_table: USR02
+    check_field: BNAME
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

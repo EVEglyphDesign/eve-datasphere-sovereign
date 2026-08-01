@@ -1,0 +1,243 @@
+table: PMCO
+module: PM
+description: "Cost structure of maintenance order — the CO totals-record table holding period-bucketed planned/actual/commitment cost values (WRT00–WRT16, one slot per posting period plus adjustment/total periods) for a maintenance order object (OBJNR), broken out by value type, fiscal year, version, and category. This is the cost side of order settlement/reporting that reconciles against PMCO's controlling-area currency (COCUR)."
+source: https://leanx.eu/en/sap/table/pmco.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ~
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: true
+  - name: COCUR
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: ~
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: true
+  - name: BELTP
+    description: "Transaction type"
+    data_element: BELTP
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: WRTTP
+    description: "Value Type for Reporting"
+    data_element: WRTTP
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: true
+  - name: GJAHR
+    description: "Fiscal Year"
+    data_element: GJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: ACPOS
+    description: "Cost element for value/quantity update"
+    data_element: KSTAR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: VERSN
+    description: "Version"
+    data_element: VERSN
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: true
+  - name: PERBL
+    description: "Distribution key for period totals records"
+    data_element: PERBL
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: true
+  - name: VORGA
+    description: "Business Transaction"
+    data_element: VORGA_KA
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BEMOT
+    description: "Requirement/inventory management indicator"
+    data_element: BEMOT
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ABKAT
+    description: "Order category"
+    data_element: ABKAT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WRT00
+    description: "Adjustment period value / period 0 value"
+    data_element: WRTZP
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WRT01
+    description: "Period value 1"
+    data_element: WRTZP
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WRT02
+    description: "Period value 2"
+    data_element: WRTZP
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WRT03
+    description: "Period value 3"
+    data_element: WRTZP
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WRT04
+    description: "Period value 4"
+    data_element: WRTZP
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WRT05
+    description: "Period value 5"
+    data_element: WRTZP
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WRT06
+    description: "Period value 6"
+    data_element: WRTZP
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WRT07
+    description: "Period value 7"
+    data_element: WRTZP
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WRT08
+    description: "Period value 8"
+    data_element: WRTZP
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WRT09
+    description: "Period value 9"
+    data_element: WRTZP
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WRT10
+    description: "Period value 10"
+    data_element: WRTZP
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WRT11
+    description: "Period value 11"
+    data_element: WRTZP
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WRT12
+    description: "Period value 12"
+    data_element: WRTZP
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WRT13
+    description: "Period value 13"
+    data_element: WRTZP
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WRT14
+    description: "Period value 14"
+    data_element: WRTZP
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WRT15
+    description: "Period value 15"
+    data_element: WRTZP
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+  - name: WRT16
+    description: "Period value 16 / total value"
+    data_element: WRTZP
+    check_table: ~
+    datatype: CURR
+    length: 15
+    decimals: 2
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

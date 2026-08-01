@@ -1,0 +1,130 @@
+table: T370F
+module: PM
+description: "Functional Location Category — customizing table defining functional location categories, each carrying its status profile, partner determination procedure, measuring-point category and field-selection/view-profile linkage that governs which screens and fields are active for a functional location of that category. Referenced by FLTYP on IFLOT (Functional Location master), which determines the category of every functional location record. Carried complete — small customizing table."
+source: https://leanx.eu/en/sap/table/t370f.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: FLTYP
+    description: "Functional location category"
+    data_element: FLTYP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: STSMA
+    description: "Status Profile"
+    data_element: J_STSMA
+    check_table: TJ20
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: PARGR
+    description: "Partner Determination Procedure"
+    data_element: PARGR
+    check_table: TVPG
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SALES
+    description: "Indicator: customer object"
+    data_element: ILOM_SALES
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ELSE_KNZ
+    description: "Indicator: Other Data Active"
+    data_element: ELSE_KNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MPTYP
+    description: "Measuring Point Category"
+    data_element: IMRC_MPTYP
+    check_table: T370P
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CHDOC
+    description: "Indicator: Generate change documents"
+    data_element: ILOM_CHDOC
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: INFOW
+    description: "Parameter ID Object Info"
+    data_element: I_INFOWIND
+    check_table: TQ80O
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: TSEGTP
+    description: "Template"
+    data_element: TSEGTEMPLA
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: VIEW_PROF
+    description: "View profile for tab index Customizing"
+    data_element: ITOBVIEW_PROFILE
+    check_table: TITOBPROF
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: CHDOC_INS
+    description: "Functional Location with Change Docs During Creation"
+    data_element: CHDOC_INS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LFE_IND
+    description: "Indicator: Object Belongs to Linear Asset Management"
+    data_element: EAML_LFE_IND
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: STSMA
+    check_table: TJ20
+    check_field: STSMA
+  - field: PARGR
+    check_table: TVPG
+    check_field: PARGR
+  - field: MPTYP
+    check_table: T370P
+    check_field: MPTYP
+  - field: INFOW
+    check_table: TQ80O
+    check_field: INFO_WIND
+  - field: VIEW_PROF
+    check_table: TITOBPROF
+    check_field: PROFILE
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -1,0 +1,158 @@
+table: AFFT
+module: PM
+description: "Order — process instructions. Carries process-instruction category and text for an order operation's PI-Sheet steps (process industry / PP-PI heritage reused by maintenance orders that carry process instructions). Small, complete table."
+source: https://leanx.eu/en/sap/table/afft.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: AUFPL
+    description: "Routing number of operations in the order"
+    data_element: CO_AUFPL
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: true
+  - name: APLZL
+    description: "General counter for order"
+    data_element: CO_APLZL
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: APHZL
+    description: "Internal Sub-Calculation Number"
+    data_element: PLNPH
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: AFTZL
+    description: "Internal process instruction number"
+    data_element: PLNFT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: PLNTY
+    description: "Task List Type"
+    data_element: PLNTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLNNR
+    description: "Key for Task List Group"
+    data_element: PLNNR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: PLNKN
+    description: "Number of the task list node"
+    data_element: PLNKN
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: PLNPH
+    description: "Internal Sub-Calculation Number"
+    data_element: PLNPH
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: PLNFT
+    description: "Internal process instruction number"
+    data_element: PLNFT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: ZAEHL
+    description: "Internal counter"
+    data_element: CIM_COUNT
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: FTRNR
+    description: "Line Number of Process Instruction"
+    data_element: R_FTNR
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: CSTYP
+    description: "Object type: proc.message category or proc. instr. category"
+    data_element: CO_CSTYP
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: COSTR
+    description: "Process instruction category"
+    data_element: R_COSTR
+    check_table: TC50
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: CSKTX
+    description: "Short description of process instruction"
+    data_element: R_CSKTX
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: FTTYP
+    description: "Type of process instruction"
+    data_element: CO_FTTYP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FTRNI
+    description: "Line Number of Process Instruction"
+    data_element: R_FTNR
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: AENNR
+    description: "Change Number"
+    data_element: AENNR
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: COSTR
+    check_table: TC50
+    check_field: COSTR
+  - field: COSTR
+    check_table: TC50
+    check_field: CSTYP
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

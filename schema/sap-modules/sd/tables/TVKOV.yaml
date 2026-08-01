@@ -1,0 +1,101 @@
+table: TVKOV
+module: SD
+description: "Organizational check table: distribution channels per sales organization — validates the VKORG/VTWEG combination every SD document's distribution channel field must resolve to, and carries reference distribution channels used to share condition records, sales document types, and customer/material master data across channels. Carried complete as a small organizational customizing table."
+source: https://leanx.eu/en/sap/table/tvkov.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: VKORG
+    description: "Sales Organization"
+    data_element: VKORG
+    check_table: TVKO
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: VTWEG
+    description: "Distribution Channel"
+    data_element: VTWEG
+    check_table: TVTW
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: VTWKO
+    description: "Reference distribution channel for conditions"
+    data_element: VTWKO
+    check_table: TVTW
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: VTWAU
+    description: "Distribution channel for sales doc types"
+    data_element: VTWAU
+    check_table: TVTW
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: VTWKU
+    description: "Reference distrib.channel for cust.and material masters"
+    data_element: VTWKU
+    check_table: TVTW
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: VLGFI
+    description: "Reference Plant of the Category \"Store\" (Material Master)"
+    data_element: VLGFI
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VLTYP
+    description: "Distribution chain category"
+    data_element: VLTYP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VLKEB
+    description: "Allowed pricing levels below distribution chain level"
+    data_element: VLKEB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: VKORG
+    check_table: TVKO
+    check_field: VKORG
+  - field: VTWEG
+    check_table: TVTW
+    check_field: VTWEG
+  - field: VTWKO
+    check_table: TVTW
+    check_field: VTWEG
+  - field: VTWAU
+    check_table: TVTW
+    check_field: VTWEG
+  - field: VTWKU
+    check_table: TVTW
+    check_field: VTWEG
+  - field: VLGFI
+    check_table: T001W
+    check_field: WERKS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

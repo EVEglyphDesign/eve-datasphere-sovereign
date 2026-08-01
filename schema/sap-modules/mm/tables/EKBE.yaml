@@ -1,0 +1,345 @@
+table: EKBE
+module: MM
+description: "History per Purchasing Document — the PO-history table that records every goods-movement and invoice event against a purchase-order line, one row per PO item per account-assignment sequence per history-event type per material-document reference. This is the goods-receipt/invoice-receipt (GR/IR) tie-out table: the lane that reconciles what was ordered (EKPO), what was received (linked via GJAHR/BELNR/BUZEI back to the material document, MKPF/MSEG on ECC or MATDOC on S/4), and what was invoiced (REEWR/REFWR) against the GR/IR clearing account. SAP's real table carries 90+ fields including country/industry extensions (oil, CWM parallel units, depreciation completion); this definition is scoped to the full key, the GR/IR reconciliation fields (BEWTP, BWART, quantities, amounts, currencies), the material-document link fields, and the fields a crosswalk into ACDOCA would consume — no fewer than 25 fields, per the wide-table rule."
+source: https://leanx.eu/en/sap/table/ekbe.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: EBELN
+    description: "Purchasing Document Number"
+    data_element: EBELN
+    check_table: EKKO
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: EBELP
+    description: "Item Number of Purchasing Document"
+    data_element: EBELP
+    check_table: EKPO
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: true
+  - name: ZEKKN
+    description: "Sequential Number of Account Assignment"
+    data_element: DZEKKN
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: true
+  - name: VGABE
+    description: "Transaction/event type, purchase order history"
+    data_element: VGABE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: GJAHR
+    description: "Material Document Year"
+    data_element: MJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: BELNR
+    description: "Number of Material Document"
+    data_element: MBLNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BUZEI
+    description: "Item in Material Document"
+    data_element: MBLPO
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: BEWTP
+    description: "PO history category"
+    data_element: BEWTP
+    check_table: T163B
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BWART
+    description: "Movement Type (Inventory Management)"
+    data_element: BWART
+    check_table: T156
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: BUDAT
+    description: "Posting Date in the Document"
+    data_element: BUDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: MENGE
+    description: "Quantity"
+    data_element: MENGE_D
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: BPMNG
+    description: "Quantity in purchase order price unit"
+    data_element: MENGE_BPR
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: DMBTR
+    description: "Amount in Local Currency"
+    data_element: DMBTR
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: WRBTR
+    description: "Amount in document currency"
+    data_element: WRBTR
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: AREWR
+    description: "GR/IR account clearing value in local currency"
+    data_element: AREWR
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: WESBS
+    description: "Goods Receipt Blocked Stock in Order Unit"
+    data_element: WESBS
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: BPWES
+    description: "Quantity in GR blocked stock in order price unit"
+    data_element: BPWES
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: SHKZG
+    description: "Debit/Credit Indicator"
+    data_element: SHKZG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BWTAR
+    description: "Valuation Type"
+    data_element: BWTAR_D
+    check_table: T149D
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ELIKZ
+    description: "'Delivery Completed' Indicator"
+    data_element: ELIKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XBLNR
+    description: "Reference Document Number"
+    data_element: XBLNR1
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: LFGJA
+    description: "Fiscal Year of a Reference Document"
+    data_element: LFBJA
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: LFBNR
+    description: "Document No. of a Reference Document"
+    data_element: LFBNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LFPOS
+    description: "Item of a Reference Document"
+    data_element: LFPOS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: GRUND
+    description: "Reason for Movement"
+    data_element: MB_GRBEW
+    check_table: T157D
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: CPUDT
+    description: "Day On Which Accounting Document Was Entered"
+    data_element: CPUDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: CPUTM
+    description: "Time of Entry"
+    data_element: CPUTM
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: REEWR
+    description: "Invoice Value Entered (in Local Currency)"
+    data_element: REEWR
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: EVERE
+    description: "Compliance with Shipping Instructions"
+    data_element: EVERE
+    check_table: T027C
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: REFWR
+    description: "Invoice value in foreign currency"
+    data_element: REFWR
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KNUMV
+    description: "Number of the document condition"
+    data_element: KNUMV
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: MWSKZ
+    description: "Tax on sales/purchases code"
+    data_element: MWSKZ
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: CHARG
+    description: "Batch Number"
+    data_element: CHARG_D
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BLDAT
+    description: "Document Date in Document"
+    data_element: BLDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: EBELN
+    check_table: EKKO
+    check_field: EBELN
+  - field: EBELP
+    check_table: EKPO
+    check_field: EBELP
+  - field: BEWTP
+    check_table: T163B
+    check_field: BEWTP
+  - field: BWART
+    check_table: T156
+    check_field: BWART
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: BWTAR
+    check_table: T149D
+    check_field: BWTAR
+  - field: GRUND
+    check_table: T157D
+    check_field: GRUND
+  - field: EVERE
+    check_table: T027C
+    check_field: EVERE
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

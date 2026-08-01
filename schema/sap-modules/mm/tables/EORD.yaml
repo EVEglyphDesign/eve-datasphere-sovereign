@@ -1,0 +1,246 @@
+table: EORD
+module: MM
+description: "Purchasing Source List — one row per material/plant source-of-supply record, defining which vendor, outline agreement, or issuing plant is the valid (and optionally fixed or blocked) source for procuring a material at a plant over a validity period. This is a small, complete customizing/master table carried in full."
+source: https://leanx.eu/en/sap/table/eord.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: true
+  - name: WERKS
+    description: "Plant"
+    data_element: EWERK
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: ZEORD
+    description: "Number of Source List Record"
+    data_element: DZEORD
+    check_table: ~
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: true
+  - name: ERDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: VDATU
+    description: "Source List Record Valid From"
+    data_element: ORDAB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BDATU
+    description: "Source List Record Valid To"
+    data_element: ORDBI
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: LIFNR
+    description: "Vendor Account Number"
+    data_element: ELIFN
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: FLIFN
+    description: "Indicator: Fixed vendor"
+    data_element: FLIFN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EBELN
+    description: "Agreement Number"
+    data_element: EVRTN
+    check_table: EKKO
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: EBELP
+    description: "Agreement Item"
+    data_element: EVRTP
+    check_table: EKPO
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: FEBEL
+    description: "Fixed Outline Purchase Agreement Item"
+    data_element: FEBEL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RESWK
+    description: "Plant from Which Material is Procured"
+    data_element: BEWRK
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: FRESW
+    description: "Fixed issuing plant in case of stock transport order"
+    data_element: FRESW
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EMATN
+    description: "Material Number Corresponding to Manufacturer Part Number"
+    data_element: EMATN
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: NOTKZ
+    description: "Blocked Source of Supply"
+    data_element: ORDSP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EKORG
+    description: "Purchasing Organization"
+    data_element: EKORG
+    check_table: T024E
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VRTYP
+    description: "Purchasing Document Category"
+    data_element: BSTYP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EORTP
+    description: "Category of Source List Record"
+    data_element: EORTP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUTET
+    description: "Source List Usage in Materials Planning"
+    data_element: AUTET
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MEINS
+    description: "Purchase Order Unit of Measure"
+    data_element: BSTME
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: LOGSY
+    description: "Logical System"
+    data_element: LOGSYSTEM
+    check_table: TBDLS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SOBKZ
+    description: "Special Stock Indicator"
+    data_element: SOBKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SRM_CONTRACT_ID
+    description: "Central Contract"
+    data_element: SRM_CONTRACT_ID
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SRM_CONTRACT_ITM
+    description: "Central Contract Item Number"
+    data_element: SRM_CONTRACT_ITEM
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+  - field: LIFNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: EBELN
+    check_table: EKKO
+    check_field: EBELN
+  - field: EBELP
+    check_table: EKPO
+    check_field: EBELP
+  - field: EMATN
+    check_table: MARA
+    check_field: MATNR
+  - field: EKORG
+    check_table: T024E
+    check_field: EKORG
+  - field: MEINS
+    check_table: T006
+    check_field: MSEHI
+  - field: LOGSY
+    check_table: TBDLS
+    check_field: LOGSYS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

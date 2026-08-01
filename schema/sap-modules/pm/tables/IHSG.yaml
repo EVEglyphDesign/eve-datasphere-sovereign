@@ -1,0 +1,236 @@
+table: IHSG
+module: PM
+description: "Object-Related Permits in Plant Maintenance — assigns a permit type (PMSOG) to a technical object (equipment, functional location, order, or operation) with print/deletion control flags and the object-class discriminator, gating whether maintenance work on that object may proceed. Pairs with IHGNS which carries the permit's authorization workflow detail. Small, complete table."
+source: https://leanx.eu/en/sap/table/ihsg.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: OBJNR
+    description: "Object number"
+    data_element: J_OBJNR
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: true
+  - name: COUNTER
+    description: "Sequential number"
+    data_element: IH_COUNTER
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: ERDAT
+    description: "Date on which the object was created"
+    data_element: ICRDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of user who created the object"
+    data_element: ICRNA
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Date on which the object was last changed"
+    data_element: IUPDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of the user who last changed the object"
+    data_element: IUPNA
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: PMSOG
+    description: "Permit Type"
+    data_element: IH_PMSOG
+    check_table: T357G
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: K_AF
+    description: "Indicator: permit to be printed with the order"
+    data_element: IH_K_AF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: K_AA
+    description: "Indicator: permit to be printed with the operation"
+    data_element: IH_K_AA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: K_DRUCK
+    description: "Indicator: permit was printed"
+    data_element: IH_K_DRUCK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: K_PRO
+    description: "Indicator: permit relevant to protocol"
+    data_element: IH_K_PRO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZLTX
+    description: "Indicator: Long text exists"
+    data_element: ILOM_KZLTX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EQUNR
+    description: "Equipment Number"
+    data_element: EQUNR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: TPLNR
+    description: "Functional Location"
+    data_element: TPLNR
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: AUFNR
+    description: "Order Number"
+    data_element: AUFNR
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: VORNR
+    description: "Operation/Activity Number"
+    data_element: VORNR
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: K_OBJEKT
+    description: "Indicator: object class of the permit"
+    data_element: IH_K_OBJEKT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: IHASP
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: K_NODEL
+    description: "Indicator: permit may not be deleted"
+    data_element: IH_K_NODEL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: K_SKIP
+    description: "Indicator: permit is skipped"
+    data_element: IH_K_SKIP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: K_ORIGIN
+    description: "Indicator: origin of the permit assignment"
+    data_element: IH_K_ORIGIN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CLASS
+    description: "Object type/class"
+    data_element: IH_CLASS
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LVORM
+    description: "Deletion Flag for 2-Level Deletion Logic"
+    data_element: IMRC_DEL2
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLNTY
+    description: "Task List Type"
+    data_element: PLNTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLNNR
+    description: "Key for Task List Group"
+    data_element: PLNNR
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: PLNAL
+    description: "Group Counter"
+    data_element: PLNAL
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: IHASP
+    check_table: T002
+    check_field: SPRAS
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: OBJNR
+    check_table: ONR00
+    check_field: OBJNR
+  - field: PMSOG
+    check_table: T357G
+    check_field: PMSOG
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

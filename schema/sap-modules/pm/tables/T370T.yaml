@@ -1,0 +1,334 @@
+table: T370T
+module: PM
+description: "Equipment Categories — customizing table defining SAP's core equipment categories (e.g. machine, production resource/tool, customer equipment, fleet object) and every control switch that flows from that category: number-range assignment, multi-lingual text maintenance, status profile, partner determination, serialization, configuration and asset relevance. Referenced by EQTYP on EQUI (Equipment master), which fixes the category of every equipment record and, through this table, the entire behavior of that equipment. Carried complete — small customizing table."
+source: https://leanx.eu/en/sap/table/t370t.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: EQTYP
+    description: "Equipment category"
+    data_element: EQTYP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: REFTP
+    description: "Equipment reference category"
+    data_element: REFTP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: NUMKI
+    description: "Number range in the case of internal number assignment"
+    data_element: NUMKI
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: NUMKE
+    description: "Number range in the case of external number assignment"
+    data_element: NUMKE
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ZEIIN
+    description: "Record usage history for equipment"
+    data_element: DZEIIN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TPEIN
+    description: "Installation at functional location permitted"
+    data_element: TPEIN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MSTKZ
+    description: "Indicator for maintaining multi-lingual texts"
+    data_element: MSTKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AEBKZ
+    description: "Indicator showing equipment category with change documents"
+    data_element: AEBKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PUEMA
+    description: "No Alphanumeric Equipment Numbers"
+    data_element: PUEMA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STADY
+    description: "Indicator for a fixed screen sequence"
+    data_element: STADY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: STSMA
+    description: "Status Profile"
+    data_element: J_STSMA
+    check_table: TJ20
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: SDEQT
+    description: "Equipment Category for Serial Numbers"
+    data_element: SDEQT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PARGR
+    description: "Partner Determination Procedure"
+    data_element: PARGR
+    check_table: TVPG
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PARK1
+    description: "Partner Function for Current Customer in Serial Number"
+    data_element: PARK1
+    check_table: TPAR
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PARK2
+    description: "Partner Function for Equipment Vendor"
+    data_element: PARK2
+    check_table: TPAR
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PARK3
+    description: "Partner Function for Customer in Equipment Usage Period"
+    data_element: PARK3
+    check_table: TPAR
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PARK4
+    description: "Partner Function for Endcustomer in Equipment Usage Period"
+    data_element: PARK4
+    check_table: TPAR
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PARK5
+    description: "Partner Function for Operator in Equipment Usage Period"
+    data_element: PARK5
+    check_table: TPAR
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: INFOW
+    description: "Parameter ID Object Info"
+    data_element: I_INFOWIND
+    check_table: TQ80O
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AMKNZ
+    description: "Asset relevant indicator"
+    data_element: AMKNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WFKNZ
+    description: "Indicator: Generate Event for Workflow"
+    data_element: WFKNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PASYN
+    description: "Partner synchronization activated"
+    data_element: PASYN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZKSD
+    description: "Serial data when maintaining equipment"
+    data_element: KZKSD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KONFKNZ
+    description: "Configuration supported"
+    data_element: KONFKNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SDKNZ
+    description: "Sales equipment"
+    data_element: SDKNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FHMKZ
+    description: "Equip. category relevant to production resources and tools"
+    data_element: FHMKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ELSE_KNZ
+    description: "Indicator: Other Data Active"
+    data_element: ELSE_KNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ISU_KNZ
+    description: "IS-U data"
+    data_element: ISU_KNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TSEGTP
+    description: "Template"
+    data_element: TSEGTEMPLA
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: VIEW_PROF
+    description: "View profile for tab index Customizing"
+    data_element: ITOBVIEW_PROFILE
+    check_table: TITOBPROF
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: NO_SER_ENQ
+    description: "No Block when Assigning Serial Numbers"
+    data_element: NO_SER_ENQ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BTMNS
+    description: "Keep construction type and material number synchronous"
+    data_element: BTMNS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CC_KNZ
+    description: "Configuration Control Data"
+    data_element: CCC_KNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AEBKZ_INS
+    description: "Equipment Type with Change Documents During Creation"
+    data_element: AEBKZ_INS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LFE_IND
+    description: "Indicator: Object Belongs to Linear Asset Management"
+    data_element: EAML_LFE_IND
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: J_3GBAUKNZ
+    description: "CEM Equipment"
+    data_element: J_3GBAUKNZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: INFOW
+    check_table: TQ80O
+    check_field: INFO_WIND
+  - field: STSMA
+    check_table: TJ20
+    check_field: STSMA
+  - field: PARGR
+    check_table: TVPG
+    check_field: PARGR
+  - field: PARK1
+    check_table: TPAR
+    check_field: PARVW
+  - field: PARK2
+    check_table: TPAR
+    check_field: PARVW
+  - field: PARK3
+    check_table: TPAR
+    check_field: PARVW
+  - field: PARK4
+    check_table: TPAR
+    check_field: PARVW
+  - field: PARK5
+    check_table: TPAR
+    check_field: PARVW
+  - field: VIEW_PROF
+    check_table: TITOBPROF
+    check_field: PROFILE
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

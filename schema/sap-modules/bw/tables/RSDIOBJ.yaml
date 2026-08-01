@@ -1,0 +1,155 @@
+table: RSDIOBJ
+module: BW
+description: "Directory of all InfoObjects — the BW metadata catalog row for every InfoObject (characteristic, key figure, unit, time characteristic, etc.) defined in the system, keyed by InfoObject technical name (IOBJNM) and object version (OBJVERS, since BW versions metadata as active 'A' vs. modified 'M' /delivered 'D'). Carries the InfoObject type (IOBJTP), object/activation status (OBJSTAT), the SAP namespace/content-release stamp (BWAPPL, CONTREL, CONTTIMESTMP) that distinguishes SAP-delivered Business Content InfoObjects (the /BI0/* namespace) from customer-created ones, ownership and change-tracking fields, and generation-control flags (ATRONLYFL, PROTECFL, PRIVATEFL). RSDIOBJ is the master directory the mirror's runtime discovery walks to enumerate which /BI0/* and /BIC/* generated master-data, text, and hierarchy tables actually exist in a given system — see bw/tables/GENERATED-PATTERNS.yaml for how those generated tables are resolved rather than statically defined."
+source: https://leanx.eu/en/sap/table/rsdiobj.html
+fields:
+  - name: IOBJNM
+    description: "InfoObject"
+    data_element: RSDIOBJNM
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: OBJVERS
+    description: "Object version"
+    data_element: RSOBJVERS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: IOBJTP
+    description: "Type of an InfoObject"
+    data_element: RSIOBJTP
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: OBJSTAT
+    description: "Object Status"
+    data_element: RSOBJSTAT
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: CONTREL
+    description: "Content release"
+    data_element: RSCONTREL
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: CONTTIMESTMP
+    description: "Content time stamp: Last modification to the object by SAP"
+    data_element: RSCONTTIMESTMP
+    check_table: ~
+    datatype: DEC
+    length: 15
+    decimals: 0
+    key: false
+  - name: OWNER
+    description: "Owner (Person Responsible)"
+    data_element: RSOWNER
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: BWAPPL
+    description: "BW Application (Namespace)"
+    data_element: RSBWAPPL
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ACTIVFL
+    description: "Active and revised version do not agree"
+    data_element: RSACTIVFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PROTECFL
+    description: "Checkbox (Flag: Protected InfoObject, no changes allowed)"
+    data_element: XFELD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PRIVATEFL
+    description: "InfoObject is Private"
+    data_element: RSPRIVATEFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FIELDNM
+    description: "Field Name InfoObject In Structures (Not in database table)"
+    data_element: RSDIOBJFIELDNM
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: ATRONLYFL
+    description: "InfoObject is Exclusively an Attribute (Not Used in ICs)"
+    data_element: RSATRONLYFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BCTCOMP
+    description: "Obsolete - do not translate"
+    data_element: RSDBCTCOMP
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BDSFL
+    description: "Characteristic is allowed as attribute of documents"
+    data_element: RSDDOCFL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TSTPNM
+    description: "Last changed by"
+    data_element: RSTSTPNM
+    check_table: USR02
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: TIMESTMP
+    description: "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+    data_element: RSTIMESTMP
+    check_table: ~
+    datatype: DEC
+    length: 15
+    decimals: 0
+    key: false
+  - name: ORIGIN
+    description: "Origin of Object"
+    data_element: RSDORIGIN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: TSTPNM
+    check_table: USR02
+    check_field: BNAME
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

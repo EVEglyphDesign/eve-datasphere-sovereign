@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MDVM · EVE Datasphere Sovereign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+</head><body data-up="../../">
+<header class="top"><div class="wrap"><p class="crumb"><a href="../../index.html">Model</a> / <a href="index.html">PP</a> / MDVM</p><p class="eyebrow">PP — Production Planning</p><h1>MDVM</h1><p class="lede">12 fields · 3 key · 0 foreign keys · sourced from <a href="https://leanx.eu/en/sap/table/mdvm.html">leanx.eu</a></p></div></header><main><div class="wrap"><p class="desc">Planning File Entry — flags a material/plant (or other planning object) as due for the next MRP run, carrying net-change and low-level-code re-explosion indicators plus MRP timestamps. The demand-side trigger record of what the system has decided still needs re-planning.</p><div class="bar-tools"><input class="filter" id="filter" type="search" data-ui="Filter fields…" placeholder="Filter fields…" aria-label="Filter fields…"><span class="count" id="count"></span><label class="count" data-ui="Language" for="lang">Language</label><select class="lang" id="lang"><option value="la">Latina — canonical</option><option value="en">English</option><option value="fr">Français</option><option value="es">Español</option><option value="de">Deutsch</option><option value="pt">Português</option><option value="it">Italiano</option><option value="nl">Nederlands</option><option value="pl">Polski</option><option value="zh">中文</option><option value="ar">العربية</option><option value="ja">日本語</option></select></div><p class="hint" data-ui="Hover a canonical name to see the legacy SAP field name">Hover a canonical name to see the legacy SAP field name</p><table><thead><tr><th data-ui="Canonical name">Canonical name</th><th data-ui="Concept">Concept</th><th data-ui="Description">Description</th><th data-ui="Data element">Data element</th><th data-ui="Type">Type</th><th data-ui="Check table">Check table</th></tr></thead><tbody><tr data-hay="CLI MANDT Client MANDT"><td class="k"><span class="canon" title="MANDT">CLI</span> <span class="tag">key</span></td><td class="k"><span class="concept" data-concepts='[&quot;client&quot;]' data-latin="cliens">cliens</span></td><td>Client</td><td class="k"><code>MANDT</code></td><td class="k mono">CLNT 3</td><td class="k"><span style="color:#b9b3a5">—</span></td></tr><tr data-hay="TBL_GEN MAFID Record type MAFID"><td class="k"><span class="canon" title="MAFID">TBL_GEN</span> <span class="tag">key</span></td><td class="k"><span class="concept" data-concepts='[&quot;record&quot;, &quot;type&quot;]' data-latin="tabula genus">tabula genus</span></td><td>Record type</td><td class="k"><code>MAFID</code></td><td class="k mono">CHAR 1</td><td class="k"><span style="color:#b9b3a5">—</span></td></tr><tr data-hay="TOT_CLV MDKEY Total key of MDVM MDKEY"><td class="k"><span class="canon" title="MDKEY">TOT_CLV</span> <span class="tag">key</span></td><td class="k"><span class="concept" data-concepts='[&quot;total&quot;, &quot;key&quot;]' data-latin="summa totalis clavis">summa totalis clavis</span></td><td>Total key of MDVM</td><td class="k"><code>MDKEY</code></td><td class="k mono">CHAR 25</td><td class="k"><span style="color:#b9b3a5">—</span></td></tr><tr data-hay="NET_CNS_IDX GSAEN Net change planning indicator GSAEN"><td class="k"><span class="canon" title="GSAEN">NET_CNS_IDX</span></td><td class="k"><span class="concept" data-concepts='[&quot;net&quot;, &quot;planning&quot;, &quot;indicator&quot;]' data-latin="netus consilium index">netus consilium index</span></td><td>Net change planning indicator</td><td class="k"><code>GSAEN</code></td><td class="k mono">CHAR 1</td><td class="k"><span style="color:#b9b3a5">—</span></td></tr><tr data-hay="NET_CNS_IDX2 AKKEN Net change planning indicator in the planning horizon AKKEN"><td class="k"><span class="canon" title="AKKEN">NET_CNS_IDX2</span></td><td class="k"><span class="concept" data-concepts='[&quot;net&quot;, &quot;planning&quot;, &quot;indicator&quot;]' data-latin="netus consilium index">netus consilium index</span></td><td>Net change planning indicator in the planning horizon</td><td class="k"><code>AKKEN</code></td><td class="k mono">CHAR 1</td><td class="k"><span style="color:#b9b3a5">—</span></td></tr><tr data-hay="RESDT RESDT Reset procurement proposals RESDT"><td class="k"><span class="canon plain" title="RESDT">RESDT</span></td><td class="k"><span class="concept" data-concepts='[]' data-latin=""></span></td><td>Reset procurement proposals</td><td class="k"><code>RESDT</code></td><td class="k mono">CHAR 1</td><td class="k"><span style="color:#b9b3a5">—</span></td></tr><tr data-hay="DIE_TBL_CRE ERDAT Date on Which Record Was Created ERDAT"><td class="k"><span class="canon" title="ERDAT">DIE_TBL_CRE</span></td><td class="k"><span class="concept" data-concepts='[&quot;date&quot;, &quot;record&quot;, &quot;created&quot;]' data-latin="dies tabula creatus">dies tabula creatus</span></td><td>Date on Which Record Was Created</td><td class="k"><code>ERDAT</code></td><td class="k mono">DATS 8</td><td class="k"><span style="color:#b9b3a5">—</span></td></tr><tr data-hay="RESAL RESAL Re-explode BOM RESAL"><td class="k"><span class="canon plain" title="RESAL">RESAL</span></td><td class="k"><span class="concept" data-concepts='[]' data-latin=""></span></td><td>Re-explode BOM</td><td class="k"><code>RESAL</code></td><td class="k mono">CHAR 1</td><td class="k"><span style="color:#b9b3a5">—</span></td></tr><tr data-hay="IDX MPSKZ Indicator for MPS items MPSKZ"><td class="k"><span class="canon" title="MPSKZ">IDX</span></td><td class="k"><span class="concept" data-concepts='[&quot;indicator&quot;]' data-latin="index">index</span></td><td>Indicator for MPS items</td><td class="k"><code>MPSKZ</code></td><td class="k mono">CHAR 1</td><td class="k"><span style="color:#b9b3a5">—</span></td></tr><tr data-hay="DIE_CNS_TMP RHYTD Date for planning (e.g. as per time-phased mat. planning) RHYTD"><td class="k"><span class="canon" title="RHYTD">DIE_CNS_TMP</span></td><td class="k"><span class="concept" data-concepts='[&quot;date&quot;, &quot;planning&quot;, &quot;time&quot;]' data-latin="dies consilium tempus">dies consilium tempus</span></td><td>Date for planning (e.g. as per time-phased mat. planning)</td><td class="k"><code>RHYTD</code></td><td class="k mono">DATS 8</td><td class="k"><span style="color:#b9b3a5">—</span></td></tr><tr data-hay="TMP_ULT_CNS USTMP Time stamp of last update for planning file entry USTMP"><td class="k"><span class="canon" title="USTMP">TMP_ULT_CNS</span></td><td class="k"><span class="concept" data-concepts='[&quot;time&quot;, &quot;last&quot;, &quot;planning&quot;]' data-latin="tempus ultimus consilium">tempus ultimus consilium</span></td><td>Time stamp of last update for planning file entry</td><td class="k"><code>USTMP</code></td><td class="k mono">DEC 15</td><td class="k"><span style="color:#b9b3a5">—</span></td></tr><tr data-hay="ULT_CNS DSTMP Timestamp of last MRP for planning file entry DSTMP"><td class="k"><span class="canon" title="DSTMP">ULT_CNS</span></td><td class="k"><span class="concept" data-concepts='[&quot;last&quot;, &quot;planning&quot;]' data-latin="ultimus consilium">ultimus consilium</span></td><td>Timestamp of last MRP for planning file entry</td><td class="k"><code>DSTMP</code></td><td class="k mono">DEC 15</td><td class="k"><span style="color:#b9b3a5">—</span></td></tr></tbody></table><p style="margin-top:28px"><a href="https://github.com/EVEglyphDesign/eve-datasphere-sovereign/blob/main/schema/sap-modules/pp/tables/MDVM.yaml">View <code>MDVM.yaml</code> in the repository</a></p></div></main>
+<footer><div class="wrap">
+<p>EVEglyphDesign · <a href="https://github.com/EVEglyphDesign/eve-datasphere-sovereign">eve-datasphere-sovereign on GitHub</a> · generated 2026-08-01 01:42 UTC</p>
+<p>Mirror, never cannibalise. Read-only from the source; the customer's system of record stays the system of record.</p>
+<p>EVE DICOE Blueprint designs are available upon request and without charge to qualified non-profit organizations.</p>
+<p class="sig">Pour le bien-être du peuple. © 2026 Dany Thériault / EVE Glyph Design.</p>
+</div></footer>
+<script>
+(function(){
+  var up=document.body.dataset.up||'';
+  var dict=null, sel=document.getElementById('lang');
+  function paint(code){
+    document.querySelectorAll('[data-concepts]').forEach(function(el){
+      var keys=JSON.parse(el.dataset.concepts||'[]');
+      if(!code||code==='la'||!dict){ el.textContent=el.dataset.latin||''; return; }
+      var m=(dict.labels&&dict.labels[code])||{};
+      el.textContent=keys.map(function(k){return m[k]||k;}).join(' · ');
+    });
+    document.querySelectorAll('[data-ui]').forEach(function(el){
+      var k=el.dataset.ui;
+      var m=(code&&code!=='la'&&dict&&dict.ui&&dict.ui[code])||null;
+      var v=m&&m[k]?m[k]:k;
+      if(el.tagName==='INPUT'){el.placeholder=v;}else{el.textContent=v;}
+    });
+    document.documentElement.dir=(code==='ar')?'rtl':'ltr';
+  }
+  function setLang(code){
+    try{localStorage.setItem('egd-lang',code);}catch(e){}
+    if(code==='la'){paint(code);return;}
+    if(dict){paint(code);return;}
+    fetch(up+'i18n.json').then(function(r){return r.json();}).then(function(d){
+      dict=d;paint(code);
+    }).catch(function(){paint('la');});
+  }
+  if(sel){
+    var saved='la';try{saved=localStorage.getItem('egd-lang')||'la';}catch(e){}
+    sel.value=saved;setLang(saved);
+    sel.addEventListener('change',function(){setLang(sel.value);});
+  }
+  var box=document.getElementById('filter');
+  if(box){
+    var counter=document.getElementById('count');
+    box.addEventListener('input',function(){
+      var q=box.value.trim().toLowerCase(), rows=document.querySelectorAll('tbody tr'), n=0;
+      rows.forEach(function(tr){
+        var hay=(tr.dataset.hay||tr.textContent).toLowerCase();
+        var hit=!q||hay.indexOf(q)>-1;
+        tr.style.display=hit?'':'none';
+        if(hit)n++;
+      });
+      if(counter)counter.textContent=n+' / '+rows.length;
+    });
+  }
+})();
+</script></body></html>

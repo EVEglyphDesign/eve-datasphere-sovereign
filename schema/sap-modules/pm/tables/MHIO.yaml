@@ -1,0 +1,180 @@
+table: MHIO
+module: PM
+description: "Call Object from Maintenance Order — the maintenance-plan call object created when a maintenance plan (MPLA) schedules and triggers an order, notification, or inspection lot. This is the scheduled-maintenance record's execution link: it ties a plan cycle (WARPL+ABNUM+WPPOS) to the concrete order (AUFNR), notification (QMNUM), or inspection lot it generated, with the scheduled call date (GSTRP) and enqueue/status flags. Small, complete table."
+source: https://leanx.eu/en/sap/table/mhio.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: WARPL
+    description: "Maintenance Plan"
+    data_element: WARPL
+    check_table: MPLA
+    datatype: NUMC
+    length: 12
+    decimals: 0
+    key: true
+  - name: ABNUM
+    description: "Call number"
+    data_element: ABNUM
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: WPPOS
+    description: "Item number of the call object"
+    data_element: WPPOS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: AUFNR
+    description: "Order Number"
+    data_element: AUFNR
+    check_table: AUFK
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ADDAT
+    description: "Creation date of the call object"
+    data_element: ADDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: LBLNI
+    description: "Inspection Lot Number"
+    data_element: PRUEFLOS
+    check_table: ~
+    datatype: NUMC
+    length: 12
+    decimals: 0
+    key: false
+  - name: TSENQ
+    description: "Status of the call object: enqueued"
+    data_element: TSENQ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TSTAT
+    description: "Processing status of the maintenance call"
+    data_element: MTSTAT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GSTRP
+    description: "Scheduled start date"
+    data_element: GSTRP
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: SORTF
+    description: "Sort field"
+    data_element: IHSORT
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: QMNUM
+    description: "Notification Number"
+    data_element: QMNUM
+    check_table: QMEL
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ADTIME
+    description: "Time when call object was created"
+    data_element: ADTIME
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: PRUEFLOS
+    description: "Inspection Lot Number"
+    data_element: PRUEFLOS
+    check_table: ~
+    datatype: NUMC
+    length: 12
+    decimals: 0
+    key: false
+  - name: USERMOD
+    description: "User who last changed the call object"
+    data_element: MHIS_USERMOD
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: IND_MPLA_API
+    description: "Indicator: call object created/changed via maint. plan API"
+    data_element: IND_MPLA_API
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DEMAND_ID
+    description: "Maintenance demand: unique ID"
+    data_element: /PM4S/MDEM_UID
+    check_table: ~
+    datatype: RAW
+    length: 16
+    decimals: 0
+    key: false
+  - name: DEMAND_NO
+    description: "Maintenance demand number"
+    data_element: /PM4S/MDEM_NO
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: REVISION_NO
+    description: "Revision"
+    data_element: REVNR
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: REV_PLANT
+    description: "Plant for Revisions"
+    data_element: REV_WERKS
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: AUFNR
+    check_table: AUFK
+    check_field: AUFNR
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: QMNUM
+    check_table: QMEL
+    check_field: QMNUM
+  - field: WARPL
+    check_table: MPLA
+    check_field: WARPL
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.
