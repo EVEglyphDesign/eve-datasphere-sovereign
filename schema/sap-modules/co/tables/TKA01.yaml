@@ -1,0 +1,427 @@
+table: TKA01
+module: CO
+description: "Controlling Areas — the organizational root every CO object and every ACDOCA line's KOKRS field checks against; defines the operating currency, chart of accounts, fiscal year variant, and operating concern that govern the entire controlling area. SAP's real table carries roughly 50 fields; this definition carries the full functional field set that the model and a controlling-area crosswalk actually consume."
+source: https://leanx.eu/en/sap/table/tka01.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: BEZEI
+    description: "Name of the controlling area"
+    data_element: BEZEI
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: KTOPL
+    description: "Chart of Accounts"
+    data_element: KTOPL
+    check_table: T004
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LMONA
+    description: "Fiscal Year Variant"
+    data_element: PERIV
+    check_table: T009
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KOKFI
+    description: "Allocation Indicator"
+    data_element: KOKFI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LOGSYSTEM
+    description: "Logical System"
+    data_element: LOGSYSTEM
+    check_table: TBDLS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ALEMT
+    description: "Cost center distribution method via ALE"
+    data_element: CO_ALEMT
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: MD_LOGSYSTEM
+    description: "Logical system for master data maintenance"
+    data_element: MASTERDATA_LOGSYSTEM
+    check_table: TBDLS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KHINR
+    description: "Standard Hierarchy for Cost Centers"
+    data_element: KSTHI
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: KOMP1
+    description: "Indicator: Revenue must be converted"
+    data_element: KOMP1
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KOMP0
+    description: "Productive indicator for controlling area"
+    data_element: KOMP0
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KOMP2
+    description: "Indicator: reserve (not used at present)"
+    data_element: KOMP2
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ERKRS
+    description: "Operating concern"
+    data_element: ERKRS
+    check_table: TKEB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: DPRCT
+    description: "Dummy Profit Center"
+    data_element: DPRCT
+    check_table: CEPC
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PHINR
+    description: "Profit center area"
+    data_element: PHINR
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: PCLDG
+    description: "Profit center ledger"
+    data_element: PCLDG
+    check_table: T881
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PCBEL
+    description: "Elimination of internal bus. volume for Profit Center Acctg"
+    data_element: PCBEL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XWBUK
+    description: "Indicator: Different Company Code Currency is Allowed"
+    data_element: XWBUK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BPHINR
+    description: "Standard Hierarchy Area"
+    data_element: CO_BPHINR
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: XBPALE
+    description: "Indicator: ALE for active business process (process costs)"
+    data_element: XBPALE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KSTAR_FIN
+    description: "Cost element for vendor downpayments w/o purchase ord. ref."
+    data_element: KSTAR_FIN
+    check_table: CSKA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KSTAR_FID
+    description: "Revenue type for debitor downpayments without sales ord. ref"
+    data_element: KSTAR_FID
+    check_table: CSKA
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PCACUR
+    description: "Local Currency for Profit Center Accounting"
+    data_element: PCACUR
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: PCACURTP
+    description: "Currency type of the profit center report currency"
+    data_element: CURTPPC
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PCATRCUR
+    description: "Store transaction currency in EC-PCA"
+    data_element: PCATRCUR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CTYP
+    description: "Currency Type for Controlling Area"
+    data_element: CO_CTYP
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: RCLAC
+    description: "Reconciliation Ledger Active"
+    data_element: RCLACTIV
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BLART
+    description: "Document Type for Reconcil. Postings From Reconcil. Ledger"
+    data_element: RCL_BLART
+    check_table: T003
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FIKRS
+    description: "Financial Management Area"
+    data_element: FIKRS
+    check_table: FM01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: RCL_PRIMAC
+    description: "Reconciliation Ledger: Acct Determination for Primary CElms"
+    data_element: RCL_PRIMAC
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PCA_ALEMT
+    description: "Method for Distributing Profit Centers Using ALE"
+    data_element: PCA_ALEMT
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PCA_VALU
+    description: "Valuation View"
+    data_element: VALUTYP
+    check_table: ~
+    datatype: NUMC
+    length: 1
+    decimals: 0
+    key: false
+  - name: CVPROF
+    description: "Currency and Valuation Profile"
+    data_element: CVPROF
+    check_table: TCVPROF
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: CVACT
+    description: "Ind.: Currency and Valuation Profile Active"
+    data_element: CVACT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VNAME
+    description: "Person Responsible for the Controlling Area"
+    data_element: CO_VNAME
+    check_table: USR02
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: PCA_ACC_DIFF
+    description: "Account control when transferring valuation differences"
+    data_element: PCA_ACCOUNT_VAL_DIFF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TP_VALOHB
+    description: "Valuation View for Calculation Base"
+    data_element: VALUTYP_OH_BASE
+    check_table: ~
+    datatype: NUMC
+    length: 1
+    decimals: 0
+    key: false
+  - name: DEFPRCTR
+    description: "Default Profit Center for Nonassigned Processes"
+    data_element: FAGL_DEFPRCTR
+    check_table: CEPC
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AUTH_USE_NO_STD
+    description: "Do Not Use Standard Hierarchy for Authorizations"
+    data_element: AUTH_USE_NO_STD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUTH_USE_ADD1
+    description: "Use First Alternative Hierarchy for Authorizations"
+    data_element: AUTH_USE_ADD1
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUTH_USE_ADD2
+    description: "Use Second Alternative Hierarchy for Authorizations"
+    data_element: AUTH_USE_ADD2
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUTH_KE_NO_STD
+    description: "Do Not Use Standard Hierarchy for Authorizations (Operating Concern)"
+    data_element: AUTH_USE_NO_STD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUTH_KE_USE_ADD1
+    description: "Use First Alternative Hierarchy for Authorizations (Operating Concern)"
+    data_element: AUTH_USE_ADD1
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUTH_KE_USE_ADD2
+    description: "Use Second Alternative Hierarchy for Authorizations (Operating Concern)"
+    data_element: AUTH_USE_ADD2
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: KTOPL
+    check_table: T004
+    check_field: KTOPL
+  - field: LMONA
+    check_table: T009
+    check_field: PERIV
+  - field: LOGSYSTEM
+    check_table: TBDLS
+    check_field: LOGSYS
+  - field: MD_LOGSYSTEM
+    check_table: TBDLS
+    check_field: LOGSYS
+  - field: ERKRS
+    check_table: TKEB
+    check_field: ERKRS
+  - field: DPRCT
+    check_table: CEPC
+    check_field: PRCTR
+  - field: PCLDG
+    check_table: T881
+    check_field: RLDNR
+  - field: KSTAR_FIN
+    check_table: CSKA
+    check_field: KSTAR
+  - field: KSTAR_FID
+    check_table: CSKA
+    check_field: KSTAR
+  - field: PCACUR
+    check_table: TCURC
+    check_field: WAERS
+  - field: BLART
+    check_table: T003
+    check_field: BLART
+  - field: FIKRS
+    check_table: FM01
+    check_field: FIKRS
+  - field: CVPROF
+    check_table: TCVPROF
+    check_field: CVPROF
+  - field: VNAME
+    check_table: USR02
+    check_field: BNAME
+  - field: DEFPRCTR
+    check_table: CEPC
+    check_field: PRCTR
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

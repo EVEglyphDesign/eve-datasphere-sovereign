@@ -1,0 +1,24 @@
+# Generated-namespace registry.
+#
+# Some inventory entries are not tables. They are naming patterns for objects a customer's
+# own configuration brings into existence. A field list cannot honestly be published for
+# them, so they are recorded here and resolved against the file that documents the rule.
+#
+# Rule: a pattern is satisfied when the generation rule is documented, not when fields are
+# invented to fill a coverage number.
+
+patterns:
+  "/BI0/*":
+    module: bw
+    documented_in: schema/sap-modules/bw/tables/GENERATED-PATTERNS.yaml
+    rule: >-
+      SAP-delivered BI Content InfoObject tables. One master-data, text and SID table per
+      InfoObject, generated from RSDIOBJ. Discovered by reading RSDIOBJ at connection time.
+  "/BIC/A*":
+    module: bw
+    documented_in: schema/sap-modules/bw/tables/GENERATED-PATTERNS.yaml
+    rule: >-
+      Customer-namespace DataStore object active and change-log tables, generated from
+      RSDODSO. Discovered by reading RSDODSO at connection time.
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -197,3 +197,34 @@ correct owner, MM.
 
 **Outstanding after Wave A:** 112 of 256 inventoried entries. Wave B is the operational
 spine (MM, SD, PP, PM, QM); Wave C is HR, PS and BW.
+
+## Waves B and C — 2026-07-31
+
+Eight research lanes carried the remaining inventory to field level: MM inventory and
+procurement (15), SD pricing and document flow (14), PP planning and QM results (12), PM
+maintenance operations (21), PM customizing (11), HR personnel and organisation (16), PS and
+BW structures (10), and a CO/CROSS tail (CSLA, CSLT, TKA01, TKA02, DD40L).
+
+**Coverage: 256/256 inventoried structures resolved (100%). 244 tables carry field-level
+definitions; 9,586 fields; 238 loadable tables.**
+
+Four honesty declarations stand in the record rather than being papered over:
+
+- `IMPTX` is marked `status: UNSOURCED` with an empty field list. Five sources were tried and
+  none published a table under that exact name. It is not invented.
+- `CE1`–`CE4` are marked `status: PATTERN`. CO-PA generates one physical table per operating
+  concern and its characteristics and value fields are customer-defined, so no two
+  installations share a field list. The generation rule is documented; the fields are
+  discovered at connection time from the operating concern definition.
+- `/BI0/*` and `/BIC/A*` are registered in `PATTERN-TABLES.yaml` and documented in
+  `bw/tables/GENERATED-PATTERNS.yaml` — namespaces generated from RSDIOBJ and RSDODSO, read
+  at connection time.
+- `MATDOC` came from s4hd.com and `PRTX` from sapstack.com after leanx.eu failed for each.
+  Both say so in their `source:` line.
+
+Wide tables carry a stated scope in their own `description` — the field list is a declared
+subset, never a silent truncation. `VBUK` and `VBUP` are flagged as ECC-era status tables
+superseded in S/4HANA by status fields on `VBAK`/`VBAP`, and are kept because a mirror must
+read the system the customer actually runs.
+
+`QMSM` resolves under PM per the shared-structures registry, as planned.

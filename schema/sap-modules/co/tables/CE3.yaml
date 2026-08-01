@@ -1,0 +1,18 @@
+table: CE3
+module: CO
+status: PATTERN
+description: >-
+  CO-PA Segment level totals. CE3XXXX is not a static table: SAP generates one physical table per operating
+  concern, where XXXX is the four-character operating concern name (CE1IDEA, CE1S001 and so
+  on). Its columns are the summarised balances by profitability segment, plus the characteristics and value fields the customer defined
+  when the operating concern was created — so no two installations share a field list. The
+  mirror discovers this table's real structure at connection time from TKEB / the operating
+  concern definition and generates the target accordingly. No field list is asserted here
+  because asserting one would be an invention.
+source: >-
+  Structure is customer-generated; the generation rule is documented in SAP's CO-PA data
+  structures. Discovered at runtime, not sourced from a field catalogue.
+fields: []
+foreign_keys: []
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -1,0 +1,203 @@
+table: DD40L
+module: CROSS
+description: "Table Types (internal tables defined in the ABAP Dictionary) — the DD's table-type header registry: row type, row kind, key definition and category, generic-type flag, and access mode for internal-table types, completing the dictionary layer already defined here (DD01L through DD30L). Client-independent, like the rest of the DD0xL/DD1xL/DD2xL/DD3xL family."
+source: https://leanx.eu/en/sap/table/dd40l.html
+fields:
+  - name: TYPENAME
+    description: "Name of table type"
+    data_element: TTYPENAME
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: AS4LOCAL
+    description: "Activation Status of a Repository Object"
+    data_element: AS4LOCAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ACTFLAG
+    description: "Actions to be executed for a dependent DD object"
+    data_element: DEPACTION
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ROWTYPE
+    description: "Name of row type for table types"
+    data_element: TTROWTYPE
+    check_table: DDTYPES
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: ROWKIND
+    description: "Category of Dictionary Type"
+    data_element: TYPEKIND
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DATATYPE
+    description: "Data Type in ABAP Dictionary"
+    data_element: DATATYPE_D
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LENG
+    description: "Length (No. of Characters)"
+    data_element: DDLENG
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: DECIMALS
+    description: "Number of Decimal Places"
+    data_element: DECIMALS
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: ACCESSMODE
+    description: "Access modes for table types"
+    data_element: ACCESSMODE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KEYDEF
+    description: "Key definition for table types"
+    data_element: TTYPKEYDEF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KEYKIND
+    description: "Key category for table types"
+    data_element: KEYKIND
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KEYFDCOUNT
+    description: "Number of key fields of a table type"
+    data_element: KEYFDCNT
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: GENERIC
+    description: "Generic table type"
+    data_element: TYPGENERIC
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TYPELEN
+    description: "Length (No. of Characters)"
+    data_element: DDLENG
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: AS4USER
+    description: "Last Changed by"
+    data_element: AS4USER
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AS4DATE
+    description: "Date of Last Change"
+    data_element: AS4DATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AS4TIME
+    description: "Last changed at"
+    data_element: AS4TIME
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: TTYPKIND
+    description: "Category of table type (range or general table type)"
+    data_element: TTYPKIND
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RANGE_CTYP
+    description: "Elem. type of LOW and HIGH components of a Ranges type"
+    data_element: RANGE_CTYP
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: REFTYPE
+    description: "Type of Object Referenced"
+    data_element: DDREFTYPE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: OCCURS
+    description: "Initial Line Number for Table Types"
+    data_element: DDOCCURS
+    check_table: ~
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: PROXYTYPE
+    description: "DD: Is a generated proxy object"
+    data_element: DDPROXYTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ALIAS
+    description: "Alias for Primary Key of a Table Type (Optional)"
+    data_element: TT_PRIMARY_KEY_ALIAS
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: FURTHERSECKEY
+    description: "Additional Secondary Keys of a Table Type"
+    data_element: TT_FURTHER_SECKEYS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: ROWTYPE
+    check_table: DDTYPES
+    check_field: TYPENAME
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

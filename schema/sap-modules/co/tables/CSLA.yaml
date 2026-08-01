@@ -1,0 +1,215 @@
+table: CSLA
+module: CO
+description: "Activity Type Master — time-dependent master data for activity types within a controlling area: the record that lets an hour (or other unit) of internal work carry a price and post as a currency amount against a cost center in the ledger, completing the cost-object picture alongside CSKS cost centers and CSKA/CSKB cost elements."
+source: https://leanx.eu/en/sap/table/csla.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: ~
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: LSTAR
+    description: "Activity Type"
+    data_element: LSTAR
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: true
+  - name: DATBI
+    description: "Valid To Date"
+    data_element: DATBI
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: DATAB
+    description: "Valid-From Date"
+    data_element: DATAB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: LEINH
+    description: "Activity Unit"
+    data_element: LEINH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: LATYP
+    description: "Activity Type Category"
+    data_element: LATYP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LATYPI
+    description: "Variant Activity Type Category for Actual Postings"
+    data_element: LATYPI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ERSDA
+    description: "Created on"
+    data_element: ERFDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: USNAM
+    description: "Entered by"
+    data_element: ERFNM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: KSTTY
+    description: "Valid Cost Center Categories"
+    data_element: KSTTY
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: AUSEH
+    description: "Output Unit"
+    data_element: AUSEH
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: AUSFK
+    description: "Output factor"
+    data_element: AUSFK
+    check_table: ~
+    datatype: DEC
+    length: 5
+    decimals: 2
+    key: false
+  - name: VKSTA
+    description: "Allocation Cost Element"
+    data_element: VKSTA
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LARK1
+    description: "Indicator for component relevancy CO"
+    data_element: LARK1
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LARK2
+    description: "Indicator: Component Relevance, HR"
+    data_element: LARK2
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SPRKZ
+    description: "Lock Indicator"
+    data_element: SPRKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: HRKFT
+    description: "Origin Group as Subdivision of Cost Element"
+    data_element: HRKFT
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: FIXVO
+    description: "Predistribution of fixed costs for acty type/bus. process"
+    data_element: CO_FIXVO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TARKZ
+    description: "Price Indicator: Calculate Allocation Price"
+    data_element: TARKZ
+    check_table: TKA10
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: YRATE
+    description: "Price Calculation with Period-Based Average Prices"
+    data_element: CO_YRATE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TARKZ_I
+    description: "Indicator: Actual Allocation Price"
+    data_element: CO_TARKZ_I
+    check_table: TKA10
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: MANIST
+    description: "Indicator: Confirm quantity manually in actual"
+    data_element: CO_MANIST
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MANPLAN
+    description: "Indicator: Plan quantity manually set."
+    data_element: CO_MANPLAN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: LEINH
+    check_table: T006
+    check_field: MSEHI
+  - field: AUSEH
+    check_table: T006
+    check_field: MSEHI
+  - field: TARKZ
+    check_table: TKA10
+    check_field: TARKZ
+  - field: TARKZ_I
+    check_table: TKA10
+    check_field: TARKZ
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

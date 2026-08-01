@@ -14125,6 +14125,18 @@ CDPOS:
       derived: true
       latin: mutatus campus
   module: CROSS
+CE1:
+  fields: {}
+  module: CO
+CE2:
+  fields: {}
+  module: CO
+CE3:
+  fields: {}
+  module: CO
+CE4:
+  fields: {}
+  module: CO
 CEPC:
   fields:
     ABTEI:
@@ -18306,6 +18318,228 @@ CSKT:
       derived: true
       latin: lingua clavis
   module: CO
+CSLA:
+  fields:
+    AUSEH:
+      canonical: UNI
+      concepts:
+      - unit
+      derived: true
+      latin: unitas
+    AUSFK:
+      canonical: AUSFK
+      concepts: []
+      derived: false
+      latin: null
+    DATAB:
+      canonical: VLA_DIE
+      concepts:
+      - valid from
+      - date
+      derived: true
+      latin: validus ab dies
+    DATBI:
+      canonical: VLD_DIE
+      concepts:
+      - valid to
+      - date
+      derived: true
+      latin: validus ad dies
+    ERSDA:
+      canonical: CRE
+      concepts:
+      - created
+      derived: true
+      latin: creatus
+    FIXVO:
+      canonical: GEN
+      concepts:
+      - type
+      derived: true
+      latin: genus
+    HRKFT:
+      canonical: ORG_CTS_SMP
+      concepts:
+      - origin
+      - group
+      - cost
+      derived: true
+      latin: origo coetus sumptus
+    KOKRS:
+      canonical: AMD
+      concepts:
+      - controlling area
+      derived: true
+      latin: area moderationis
+    KSTTY:
+      canonical: CSM
+      concepts:
+      - cost center
+      derived: true
+      latin: centrum sumptus
+    LARK1:
+      canonical: IDX_CMN
+      concepts:
+      - indicator
+      - component
+      derived: true
+      latin: index componens
+    LARK2:
+      canonical: IDX_CMN2
+      concepts:
+      - indicator
+      - component
+      derived: true
+      latin: index componens
+    LATYP:
+      canonical: ACT_GEN_CTG
+      concepts:
+      - activity
+      - type
+      - category
+      derived: true
+      latin: actio genus categoria
+    LATYPI:
+      canonical: ACT_GEN_CTG2
+      concepts:
+      - activity
+      - type
+      - category
+      derived: true
+      latin: actio genus categoria
+    LEINH:
+      canonical: ACT_UNI
+      concepts:
+      - activity
+      - unit
+      derived: true
+      latin: actio unitas
+    LSTAR:
+      canonical: ACT_GEN
+      concepts:
+      - activity
+      - type
+      derived: true
+      latin: actio genus
+    MANDT:
+      canonical: CLI
+      concepts:
+      - client
+      derived: true
+      latin: cliens
+    MANIST:
+      canonical: IDX_QNT_ACL
+      concepts:
+      - indicator
+      - quantity
+      - actual
+      derived: true
+      latin: index quantitas actualis
+    MANPLAN:
+      canonical: IDX_CNS_QNT
+      concepts:
+      - indicator
+      - plan
+      - quantity
+      derived: true
+      latin: index consilium quantitas
+    SPRKZ:
+      canonical: OBX_IDX
+      concepts:
+      - lock
+      - indicator
+      derived: true
+      latin: obex index
+    TARKZ:
+      canonical: PRE_IDX_ATB
+      concepts:
+      - price
+      - indicator
+      - allocation
+      derived: true
+      latin: pretium index attributio
+    TARKZ_I:
+      canonical: IDX_ACL_ATB
+      concepts:
+      - indicator
+      - actual
+      - allocation
+      derived: true
+      latin: index actualis attributio
+    USNAM:
+      canonical: USNAM
+      concepts: []
+      derived: false
+      latin: null
+    VKSTA:
+      canonical: ATB_SMP_ELM
+      concepts:
+      - allocation
+      - cost
+      - element
+      derived: true
+      latin: attributio sumptus elementum
+    YRATE:
+      canonical: PRE_PER
+      concepts:
+      - price
+      - period
+      derived: true
+      latin: pretium periodus
+  module: CO
+CSLT:
+  fields:
+    DATBI:
+      canonical: VLD_DIE
+      concepts:
+      - valid to
+      - date
+      derived: true
+      latin: validus ad dies
+    KOKRS:
+      canonical: AMD
+      concepts:
+      - controlling area
+      derived: true
+      latin: area moderationis
+    KTEXT:
+      canonical: NOM
+      concepts:
+      - name
+      derived: true
+      latin: nomen
+    LSTAR:
+      canonical: ACT_GEN
+      concepts:
+      - activity
+      - type
+      derived: true
+      latin: actio genus
+    LTEXT:
+      canonical: DSC
+      concepts:
+      - description
+      derived: true
+      latin: descriptio
+    MANDT:
+      canonical: CLI
+      concepts:
+      - client
+      derived: true
+      latin: cliens
+    MCTXT:
+      canonical: MCTXT
+      concepts: []
+      derived: false
+      latin: null
+    SPRAS:
+      canonical: LNG_CLV
+      concepts:
+      - language
+      - key
+      derived: true
+      latin: lingua clavis
+  module: CO
 DD01L:
   fields:
     ACTFLAG:
@@ -19848,6 +20082,173 @@ DD30L:
       - table
       derived: true
       latin: textus tabula
+  module: CROSS
+DD40L:
+  fields:
+    ACCESSMODE:
+      canonical: TBL
+      concepts:
+      - table
+      derived: true
+      latin: tabula
+    ACTFLAG:
+      canonical: OBI
+      concepts:
+      - object
+      derived: true
+      latin: obiectum
+    ALIAS:
+      canonical: CLV_TBL_GEN
+      concepts:
+      - key
+      - table
+      - type
+      derived: true
+      latin: clavis tabula genus
+    AS4DATE:
+      canonical: DIE_ULT
+      concepts:
+      - date
+      - last
+      derived: true
+      latin: dies ultimus
+    AS4LOCAL:
+      canonical: STA_OBI
+      concepts:
+      - status
+      - object
+      derived: true
+      latin: status obiectum
+    AS4TIME:
+      canonical: ULT_MUT2
+      concepts:
+      - last
+      - changed
+      derived: true
+      latin: ultimus mutatus
+    AS4USER:
+      canonical: ULT_MUT
+      concepts:
+      - last
+      - changed
+      derived: true
+      latin: ultimus mutatus
+    DATATYPE:
+      canonical: GEN
+      concepts:
+      - type
+      derived: true
+      latin: genus
+    DECIMALS:
+      canonical: NUM
+      concepts:
+      - number
+      derived: true
+      latin: numerus
+    FURTHERSECKEY:
+      canonical: TBL_GEN2
+      concepts:
+      - table
+      - type
+      derived: true
+      latin: tabula genus
+    GENERIC:
+      canonical: TBL_GEN
+      concepts:
+      - table
+      - type
+      derived: true
+      latin: tabula genus
+    KEYDEF:
+      canonical: CLV_TBL
+      concepts:
+      - key
+      - table
+      derived: true
+      latin: clavis tabula
+    KEYFDCOUNT:
+      canonical: NUM_CLV_TBL
+      concepts:
+      - number
+      - key
+      - table
+      derived: true
+      latin: numerus clavis tabula
+    KEYKIND:
+      canonical: CLV_CTG_TBL
+      concepts:
+      - key
+      - category
+      - table
+      derived: true
+      latin: clavis categoria tabula
+    LENG:
+      canonical: LENG
+      concepts: []
+      derived: false
+      latin: null
+    OCCURS:
+      canonical: NUM_TBL
+      concepts:
+      - number
+      - table
+      derived: true
+      latin: numerus tabula
+    PROXYTYPE:
+      canonical: OBI2
+      concepts:
+      - object
+      derived: true
+      latin: obiectum
+    RANGE_CTYP:
+      canonical: GEN2
+      concepts:
+      - type
+      derived: true
+      latin: genus
+    REFTYPE:
+      canonical: GEN_OBI
+      concepts:
+      - type
+      - object
+      derived: true
+      latin: genus obiectum
+    ROWKIND:
+      canonical: CTG_GEN
+      concepts:
+      - category
+      - type
+      derived: true
+      latin: categoria genus
+    ROWTYPE:
+      canonical: NOM_GEN_TBL
+      concepts:
+      - name
+      - type
+      - table
+      derived: true
+      latin: nomen genus tabula
+    TTYPKIND:
+      canonical: CTG_TBL_GEN
+      concepts:
+      - category
+      - table
+      - type
+      derived: true
+      latin: categoria tabula genus
+    TYPELEN:
+      canonical: TYPELEN
+      concepts: []
+      derived: false
+      latin: null
+    TYPENAME:
+      canonical: NOM_TBL_GEN
+      concepts:
+      - name
+      - table
+      - type
+      derived: true
+      latin: nomen tabula genus
   module: CROSS
 EBAN:
   fields:
@@ -60397,6 +60798,337 @@ TJ03:
       derived: true
       latin: signum status
   module: CROSS
+TKA01:
+  fields:
+    ALEMT:
+      canonical: CSM
+      concepts:
+      - cost center
+      derived: true
+      latin: centrum sumptus
+    AUTH_KE_NO_STD:
+      canonical: HIR3
+      concepts:
+      - hierarchy
+      derived: true
+      latin: hierarchia
+    AUTH_KE_USE_ADD1:
+      canonical: PRI_HIR2
+      concepts:
+      - first
+      - hierarchy
+      derived: true
+      latin: primus hierarchia
+    AUTH_KE_USE_ADD2:
+      canonical: HIR4
+      concepts:
+      - hierarchy
+      derived: true
+      latin: hierarchia
+    AUTH_USE_ADD1:
+      canonical: PRI_HIR
+      concepts:
+      - first
+      - hierarchy
+      derived: true
+      latin: primus hierarchia
+    AUTH_USE_ADD2:
+      canonical: HIR2
+      concepts:
+      - hierarchy
+      derived: true
+      latin: hierarchia
+    AUTH_USE_NO_STD:
+      canonical: HIR
+      concepts:
+      - hierarchy
+      derived: true
+      latin: hierarchia
+    BEZEI:
+      canonical: NOM_AMD
+      concepts:
+      - name
+      - controlling area
+      derived: true
+      latin: nomen area moderationis
+    BLART:
+      canonical: GDO_LBR
+      concepts:
+      - document type
+      - ledger
+      derived: true
+      latin: genus documenti liber
+    BPHINR:
+      canonical: HIR_ARE
+      concepts:
+      - hierarchy
+      - area
+      derived: true
+      latin: hierarchia area
+    CTYP:
+      canonical: MON_GEN_AMD
+      concepts:
+      - currency
+      - type
+      - controlling area
+      derived: true
+      latin: moneta genus area moderationis
+    CVACT:
+      canonical: MON_AES2
+      concepts:
+      - currency
+      - valuation
+      derived: true
+      latin: moneta aestimatio
+    CVPROF:
+      canonical: MON_AES
+      concepts:
+      - currency
+      - valuation
+      derived: true
+      latin: moneta aestimatio
+    DEFPRCTR:
+      canonical: CLU2
+      concepts:
+      - profit center
+      derived: true
+      latin: centrum lucri
+    DPRCT:
+      canonical: CLU
+      concepts:
+      - profit center
+      derived: true
+      latin: centrum lucri
+    ERKRS:
+      canonical: ERKRS
+      concepts: []
+      derived: false
+      latin: null
+    FIKRS:
+      canonical: ARE
+      concepts:
+      - area
+      derived: true
+      latin: area
+    KHINR:
+      canonical: HIR_SMP
+      concepts:
+      - hierarchy
+      - cost
+      derived: true
+      latin: hierarchia sumptus
+    KOKFI:
+      canonical: ATB_IDX
+      concepts:
+      - allocation
+      - indicator
+      derived: true
+      latin: attributio index
+    KOKRS:
+      canonical: AMD
+      concepts:
+      - controlling area
+      derived: true
+      latin: area moderationis
+    KOMP0:
+      canonical: IDX_AMD
+      concepts:
+      - indicator
+      - controlling area
+      derived: true
+      latin: index area moderationis
+    KOMP1:
+      canonical: IDX
+      concepts:
+      - indicator
+      derived: true
+      latin: index
+    KOMP2:
+      canonical: IDX2
+      concepts:
+      - indicator
+      derived: true
+      latin: index
+    KSTAR_FID:
+      canonical: GEN_VDT
+      concepts:
+      - type
+      - sales
+      derived: true
+      latin: genus venditio
+    KSTAR_FIN:
+      canonical: SMP_ELM_VEN
+      concepts:
+      - cost
+      - element
+      - vendor
+      derived: true
+      latin: sumptus elementum venditor
+    KTOPL:
+      canonical: TBR
+      concepts:
+      - chart of accounts
+      derived: true
+      latin: tabula rationum
+    LMONA:
+      canonical: ANF
+      concepts:
+      - fiscal year
+      derived: true
+      latin: annus fiscalis
+    LOGSYSTEM:
+      canonical: LOGSYSTEM
+      concepts: []
+      derived: false
+      latin: null
+    MANDT:
+      canonical: CLI
+      concepts:
+      - client
+      derived: true
+      latin: cliens
+    MD_LOGSYSTEM:
+      canonical: CUR
+      concepts:
+      - maintenance
+      derived: true
+      latin: curatio
+    PCACUR:
+      canonical: MON_CLU
+      concepts:
+      - currency
+      - profit center
+      derived: true
+      latin: moneta centrum lucri
+    PCACURTP:
+      canonical: MON_GEN_CLU
+      concepts:
+      - currency
+      - type
+      - profit center
+      derived: true
+      latin: moneta genus centrum lucri
+    PCATRCUR:
+      canonical: MON
+      concepts:
+      - currency
+      derived: true
+      latin: moneta
+    PCA_ACC_DIFF:
+      canonical: RAT_AES
+      concepts:
+      - account
+      - valuation
+      derived: true
+      latin: ratio aestimatio
+    PCA_ALEMT:
+      canonical: LUC
+      concepts:
+      - profit
+      derived: true
+      latin: lucrum
+    PCA_VALU:
+      canonical: AES_VIS
+      concepts:
+      - valuation
+      - view
+      derived: true
+      latin: aestimatio visus
+    PCBEL:
+      canonical: VLM_CLU
+      concepts:
+      - volume
+      - profit center
+      derived: true
+      latin: volumen centrum lucri
+    PCLDG:
+      canonical: CLU_LBR
+      concepts:
+      - profit center
+      - ledger
+      derived: true
+      latin: centrum lucri liber
+    PHINR:
+      canonical: CLU_ARE
+      concepts:
+      - profit center
+      - area
+      derived: true
+      latin: centrum lucri area
+    RCLAC:
+      canonical: LBR
+      concepts:
+      - ledger
+      derived: true
+      latin: liber
+    RCL_PRIMAC:
+      canonical: LBR2
+      concepts:
+      - ledger
+      derived: true
+      latin: liber
+    TP_VALOHB:
+      canonical: AES_VIS2
+      concepts:
+      - valuation
+      - view
+      derived: true
+      latin: aestimatio visus
+    VNAME:
+      canonical: PSN_AMD
+      concepts:
+      - person
+      - controlling area
+      derived: true
+      latin: persona area moderationis
+    WAERS:
+      canonical: CVM
+      concepts:
+      - currency key
+      derived: true
+      latin: clavis monetae
+    XBPALE:
+      canonical: IDX3
+      concepts:
+      - indicator
+      derived: true
+      latin: index
+    XWBUK:
+      canonical: IDX_SOC_MON
+      concepts:
+      - indicator
+      - company code
+      - currency
+      derived: true
+      latin: index codex societatis moneta
+  module: CO
+TKA02:
+  fields:
+    BUKRS:
+      canonical: SOC
+      concepts:
+      - company code
+      derived: true
+      latin: codex societatis
+    GSBER:
+      canonical: ANG
+      concepts:
+      - business area
+      derived: true
+      latin: area negotii
+    KOKRS:
+      canonical: AMD
+      concepts:
+      - controlling area
+      derived: true
+      latin: area moderationis
+    MANDT:
+      canonical: CLI
+      concepts:
+      - client
+      derived: true
+      latin: cliens
+  module: CO
 TSPA:
   fields:
     MANDT:

@@ -1,14 +1,14 @@
 # Roadmap — universal coverage register
 
-**Generated:** 2026-08-01 01:42 UTC by [`scripts/coverage.py`](../scripts/coverage.py). Do not hand-edit.
+**Generated:** 2026-08-01 01:46 UTC by [`scripts/coverage.py`](../scripts/coverage.py). Do not hand-edit.
 
 Coverage counts field-level `tables/*.yaml` definitions against each module's `TABLES.yaml` inventory, resolved model-wide. **Owned** is defined under that module. **Ref** is inventoried by the module and satisfied by a definition owned elsewhere — Rule 4 of [the non-proliferation compact](DOCTRINE-MIRROR-NON-PROLIFERATION.md), define once and reference everywhere. **Outstanding** entries are promises the model has made and not yet kept; they are listed so no lane has to re-derive them.
 
 | Module | Owned | Ref | Inventoried | Resolved | Outstanding |
 |---|---:|---:|---:|---:|---|
-| BW | 4 | 0 | 6 | 67% | `/BI0/*`, `/BIC/A*` |
-| CO | 11 | 0 | 19 | 58% | `CE1`, `CE2`, `CE3`, `CE4`, `CSLA`, `CSLT`, `TKA01`, `TKA02` |
-| CROSS | 38 | 0 | 39 | 97% | `DD40L` |
+| BW | 6 | 0 | 6 | 100% | — |
+| CO | 19 | 0 | 19 | 100% | — |
+| CROSS | 39 | 0 | 39 | 100% | — |
 | FI | 41 | 1 | 42 | 100% | — |
 | HR | 17 | 0 | 17 | 100% | — |
 | MM | 24 | 0 | 24 | 100% | — |
@@ -17,7 +17,7 @@ Coverage counts field-level `tables/*.yaml` definitions against each module's `T
 | PS | 6 | 2 | 8 | 100% | — |
 | QM | 7 | 3 | 10 | 100% | — |
 | SD | 21 | 0 | 21 | 100% | — |
-| **TOTAL** | **232** | **13** | **256** | **96%** | **11 outstanding** |
+| **TOTAL** | **243** | **13** | **256** | **100%** | **0 outstanding** |
 
 ## Shared structures — define once, reference everywhere
 

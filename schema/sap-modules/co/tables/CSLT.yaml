@@ -1,0 +1,84 @@
+table: CSLT
+module: CO
+description: "Activity Type Texts — language-dependent short and long descriptions for CSLA activity types, giving the human-readable label for the record that prices an hour of internal work into a currency amount."
+source: https://leanx.eu/en/sap/table/cslt.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: SPRAS
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: true
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: LSTAR
+    description: "Activity Type"
+    data_element: LSTAR
+    check_table: CSLA
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: true
+  - name: DATBI
+    description: "Valid To Date"
+    data_element: DATBI
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: KTEXT
+    description: "General Name"
+    data_element: KTEXT
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: LTEXT
+    description: "Description"
+    data_element: KLTXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: MCTXT
+    description: "Search term for matchcode use"
+    data_element: MCDS4
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: SPRAS
+    check_table: T002
+    check_field: SPRAS
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: LSTAR
+    check_table: CSLA
+    check_field: LSTAR
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -52,6 +52,10 @@ def main():
     modules = sorted(d for d in os.listdir(BASE) if os.path.isdir(os.path.join(BASE, d)))
 
     defined_at = {}   # TABLE -> owning module
+    pat_path = os.path.join(BASE, "PATTERN-TABLES.yaml")
+    if os.path.exists(pat_path):
+        for name, spec in ((yaml.safe_load(open(pat_path)) or {}).get("patterns") or {}).items():
+            defined_at[name] = spec.get("module")
     claimed_by = {}   # TABLE -> [modules inventorying it]
     inv = {}
     for module in modules:
