@@ -1,9 +1,9 @@
 # PostgreSQL materialisation
 
-Generated 2026-08-01T01:47:33Z by [`scripts/emit_postgres.py`](../scripts/emit_postgres.py). Regenerate,
+Generated 2026-08-01T02:17:52Z by [`scripts/emit_postgres.py`](../scripts/emit_postgres.py). Regenerate,
 never hand-edit.
 
-238 tables · 9,586 columns · 2,460 concept translations.
+252 tables · 9,872 columns · 2,460 concept translations.
 
 Load in order:
 

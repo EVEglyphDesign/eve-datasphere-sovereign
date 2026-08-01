@@ -1,5 +1,5 @@
 -- EVE Datasphere Sovereign — PostgreSQL materialisation
--- Generated 2026-08-01T01:47:33Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
+-- Generated 2026-08-01T02:17:52Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
 -- Column names are the canonical Latin layer (EgD-LATIN-001). The legacy SAP field name
 -- is preserved in COMMENT ON COLUMN and in egd_catalog.field_map, and is the join key.
 -- Mirror, never cannibalise. Pour le bien-etre du peuple.
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS ps.nast (
   gen varchar(4),
   lng char(1),
   scs varchar(10),
-  scs2 varchar(2),
+  scs_psn varchar(2),
   die_sta_tbl date,
   tmp_sta_tbl time,
   dml_num varchar(10),
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS ps.nast (
   obi_gen varchar(10),
   tmp6 varchar(3),
   ptr_clv varchar(3),
-  CONSTRAINT nast_pk PRIMARY KEY (cli, kappl, obi_clv, gen, lng, scs, scs2)
+  CONSTRAINT nast_pk PRIMARY KEY (cli, kappl, obi_clv, gen, lng, scs, scs_psn)
 );
 COMMENT ON TABLE ps.nast IS 'NAST — Message Status — the cross-application output/message-control table (NAST is technically owned by SAP Basis/cross-application message determination, not PS-specific, but is landed under this lane because it is the table that records output/print/EDI/fax status for PS objects such as project and WBS-element correspondence): one row per determined message (KAPPL application, OBJKY object key, KSCHL message/condition type, KSCHL+SPRAS+PARNR+PARVW partner routing) carrying the transmission medium (NACHA), dispatch timing (VSZTP/VSDAT/VSURA/VSURB), processing status (VSTAT) and processing date/time';
 COMMENT ON COLUMN ps.nast.cli IS 'MANDT — Client [cliens]';
@@ -77,7 +77,7 @@ COMMENT ON COLUMN ps.nast.obi_clv IS 'OBJKY — Object key [obiectum clavis]';
 COMMENT ON COLUMN ps.nast.gen IS 'KSCHL — Message type [genus]';
 COMMENT ON COLUMN ps.nast.lng IS 'SPRAS — Message language [lingua]';
 COMMENT ON COLUMN ps.nast.scs IS 'PARNR — Message partner [socius]';
-COMMENT ON COLUMN ps.nast.scs2 IS 'PARVW — Partner function (for example SH for ship-to party) [socius]';
+COMMENT ON COLUMN ps.nast.scs_psn IS 'PARVW — Partner function (for example SH for ship-to party) [socius persona]';
 COMMENT ON COLUMN ps.nast.die_sta_tbl IS 'ERDAT — Date on which status record was created [dies status tabula]';
 COMMENT ON COLUMN ps.nast.tmp_sta_tbl IS 'ERUHR — Time at which status record was created [tempus status tabula]';
 COMMENT ON COLUMN ps.nast.dml_num IS 'ADRNR — Address number [domicilium numerus]';
@@ -198,7 +198,7 @@ CREATE TABLE IF NOT EXISTS ps.proj (
   clv_prp2 varchar(16),
   clv2 varchar(16),
   clv_prp3 varchar(16),
-  num_prp varchar(8),
+  num_nrm_prp varchar(8),
   prp_cpa varchar(1),
   obi_cls varchar(2),
   eop2 varchar(1),
@@ -217,7 +217,7 @@ CREATE TABLE IF NOT EXISTS ps.proj (
   smprf varchar(7),
   idx_act2 varchar(1),
   idx2 varchar(1),
-  pgprf varchar(6),
+  dtb varchar(6),
   loc varchar(10),
   logsystem varchar(10),
   idx_prp2 varchar(1),
@@ -288,7 +288,7 @@ COMMENT ON COLUMN ps.proj.clv_prp IS 'BERST — Authorization key for project ma
 COMMENT ON COLUMN ps.proj.clv_prp2 IS 'BERTR — Authorization key for project dates (WBS) [clavis propositum]';
 COMMENT ON COLUMN ps.proj.clv2 IS 'BERKO — Authorization key for costs and revenues [clavis]';
 COMMENT ON COLUMN ps.proj.clv_prp3 IS 'BERBU — Authorization key for project budget [clavis propositum]';
-COMMENT ON COLUMN ps.proj.num_prp IS 'SPSNR — Current number for standard project [numerus propositum]';
+COMMENT ON COLUMN ps.proj.num_nrm_prp IS 'SPSNR — Current number for standard project [numerus norma propositum]';
 COMMENT ON COLUMN ps.proj.prp_cpa IS 'BESTA — Project stock [propositum copia]';
 COMMENT ON COLUMN ps.proj.obi_cls IS 'SCOPE — Object Class [obiectum classis]';
 COMMENT ON COLUMN ps.proj.eop2 IS 'XSTAT — Statistical WBS element [elementum operis]';
@@ -307,7 +307,7 @@ COMMENT ON COLUMN ps.proj.aes_cpa IS 'KZBWS — Valuation of Special Stock [aest
 COMMENT ON COLUMN ps.proj.smprf IS 'SMPRF — Simulation profile';
 COMMENT ON COLUMN ps.proj.idx_act2 IS 'FLGVRG — Indicator: Bottom-up calculation with activity dates [index actio]';
 COMMENT ON COLUMN ps.proj.idx2 IS 'GRTOP — Indicator: Automatic requirements grouping [index]';
-COMMENT ON COLUMN ps.proj.pgprf IS 'PGPRF — Distribution profile';
+COMMENT ON COLUMN ps.proj.dtb IS 'PGPRF — Distribution profile [distributio]';
 COMMENT ON COLUMN ps.proj.loc IS 'STORT — Location [locus]';
 COMMENT ON COLUMN ps.proj.logsystem IS 'LOGSYSTEM — Logical System';
 COMMENT ON COLUMN ps.proj.idx_prp2 IS 'KZERB — Indicator: Project summarization via master data charact. [index propositum]';
@@ -369,7 +369,7 @@ CREATE TABLE IF NOT EXISTS ps.prps (
   amd_csm2 varchar(4),
   csm2 varchar(10),
   clv3 varchar(2),
-  pspri varchar(1),
+  pri varchar(1),
   inm_num varchar(18),
   lcf varchar(30),
   eop_mon varchar(5),
@@ -403,7 +403,7 @@ CREATE TABLE IF NOT EXISTS ps.prps (
   csa2 varchar(5),
   soc varchar(4),
   idx_eop varchar(1),
-  pgprf varchar(6),
+  dtb varchar(6),
   logsystem varchar(10),
   loc varchar(10),
   afn varchar(16),
@@ -458,7 +458,7 @@ COMMENT ON COLUMN ps.prps.csm IS 'AKSTL — Requesting cost center [centrum sump
 COMMENT ON COLUMN ps.prps.amd_csm2 IS 'FKOKR — Controlling area of responsible cost center [area moderationis centrum sumptus]';
 COMMENT ON COLUMN ps.prps.csm2 IS 'FKSTL — Responsible cost center [centrum sumptus]';
 COMMENT ON COLUMN ps.prps.clv3 IS 'FABKL — Factory calendar key [clavis]';
-COMMENT ON COLUMN ps.prps.pspri IS 'PSPRI — Priority';
+COMMENT ON COLUMN ps.prps.pri IS 'PSPRI — Priority [prioritas]';
 COMMENT ON COLUMN ps.prps.inm_num IS 'EQUNR — Equipment Number [instrumentum numerus]';
 COMMENT ON COLUMN ps.prps.lcf IS 'TPLNR — Functional Location [locus functionalis]';
 COMMENT ON COLUMN ps.prps.eop_mon IS 'PWPOS — WBS element currency [elementum operis moneta]';
@@ -492,7 +492,7 @@ COMMENT ON COLUMN ps.prps.isize IS 'ISIZE — Scale of investment objects';
 COMMENT ON COLUMN ps.prps.csa2 IS 'IUMKZ — Reason for environmental investment [causa]';
 COMMENT ON COLUMN ps.prps.soc IS 'ABUKR — Requesting company code [codex societatis]';
 COMMENT ON COLUMN ps.prps.idx_eop IS 'GRPKZ — Indicator: Grouping WBS element [index elementum operis]';
-COMMENT ON COLUMN ps.prps.pgprf IS 'PGPRF — Distribution profile';
+COMMENT ON COLUMN ps.prps.dtb IS 'PGPRF — Distribution profile [distributio]';
 COMMENT ON COLUMN ps.prps.logsystem IS 'LOGSYSTEM — Logical System';
 COMMENT ON COLUMN ps.prps.loc IS 'STORT — Location [locus]';
 COMMENT ON COLUMN ps.prps.afn IS 'FUNC_AREA — Functional Area [area functionis]';

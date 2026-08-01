@@ -1,5 +1,5 @@
 -- EVE Datasphere Sovereign — PostgreSQL materialisation
--- Generated 2026-08-01T01:47:33Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
+-- Generated 2026-08-01T02:17:52Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
 -- Column names are the canonical Latin layer (EgD-LATIN-001). The legacy SAP field name
 -- is preserved in COMMENT ON COLUMN and in egd_catalog.field_map, and is the join key.
 -- Mirror, never cannibalise. Pour le bien-etre du peuple.
@@ -60,10 +60,10 @@ CREATE TABLE IF NOT EXISTS hr.hrp1001 (
   obi_gen_fns varchar(2),
   obi_fns_rlt varchar(8),
   cns_vrs varchar(2),
-  rlt_gen varchar(1),
+  rlt_drc_gen varchar(1),
   rlt_gen_cod varchar(3),
   cns_sta varchar(1),
-  priox varchar(2),
+  pri varchar(2),
   ini_die_rlt date,
   fin_die_rlt date,
   cmp varchar(10),
@@ -80,17 +80,17 @@ CREATE TABLE IF NOT EXISTS hr.hrp1001 (
   obi_mta_rlt varchar(45),
   prozt numeric(5,2),
   num varchar(32),
-  CONSTRAINT hrp1001_pk PRIMARY KEY (cli, obi_gen_fns, obi_fns_rlt, cns_vrs, rlt_gen, rlt_gen_cod, cns_sta, priox, ini_die_rlt, fin_die_rlt, cmp, num_gin_tbl)
+  CONSTRAINT hrp1001_pk PRIMARY KEY (cli, obi_gen_fns, obi_fns_rlt, cns_vrs, rlt_drc_gen, rlt_gen_cod, cns_sta, pri, ini_die_rlt, fin_die_rlt, cmp, num_gin_tbl)
 );
 COMMENT ON TABLE hr.hrp1001 IS 'HRP1001 — Infotype 1001 DB Table — the organizational-management relationships table, and the important one of the three OM tables (alongside HRP1000 object master and HRP1002 object descriptions), because SAP expresses org structure as directed relationship edges between objects rather than as a hierarchy column: a source object (OTYPE/OBJID/PLVAR) is linked to a related object (SCLAS/SOBID) via a typed relationship (RELAT, with direction sign RSIGN) — e.g. an org unit ''reports to'' another org unit, a position ''belongs to'' an org unit, or a person ''holds'' a position — under a validity interval. Reconst';
 COMMENT ON COLUMN hr.hrp1001.cli IS 'MANDT — Client [cliens]';
 COMMENT ON COLUMN hr.hrp1001.obi_gen_fns IS 'OTYPE — Object Type — type of the source object in the relationship [obiectum genus fons]';
 COMMENT ON COLUMN hr.hrp1001.obi_fns_rlt IS 'OBJID — Object ID — ID of the source object in the relationship [obiectum fons relatio]';
 COMMENT ON COLUMN hr.hrp1001.cns_vrs IS 'PLVAR — Plan Version [consilium versio]';
-COMMENT ON COLUMN hr.hrp1001.rlt_gen IS 'RSIGN — Relationship Specification — direction sign (e.g. A for ''to'', B for ''from'') for the relationship type [relatio genus]';
+COMMENT ON COLUMN hr.hrp1001.rlt_drc_gen IS 'RSIGN — Relationship Specification — direction sign (e.g. A for ''to'', B for ''from'') for the relationship type [relatio directio genus]';
 COMMENT ON COLUMN hr.hrp1001.rlt_gen_cod IS 'RELAT — Relationship Between Objects — the relationship type code (e.g. reports-to, belongs-to, holds) [relatio genus codex]';
 COMMENT ON COLUMN hr.hrp1001.cns_sta IS 'ISTAT — Planning Status [consilium status]';
-COMMENT ON COLUMN hr.hrp1001.priox IS 'PRIOX — Priority';
+COMMENT ON COLUMN hr.hrp1001.pri IS 'PRIOX — Priority [prioritas]';
 COMMENT ON COLUMN hr.hrp1001.ini_die_rlt IS 'BEGDA — Start Date — validity interval start for this relationship [initium dies relatio]';
 COMMENT ON COLUMN hr.hrp1001.fin_die_rlt IS 'ENDDA — End Date — validity interval end for this relationship [finis dies relatio]';
 COMMENT ON COLUMN hr.hrp1001.cmp IS 'VARYF — Variation Field for File PLOG [campus]';
@@ -932,7 +932,7 @@ CREATE TABLE IF NOT EXISTS hr.pa0105 (
   cmp5 varchar(2),
   cmp6 varchar(2),
   val varchar(4),
-  gen_usr varchar(4),
+  gen_usr_cnl varchar(4),
   num_usr_frm varchar(30),
   num_frm_dml varchar(241),
   CONSTRAINT pa0105_pk PRIMARY KEY (cli, nps, sbg_gen_ctg, obi, obx_idx_tbl, fin_die_tbl, ini_die_tbl, num_gin_tbl)
@@ -961,7 +961,7 @@ COMMENT ON COLUMN hr.pa0105.cmp4 IS 'FLAG4 — Reserved Field/Unused Field [camp
 COMMENT ON COLUMN hr.pa0105.cmp5 IS 'RESE1 — Reserved Field/Unused Field of Length 2 [campus]';
 COMMENT ON COLUMN hr.pa0105.cmp6 IS 'RESE2 — Reserved Field/Unused Field of Length 2 [campus]';
 COMMENT ON COLUMN hr.pa0105.val IS 'GRPVL — Grouping Value for Personnel Assignments [valor]';
-COMMENT ON COLUMN hr.pa0105.gen_usr IS 'USRTY — Communication Type — e.g. system user ID, e-mail, or other configured channel [genus usor]';
+COMMENT ON COLUMN hr.pa0105.gen_usr_cnl IS 'USRTY — Communication Type — e.g. system user ID, e-mail, or other configured channel [genus usor canalis]';
 COMMENT ON COLUMN hr.pa0105.num_usr_frm IS 'USRID — Communication Identification/Number — the user ID or short-form identifier value for USRTY [numerus usor forma]';
 COMMENT ON COLUMN hr.pa0105.num_frm_dml IS 'USRID_LONG — Communication: Long Identification/Number — long-form identifier (e.g. full e-mail address) for values exceeding USRID''s 30 characters [numerus forma domicilium]';
 
@@ -1294,7 +1294,7 @@ CREATE TABLE IF NOT EXISTS hr.pcl1 (
   nom_glm_tbl varchar(8),
   vrs_glm varchar(2),
   glm_are smallint,
-  glm_cmp bytea,
+  glm_cmp_spc bytea,
   CONSTRAINT pcl1_pk PRIMARY KEY (cli, are_glm, clv_nps_tbl, cmp_clv)
 );
 COMMENT ON TABLE hr.pcl1 IS 'PCL1 — HR Cluster 1 — a generic HR cluster-database table. Its payload (CLUSTD) is stored as compressed, opaque cluster data addressed by a relation-ID/key/cluster-number combination (RELID/SRTFD/SRTF2/CLUSTR), not as readable columns: SAP writes structured ABAP internal tables into this raw LRAW field via the IMPORT/EXPORT cluster mechanism, and the field contents cannot be interpreted without an ABAP program performing the corresponding IMPORT. A mirror of this table can capture the key fields and the CLUSTD blob as an opaque byte value, but it cannot field-decode the payload — there is no field-le';
@@ -1308,7 +1308,7 @@ COMMENT ON COLUMN hr.pcl1.usr_nom IS 'UNAME — User Name [usor nomen]';
 COMMENT ON COLUMN hr.pcl1.nom_glm_tbl IS 'PGMID — ABAP: Program Name — the program that wrote this cluster record [nomen glomus tabula]';
 COMMENT ON COLUMN hr.pcl1.vrs_glm IS 'VERSN — Version in Cluster Files [versio glomus]';
 COMMENT ON COLUMN hr.pcl1.glm_are IS 'CLUSTR — Cluster for PCLx — the cluster-ID sub-selector within the RELID area [glomus area]';
-COMMENT ON COLUMN hr.pcl1.glm_cmp IS 'CLUSTD — Compressed cluster payload (opaque raw bytes) — NOT field-decodable without ABAP IMPORT against SAP''s cluster structure definitions; a mirror can only store this as a binary blob keyed by RELID/SRTFD/SRTF2/CLUSTR, never as individual readable fields [glomus campus]';
+COMMENT ON COLUMN hr.pcl1.glm_cmp_spc IS 'CLUSTD — Compressed cluster payload (opaque raw bytes) — NOT field-decodable without ABAP IMPORT against SAP''s cluster structure definitions; a mirror can only store this as a binary blob keyed by RELID/SRTFD/SRTF2/CLUSTR, never as individual readable fields [glomus campus speculum]';
 
 CREATE TABLE IF NOT EXISTS hr.pcl2 (
   cli char(3),

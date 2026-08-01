@@ -7,47 +7,129 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head><body data-up="">
-<header class="top"><div class="wrap"><p class="eyebrow">EVEglyphDesign · sovereign reference model</p><h1>EVE Datasphere Sovereign</h1><p class="lede">The wireframe: SAP-parity structures of a customer-owned mirror, published as field-level definitions in a canonical Latin naming layer. ACDOCA is the spine. The customer's system of record stays the system of record.</p></div></header><main><div class="wrap">
-<div class="stats">
-<div class="stat"><span class="n">244</span><span class="l">Tables defined</span></div>
-<div class="stat"><span class="n">9,586</span><span class="l">Fields</span></div>
-<div class="stat"><span class="n">3,462</span><span class="l">Foreign keys</span></div>
-<div class="stat"><span class="n">8,742</span><span class="l">Latin canonical names</span></div>
-<div class="stat"><span class="n">11</span><span class="l">Modules</span></div>
+<header class="top"><div class="wrap"><p class="eyebrow">EVEglyphDesign · a reference model, openly held</p><h1>The Universal Journal, extended</h1><p class="lede">A consolidated reference model for the single ledger line — extended so that an entry records not only what it cost, but what it did for the people around it. Built by a professional community, for the one that comes after it.</p></div></header><main><div class="wrap">
+<div class="notice">
+<p><strong>What this is.</strong> A reference model. One consolidated, field-level definition of
+the Universal Journal and the structures around it, held in the open so that the people who
+work with it every day stop re-deriving it privately, in isolation, from the same
+documentation. It is a shared vocabulary — the thing a profession is supposed to have.</p>
+<p><strong>What this is not.</strong> It is not SAP software, an SAP product, or SAP data. There
+is nothing here to download from anybody's system, no code, no content of any customer's
+database. The structures are described so that a model can be <em>reasoned about</em>, and
+they are described in the source vendor's own vocabulary for one reason: a model that a
+practitioner cannot already read is a model nobody adopts.</p>
 </div>
+
+<h2>Why extend the journal at all</h2>
+<p class="desc">S/4HANA's achievement was collapsing finance, controlling, assets and margin
+into one line — the Universal Journal. Every posting became one row, with every dimension it
+belongs to, in one place. But that row still answers exactly one question: what did this cost
+and where did the money sit. It cannot answer what the money <em>did</em>.</p>
+<p class="desc">So the model extends it. Beside every accounting line sits an optional
+<a href="model/ext/ACDOCX.html">societal effect line</a> — keyed on the accounting line's own
+key, so an effect cannot exist without a posting behind it and the financial record is never
+touched. Extension at the edges, never in the middle. A ledger that records only the amount
+is recording half the transaction.</p>
+
+<h2>Effect that travels down the organisation</h2>
+<p class="desc">Because the effect line carries the same cost object dimensions the accounting
+line does — cost centre, profit centre, WBS element, order, material, vendor, customer — an
+effect can be pushed down to the level that actually earned it. A branch, a crew, a parish,
+a single project. What a large organisation currently reports as one flat number at the top,
+this model can attribute to the part of the organisation that did the work. It also runs
+upstream and downstream: an effect can be recorded where it happened in the supply chain,
+not only where it was paid for.</p>
+<p class="desc">Every claim carries its attribution method, its share, its evidence type, an
+evidence hash, and its verification status — self-attested, peer-reviewed, or independently
+assured. The taxonomy of effects is <a href="model/ext/EFFCAT.html">master data</a>, so a
+community extends its own vocabulary without a schema change, and each category maps outward
+to the <a href="model/ext/EFFSTD.html">published disclosure point</a> it answers, in the
+language a regulator or auditor already reads.</p>
+
+<h2>Recognition the community mints itself</h2>
+<p class="desc">An organisation that accomplishes what its peers could only plan for should be
+able to prove it and be visibly the better for it. Verified effect lines mint units into a
+<a href="model/ext/MRTDOC.html">recognition ledger</a> — double-sided, reversible, hash-chained
+to its source, decaying if unspent. It is not a security and it is not a financial instrument;
+it is standing, and it is earned. Nothing is minted from an intention: no verified effect line
+behind it, no units. That is the whole difference between this and a sustainability brochure.</p>
+
+<h2>The same idea, applied to every interaction</h2>
+<p class="desc">If one line can carry a financial fact and its societal effect, it can carry any
+human interaction. <a href="model/int/ACDOCI.html">ACDOCI</a> is the Universal Journal's shape
+applied to interaction: a case, an incident, a phone call, a home visit, a class taught, a
+satellite session in a place with no road to it — the same row, the same dimensions, the same
+cost-object spine, so an interaction ties back to the money it caused and forward to the effect
+it produced.</p>
+<p class="desc">The foundation is SAP, and it stays SAP. The consolidation begins with the two
+systems of record most interaction actually lives in — a CRM and a service-management platform —
+under one combined schema, then extends outward to telephony and satellite. That is not achieved
+by forcing two vendors to agree. It is achieved by a
+<a href="model/int/XWALK.html">crosswalk registry</a> that records, field by field, how each
+source maps onto the canonical line, with its transform, its confidence, and an honest
+<em>unmapped</em> where no mapping exists. A third system becomes configuration instead of a
+rewrite.</p>
+<p class="desc">Voice keeps its call detail in <a href="model/int/IJTEL.html">IJTEL</a> — numbers
+held only as salted hashes, because a mirror is not a wiretap. Remote links keep their pass
+window, elevation, rain fade and minutes-waiting-for-a-link in
+<a href="model/int/IJSAT.html">IJSAT</a>, so service to places that have no other way to be
+reached can be measured honestly instead of averaged away against city traffic. Parties are
+<a href="model/int/PARTY.html">pseudonymous keys</a>: identity stays in the system already
+lawfully holding it. Every source is declared in the
+<a href="model/int/SYSRC.html">system-of-record register</a> with its legal basis, because a
+mirror without a declared basis is surveillance.</p>
+
+<h2>A professional community, and the next generation</h2>
+<p class="desc">The <a href="model/ext/MEMBR.html">member register</a> is the point of the
+exercise. Firms, parishes, councils, schools and non-profits that post effects, verify each
+other's claims, and hold standing within a peer group — consolidating what they have each
+learned separately into one record the next generation can pick up and read, rather than
+learning it all again from scratch. Every member controls the visibility of its own record.</p>
 <div class="notice">
 <p><strong>EVE DICOE Blueprint designs are available upon request and without charge to
 qualified non-profit organizations.</strong></p>
-<p>This repository is the wireframe. The blueprint extracted from it is provided free to
-registered non-profits and the parishes, councils, schools and mutual-aid bodies under them.
-<a href="https://github.com/EVEglyphDesign/eve-datasphere-sovereign/blob/main/docs/AVAILABILITY-NONPROFIT.md">Read the notice</a>.</p>
+<p><strong>Vendors of legacy safety systems are offered these services free of charge.</strong>
+Emergency dispatch, alarm and monitoring, life safety, safety instrumented systems, marine and
+aviation safety, public safety communications. Work that keeps people alive is not a revenue
+opportunity.</p>
+<p><a href="https://github.com/EVEglyphDesign/eve-datasphere-sovereign/blob/main/docs/AVAILABILITY-NONPROFIT.md">Read the notice</a>. Both waivers are
+recorded in the model itself, on the member register, so they cannot quietly stop being true.</p>
 </div>
-<h2>The compact</h2>
-<p class="desc">Mirror, never cannibalise. In exchange for full cooperation with the platform
-vendors — read-only access, no write-back, no support-term violation, no displacement of the
-system of record — we reserve the right to mirror what the model needs in order to offer
-new-dimensional services the source platform does not offer. A consolidation of an industry
-can only be built on a model every participant already speaks, so the structures here are
-SAP's own, verbatim. Extension happens at the edges only.</p>
-<h2>Two names for every field</h2>
-<p class="desc">SAP's field names are abbreviations of German words — <code>BUKRS</code> from
-<em>Buchungskreis</em>, <code>KOSTL</code> from <em>Kostenstelle</em>. A blueprint for those
-who come after should not hand them a foreign language's consonant clusters, so every field
-carries a canonical Latin name composed from a published concept lexicon, with the legacy SAP
-name preserved as the join key and shown on hover. Because translation happens at the concept
-layer, switching the language selector renames the entire model — 9,586 fields — without
-one schema file changing.</p>
-<p class="desc"><a href="https://github.com/EVEglyphDesign/eve-datasphere-sovereign/blob/main/docs/DOCTRINE-LATIN-CANON.md">The Latin canon</a> ·
-<a href="https://github.com/EVEglyphDesign/eve-datasphere-sovereign/blob/main/docs/DOCTRINE-MIRROR-NON-PROLIFERATION.md">the non-proliferation
-compact</a> · <a href="https://github.com/EVEglyphDesign/eve-datasphere-sovereign/blob/main/docs/ROADMAP-UNIVERSAL-COVERAGE.md">coverage
-register</a> · <a href="https://github.com/EVEglyphDesign/eve-datasphere-sovereign/blob/main/schema/lexicon/latin-lexicon.yaml">concept
-lexicon</a></p>
-<h2>Modules</h2>
+
+<h2>How the model is written</h2>
+<p class="desc"><strong>Two names for every field.</strong> The legacy names are abbreviations
+of German words — <code>BUKRS</code> from <em>Buchungskreis</em>, <code>KOSTL</code> from
+<em>Kostenstelle</em>. A blueprint for those who come after should not hand them a foreign
+language's consonant clusters, so every field also carries a canonical Latin name composed from
+a published concept lexicon, with the legacy name preserved as the join key and shown on hover.
+Translation happens at the concept layer, so switching the language selector renames the whole
+model — all 9,872 fields — without one schema file changing.</p>
+<p class="desc"><strong>Mirror, never cannibalise.</strong> Read-only, no write-back, no
+displacement of anybody's system of record. In exchange for cooperation, the model mirrors what
+it needs in order to offer a dimension the source platform does not offer. This page is that
+dimension.</p>
+<p class="desc"><strong>It loads.</strong> The whole model materialises as
+<a href="https://github.com/EVEglyphDesign/eve-datasphere-sovereign/blob/main/ddl/README.md">PostgreSQL DDL</a> — canonical column names, legacy
+names in column comments, round-trip views under the original table names, and a catalog that
+renames the model into ten languages with one query.</p>
+<p class="desc"><a href="https://github.com/EVEglyphDesign/eve-datasphere-sovereign/blob/main/docs/DOCTRINE-UNIVERSAL-JOURNAL-ESG.md">The extended
+journal</a> · <a href="https://github.com/EVEglyphDesign/eve-datasphere-sovereign/blob/main/docs/DOCTRINE-LATIN-CANON.md">the Latin canon</a> ·
+<a href="https://github.com/EVEglyphDesign/eve-datasphere-sovereign/blob/main/docs/DOCTRINE-MIRROR-NON-PROLIFERATION.md">the compact</a> ·
+<a href="https://github.com/EVEglyphDesign/eve-datasphere-sovereign/blob/main/docs/ROADMAP-UNIVERSAL-COVERAGE.md">coverage register</a></p>
+
+<div class="stats">
+<div class="stat"><span class="n">258</span><span class="l">Structures defined</span></div>
+<div class="stat"><span class="n">9,872</span><span class="l">Fields</span></div>
+<div class="stat"><span class="n">3,490</span><span class="l">Declared relationships</span></div>
+<div class="stat"><span class="n">9,046</span><span class="l">Canonical Latin names</span></div>
+<div class="stat"><span class="n">10</span><span class="l">Languages</span></div>
+</div>
+<h2>The model</h2>
 <div class="bar-tools"><label class="count" data-ui="Language" for="lang">Language</label><select class="lang" id="lang"><option value="la">Latina — canonical</option><option value="en">English</option><option value="fr">Français</option><option value="es">Español</option><option value="de">Deutsch</option><option value="pt">Português</option><option value="it">Italiano</option><option value="nl">Nederlands</option><option value="pl">Polski</option><option value="zh">中文</option><option value="ar">العربية</option><option value="ja">日本語</option></select></div>
-<div class="grid"><div class="card"><h3><a href="model/pm/index.html">PM — Plant Maintenance</a></h3><div class="meta">47 tables · 1522 fields</div><div class="bar"><span style="width:77%"></span></div></div><div class="card"><h3><a href="model/fi/index.html">FI — Financial Accounting</a></h3><div class="meta">41 tables · 2019 fields</div><div class="bar"><span style="width:67%"></span></div></div><div class="card"><h3><a href="model/cross/index.html">CROSS — Cross-Application Foundation</a></h3><div class="meta">40 tables · 621 fields</div><div class="bar"><span style="width:66%"></span></div></div><div class="card"><h3><a href="model/mm/index.html">MM — Materials Management</a></h3><div class="meta">24 tables · 1054 fields</div><div class="bar"><span style="width:39%"></span></div></div><div class="card"><h3><a href="model/sd/index.html">SD — Sales &amp; Distribution</a></h3><div class="meta">21 tables · 751 fields</div><div class="bar"><span style="width:34%"></span></div></div><div class="card"><h3><a href="model/co/index.html">CO — Controlling</a></h3><div class="meta">19 tables · 735 fields</div><div class="bar"><span style="width:31%"></span></div></div><div class="card"><h3><a href="model/hr/index.html">HR — Human Resources</a></h3><div class="meta">17 tables · 650 fields</div><div class="bar"><span style="width:28%"></span></div></div><div class="card"><h3><a href="model/pp/index.html">PP — Production Planning</a></h3><div class="meta">16 tables · 1246 fields</div><div class="bar"><span style="width:26%"></span></div></div><div class="card"><h3><a href="model/qm/index.html">QM — Quality Management</a></h3><div class="meta">8 tables · 576 fields</div><div class="bar"><span style="width:13%"></span></div></div><div class="card"><h3><a href="model/ps/index.html">PS — Project System</a></h3><div class="meta">6 tables · 276 fields</div><div class="bar"><span style="width:10%"></span></div></div><div class="card"><h3><a href="model/bw/index.html">BW — Business Warehouse</a></h3><div class="meta">5 tables · 136 fields</div><div class="bar"><span style="width:8%"></span></div></div></div>
+<div class="grid"><div class="card"><h3><a href="model/pm/index.html">PM — Plant Maintenance</a></h3><div class="meta">47 tables · 1522 fields</div><div class="bar"><span style="width:73%"></span></div></div><div class="card"><h3><a href="model/fi/index.html">FI — Financial Accounting</a></h3><div class="meta">41 tables · 2019 fields</div><div class="bar"><span style="width:64%"></span></div></div><div class="card"><h3><a href="model/cross/index.html">CROSS — Cross-Application Foundation</a></h3><div class="meta">40 tables · 621 fields</div><div class="bar"><span style="width:62%"></span></div></div><div class="card"><h3><a href="model/mm/index.html">MM — Materials Management</a></h3><div class="meta">24 tables · 1054 fields</div><div class="bar"><span style="width:37%"></span></div></div><div class="card"><h3><a href="model/sd/index.html">SD — Sales &amp; Distribution</a></h3><div class="meta">21 tables · 751 fields</div><div class="bar"><span style="width:33%"></span></div></div><div class="card"><h3><a href="model/co/index.html">CO — Controlling</a></h3><div class="meta">19 tables · 735 fields</div><div class="bar"><span style="width:29%"></span></div></div><div class="card"><h3><a href="model/hr/index.html">HR — Human Resources</a></h3><div class="meta">17 tables · 650 fields</div><div class="bar"><span style="width:26%"></span></div></div><div class="card"><h3><a href="model/pp/index.html">PP — Production Planning</a></h3><div class="meta">16 tables · 1246 fields</div><div class="bar"><span style="width:25%"></span></div></div><div class="card"><h3><a href="model/int/index.html">INT — Universal Interaction Journal</a></h3><div class="meta">9 tables · 187 fields</div><div class="bar"><span style="width:14%"></span></div></div><div class="card"><h3><a href="model/qm/index.html">QM — Quality Management</a></h3><div class="meta">8 tables · 576 fields</div><div class="bar"><span style="width:12%"></span></div></div><div class="card"><h3><a href="model/ps/index.html">PS — Project System</a></h3><div class="meta">6 tables · 276 fields</div><div class="bar"><span style="width:9%"></span></div></div><div class="card"><h3><a href="model/ext/index.html">EXT — Societal Effect Extension</a></h3><div class="meta">5 tables · 99 fields</div><div class="bar"><span style="width:8%"></span></div></div><div class="card"><h3><a href="model/bw/index.html">BW — Business Warehouse</a></h3><div class="meta">5 tables · 136 fields</div><div class="bar"><span style="width:8%"></span></div></div></div>
 </div></main>
 <footer><div class="wrap">
-<p>EVEglyphDesign · <a href="https://github.com/EVEglyphDesign/eve-datasphere-sovereign">eve-datasphere-sovereign on GitHub</a> · generated 2026-08-01 01:46 UTC</p>
+<p>EVEglyphDesign · <a href="https://github.com/EVEglyphDesign/eve-datasphere-sovereign">eve-datasphere-sovereign on GitHub</a> · generated 2026-08-01 02:18 UTC</p>
 <p>Mirror, never cannibalise. Read-only from the source; the customer's system of record stays the system of record.</p>
 <p>EVE DICOE Blueprint designs are available upon request and without charge to qualified non-profit organizations.</p>
 <p class="sig">Pour le bien-être du peuple. © 2026 Dany Thériault / EVE Glyph Design.</p>

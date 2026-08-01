@@ -750,3 +750,240 @@ concepts:
 - en: form
   la: forma
   ab: FRM
+- en: societal effect
+  la: effectus socialis
+  ab: EFS
+- en: effect category
+  la: genus effectus
+  ab: GEF
+- en: effect
+  la: effectus
+  ab: EFC
+- en: beneficiary
+  la: beneficiarius
+  ab: BNF
+- en: attribution
+  la: attributio
+  ab: ATB
+- en: evidence
+  la: evidentia
+  ab: EVD
+- en: verification
+  la: verificatio
+  ab: VRF
+- en: verifying party
+  la: pars verificans
+  ab: PVR
+- en: recognition
+  la: recognitio
+  ab: RCG
+- en: member organisation
+  la: organizatio membri
+  ab: ORM
+- en: member
+  la: membrum
+  ab: MBR
+- en: minting
+  la: cusio
+  ab: CUS
+- en: community
+  la: communitas
+  ab: CMN
+- en: emissions
+  la: emissiones
+  ab: EMS
+- en: peer group
+  la: grex parium
+  ab: GRX
+- en: standing
+  la: dignitas
+  ab: DGN
+- en: standard body
+  la: corpus normae
+  ab: CNM
+- en: standard datapoint
+  la: punctum normae
+  ab: PNM
+- en: standard
+  la: norma
+  ab: NRM
+- en: disclosure
+  la: patefactio
+  ab: PTF
+- en: expiry
+  la: expiratio
+  ab: EXP
+- en: visibility
+  la: visibilitas
+  ab: VSB
+- en: consent
+  la: consensus
+  ab: CNS
+- en: non-profit
+  la: sine lucro
+  ab: SNL
+- en: distribution level
+  la: gradus distributionis
+  ab: GDS
+- en: distribution
+  la: distributio
+  ab: DTB
+- en: monetised value
+  la: valor monetarius
+  ab: VMN
+- en: hash
+  la: summa digesta
+  ab: HSH
+- en: direction
+  la: directio
+  ab: DRC
+- en: supply chain
+  la: catena subsidii
+  ab: CTS
+- en: interaction journal
+  la: ephemeris commercii
+  ab: EPH
+- en: interaction
+  la: commercium
+  ab: ITR
+- en: system of record
+  la: systema tabularum
+  ab: SYS
+- en: source system
+  la: systema originis
+  ab: SOR
+- en: source record
+  la: tabula originis
+  ab: TOR
+- en: channel
+  la: canalis
+  ab: CNL
+- en: party
+  la: persona
+  ab: PSN
+- en: initiating party
+  la: persona incipiens
+  ab: PIN
+- en: receiving party
+  la: persona recipiens
+  ab: PRC
+- en: queue
+  la: ordo expectantium
+  ab: ORD
+- en: priority
+  la: prioritas
+  ab: PRI
+- en: severity
+  la: gravitas
+  ab: GRV
+- en: resolution
+  la: resolutio
+  ab: RSL
+- en: escalation
+  la: escalatio
+  ab: ESC
+- en: satisfaction score
+  la: punctum satisfactionis
+  ab: PSF
+- en: sentiment
+  la: affectus
+  ab: AFF
+- en: topic
+  la: argumentum
+  ab: ARG
+- en: crosswalk
+  la: transitus
+  ab: TRN
+- en: mapping
+  la: designatio
+  ab: DSG
+- en: transform
+  la: transformatio
+  ab: TFM
+- en: confidence
+  la: fiducia
+  ab: FID
+- en: call
+  la: vocatio
+  ab: VOC
+- en: call detail record
+  la: tabula vocationis
+  ab: TVC
+- en: telephony
+  la: telephonia
+  ab: TLP
+- en: satellite
+  la: satelles
+  ab: STL
+- en: constellation
+  la: constellatio
+  ab: CST
+- en: beam
+  la: radius
+  ab: RAD
+- en: terminal
+  la: terminale
+  ab: TML
+- en: gateway
+  la: porta
+  ab: PRT
+- en: pass window
+  la: fenestra transitus
+  ab: FTR
+- en: elevation angle
+  la: angulus elevationis
+  ab: AEL
+- en: latency
+  la: mora
+  ab: MOR
+- en: bandwidth
+  la: latitudo bandae
+  ab: LTB
+- en: signal to noise ratio
+  la: ratio signi ad strepitum
+  ab: RSS
+- en: store and forward
+  la: serva et transmitte
+  ab: SET
+- en: degraded mode
+  la: modus imminutus
+  ab: MIM
+- en: retention
+  la: retentio
+  ab: RTN
+- en: erasure
+  la: deletio
+  ab: DEL
+- en: legal basis
+  la: fundamentum legale
+  ab: FLG
+- en: pseudonymous key
+  la: clavis pseudonyma
+  ab: CPS
+- en: safety system
+  la: systema salutis
+  ab: SSL
+- en: free of charge
+  la: gratis
+  ab: GRT
+- en: vulnerability
+  la: vulnerabilitas
+  ab: VUL
+- en: service level
+  la: gradus servitii
+  ab: GSV
+- en: first response
+  la: responsum primum
+  ab: RSP
+- en: device type
+  la: genus instrumenti
+  ab: GIN
+- en: time zone
+  la: zona temporis
+  ab: ZTM
+- en: cost to serve
+  la: sumptus serviendi
+  ab: SMS
+- en: mirror
+  la: speculum
+  ab: SPC

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ITYP · EVE Datasphere Sovereign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+</head><body data-up="../../">
+<header class="top"><div class="wrap"><p class="crumb"><a href="../../index.html">Model</a> / <a href="index.html">INT</a> / ITYP</p><p class="eyebrow">INT — Universal Interaction Journal</p><h1>ITYP</h1><p class="lede">8 fields · 2 key · 1 foreign keys · sourced from <a href="EVEglyphDesign canonical structure.">EVEglyphDesign canonical structure.</a></p></div></header><main><div class="wrap"><p class="desc">Interaction type master. What kind of human interaction the line records: a case, an incident, a call, a meeting, a task, a service request, a home visit, a sacrament, a class taught. The list is deliberately not limited to commercial support work, because the ledger is meant to cover all forms of human interaction, not only the ones that bill.</p><div class="bar-tools"><input class="filter" id="filter" type="search" data-ui="Filter fields…" placeholder="Filter fields…" aria-label="Filter fields…"><span class="count" id="count"></span><label class="count" data-ui="Language" for="lang">Language</label><select class="lang" id="lang"><option value="la">Latina — canonical</option><option value="en">English</option><option value="fr">Français</option><option value="es">Español</option><option value="de">Deutsch</option><option value="pt">Português</option><option value="it">Italiano</option><option value="nl">Nederlands</option><option value="pl">Polski</option><option value="zh">中文</option><option value="ar">العربية</option><option value="ja">日本語</option></select></div><p class="hint" data-ui="Hover a canonical name to see the legacy SAP field name">Hover a canonical name to see the legacy SAP field name</p><table><thead><tr><th data-ui="Canonical name">Canonical name</th><th data-ui="Concept">Concept</th><th data-ui="Description">Description</th><th data-ui="Data element">Data element</th><th data-ui="Type">Type</th><th data-ui="Check table">Check table</th></tr></thead><tbody><tr data-hay="CLI RCLNT Client MANDT"><td class="k"><span class="canon" title="RCLNT">CLI</span> <span class="tag">key</span></td><td class="k"><span class="concept" data-concepts='[&quot;client&quot;]' data-latin="cliens">cliens</span></td><td>Client</td><td class="k"><code>MANDT</code></td><td class="k mono">CLNT 3</td><td class="k"><code>T000</code></td></tr><tr data-hay="ITR_GEN_CLV INTTYP Interaction type key EGD_INTTYP"><td class="k"><span class="canon" title="INTTYP">ITR_GEN_CLV</span> <span class="tag">key</span></td><td class="k"><span class="concept" data-concepts='[&quot;interaction&quot;, &quot;type&quot;, &quot;key&quot;]' data-latin="commercium genus clavis">commercium genus clavis</span></td><td>Interaction type key</td><td class="k"><code>EGD_INTTYP</code></td><td class="k mono">CHAR 10</td><td class="k"><span style="color:#b9b3a5">—</span></td></tr><tr data-hay="ITR_GEN_DSC ITYTXT Interaction type description TEXT60"><td class="k"><span class="canon" title="ITYTXT">ITR_GEN_DSC</span></td><td class="k"><span class="concept" data-concepts='[&quot;interaction&quot;, &quot;type&quot;, &quot;description&quot;]' data-latin="commercium genus descriptio">commercium genus descriptio</span></td><td>Interaction type description</td><td class="k"><code>TEXT60</code></td><td class="k mono">CHAR 60</td><td class="k"><span style="color:#b9b3a5">—</span></td></tr><tr data-hay="DMI_MIN ITYDOM Domain: commercial, service, care, education, civic or faith EGD_ITYDOM"><td class="k"><span class="canon" title="ITYDOM">DMI_MIN</span></td><td class="k"><span class="concept" data-concepts='[&quot;domain&quot;, &quot;service&quot;]' data-latin="dominium ministerium">dominium ministerium</span></td><td>Domain: commercial, service, care, education, civic or faith</td><td class="k"><code>EGD_ITYDOM</code></td><td class="k mono">CHAR 4</td><td class="k"><span style="color:#b9b3a5">—</span></td></tr><tr data-hay="GSV_ITR_GEN SLAREL Service level applies to this interaction type XFELD"><td class="k"><span class="canon" title="SLAREL">GSV_ITR_GEN</span></td><td class="k"><span class="concept" data-concepts='[&quot;service level&quot;, &quot;interaction&quot;, &quot;type&quot;]' data-latin="gradus servitii commercium genus">gradus servitii commercium genus</span></td><td>Service level applies to this interaction type</td><td class="k"><code>XFELD</code></td><td class="k mono">CHAR 1</td><td class="k"><span style="color:#b9b3a5">—</span></td></tr><tr data-hay="ITR_GEN_EFS EFFREL Interaction type is expected to produce a societal effect line XFELD"><td class="k"><span class="canon" title="EFFREL">ITR_GEN_EFS</span></td><td class="k"><span class="concept" data-concepts='[&quot;interaction&quot;, &quot;type&quot;, &quot;societal effect&quot;]' data-latin="commercium genus effectus socialis">commercium genus effectus socialis</span></td><td>Interaction type is expected to produce a societal effect line</td><td class="k"><code>XFELD</code></td><td class="k mono">CHAR 1</td><td class="k"><span style="color:#b9b3a5">—</span></td></tr><tr data-hay="GEF_GEN EFFCAT Default effect category for interactions of this type EGD_EFFCAT"><td class="k"><span class="canon" title="EFFCAT">GEF_GEN</span></td><td class="k"><span class="concept" data-concepts='[&quot;effect category&quot;, &quot;type&quot;]' data-latin="genus effectus genus">genus effectus genus</span></td><td>Default effect category for interactions of this type</td><td class="k"><code>EGD_EFFCAT</code></td><td class="k mono">CHAR 10</td><td class="k"><code>EFFCAT</code></td></tr><tr data-hay="CNS_ITR_GEN CNSREQ Consent is required before an interaction of this type may be mirrored XFELD"><td class="k"><span class="canon" title="CNSREQ">CNS_ITR_GEN</span></td><td class="k"><span class="concept" data-concepts='[&quot;consent&quot;, &quot;interaction&quot;, &quot;type&quot;]' data-latin="consensus commercium genus">consensus commercium genus</span></td><td>Consent is required before an interaction of this type may be mirrored</td><td class="k"><code>XFELD</code></td><td class="k mono">CHAR 1</td><td class="k"><span style="color:#b9b3a5">—</span></td></tr></tbody></table><h2 data-ui="Foreign keys">Foreign keys</h2><table><thead><tr><th data-ui="Field">Field</th><th data-ui="Check table">Check table</th><th>Check field</th></tr></thead><tbody><tr><td class="k"><code>EFFCAT</code></td><td class="k"><code>EFFCAT</code></td><td class="k"><code>EFFCAT</code></td></tr></tbody></table><p style="margin-top:28px"><a href="https://github.com/EVEglyphDesign/eve-datasphere-sovereign/blob/main/schema/interaction/int/tables/ITYP.yaml">View <code>ITYP.yaml</code> in the repository</a></p></div></main>
+<footer><div class="wrap">
+<p>EVEglyphDesign · <a href="https://github.com/EVEglyphDesign/eve-datasphere-sovereign">eve-datasphere-sovereign on GitHub</a> · generated 2026-08-01 02:18 UTC</p>
+<p>Mirror, never cannibalise. Read-only from the source; the customer's system of record stays the system of record.</p>
+<p>EVE DICOE Blueprint designs are available upon request and without charge to qualified non-profit organizations.</p>
+<p class="sig">Pour le bien-être du peuple. © 2026 Dany Thériault / EVE Glyph Design.</p>
+</div></footer>
+<script>
+(function(){
+  var up=document.body.dataset.up||'';
+  var dict=null, sel=document.getElementById('lang');
+  function paint(code){
+    document.querySelectorAll('[data-concepts]').forEach(function(el){
+      var keys=JSON.parse(el.dataset.concepts||'[]');
+      if(!code||code==='la'||!dict){ el.textContent=el.dataset.latin||''; return; }
+      var m=(dict.labels&&dict.labels[code])||{};
+      el.textContent=keys.map(function(k){return m[k]||k;}).join(' · ');
+    });
+    document.querySelectorAll('[data-ui]').forEach(function(el){
+      var k=el.dataset.ui;
+      var m=(code&&code!=='la'&&dict&&dict.ui&&dict.ui[code])||null;
+      var v=m&&m[k]?m[k]:k;
+      if(el.tagName==='INPUT'){el.placeholder=v;}else{el.textContent=v;}
+    });
+    document.documentElement.dir=(code==='ar')?'rtl':'ltr';
+  }
+  function setLang(code){
+    try{localStorage.setItem('egd-lang',code);}catch(e){}
+    if(code==='la'){paint(code);return;}
+    if(dict){paint(code);return;}
+    fetch(up+'i18n.json').then(function(r){return r.json();}).then(function(d){
+      dict=d;paint(code);
+    }).catch(function(){paint('la');});
+  }
+  if(sel){
+    var saved='la';try{saved=localStorage.getItem('egd-lang')||'la';}catch(e){}
+    sel.value=saved;setLang(saved);
+    sel.addEventListener('change',function(){setLang(sel.value);});
+  }
+  var box=document.getElementById('filter');
+  if(box){
+    var counter=document.getElementById('count');
+    box.addEventListener('input',function(){
+      var q=box.value.trim().toLowerCase(), rows=document.querySelectorAll('tbody tr'), n=0;
+      rows.forEach(function(tr){
+        var hay=(tr.dataset.hay||tr.textContent).toLowerCase();
+        var hit=!q||hay.indexOf(q)>-1;
+        tr.style.display=hit?'':'none';
+        if(hit)n++;
+      });
+      if(counter)counter.textContent=n+' / '+rows.length;
+    });
+  }
+})();
+</script></body></html>

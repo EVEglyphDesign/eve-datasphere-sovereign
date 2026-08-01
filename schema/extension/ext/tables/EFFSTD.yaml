@@ -1,0 +1,79 @@
+table: EFFSTD
+module: EXT
+description: Reporting standard datapoint registry. Maps an effect category to the published disclosure
+  point it answers — a GRI, ESRS, ISSB or SASB code — so a community's own measurement can be reported
+  outward in the language a regulator or auditor already reads, without the community having to adopt
+  that vocabulary internally.
+source: EVEglyphDesign extension. Standard codes are references to their publishers, not reproductions.
+fields:
+- name: RCLNT
+  description: Client
+  data_element: MANDT
+  datatype: CLNT
+  length: 3
+  decimals: 0
+  key: true
+  check_table: T000
+- name: EFFSTD
+  description: Standard datapoint key
+  data_element: EGD_EFFSTD
+  datatype: CHAR
+  length: 20
+  decimals: 0
+  key: true
+- name: STDBDY
+  description: 'Standard body: GRI, ESRS, ISSB, SASB or a community standard'
+  data_element: EGD_STDBDY
+  datatype: CHAR
+  length: 8
+  decimals: 0
+  key: false
+- name: STDVER
+  description: Version of the standard the datapoint belongs to
+  data_element: EGD_STDVER
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+- name: STDCOD
+  description: Datapoint code as published by the standard body
+  data_element: EGD_STDCOD
+  datatype: CHAR
+  length: 30
+  decimals: 0
+  key: false
+- name: STDTXT
+  description: Datapoint description
+  data_element: TEXT80
+  datatype: CHAR
+  length: 80
+  decimals: 0
+  key: false
+- name: STDURL
+  description: Public reference URL for the datapoint
+  data_element: EGD_URL
+  datatype: CHAR
+  length: 255
+  decimals: 0
+  key: false
+- name: EFFCAT
+  description: Effect category that satisfies this datapoint
+  data_element: EGD_EFFCAT
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+  check_table: EFFCAT
+- name: MANDTY
+  description: Datapoint is mandatory for members subject to this standard
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+foreign_keys:
+- field: EFFCAT
+  check_table: EFFCAT
+  check_field: EFFCAT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

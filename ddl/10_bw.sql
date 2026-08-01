@@ -1,5 +1,5 @@
 -- EVE Datasphere Sovereign — PostgreSQL materialisation
--- Generated 2026-08-01T01:47:33Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
+-- Generated 2026-08-01T02:17:52Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
 -- Column names are the canonical Latin layer (EgD-LATIN-001). The legacy SAP field name
 -- is preserved in COMMENT ON COLUMN and in egd_catalog.field_map, and is the join key.
 -- Mirror, never cannibalise. Pour le bien-etre du peuple.
@@ -27,9 +27,9 @@ CREATE TABLE IF NOT EXISTS bw.rsdcube (
   nom varchar(64),
   basiccube varchar(30),
   tmp2 varchar(1),
-  fns varchar(10),
+  sor varchar(10),
   isource varchar(30),
-  idx_fns varchar(1),
+  idx_sor varchar(1),
   nom_cls2 varchar(30),
   sgn_cub varchar(1),
   sta varchar(1),
@@ -80,9 +80,9 @@ COMMENT ON COLUMN bw.rsdcube.nom_cls IS 'FUNCNAME — Name of Function Module/Cl
 COMMENT ON COLUMN bw.rsdcube.nom IS 'HDBMODNM — SAP HANA Model Name [nomen]';
 COMMENT ON COLUMN bw.rsdcube.basiccube IS 'BASICCUBE — BasicCube for Aggregate';
 COMMENT ON COLUMN bw.rsdcube.tmp2 IS 'TRANSACT — Real Time / Direct Update [tempus]';
-COMMENT ON COLUMN bw.rsdcube.fns IS 'SLOGSYS — Source system [fons]';
+COMMENT ON COLUMN bw.rsdcube.sor IS 'SLOGSYS — Source system [systema originis]';
 COMMENT ON COLUMN bw.rsdcube.isource IS 'ISOURCE — InfoSource';
-COMMENT ON COLUMN bw.rsdcube.idx_fns IS 'UNIQUE_SOURCE — Indicator: Unique Source System [index fons]';
+COMMENT ON COLUMN bw.rsdcube.idx_sor IS 'UNIQUE_SOURCE — Indicator: Unique Source System [index systema originis]';
 COMMENT ON COLUMN bw.rsdcube.nom_cls2 IS 'WRITECLASNM — Name of Class for Write Interface [nomen classis]';
 COMMENT ON COLUMN bw.rsdcube.sgn_cub IS 'MOLAPFL — Flag: with MOLAP cube [signum cubus]';
 COMMENT ON COLUMN bw.rsdcube.sta IS 'BIA_STATUS — RSD: BW Accelerator Status of InfoCube (BWA Indexes) [status]';
@@ -178,8 +178,8 @@ CREATE TABLE IF NOT EXISTS bw.rsdodso (
   obi4 varchar(1),
   mgn_ctg varchar(2),
   gen varchar(5),
-  mgn_ctg2 varchar(2),
-  cls varchar(5),
+  mgn_ctg_ord varchar(2),
+  cls_ord varchar(5),
   insertonly varchar(1),
   key_not_unique varchar(1),
   ult_mut varchar(12),
@@ -230,8 +230,8 @@ COMMENT ON COLUMN bw.rsdodso.obi3 IS 'AUTOACTIVATEFL — Activate DataStore Obje
 COMMENT ON COLUMN bw.rsdodso.obi4 IS 'AUTOPROCESSFL — Update Data from DataStore Object Automatically [obiectum]';
 COMMENT ON COLUMN bw.rsdodso.mgn_ctg IS 'ODSASIZCAT — Size Category for DS Tables of Active Records [magnitudo categoria]';
 COMMENT ON COLUMN bw.rsdodso.gen IS 'ODSADATCLS — Data Type for DataStore Tables of Active Records [genus]';
-COMMENT ON COLUMN bw.rsdodso.mgn_ctg2 IS 'ODSMSIZCAT — Size Category for DS Activation Queue [magnitudo categoria]';
-COMMENT ON COLUMN bw.rsdodso.cls IS 'ODSMDATCLS — Data Class for DS Activation Queue [classis]';
+COMMENT ON COLUMN bw.rsdodso.mgn_ctg_ord IS 'ODSMSIZCAT — Size Category for DS Activation Queue [magnitudo categoria ordo expectantium]';
+COMMENT ON COLUMN bw.rsdodso.cls_ord IS 'ODSMDATCLS — Data Class for DS Activation Queue [classis ordo expectantium]';
 COMMENT ON COLUMN bw.rsdodso.insertonly IS 'INSERTONLY — Overwriting data records not permitted';
 COMMENT ON COLUMN bw.rsdodso.key_not_unique IS 'KEY_NOT_UNIQUE — Allow Duplicate Data Records';
 COMMENT ON COLUMN bw.rsdodso.ult_mut IS 'TSTPNM — Last changed by [ultimus mutatus]';

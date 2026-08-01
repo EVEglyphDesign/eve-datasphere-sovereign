@@ -1,0 +1,114 @@
+table: SYSRC
+module: INT
+description: 'System of record registry. Every source the interaction journal mirrors from: a Salesforce
+  org, a ServiceNow instance, a telephony platform, a satellite ground segment, a parish register. Records
+  what is read, under whose authority, how often, and on what legal basis — because a mirror without a
+  declared basis is surveillance.'
+source: EVEglyphDesign canonical structure. The register itself is the governance artifact.
+fields:
+- name: RCLNT
+  description: Client
+  data_element: MANDT
+  datatype: CLNT
+  length: 3
+  decimals: 0
+  key: true
+  check_table: T000
+- name: SRCSYS
+  description: Source system key
+  data_element: EGD_SRCSYS
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: true
+- name: SRCNAM
+  description: Source system name
+  data_element: TEXT60
+  datatype: CHAR
+  length: 60
+  decimals: 0
+  key: false
+- name: SRCVND
+  description: Vendor or operator of the source system
+  data_element: EGD_SRCVND
+  datatype: CHAR
+  length: 40
+  decimals: 0
+  key: false
+- name: SRCKND
+  description: 'Kind: CRM, service management, telephony, satellite, messaging, ledger or register'
+  data_element: EGD_SRCKND
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+- name: MEMBER
+  description: Member organisation that owns the source system
+  data_element: EGD_MEMBER
+  datatype: CHAR
+  length: 18
+  decimals: 0
+  key: false
+  check_table: MEMBR
+- name: APIVER
+  description: Interface version the mirror reads through
+  data_element: EGD_APIVER
+  datatype: CHAR
+  length: 20
+  decimals: 0
+  key: false
+- name: RDONLY
+  description: 'Read only: the mirror never writes back to this system'
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: LEGBAS
+  description: 'Legal basis for mirroring: contract, consent, legitimate interest or legal obligation'
+  data_element: EGD_LEGBAS
+  datatype: CHAR
+  length: 4
+  decimals: 0
+  key: false
+- name: AUTHRF
+  description: Authorisation reference — the agreement permitting the mirror
+  data_element: EGD_SRCID
+  datatype: CHAR
+  length: 60
+  decimals: 0
+  key: false
+- name: CADENC
+  description: 'Mirror cadence: how often the source is read'
+  data_element: EGD_CADENC
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+- name: LASTRD
+  description: Last successful read timestamp
+  data_element: TIMESTAMP
+  datatype: DEC
+  length: 15
+  decimals: 0
+  key: false
+- name: RETDAY
+  description: Retention in days applied to mirrored lines from this source
+  data_element: EGD_COUNT
+  datatype: NUMC
+  length: 5
+  decimals: 0
+  key: false
+- name: ACTIVE
+  description: Source is currently mirrored
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+foreign_keys:
+- field: MEMBER
+  check_table: MEMBR
+  check_field: MEMBER
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

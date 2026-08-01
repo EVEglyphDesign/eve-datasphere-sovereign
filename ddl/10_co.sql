@@ -1,5 +1,5 @@
 -- EVE Datasphere Sovereign — PostgreSQL materialisation
--- Generated 2026-08-01T01:47:33Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
+-- Generated 2026-08-01T02:17:52Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
 -- Column names are the canonical Latin layer (EgD-LATIN-001). The legacy SAP field name
 -- is preserved in COMMENT ON COLUMN and in egd_catalog.field_map, and is the join key.
 -- Mirror, never cannibalise. Pour le bien-etre du peuple.
@@ -260,10 +260,10 @@ CREATE TABLE IF NOT EXISTS co.cobk (
   rpm_gen varchar(4),
   acl varchar(5),
   amd_mon varchar(5),
-  mon_gen_lbr varchar(2),
-  mon_gen_lbr2 varchar(2),
-  mon_gen_lbr3 varchar(2),
-  mon_gen_lbr4 varchar(2),
+  mon_gen_nrm varchar(2),
+  mon_gen_nrm2 varchar(2),
+  mon_gen_nrm3 varchar(2),
+  mon_gen_nrm4 varchar(2),
   rfr varchar(5),
   rfr2 varchar(10),
   logsystem varchar(10),
@@ -305,10 +305,10 @@ COMMENT ON COLUMN co.cobk.val_die_mon IS 'WSDAT — Value Date for Currency Tran
 COMMENT ON COLUMN co.cobk.rpm_gen IS 'KURST — Exchange Rate Type [ratio permutationis genus]';
 COMMENT ON COLUMN co.cobk.acl IS 'VARNR — CO actual postings fast input: Variant [actualis]';
 COMMENT ON COLUMN co.cobk.amd_mon IS 'KWAER — Controlling area currency [area moderationis moneta]';
-COMMENT ON COLUMN co.cobk.mon_gen_lbr IS 'CTYP1 — Currency Type 1 in CO Standard Ledger [moneta genus liber]';
-COMMENT ON COLUMN co.cobk.mon_gen_lbr2 IS 'CTYP2 — Currency Type 2 in CO Standard Ledger [moneta genus liber]';
-COMMENT ON COLUMN co.cobk.mon_gen_lbr3 IS 'CTYP3 — Currency Type 3 in CO Standard Ledger [moneta genus liber]';
-COMMENT ON COLUMN co.cobk.mon_gen_lbr4 IS 'CTYP4 — Currency Type 4 in CO Standard Ledger [moneta genus liber]';
+COMMENT ON COLUMN co.cobk.mon_gen_nrm IS 'CTYP1 — Currency Type 1 in CO Standard Ledger [moneta genus norma]';
+COMMENT ON COLUMN co.cobk.mon_gen_nrm2 IS 'CTYP2 — Currency Type 2 in CO Standard Ledger [moneta genus norma]';
+COMMENT ON COLUMN co.cobk.mon_gen_nrm3 IS 'CTYP3 — Currency Type 3 in CO Standard Ledger [moneta genus norma]';
+COMMENT ON COLUMN co.cobk.mon_gen_nrm4 IS 'CTYP4 — Currency Type 4 in CO Standard Ledger [moneta genus norma]';
 COMMENT ON COLUMN co.cobk.rfr IS 'AWTYP — Reference Transaction [referentia]';
 COMMENT ON COLUMN co.cobk.rfr2 IS 'AWORG — Reference Organizational Units [referentia]';
 COMMENT ON COLUMN co.cobk.logsystem IS 'LOGSYSTEM — Logical System';
@@ -1250,7 +1250,7 @@ CREATE TABLE IF NOT EXISTS co.csks (
   num5 varchar(30),
   datlt varchar(14),
   drnam varchar(4),
-  hir_are varchar(12),
+  nrm_hir_are varchar(12),
   smp_clv varchar(23),
   sgn_csm_tpr varchar(1),
   idx_obi varchar(1),
@@ -1326,7 +1326,7 @@ COMMENT ON COLUMN co.csks.num4 IS 'TELTX — Teletex number [numerus]';
 COMMENT ON COLUMN co.csks.num5 IS 'TELX1 — Telex number [numerus]';
 COMMENT ON COLUMN co.csks.datlt IS 'DATLT — Data communication line no.';
 COMMENT ON COLUMN co.csks.drnam IS 'DRNAM — Printer destination for CCtr report';
-COMMENT ON COLUMN co.csks.hir_are IS 'KHINR — Standard Hierarchy Area [hierarchia area]';
+COMMENT ON COLUMN co.csks.nrm_hir_are IS 'KHINR — Standard Hierarchy Area [norma hierarchia area]';
 COMMENT ON COLUMN co.csks.smp_clv IS 'CCKEY — Cost collector key [sumptus clavis]';
 COMMENT ON COLUMN co.csks.sgn_csm_tpr IS 'KOMPL — Completion flag for the cost center master record [signum centrum sumptus tabula principalis]';
 COMMENT ON COLUMN co.csks.idx_obi IS 'STAKZ — Indicator. object is statistical [index obiectum]';
@@ -1450,9 +1450,9 @@ CREATE TABLE IF NOT EXISTS co.tka01 (
   anf varchar(2),
   atb_idx varchar(1),
   logsystem varchar(10),
-  csm varchar(2),
+  csm_dtb varchar(2),
   cur varchar(10),
-  hir_smp varchar(12),
+  nrm_hir_smp varchar(12),
   idx varchar(1),
   idx_amd varchar(1),
   idx2 varchar(1),
@@ -1462,7 +1462,7 @@ CREATE TABLE IF NOT EXISTS co.tka01 (
   clu_lbr varchar(2),
   vlm_clu varchar(1),
   idx_soc_mon varchar(1),
-  hir_are varchar(12),
+  nrm_hir_are varchar(12),
   idx3 varchar(1),
   smp_elm_ven varchar(10),
   gen_vdt varchar(10),
@@ -1482,12 +1482,12 @@ CREATE TABLE IF NOT EXISTS co.tka01 (
   rat_aes varchar(1),
   aes_vis2 varchar(1),
   clu2 varchar(10),
-  hir varchar(1),
+  nrm_hir varchar(1),
   pri_hir varchar(1),
-  hir2 varchar(1),
-  hir3 varchar(1),
+  hir varchar(1),
+  nrm_hir2 varchar(1),
   pri_hir2 varchar(1),
-  hir4 varchar(1),
+  hir2 varchar(1),
   CONSTRAINT tka01_pk PRIMARY KEY (cli, amd)
 );
 COMMENT ON TABLE co.tka01 IS 'TKA01 — Controlling Areas — the organizational root every CO object and every ACDOCA line''s KOKRS field checks against; defines the operating currency, chart of accounts, fiscal year variant, and operating concern that govern the entire controlling area. SAP''s real table carries roughly 50 fields; this definition carries the full functional field set that the model and a controlling-area crosswalk actually consume.';
@@ -1499,9 +1499,9 @@ COMMENT ON COLUMN co.tka01.tbr IS 'KTOPL — Chart of Accounts [tabula rationum]
 COMMENT ON COLUMN co.tka01.anf IS 'LMONA — Fiscal Year Variant [annus fiscalis]';
 COMMENT ON COLUMN co.tka01.atb_idx IS 'KOKFI — Allocation Indicator [attributio index]';
 COMMENT ON COLUMN co.tka01.logsystem IS 'LOGSYSTEM — Logical System';
-COMMENT ON COLUMN co.tka01.csm IS 'ALEMT — Cost center distribution method via ALE [centrum sumptus]';
+COMMENT ON COLUMN co.tka01.csm_dtb IS 'ALEMT — Cost center distribution method via ALE [centrum sumptus distributio]';
 COMMENT ON COLUMN co.tka01.cur IS 'MD_LOGSYSTEM — Logical system for master data maintenance [curatio]';
-COMMENT ON COLUMN co.tka01.hir_smp IS 'KHINR — Standard Hierarchy for Cost Centers [hierarchia sumptus]';
+COMMENT ON COLUMN co.tka01.nrm_hir_smp IS 'KHINR — Standard Hierarchy for Cost Centers [norma hierarchia sumptus]';
 COMMENT ON COLUMN co.tka01.idx IS 'KOMP1 — Indicator: Revenue must be converted [index]';
 COMMENT ON COLUMN co.tka01.idx_amd IS 'KOMP0 — Productive indicator for controlling area [index area moderationis]';
 COMMENT ON COLUMN co.tka01.idx2 IS 'KOMP2 — Indicator: reserve (not used at present) [index]';
@@ -1511,7 +1511,7 @@ COMMENT ON COLUMN co.tka01.clu_are IS 'PHINR — Profit center area [centrum luc
 COMMENT ON COLUMN co.tka01.clu_lbr IS 'PCLDG — Profit center ledger [centrum lucri liber]';
 COMMENT ON COLUMN co.tka01.vlm_clu IS 'PCBEL — Elimination of internal bus. volume for Profit Center Acctg [volumen centrum lucri]';
 COMMENT ON COLUMN co.tka01.idx_soc_mon IS 'XWBUK — Indicator: Different Company Code Currency is Allowed [index codex societatis moneta]';
-COMMENT ON COLUMN co.tka01.hir_are IS 'BPHINR — Standard Hierarchy Area [hierarchia area]';
+COMMENT ON COLUMN co.tka01.nrm_hir_are IS 'BPHINR — Standard Hierarchy Area [norma hierarchia area]';
 COMMENT ON COLUMN co.tka01.idx3 IS 'XBPALE — Indicator: ALE for active business process (process costs) [index]';
 COMMENT ON COLUMN co.tka01.smp_elm_ven IS 'KSTAR_FIN — Cost element for vendor downpayments w/o purchase ord. ref. [sumptus elementum venditor]';
 COMMENT ON COLUMN co.tka01.gen_vdt IS 'KSTAR_FID — Revenue type for debitor downpayments without sales ord. ref [genus venditio]';
@@ -1531,12 +1531,12 @@ COMMENT ON COLUMN co.tka01.psn_amd IS 'VNAME — Person Responsible for the Cont
 COMMENT ON COLUMN co.tka01.rat_aes IS 'PCA_ACC_DIFF — Account control when transferring valuation differences [ratio aestimatio]';
 COMMENT ON COLUMN co.tka01.aes_vis2 IS 'TP_VALOHB — Valuation View for Calculation Base [aestimatio visus]';
 COMMENT ON COLUMN co.tka01.clu2 IS 'DEFPRCTR — Default Profit Center for Nonassigned Processes [centrum lucri]';
-COMMENT ON COLUMN co.tka01.hir IS 'AUTH_USE_NO_STD — Do Not Use Standard Hierarchy for Authorizations [hierarchia]';
+COMMENT ON COLUMN co.tka01.nrm_hir IS 'AUTH_USE_NO_STD — Do Not Use Standard Hierarchy for Authorizations [norma hierarchia]';
 COMMENT ON COLUMN co.tka01.pri_hir IS 'AUTH_USE_ADD1 — Use First Alternative Hierarchy for Authorizations [primus hierarchia]';
-COMMENT ON COLUMN co.tka01.hir2 IS 'AUTH_USE_ADD2 — Use Second Alternative Hierarchy for Authorizations [hierarchia]';
-COMMENT ON COLUMN co.tka01.hir3 IS 'AUTH_KE_NO_STD — Do Not Use Standard Hierarchy for Authorizations (Operating Concern) [hierarchia]';
+COMMENT ON COLUMN co.tka01.hir IS 'AUTH_USE_ADD2 — Use Second Alternative Hierarchy for Authorizations [hierarchia]';
+COMMENT ON COLUMN co.tka01.nrm_hir2 IS 'AUTH_KE_NO_STD — Do Not Use Standard Hierarchy for Authorizations (Operating Concern) [norma hierarchia]';
 COMMENT ON COLUMN co.tka01.pri_hir2 IS 'AUTH_KE_USE_ADD1 — Use First Alternative Hierarchy for Authorizations (Operating Concern) [primus hierarchia]';
-COMMENT ON COLUMN co.tka01.hir4 IS 'AUTH_KE_USE_ADD2 — Use Second Alternative Hierarchy for Authorizations (Operating Concern) [hierarchia]';
+COMMENT ON COLUMN co.tka01.hir2 IS 'AUTH_KE_USE_ADD2 — Use Second Alternative Hierarchy for Authorizations (Operating Concern) [hierarchia]';
 
 CREATE TABLE IF NOT EXISTS co.tka02 (
   cli char(3),

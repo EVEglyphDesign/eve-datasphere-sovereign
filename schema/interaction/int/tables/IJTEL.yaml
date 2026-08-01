@@ -1,0 +1,197 @@
+table: IJTEL
+module: INT
+description: 'Telephony extension of the interaction journal. Keyed on the interaction line, so a voice
+  interaction carries its call detail without every other channel inheriting empty columns. Numbers are
+  held as salted hashes, never in the clear: a call record is personal data and the mirror is not a wiretap.'
+source: EVEglyphDesign canonical structure. Shapes follow standard call-detail and SIP session practice;
+  not a vendor table.
+fields:
+- name: RCLNT
+  description: Client
+  data_element: MANDT
+  datatype: CLNT
+  length: 3
+  decimals: 0
+  key: true
+  check_table: T000
+- name: IJYR
+  description: Interaction journal year
+  data_element: GJAHR
+  datatype: NUMC
+  length: 4
+  decimals: 0
+  key: true
+- name: IJNO
+  description: Interaction journal document number
+  data_element: EGD_IJNO
+  datatype: CHAR
+  length: 20
+  decimals: 0
+  key: true
+- name: IJLN
+  description: Interaction journal item
+  data_element: EGD_IJLN
+  datatype: NUMC
+  length: 6
+  decimals: 0
+  key: true
+- name: CDRREF
+  description: Call detail record reference in the source telephony platform
+  data_element: EGD_SRCID
+  datatype: CHAR
+  length: 60
+  decimals: 0
+  key: false
+- name: CALLID
+  description: Session identifier of the call
+  data_element: EGD_SRCID
+  datatype: CHAR
+  length: 60
+  decimals: 0
+  key: false
+- name: ANIHSH
+  description: Salted hash of the calling number
+  data_element: EGD_EVDHSH
+  datatype: CHAR
+  length: 64
+  decimals: 0
+  key: false
+- name: DNIHSH
+  description: Salted hash of the dialled number
+  data_element: EGD_EVDHSH
+  datatype: CHAR
+  length: 64
+  decimals: 0
+  key: false
+- name: NUMPFX
+  description: Dialling prefix retained for routing and geography, without identifying the subscriber
+  data_element: EGD_NUMPFX
+  datatype: CHAR
+  length: 8
+  decimals: 0
+  key: false
+- name: CARRIR
+  description: Carrier or trunk group the call traversed
+  data_element: EGD_CARRIR
+  datatype: CHAR
+  length: 30
+  decimals: 0
+  key: false
+- name: CALTYP
+  description: 'Call type: voice, video, conference, transfer leg or voicemail'
+  data_element: EGD_CALTYP
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+- name: RNGSEC
+  description: Ring time in seconds before the call was answered
+  data_element: EGD_DURSEC
+  datatype: DEC
+  length: 13
+  decimals: 0
+  key: false
+- name: TLKSEC
+  description: Talk time in seconds
+  data_element: EGD_DURSEC
+  datatype: DEC
+  length: 13
+  decimals: 0
+  key: false
+- name: HLDSEC
+  description: Hold time in seconds
+  data_element: EGD_DURSEC
+  datatype: DEC
+  length: 13
+  decimals: 0
+  key: false
+- name: WRPSEC
+  description: After-call work time in seconds
+  data_element: EGD_DURSEC
+  datatype: DEC
+  length: 13
+  decimals: 0
+  key: false
+- name: XFRCNT
+  description: Number of transfers the call went through
+  data_element: EGD_COUNT
+  datatype: NUMC
+  length: 3
+  decimals: 0
+  key: false
+- name: ABANDN
+  description: Call abandoned before answer
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: DISPCD
+  description: Disposition code recorded at the end of the call
+  data_element: EGD_RESCOD
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+- name: CODEC
+  description: Audio codec negotiated for the session
+  data_element: EGD_CODEC
+  datatype: CHAR
+  length: 20
+  decimals: 0
+  key: false
+- name: MOSSCR
+  description: Mean opinion score of call quality
+  data_element: EGD_MOSSCR
+  datatype: DEC
+  length: 3
+  decimals: 1
+  key: false
+- name: JITTMS
+  description: Average jitter in milliseconds
+  data_element: EGD_LATMS
+  datatype: DEC
+  length: 9
+  decimals: 2
+  key: false
+- name: PKTLOS
+  description: Packet loss during the session, as a percentage
+  data_element: EGD_ATTPCT
+  datatype: DEC
+  length: 5
+  decimals: 2
+  key: false
+- name: LATMS
+  description: Mean round-trip latency in milliseconds
+  data_element: EGD_LATMS
+  datatype: DEC
+  length: 9
+  decimals: 2
+  key: false
+- name: RECIND
+  description: Call recorded indicator
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: RECREF
+  description: Recording reference in the source platform; the recording itself is not mirrored
+  data_element: EGD_SRCID
+  datatype: CHAR
+  length: 60
+  decimals: 0
+  key: false
+- name: TRNIND
+  description: Transcript exists indicator
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+foreign_keys:
+- field: RCLNT
+  check_table: T000
+  check_field: MANDT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

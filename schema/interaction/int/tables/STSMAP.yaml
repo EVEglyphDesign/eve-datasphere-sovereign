@@ -1,0 +1,79 @@
+table: STSMAP
+module: INT
+description: Status crosswalk. Salesforce case statuses, ServiceNow incident states, telephony dispositions
+  and a parish register's own words all resolve to one canonical status set, while the source value stays
+  on the interaction line untouched. Normalisation that destroys the original is not normalisation, it
+  is loss.
+source: EVEglyphDesign canonical structure.
+fields:
+- name: RCLNT
+  description: Client
+  data_element: MANDT
+  datatype: CLNT
+  length: 3
+  decimals: 0
+  key: true
+  check_table: T000
+- name: SRCSYS
+  description: Source system key
+  data_element: EGD_SRCSYS
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: true
+  check_table: SYSRC
+- name: SRCTYP
+  description: Source object or table name
+  data_element: EGD_SRCTYP
+  datatype: CHAR
+  length: 40
+  decimals: 0
+  key: true
+- name: SRCSTA
+  description: Source status value
+  data_element: EGD_SRCSTA
+  datatype: CHAR
+  length: 40
+  decimals: 0
+  key: true
+- name: STATUS
+  description: Canonical status the source value resolves to
+  data_element: EGD_STATUS
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+- name: STATXT
+  description: Canonical status description
+  data_element: TEXT60
+  datatype: CHAR
+  length: 60
+  decimals: 0
+  key: false
+- name: OPNCLS
+  description: Open, closed or cancelled classification
+  data_element: EGD_OPNCLS
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: SLACLK
+  description: Status stops the service level clock
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: TERMNL
+  description: Status is terminal in the source system
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+foreign_keys:
+- field: SRCSYS
+  check_table: SYSRC
+  check_field: SRCSYS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

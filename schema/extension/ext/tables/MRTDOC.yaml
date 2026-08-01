@@ -1,0 +1,160 @@
+table: MRTDOC
+module: EXT
+description: Recognition ledger. Units minted against verified effect lines, held by member organisations
+  and spent on standing within the community. It is a ledger in its own right, double-sided and reversible,
+  because a recognition that cannot be audited is a marketing claim. Minting requires a verified ACDOCX
+  line behind it; nothing is minted from an intention.
+source: EVEglyphDesign extension. Community-minted recognition, not a financial instrument or security.
+fields:
+- name: RCLNT
+  description: Client
+  data_element: MANDT
+  datatype: CLNT
+  length: 3
+  decimals: 0
+  key: true
+  check_table: T000
+- name: MRTYR
+  description: Recognition ledger year
+  data_element: GJAHR
+  datatype: NUMC
+  length: 4
+  decimals: 0
+  key: true
+- name: MRTNO
+  description: Recognition document number
+  data_element: EGD_MRTNO
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: true
+- name: MRTLN
+  description: Recognition document item
+  data_element: EGD_MRTLN
+  datatype: NUMC
+  length: 3
+  decimals: 0
+  key: true
+- name: MRTTYP
+  description: 'Document type: mint, transfer, hold, spend or reversal'
+  data_element: EGD_MRTTYP
+  datatype: CHAR
+  length: 4
+  decimals: 0
+  key: false
+- name: MEMBER
+  description: Member organisation holding or receiving the units
+  data_element: EGD_MEMBER
+  datatype: CHAR
+  length: 18
+  decimals: 0
+  key: false
+  check_table: MEMBR
+- name: MRTAMT
+  description: Recognition units on this item
+  data_element: EGD_MRTAMT
+  datatype: DEC
+  length: 23
+  decimals: 3
+  key: false
+- name: DEBCRE
+  description: Debit or credit indicator of the recognition item
+  data_element: SHKZG
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: EFFCAT
+  description: Effect category the units were minted against
+  data_element: EGD_EFFCAT
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+  check_table: EFFCAT
+- name: SRCBLN
+  description: Source accounting document number of the effect line
+  data_element: BELNR_D
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+- name: SRCGJR
+  description: Source fiscal year of the effect line
+  data_element: GJAHR
+  datatype: NUMC
+  length: 4
+  decimals: 0
+  key: false
+- name: SRCDLN
+  description: Source posting item of the effect line
+  data_element: DOCLN6
+  datatype: CHAR
+  length: 6
+  decimals: 0
+  key: false
+- name: SRCEFF
+  description: Source effect item counter of the effect line
+  data_element: EGD_EFFLN
+  datatype: NUMC
+  length: 3
+  decimals: 0
+  key: false
+- name: VERSTA
+  description: Verification status inherited from the effect line at the time of minting
+  data_element: EGD_VERSTA
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: MRTDAT
+  description: Posting date of the recognition item
+  data_element: DATUM
+  datatype: DATS
+  length: 8
+  decimals: 0
+  key: false
+- name: MRTPER
+  description: Recognition period
+  data_element: POPER
+  datatype: NUMC
+  length: 3
+  decimals: 0
+  key: false
+- name: EXPDAT
+  description: Expiry date after which unspent units decay
+  data_element: DATUM
+  datatype: DATS
+  length: 8
+  decimals: 0
+  key: false
+- name: USNAM
+  description: User name that posted the recognition item
+  data_element: USNAM
+  datatype: CHAR
+  length: 12
+  decimals: 0
+  key: false
+- name: REVDOC
+  description: Recognition document this item reverses
+  data_element: EGD_MRTNO
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+- name: MRTHSH
+  description: SHA-256 hash chaining this item to the previous recognition item
+  data_element: EGD_EVDHSH
+  datatype: CHAR
+  length: 64
+  decimals: 0
+  key: false
+foreign_keys:
+- field: MEMBER
+  check_table: MEMBR
+  check_field: MEMBER
+- field: EFFCAT
+  check_table: EFFCAT
+  check_field: EFFCAT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

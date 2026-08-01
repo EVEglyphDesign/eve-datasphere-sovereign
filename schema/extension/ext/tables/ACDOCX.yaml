@@ -1,0 +1,343 @@
+table: ACDOCX
+module: EXT
+description: 'Universal Journal societal effect line. The extension at the edge of ACDOCA: for one accounting
+  document line, zero or more effect lines recording what that money did in the world. The key is ACDOCA''s
+  own key plus an effect item counter, so an effect line cannot exist without a posting behind it and
+  the financial line is never modified. A ledger that records only the amount records half the transaction.'
+source: EVEglyphDesign extension. Not an SAP structure. Keyed on ACDOCA; ACDOCA is unchanged.
+fields:
+- name: RCLNT
+  description: Client
+  data_element: MANDT
+  datatype: CLNT
+  length: 3
+  decimals: 0
+  key: true
+  check_table: T000
+- name: RLDNR
+  description: Ledger in General Ledger Accounting
+  data_element: FINS_LEDGER
+  datatype: CHAR
+  length: 2
+  decimals: 0
+  key: true
+  check_table: FINSC_LEDGER
+- name: RBUKRS
+  description: Company Code
+  data_element: BUKRS
+  datatype: CHAR
+  length: 4
+  decimals: 0
+  key: true
+  check_table: T001
+- name: GJAHR
+  description: Fiscal Year
+  data_element: GJAHR
+  datatype: NUMC
+  length: 4
+  decimals: 0
+  key: true
+- name: BELNR
+  description: Accounting Document Number
+  data_element: BELNR_D
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: true
+- name: DOCLN
+  description: Six-Character Posting Item for Ledger
+  data_element: DOCLN6
+  datatype: CHAR
+  length: 6
+  decimals: 0
+  key: true
+- name: EFFLN
+  description: Effect item counter within the posting item
+  data_element: EGD_EFFLN
+  datatype: NUMC
+  length: 3
+  decimals: 0
+  key: true
+- name: EFFCAT
+  description: Effect category — what kind of societal effect this is
+  data_element: EGD_EFFCAT
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+  check_table: EFFCAT
+- name: EFFDIR
+  description: 'Effect direction: benefit, burden or neutral disclosure'
+  data_element: EGD_EFFDIR
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: EFFQTY
+  description: Effect quantity — the measured amount of the effect
+  data_element: EGD_EFFQTY
+  datatype: QUAN
+  length: 23
+  decimals: 3
+  key: false
+- name: EFFUOM
+  description: Unit of measure of the effect quantity
+  data_element: MEINS
+  datatype: UNIT
+  length: 3
+  decimals: 0
+  key: false
+  check_table: T006
+- name: EFFAMT
+  description: Monetised value of the effect in the ledger currency, where a defensible price exists
+  data_element: EGD_EFFAMT
+  datatype: CURR
+  length: 23
+  decimals: 2
+  key: false
+- name: EFFCUR
+  description: Currency key of the monetised effect value
+  data_element: WAERS
+  datatype: CUKY
+  length: 5
+  decimals: 0
+  key: false
+  check_table: TCURC
+- name: BENGRP
+  description: Beneficiary group — the community, cohort or public that received the effect
+  data_element: EGD_BENGRP
+  datatype: CHAR
+  length: 18
+  decimals: 0
+  key: false
+- name: BENREG
+  description: Beneficiary region — geography in which the effect landed
+  data_element: REGIO
+  datatype: CHAR
+  length: 3
+  decimals: 0
+  key: false
+  check_table: T005S
+- name: ATTMTH
+  description: 'Attribution method: how this effect was assigned to this posting line'
+  data_element: EGD_ATTMTH
+  datatype: CHAR
+  length: 4
+  decimals: 0
+  key: false
+- name: ATTPCT
+  description: Attribution share of the effect claimed by this line, as a percentage
+  data_element: EGD_ATTPCT
+  datatype: DEC
+  length: 5
+  decimals: 2
+  key: false
+- name: EFFSTD
+  description: Reporting standard datapoint this effect answers to
+  data_element: EGD_EFFSTD
+  datatype: CHAR
+  length: 20
+  decimals: 0
+  key: false
+  check_table: EFFSTD
+- name: EVDTYP
+  description: 'Evidence type: measured, metered, surveyed, attested or estimated'
+  data_element: EGD_EVDTYP
+  datatype: CHAR
+  length: 4
+  decimals: 0
+  key: false
+- name: EVDREF
+  description: Evidence reference — document, meter, attestation or ledger hash supporting the claim
+  data_element: EGD_EVDREF
+  datatype: CHAR
+  length: 60
+  decimals: 0
+  key: false
+- name: EVDHSH
+  description: SHA-256 content hash of the evidence, so a claim cannot be silently restated
+  data_element: EGD_EVDHSH
+  datatype: CHAR
+  length: 64
+  decimals: 0
+  key: false
+- name: VERSTA
+  description: 'Verification status: unverified, self-attested, peer-reviewed or independently assured'
+  data_element: EGD_VERSTA
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: VERPTY
+  description: Verifying party — member or body that reviewed the claim
+  data_element: EGD_VERPTY
+  datatype: CHAR
+  length: 18
+  decimals: 0
+  key: false
+  check_table: MEMBR
+- name: VERDAT
+  description: Verification date
+  data_element: DATUM
+  datatype: DATS
+  length: 8
+  decimals: 0
+  key: false
+- name: MRTAMT
+  description: Recognition units minted against this effect line
+  data_element: EGD_MRTAMT
+  datatype: DEC
+  length: 23
+  decimals: 3
+  key: false
+- name: MRTSTA
+  description: 'Minting status: pending, minted, held or reversed'
+  data_element: EGD_MRTSTA
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: MEMBER
+  description: Member organisation credited with the effect
+  data_element: EGD_MEMBER
+  datatype: CHAR
+  length: 18
+  decimals: 0
+  key: false
+  check_table: MEMBR
+- name: DSTLVL
+  description: 'Distribution level: the organisational depth to which this effect is pushed down'
+  data_element: EGD_DSTLVL
+  datatype: CHAR
+  length: 4
+  decimals: 0
+  key: false
+- name: KOSTL
+  description: Cost Center carrying the effect, where the effect is distributed to a cost object
+  data_element: KOSTL
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+  check_table: CSKS
+- name: PRCTR
+  description: Profit Center carrying the effect
+  data_element: PRCTR
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+  check_table: CEPC
+- name: PS_PSP_PNR
+  description: Work Breakdown Structure Element carrying the effect
+  data_element: PS_PSP_PNR
+  datatype: NUMC
+  length: 8
+  decimals: 0
+  key: false
+  check_table: PRPS
+- name: AUFNR
+  description: Order Number carrying the effect
+  data_element: AUFNR
+  datatype: CHAR
+  length: 12
+  decimals: 0
+  key: false
+  check_table: AUFK
+- name: MATNR
+  description: Material Number the effect attaches to
+  data_element: MATNR
+  datatype: CHAR
+  length: 40
+  decimals: 0
+  key: false
+  check_table: MARA
+- name: LIFNR
+  description: Vendor Account Number, where the effect occurred upstream in the supply chain
+  data_element: LIFNR
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+  check_table: LFA1
+- name: KUNNR
+  description: Customer Number, where the effect occurred downstream
+  data_element: KUNNR
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+  check_table: KNA1
+- name: SCOPE1
+  description: 'Scope classification for emissions-type effects: 1, 2 or 3'
+  data_element: EGD_SCOPE
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: PERBEG
+  description: Effect period start date
+  data_element: DATUM
+  datatype: DATS
+  length: 8
+  decimals: 0
+  key: false
+- name: PEREND
+  description: Effect period end date
+  data_element: DATUM
+  datatype: DATS
+  length: 8
+  decimals: 0
+  key: false
+- name: CPUDT
+  description: Date on which the effect line was entered
+  data_element: CPUDT
+  datatype: DATS
+  length: 8
+  decimals: 0
+  key: false
+- name: CPUTM
+  description: Time at which the effect line was entered
+  data_element: CPUTM
+  datatype: TIMS
+  length: 6
+  decimals: 0
+  key: false
+- name: USNAM
+  description: User name that entered the effect line
+  data_element: USNAM
+  datatype: CHAR
+  length: 12
+  decimals: 0
+  key: false
+- name: REVLN
+  description: Reversal reference to the effect line this line reverses
+  data_element: EGD_EFFLN
+  datatype: NUMC
+  length: 3
+  decimals: 0
+  key: false
+foreign_keys:
+- field: RBUKRS
+  check_table: T001
+  check_field: BUKRS
+- field: EFFCAT
+  check_table: EFFCAT
+  check_field: EFFCAT
+- field: EFFSTD
+  check_table: EFFSTD
+  check_field: EFFSTD
+- field: MEMBER
+  check_table: MEMBR
+  check_field: MEMBER
+- field: KOSTL
+  check_table: CSKS
+  check_field: KOSTL
+- field: PRCTR
+  check_table: CEPC
+  check_field: PRCTR
+- field: AUFNR
+  check_table: AUFK
+  check_field: AUFNR
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -832,6 +832,479 @@ ACDOCA:
       derived: true
       latin: index reversio
   module: FI
+ACDOCI:
+  fields:
+    AUFNR:
+      canonical: MND_NUM_ITR
+      concepts:
+      - order
+      - number
+      - interaction
+      derived: true
+      latin: mandatum numerus commercium
+    BEGDAT:
+      canonical: ITR_INI_DIE
+      concepts:
+      - interaction
+      - start
+      - date
+      derived: true
+      latin: commercium initium dies
+    BEGTIM:
+      canonical: ITR_INI_TMP
+      concepts:
+      - interaction
+      - start
+      - time
+      derived: true
+      latin: commercium initium tempus
+    CHANNL:
+      canonical: CNL_ITR
+      concepts:
+      - channel
+      - interaction
+      derived: true
+      latin: canalis commercium
+    CNSREF:
+      canonical: CNS_RFR
+      concepts:
+      - consent
+      - reference
+      derived: true
+      latin: consensus referentia
+    CNSSTA:
+      canonical: CNS_STA_ITR
+      concepts:
+      - consent
+      - status
+      - interaction
+      derived: true
+      latin: consensus status commercium
+    CNTHSH:
+      canonical: HSH_TBL
+      concepts:
+      - hash
+      - record
+      derived: true
+      latin: summa digesta tabula
+    CNTREF:
+      canonical: RFR_ITR_SOR
+      concepts:
+      - reference
+      - interaction
+      - source system
+      derived: true
+      latin: referentia commercium systema originis
+    COSTAM:
+      canonical: SMS_ITR
+      concepts:
+      - cost to serve
+      - interaction
+      derived: true
+      latin: sumptus serviendi commercium
+    COSTCU:
+      canonical: CVM_SMS
+      concepts:
+      - currency key
+      - cost to serve
+      derived: true
+      latin: clavis monetae sumptus serviendi
+    CSATSC:
+      canonical: PSF_ITR
+      concepts:
+      - satisfaction score
+      - interaction
+      derived: true
+      latin: punctum satisfactionis commercium
+    DEVTYP:
+      canonical: GIN_PIN
+      concepts:
+      - device type
+      - initiating party
+      derived: true
+      latin: genus instrumenti persona incipiens
+    DIRECT:
+      canonical: DRC
+      concepts:
+      - direction
+      derived: true
+      latin: directio
+    DURSEC:
+      canonical: ITR_MRA
+      concepts:
+      - interaction
+      - duration
+      derived: true
+      latin: commercium mora
+    EFFLN:
+      canonical: EFC_POS_NMR
+      concepts:
+      - effect
+      - item
+      - counter
+      derived: true
+      latin: effectus positio numerator
+    ENDDAT:
+      canonical: ITR_FIN_DIE
+      concepts:
+      - interaction
+      - end
+      - date
+      derived: true
+      latin: commercium finis dies
+    ENDTIM:
+      canonical: ITR_FIN_TMP
+      concepts:
+      - interaction
+      - end
+      - time
+      derived: true
+      latin: commercium finis tempus
+    EQUNR:
+      canonical: INM_NUM_ITR
+      concepts:
+      - equipment
+      - number
+      - interaction
+      derived: true
+      latin: instrumentum numerus commercium
+    ESCLVL:
+      canonical: ESC_GRD
+      concepts:
+      - escalation
+      - level
+      derived: true
+      latin: escalatio gradus
+    FI_BELNR:
+      canonical: NDO_ITR_INS
+      concepts:
+      - document number
+      - interaction
+      - posting
+      derived: true
+      latin: numerus documenti commercium inscriptio
+    FI_DOCLN:
+      canonical: INS_POS_DOC
+      concepts:
+      - posting
+      - item
+      - document
+      derived: true
+      latin: inscriptio positio documentum
+    FI_GJAHR:
+      canonical: ANF_DOC
+      concepts:
+      - fiscal year
+      - document
+      derived: true
+      latin: annus fiscalis documentum
+    FSTSEC:
+      canonical: RSP_TMP
+      concepts:
+      - first response
+      - time
+      derived: true
+      latin: responsum primum tempus
+    GEOREG:
+      canonical: REG_ITR
+      concepts:
+      - region
+      - interaction
+      derived: true
+      latin: regio commercium
+    IJLN:
+      canonical: EPH_POS
+      concepts:
+      - interaction journal
+      - item
+      derived: true
+      latin: ephemeris commercii positio
+    IJNO:
+      canonical: EPH_NDO
+      concepts:
+      - interaction journal
+      - document number
+      derived: true
+      latin: ephemeris commercii numerus documenti
+    IJYR:
+      canonical: EPH_ANN
+      concepts:
+      - interaction journal
+      - year
+      derived: true
+      latin: ephemeris commercii annus
+    INTTYP:
+      canonical: ITR_GEN_VOC
+      concepts:
+      - interaction
+      - type
+      - call
+      derived: true
+      latin: commercium genus vocatio
+    KOSTL:
+      canonical: CSM_SMP_ITR
+      concepts:
+      - cost center
+      - cost
+      - interaction
+      derived: true
+      latin: centrum sumptus sumptus commercium
+    KUNNR:
+      canonical: EMP_NUM_TBL
+      concepts:
+      - customer
+      - number
+      - record
+      derived: true
+      latin: emptor numerus tabula
+    LAND1:
+      canonical: PTR_CLV_ITR
+      concepts:
+      - country
+      - key
+      - interaction
+      derived: true
+      latin: patria clavis commercium
+    LEGHLD:
+      canonical: IDX
+      concepts:
+      - indicator
+      derived: true
+      latin: index
+    LIFNR:
+      canonical: VEN_RAT_NUM
+      concepts:
+      - vendor
+      - account
+      - number
+      derived: true
+      latin: venditor ratio numerus
+    MEMBER:
+      canonical: ORM_ITR
+      concepts:
+      - member organisation
+      - interaction
+      derived: true
+      latin: organizatio membri commercium
+    MIRHSH:
+      canonical: HSH_FNS
+      concepts:
+      - hash
+      - source
+      derived: true
+      latin: summa digesta fons
+    MIRTS:
+      canonical: SPC_FNS
+      concepts:
+      - mirror
+      - source
+      derived: true
+      latin: speculum fons
+    PIIIND:
+      canonical: IDX_CNS
+      concepts:
+      - indicator
+      - consent
+      derived: true
+      latin: index consensus
+    PRCTR:
+      canonical: CLU_ITR
+      concepts:
+      - profit center
+      - interaction
+      derived: true
+      latin: centrum lucri commercium
+    PRIORT:
+      canonical: PRI_SOR
+      concepts:
+      - priority
+      - source system
+      derived: true
+      latin: prioritas systema originis
+    PS_PSP_PNR:
+      canonical: OPS_ELM_ITR
+      concepts:
+      - work
+      - element
+      - interaction
+      derived: true
+      latin: opus elementum commercium
+    PTYINI:
+      canonical: PIN_PSN_CLV
+      concepts:
+      - initiating party
+      - party
+      - key
+      derived: true
+      latin: persona incipiens persona clavis
+    PTYOWN:
+      canonical: PSN_ITR
+      concepts:
+      - party
+      - interaction
+      derived: true
+      latin: persona commercium
+    PTYREC:
+      canonical: PRC_PSN_CLV
+      concepts:
+      - receiving party
+      - party
+      - key
+      derived: true
+      latin: persona recipiens persona clavis
+    QUEUE:
+      canonical: ORD_OPS_CTS
+      concepts:
+      - queue
+      - work
+      - group
+      derived: true
+      latin: ordo expectantium opus coetus
+    RBUKRS:
+      canonical: SOC_ITR
+      concepts:
+      - company code
+      - interaction
+      derived: true
+      latin: codex societatis commercium
+    RCLNT:
+      canonical: CLI
+      concepts:
+      - client
+      derived: true
+      latin: cliens
+    REOPEN:
+      canonical: NUM_ITR
+      concepts:
+      - number
+      - interaction
+      derived: true
+      latin: numerus commercium
+    RESCOD:
+      canonical: RSL_COD
+      concepts:
+      - resolution
+      - code
+      derived: true
+      latin: resolutio codex
+    RESSEC:
+      canonical: TMP_RSL
+      concepts:
+      - time
+      - resolution
+      derived: true
+      latin: tempus resolutio
+    RETPOL:
+      canonical: RTN_CLV
+      concepts:
+      - retention
+      - key
+      derived: true
+      latin: retentio clavis
+    REVLN:
+      canonical: RVS_RFR_ITR
+      concepts:
+      - reversal
+      - reference
+      - interaction
+      derived: true
+      latin: reversio referentia commercium
+    SENTIM:
+      canonical: AFF_ITR_CNS
+      concepts:
+      - sentiment
+      - interaction
+      - consent
+      derived: true
+      latin: affectus commercium consensus
+    SEVERT:
+      canonical: GRV_SOR
+      concepts:
+      - severity
+      - source system
+      derived: true
+      latin: gravitas systema originis
+    SPRAS:
+      canonical: LNG_ITR
+      concepts:
+      - language
+      - interaction
+      derived: true
+      latin: lingua commercium
+    SRCID:
+      canonical: TOR
+      concepts:
+      - source record
+      derived: true
+      latin: tabula originis
+    SRCMOD:
+      canonical: ULT_SOR
+      concepts:
+      - last
+      - source system
+      derived: true
+      latin: ultimus systema originis
+    SRCPAR:
+      canonical: FNS_TBL_ITR
+      concepts:
+      - source
+      - record
+      - interaction
+      derived: true
+      latin: fons tabula commercium
+    SRCSTA:
+      canonical: STA_VAL_SOR
+      concepts:
+      - status
+      - value
+      - source system
+      derived: true
+      latin: status valor systema originis
+    SRCSYS:
+      canonical: FNS_SYS_ITR
+      concepts:
+      - source
+      - system of record
+      - interaction
+      derived: true
+      latin: fons systema tabularum commercium
+    SRCTYP:
+      canonical: FNS_OBI_TBL
+      concepts:
+      - source
+      - object
+      - table
+      derived: true
+      latin: fons obiectum tabula
+    STATUS:
+      canonical: STA_SOR
+      concepts:
+      - status
+      - source system
+      derived: true
+      latin: status systema originis
+    SUBJRF:
+      canonical: RFR_SOR
+      concepts:
+      - reference
+      - source system
+      derived: true
+      latin: referentia systema originis
+    TOPIC:
+      canonical: ARG_ITR
+      concepts:
+      - topic
+      - interaction
+      derived: true
+      latin: argumentum commercium
+    TZONE:
+      canonical: ZTM_ITR
+      concepts:
+      - time zone
+      - interaction
+      derived: true
+      latin: zona temporis commercium
+  module: INT
 ACDOCP:
   fields:
     AUFNR:
@@ -1473,6 +1946,320 @@ ACDOCU:
       derived: true
       latin: usor nomen
   module: FI
+ACDOCX:
+  fields:
+    ATTMTH:
+      canonical: ATB_EFC_INS
+      concepts:
+      - attribution
+      - effect
+      - posting
+      derived: true
+      latin: attributio effectus inscriptio
+    ATTPCT:
+      canonical: ATB_EFC
+      concepts:
+      - attribution
+      - effect
+      derived: true
+      latin: attributio effectus
+    AUFNR:
+      canonical: MND_NUM_EFC
+      concepts:
+      - order
+      - number
+      - effect
+      derived: true
+      latin: mandatum numerus effectus
+    BELNR:
+      canonical: NDO
+      concepts:
+      - document number
+      derived: true
+      latin: numerus documenti
+    BENGRP:
+      canonical: BNF_CTS_CMN
+      concepts:
+      - beneficiary
+      - group
+      - community
+      derived: true
+      latin: beneficiarius coetus communitas
+    BENREG:
+      canonical: BNF_REG_EFC
+      concepts:
+      - beneficiary
+      - region
+      - effect
+      derived: true
+      latin: beneficiarius regio effectus
+    CPUDT:
+      canonical: DIE_EFC
+      concepts:
+      - date
+      - effect
+      derived: true
+      latin: dies effectus
+    CPUTM:
+      canonical: TMP_EFC
+      concepts:
+      - time
+      - effect
+      derived: true
+      latin: tempus effectus
+    DOCLN:
+      canonical: INS_POS_LBR
+      concepts:
+      - posting
+      - item
+      - ledger
+      derived: true
+      latin: inscriptio positio liber
+    DSTLVL:
+      canonical: GDS_EFC
+      concepts:
+      - distribution level
+      - effect
+      derived: true
+      latin: gradus distributionis effectus
+    EFFAMT:
+      canonical: VMN_EFC_LBR
+      concepts:
+      - monetised value
+      - effect
+      - ledger
+      derived: true
+      latin: valor monetarius effectus liber
+    EFFCAT:
+      canonical: GEF_EFS
+      concepts:
+      - effect category
+      - societal effect
+      derived: true
+      latin: genus effectus effectus socialis
+    EFFCUR:
+      canonical: CVM_EFC_VAL
+      concepts:
+      - currency key
+      - effect
+      - value
+      derived: true
+      latin: clavis monetae effectus valor
+    EFFDIR:
+      canonical: EFC_DRC_PTF
+      concepts:
+      - effect
+      - direction
+      - disclosure
+      derived: true
+      latin: effectus directio patefactio
+    EFFLN:
+      canonical: EFC_POS_NMR
+      concepts:
+      - effect
+      - item
+      - counter
+      derived: true
+      latin: effectus positio numerator
+    EFFQTY:
+      canonical: EFC_QNT_SUM
+      concepts:
+      - effect
+      - quantity
+      - amount
+      derived: true
+      latin: effectus quantitas summa
+    EFFSTD:
+      canonical: PNM_EFC
+      concepts:
+      - standard datapoint
+      - effect
+      derived: true
+      latin: punctum normae effectus
+    EFFUOM:
+      canonical: MEN_EFC_QNT
+      concepts:
+      - unit of measure
+      - effect
+      - quantity
+      derived: true
+      latin: mensura effectus quantitas
+    EVDHSH:
+      canonical: HSH_EVD
+      concepts:
+      - hash
+      - evidence
+      derived: true
+      latin: summa digesta evidentia
+    EVDREF:
+      canonical: EVD_RFR_DOC
+      concepts:
+      - evidence
+      - reference
+      - document
+      derived: true
+      latin: evidentia referentia documentum
+    EVDTYP:
+      canonical: EVD_GEN
+      concepts:
+      - evidence
+      - type
+      derived: true
+      latin: evidentia genus
+    GJAHR:
+      canonical: ANF
+      concepts:
+      - fiscal year
+      derived: true
+      latin: annus fiscalis
+    KOSTL:
+      canonical: CSM_EFC_SMP
+      concepts:
+      - cost center
+      - effect
+      - cost
+      derived: true
+      latin: centrum sumptus effectus sumptus
+    KUNNR:
+      canonical: EMP_NUM_EFC
+      concepts:
+      - customer
+      - number
+      - effect
+      derived: true
+      latin: emptor numerus effectus
+    LIFNR:
+      canonical: VEN_RAT_NUM
+      concepts:
+      - vendor
+      - account
+      - number
+      derived: true
+      latin: venditor ratio numerus
+    MATNR:
+      canonical: MAT_NUM_EFC
+      concepts:
+      - material
+      - number
+      - effect
+      derived: true
+      latin: materia numerus effectus
+    MEMBER:
+      canonical: ORM_EFC
+      concepts:
+      - member organisation
+      - effect
+      derived: true
+      latin: organizatio membri effectus
+    MRTAMT:
+      canonical: RCG_EFC
+      concepts:
+      - recognition
+      - effect
+      derived: true
+      latin: recognitio effectus
+    MRTSTA:
+      canonical: CUS_STA
+      concepts:
+      - minting
+      - status
+      derived: true
+      latin: cusio status
+    PERBEG:
+      canonical: EFC_PER_INI
+      concepts:
+      - effect
+      - period
+      - start
+      derived: true
+      latin: effectus periodus initium
+    PEREND:
+      canonical: EFC_PER_FIN
+      concepts:
+      - effect
+      - period
+      - end
+      derived: true
+      latin: effectus periodus finis
+    PRCTR:
+      canonical: CLU_EFC
+      concepts:
+      - profit center
+      - effect
+      derived: true
+      latin: centrum lucri effectus
+    PS_PSP_PNR:
+      canonical: OPS_ELM_EFC
+      concepts:
+      - work
+      - element
+      - effect
+      derived: true
+      latin: opus elementum effectus
+    RBUKRS:
+      canonical: SOC
+      concepts:
+      - company code
+      derived: true
+      latin: codex societatis
+    RCLNT:
+      canonical: CLI
+      concepts:
+      - client
+      derived: true
+      latin: cliens
+    REVLN:
+      canonical: RVS_RFR_EFC
+      concepts:
+      - reversal
+      - reference
+      - effect
+      derived: true
+      latin: reversio referentia effectus
+    RLDNR:
+      canonical: LBR
+      concepts:
+      - ledger
+      derived: true
+      latin: liber
+    SCOPE1:
+      canonical: AMB_EMS_GEN
+      concepts:
+      - scope
+      - emissions
+      - type
+      derived: true
+      latin: ambitus emissiones genus
+    USNAM:
+      canonical: USR_NOM_EFC
+      concepts:
+      - user
+      - name
+      - effect
+      derived: true
+      latin: usor nomen effectus
+    VERDAT:
+      canonical: VRF_DIE
+      concepts:
+      - verification
+      - date
+      derived: true
+      latin: verificatio dies
+    VERPTY:
+      canonical: PVR_MBR
+      concepts:
+      - verifying party
+      - member
+      derived: true
+      latin: pars verificans membrum
+    VERSTA:
+      canonical: VRF_STA
+      concepts:
+      - verification
+      - status
+      derived: true
+      latin: verificatio status
+  module: EXT
 ADR2:
   fields:
     ADDRNUMBER:
@@ -1519,12 +2306,13 @@ ADR2:
       derived: true
       latin: index telephonum
     FLGDEFAULT:
-      canonical: DML_GEN
+      canonical: NRM_DML_GEN
       concepts:
+      - standard
       - address
       - type
       derived: true
-      latin: domicilium genus
+      latin: norma domicilium genus
     FLG_NOUSE:
       canonical: SGN_NUM
       concepts:
@@ -1533,7 +2321,7 @@ ADR2:
       derived: true
       latin: signum numerus
     HOME_FLAG:
-      canonical: DML_GEN2
+      canonical: DML_GEN
       concepts:
       - address
       - type
@@ -1633,12 +2421,13 @@ ADR3:
       derived: true
       latin: validus ab dies emissio
     DFT_RECEIV:
-      canonical: SGN_NUM2
+      canonical: SGN_NRM_NUM
       concepts:
       - flag
+      - standard
       - number
       derived: true
-      latin: signum numerus
+      latin: signum norma numerus
     FAXNR_CALL:
       canonical: NUM
       concepts:
@@ -1671,12 +2460,13 @@ ADR3:
       derived: true
       latin: numerus codex
     FLGDEFAULT:
-      canonical: DML_GEN
+      canonical: NRM_DML_GEN
       concepts:
+      - standard
       - address
       - type
       derived: true
-      latin: domicilium genus
+      latin: norma domicilium genus
     FLG_NOUSE:
       canonical: SGN_NUM
       concepts:
@@ -1685,7 +2475,7 @@ ADR3:
       derived: true
       latin: signum numerus
     HOME_FLAG:
-      canonical: DML_GEN2
+      canonical: DML_GEN
       concepts:
       - address
       - type
@@ -1748,12 +2538,13 @@ ADR6:
       derived: true
       latin: validus ab dies emissio
     DFT_RECEIV:
-      canonical: SGN_DML2
+      canonical: SGN_NRM_DML
       concepts:
       - flag
+      - standard
       - address
       derived: true
-      latin: signum domicilium
+      latin: signum norma domicilium
     ENCODE:
       canonical: ENCODE
       concepts: []
@@ -1904,12 +2695,13 @@ ADRC:
       derived: true
       latin: validus ad dies emissio
     DEFLT_COMM:
-      canonical: CLV_DML
+      canonical: CLV_DML_CNL
       concepts:
       - key
       - address
+      - channel
       derived: true
-      latin: clavis domicilium
+      latin: clavis domicilium canalis
     FAX_NUMBER:
       canonical: PRI_COD_NUM
       concepts:
@@ -2055,12 +2847,12 @@ ADRC:
       derived: true
       latin: primus telephonum codex
     TIME_ZONE:
-      canonical: DML_TMP
+      canonical: DML_ZTM
       concepts:
       - address
-      - time
+      - time zone
       derived: true
-      latin: domicilium tempus
+      latin: domicilium zona temporis
     TITLE:
       canonical: FRM_DML_CLV
       concepts:
@@ -2198,12 +2990,13 @@ AFFH:
       derived: true
       latin: summa totalis valor productio
     EWVGW:
-      canonical: VAL_PRD
+      canonical: NRM_VAL_PRD
       concepts:
+      - standard
       - value
       - production
       derived: true
-      latin: valor productio
+      latin: norma valor productio
     FEFHD:
       canonical: FIN_DIE
       concepts:
@@ -2235,13 +3028,13 @@ AFFH:
       derived: true
       latin: actualis initium dies
     KTSCH:
-      canonical: TXT_CLV_PRD
+      canonical: NRM_TXT_CLV
       concepts:
+      - standard
       - text
       - key
-      - production
       derived: true
-      latin: textus clavis productio
+      latin: norma textus clavis
     KZKBL:
       canonical: IDX3
       concepts:
@@ -2307,12 +3100,13 @@ AFFH:
       derived: true
       latin: summa totalis quantitas productio
     MGVGW:
-      canonical: VAL_QNT
+      canonical: NRM_VAL_QNT
       concepts:
+      - standard
       - value
       - quantity
       derived: true
-      latin: valor quantitas
+      latin: norma valor quantitas
     OBJCT:
       canonical: OBI_IXP
       concepts:
@@ -2779,12 +3573,13 @@ AFIH:
       derived: true
       latin: obiectum numerus
     ABNUM:
-      canonical: CCU_NUM
+      canonical: CCU_VOC_NUM
       concepts:
       - maintenance plan
+      - call
       - number
       derived: true
-      latin: consilium curationis numerus
+      latin: consilium curationis vocatio numerus
     ADDAT:
       canonical: MND_RFR_DIE
       concepts:
@@ -2860,11 +3655,12 @@ AFIH:
       derived: true
       latin: coetus consiliorum
     ARTPR:
-      canonical: GEN
+      canonical: PRI_GEN
       concepts:
+      - priority
       - type
       derived: true
-      latin: genus
+      latin: prioritas genus
     AUFNR:
       canonical: MND_NUM
       concepts:
@@ -3016,10 +3812,11 @@ AFIH:
       derived: true
       latin: obiectum genus statio operis
     PRIOK:
-      canonical: PRIOK
-      concepts: []
-      derived: false
-      latin: null
+      canonical: PRI
+      concepts:
+      - priority
+      derived: true
+      latin: prioritas
     QMNUM:
       canonical: NTS
       concepts:
@@ -3109,11 +3906,12 @@ AFKO:
       derived: true
       latin: numerator mandatum
     APRIO:
-      canonical: MND2
+      canonical: MND_PRI
       concepts:
       - order
+      - priority
       derived: true
-      latin: mandatum
+      latin: mandatum prioritas
     ARSNR:
       canonical: NUM_RQS2
       concepts:
@@ -3536,7 +4334,7 @@ AFKO:
       derived: true
       latin: initium tempus
     IASMG:
-      canonical: MND5
+      canonical: MND4
       concepts:
       - order
       derived: true
@@ -3597,13 +4395,13 @@ AFKO:
       derived: true
       latin: index propositum
     LEAD_AUFNR:
-      canonical: MND6
+      canonical: MND5
       concepts:
       - order
       derived: true
       latin: mandatum
     LKNOT:
-      canonical: MND3
+      canonical: MND2
       concepts:
       - order
       derived: true
@@ -3683,7 +4481,7 @@ AFKO:
       derived: true
       latin: index ratio assignatio
     NOPCOST:
-      canonical: MND7
+      canonical: MND6
       concepts:
       - order
       derived: true
@@ -3911,18 +4709,19 @@ AFKO:
       derived: true
       latin: index mandatum
     RKNOT:
-      canonical: MND4
+      canonical: MND3
       concepts:
       - order
       derived: true
       latin: mandatum
     RMANR:
-      canonical: VDT_NDO
+      canonical: VDT_DTB_NDO
       concepts:
       - sales
+      - distribution
       - document number
       derived: true
-      latin: venditio numerus documenti
+      latin: venditio distributio numerus documenti
     RMNGA:
       canonical: TOT_QNT
       concepts:
@@ -4705,15 +5504,17 @@ AFPO:
       derived: true
       latin: initium dies mandatum
     TECHS:
-      canonical: TECHS
-      concepts: []
-      derived: false
-      latin: null
+      canonical: NRM
+      concepts:
+      - standard
+      derived: true
+      latin: norma
     TECHS_COPY:
-      canonical: TECHS_COPY
-      concepts: []
-      derived: false
-      latin: null
+      canonical: NRM2
+      concepts:
+      - standard
+      derived: true
+      latin: norma
     TPAUF:
       canonical: IDX
       concepts:
@@ -4754,11 +5555,12 @@ AFPO:
       derived: true
       latin: productio versio
     VERTO:
-      canonical: CLV
+      canonical: DTB_CLV
       concepts:
+      - distribution
       - key
       derived: true
-      latin: clavis
+      latin: distributio clavis
     VFMNG:
       canonical: QNT_MND
       concepts:
@@ -4790,11 +5592,12 @@ AFPO:
       derived: true
       latin: quantitas merces mandatum
     WEMPF:
-      canonical: MRC
+      canonical: MRC_PSN
       concepts:
       - goods
+      - party
       derived: true
-      latin: merces
+      latin: merces persona
     WEPOS:
       canonical: AMR_IDX
       concepts:
@@ -5442,12 +6245,13 @@ AFVC:
       derived: true
       latin: numerus obiectum
     KTSCH:
-      canonical: TXT_CLV
+      canonical: NRM_TXT_CLV
       concepts:
+      - standard
       - text
       - key
       derived: true
-      latin: textus clavis
+      latin: norma textus clavis
     KZFEAT:
       canonical: IDX5
       concepts:
@@ -5681,10 +6485,11 @@ AFVC:
       derived: true
       latin: consilium
     NPRIO:
-      canonical: NPRIO
-      concepts: []
-      derived: false
-      latin: null
+      canonical: PRI2
+      concepts:
+      - priority
+      derived: true
+      latin: prioritas
     NPTXTKY:
       canonical: TXT_NUM
       concepts:
@@ -5804,10 +6609,11 @@ AFVC:
       derived: true
       latin: index pensorum genus
     PPRIO:
-      canonical: PPRIO
-      concepts: []
-      derived: false
-      latin: null
+      canonical: PRI
+      concepts:
+      - priority
+      derived: true
+      latin: prioritas
     PRCTR:
       canonical: CLU
       concepts:
@@ -5854,11 +6660,12 @@ AFVC:
       derived: true
       latin: opus
     PSPNR:
-      canonical: EOP
+      canonical: NRM_EOP
       concepts:
+      - standard
       - wbs element
       derived: true
-      latin: elementum operis
+      latin: norma elementum operis
     PVZKN:
       canonical: NMR_MND2
       concepts:
@@ -6076,10 +6883,11 @@ AFVC:
       derived: true
       latin: numerus operatio
     TECHS:
-      canonical: TECHS
-      concepts: []
-      derived: false
-      latin: null
+      canonical: NRM
+      concepts:
+      - standard
+      derived: true
+      latin: norma
     TPLNR:
       canonical: LCF
       concepts:
@@ -6118,12 +6926,13 @@ AFVC:
       derived: true
       latin: officina mandatum rete
     VGWTS:
-      canonical: VAL_CLV
+      canonical: NRM_VAL_CLV
       concepts:
+      - standard
       - value
       - key
       derived: true
-      latin: valor clavis
+      latin: norma valor clavis
     VINTV:
       canonical: VINTV
       concepts: []
@@ -6173,11 +6982,12 @@ AFVC:
       derived: true
       latin: clavis monetae
     WEMPF:
-      canonical: MRC
+      canonical: MRC_PSN
       concepts:
       - goods
+      - party
       derived: true
-      latin: merces
+      latin: merces persona
     WERKI:
       canonical: ACL_OFC
       concepts:
@@ -6210,27 +7020,29 @@ AFVC:
       derived: true
       latin: numerator
     ZCODE:
-      canonical: RFR_NUM_VAL
+      canonical: RFR_NUM_NRM
       concepts:
       - reference
       - number
-      - value
+      - standard
       derived: true
-      latin: referentia numerus valor
+      latin: referentia numerus norma
     ZERMA:
-      canonical: GEN_VAL
+      canonical: GEN_NRM_VAL
       concepts:
       - type
+      - standard
       - value
       derived: true
-      latin: genus valor
+      latin: genus norma valor
     ZGDAT:
-      canonical: DIE_VAL
+      canonical: DIE_NRM_VAL
       concepts:
       - date
+      - standard
       - value
       derived: true
-      latin: dies valor
+      latin: dies norma valor
     ZSCHL:
       canonical: CLV3
       concepts:
@@ -6238,11 +7050,12 @@ AFVC:
       derived: true
       latin: clavis
     ZULNR:
-      canonical: VAL
+      canonical: NRM_VAL
       concepts:
+      - standard
       - value
       derived: true
-      latin: valor
+      latin: norma valor
   module: PP
 AFVV:
   fields:
@@ -6287,7 +7100,7 @@ AFVV:
       derived: true
       latin: itinerarium numerus mandatum
     BEARZ:
-      canonical: TMP3
+      canonical: TMP2
       concepts:
       - time
       derived: true
@@ -6389,7 +7202,7 @@ AFVV:
       derived: true
       latin: actualis opus
     LIEGZ:
-      canonical: TMP4
+      canonical: TMP3
       concepts:
       - time
       derived: true
@@ -6445,7 +7258,7 @@ AFVV:
       derived: true
       latin: summa totalis quantitas
     RUEST:
-      canonical: TMP2
+      canonical: TMP
       concepts:
       - time
       derived: true
@@ -6465,7 +7278,7 @@ AFVV:
       derived: true
       latin: finis dies
     TRANZ:
-      canonical: TMP5
+      canonical: TMP4
       concepts:
       - time
       derived: true
@@ -6482,89 +7295,102 @@ AFVV:
       derived: true
       latin: index pensorum
     VGE01:
-      canonical: MEN_VAL
+      canonical: MEN_NRM_VAL
       concepts:
       - unit of measure
+      - standard
       - value
       derived: true
-      latin: mensura valor
+      latin: mensura norma valor
     VGE02:
-      canonical: MEN_VAL2
+      canonical: MEN_NRM_VAL2
       concepts:
       - unit of measure
+      - standard
       - value
       derived: true
-      latin: mensura valor
+      latin: mensura norma valor
     VGE03:
-      canonical: MEN_VAL3
+      canonical: MEN_NRM_VAL3
       concepts:
       - unit of measure
+      - standard
       - value
       derived: true
-      latin: mensura valor
+      latin: mensura norma valor
     VGE04:
-      canonical: MEN_VAL4
+      canonical: MEN_NRM_VAL4
       concepts:
       - unit of measure
+      - standard
       - value
       derived: true
-      latin: mensura valor
+      latin: mensura norma valor
     VGE05:
-      canonical: MEN_VAL5
+      canonical: MEN_NRM_VAL5
       concepts:
       - unit of measure
+      - standard
       - value
       derived: true
-      latin: mensura valor
+      latin: mensura norma valor
     VGE06:
-      canonical: MEN_VAL6
+      canonical: MEN_NRM_VAL6
       concepts:
       - unit of measure
+      - standard
       - value
       derived: true
-      latin: mensura valor
+      latin: mensura norma valor
     VGW01:
-      canonical: VAL
+      canonical: NRM_VAL
       concepts:
+      - standard
       - value
       derived: true
-      latin: valor
+      latin: norma valor
     VGW02:
-      canonical: VAL2
+      canonical: NRM_VAL2
       concepts:
+      - standard
       - value
       derived: true
-      latin: valor
+      latin: norma valor
     VGW03:
-      canonical: VAL3
+      canonical: NRM_VAL3
       concepts:
+      - standard
       - value
       derived: true
-      latin: valor
+      latin: norma valor
     VGW04:
-      canonical: VAL4
+      canonical: NRM_VAL4
       concepts:
+      - standard
       - value
       derived: true
-      latin: valor
+      latin: norma valor
     VGW05:
-      canonical: VAL5
+      canonical: NRM_VAL5
       concepts:
+      - standard
       - value
       derived: true
-      latin: valor
+      latin: norma valor
     VGW06:
-      canonical: VAL6
+      canonical: NRM_VAL6
       concepts:
+      - standard
       - value
       derived: true
-      latin: valor
+      latin: norma valor
     WARTZ:
-      canonical: TMP
+      canonical: ORD_TMP
       concepts:
+      - queue
       - time
       derived: true
-      latin: tempus
+      latin: ordo expectantium tempus
     XMNGA:
       canonical: TOT_QNT
       concepts:
@@ -6855,11 +7681,12 @@ ANEK:
       derived: true
       latin: codex societatis
     BUREG:
-      canonical: CTS
+      canonical: DTB_CTS
       concepts:
+      - distribution
       - group
       derived: true
-      latin: coetus
+      latin: distributio coetus
     BUZEI:
       canonical: NUM_POS_DOC
       concepts:
@@ -14488,6 +15315,79 @@ CEPCT:
       derived: true
       latin: lingua clavis
   module: CO
+CHNL:
+  fields:
+    ACCESS:
+      canonical: CLS
+      concepts:
+      - class
+      derived: true
+      latin: classis
+    CHANNL:
+      canonical: CNL_CLV
+      concepts:
+      - channel
+      - key
+      derived: true
+      latin: canalis clavis
+    CHNGRP:
+      canonical: CNL_CTS_PSN
+      concepts:
+      - channel
+      - group
+      - person
+      derived: true
+      latin: canalis coetus persona
+    CHNTXT:
+      canonical: CNL_DSC
+      concepts:
+      - channel
+      - description
+      derived: true
+      latin: canalis descriptio
+    COSTCU:
+      canonical: CVM_NRM_SMP
+      concepts:
+      - currency key
+      - standard
+      - cost
+      derived: true
+      latin: clavis monetae norma sumptus
+    COSTUN:
+      canonical: NRM_SMP_UNI
+      concepts:
+      - standard
+      - cost
+      - unit
+      derived: true
+      latin: norma sumptus unitas
+    EXTFLG:
+      canonical: CNL_TLP
+      concepts:
+      - channel
+      - telephony
+      derived: true
+      latin: canalis telephonia
+    RCLNT:
+      canonical: CLI
+      concepts:
+      - client
+      derived: true
+      latin: cliens
+    SATFLG:
+      canonical: CNL_STL
+      concepts:
+      - channel
+      - satellite
+      derived: true
+      latin: canalis satelles
+    SYNCHR:
+      canonical: CNL
+      concepts:
+      - channel
+      derived: true
+      latin: canalis
+  module: INT
 COBK:
   fields:
     ALEBN:
@@ -14587,37 +15487,37 @@ COBK:
       derived: true
       latin: tempus
     CTYP1:
-      canonical: MON_GEN_LBR
+      canonical: MON_GEN_NRM
       concepts:
       - currency
       - type
-      - ledger
+      - standard
       derived: true
-      latin: moneta genus liber
+      latin: moneta genus norma
     CTYP2:
-      canonical: MON_GEN_LBR2
+      canonical: MON_GEN_NRM2
       concepts:
       - currency
       - type
-      - ledger
+      - standard
       derived: true
-      latin: moneta genus liber
+      latin: moneta genus norma
     CTYP3:
-      canonical: MON_GEN_LBR3
+      canonical: MON_GEN_NRM3
       concepts:
       - currency
       - type
-      - ledger
+      - standard
       derived: true
-      latin: moneta genus liber
+      latin: moneta genus norma
     CTYP4:
-      canonical: MON_GEN_LBR4
+      canonical: MON_GEN_NRM4
       concepts:
       - currency
       - type
-      - ledger
+      - standard
       derived: true
-      latin: moneta genus liber
+      latin: moneta genus norma
     DELBZ:
       canonical: NUM_DEL
       concepts:
@@ -17966,12 +18866,13 @@ CSKS:
       derived: false
       latin: null
     KHINR:
-      canonical: HIR_ARE
+      canonical: NRM_HIR_ARE
       concepts:
+      - standard
       - hierarchy
       - area
       derived: true
-      latin: hierarchia area
+      latin: norma hierarchia area
     KOKRS:
       canonical: AMD
       concepts:
@@ -18830,12 +19731,13 @@ DD02L:
       derived: true
       latin: lingua
     MAINFLAG:
-      canonical: SGN_CUR
+      canonical: SGN_CUR_NRM
       concepts:
       - flag
       - maintenance
+      - standard
       derived: true
-      latin: signum curatio
+      latin: signum curatio norma
     MASTERLANG:
       canonical: LNG2
       concepts:
@@ -19895,12 +20797,13 @@ DD25L:
       derived: true
       latin: nomen visus
     GLOBALFLAG:
-      canonical: SGN_CUR
+      canonical: SGN_CUR_NRM
       concepts:
       - flag
       - maintenance
+      - standard
       derived: true
-      latin: signum curatio
+      latin: signum curatio norma
     MANKEY:
       canonical: LCN_CUR_CLV
       concepts:
@@ -20928,12 +21831,13 @@ EBKN:
       derived: true
       latin: ratio numerus
     VBELN:
-      canonical: VDT_NDO
+      canonical: VDT_DTB_NDO
       concepts:
       - sales
+      - distribution
       - document number
       derived: true
-      latin: venditio numerus documenti
+      latin: venditio distributio numerus documenti
     VBELP:
       canonical: DVD_POS
       concepts:
@@ -20950,11 +21854,12 @@ EBKN:
       derived: true
       latin: traditio linea ordinis numerus
     VPROZ:
-      canonical: RAT
+      canonical: DTB_RAT
       concepts:
+      - distribution
       - account
       derived: true
-      latin: ratio
+      latin: distributio ratio
     VPTNR:
       canonical: SCS_RAT_NUM
       concepts:
@@ -20964,11 +21869,12 @@ EBKN:
       derived: true
       latin: socius ratio numerus
     WEMPF:
-      canonical: MRC
+      canonical: MRC_PSN
       concepts:
       - goods
+      - party
       derived: true
-      latin: merces
+      latin: merces persona
     XBAUF:
       canonical: MND
       concepts:
@@ -20997,6 +21903,153 @@ EBKN:
       derived: true
       latin: numerus serialis ratio assignatio
   module: MM
+EFFCAT:
+  fields:
+    DEFUOM:
+      canonical: MEN_CTG
+      concepts:
+      - unit of measure
+      - category
+      derived: true
+      latin: mensura categoria
+    EFFCAT:
+      canonical: GEF_CLV
+      concepts:
+      - effect category
+      - key
+      derived: true
+      latin: genus effectus clavis
+    EFFDOM:
+      canonical: EFC_DMI_CMN
+      concepts:
+      - effect
+      - domain
+      - community
+      derived: true
+      latin: effectus dominium communitas
+    EFFTXT:
+      canonical: GEF_DSC
+      concepts:
+      - effect category
+      - description
+      derived: true
+      latin: genus effectus descriptio
+    EVDMIN:
+      canonical: EVD_GEN_CTG
+      concepts:
+      - evidence
+      - type
+      - category
+      derived: true
+      latin: evidentia genus categoria
+    MINTBL:
+      canonical: CTG_RCG_CUS
+      concepts:
+      - category
+      - recognition
+      - minting
+      derived: true
+      latin: categoria recognitio cusio
+    MINTRT:
+      canonical: RCG_UNI_EFC
+      concepts:
+      - recognition
+      - unit
+      - effect
+      derived: true
+      latin: recognitio unitas effectus
+    MONETB:
+      canonical: CTG_PRE
+      concepts:
+      - category
+      - price
+      derived: true
+      latin: categoria pretium
+    RCLNT:
+      canonical: CLI
+      concepts:
+      - client
+      derived: true
+      latin: cliens
+    VALFRM:
+      canonical: VLA_DIE_CTG
+      concepts:
+      - valid from
+      - date
+      - category
+      derived: true
+      latin: validus ab dies categoria
+    VALTO:
+      canonical: VLD_DIE_CTG
+      concepts:
+      - valid to
+      - date
+      - category
+      derived: true
+      latin: validus ad dies categoria
+  module: EXT
+EFFSTD:
+  fields:
+    EFFCAT:
+      canonical: GEF
+      concepts:
+      - effect category
+      derived: true
+      latin: genus effectus
+    EFFSTD:
+      canonical: PNM_CLV
+      concepts:
+      - standard datapoint
+      - key
+      derived: true
+      latin: punctum normae clavis
+    MANDTY:
+      canonical: NRM
+      concepts:
+      - standard
+      derived: true
+      latin: norma
+    RCLNT:
+      canonical: CLI
+      concepts:
+      - client
+      derived: true
+      latin: cliens
+    STDBDY:
+      canonical: CNM_CMN_NRM
+      concepts:
+      - standard body
+      - community
+      - standard
+      derived: true
+      latin: corpus normae communitas norma
+    STDCOD:
+      canonical: COD_CNM
+      concepts:
+      - code
+      - standard body
+      derived: true
+      latin: codex corpus normae
+    STDTXT:
+      canonical: DSC
+      concepts:
+      - description
+      derived: true
+      latin: descriptio
+    STDURL:
+      canonical: RFR
+      concepts:
+      - reference
+      derived: true
+      latin: referentia
+    STDVER:
+      canonical: VRS_NRM
+      concepts:
+      - version
+      - standard
+      derived: true
+      latin: versio norma
+  module: EXT
 EINA:
   fields:
     ANZPU:
@@ -21324,7 +22377,7 @@ EINE:
       derived: true
       latin: confirmatio clavis
     BSTMA:
-      canonical: MEM_QNT3
+      canonical: MEM_QNT2
       concepts:
       - purchase order
       - quantity
@@ -21551,12 +22604,13 @@ EINE:
       derived: true
       latin: netus pretium tabula informationis
     NORBM:
-      canonical: MEM_QNT2
+      canonical: NRM_MEM_QNT
       concepts:
+      - standard
       - purchase order
       - quantity
       derived: true
-      latin: mandatum emptionis quantitas
+      latin: norma mandatum emptionis quantitas
     PEINH:
       canonical: PRE_UNI
       concepts:
@@ -21612,12 +22666,13 @@ EINE:
       derived: true
       latin: clavis monetae
     WEBRE:
-      canonical: IDX_FAC
+      canonical: IDX_FAC_VRF
       concepts:
       - indicator
       - invoice
+      - verification
       derived: true
-      latin: index factura
+      latin: index factura verificatio
     WERKS:
       canonical: OFC
       concepts:
@@ -22382,12 +23437,13 @@ EKKN:
       derived: true
       latin: tributum
     VBELN:
-      canonical: VDT_NDO
+      canonical: VDT_DTB_NDO
       concepts:
       - sales
+      - distribution
       - document number
       derived: true
-      latin: venditio numerus documenti
+      latin: venditio distributio numerus documenti
     VBELP:
       canonical: DVD_POS
       concepts:
@@ -22404,11 +23460,12 @@ EKKN:
       derived: true
       latin: traditio linea ordinis numerus
     VPROZ:
-      canonical: RAT
+      canonical: DTB_RAT
       concepts:
+      - distribution
       - account
       derived: true
-      latin: ratio
+      latin: distributio ratio
     VPTNR:
       canonical: SCS_RAT_NUM
       concepts:
@@ -22418,11 +23475,12 @@ EKKN:
       derived: true
       latin: socius ratio numerus
     WEMPF:
-      canonical: MRC
+      canonical: MRC_PSN
       concepts:
       - goods
+      - party
       derived: true
-      latin: merces
+      latin: merces persona
     XBAUF:
       canonical: MND
       concepts:
@@ -22685,10 +23743,11 @@ EKKO:
       derived: true
       latin: venditor ratio numerus
     LIFRE:
-      canonical: LIFRE
-      concepts: []
-      derived: false
-      latin: null
+      canonical: PSN
+      concepts:
+      - party
+      derived: true
+      latin: persona
     LLIEF:
       canonical: VEN
       concepts:
@@ -23215,12 +24274,13 @@ EKPO:
       derived: true
       latin: volumen
     WEBRE:
-      canonical: IDX_FAC
+      canonical: IDX_FAC_VRF
       concepts:
       - indicator
       - invoice
+      - verification
       derived: true
-      latin: index factura
+      latin: index factura verificatio
     WEORA:
       canonical: ORG
       concepts:
@@ -23455,11 +24515,12 @@ EQBS:
       derived: true
       latin: officina
     DISUB_OWNER:
-      canonical: CPA
+      canonical: CPA_PSN
       concepts:
       - stock
+      - party
       derived: true
-      latin: copia
+      latin: copia persona
     EQUNR:
       canonical: INM_NUM
       concepts:
@@ -23699,12 +24760,13 @@ EQSE:
       derived: true
       latin: index numerus serialis
     SDBELN:
-      canonical: VDT_NDO
+      canonical: VDT_DTB_NDO
       concepts:
       - sales
+      - distribution
       - document number
       derived: true
-      latin: venditio numerus documenti
+      latin: venditio distributio numerus documenti
     SERNR:
       canonical: NSR2
       concepts:
@@ -23983,12 +25045,13 @@ EQUI:
       derived: true
       latin: dies
     GWLDV:
-      canonical: DIE_VDT
+      canonical: DIE_VDT_DTB
       concepts:
       - date
       - sales
+      - distribution
       derived: true
-      latin: dies venditio
+      latin: dies venditio distributio
     GWLEN:
       canonical: DIE2
       concepts:
@@ -24514,10 +25577,11 @@ EQUZ:
       derived: true
       latin: genus materia obiectum
     TECHS:
-      canonical: TECHS
-      concepts: []
-      derived: false
-      latin: null
+      canonical: NRM
+      concepts:
+      - standard
+      derived: true
+      latin: norma
     TIDNR:
       canonical: NUM2
       concepts:
@@ -25607,7 +26671,7 @@ FEBKO:
       derived: true
       latin: status
     AZDAT:
-      canonical: DIE3
+      canonical: DIE2
       concepts:
       - date
       derived: true
@@ -25899,11 +26963,12 @@ FEBKO:
       derived: true
       latin: area
     VFDAT:
-      canonical: DIE
+      canonical: EXP_DIE
       concepts:
+      - expiry
       - date
       derived: true
-      latin: dies
+      latin: expiratio dies
     VGTYP:
       canonical: GEN2
       concepts:
@@ -25923,7 +26988,7 @@ FEBKO:
       derived: true
       latin: genus
     WVDAT:
-      canonical: DIE2
+      canonical: DIE
       concepts:
       - date
       derived: true
@@ -25974,7 +27039,7 @@ FEBKO:
 FLEET:
   fields:
     CARD_NUM:
-      canonical: NUM5
+      canonical: NUM4
       concepts:
       - number
       derived: true
@@ -26047,12 +27112,13 @@ FLEET:
       derived: true
       latin: grex vehiculorum obiectum genus
     EXPIRY_DATE:
-      canonical: DIE_LCN
+      canonical: EXP_DIE_LCN
       concepts:
+      - expiry
       - date
       - license
       derived: true
-      latin: dies licentia
+      latin: expiratio dies licentia
     FLEET_CAT:
       canonical: GVH_CTG
       concepts:
@@ -26197,7 +27263,7 @@ FLEET:
       derived: true
       latin: cliens
     MAX_OCCUPANTS:
-      canonical: NUM4
+      canonical: NUM3
       concepts:
       - number
       derived: true
@@ -26211,7 +27277,7 @@ FLEET:
       derived: true
       latin: grex vehiculorum obiectum numerus
     NUM_AXLE:
-      canonical: NUM3
+      canonical: NUM2
       concepts:
       - number
       derived: true
@@ -26240,11 +27306,12 @@ FLEET:
       derived: true
       latin: grex vehiculorum obiectum genus
     PRI_CALC:
-      canonical: NUM2
+      canonical: PRI_NUM
       concepts:
+      - priority
       - number
       derived: true
-      latin: numerus
+      latin: prioritas numerus
     REPLA_DATE:
       canonical: DIE_ULT_NMR
       concepts:
@@ -26732,10 +27799,11 @@ HRP1001:
       derived: true
       latin: consilium versio
     PRIOX:
-      canonical: PRIOX
-      concepts: []
-      derived: false
-      latin: null
+      canonical: PRI
+      concepts:
+      - priority
+      derived: true
+      latin: prioritas
     PROZT:
       canonical: PROZT
       concepts: []
@@ -26756,12 +27824,13 @@ HRP1001:
       derived: true
       latin: relatio genus codex
     RSIGN:
-      canonical: RLT_GEN
+      canonical: RLT_DRC_GEN
       concepts:
       - relationship
+      - direction
       - type
       derived: true
-      latin: relatio genus
+      latin: relatio directio genus
     SCLAS:
       canonical: GEN_OBI_MTA
       concepts:
@@ -27631,12 +28700,12 @@ IHPA:
       derived: true
       latin: socius
     TZONSP:
-      canonical: TMP_SCS
+      canonical: ZTM_SCS
       concepts:
-      - time
+      - time zone
       - partner
       derived: true
-      latin: tempus socius
+      latin: zona temporis socius
   module: PM
 IHSG:
   fields:
@@ -27839,6 +28908,360 @@ IHSG:
       derived: true
       latin: operatio actio numerus
   module: PM
+IJSAT:
+  fields:
+    AZIMUT:
+      canonical: AZIMUT
+      concepts: []
+      derived: false
+      latin: null
+    BEAMID:
+      canonical: RAD_TML
+      concepts:
+      - beam
+      - terminal
+      derived: true
+      latin: radius terminale
+    BYTEDN:
+      canonical: BYTEDN
+      concepts: []
+      derived: false
+      latin: null
+    BYTEUP:
+      canonical: BYTEUP
+      concepts: []
+      derived: false
+      latin: null
+    CONSTL:
+      canonical: CST
+      concepts:
+      - constellation
+      derived: true
+      latin: constellatio
+    DEGRAD:
+      canonical: MIM_LTB_SET
+      concepts:
+      - degraded mode
+      - bandwidth
+      - store and forward
+      derived: true
+      latin: modus imminutus latitudo bandae serva et transmitte
+    ELEVAT:
+      canonical: AEL_STL
+      concepts:
+      - elevation angle
+      - satellite
+      derived: true
+      latin: angulus elevationis satelles
+    GATWAY:
+      canonical: PRT
+      concepts:
+      - gateway
+      derived: true
+      latin: porta
+    GEOLAT:
+      canonical: TML_CNS_TBL
+      concepts:
+      - terminal
+      - consent
+      - record
+      derived: true
+      latin: terminale consensus tabula
+    GEOLON:
+      canonical: TML_CNS_TBL2
+      concepts:
+      - terminal
+      - consent
+      - record
+      derived: true
+      latin: terminale consensus tabula
+    GEOPRC:
+      canonical: GEOPRC
+      concepts: []
+      derived: false
+      latin: null
+    IJLN:
+      canonical: EPH_POS
+      concepts:
+      - interaction journal
+      - item
+      derived: true
+      latin: ephemeris commercii positio
+    IJNO:
+      canonical: EPH_NDO
+      concepts:
+      - interaction journal
+      - document number
+      derived: true
+      latin: ephemeris commercii numerus documenti
+    IJYR:
+      canonical: EPH_ANN
+      concepts:
+      - interaction journal
+      - year
+      derived: true
+      latin: ephemeris commercii annus
+    LATMS:
+      canonical: MOR
+      concepts:
+      - latency
+      derived: true
+      latin: mora
+    ORBTYP:
+      canonical: GEN
+      concepts:
+      - type
+      derived: true
+      latin: genus
+    PASBEG:
+      canonical: FTR_INI_TMP
+      concepts:
+      - pass window
+      - start
+      - time
+      derived: true
+      latin: fenestra transitus initium tempus
+    PASEND:
+      canonical: FTR_FIN_TMP
+      concepts:
+      - pass window
+      - end
+      - time
+      derived: true
+      latin: fenestra transitus finis tempus
+    PASSID:
+      canonical: VSB
+      concepts:
+      - visibility
+      derived: true
+      latin: visibilitas
+    QUEMIN:
+      canonical: ITR_MIN
+      concepts:
+      - interaction
+      - service
+      derived: true
+      latin: commercium ministerium
+    RAINFD:
+      canonical: RAINFD
+      concepts: []
+      derived: false
+      latin: null
+    RCLNT:
+      canonical: CLI
+      concepts:
+      - client
+      derived: true
+      latin: cliens
+    SATID:
+      canonical: STL_CST_MBR
+      concepts:
+      - satellite
+      - constellation
+      - member
+      derived: true
+      latin: satelles constellatio membrum
+    SNRDB:
+      canonical: RSS
+      concepts:
+      - signal to noise ratio
+      derived: true
+      latin: ratio signi ad strepitum
+    STOFWD:
+      canonical: SET_IDX_ITR
+      concepts:
+      - store and forward
+      - indicator
+      - interaction
+      derived: true
+      latin: serva et transmitte index commercium
+    TERMID:
+      canonical: TML
+      concepts:
+      - terminal
+      derived: true
+      latin: terminale
+    TERTYP:
+      canonical: TML_GEN
+      concepts:
+      - terminal
+      - type
+      derived: true
+      latin: terminale genus
+  module: INT
+IJTEL:
+  fields:
+    ABANDN:
+      canonical: VOC2
+      concepts:
+      - call
+      derived: true
+      latin: vocatio
+    ANIHSH:
+      canonical: HSH_NUM
+      concepts:
+      - hash
+      - number
+      derived: true
+      latin: summa digesta numerus
+    CALLID:
+      canonical: VOC
+      concepts:
+      - call
+      derived: true
+      latin: vocatio
+    CALTYP:
+      canonical: VOC_GEN
+      concepts:
+      - call
+      - type
+      derived: true
+      latin: vocatio genus
+    CARRIR:
+      canonical: CTS_VOC
+      concepts:
+      - group
+      - call
+      derived: true
+      latin: coetus vocatio
+    CDRREF:
+      canonical: TVC_RFR_FNS
+      concepts:
+      - call detail record
+      - reference
+      - source
+      derived: true
+      latin: tabula vocationis referentia fons
+    CODEC:
+      canonical: CODEC
+      concepts: []
+      derived: false
+      latin: null
+    DISPCD:
+      canonical: COD_FIN_VOC
+      concepts:
+      - code
+      - end
+      - call
+      derived: true
+      latin: codex finis vocatio
+    DNIHSH:
+      canonical: HSH_NUM2
+      concepts:
+      - hash
+      - number
+      derived: true
+      latin: summa digesta numerus
+    HLDSEC:
+      canonical: TMP2
+      concepts:
+      - time
+      derived: true
+      latin: tempus
+    IJLN:
+      canonical: EPH_POS
+      concepts:
+      - interaction journal
+      - item
+      derived: true
+      latin: ephemeris commercii positio
+    IJNO:
+      canonical: EPH_NDO
+      concepts:
+      - interaction journal
+      - document number
+      derived: true
+      latin: ephemeris commercii numerus documenti
+    IJYR:
+      canonical: EPH_ANN
+      concepts:
+      - interaction journal
+      - year
+      derived: true
+      latin: ephemeris commercii annus
+    JITTMS:
+      canonical: JITTMS
+      concepts: []
+      derived: false
+      latin: null
+    LATMS:
+      canonical: MOR
+      concepts:
+      - latency
+      derived: true
+      latin: mora
+    MOSSCR:
+      canonical: VOC3
+      concepts:
+      - call
+      derived: true
+      latin: vocatio
+    NUMPFX:
+      canonical: ITN
+      concepts:
+      - routing
+      derived: true
+      latin: itinerarium
+    PKTLOS:
+      canonical: PKTLOS
+      concepts: []
+      derived: false
+      latin: null
+    RCLNT:
+      canonical: CLI
+      concepts:
+      - client
+      derived: true
+      latin: cliens
+    RECIND:
+      canonical: VOC_IDX
+      concepts:
+      - call
+      - indicator
+      derived: true
+      latin: vocatio index
+    RECREF:
+      canonical: RFR_FNS
+      concepts:
+      - reference
+      - source
+      derived: true
+      latin: referentia fons
+    RNGSEC:
+      canonical: TMP_VOC
+      concepts:
+      - time
+      - call
+      derived: true
+      latin: tempus vocatio
+    TLKSEC:
+      canonical: TMP
+      concepts:
+      - time
+      derived: true
+      latin: tempus
+    TRNIND:
+      canonical: IDX
+      concepts:
+      - indicator
+      derived: true
+      latin: index
+    WRPSEC:
+      canonical: VOC_OPS_TMP
+      concepts:
+      - call
+      - work
+      - time
+      derived: true
+      latin: vocatio opus tempus
+    XFRCNT:
+      canonical: NUM_VOC
+      concepts:
+      - number
+      - call
+      derived: true
+      latin: numerus vocatio
+  module: INT
 ILOA:
   fields:
     ABCKZ:
@@ -27949,20 +29372,21 @@ ILOA:
       derived: true
       latin: obiectum subsidium
     DAUFN:
-      canonical: MND_NUM
+      canonical: DGN_MND_NUM
       concepts:
+      - standing
       - order
       - number
       derived: true
-      latin: mandatum numerus
+      latin: dignitas mandatum numerus
     DAUFNI:
-      canonical: ORG_MND_NUM
+      canonical: ORG_DGN_MND
       concepts:
       - origin
+      - standing
       - order
-      - number
       derived: true
-      latin: origo mandatum numerus
+      latin: origo dignitas mandatum
     EQFNR:
       canonical: CMP
       concepts:
@@ -29199,6 +30623,69 @@ IRLOTX:
       derived: true
       latin: referentia locus functionalis
   module: PM
+ITYP:
+  fields:
+    CNSREQ:
+      canonical: CNS_ITR_GEN
+      concepts:
+      - consent
+      - interaction
+      - type
+      derived: true
+      latin: consensus commercium genus
+    EFFCAT:
+      canonical: GEF_GEN
+      concepts:
+      - effect category
+      - type
+      derived: true
+      latin: genus effectus genus
+    EFFREL:
+      canonical: ITR_GEN_EFS
+      concepts:
+      - interaction
+      - type
+      - societal effect
+      derived: true
+      latin: commercium genus effectus socialis
+    INTTYP:
+      canonical: ITR_GEN_CLV
+      concepts:
+      - interaction
+      - type
+      - key
+      derived: true
+      latin: commercium genus clavis
+    ITYDOM:
+      canonical: DMI_MIN
+      concepts:
+      - domain
+      - service
+      derived: true
+      latin: dominium ministerium
+    ITYTXT:
+      canonical: ITR_GEN_DSC
+      concepts:
+      - interaction
+      - type
+      - description
+      derived: true
+      latin: commercium genus descriptio
+    RCLNT:
+      canonical: CLI
+      concepts:
+      - client
+      derived: true
+      latin: cliens
+    SLAREL:
+      canonical: GSV_ITR_GEN
+      concepts:
+      - service level
+      - interaction
+      - type
+      derived: true
+      latin: gradus servitii commercium genus
+  module: INT
 JEST:
   fields:
     CHGNR:
@@ -29981,12 +31468,13 @@ KNA1:
 KNB1:
   fields:
     AD_HASH:
-      canonical: DML_VAL
+      canonical: DML_HSH_VAL
       concepts:
       - address
+      - hash
       - value
       derived: true
-      latin: domicilium valor
+      latin: domicilium summa digesta valor
     AKONT:
       canonical: RAT_LBR
       concepts:
@@ -30109,12 +31597,13 @@ KNB1:
       derived: true
       latin: actio codex crassus
     GRIDT:
-      canonical: GEN_TRB
+      canonical: DTB_GEN_TRB
       concepts:
+      - distribution
       - type
       - tax
       derived: true
-      latin: genus tributum
+      latin: distributio genus tributum
     GUZTE:
       canonical: SOL_CLV_CRD
       concepts:
@@ -30983,11 +32472,12 @@ KNVV:
       derived: true
       latin: signum emptor venditio
     LPRIO:
-      canonical: TRD
+      canonical: TRD_PRI
       concepts:
       - delivery
+      - priority
       derived: true
-      latin: traditio
+      latin: traditio prioritas
     MANDT:
       canonical: CLI
       concepts:
@@ -31200,10 +32690,11 @@ KONH:
       derived: false
       latin: null
     KNUMA_SD:
-      canonical: KNUMA_SD
-      concepts: []
-      derived: false
-      latin: null
+      canonical: NRM
+      concepts:
+      - standard
+      derived: true
+      latin: norma
     KNUMA_SQ:
       canonical: VDT2
       concepts:
@@ -32281,11 +33772,12 @@ LFA1:
       derived: true
       latin: ultimus
     SCACD:
-      canonical: COD3
+      canonical: NRM_COD
       concepts:
+      - standard
       - code
       derived: true
-      latin: codex
+      latin: norma codex
     SEXKZ:
       canonical: CLV_PSN_TRB
       concepts:
@@ -32512,12 +34004,13 @@ LFA1:
 LFB1:
   fields:
     AD_HASH:
-      canonical: DML_VAL
+      canonical: DML_HSH_VAL
       concepts:
       - address
+      - hash
       - value
       derived: true
-      latin: domicilium valor
+      latin: domicilium summa digesta valor
     AKONT:
       canonical: RAT_LBR
       concepts:
@@ -32632,12 +34125,13 @@ LFB1:
       derived: true
       latin: actio codex crassus
     GRIDT:
-      canonical: GEN_TRB
+      canonical: DTB_GEN_TRB
       concepts:
+      - distribution
       - type
       - tax
       derived: true
-      latin: genus tributum
+      latin: distributio genus tributum
     GUZTE:
       canonical: SOL_CLV_CRD
       concepts:
@@ -32813,12 +34307,13 @@ LFB1:
       derived: true
       latin: numerus emptor venditor
     TOGRR:
-      canonical: CTS_FAC
+      canonical: CTS_FAC_VRF
       concepts:
       - group
       - invoice
+      - verification
       derived: true
-      latin: coetus factura
+      latin: coetus factura verificatio
     TOGRU:
       canonical: CTS_SCS_RAT
       concepts:
@@ -33411,13 +34906,12 @@ LFM1:
       derived: false
       latin: null
     VENSL:
-      canonical: VEN_MIN_GRD
+      canonical: VEN_GSV
       concepts:
       - vendor
-      - service
-      - level
+      - service level
       derived: true
-      latin: venditor ministerium gradus
+      latin: venditor gradus servitii
     VERKF:
       canonical: VEN
       concepts:
@@ -33437,12 +34931,13 @@ LFM1:
       derived: true
       latin: mandatum emptionis moneta
     WEBRE:
-      canonical: IDX_FAC
+      canonical: IDX_FAC_VRF
       concepts:
       - indicator
       - invoice
+      - verification
       derived: true
-      latin: index factura
+      latin: index factura verificatio
     XERSR:
       canonical: TSC2
       concepts:
@@ -33663,15 +35158,17 @@ LIKP:
       derived: true
       latin: dies
     KUNAG:
-      canonical: KUNAG
-      concepts: []
-      derived: false
-      latin: null
+      canonical: PSN2
+      concepts:
+      - party
+      derived: true
+      latin: persona
     KUNNR:
-      canonical: KUNNR
-      concepts: []
-      derived: false
-      latin: null
+      canonical: PSN
+      concepts:
+      - party
+      derived: true
+      latin: persona
     LDDAT:
       canonical: DIE
       concepts:
@@ -33730,11 +35227,12 @@ LIKP:
       derived: true
       latin: traditio obex documentum
     LPRIO:
-      canonical: TRD2
+      canonical: TRD_PRI
       concepts:
       - delivery
+      - priority
       derived: true
-      latin: traditio
+      latin: traditio prioritas
     LSTEL:
       canonical: LSTEL
       concepts: []
@@ -34865,12 +36363,13 @@ MARA:
       derived: true
       latin: officina materia status
     MSTAV:
-      canonical: MAT_STA
+      canonical: DTB_MAT_STA
       concepts:
+      - distribution
       - material
       - status
       derived: true
-      latin: materia status
+      latin: distributio materia status
     MSTDE:
       canonical: DIE_OFC_MAT
       concepts:
@@ -34903,11 +36402,12 @@ MARA:
       derived: true
       latin: positio categoria coetus
     NORMT:
-      canonical: DSC
+      canonical: NRM_DSC
       concepts:
+      - standard
       - description
       derived: true
-      latin: descriptio
+      latin: norma descriptio
     NTGEW:
       canonical: NET_PND
       concepts:
@@ -36439,7 +37939,7 @@ MBEW:
       derived: true
       latin: periodus inscriptio
     LPLPR:
-      canonical: PRE5
+      canonical: PRE4
       concepts:
       - price
       derived: true
@@ -36532,13 +38032,14 @@ MBEW:
       derived: true
       latin: index
     STPRS:
-      canonical: PRE
+      canonical: NRM_PRE
       concepts:
+      - standard
       - price
       derived: true
-      latin: pretium
+      latin: norma pretium
     STPRV:
-      canonical: PRE2
+      canonical: PRE
       concepts:
       - price
       derived: true
@@ -36591,7 +38092,7 @@ MBEW:
       derived: true
       latin: valor summa totalis copia
     VPLPR:
-      canonical: PRE4
+      canonical: PRE3
       concepts:
       - price
       derived: true
@@ -36616,7 +38117,7 @@ MBEW:
       derived: true
       latin: dies pretium
     ZKPRS:
-      canonical: PRE3
+      canonical: PRE2
       concepts:
       - price
       derived: true
@@ -38550,11 +40051,12 @@ MDTB:
       derived: true
       latin: fons positio numerus
     PRIO_REQ:
-      canonical: RQS2
+      canonical: RQS_PRI
       concepts:
       - requirement
+      - priority
       derived: true
-      latin: requisitum
+      latin: requisitum prioritas
     PRIO_URG:
       canonical: RQS
       concepts:
@@ -38774,29 +40276,161 @@ MDVM:
       derived: true
       latin: tempus ultimus consilium
   module: PP
+MEMBR:
+  fields:
+    ADRNR:
+      canonical: DML_NUM_MBR
+      concepts:
+      - address
+      - number
+      - member
+      derived: true
+      latin: domicilium numerus membrum
+    BUKRS:
+      canonical: SOC_MBR_LBR
+      concepts:
+      - company code
+      - member
+      - ledger
+      derived: true
+      latin: codex societatis membrum liber
+    FOCBAS:
+      canonical: LUC_STA_SEC
+      concepts:
+      - profit
+      - status
+      - safety
+      derived: true
+      latin: lucrum status securitas
+    JOINDT:
+      canonical: DIE_MBR_CMN
+      concepts:
+      - date
+      - member
+      - community
+      derived: true
+      latin: dies membrum communitas
+    LAND1:
+      canonical: PTR_CLV_MBR
+      concepts:
+      - country
+      - key
+      - member
+      derived: true
+      latin: patria clavis membrum
+    MEMBER:
+      canonical: ORM_CLV
+      concepts:
+      - member organisation
+      - key
+      derived: true
+      latin: organizatio membri clavis
+    MEMNAM:
+      canonical: ORM_NOM
+      concepts:
+      - member organisation
+      - name
+      derived: true
+      latin: organizatio membri nomen
+    MEMTYP:
+      canonical: MBR_GEN_LUC
+      concepts:
+      - member
+      - type
+      - profit
+      derived: true
+      latin: membrum genus lucrum
+    NPOIND:
+      canonical: LUC
+      concepts:
+      - profit
+      derived: true
+      latin: lucrum
+    PEERGP:
+      canonical: GRX_MBR
+      concepts:
+      - peer group
+      - member
+      derived: true
+      latin: grex parium membrum
+    RCLNT:
+      canonical: CLI
+      concepts:
+      - client
+      derived: true
+      latin: cliens
+    SAFIND:
+      canonical: SEC_VEN_OPS
+      concepts:
+      - safety
+      - vendor
+      - work
+      derived: true
+      latin: securitas venditor opus
+    SAFKND:
+      canonical: SSL_SEC
+      concepts:
+      - safety system
+      - safety
+      derived: true
+      latin: systema salutis securitas
+    SPRAS:
+      canonical: LNG_CLV_MBR
+      concepts:
+      - language
+      - key
+      - member
+      derived: true
+      latin: lingua clavis membrum
+    STANDG:
+      canonical: DGN_RCG_NET
+      concepts:
+      - standing
+      - recognition
+      - net
+      derived: true
+      latin: dignitas recognitio netus
+    VERRGT:
+      canonical: MBR_EFC
+      concepts:
+      - member
+      - effect
+      derived: true
+      latin: membrum effectus
+    VISIBL:
+      canonical: VSB_CNS_GRX
+      concepts:
+      - visibility
+      - consent
+      - peer group
+      derived: true
+      latin: visibilitas consensus grex parium
+  module: EXT
 MHIO:
   fields:
     ABNUM:
-      canonical: NUM
+      canonical: VOC_NUM
       concepts:
+      - call
       - number
       derived: true
-      latin: numerus
+      latin: vocatio numerus
     ADDAT:
-      canonical: DIE_OBI
+      canonical: DIE_VOC_OBI
       concepts:
       - date
+      - call
       - object
       derived: true
-      latin: dies obiectum
+      latin: dies vocatio obiectum
     ADTIME:
-      canonical: TMP_OBI_CRE
+      canonical: TMP_VOC_OBI
       concepts:
       - time
+      - call
       - object
-      - created
       derived: true
-      latin: tempus obiectum creatus
+      latin: tempus vocatio obiectum
     AUFNR:
       canonical: MND_NUM
       concepts:
@@ -38825,13 +40459,13 @@ MHIO:
       derived: true
       latin: initium dies
     IND_MPLA_API:
-      canonical: IDX_OBI_CRE
+      canonical: IDX_VOC_OBI
       concepts:
       - indicator
+      - call
       - object
-      - created
       derived: true
-      latin: index obiectum creatus
+      latin: index vocatio obiectum
     LBLNI:
       canonical: ISP_NUM
       concepts:
@@ -38877,19 +40511,21 @@ MHIO:
       derived: true
       latin: campus
     TSENQ:
-      canonical: STA_OBI
+      canonical: STA_VOC_OBI
       concepts:
       - status
+      - call
       - object
       derived: true
-      latin: status obiectum
+      latin: status vocatio obiectum
     TSTAT:
-      canonical: STA_CUR
+      canonical: STA_CUR_VOC
       concepts:
       - status
       - maintenance
+      - call
       derived: true
-      latin: status curatio
+      latin: status curatio vocatio
     USERMOD:
       canonical: USR_ULT_MUT
       concepts:
@@ -38905,22 +40541,23 @@ MHIO:
       derived: true
       latin: consilium curationis
     WPPOS:
-      canonical: POS_NUM_OBI
+      canonical: POS_NUM_VOC
       concepts:
       - item
       - number
-      - object
+      - call
       derived: true
-      latin: positio numerus obiectum
+      latin: positio numerus vocatio
   module: PM
 MHIS:
   fields:
     ABNUM:
-      canonical: NUM
+      canonical: VOC_NUM
       concepts:
+      - call
       - number
       derived: true
-      latin: numerus
+      latin: vocatio numerus
     ABRNA:
       canonical: NOM_PSN_CUR
       concepts:
@@ -38930,12 +40567,13 @@ MHIS:
       derived: true
       latin: nomen persona curatio
     ABRUD:
-      canonical: DIE_CUR
+      canonical: DIE_CUR_VOC
       concepts:
       - date
       - maintenance
+      - call
       derived: true
-      latin: dies curatio
+      latin: dies curatio vocatio
     ADANDOR:
       canonical: ADANDOR
       concepts: []
@@ -39115,12 +40753,13 @@ MHIS:
       derived: true
       latin: ultimus tempus
     MANDA:
-      canonical: MUT_DIE
+      canonical: MUT_VOC_DIE
       concepts:
       - changed
+      - call
       - date
       derived: true
-      latin: mutatus dies
+      latin: mutatus vocatio dies
     MANDT:
       canonical: CLI
       concepts:
@@ -39128,23 +40767,26 @@ MHIS:
       derived: true
       latin: cliens
     NPLDA:
-      canonical: DIE
+      canonical: VOC_DIE
       concepts:
+      - call
       - date
       derived: true
-      latin: dies
+      latin: vocatio dies
     NPLDO:
-      canonical: DIE2
+      canonical: VOC_DIE2
       concepts:
+      - call
       - date
       derived: true
-      latin: dies
+      latin: vocatio dies
     NPLDZ:
-      canonical: TMP
+      canonical: TMP_VOC
       concepts:
       - time
+      - call
       derived: true
-      latin: tempus
+      latin: tempus vocatio
     NZAEH:
       canonical: NUM_ULT_NMR
       concepts:
@@ -39235,12 +40877,13 @@ MHIS:
       derived: true
       latin: numerus numerator
     TERMA:
-      canonical: GEN_CUR
+      canonical: GEN_CUR_VOC
       concepts:
       - type
       - maintenance
+      - call
       derived: true
-      latin: genus curatio
+      latin: genus curatio vocatio
     TERMK:
       canonical: IDX
       concepts:
@@ -39253,40 +40896,45 @@ MHIS:
       derived: false
       latin: null
     TSABR:
-      canonical: TMP_CUR
+      canonical: TMP_CUR_VOC
       concepts:
       - time
       - maintenance
+      - call
       derived: true
-      latin: tempus curatio
+      latin: tempus curatio vocatio
     TSENM:
-      canonical: USR_OBI
+      canonical: USR_VOC_OBI
       concepts:
       - user
+      - call
       - object
       derived: true
-      latin: usor obiectum
+      latin: usor vocatio obiectum
     TSENQ:
-      canonical: TMP_OBI
+      canonical: TMP_VOC_OBI
       concepts:
       - time
+      - call
       - object
       derived: true
-      latin: tempus obiectum
+      latin: tempus vocatio obiectum
     TSTAT:
-      canonical: STA_CUR
+      canonical: STA_CUR_VOC
       concepts:
       - status
       - maintenance
+      - call
       derived: true
-      latin: status curatio
+      latin: status curatio vocatio
     TSVBT:
-      canonical: TMP_CRE
+      canonical: TMP_VOC_CRE
       concepts:
       - time
+      - call
       - created
       derived: true
-      latin: tempus creatus
+      latin: tempus vocatio creatus
     USERMOD:
       canonical: USR_ULT_MUT
       concepts:
@@ -39770,12 +41418,13 @@ MLGT:
 MPLA:
   fields:
     ABNUM:
-      canonical: CCU_NUM
+      canonical: CCU_VOC_NUM
       concepts:
       - maintenance plan
+      - call
       - number
       derived: true
-      latin: consilium curationis numerus
+      latin: consilium curationis vocatio numerus
     ABRHO:
       canonical: PER
       concepts:
@@ -39824,18 +41473,20 @@ MPLA:
       derived: true
       latin: obiectum coetus
     CALL_CONFIRM:
-      canonical: OBI
+      canonical: VOC_OBI
       concepts:
+      - call
       - object
       derived: true
-      latin: obiectum
+      latin: vocatio obiectum
     CALL_UPDATE_IND:
-      canonical: IDX_OBI
+      canonical: IDX_VOC_OBI
       concepts:
       - indicator
+      - call
       - object
       derived: true
-      latin: index obiectum
+      latin: index vocatio obiectum
     EQUNR:
       canonical: INM_NUM
       concepts:
@@ -39870,23 +41521,26 @@ MPLA:
       derived: true
       latin: clavis
     HORIZ:
-      canonical: CCU2
+      canonical: VOC_CCU
       concepts:
+      - call
       - maintenance plan
       derived: true
-      latin: consilium curationis
+      latin: vocatio consilium curationis
     HORIZ_DAYS:
-      canonical: CCU3
+      canonical: VOC_CCU2
       concepts:
+      - call
       - maintenance plan
       derived: true
-      latin: consilium curationis
+      latin: vocatio consilium curationis
     HORIZ_QUALIFIER:
-      canonical: GEN
+      canonical: GEN_VOC
       concepts:
       - type
+      - call
       derived: true
-      latin: genus
+      latin: genus vocatio
     HUNIT:
       canonical: UNI
       concepts:
@@ -40387,10 +42041,11 @@ MPOS:
       derived: true
       latin: index pensorum genus
     PRIOK:
-      canonical: PRIOK
-      concepts: []
-      derived: false
-      latin: null
+      canonical: PRI
+      concepts:
+      - priority
+      derived: true
+      latin: prioritas
     PRUEFLOS:
       canonical: ISP_NUM
       concepts:
@@ -40549,6 +42204,158 @@ MPOS:
       derived: true
       latin: curatio
   module: PM
+MRTDOC:
+  fields:
+    DEBCRE:
+      canonical: DBT_CRD_IDX
+      concepts:
+      - debit
+      - credit
+      - indicator
+      derived: true
+      latin: debitum creditum index
+    EFFCAT:
+      canonical: GEF
+      concepts:
+      - effect category
+      derived: true
+      latin: genus effectus
+    EXPDAT:
+      canonical: EXP_DIE
+      concepts:
+      - expiry
+      - date
+      derived: true
+      latin: expiratio dies
+    MEMBER:
+      canonical: ORM
+      concepts:
+      - member organisation
+      derived: true
+      latin: organizatio membri
+    MRTAMT:
+      canonical: RCG_POS
+      concepts:
+      - recognition
+      - item
+      derived: true
+      latin: recognitio positio
+    MRTDAT:
+      canonical: DIN_RCG_POS
+      concepts:
+      - posting date
+      - recognition
+      - item
+      derived: true
+      latin: dies inscriptionis recognitio positio
+    MRTHSH:
+      canonical: HSH_POS_RCG
+      concepts:
+      - hash
+      - item
+      - recognition
+      derived: true
+      latin: summa digesta positio recognitio
+    MRTLN:
+      canonical: RCG_DOC_POS
+      concepts:
+      - recognition
+      - document
+      - item
+      derived: true
+      latin: recognitio documentum positio
+    MRTNO:
+      canonical: RCG_NDO
+      concepts:
+      - recognition
+      - document number
+      derived: true
+      latin: recognitio numerus documenti
+    MRTPER:
+      canonical: RCG_PER
+      concepts:
+      - recognition
+      - period
+      derived: true
+      latin: recognitio periodus
+    MRTTYP:
+      canonical: GDO_RVS
+      concepts:
+      - document type
+      - reversal
+      derived: true
+      latin: genus documenti reversio
+    MRTYR:
+      canonical: RCG_LBR_ANN
+      concepts:
+      - recognition
+      - ledger
+      - year
+      derived: true
+      latin: recognitio liber annus
+    RCLNT:
+      canonical: CLI
+      concepts:
+      - client
+      derived: true
+      latin: cliens
+    REVDOC:
+      canonical: RCG_DOC_POS2
+      concepts:
+      - recognition
+      - document
+      - item
+      derived: true
+      latin: recognitio documentum positio
+    SRCBLN:
+      canonical: FNS_NDO_EFC
+      concepts:
+      - source
+      - document number
+      - effect
+      derived: true
+      latin: fons numerus documenti effectus
+    SRCDLN:
+      canonical: FNS_INS_POS
+      concepts:
+      - source
+      - posting
+      - item
+      derived: true
+      latin: fons inscriptio positio
+    SRCEFF:
+      canonical: FNS_EFC_POS
+      concepts:
+      - source
+      - effect
+      - item
+      derived: true
+      latin: fons effectus positio
+    SRCGJR:
+      canonical: FNS_ANF_EFC
+      concepts:
+      - source
+      - fiscal year
+      - effect
+      derived: true
+      latin: fons annus fiscalis effectus
+    USNAM:
+      canonical: USR_NOM_RCG
+      concepts:
+      - user
+      - name
+      - recognition
+      derived: true
+      latin: usor nomen recognitio
+    VERSTA:
+      canonical: VRF_STA_EFC
+      concepts:
+      - verification
+      - status
+      - effect
+      derived: true
+      latin: verificatio status effectus
+  module: EXT
 MSEG:
   fields:
     ANLN1:
@@ -41080,11 +42887,12 @@ MVKE:
       derived: true
       latin: dies
     LDVZL:
-      canonical: DIE3
+      canonical: DIE_DTB
       concepts:
       - date
+      - distribution
       derived: true
-      latin: dies
+      latin: dies distributio
     LFMAX:
       canonical: TRD_QNT_MND
       concepts:
@@ -41117,13 +42925,13 @@ MVKE:
       derived: false
       latin: null
     LVORM:
-      canonical: SGN_MAT_GRD
+      canonical: SGN_MAT_DTB
       concepts:
       - flag
       - material
-      - level
+      - distribution
       derived: true
-      latin: signum materia gradus
+      latin: signum materia distributio
     MANDT:
       canonical: CLI
       concepts:
@@ -41201,10 +43009,11 @@ MVKE:
       derived: true
       latin: index pretium
     PFLKS:
-      canonical: PFLKS
-      concepts: []
-      derived: false
-      latin: null
+      canonical: PRI
+      concepts:
+      - priority
+      derived: true
+      latin: prioritas
     PLGTP:
       canonical: PRE_CTG
       concepts:
@@ -41335,29 +43144,31 @@ MVKE:
       derived: true
       latin: venditio unitas
     VDBFL:
-      canonical: DIE5
-      concepts:
-      - date
-      derived: true
-      latin: dies
-    VDBZL:
-      canonical: DIE7
-      concepts:
-      - date
-      derived: true
-      latin: dies
-    VDVFL:
       canonical: DIE4
       concepts:
       - date
       derived: true
       latin: dies
-    VDVZL:
-      canonical: DIE6
+    VDBZL:
+      canonical: DIE_DTB3
+      concepts:
+      - date
+      - distribution
+      derived: true
+      latin: dies distributio
+    VDVFL:
+      canonical: DIE3
       concepts:
       - date
       derived: true
       latin: dies
+    VDVZL:
+      canonical: DIE_DTB2
+      concepts:
+      - date
+      - distribution
+      derived: true
+      latin: dies distributio
     VERSG:
       canonical: MAT_STT_CTS
       concepts:
@@ -41373,12 +43184,13 @@ MVKE:
       derived: true
       latin: organizatio venditionis
     VMSTA:
-      canonical: MAT_STA
+      canonical: DTB_MAT_STA
       concepts:
+      - distribution
       - material
       - status
       derived: true
-      latin: materia status
+      latin: distributio materia status
     VMSTD:
       canonical: DIE_MAT_STA
       concepts:
@@ -41575,11 +43387,12 @@ NAST:
       derived: true
       latin: socius
     PARVW:
-      canonical: SCS2
+      canonical: SCS_PSN
       concepts:
       - partner
+      - party
       derived: true
-      latin: socius
+      latin: socius persona
     PRIFB:
       canonical: PRIFB
       concepts: []
@@ -44323,12 +46136,13 @@ PA0105:
       derived: true
       latin: numerus forma domicilium
     USRTY:
-      canonical: GEN_USR
+      canonical: GEN_USR_CNL
       concepts:
       - type
       - user
+      - channel
       derived: true
-      latin: genus usor
+      latin: genus usor canalis
   module: HR
 PA2001:
   fields:
@@ -45305,6 +47119,115 @@ PA2002:
       derived: true
       latin: opus tributum area
   module: HR
+PARTY:
+  fields:
+    CNSREF:
+      canonical: CNS_RFR
+      concepts:
+      - consent
+      - reference
+      derived: true
+      latin: consensus referentia
+    CNSSTA:
+      canonical: CNS_STA_PSN
+      concepts:
+      - consent
+      - status
+      - party
+      derived: true
+      latin: consensus status persona
+    ERASDT:
+      canonical: DIE_DEL
+      concepts:
+      - date
+      - erasure
+      derived: true
+      latin: dies deletio
+    ERASRQ:
+      canonical: DEL_PSN
+      concepts:
+      - erasure
+      - party
+      derived: true
+      latin: deletio persona
+    IDHASH:
+      canonical: HSH_PSN
+      concepts:
+      - hash
+      - party
+      derived: true
+      latin: summa digesta persona
+    LAND1:
+      canonical: PTR_CLV_PSN
+      concepts:
+      - country
+      - key
+      - party
+      derived: true
+      latin: patria clavis persona
+    MEMBER:
+      canonical: ORM_PSN
+      concepts:
+      - member organisation
+      - party
+      derived: true
+      latin: organizatio membri persona
+    PARTY:
+      canonical: PSN_CLV
+      concepts:
+      - party
+      - key
+      derived: true
+      latin: persona clavis
+    PTYKND:
+      canonical: PSN
+      concepts:
+      - party
+      derived: true
+      latin: persona
+    PTYROL:
+      canonical: EMP_OPR_VEN
+      concepts:
+      - customer
+      - employee
+      - supplier
+      derived: true
+      latin: emptor operarius venditor
+    RCLNT:
+      canonical: CLI
+      concepts:
+      - client
+      derived: true
+      latin: cliens
+    SPRAS:
+      canonical: LNG_PSN
+      concepts:
+      - language
+      - party
+      derived: true
+      latin: lingua persona
+    SRCID:
+      canonical: PSN_SOR
+      concepts:
+      - party
+      - source system
+      derived: true
+      latin: persona systema originis
+    SRCSYS:
+      canonical: SOR_TBL
+      concepts:
+      - source system
+      - record
+      derived: true
+      latin: systema originis tabula
+    VULNFL:
+      canonical: VUL_SGN
+      concepts:
+      - vulnerability
+      - flag
+      derived: true
+      latin: vulnerabilitas signum
+  module: INT
 PCL1:
   fields:
     AEDTM:
@@ -45320,12 +47243,13 @@ PCL1:
       derived: true
       latin: cliens
     CLUSTD:
-      canonical: GLM_CMP
+      canonical: GLM_CMP_SPC
       concepts:
       - cluster
       - field
+      - mirror
       derived: true
-      latin: glomus campus
+      latin: glomus campus speculum
     CLUSTR:
       canonical: GLM_ARE
       concepts:
@@ -45769,19 +47693,21 @@ PLAB:
       derived: true
       latin: numerus index pensorum
     PLNNR:
-      canonical: NUM_RET
+      canonical: NUM_NRM_RET
       concepts:
       - number
+      - standard
       - network
       derived: true
-      latin: numerus rete
+      latin: numerus norma rete
     PLNRN:
-      canonical: NUM_RET2
+      canonical: NUM_NRM_RET2
       concepts:
       - number
+      - standard
       - network
       derived: true
-      latin: numerus rete
+      latin: numerus norma rete
     PLNTY:
       canonical: IXP_GEN
       concepts:
@@ -45844,12 +47770,13 @@ PLKO:
       derived: true
       latin: numerus
     ABDAT:
-      canonical: DIE_ULT
+      canonical: DIE_ULT_VOC
       concepts:
       - date
       - last
+      - call
       derived: true
-      latin: dies ultimus
+      latin: dies ultimus vocatio
     ADPSP:
       canonical: RFR_ELM
       concepts:
@@ -45963,11 +47890,12 @@ PLKO:
       derived: false
       latin: null
     FLG_CAPO:
-      canonical: MND
+      canonical: NRM_MND
       concepts:
+      - standard
       - order
       derived: true
-      latin: mandatum
+      latin: norma mandatum
     FLG_CHK:
       canonical: IXP2
       concepts:
@@ -46125,11 +48053,12 @@ PLKO:
       derived: true
       latin: genus
     PSPNR:
-      canonical: EOP
+      canonical: NRM_EOP
       concepts:
+      - standard
       - wbs element
       derived: true
-      latin: elementum operis
+      latin: norma elementum operis
     QDYNHEAD:
       canonical: GRD
       concepts:
@@ -47064,11 +48993,12 @@ PLMZ:
       derived: true
       latin: mandatum
     STRECKE:
-      canonical: PET
+      canonical: PSN_PET
       concepts:
+      - party
       - requisition
       derived: true
-      latin: petitio
+      latin: persona petitio
     TECHV:
       canonical: STA
       concepts:
@@ -47574,12 +49504,13 @@ PLPO:
       derived: true
       latin: consilium obiectum
     KTSCH:
-      canonical: TXT_CLV
+      canonical: NRM_TXT_CLV
       concepts:
+      - standard
       - text
       - key
       derived: true
-      latin: textus clavis
+      latin: norma textus clavis
     KZLGF:
       canonical: IDX4
       concepts:
@@ -47735,10 +49666,11 @@ PLPO:
       derived: false
       latin: null
     NPRIO:
-      canonical: NPRIO
-      concepts: []
-      derived: false
-      latin: null
+      canonical: PRI2
+      concepts:
+      - priority
+      derived: true
+      latin: prioritas
     NVADD:
       canonical: IDX_VAL
       concepts:
@@ -47838,10 +49770,11 @@ PLPO:
       derived: true
       latin: index pensorum genus
     PPRIO:
-      canonical: PPRIO
-      concepts: []
-      derived: false
-      latin: null
+      canonical: PRI
+      concepts:
+      - priority
+      derived: true
+      latin: prioritas
     PREIS:
       canonical: NET_PRE_TIN
       concepts:
@@ -47868,11 +49801,12 @@ PLPO:
       derived: true
       latin: opus
     PSPNR:
-      canonical: EOP
+      canonical: NRM_EOP
       concepts:
+      - standard
       - wbs element
       derived: true
-      latin: elementum operis
+      latin: norma elementum operis
     PVZKN:
       canonical: NUM_IXP2
       concepts:
@@ -47896,7 +49830,7 @@ PLPO:
       derived: true
       latin: quantitas referentia
     QKZPRZEIT:
-      canonical: TMP9
+      canonical: TMP6
       concepts:
       - time
       derived: true
@@ -47975,7 +49909,7 @@ PLPO:
       derived: true
       latin: tempus unitas
     QRASTZFAK:
-      canonical: TMP10
+      canonical: TMP7
       concepts:
       - time
       derived: true
@@ -48286,11 +50220,12 @@ PLPO:
       derived: true
       latin: categoria
     VERTL:
-      canonical: CPC
+      canonical: DTB_CPC
       concepts:
+      - distribution
       - capacity
       derived: true
-      latin: capacitas
+      latin: distributio capacitas
     VERTN:
       canonical: OFC_MND_RET
       concepts:
@@ -48300,83 +50235,95 @@ PLPO:
       derived: true
       latin: officina mandatum rete
     VGE01:
-      canonical: MEN_VAL
+      canonical: MEN_NRM_VAL
       concepts:
       - unit of measure
+      - standard
       - value
       derived: true
-      latin: mensura valor
+      latin: mensura norma valor
     VGE02:
-      canonical: MEN_VAL2
+      canonical: MEN_NRM_VAL2
       concepts:
       - unit of measure
+      - standard
       - value
       derived: true
-      latin: mensura valor
+      latin: mensura norma valor
     VGE03:
-      canonical: MEN_VAL3
+      canonical: MEN_NRM_VAL3
       concepts:
       - unit of measure
+      - standard
       - value
       derived: true
-      latin: mensura valor
+      latin: mensura norma valor
     VGE04:
-      canonical: MEN_VAL4
+      canonical: MEN_NRM_VAL4
       concepts:
       - unit of measure
+      - standard
       - value
       derived: true
-      latin: mensura valor
+      latin: mensura norma valor
     VGE05:
-      canonical: MEN_VAL5
+      canonical: MEN_NRM_VAL5
       concepts:
       - unit of measure
+      - standard
       - value
       derived: true
-      latin: mensura valor
+      latin: mensura norma valor
     VGE06:
-      canonical: MEN_VAL6
+      canonical: MEN_NRM_VAL6
       concepts:
       - unit of measure
+      - standard
       - value
       derived: true
-      latin: mensura valor
+      latin: mensura norma valor
     VGW01:
-      canonical: VAL
+      canonical: NRM_VAL
       concepts:
+      - standard
       - value
       derived: true
-      latin: valor
+      latin: norma valor
     VGW02:
-      canonical: VAL2
+      canonical: NRM_VAL2
       concepts:
+      - standard
       - value
       derived: true
-      latin: valor
+      latin: norma valor
     VGW03:
-      canonical: VAL3
+      canonical: NRM_VAL3
       concepts:
+      - standard
       - value
       derived: true
-      latin: valor
+      latin: norma valor
     VGW04:
-      canonical: VAL4
+      canonical: NRM_VAL4
       concepts:
+      - standard
       - value
       derived: true
-      latin: valor
+      latin: norma valor
     VGW05:
-      canonical: VAL5
+      canonical: NRM_VAL5
       concepts:
+      - standard
       - value
       derived: true
-      latin: valor
+      latin: norma valor
     VGW06:
-      canonical: VAL6
+      canonical: NRM_VAL6
       concepts:
+      - standard
       - value
       derived: true
-      latin: valor
+      latin: norma valor
     VINTV:
       canonical: VINTV
       concepts: []
@@ -48444,13 +50391,13 @@ PLPO:
       derived: true
       latin: numerator
     ZCODE:
-      canonical: RFR_NUM_VAL
+      canonical: RFR_NUM_NRM
       concepts:
       - reference
       - number
-      - value
+      - standard
       derived: true
-      latin: referentia numerus valor
+      latin: referentia numerus norma
     ZEIER:
       canonical: UNI_TMP
       concepts:
@@ -48487,47 +50434,52 @@ PLPO:
       derived: true
       latin: unitas tempus
     ZEITM:
-      canonical: UNI_TMP9
-      concepts:
-      - unit
-      - time
-      derived: true
-      latin: unitas tempus
-    ZEITN:
-      canonical: UNI_TMP8
-      concepts:
-      - unit
-      - time
-      derived: true
-      latin: unitas tempus
-    ZEIWM:
-      canonical: UNI_TMP7
-      concepts:
-      - unit
-      - time
-      derived: true
-      latin: unitas tempus
-    ZEIWN:
       canonical: UNI_TMP6
       concepts:
       - unit
       - time
       derived: true
       latin: unitas tempus
+    ZEITN:
+      canonical: UNI_NRM_TMP
+      concepts:
+      - unit
+      - standard
+      - time
+      derived: true
+      latin: unitas norma tempus
+    ZEIWM:
+      canonical: UNI_ORD_TMP
+      concepts:
+      - unit
+      - queue
+      - time
+      derived: true
+      latin: unitas ordo expectantium tempus
+    ZEIWN:
+      canonical: UNI_NRM_ORD
+      concepts:
+      - unit
+      - standard
+      - queue
+      derived: true
+      latin: unitas norma ordo expectantium
     ZERMA:
-      canonical: GEN_VAL
+      canonical: GEN_NRM_VAL
       concepts:
       - type
+      - standard
       - value
       derived: true
-      latin: genus valor
+      latin: genus norma valor
     ZGDAT:
-      canonical: DIE_VAL
+      canonical: DIE_NRM_VAL
       concepts:
       - date
+      - standard
       - value
       derived: true
-      latin: dies valor
+      latin: dies norma valor
     ZGR01:
       canonical: CLV_RAT
       concepts:
@@ -48600,35 +50552,40 @@ PLPO:
       derived: true
       latin: tempus
     ZTMIN:
-      canonical: TMP8
-      concepts:
-      - time
-      derived: true
-      latin: tempus
-    ZTNOR:
-      canonical: TMP7
-      concepts:
-      - time
-      derived: true
-      latin: tempus
-    ZULNR:
-      canonical: VAL7
-      concepts:
-      - value
-      derived: true
-      latin: valor
-    ZWMIN:
-      canonical: TMP6
-      concepts:
-      - time
-      derived: true
-      latin: tempus
-    ZWNOR:
       canonical: TMP5
       concepts:
       - time
       derived: true
       latin: tempus
+    ZTNOR:
+      canonical: NRM_TMP
+      concepts:
+      - standard
+      - time
+      derived: true
+      latin: norma tempus
+    ZULNR:
+      canonical: NRM_VAL7
+      concepts:
+      - standard
+      - value
+      derived: true
+      latin: norma valor
+    ZWMIN:
+      canonical: ORD_TMP
+      concepts:
+      - queue
+      - time
+      derived: true
+      latin: ordo expectantium tempus
+    ZWNOR:
+      canonical: NRM_ORD_TMP
+      concepts:
+      - standard
+      - queue
+      - time
+      derived: true
+      latin: norma ordo expectantium tempus
   module: PP
 PMCO:
   fields:
@@ -48686,12 +50643,13 @@ PMCO:
       derived: true
       latin: obiectum numerus
     PERBL:
-      canonical: CLV_PER
+      canonical: DTB_CLV_PER
       concepts:
+      - distribution
       - key
       - period
       derived: true
-      latin: clavis periodus
+      latin: distributio clavis periodus
     VERSN:
       canonical: VRS
       concepts:
@@ -49251,10 +51209,11 @@ PROJ:
       derived: true
       latin: socius
     PGPRF:
-      canonical: PGPRF
-      concepts: []
-      derived: false
-      latin: null
+      canonical: DTB
+      concepts:
+      - distribution
+      derived: true
+      latin: distributio
     PLFAZ:
       canonical: PRP_INI_DIE
       concepts:
@@ -49391,12 +51350,13 @@ PROJ:
       derived: true
       latin: praevisio initium dies
     SPSNR:
-      canonical: NUM_PRP
+      canonical: NUM_NRM_PRP
       concepts:
       - number
+      - standard
       - project
       derived: true
-      latin: numerus propositum
+      latin: numerus norma propositum
     STORT:
       canonical: LOC
       concepts:
@@ -49873,10 +51833,11 @@ PRPS:
       derived: true
       latin: codex societatis elementum operis
     PGPRF:
-      canonical: PGPRF
-      concepts: []
-      derived: false
-      latin: null
+      canonical: DTB
+      concepts:
+      - distribution
+      derived: true
+      latin: distributio
     PGSBR:
       canonical: ANG_EOP
       concepts:
@@ -49969,10 +51930,11 @@ PRPS:
       derived: true
       latin: elementum operis numerus campus
     PSPRI:
-      canonical: PSPRI
-      concepts: []
-      derived: false
-      latin: null
+      canonical: PRI
+      concepts:
+      - priority
+      derived: true
+      latin: prioritas
     PWPOS:
       canonical: EOP_MON
       concepts:
@@ -50379,12 +52341,13 @@ PRTX:
 QALS:
   fields:
     ABNUM:
-      canonical: CCU_NUM
+      canonical: CCU_VOC_NUM
       concepts:
       - maintenance plan
+      - call
       - number
       derived: true
-      latin: consilium curationis numerus
+      latin: consilium curationis vocatio numerus
     ADDON_DUMMY:
       canonical: CMP17
       concepts:
@@ -50427,7 +52390,7 @@ QALS:
       derived: true
       latin: patrimonium
     ANTEIL:
-      canonical: ISP10
+      canonical: ISP9
       concepts:
       - inspection
       derived: true
@@ -50830,11 +52793,12 @@ QALS:
       derived: true
       latin: textus inspectio obiectum
     KUNNR:
-      canonical: EMP2
+      canonical: EMP_PSN
       concepts:
       - customer
+      - party
       derived: true
-      latin: emptor
+      latin: emptor persona
     KZDYNERF:
       canonical: KZDYNERF
       concepts: []
@@ -51075,10 +53039,11 @@ QALS:
       derived: true
       latin: positio numerus venditio
     LS_KUNAG:
-      canonical: LS_KUNAG
-      concepts: []
-      derived: false
-      latin: null
+      canonical: PSN
+      concepts:
+      - party
+      derived: true
+      latin: persona
     LS_LLAND:
       canonical: PTR
       concepts:
@@ -51316,16 +53281,18 @@ QALS:
       derived: true
       latin: centrum lucri
     PRIO_PUNKTE:
-      canonical: PRIO_PUNKTE
-      concepts: []
-      derived: false
-      latin: null
+      canonical: PRI
+      concepts:
+      - priority
+      derived: true
+      latin: prioritas
     PRSCHAERFE:
-      canonical: ISP9
+      canonical: ISP_GRV
       concepts:
       - inspection
+      - severity
       derived: true
-      latin: inspectio
+      latin: inspectio gravitas
     PRSTUFE:
       canonical: ISP8
       concepts:
@@ -51450,7 +53417,7 @@ QALS:
       derived: true
       latin: numerus serialis
     SIGNSTRAT_RR:
-      canonical: ISP12
+      canonical: ISP11
       concepts:
       - inspection
       derived: true
@@ -51719,7 +53686,7 @@ QALS:
       derived: true
       latin: exemplum
     STAT32:
-      canonical: ISP11
+      canonical: ISP10
       concepts:
       - inspection
       derived: true
@@ -53720,11 +55687,12 @@ QMEL:
       derived: true
       latin: officina statio operis
     ARTPR:
-      canonical: GEN
+      canonical: PRI_GEN
       concepts:
+      - priority
       - type
       derived: true
-      latin: genus
+      latin: prioritas genus
     AUFNR:
       canonical: MND_NUM
       concepts:
@@ -53902,7 +55870,7 @@ QMEL:
       derived: false
       latin: null
     FEART:
-      canonical: GEN3
+      canonical: GEN2
       concepts:
       - type
       derived: true
@@ -54235,10 +56203,11 @@ QMEL:
       derived: true
       latin: hierarchia
     PRIOK:
-      canonical: PRIOK
-      concepts: []
-      derived: false
-      latin: null
+      canonical: PRI
+      concepts:
+      - priority
+      derived: true
+      latin: prioritas
     PRODDAT:
       canonical: PRD_DIE
       concepts:
@@ -54306,7 +56275,7 @@ QMEL:
       derived: true
       latin: codex coetus
     QMKAT:
-      canonical: GEN2
+      canonical: GEN
       concepts:
       - type
       derived: true
@@ -54497,20 +56466,20 @@ QMEL:
       derived: false
       latin: null
     TZONID:
-      canonical: ORG_TMP_NTS
+      canonical: ORG_ZTM_NTS
       concepts:
       - origin
-      - time
+      - time zone
       - notification
       derived: true
-      latin: origo tempus nuntius
+      latin: origo zona temporis nuntius
     TZONSO:
-      canonical: TMP_NTS3
+      canonical: ZTM_NTS
       concepts:
-      - time
+      - time zone
       - notification
       derived: true
-      latin: tempus nuntius
+      latin: zona temporis nuntius
     UII:
       canonical: POS
       concepts:
@@ -55231,16 +57200,18 @@ QMSM:
       derived: true
       latin: pensum
     EFFECTPERC:
-      canonical: EFFECTPERC
-      concepts: []
-      derived: false
-      latin: null
-    EFFECTTEXT:
-      canonical: TXT
+      canonical: EFC
       concepts:
+      - effect
+      derived: true
+      latin: effectus
+    EFFECTTEXT:
+      canonical: EFC_TXT
+      concepts:
+      - effect
       - text
       derived: true
-      latin: textus
+      latin: effectus textus
     ERDAT:
       canonical: DIE_TBL_CRE
       concepts:
@@ -55482,27 +57453,27 @@ QMSM:
       derived: false
       latin: null
     TZONID:
-      canonical: ORG_TMP_NTS
+      canonical: ORG_ZTM_NTS
       concepts:
       - origin
-      - time
+      - time zone
       - notification
       derived: true
-      latin: origo tempus nuntius
+      latin: origo zona temporis nuntius
     TZONSM:
-      canonical: TMP_PNS2
+      canonical: ZTM_PNS
       concepts:
-      - time
+      - time zone
       - task
       derived: true
-      latin: tempus pensum
+      latin: zona temporis pensum
     TZONSO:
-      canonical: TMP_NTS
+      canonical: ZTM_NTS
       concepts:
-      - time
+      - time zone
       - notification
       derived: true
-      latin: tempus nuntius
+      latin: zona temporis nuntius
     URNUM:
       canonical: NUM_CSA
       concepts:
@@ -55596,7 +57567,7 @@ QMUR:
       derived: true
       latin: index textus
     INVOLVPERC:
-      canonical: CSA3
+      canonical: CSA2
       concepts:
       - cause
       derived: true
@@ -55708,11 +57679,12 @@ QMUR:
       derived: true
       latin: versio numerus codex
     VUCOD:
-      canonical: CSA2
+      canonical: CSA_VRF
       concepts:
       - cause
+      - verification
       derived: true
-      latin: causa
+      latin: causa verificatio
     VUGRP:
       canonical: COD_CTS_CSA
       concepts:
@@ -55722,12 +57694,13 @@ QMUR:
       derived: true
       latin: codex coetus causa
     VUKAT:
-      canonical: GEN_CSA
+      canonical: GEN_CSA_VRF
       concepts:
       - type
       - cause
+      - verification
       derived: true
-      latin: genus causa
+      latin: genus causa verificatio
   module: PM
 QPMK:
   fields:
@@ -56483,11 +58456,11 @@ RSDCUBE:
       derived: false
       latin: null
     SLOGSYS:
-      canonical: FNS
+      canonical: SOR
       concepts:
-      - source
+      - source system
       derived: true
-      latin: fons
+      latin: systema originis
     SUPERPROV:
       canonical: GRD
       concepts:
@@ -56522,12 +58495,12 @@ RSDCUBE:
       derived: true
       latin: ultimus mutatus
     UNIQUE_SOURCE:
-      canonical: IDX_FNS
+      canonical: IDX_SOR
       concepts:
       - indicator
-      - source
+      - source system
       derived: true
-      latin: index fons
+      latin: index systema originis
     WRITECLASNM:
       canonical: NOM_CLS2
       concepts:
@@ -56828,18 +58801,20 @@ RSDODSO:
       derived: true
       latin: magnitudo categoria
     ODSMDATCLS:
-      canonical: CLS
+      canonical: CLS_ORD
       concepts:
       - class
+      - queue
       derived: true
-      latin: classis
+      latin: classis ordo expectantium
     ODSMSIZCAT:
-      canonical: MGN_CTG2
+      canonical: MGN_CTG_ORD
       concepts:
       - size
       - category
+      - queue
       derived: true
-      latin: magnitudo categoria
+      latin: magnitudo categoria ordo expectantium
     ODSOBJECT:
       canonical: OBI
       concepts:
@@ -58670,12 +60645,13 @@ STPO:
       derived: true
       latin: index
     VERTI:
-      canonical: CLV_CMN
+      canonical: DTB_CLV_CMN
       concepts:
+      - distribution
       - key
       - component
       derived: true
-      latin: clavis componens
+      latin: distributio clavis componens
     VGKNT:
       canonical: VGKNT
       concepts: []
@@ -58726,6 +60702,172 @@ STPO:
       derived: true
       latin: referentia
   module: PP
+STSMAP:
+  fields:
+    OPNCLS:
+      canonical: OPNCLS
+      concepts: []
+      derived: false
+      latin: null
+    RCLNT:
+      canonical: CLI
+      concepts:
+      - client
+      derived: true
+      latin: cliens
+    SLACLK:
+      canonical: STA_GSV
+      concepts:
+      - status
+      - service level
+      derived: true
+      latin: status gradus servitii
+    SRCSTA:
+      canonical: FNS_STA_VAL
+      concepts:
+      - source
+      - status
+      - value
+      derived: true
+      latin: fons status valor
+    SRCSYS:
+      canonical: SOR_CLV
+      concepts:
+      - source system
+      - key
+      derived: true
+      latin: systema originis clavis
+    SRCTYP:
+      canonical: FNS_OBI_TBL
+      concepts:
+      - source
+      - object
+      - table
+      derived: true
+      latin: fons obiectum tabula
+    STATUS:
+      canonical: STA_FNS_VAL
+      concepts:
+      - status
+      - source
+      - value
+      derived: true
+      latin: status fons valor
+    STATXT:
+      canonical: STA_DSC
+      concepts:
+      - status
+      - description
+      derived: true
+      latin: status descriptio
+    TERMNL:
+      canonical: STA_TML_SOR
+      concepts:
+      - status
+      - terminal
+      - source system
+      derived: true
+      latin: status terminale systema originis
+  module: INT
+SYSRC:
+  fields:
+    ACTIVE:
+      canonical: FNS
+      concepts:
+      - source
+      derived: true
+      latin: fons
+    APIVER:
+      canonical: VRS_SPC
+      concepts:
+      - version
+      - mirror
+      derived: true
+      latin: versio speculum
+    AUTHRF:
+      canonical: RFR_SPC
+      concepts:
+      - reference
+      - mirror
+      derived: true
+      latin: referentia speculum
+    CADENC:
+      canonical: SPC_FNS
+      concepts:
+      - mirror
+      - source
+      derived: true
+      latin: speculum fons
+    LASTRD:
+      canonical: ULT
+      concepts:
+      - last
+      derived: true
+      latin: ultimus
+    LEGBAS:
+      canonical: FLG_PCT_CNS
+      concepts:
+      - legal basis
+      - contract
+      - consent
+      derived: true
+      latin: fundamentum legale pactum consensus
+    MEMBER:
+      canonical: ORM_SOR
+      concepts:
+      - member organisation
+      - source system
+      derived: true
+      latin: organizatio membri systema originis
+    RCLNT:
+      canonical: CLI
+      concepts:
+      - client
+      derived: true
+      latin: cliens
+    RDONLY:
+      canonical: SPC
+      concepts:
+      - mirror
+      derived: true
+      latin: speculum
+    RETDAY:
+      canonical: RTN_FNS
+      concepts:
+      - retention
+      - source
+      derived: true
+      latin: retentio fons
+    SRCKND:
+      canonical: MIN_TLP_STL
+      concepts:
+      - service
+      - telephony
+      - satellite
+      derived: true
+      latin: ministerium telephonia satelles
+    SRCNAM:
+      canonical: SOR_NOM
+      concepts:
+      - source system
+      - name
+      derived: true
+      latin: systema originis nomen
+    SRCSYS:
+      canonical: SOR_CLV
+      concepts:
+      - source system
+      - key
+      derived: true
+      latin: systema originis clavis
+    SRCVND:
+      canonical: VEN_SOR
+      concepts:
+      - vendor
+      - source system
+      derived: true
+      latin: venditor systema originis
+  module: INT
 T000:
   fields:
     ADRNR:
@@ -58823,12 +60965,13 @@ T000:
       derived: true
       latin: cliens nomen
     MWAER:
-      canonical: MON_CLI
+      canonical: NRM_MON_CLI
       concepts:
+      - standard
       - currency
       - client
       derived: true
-      latin: moneta cliens
+      latin: norma moneta cliens
     ORT01:
       canonical: URB
       concepts:
@@ -59038,12 +61181,13 @@ T001W:
       derived: true
       latin: clavis
     FPRFW:
-      canonical: OFC_GRD
+      canonical: DTB_OFC_GRD
       concepts:
+      - distribution
       - plant
       - level
       derived: true
-      latin: officina gradus
+      latin: distributio officina gradus
     IWERK:
       canonical: CUR_CNS_OFC
       concepts:
@@ -59406,11 +61550,12 @@ T005:
       derived: true
       latin: cliens
     NMFMT:
-      canonical: NOM
+      canonical: NRM_NOM
       concepts:
+      - standard
       - name
       derived: true
-      latin: nomen
+      latin: norma nomen
     SPRAS:
       canonical: LNG_CLV_PTR
       concepts:
@@ -59440,11 +61585,12 @@ T005:
       derived: true
       latin: patria moneta
     XEGLD:
-      canonical: IDX
+      canonical: IDX_MBR
       concepts:
       - indicator
+      - member
       derived: true
-      latin: index
+      latin: index membrum
     XLAND:
       canonical: PTR_VRS_SGN
       concepts:
@@ -59779,10 +61925,11 @@ T012K:
       derived: true
       latin: codex societatis
     DTAAI:
-      canonical: DTAAI
-      concepts: []
-      derived: false
-      latin: null
+      canonical: PSN
+      concepts:
+      - party
+      derived: true
+      latin: persona
     FDGRP:
       canonical: CNS_CTS
       concepts:
@@ -60801,17 +62948,19 @@ TJ03:
 TKA01:
   fields:
     ALEMT:
-      canonical: CSM
+      canonical: CSM_DTB
       concepts:
       - cost center
+      - distribution
       derived: true
-      latin: centrum sumptus
+      latin: centrum sumptus distributio
     AUTH_KE_NO_STD:
-      canonical: HIR3
+      canonical: NRM_HIR2
       concepts:
+      - standard
       - hierarchy
       derived: true
-      latin: hierarchia
+      latin: norma hierarchia
     AUTH_KE_USE_ADD1:
       canonical: PRI_HIR2
       concepts:
@@ -60820,7 +62969,7 @@ TKA01:
       derived: true
       latin: primus hierarchia
     AUTH_KE_USE_ADD2:
-      canonical: HIR4
+      canonical: HIR2
       concepts:
       - hierarchy
       derived: true
@@ -60833,17 +62982,18 @@ TKA01:
       derived: true
       latin: primus hierarchia
     AUTH_USE_ADD2:
-      canonical: HIR2
-      concepts:
-      - hierarchy
-      derived: true
-      latin: hierarchia
-    AUTH_USE_NO_STD:
       canonical: HIR
       concepts:
       - hierarchy
       derived: true
       latin: hierarchia
+    AUTH_USE_NO_STD:
+      canonical: NRM_HIR
+      concepts:
+      - standard
+      - hierarchy
+      derived: true
+      latin: norma hierarchia
     BEZEI:
       canonical: NOM_AMD
       concepts:
@@ -60859,12 +63009,13 @@ TKA01:
       derived: true
       latin: genus documenti liber
     BPHINR:
-      canonical: HIR_ARE
+      canonical: NRM_HIR_ARE
       concepts:
+      - standard
       - hierarchy
       - area
       derived: true
-      latin: hierarchia area
+      latin: norma hierarchia area
     CTYP:
       canonical: MON_GEN_AMD
       concepts:
@@ -60911,12 +63062,13 @@ TKA01:
       derived: true
       latin: area
     KHINR:
-      canonical: HIR_SMP
+      canonical: NRM_HIR_SMP
       concepts:
+      - standard
       - hierarchy
       - cost
       derived: true
-      latin: hierarchia sumptus
+      latin: norma hierarchia sumptus
     KOKFI:
       canonical: ATB_IDX
       concepts:
@@ -61388,18 +63540,20 @@ TVKOV:
       derived: true
       latin: referentia officina categoria
     VLKEB:
-      canonical: TAX_GRD
+      canonical: TAX_DTB_GRD
       concepts:
       - pricing
+      - distribution
       - level
       derived: true
-      latin: taxatio gradus
+      latin: taxatio distributio gradus
     VLTYP:
-      canonical: CTG
+      canonical: DTB_CTG
       concepts:
+      - distribution
       - category
       derived: true
-      latin: categoria
+      latin: distributio categoria
     VTWAU:
       canonical: CDS_VDT
       concepts:
@@ -61421,12 +63575,13 @@ TVKOV:
       derived: true
       latin: referentia canalis distributionis
     VTWKU:
-      canonical: RFR_MAT
+      canonical: RFR_CNL_MAT
       concepts:
       - reference
+      - channel
       - material
       derived: true
-      latin: referentia materia
+      latin: referentia canalis materia
   module: SD
 TVTA:
   fields:
@@ -61541,12 +63696,13 @@ TVTA:
       derived: true
       latin: referentia canalis distributionis
     VTWKU:
-      canonical: RFR_MAT
+      canonical: RFR_CNL_MAT
       concepts:
       - reference
+      - channel
       - material
       derived: true
-      latin: referentia materia
+      latin: referentia canalis materia
   module: SD
 VBAK:
   fields:
@@ -61732,12 +63888,13 @@ VBAK:
       derived: true
       latin: referentia
     KALSM:
-      canonical: VDT_TAX
+      canonical: VDT_DTB_TAX
       concepts:
       - sales
+      - distribution
       - pricing
       derived: true
-      latin: venditio taxatio
+      latin: venditio distributio taxatio
     KKBER:
       canonical: AFD
       concepts:
@@ -61778,10 +63935,11 @@ VBAK:
       derived: true
       latin: centrum sumptus
     KUNNR:
-      canonical: KUNNR
-      concepts: []
-      derived: false
-      latin: null
+      canonical: PSN
+      concepts:
+      - party
+      derived: true
+      latin: persona
     KURST:
       canonical: RPM_GEN
       concepts:
@@ -62190,11 +64348,12 @@ VBAP:
       derived: true
       latin: locus repositionis
     LPRIO:
-      canonical: TRD
+      canonical: TRD_PRI
       concepts:
       - delivery
+      - priority
       derived: true
-      latin: traditio
+      latin: traditio prioritas
     MANDT:
       canonical: CLI
       concepts:
@@ -62819,11 +64978,12 @@ VBKD:
       derived: true
       latin: emptor mandatum emptionis dies
     BSTDK_E:
-      canonical: DIE2
+      canonical: PSN_DIE
       concepts:
+      - party
       - date
       derived: true
-      latin: dies
+      latin: persona dies
     BSTKD:
       canonical: EMP_MEM_NUM
       concepts:
@@ -62833,12 +64993,13 @@ VBKD:
       derived: true
       latin: emptor mandatum emptionis numerus
     BSTKD_E:
-      canonical: MEM_NUM
+      canonical: PSN_MEM_NUM
       concepts:
+      - party
       - purchase order
       - number
       derived: true
-      latin: mandatum emptionis numerus
+      latin: persona mandatum emptionis numerus
     BZIRK:
       canonical: VDT
       concepts:
@@ -63020,12 +65181,13 @@ VBKD:
       derived: true
       latin: valor
     VBELN:
-      canonical: VDT_NDO
+      canonical: VDT_DTB_NDO
       concepts:
       - sales
+      - distribution
       - document number
       derived: true
-      latin: venditio numerus documenti
+      latin: venditio distributio numerus documenti
     VKONT:
       canonical: PCT_RAT_NUM
       concepts:
@@ -63225,12 +65387,13 @@ VBPA:
       derived: true
       latin: numerus
     VBELN:
-      canonical: VDT_NDO
+      canonical: VDT_DTB_NDO
       concepts:
       - sales
+      - distribution
       - document number
       derived: true
-      latin: venditio numerus documenti
+      latin: venditio distributio numerus documenti
     XCPDK:
       canonical: IDX_RAT_TMP
       concepts:
@@ -63360,12 +65523,13 @@ VBRK:
       derived: false
       latin: null
     KALSM:
-      canonical: VDT_TAX
+      canonical: VDT_DTB_TAX
       concepts:
       - sales
+      - distribution
       - pricing
       derived: true
-      latin: venditio taxatio
+      latin: venditio distributio taxatio
     KDGRP:
       canonical: EMP_CTS
       concepts:
@@ -63401,10 +65565,11 @@ VBRK:
       derived: true
       latin: numerus documentum condicio
     KUNAG:
-      canonical: KUNAG
-      concepts: []
-      derived: false
-      latin: null
+      canonical: PSN
+      concepts:
+      - party
+      derived: true
+      latin: persona
     KUNRG:
       canonical: KUNRG
       concepts: []
@@ -63879,11 +66044,12 @@ VBRP:
       derived: true
       latin: opus elementum elementum operis
     RRREL:
-      canonical: CTG
+      canonical: RCG_CTG
       concepts:
+      - recognition
       - category
       derived: true
-      latin: categoria
+      latin: recognitio categoria
     SGTXT:
       canonical: POS_TXT
       concepts:
@@ -64250,12 +66416,13 @@ VBUK:
       derived: true
       latin: caput status traditio
     VBELN:
-      canonical: VDT_NDO
+      canonical: VDT_DTB_NDO
       concepts:
       - sales
+      - distribution
       - document number
       derived: true
-      latin: venditio numerus documenti
+      latin: venditio distributio numerus documenti
     VBOBJ:
       canonical: DOC_OBI
       concepts:
@@ -64485,12 +66652,13 @@ VBUP:
       derived: true
       latin: status positio traditio
     VBELN:
-      canonical: VDT_NDO
+      canonical: VDT_DTB_NDO
       concepts:
       - sales
+      - distribution
       - document number
       derived: true
-      latin: venditio numerus documenti
+      latin: venditio distributio numerus documenti
     WBSTA:
       canonical: MTM_STA
       concepts:
@@ -64697,16 +66865,18 @@ VIQMEL:
       derived: true
       latin: obiectum numerus status
     PRIOK:
-      canonical: GEN
+      canonical: PRI_GEN
       concepts:
+      - priority
       - type
       derived: true
-      latin: genus
+      latin: prioritas genus
     PRIOKX:
-      canonical: PRIOKX
-      concepts: []
-      derived: false
-      latin: null
+      canonical: PRI
+      concepts:
+      - priority
+      derived: true
+      latin: prioritas
     QMART:
       canonical: NTS_GEN
       concepts:
@@ -64737,7 +66907,7 @@ VIQMEL:
       derived: true
       latin: nuntius codex coetus
     QMKAT:
-      canonical: GEN2
+      canonical: GEN
       concepts:
       - type
       derived: true
@@ -64834,3 +67004,108 @@ VIQMEL:
       derived: true
       latin: consilium curationis
   module: PM
+XWALK:
+  fields:
+    CONFID:
+      canonical: FID_DSG
+      concepts:
+      - confidence
+      - mapping
+      derived: true
+      latin: fiducia designatio
+    LOSSY:
+      canonical: DSG_FNS_VAL
+      concepts:
+      - mapping
+      - source
+      - value
+      derived: true
+      latin: designatio fons valor
+    MAPTYP:
+      canonical: DSG_GEN
+      concepts:
+      - mapping
+      - type
+      derived: true
+      latin: designatio genus
+    NOTES:
+      canonical: DSG
+      concepts:
+      - mapping
+      derived: true
+      latin: designatio
+    OWNER:
+      canonical: PSN_DSG
+      concepts:
+      - party
+      - mapping
+      derived: true
+      latin: persona designatio
+    RCLNT:
+      canonical: CLI
+      concepts:
+      - client
+      derived: true
+      latin: cliens
+    SRCFLD:
+      canonical: FNS_CMP_NOM
+      concepts:
+      - source
+      - field
+      - name
+      derived: true
+      latin: fons campus nomen
+    SRCSYS:
+      canonical: SOR_CLV
+      concepts:
+      - source system
+      - key
+      derived: true
+      latin: systema originis clavis
+    SRCTYP:
+      canonical: FNS_OBI_TBL
+      concepts:
+      - source
+      - object
+      - table
+      derived: true
+      latin: fons obiectum tabula
+    TGTCAN:
+      canonical: NOM_MTA_CMP
+      concepts:
+      - name
+      - target
+      - field
+      derived: true
+      latin: nomen meta campus
+    TGTFLD:
+      canonical: MTA_CMP_EPH
+      concepts:
+      - target
+      - field
+      - interaction journal
+      derived: true
+      latin: meta campus ephemeris commercii
+    TGTTAB:
+      canonical: MTA_TBL_EPH
+      concepts:
+      - target
+      - table
+      - interaction journal
+      derived: true
+      latin: meta tabula ephemeris commercii
+    TRNRUL:
+      canonical: TFM
+      concepts:
+      - transform
+      derived: true
+      latin: transformatio
+    VALFRM:
+      canonical: VLA_DIE_DSG
+      concepts:
+      - valid from
+      - date
+      - mapping
+      derived: true
+      latin: validus ab dies designatio
+  module: INT

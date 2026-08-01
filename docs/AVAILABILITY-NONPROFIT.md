@@ -43,3 +43,23 @@ organization and the surface being built.
 *Pour le bien-être du peuple.*
 
 © 2026 EVEglyphDesign. All rights reserved. Controlled copy.
+
+## Legacy safety systems vendors — also without charge
+
+**Vendors of legacy safety systems are offered these services free of charge.**
+
+Emergency dispatch, alarm and monitoring, life safety, safety instrumented systems, marine and
+aviation safety, public safety communications. The systems that hold a town's fire alarms, a
+plant's shutdown logic or a coastline's distress channel are frequently old, frequently
+unglamorous, and frequently maintained by small firms that cannot fund a data-model programme
+and should not be asked to. Work that keeps people alive is not a revenue opportunity.
+
+The offer is the same as the one made to non-profits: blueprint designs, the reference model,
+the crosswalks, and help wiring an existing system of record into the interaction journal —
+requested plainly, granted without charge, with no obligation to buy anything afterwards.
+
+Recorded in the model itself: `MEMBR-SAFIND` marks the member, `MEMBR-SAFKND` records what kind
+of safety system they carry, and `MEMBR-FOCBAS` records the basis on which charges are waived.
+It is in the schema so that it cannot quietly stop being true.
+
+*Pour le bien-être du peuple.*

@@ -112,7 +112,7 @@ def pg_type(f):
 
 def load():
     out = {}
-    for path in sorted(glob.glob(f"{BASE}/*/tables/*.yaml")):
+    for path in sorted(glob.glob(f"{BASE}/*/tables/*.yaml") + glob.glob("schema/extension/*/tables/*.yaml") + glob.glob("schema/interaction/*/tables/*.yaml")):
         module = path.split("/")[2]
         doc = yaml.safe_load(open(path))
         if isinstance(doc, dict) and doc.get("table") and (doc.get("fields") or []):

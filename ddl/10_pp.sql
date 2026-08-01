@@ -1,5 +1,5 @@
 -- EVE Datasphere Sovereign — PostgreSQL materialisation
--- Generated 2026-08-01T01:47:33Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
+-- Generated 2026-08-01T02:17:52Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
 -- Column names are the canonical Latin layer (EgD-LATIN-001). The legacy SAP field name
 -- is preserved in COMMENT ON COLUMN and in egd_catalog.field_map, and is the join key.
 -- Mirror, never cannibalise. Pour le bien-etre du peuple.
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS pp.afko (
   clv varchar(3),
   gen varchar(1),
   idx varchar(1),
-  mnd2 varchar(1),
+  mnd_pri varchar(1),
   ret_num varchar(12),
   act varchar(4),
   ret varchar(7),
@@ -104,10 +104,10 @@ CREATE TABLE IF NOT EXISTS pp.afko (
   num_rqs2 varchar(10),
   mnd_pos_num varchar(4),
   num_mnd varchar(12),
+  mnd2 varchar(12),
   mnd3 varchar(12),
-  mnd4 varchar(12),
   idx_mnd2 varchar(1),
-  mnd5 numeric(13,3),
+  mnd4 numeric(13,3),
   cnf varchar(3),
   num_ret varchar(12),
   itn_num_mnd2 varchar(10),
@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS pp.afko (
   grx varchar(6),
   prd6 varchar(3),
   kapt_sichz varchar(3),
-  mnd6 varchar(12),
+  mnd5 varchar(12),
   ini_ret_die date,
   ini_tmp_mnd time,
   fin_mnd_die date,
@@ -142,7 +142,7 @@ CREATE TABLE IF NOT EXISTS pp.afko (
   tot_qnt numeric(13,3),
   die date,
   qnt_mnd numeric(13,3),
-  mnd7 varchar(1),
+  mnd6 varchar(1),
   idx_rat_asg varchar(1),
   atrkz varchar(1),
   idx7 varchar(1),
@@ -159,7 +159,7 @@ CREATE TABLE IF NOT EXISTS pp.afko (
   val_tot_mnd numeric(13,3),
   clv_itn varchar(64),
   rfr_elm varchar(40),
-  vdt_ndo varchar(10),
+  vdt_dtb_ndo varchar(10),
   pos_num_doc varchar(6),
   pos_num_doc2 varchar(6),
   per numeric(5,0),
@@ -224,7 +224,7 @@ COMMENT ON COLUMN pp.afko.prd IS 'FEVOR — Production Supervisor [productio]';
 COMMENT ON COLUMN pp.afko.clv IS 'FHORI — Scheduling Margin Key for Floats [clavis]';
 COMMENT ON COLUMN pp.afko.gen IS 'TERKZ — Scheduling type [genus]';
 COMMENT ON COLUMN pp.afko.idx IS 'REDKZ — Reduction indicator for scheduling [index]';
-COMMENT ON COLUMN pp.afko.mnd2 IS 'APRIO — Order priority [mandatum]';
+COMMENT ON COLUMN pp.afko.mnd_pri IS 'APRIO — Order priority [mandatum prioritas]';
 COMMENT ON COLUMN pp.afko.ret_num IS 'NTZUE — Superior network number [rete numerus]';
 COMMENT ON COLUMN pp.afko.act IS 'VORUE — Superior activity [actio]';
 COMMENT ON COLUMN pp.afko.ret IS 'PROFID — Network profile [rete]';
@@ -272,10 +272,10 @@ COMMENT ON COLUMN pp.afko.grd4 IS 'VWEGX — Path (for multi-level BOM explosion
 COMMENT ON COLUMN pp.afko.num_rqs2 IS 'ARSNR — Number of Reservation/Dependent Requirement [numerus requisitum]';
 COMMENT ON COLUMN pp.afko.mnd_pos_num IS 'ARSPS — Order Item Number [mandatum positio numerus]';
 COMMENT ON COLUMN pp.afko.num_mnd IS 'MAUFNR — Number of superior order [numerus mandatum]';
-COMMENT ON COLUMN pp.afko.mnd3 IS 'LKNOT — Left node in collective order [mandatum]';
-COMMENT ON COLUMN pp.afko.mnd4 IS 'RKNOT — Right node of a collective order [mandatum]';
+COMMENT ON COLUMN pp.afko.mnd2 IS 'LKNOT — Left node in collective order [mandatum]';
+COMMENT ON COLUMN pp.afko.mnd3 IS 'RKNOT — Right node of a collective order [mandatum]';
 COMMENT ON COLUMN pp.afko.idx_mnd2 IS 'PRODNET — Indicator: Order is part of collective order [index mandatum]';
-COMMENT ON COLUMN pp.afko.mnd5 IS 'IASMG — Scrap confirmed for order [mandatum]';
+COMMENT ON COLUMN pp.afko.mnd4 IS 'IASMG — Scrap confirmed for order [mandatum]';
 COMMENT ON COLUMN pp.afko.cnf IS 'ABARB — Confirmation: Degree of processing [confirmatio]';
 COMMENT ON COLUMN pp.afko.num_ret IS 'AUFNT — Number of superior network [numerus rete]';
 COMMENT ON COLUMN pp.afko.itn_num_mnd2 IS 'AUFPT — Routing number of operations in the order [itinerarium numerus mandatum]';
@@ -299,7 +299,7 @@ COMMENT ON COLUMN pp.afko.ini_tmp_pvs IS 'GSUPS — Scheduled start time (Foreca
 COMMENT ON COLUMN pp.afko.grx IS 'CHSCH — Search procedure for batch determination [grex]';
 COMMENT ON COLUMN pp.afko.prd6 IS 'KAPT_VORGZ — Float (bef. production) remaining after finite scheduling [productio]';
 COMMENT ON COLUMN pp.afko.kapt_sichz IS 'KAPT_SICHZ — Remaining float after finite scheduling';
-COMMENT ON COLUMN pp.afko.mnd6 IS 'LEAD_AUFNR — Leading order in current processing [mandatum]';
+COMMENT ON COLUMN pp.afko.mnd5 IS 'LEAD_AUFNR — Leading order in current processing [mandatum]';
 COMMENT ON COLUMN pp.afko.ini_ret_die IS 'PNETSTARTD — Outline start of collective network (date) [initium rete dies]';
 COMMENT ON COLUMN pp.afko.ini_tmp_mnd IS 'PNETSTARTT — Start time of a collective order [initium tempus mandatum]';
 COMMENT ON COLUMN pp.afko.fin_mnd_die IS 'PNETENDD — Outline finish of collective order (date) [finis mandatum dies]';
@@ -310,7 +310,7 @@ COMMENT ON COLUMN pp.afko.prd7 IS 'SFCPF — Production Scheduling Profile [prod
 COMMENT ON COLUMN pp.afko.tot_qnt IS 'RMNGA — Total confirmed rework quantity [summa totalis quantitas]';
 COMMENT ON COLUMN pp.afko.die IS 'GSBTR — Overall commitment date [dies]';
 COMMENT ON COLUMN pp.afko.qnt_mnd IS 'VFMNG — Committed quantity for order acc. to ATP check components [quantitas mandatum]';
-COMMENT ON COLUMN pp.afko.mnd7 IS 'NOPCOST — Do not calculate planned costs for order [mandatum]';
+COMMENT ON COLUMN pp.afko.mnd6 IS 'NOPCOST — Do not calculate planned costs for order [mandatum]';
 COMMENT ON COLUMN pp.afko.idx_rat_asg IS 'NETZKONT — Indicator for the account assignment of a network(hdr/act.) [index ratio assignatio]';
 COMMENT ON COLUMN pp.afko.atrkz IS 'ATRKZ — Request ID';
 COMMENT ON COLUMN pp.afko.idx7 IS 'OBJTYPE — Change indicator [index]';
@@ -327,7 +327,7 @@ COMMENT ON COLUMN pp.afko.costupd IS 'COSTUPD — Costs are updated';
 COMMENT ON COLUMN pp.afko.val_tot_mnd IS 'MAX_GAMNG — Maximum Value of Total Order Quantity After Distribution [valor summa totalis mandatum]';
 COMMENT ON COLUMN pp.afko.clv_itn IS 'MES_ROUTINGID — Key of a Routing from an ME System [clavis itinerarium]';
 COMMENT ON COLUMN pp.afko.rfr_elm IS 'ADPSP — PM/PS Reference Element [referentia elementum]';
-COMMENT ON COLUMN pp.afko.vdt_ndo IS 'RMANR — Sales and Distribution Document Number [venditio numerus documenti]';
+COMMENT ON COLUMN pp.afko.vdt_dtb_ndo IS 'RMANR — Sales and Distribution Document Number [venditio distributio numerus documenti]';
 COMMENT ON COLUMN pp.afko.pos_num_doc IS 'POSNR_RMA — Item number of the SD document [positio numerus documentum]';
 COMMENT ON COLUMN pp.afko.pos_num_doc2 IS 'POSNV_RMA — Item number of the SD document [positio numerus documentum]';
 COMMENT ON COLUMN pp.afko.per IS 'CFB_MAXLZ — Maximum Storage Period [periodus]';
@@ -386,7 +386,7 @@ CREATE TABLE IF NOT EXISTS pp.afpo (
   cap_num varchar(12),
   prd_vrs varchar(4),
   num2 varchar(8),
-  techs varchar(12),
+  nrm varchar(12),
   ofc varchar(4),
   mnd_ctg varchar(2),
   gmd varchar(4),
@@ -394,13 +394,13 @@ CREATE TABLE IF NOT EXISTS pp.afpo (
   fin date,
   idx_mnd varchar(1),
   idx_mnd_pos varchar(1),
-  clv varchar(4),
+  dtb_clv varchar(4),
   cpa_idx varchar(1),
   ins varchar(1),
   val_mrc_mon numeric(13,2),
   amr2 varchar(1),
   ablad varchar(25),
-  mrc varchar(12),
+  mrc_psn varchar(12),
   grx_num varchar(10),
   ang varchar(4),
   idx_amr_mut varchar(1),
@@ -431,7 +431,7 @@ CREATE TABLE IF NOT EXISTS pp.afpo (
   pre varchar(1),
   obi_num3 varchar(18),
   are varchar(10),
-  techs_copy varchar(12),
+  nrm2 varchar(12),
   emp_num varchar(10),
   num_mnd varchar(12),
   qnt_pos2 numeric(13,3),
@@ -484,7 +484,7 @@ COMMENT ON COLUMN pp.afpo.trd_idx IS 'ELIKZ — ''Delivery Completed'' Indicator
 COMMENT ON COLUMN pp.afpo.cap_num IS 'SAFNR — Run schedule header number [caput numerus]';
 COMMENT ON COLUMN pp.afpo.prd_vrs IS 'VERID — Production Version [productio versio]';
 COMMENT ON COLUMN pp.afpo.num2 IS 'SERNR — BOM explosion number [numerus]';
-COMMENT ON COLUMN pp.afpo.techs IS 'TECHS — Parameter Variant/Standard Variant';
+COMMENT ON COLUMN pp.afpo.nrm IS 'TECHS — Parameter Variant/Standard Variant [norma]';
 COMMENT ON COLUMN pp.afpo.ofc IS 'DWERK — Plant [officina]';
 COMMENT ON COLUMN pp.afpo.mnd_ctg IS 'DAUTY — Order category [mandatum categoria]';
 COMMENT ON COLUMN pp.afpo.gmd IS 'DAUAT — Order Type [genus mandati]';
@@ -492,13 +492,13 @@ COMMENT ON COLUMN pp.afpo.fin_die IS 'DGLTP — Basic finish date [finis dies]';
 COMMENT ON COLUMN pp.afpo.fin IS 'DGLTS — Scheduled finish [finis]';
 COMMENT ON COLUMN pp.afpo.idx_mnd IS 'DFREI — Indicator: Order released/partially released (for MRP) [index mandatum]';
 COMMENT ON COLUMN pp.afpo.idx_mnd_pos IS 'DNREL — Indicator: Order item not relevant for MRP [index mandatum positio]';
-COMMENT ON COLUMN pp.afpo.clv IS 'VERTO — MRP Distribution Key [clavis]';
+COMMENT ON COLUMN pp.afpo.dtb_clv IS 'VERTO — MRP Distribution Key [distributio clavis]';
 COMMENT ON COLUMN pp.afpo.cpa_idx IS 'SOBKZ — Special Stock Indicator [copia index]';
 COMMENT ON COLUMN pp.afpo.ins IS 'KZVBR — Consumption Posting [inscriptio]';
 COMMENT ON COLUMN pp.afpo.val_mrc_mon IS 'WEWRT — Value of goods received in local currency [valor merces moneta]';
 COMMENT ON COLUMN pp.afpo.amr2 IS 'WEUNB — Goods Receipt, Non-Valuated [acceptio mercium]';
 COMMENT ON COLUMN pp.afpo.ablad IS 'ABLAD — Unloading Point';
-COMMENT ON COLUMN pp.afpo.mrc IS 'WEMPF — Goods Recipient/Ship-To Party [merces]';
+COMMENT ON COLUMN pp.afpo.mrc_psn IS 'WEMPF — Goods Recipient/Ship-To Party [merces persona]';
 COMMENT ON COLUMN pp.afpo.grx_num IS 'CHARG — Batch Number [grex numerus]';
 COMMENT ON COLUMN pp.afpo.ang IS 'GSBER — Business Area [area negotii]';
 COMMENT ON COLUMN pp.afpo.idx_amr_mut IS 'WEAED — Indicator: Goods receipt indicator can be changed [index acceptio mercium mutatus]';
@@ -529,7 +529,7 @@ COMMENT ON COLUMN pp.afpo.obi IS 'CH_PROC — Process that has lead to the chang
 COMMENT ON COLUMN pp.afpo.pre IS 'FXPRU — Fixed-Price Co-Product [pretium]';
 COMMENT ON COLUMN pp.afpo.obi_num3 IS 'CUOBJ_ROOT — Configuration (internal object number) [obiectum numerus]';
 COMMENT ON COLUMN pp.afpo.are IS 'BERID — MRP Area [area]';
-COMMENT ON COLUMN pp.afpo.techs_copy IS 'TECHS_COPY — Parameter Variant/Standard Variant';
+COMMENT ON COLUMN pp.afpo.nrm2 IS 'TECHS_COPY — Parameter Variant/Standard Variant [norma]';
 COMMENT ON COLUMN pp.afpo.emp_num IS 'KUNNR2 — Customer Number [emptor numerus]';
 COMMENT ON COLUMN pp.afpo.num_mnd IS 'MILL_OC_AUFNR_U — Number of original order [numerus mandatum]';
 COMMENT ON COLUMN pp.afpo.qnt_pos2 IS 'MILL_OC_RUMNG — Confirmed Quantity for Item [quantitas positio]';
@@ -613,7 +613,7 @@ CREATE TABLE IF NOT EXISTS pp.afvc (
   obi_sbs varchar(8),
   pdest varchar(4),
   ofc varchar(4),
-  txt_clv varchar(7),
+  nrm_txt_clv varchar(7),
   ope_txt varchar(40),
   dsc varchar(40),
   lng_clv char(1),
@@ -621,17 +621,17 @@ CREATE TABLE IF NOT EXISTS pp.afvc (
   cts_ixp varchar(8),
   cts_nmr_ixp varchar(2),
   ord_itn varchar(6),
-  val_clv varchar(4),
+  nrm_val_clv varchar(4),
   act_gen varchar(6),
   act_gen2 varchar(6),
   act_gen3 varchar(6),
   act_gen4 varchar(6),
   act_gen5 varchar(6),
   act_gen6 varchar(6),
-  gen_val varchar(5),
-  die_val varchar(4),
-  rfr_num_val varchar(6),
-  val varchar(5),
+  gen_nrm_val varchar(5),
+  die_nrm_val varchar(4),
+  rfr_num_nrm varchar(6),
+  nrm_val varchar(5),
   num_tmp numeric(3,0),
   sal_gen varchar(4),
   num_cnf varchar(3),
@@ -667,7 +667,7 @@ CREATE TABLE IF NOT EXISTS pp.afvc (
   num3 smallint,
   ops smallint,
   mlstn varchar(5),
-  pprio varchar(2),
+  pri varchar(2),
   soc varchar(4),
   csm varchar(10),
   amd_csm varchar(4),
@@ -704,7 +704,7 @@ CREATE TABLE IF NOT EXISTS pp.afvc (
   ebort varchar(20),
   ofc_mnd_ret varchar(8),
   idx_ops varchar(1),
-  nprio varchar(1),
+  pri2 varchar(1),
   nmr_mnd2 varchar(8),
   idx4 varchar(1),
   phseq varchar(2),
@@ -717,7 +717,7 @@ CREATE TABLE IF NOT EXISTS pp.afvc (
   grd_ope_tmp varchar(1),
   txt_num varchar(12),
   subsys varchar(6),
-  eop varchar(8),
+  nrm_eop varchar(8),
   num5 varchar(10),
   trb varchar(15),
   obi_cls varchar(2),
@@ -739,7 +739,7 @@ CREATE TABLE IF NOT EXISTS pp.afvc (
   ope integer,
   dem_num varchar(10),
   pos_num_dem varchar(5),
-  mrc varchar(12),
+  mrc_psn varchar(12),
   ablad varchar(25),
   act_rat_prp varchar(1),
   idx6 varchar(1),
@@ -768,7 +768,7 @@ CREATE TABLE IF NOT EXISTS pp.afvc (
   prz01 varchar(12),
   rfr varchar(20),
   afn varchar(16),
-  techs varchar(12),
+  nrm varchar(12),
   rfr_elm varchar(40),
   rfr_rlt varchar(20),
   clv_ope varchar(48),
@@ -800,7 +800,7 @@ COMMENT ON COLUMN pp.afvc.clv IS 'STEUS — Control key [clavis]';
 COMMENT ON COLUMN pp.afvc.obi_sbs IS 'ARBID — Object ID of the resource [obiectum subsidium]';
 COMMENT ON COLUMN pp.afvc.pdest IS 'PDEST — Printer for shop papers';
 COMMENT ON COLUMN pp.afvc.ofc IS 'WERKS — Plant [officina]';
-COMMENT ON COLUMN pp.afvc.txt_clv IS 'KTSCH — Standard text key [textus clavis]';
+COMMENT ON COLUMN pp.afvc.nrm_txt_clv IS 'KTSCH — Standard text key [norma textus clavis]';
 COMMENT ON COLUMN pp.afvc.ope_txt IS 'LTXA1 — Operation short text [operatio textus]';
 COMMENT ON COLUMN pp.afvc.dsc IS 'LTXA2 — Second line of the description [descriptio]';
 COMMENT ON COLUMN pp.afvc.lng_clv IS 'TXTSP — Language Key [lingua clavis]';
@@ -808,17 +808,17 @@ COMMENT ON COLUMN pp.afvc.gen_ixp IS 'VPLTY — Type of the referenced task list
 COMMENT ON COLUMN pp.afvc.cts_ixp IS 'VPLNR — Group of the referenced task list [coetus index pensorum]';
 COMMENT ON COLUMN pp.afvc.cts_nmr_ixp IS 'VPLAL — Group counter of the referenced task list [coetus numerator index pensorum]';
 COMMENT ON COLUMN pp.afvc.ord_itn IS 'VPLFL — Referenced sequence in routing [ordo itinerarium]';
-COMMENT ON COLUMN pp.afvc.val_clv IS 'VGWTS — Standard value key [valor clavis]';
+COMMENT ON COLUMN pp.afvc.nrm_val_clv IS 'VGWTS — Standard value key [norma valor clavis]';
 COMMENT ON COLUMN pp.afvc.act_gen IS 'LAR01 — Activity Type [actio genus]';
 COMMENT ON COLUMN pp.afvc.act_gen2 IS 'LAR02 — Activity Type [actio genus]';
 COMMENT ON COLUMN pp.afvc.act_gen3 IS 'LAR03 — Activity Type [actio genus]';
 COMMENT ON COLUMN pp.afvc.act_gen4 IS 'LAR04 — Activity Type [actio genus]';
 COMMENT ON COLUMN pp.afvc.act_gen5 IS 'LAR05 — Activity Type [actio genus]';
 COMMENT ON COLUMN pp.afvc.act_gen6 IS 'LAR06 — Activity Type [actio genus]';
-COMMENT ON COLUMN pp.afvc.gen_val IS 'ZERMA — Type of standard value calculation [genus valor]';
-COMMENT ON COLUMN pp.afvc.die_val IS 'ZGDAT — Date when the standard value was calculated [dies valor]';
-COMMENT ON COLUMN pp.afvc.rfr_num_val IS 'ZCODE — Reference number for standard value code [referentia numerus valor]';
-COMMENT ON COLUMN pp.afvc.val IS 'ZULNR — Basis for standard value calculation [valor]';
+COMMENT ON COLUMN pp.afvc.gen_nrm_val IS 'ZERMA — Type of standard value calculation [genus norma valor]';
+COMMENT ON COLUMN pp.afvc.die_nrm_val IS 'ZGDAT — Date when the standard value was calculated [dies norma valor]';
+COMMENT ON COLUMN pp.afvc.rfr_num_nrm IS 'ZCODE — Reference number for standard value code [referentia numerus norma]';
+COMMENT ON COLUMN pp.afvc.nrm_val IS 'ZULNR — Basis for standard value calculation [norma valor]';
 COMMENT ON COLUMN pp.afvc.num_tmp IS 'LOANZ — Number of Time Tickets [numerus tempus]';
 COMMENT ON COLUMN pp.afvc.sal_gen IS 'LOART — Wage Type [salarium genus]';
 COMMENT ON COLUMN pp.afvc.num_cnf IS 'RSANZ — Number of confirmation slips [numerus confirmatio]';
@@ -854,7 +854,7 @@ COMMENT ON COLUMN pp.afvc.idx_mra IS 'DDEHN — Indicator: flexible duration [in
 COMMENT ON COLUMN pp.afvc.num3 IS 'ANZZL — Number of capacities required [numerus]';
 COMMENT ON COLUMN pp.afvc.ops IS 'PRZNT — Work percentage [opus]';
 COMMENT ON COLUMN pp.afvc.mlstn IS 'MLSTN — Usage';
-COMMENT ON COLUMN pp.afvc.pprio IS 'PPRIO — Priority';
+COMMENT ON COLUMN pp.afvc.pri IS 'PPRIO — Priority [prioritas]';
 COMMENT ON COLUMN pp.afvc.soc IS 'BUKRS — Company Code [codex societatis]';
 COMMENT ON COLUMN pp.afvc.csm IS 'ANFKO — Requesting cost center [centrum sumptus]';
 COMMENT ON COLUMN pp.afvc.amd_csm IS 'ANFKOKRS — Controlling area of the requesting cost center [area moderationis centrum sumptus]';
@@ -891,7 +891,7 @@ COMMENT ON COLUMN pp.afvc.num4 IS 'IUPOZ — Subitem Number [numerus]';
 COMMENT ON COLUMN pp.afvc.ebort IS 'EBORT — Installation Point for Subitem';
 COMMENT ON COLUMN pp.afvc.ofc_mnd_ret IS 'VERTL — Distr.cap.reqmts (plant maint.,process order, network) [officina mandatum rete]';
 COMMENT ON COLUMN pp.afvc.idx_ops IS 'LEKNW — Indicator: No Remaining Work Expected [index opus]';
-COMMENT ON COLUMN pp.afvc.nprio IS 'NPRIO — Priority';
+COMMENT ON COLUMN pp.afvc.pri2 IS 'NPRIO — Priority [prioritas]';
 COMMENT ON COLUMN pp.afvc.nmr_mnd2 IS 'PVZKN — General counter for order [numerator mandatum]';
 COMMENT ON COLUMN pp.afvc.idx4 IS 'PHFLG — Indicator: Phase [index]';
 COMMENT ON COLUMN pp.afvc.phseq IS 'PHSEQ — Control Recipe Destination';
@@ -904,7 +904,7 @@ COMMENT ON COLUMN pp.afvc.cpc_ctg IS 'QLKAPAR — Capacity category [capacitas c
 COMMENT ON COLUMN pp.afvc.grd_ope_tmp IS 'RSTUF — Reduction level which reduces operation lead time [gradus operatio tempus]';
 COMMENT ON COLUMN pp.afvc.txt_num IS 'NPTXTKY — Internal text number (12-character) [textus numerus]';
 COMMENT ON COLUMN pp.afvc.subsys IS 'SUBSYS — Subsystem Identifier for QM Subsystem Interface';
-COMMENT ON COLUMN pp.afvc.eop IS 'PSPNR — Standard WBS element [elementum operis]';
+COMMENT ON COLUMN pp.afvc.nrm_eop IS 'PSPNR — Standard WBS element [norma elementum operis]';
 COMMENT ON COLUMN pp.afvc.num5 IS 'PACKNO — Package number [numerus]';
 COMMENT ON COLUMN pp.afvc.trb IS 'TXJCD — Tax Jurisdiction [tributum]';
 COMMENT ON COLUMN pp.afvc.obi_cls IS 'SCOPE — Object Class [obiectum classis]';
@@ -926,7 +926,7 @@ COMMENT ON COLUMN pp.afvc.ord_num_ope IS 'CY_SEQNRV — Sequence number operatio
 COMMENT ON COLUMN pp.afvc.ope IS 'KAPT_PUFFR — Operation floats after finite scheduling (in seconds) [operatio]';
 COMMENT ON COLUMN pp.afvc.dem_num IS 'EBELN — Purchasing Document Number [documentum emptionis numerus]';
 COMMENT ON COLUMN pp.afvc.pos_num_dem IS 'EBELP — Item Number of Purchasing Document [positio numerus documentum emptionis]';
-COMMENT ON COLUMN pp.afvc.mrc IS 'WEMPF — Goods Recipient/Ship-To Party [merces]';
+COMMENT ON COLUMN pp.afvc.mrc_psn IS 'WEMPF — Goods Recipient/Ship-To Party [merces persona]';
 COMMENT ON COLUMN pp.afvc.ablad IS 'ABLAD — Unloading Point';
 COMMENT ON COLUMN pp.afvc.act_rat_prp IS 'CLASF — Ind.: Take Activity Into Account for Project Summarization [actio ratio propositum]';
 COMMENT ON COLUMN pp.afvc.idx6 IS 'FRUNV — Indicator: External procurement data incomplete [index]';
@@ -955,7 +955,7 @@ COMMENT ON COLUMN pp.afvc.mat_cns IS 'MAT_PRKST — Material planning in network
 COMMENT ON COLUMN pp.afvc.prz01 IS 'PRZ01 — Business Process';
 COMMENT ON COLUMN pp.afvc.rfr IS 'RFPNT — Reference point for BOM transfer [referentia]';
 COMMENT ON COLUMN pp.afvc.afn IS 'FUNC_AREA — Functional Area [area functionis]';
-COMMENT ON COLUMN pp.afvc.techs IS 'TECHS — Parameter Variant/Standard Variant';
+COMMENT ON COLUMN pp.afvc.nrm IS 'TECHS — Parameter Variant/Standard Variant [norma]';
 COMMENT ON COLUMN pp.afvc.rfr_elm IS 'ADPSP — Reference Element PM/PS [referentia elementum]';
 COMMENT ON COLUMN pp.afvc.rfr_rlt IS 'RFIPPNT — Reference Point for Relationship Between iPPE and PS [referentia relatio]';
 COMMENT ON COLUMN pp.afvc.clv_ope IS 'MES_OPERID — Key of an Operation from an ME System [clavis operatio]';
@@ -1315,7 +1315,7 @@ CREATE TABLE IF NOT EXISTS pp.mdtb (
   cmp varchar(4),
   loc_cpa_mnd varchar(4),
   rqs varchar(2),
-  rqs2 varchar(3),
+  rqs_pri varchar(3),
   CONSTRAINT mdtb_pk PRIMARY KEY (cli, num_mat_cns, pos_num)
 );
 COMMENT ON TABLE pp.mdtb IS 'MDTB — MRP Table Items — line items of an MRP list (MDKP header), one row per MRP element (planned order, purchase requisition, sales order, stock, etc.) with dates, quantities, and exception-message keys. The demand-side item record of what the system decided to make or buy. Wide table — carries the full field set as published by the source (60 fields), including all date/quantity/source-reference fields; no truncation applied.';
@@ -1378,7 +1378,7 @@ COMMENT ON COLUMN pp.mdtb.idx8 IS 'EXTNL — Indicator for External Procurement 
 COMMENT ON COLUMN pp.mdtb.cmp IS 'ADINF — Field for Additional Information [campus]';
 COMMENT ON COLUMN pp.mdtb.loc_cpa_mnd IS 'RESLO — Issuing Storage Location for Stock Transport Order [locus repositionis copia mandatum]';
 COMMENT ON COLUMN pp.mdtb.rqs IS 'PRIO_URG — Requirement Urgency [requisitum]';
-COMMENT ON COLUMN pp.mdtb.rqs2 IS 'PRIO_REQ — Requirement Priority [requisitum]';
+COMMENT ON COLUMN pp.mdtb.rqs_pri IS 'PRIO_REQ — Requirement Priority [requisitum prioritas]';
 
 CREATE TABLE IF NOT EXISTS pp.mdvm (
   cli char(3),
@@ -1412,10 +1412,10 @@ COMMENT ON COLUMN pp.mdvm.ult_cns IS 'DSTMP — Timestamp of last MRP for planni
 CREATE TABLE IF NOT EXISTS pp.plab (
   cli char(3),
   ixp_gen varchar(1),
-  num_ret varchar(8),
+  num_nrm_ret varchar(8),
   cts_nmr varchar(2),
   num_ixp varchar(8),
-  num_ret2 varchar(8),
+  num_nrm_ret2 varchar(8),
   cts_nmr2 varchar(2),
   num_ixp2 varchar(8),
   gen_rlt varchar(2),
@@ -1440,15 +1440,15 @@ CREATE TABLE IF NOT EXISTS pp.plab (
   mut date,
   nom_psn_mut varchar(12),
   tmp_rlt numeric(5,1),
-  CONSTRAINT plab_pk PRIMARY KEY (cli, ixp_gen, num_ret, cts_nmr, num_ixp, num_ret2, cts_nmr2, num_ixp2, gen_rlt)
+  CONSTRAINT plab_pk PRIMARY KEY (cli, ixp_gen, num_nrm_ret, cts_nmr, num_ixp, num_nrm_ret2, cts_nmr2, num_ixp2, gen_rlt)
 );
 COMMENT ON TABLE pp.plab IS 'PLAB — Task List / Standard Network Relationships — defines predecessor/successor relationships between two task-list (or standard network) nodes, with time-interval, calendar, and duration-limit parameters. Supports network-style sequencing beside the task-list sequence/component-allocation tables PLKO/PLPO/PLMZ.';
 COMMENT ON COLUMN pp.plab.cli IS 'MANDT — Client [cliens]';
 COMMENT ON COLUMN pp.plab.ixp_gen IS 'PLNTY — Task List Type [index pensorum genus]';
-COMMENT ON COLUMN pp.plab.num_ret IS 'PLNNR — Number of the Standard Network [numerus rete]';
+COMMENT ON COLUMN pp.plab.num_nrm_ret IS 'PLNNR — Number of the Standard Network [numerus norma rete]';
 COMMENT ON COLUMN pp.plab.cts_nmr IS 'PLNAL — Group Counter [coetus numerator]';
 COMMENT ON COLUMN pp.plab.num_ixp IS 'PLNKN — Number of the task list node [numerus index pensorum]';
-COMMENT ON COLUMN pp.plab.num_ret2 IS 'PLNRN — Number of the Standard Network [numerus rete]';
+COMMENT ON COLUMN pp.plab.num_nrm_ret2 IS 'PLNRN — Number of the Standard Network [numerus norma rete]';
 COMMENT ON COLUMN pp.plab.cts_nmr2 IS 'ALNRN — Group Counter [coetus numerator]';
 COMMENT ON COLUMN pp.plab.num_ixp2 IS 'KNNRN — Number of the task list node [numerus index pensorum]';
 COMMENT ON COLUMN pp.plab.gen_rlt IS 'AOBAR — Type of relationship [genus relatio]';
@@ -1499,7 +1499,7 @@ CREATE TABLE IF NOT EXISTS pp.plko (
   doc_num varchar(6),
   ixp_dsc varchar(40),
   lng_clv char(1),
-  die_ult date,
+  die_ult_voc date,
   num2 numeric(4,0),
   profidnetz varchar(7),
   amd varchar(4),
@@ -1530,11 +1530,11 @@ CREATE TABLE IF NOT EXISTS pp.plko (
   die date,
   obi_sbs2 varchar(8),
   ixp2 varchar(1),
-  eop varchar(8),
+  nrm_eop varchar(8),
   pns_per varchar(6),
   obi varchar(1),
   num3 varchar(20),
-  mnd varchar(1),
+  nrm_mnd varchar(1),
   ctg varchar(1),
   ixm varchar(8),
   stlal varchar(2),
@@ -1580,7 +1580,7 @@ COMMENT ON COLUMN pp.plko.ccs IS 'VAGRP — Responsible planner group/department
 COMMENT ON COLUMN pp.plko.doc_num IS 'AESZN — Document change number (without document management system) [documentum numerus]';
 COMMENT ON COLUMN pp.plko.ixp_dsc IS 'KTEXT — Task list description [index pensorum descriptio]';
 COMMENT ON COLUMN pp.plko.lng_clv IS 'TXTSP — Language Key [lingua clavis]';
-COMMENT ON COLUMN pp.plko.die_ult IS 'ABDAT — Date of the last call [dies ultimus]';
+COMMENT ON COLUMN pp.plko.die_ult_voc IS 'ABDAT — Date of the last call [dies ultimus vocatio]';
 COMMENT ON COLUMN pp.plko.num2 IS 'ABANZ — Number of calls [numerus]';
 COMMENT ON COLUMN pp.plko.profidnetz IS 'PROFIDNETZ — Profile';
 COMMENT ON COLUMN pp.plko.amd IS 'KOKRS — Controlling Area [area moderationis]';
@@ -1611,11 +1611,11 @@ COMMENT ON COLUMN pp.plko.gen IS 'PRTYP — Process type [genus]';
 COMMENT ON COLUMN pp.plko.die IS 'REODAT — Archive date [dies]';
 COMMENT ON COLUMN pp.plko.obi_sbs2 IS 'NETID — Object ID of the resource [obiectum subsidium]';
 COMMENT ON COLUMN pp.plko.ixp2 IS 'FLG_CHK — Ind: Task list was submitted for consistency check [index pensorum]';
-COMMENT ON COLUMN pp.plko.eop IS 'PSPNR — Standard WBS element [elementum operis]';
+COMMENT ON COLUMN pp.plko.nrm_eop IS 'PSPNR — Standard WBS element [norma elementum operis]';
 COMMENT ON COLUMN pp.plko.pns_per IS 'TTRAS — Task lists: Internal representation of the period pattern [pensum periodus]';
 COMMENT ON COLUMN pp.plko.obi IS 'KZKFG — Ind: Configurable object [obiectum]';
 COMMENT ON COLUMN pp.plko.num3 IS 'PLNNR_ALT — Old number [numerus]';
-COMMENT ON COLUMN pp.plko.mnd IS 'FLG_CAPO — Recalculate standard values at order creation using CAPP [mandatum]';
+COMMENT ON COLUMN pp.plko.nrm_mnd IS 'FLG_CAPO — Recalculate standard values at order creation using CAPP [norma mandatum]';
 COMMENT ON COLUMN pp.plko.ctg IS 'STLTY — BOM category [categoria]';
 COMMENT ON COLUMN pp.plko.ixm IS 'STLNR — Bill of material [index materiarum]';
 COMMENT ON COLUMN pp.plko.stlal IS 'STLAL — Alternative BOM';
@@ -1681,7 +1681,7 @@ CREATE TABLE IF NOT EXISTS pp.plmz (
   rat_asg_ctg varchar(1),
   idx4 varchar(1),
   mnd2 varchar(1),
-  pet varchar(1),
+  psn_pet varchar(1),
   ctg2 varchar(1),
   ixm2 varchar(8),
   stlal_w varchar(2),
@@ -1738,7 +1738,7 @@ COMMENT ON COLUMN pp.plmz.cmn_qnt2 IS 'DMENG — Average component quantity [com
 COMMENT ON COLUMN pp.plmz.rat_asg_ctg IS 'KNTTP — Account Assignment Category [ratio assignatio categoria]';
 COMMENT ON COLUMN pp.plmz.idx4 IS 'FLGEX — Indicator: External procurement [index]';
 COMMENT ON COLUMN pp.plmz.mnd2 IS 'VORAB — Ind: Preliminary order [mandatum]';
-COMMENT ON COLUMN pp.plmz.pet IS 'STRECKE — Ind.: Third-party requisition [petitio]';
+COMMENT ON COLUMN pp.plmz.psn_pet IS 'STRECKE — Ind.: Third-party requisition [persona petitio]';
 COMMENT ON COLUMN pp.plmz.ctg2 IS 'STLTY_W — BOM category [categoria]';
 COMMENT ON COLUMN pp.plmz.ixm2 IS 'STLNR_W — Bill of material [index materiarum]';
 COMMENT ON COLUMN pp.plmz.stlal_w IS 'STLAL_W — Alternative BOM';
@@ -1769,7 +1769,7 @@ CREATE TABLE IF NOT EXISTS pp.plpo (
   obi varchar(8),
   obi_sbs varchar(2),
   ofc varchar(4),
-  txt_clv varchar(7),
+  nrm_txt_clv varchar(7),
   ope_txt varchar(40),
   dsc varchar(40),
   lng_clv char(1),
@@ -1785,27 +1785,27 @@ CREATE TABLE IF NOT EXISTS pp.plpo (
   zmerh numeric(9,3),
   uni_tmp varchar(3),
   act_gen varchar(6),
-  men_val varchar(3),
-  val numeric(9,3),
+  men_nrm_val varchar(3),
+  nrm_val numeric(9,3),
   act_gen2 varchar(6),
-  men_val2 varchar(3),
-  val2 numeric(9,3),
+  men_nrm_val2 varchar(3),
+  nrm_val2 numeric(9,3),
   act_gen3 varchar(6),
-  men_val3 varchar(3),
-  val3 numeric(9,3),
+  men_nrm_val3 varchar(3),
+  nrm_val3 numeric(9,3),
   act_gen4 varchar(6),
-  men_val4 varchar(3),
-  val4 numeric(9,3),
+  men_nrm_val4 varchar(3),
+  nrm_val4 numeric(9,3),
   act_gen5 varchar(6),
-  men_val5 varchar(3),
-  val5 numeric(9,3),
+  men_nrm_val5 varchar(3),
+  nrm_val5 numeric(9,3),
   act_gen6 varchar(6),
-  men_val6 varchar(3),
-  val6 numeric(9,3),
-  gen_val varchar(5),
-  die_val varchar(4),
-  rfr_num_val varchar(6),
-  val7 varchar(5),
+  men_nrm_val6 varchar(3),
+  nrm_val6 numeric(9,3),
+  gen_nrm_val varchar(5),
+  die_nrm_val varchar(4),
+  rfr_num_nrm varchar(6),
+  nrm_val7 varchar(5),
   num_cnf varchar(3),
   pdest varchar(4),
   num_tmp numeric(3,0),
@@ -1831,14 +1831,14 @@ CREATE TABLE IF NOT EXISTS pp.plpo (
   tmp3 numeric(9,3),
   uni_tmp5 varchar(3),
   tmp4 numeric(9,3),
+  uni_nrm_ord varchar(3),
+  nrm_ord_tmp numeric(9,3),
+  uni_ord_tmp varchar(3),
+  ord_tmp numeric(9,3),
+  uni_nrm_tmp varchar(3),
+  nrm_tmp numeric(9,3),
   uni_tmp6 varchar(3),
   tmp5 numeric(9,3),
-  uni_tmp7 varchar(3),
-  tmp6 numeric(9,3),
-  uni_tmp8 varchar(3),
-  tmp7 numeric(9,3),
-  uni_tmp9 varchar(3),
-  tmp8 numeric(9,3),
   idx3 varchar(1),
   ope_act varchar(2),
   rfr_die_ini varchar(2),
@@ -1871,9 +1871,9 @@ CREATE TABLE IF NOT EXISTS pp.plpo (
   uni_ops varchar(3),
   num4 smallint,
   ops smallint,
-  cpc varchar(2),
+  dtb_cpc varchar(2),
   mlstn varchar(5),
-  pprio varchar(2),
+  pri varchar(2),
   soc varchar(4),
   clv_usr varchar(7),
   usr_cmp varchar(20),
@@ -1923,22 +1923,22 @@ CREATE TABLE IF NOT EXISTS pp.plpo (
   mem_qnt_ope numeric(13,3),
   idx5 varchar(1),
   smp varchar(1),
-  nprio varchar(1),
+  pri2 varchar(1),
   num_ixp2 varchar(8),
   idx6 varchar(1),
   phseq varchar(2),
   num_obi varchar(18),
   vis varchar(2),
-  eop varchar(8),
+  nrm_eop varchar(8),
   obi_gen varchar(2),
   obi2 varchar(8),
   cpc_ctg2 varchar(3),
-  tmp9 varchar(1),
+  tmp6 varchar(1),
   qnt_cnf varchar(1),
   qnt_rfr varchar(1),
   rfr_tmp_qnt varchar(1),
   tmp_uni varchar(3),
-  tmp10 numeric(5,2),
+  tmp7 numeric(5,2),
   qnt4 numeric(13,3),
   isp varchar(1),
   cns_obi varchar(18),
@@ -1997,7 +1997,7 @@ COMMENT ON COLUMN pp.plpo.clv IS 'STEUS — Control key [clavis]';
 COMMENT ON COLUMN pp.plpo.obi IS 'ARBID — Object ID [obiectum]';
 COMMENT ON COLUMN pp.plpo.obi_sbs IS 'OBJTY — Object types of the CIM resource [obiectum subsidium]';
 COMMENT ON COLUMN pp.plpo.ofc IS 'WERKS — Plant [officina]';
-COMMENT ON COLUMN pp.plpo.txt_clv IS 'KTSCH — Standard text key [textus clavis]';
+COMMENT ON COLUMN pp.plpo.nrm_txt_clv IS 'KTSCH — Standard text key [norma textus clavis]';
 COMMENT ON COLUMN pp.plpo.ope_txt IS 'LTXA1 — Operation short text [operatio textus]';
 COMMENT ON COLUMN pp.plpo.dsc IS 'LTXA2 — Second line of the description [descriptio]';
 COMMENT ON COLUMN pp.plpo.lng_clv IS 'TXTSP — Language Key [lingua clavis]';
@@ -2013,27 +2013,27 @@ COMMENT ON COLUMN pp.plpo.qnt IS 'BMSCH — Base Quantity [quantitas]';
 COMMENT ON COLUMN pp.plpo.zmerh IS 'ZMERH — Break';
 COMMENT ON COLUMN pp.plpo.uni_tmp IS 'ZEIER — Unit for the break time [unitas tempus]';
 COMMENT ON COLUMN pp.plpo.act_gen IS 'LAR01 — Activity Type [actio genus]';
-COMMENT ON COLUMN pp.plpo.men_val IS 'VGE01 — Unit of measure for the standard value [mensura valor]';
-COMMENT ON COLUMN pp.plpo.val IS 'VGW01 — Standard Value [valor]';
+COMMENT ON COLUMN pp.plpo.men_nrm_val IS 'VGE01 — Unit of measure for the standard value [mensura norma valor]';
+COMMENT ON COLUMN pp.plpo.nrm_val IS 'VGW01 — Standard Value [norma valor]';
 COMMENT ON COLUMN pp.plpo.act_gen2 IS 'LAR02 — Activity Type [actio genus]';
-COMMENT ON COLUMN pp.plpo.men_val2 IS 'VGE02 — Unit of measure for the standard value [mensura valor]';
-COMMENT ON COLUMN pp.plpo.val2 IS 'VGW02 — Standard Value [valor]';
+COMMENT ON COLUMN pp.plpo.men_nrm_val2 IS 'VGE02 — Unit of measure for the standard value [mensura norma valor]';
+COMMENT ON COLUMN pp.plpo.nrm_val2 IS 'VGW02 — Standard Value [norma valor]';
 COMMENT ON COLUMN pp.plpo.act_gen3 IS 'LAR03 — Activity Type [actio genus]';
-COMMENT ON COLUMN pp.plpo.men_val3 IS 'VGE03 — Unit of measure for the standard value [mensura valor]';
-COMMENT ON COLUMN pp.plpo.val3 IS 'VGW03 — Standard Value [valor]';
+COMMENT ON COLUMN pp.plpo.men_nrm_val3 IS 'VGE03 — Unit of measure for the standard value [mensura norma valor]';
+COMMENT ON COLUMN pp.plpo.nrm_val3 IS 'VGW03 — Standard Value [norma valor]';
 COMMENT ON COLUMN pp.plpo.act_gen4 IS 'LAR04 — Activity Type [actio genus]';
-COMMENT ON COLUMN pp.plpo.men_val4 IS 'VGE04 — Unit of measure for the standard value [mensura valor]';
-COMMENT ON COLUMN pp.plpo.val4 IS 'VGW04 — Standard Value [valor]';
+COMMENT ON COLUMN pp.plpo.men_nrm_val4 IS 'VGE04 — Unit of measure for the standard value [mensura norma valor]';
+COMMENT ON COLUMN pp.plpo.nrm_val4 IS 'VGW04 — Standard Value [norma valor]';
 COMMENT ON COLUMN pp.plpo.act_gen5 IS 'LAR05 — Activity Type [actio genus]';
-COMMENT ON COLUMN pp.plpo.men_val5 IS 'VGE05 — Unit of measure for the standard value [mensura valor]';
-COMMENT ON COLUMN pp.plpo.val5 IS 'VGW05 — Standard Value [valor]';
+COMMENT ON COLUMN pp.plpo.men_nrm_val5 IS 'VGE05 — Unit of measure for the standard value [mensura norma valor]';
+COMMENT ON COLUMN pp.plpo.nrm_val5 IS 'VGW05 — Standard Value [norma valor]';
 COMMENT ON COLUMN pp.plpo.act_gen6 IS 'LAR06 — Activity Type [actio genus]';
-COMMENT ON COLUMN pp.plpo.men_val6 IS 'VGE06 — Unit of measure for the standard value [mensura valor]';
-COMMENT ON COLUMN pp.plpo.val6 IS 'VGW06 — Standard Value [valor]';
-COMMENT ON COLUMN pp.plpo.gen_val IS 'ZERMA — Type of standard value calculation [genus valor]';
-COMMENT ON COLUMN pp.plpo.die_val IS 'ZGDAT — Date when the standard value was calculated [dies valor]';
-COMMENT ON COLUMN pp.plpo.rfr_num_val IS 'ZCODE — Reference number for standard value code [referentia numerus valor]';
-COMMENT ON COLUMN pp.plpo.val7 IS 'ZULNR — Basis for standard value calculation [valor]';
+COMMENT ON COLUMN pp.plpo.men_nrm_val6 IS 'VGE06 — Unit of measure for the standard value [mensura norma valor]';
+COMMENT ON COLUMN pp.plpo.nrm_val6 IS 'VGW06 — Standard Value [norma valor]';
+COMMENT ON COLUMN pp.plpo.gen_nrm_val IS 'ZERMA — Type of standard value calculation [genus norma valor]';
+COMMENT ON COLUMN pp.plpo.die_nrm_val IS 'ZGDAT — Date when the standard value was calculated [dies norma valor]';
+COMMENT ON COLUMN pp.plpo.rfr_num_nrm IS 'ZCODE — Reference number for standard value code [referentia numerus norma]';
+COMMENT ON COLUMN pp.plpo.nrm_val7 IS 'ZULNR — Basis for standard value calculation [norma valor]';
 COMMENT ON COLUMN pp.plpo.num_cnf IS 'RSANZ — Number of confirmation slips [numerus confirmatio]';
 COMMENT ON COLUMN pp.plpo.pdest IS 'PDEST — Printer for shop papers';
 COMMENT ON COLUMN pp.plpo.num_tmp IS 'LOANZ — Number of Time Tickets [numerus tempus]';
@@ -2059,14 +2059,14 @@ COMMENT ON COLUMN pp.plpo.uni_tmp4 IS 'ZEILM — Unit for the maximum wait time 
 COMMENT ON COLUMN pp.plpo.tmp3 IS 'ZLMAX — Maximum wait time [tempus]';
 COMMENT ON COLUMN pp.plpo.uni_tmp5 IS 'ZEILP — Unit for the required wait time [unitas tempus]';
 COMMENT ON COLUMN pp.plpo.tmp4 IS 'ZLPRO — Minimum wait time [tempus]';
-COMMENT ON COLUMN pp.plpo.uni_tmp6 IS 'ZEIWN — Unit for the standard queue time [unitas tempus]';
-COMMENT ON COLUMN pp.plpo.tmp5 IS 'ZWNOR — Standard queue time [tempus]';
-COMMENT ON COLUMN pp.plpo.uni_tmp7 IS 'ZEIWM — Unit for the minumum queue time [unitas tempus]';
-COMMENT ON COLUMN pp.plpo.tmp6 IS 'ZWMIN — Minimum queue time [tempus]';
-COMMENT ON COLUMN pp.plpo.uni_tmp8 IS 'ZEITN — Unit for the standard move time [unitas tempus]';
-COMMENT ON COLUMN pp.plpo.tmp7 IS 'ZTNOR — Standard move time [tempus]';
-COMMENT ON COLUMN pp.plpo.uni_tmp9 IS 'ZEITM — Unit for the minimum move time [unitas tempus]';
-COMMENT ON COLUMN pp.plpo.tmp8 IS 'ZTMIN — Minimum move time [tempus]';
+COMMENT ON COLUMN pp.plpo.uni_nrm_ord IS 'ZEIWN — Unit for the standard queue time [unitas norma ordo expectantium]';
+COMMENT ON COLUMN pp.plpo.nrm_ord_tmp IS 'ZWNOR — Standard queue time [norma ordo expectantium tempus]';
+COMMENT ON COLUMN pp.plpo.uni_ord_tmp IS 'ZEIWM — Unit for the minumum queue time [unitas ordo expectantium tempus]';
+COMMENT ON COLUMN pp.plpo.ord_tmp IS 'ZWMIN — Minimum queue time [ordo expectantium tempus]';
+COMMENT ON COLUMN pp.plpo.uni_nrm_tmp IS 'ZEITN — Unit for the standard move time [unitas norma tempus]';
+COMMENT ON COLUMN pp.plpo.nrm_tmp IS 'ZTNOR — Standard move time [norma tempus]';
+COMMENT ON COLUMN pp.plpo.uni_tmp6 IS 'ZEITM — Unit for the minimum move time [unitas tempus]';
+COMMENT ON COLUMN pp.plpo.tmp5 IS 'ZTMIN — Minimum move time [tempus]';
 COMMENT ON COLUMN pp.plpo.idx3 IS 'ABLIPKZ — Indicator: simultaneous teardown and wait [index]';
 COMMENT ON COLUMN pp.plpo.ope_act IS 'RSTRA — Reduction strategy per operation/activity [operatio actio]';
 COMMENT ON COLUMN pp.plpo.rfr_die_ini IS 'BZOFFB — Reference date for start of sub-operation [referentia dies initium]';
@@ -2099,9 +2099,9 @@ COMMENT ON COLUMN pp.plpo.ops_act IS 'ARBEI — Work involved in the activity [o
 COMMENT ON COLUMN pp.plpo.uni_ops IS 'ARBEH — Unit for work [unitas opus]';
 COMMENT ON COLUMN pp.plpo.num4 IS 'ANZZL — Number of capacities required [numerus]';
 COMMENT ON COLUMN pp.plpo.ops IS 'PRZNT — Work percentage [opus]';
-COMMENT ON COLUMN pp.plpo.cpc IS 'VERTL — Distribution function for capacity requirements [capacitas]';
+COMMENT ON COLUMN pp.plpo.dtb_cpc IS 'VERTL — Distribution function for capacity requirements [distributio capacitas]';
 COMMENT ON COLUMN pp.plpo.mlstn IS 'MLSTN — Usage';
-COMMENT ON COLUMN pp.plpo.pprio IS 'PPRIO — Priority';
+COMMENT ON COLUMN pp.plpo.pri IS 'PPRIO — Priority [prioritas]';
 COMMENT ON COLUMN pp.plpo.soc IS 'BUKRS — Company Code [codex societatis]';
 COMMENT ON COLUMN pp.plpo.clv_usr IS 'SLWID — Key word ID for user-defined fields [clavis usor]';
 COMMENT ON COLUMN pp.plpo.usr_cmp IS 'USR00 — User field with 20 characters [usor campus]';
@@ -2151,22 +2151,22 @@ COMMENT ON COLUMN pp.plpo.ope_mnd_qnt IS 'BMEIH — Operation order quantity uni
 COMMENT ON COLUMN pp.plpo.mem_qnt_ope IS 'BMVRG — Purchase order quantity operation [mandatum emptionis quantitas operatio]';
 COMMENT ON COLUMN pp.plpo.idx5 IS 'CKSELKZ — Indicator for Relevancy to Costing [index]';
 COMMENT ON COLUMN pp.plpo.smp IS 'KALKZ — Cost [sumptus]';
-COMMENT ON COLUMN pp.plpo.nprio IS 'NPRIO — Priority';
+COMMENT ON COLUMN pp.plpo.pri2 IS 'NPRIO — Priority [prioritas]';
 COMMENT ON COLUMN pp.plpo.num_ixp2 IS 'PVZKN — Number of the task list node [numerus index pensorum]';
 COMMENT ON COLUMN pp.plpo.idx6 IS 'PHFLG — Indicator: Phase [index]';
 COMMENT ON COLUMN pp.plpo.phseq IS 'PHSEQ — Control Recipe Destination';
 COMMENT ON COLUMN pp.plpo.num_obi IS 'KNOBJ — Number of Object with Assigned Dependencies [numerus obiectum]';
 COMMENT ON COLUMN pp.plpo.vis IS 'ERFSICHT — Recording View [visus]';
-COMMENT ON COLUMN pp.plpo.eop IS 'PSPNR — Standard WBS element [elementum operis]';
+COMMENT ON COLUMN pp.plpo.nrm_eop IS 'PSPNR — Standard WBS element [norma elementum operis]';
 COMMENT ON COLUMN pp.plpo.obi_gen IS 'QLOTYPE — Object Type [obiectum genus]';
 COMMENT ON COLUMN pp.plpo.obi2 IS 'QLOBJEKTID — Object ID [obiectum]';
 COMMENT ON COLUMN pp.plpo.cpc_ctg2 IS 'QLKAPAR — Capacity category [capacitas categoria]';
-COMMENT ON COLUMN pp.plpo.tmp9 IS 'QKZPRZEIT — Interval = Time (Time-Related) [tempus]';
+COMMENT ON COLUMN pp.plpo.tmp6 IS 'QKZPRZEIT — Interval = Time (Time-Related) [tempus]';
 COMMENT ON COLUMN pp.plpo.qnt_cnf IS 'QKZZTMG1 — Quantity Confirmation for Each Partial Lot [quantitas confirmatio]';
 COMMENT ON COLUMN pp.plpo.qnt_rfr IS 'QKZPRMENG — Creation Cycle = Quantity (Quantity-Reference) [quantitas referentia]';
 COMMENT ON COLUMN pp.plpo.rfr_tmp_qnt IS 'QKZPRFREI — Interval Without Reference to Time or Quantity [referentia tempus quantitas]';
 COMMENT ON COLUMN pp.plpo.tmp_uni IS 'QRASTZEHT — Time Unit [tempus unitas]';
-COMMENT ON COLUMN pp.plpo.tmp10 IS 'QRASTZFAK — Time Factor [tempus]';
+COMMENT ON COLUMN pp.plpo.tmp7 IS 'QRASTZFAK — Time Factor [tempus]';
 COMMENT ON COLUMN pp.plpo.qnt4 IS 'QRASTMENG — Quantity Between Two Inspections [quantitas]';
 COMMENT ON COLUMN pp.plpo.isp IS 'QPPKTABS — Flow Variants for Inspection Point Completion [inspectio]';
 COMMENT ON COLUMN pp.plpo.cns_obi IS 'KRIT1 — Planning object [consilium obiectum]';
@@ -2365,7 +2365,7 @@ CREATE TABLE IF NOT EXISTS pp.stpo (
   idx7 varchar(1),
   mat_pos varchar(18),
   tmp numeric(3,0),
-  clv_cmn varchar(4),
+  dtb_clv_cmn varchar(4),
   idx_pos2 varchar(1),
   pos numeric(3,0),
   cts varchar(3),
@@ -2493,7 +2493,7 @@ COMMENT ON COLUMN pp.stpo.idx6 IS 'REKRS — Indicator: recursiveness allowed [i
 COMMENT ON COLUMN pp.stpo.idx7 IS 'CADPO — CAD Indicator [index]';
 COMMENT ON COLUMN pp.stpo.mat_pos IS 'NFMAT — Follow-up material in BOM item - NOT IN USE [materia positio]';
 COMMENT ON COLUMN pp.stpo.tmp IS 'NLFZT — Lead-time offset [tempus]';
-COMMENT ON COLUMN pp.stpo.clv_cmn IS 'VERTI — Distribution key for component consumption [clavis componens]';
+COMMENT ON COLUMN pp.stpo.dtb_clv_cmn IS 'VERTI — Distribution key for component consumption [distributio clavis componens]';
 COMMENT ON COLUMN pp.stpo.idx_pos2 IS 'ALPOS — Indicator: alternative item [index positio]';
 COMMENT ON COLUMN pp.stpo.pos IS 'EWAHR — Usage probability in % (alternative item) [positio]';
 COMMENT ON COLUMN pp.stpo.cts IS 'EKGRP — Purchasing Group [coetus]';

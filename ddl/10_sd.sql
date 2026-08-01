@@ -1,5 +1,5 @@
 -- EVE Datasphere Sovereign — PostgreSQL materialisation
--- Generated 2026-08-01T01:47:33Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
+-- Generated 2026-08-01T02:17:52Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
 -- Column names are the canonical Latin layer (EgD-LATIN-001). The legacy SAP field name
 -- is preserved in COMMENT ON COLUMN and in egd_catalog.field_map, and is the join key.
 -- Mirror, never cannibalise. Pour le bien-etre du peuple.
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS sd.konh (
   knuma_pi varchar(10),
   vdt varchar(10),
   vdt2 varchar(10),
-  knuma_sd varchar(10),
+  nrm varchar(10),
   aktnr varchar(10),
   tsc varchar(10),
   trb_lcn_num varchar(20),
@@ -71,7 +71,7 @@ COMMENT ON COLUMN sd.konh.cnd_mat IS 'KZUST — Responsibility in SD for conditi
 COMMENT ON COLUMN sd.konh.knuma_pi IS 'KNUMA_PI — Promotion';
 COMMENT ON COLUMN sd.konh.vdt IS 'KNUMA_AG — Sales deal [venditio]';
 COMMENT ON COLUMN sd.konh.vdt2 IS 'KNUMA_SQ — Sales quote [venditio]';
-COMMENT ON COLUMN sd.konh.knuma_sd IS 'KNUMA_SD — Standard agreement';
+COMMENT ON COLUMN sd.konh.nrm IS 'KNUMA_SD — Standard agreement [norma]';
 COMMENT ON COLUMN sd.konh.aktnr IS 'AKTNR — Promotion';
 COMMENT ON COLUMN sd.konh.tsc IS 'KNUMA_BO — Agreement (subsequent settlement) [transactio]';
 COMMENT ON COLUMN sd.konh.trb_lcn_num IS 'LICNO — Tax exemption license number [tributum licentia numerus]';
@@ -301,10 +301,10 @@ CREATE TABLE IF NOT EXISTS sd.likp (
   fac_obx_doc varchar(2),
   trd_obx_doc varchar(2),
   doc_ctg text,
-  trd2 varchar(2),
+  trd_pri varchar(2),
   vsbed varchar(2),
-  kunnr varchar(10),
-  kunag varchar(10),
+  psn varchar(10),
+  psn2 varchar(10),
   emp_cts varchar(2),
   tot_pnd varchar(3),
   net_pnd varchar(3),
@@ -368,10 +368,10 @@ COMMENT ON COLUMN sd.likp.route IS 'ROUTE — Route';
 COMMENT ON COLUMN sd.likp.fac_obx_doc IS 'FAKSK — Billing block in SD document [factura obex documentum]';
 COMMENT ON COLUMN sd.likp.trd_obx_doc IS 'LIFSK — Delivery block (document header) [traditio obex documentum]';
 COMMENT ON COLUMN sd.likp.doc_ctg IS 'VBTYP — SD document category [documentum categoria]';
-COMMENT ON COLUMN sd.likp.trd2 IS 'LPRIO — Delivery Priority [traditio]';
+COMMENT ON COLUMN sd.likp.trd_pri IS 'LPRIO — Delivery Priority [traditio prioritas]';
 COMMENT ON COLUMN sd.likp.vsbed IS 'VSBED — Shipping Conditions';
-COMMENT ON COLUMN sd.likp.kunnr IS 'KUNNR — Ship-to party';
-COMMENT ON COLUMN sd.likp.kunag IS 'KUNAG — Sold-to party';
+COMMENT ON COLUMN sd.likp.psn IS 'KUNNR — Ship-to party [persona]';
+COMMENT ON COLUMN sd.likp.psn2 IS 'KUNAG — Sold-to party [persona]';
 COMMENT ON COLUMN sd.likp.emp_cts IS 'KDGRP — Customer group [emptor coetus]';
 COMMENT ON COLUMN sd.likp.tot_pnd IS 'BTGEW — Total Weight [summa totalis pondus]';
 COMMENT ON COLUMN sd.likp.net_pnd IS 'NTGEW — Net weight [netus pondus]';
@@ -658,10 +658,10 @@ CREATE TABLE IF NOT EXISTS sd.tvkov (
   cds varchar(2),
   rfr_cds varchar(2),
   cds_vdt varchar(2),
-  rfr_mat varchar(2),
+  rfr_cnl_mat varchar(2),
   rfr_ofc_ctg varchar(4),
-  ctg varchar(1),
-  tax_grd varchar(1),
+  dtb_ctg varchar(1),
+  tax_dtb_grd varchar(1),
   CONSTRAINT tvkov_pk PRIMARY KEY (cli, ovd, cds)
 );
 COMMENT ON TABLE sd.tvkov IS 'TVKOV — Organizational check table: distribution channels per sales organization — validates the VKORG/VTWEG combination every SD document''s distribution channel field must resolve to, and carries reference distribution channels used to share condition records, sales document types, and customer/material master data across channels. Carried complete as a small organizational customizing table.';
@@ -670,17 +670,17 @@ COMMENT ON COLUMN sd.tvkov.ovd IS 'VKORG — Sales Organization [organizatio ven
 COMMENT ON COLUMN sd.tvkov.cds IS 'VTWEG — Distribution Channel [canalis distributionis]';
 COMMENT ON COLUMN sd.tvkov.rfr_cds IS 'VTWKO — Reference distribution channel for conditions [referentia canalis distributionis]';
 COMMENT ON COLUMN sd.tvkov.cds_vdt IS 'VTWAU — Distribution channel for sales doc types [canalis distributionis venditio]';
-COMMENT ON COLUMN sd.tvkov.rfr_mat IS 'VTWKU — Reference distrib.channel for cust.and material masters [referentia materia]';
+COMMENT ON COLUMN sd.tvkov.rfr_cnl_mat IS 'VTWKU — Reference distrib.channel for cust.and material masters [referentia canalis materia]';
 COMMENT ON COLUMN sd.tvkov.rfr_ofc_ctg IS 'VLGFI — Reference Plant of the Category "Store" (Material Master) [referentia officina categoria]';
-COMMENT ON COLUMN sd.tvkov.ctg IS 'VLTYP — Distribution chain category [categoria]';
-COMMENT ON COLUMN sd.tvkov.tax_grd IS 'VLKEB — Allowed pricing levels below distribution chain level [taxatio gradus]';
+COMMENT ON COLUMN sd.tvkov.dtb_ctg IS 'VLTYP — Distribution chain category [distributio categoria]';
+COMMENT ON COLUMN sd.tvkov.tax_dtb_grd IS 'VLKEB — Allowed pricing levels below distribution chain level [taxatio distributio gradus]';
 
 CREATE TABLE IF NOT EXISTS sd.tvta (
   cli char(3),
   ovd varchar(4),
   cds varchar(2),
   dvs varchar(2),
-  rfr_mat varchar(2),
+  rfr_cnl_mat varchar(2),
   rfr_dvs varchar(2),
   rfr_cds varchar(2),
   rfr_dvs2 varchar(2),
@@ -701,7 +701,7 @@ COMMENT ON COLUMN sd.tvta.cli IS 'MANDT — Client [cliens]';
 COMMENT ON COLUMN sd.tvta.ovd IS 'VKORG — Sales Organization [organizatio venditionis]';
 COMMENT ON COLUMN sd.tvta.cds IS 'VTWEG — Distribution Channel [canalis distributionis]';
 COMMENT ON COLUMN sd.tvta.dvs IS 'SPART — Division [divisio]';
-COMMENT ON COLUMN sd.tvta.rfr_mat IS 'VTWKU — Reference distrib.channel for cust.and material masters [referentia materia]';
+COMMENT ON COLUMN sd.tvta.rfr_cnl_mat IS 'VTWKU — Reference distrib.channel for cust.and material masters [referentia canalis materia]';
 COMMENT ON COLUMN sd.tvta.rfr_dvs IS 'SPAKU — Reference division for customers [referentia divisio]';
 COMMENT ON COLUMN sd.tvta.rfr_cds IS 'VTWKO — Reference distribution channel for conditions [referentia canalis distributionis]';
 COMMENT ON COLUMN sd.tvta.rfr_dvs2 IS 'SPAKO — Reference division for conditions [referentia divisio]';
@@ -745,14 +745,14 @@ CREATE TABLE IF NOT EXISTS sd.vbak (
   num_doc_cnd text,
   trd_die text,
   trd_vdt_mnd text,
-  vdt_tax varchar(6),
+  vdt_dtb_tax varchar(6),
   vsbed varchar(2),
   fac_gen_mnd varchar(4),
   vdt2 text,
   emp_mem_num text,
   emp_mem_die text,
   rfr text,
-  kunnr varchar(10),
+  psn varchar(10),
   csm text,
   stt_mon varchar(5),
   mut text,
@@ -809,14 +809,14 @@ COMMENT ON COLUMN sd.vbak.vld_die IS 'GUEEN — Valid-to date (outline agreement
 COMMENT ON COLUMN sd.vbak.num_doc_cnd IS 'KNUMV — Number of the document condition [numerus documentum condicio]';
 COMMENT ON COLUMN sd.vbak.trd_die IS 'VDATU — Requested delivery date [traditio dies]';
 COMMENT ON COLUMN sd.vbak.trd_vdt_mnd IS 'AUTLF — Complete delivery defined for each sales order? [traditio venditio mandatum]';
-COMMENT ON COLUMN sd.vbak.vdt_tax IS 'KALSM — Sales and Distribution: Pricing Procedure in Pricing [venditio taxatio]';
+COMMENT ON COLUMN sd.vbak.vdt_dtb_tax IS 'KALSM — Sales and Distribution: Pricing Procedure in Pricing [venditio distributio taxatio]';
 COMMENT ON COLUMN sd.vbak.vsbed IS 'VSBED — Shipping Conditions';
 COMMENT ON COLUMN sd.vbak.fac_gen_mnd IS 'FKARA — Proposed billing type for an order-related billing document [factura genus mandatum]';
 COMMENT ON COLUMN sd.vbak.vdt2 IS 'AWAHR — Sales probability [venditio]';
 COMMENT ON COLUMN sd.vbak.emp_mem_num IS 'BSTNK — Customer purchase order number [emptor mandatum emptionis numerus]';
 COMMENT ON COLUMN sd.vbak.emp_mem_die IS 'BSTDK — Customer purchase order date [emptor mandatum emptionis dies]';
 COMMENT ON COLUMN sd.vbak.rfr IS 'IHREZ — Your Reference [referentia]';
-COMMENT ON COLUMN sd.vbak.kunnr IS 'KUNNR — Sold-to party';
+COMMENT ON COLUMN sd.vbak.psn IS 'KUNNR — Sold-to party [persona]';
 COMMENT ON COLUMN sd.vbak.csm IS 'KOSTL — Cost Center [centrum sumptus]';
 COMMENT ON COLUMN sd.vbak.stt_mon IS 'STWAE — Statistics currency [statistica moneta]';
 COMMENT ON COLUMN sd.vbak.mut IS 'AEDAT — Changed On [mutatus]';
@@ -885,7 +885,7 @@ CREATE TABLE IF NOT EXISTS sd.vbap (
   pos varchar(6),
   ndo_rfr_doc varchar(10),
   pos_num_rfr varchar(6),
-  trd varchar(2),
+  trd_pri varchar(2),
   ofc varchar(4),
   loc varchar(4),
   vstel varchar(4),
@@ -966,7 +966,7 @@ COMMENT ON COLUMN sd.vbap.doc IS 'VBELV — Originating document [documentum]';
 COMMENT ON COLUMN sd.vbap.pos IS 'POSNV — Originating item [positio]';
 COMMENT ON COLUMN sd.vbap.ndo_rfr_doc IS 'VGBEL — Document number of the reference document [numerus documenti referentia documentum]';
 COMMENT ON COLUMN sd.vbap.pos_num_rfr IS 'VGPOS — Item number of the reference item [positio numerus referentia]';
-COMMENT ON COLUMN sd.vbap.trd IS 'LPRIO — Delivery Priority [traditio]';
+COMMENT ON COLUMN sd.vbap.trd_pri IS 'LPRIO — Delivery Priority [traditio prioritas]';
 COMMENT ON COLUMN sd.vbap.ofc IS 'WERKS — Plant (Own or External) [officina]';
 COMMENT ON COLUMN sd.vbap.loc IS 'LGORT — Storage Location [locus repositionis]';
 COMMENT ON COLUMN sd.vbap.vstel IS 'VSTEL — Shipping Point/Receiving Point';
@@ -1091,7 +1091,7 @@ COMMENT ON COLUMN sd.vbep.die_loc IS 'HANDOVERDATE — Handover Date at the Hand
 
 CREATE TABLE IF NOT EXISTS sd.vbkd (
   cli char(3),
-  vdt_ndo varchar(10),
+  vdt_dtb_ndo varchar(10),
   pos_num_doc varchar(6),
   pre_cts_emp varchar(2),
   emp_cts varchar(2),
@@ -1121,8 +1121,8 @@ CREATE TABLE IF NOT EXISTS sd.vbkd (
   emp_mem_die date,
   emp_mem_gen varchar(4),
   rfr varchar(12),
-  mem_num varchar(35),
-  die2 date,
+  psn_mem_num varchar(35),
+  psn_die date,
   val_pct_mon varchar(5),
   rpm_val_pct numeric(9,5),
   trd_tmp varchar(3),
@@ -1132,11 +1132,11 @@ CREATE TABLE IF NOT EXISTS sd.vbkd (
   idx2 varchar(4),
   afn varchar(16),
   pct_rat_num varchar(12),
-  CONSTRAINT vbkd_pk PRIMARY KEY (cli, vdt_ndo, pos_num_doc)
+  CONSTRAINT vbkd_pk PRIMARY KEY (cli, vdt_dtb_ndo, pos_num_doc)
 );
 COMMENT ON TABLE sd.vbkd IS 'VBKD — Sales document business data — header- and item-level commercial terms (price group, Incoterms, payment terms, exchange rates for pricing, billing plan reference, customer PO reference) that condition the pricing and billing of a sales document. Can occur once per document (header, POSNR = ''000000'') or per item where item-specific business data overrides the header. SAP''s real table carries roughly 130 fields, many industry-specific (IS-OIL, tax, SEPA); this definition is scoped to the key, pricing/currency, payment, and reference fields the SD pricing and billing model consumes — never silent';
 COMMENT ON COLUMN sd.vbkd.cli IS 'MANDT — Client [cliens]';
-COMMENT ON COLUMN sd.vbkd.vdt_ndo IS 'VBELN — Sales and Distribution Document Number [venditio numerus documenti]';
+COMMENT ON COLUMN sd.vbkd.vdt_dtb_ndo IS 'VBELN — Sales and Distribution Document Number [venditio distributio numerus documenti]';
 COMMENT ON COLUMN sd.vbkd.pos_num_doc IS 'POSNR — Item number of the SD document [positio numerus documentum]';
 COMMENT ON COLUMN sd.vbkd.pre_cts_emp IS 'KONDA — Price group (customer) [pretium coetus emptor]';
 COMMENT ON COLUMN sd.vbkd.emp_cts IS 'KDGRP — Customer group [emptor coetus]';
@@ -1166,8 +1166,8 @@ COMMENT ON COLUMN sd.vbkd.emp_mem_num IS 'BSTKD — Customer purchase order numb
 COMMENT ON COLUMN sd.vbkd.emp_mem_die IS 'BSTDK — Customer purchase order date [emptor mandatum emptionis dies]';
 COMMENT ON COLUMN sd.vbkd.emp_mem_gen IS 'BSARK — Customer purchase order type [emptor mandatum emptionis genus]';
 COMMENT ON COLUMN sd.vbkd.rfr IS 'IHREZ — Your Reference [referentia]';
-COMMENT ON COLUMN sd.vbkd.mem_num IS 'BSTKD_E — Ship-to Party''s Purchase Order Number [mandatum emptionis numerus]';
-COMMENT ON COLUMN sd.vbkd.die2 IS 'BSTDK_E — Ship-to party''s PO date [dies]';
+COMMENT ON COLUMN sd.vbkd.psn_mem_num IS 'BSTKD_E — Ship-to Party''s Purchase Order Number [persona mandatum emptionis numerus]';
+COMMENT ON COLUMN sd.vbkd.psn_die IS 'BSTDK_E — Ship-to party''s PO date [persona dies]';
 COMMENT ON COLUMN sd.vbkd.val_pct_mon IS 'WKWAE — Value contract currency [valor pactum moneta]';
 COMMENT ON COLUMN sd.vbkd.rpm_val_pct IS 'WKKUR — Exchange rate in value contract currency [ratio permutationis valor pactum]';
 COMMENT ON COLUMN sd.vbkd.trd_tmp IS 'DELCO — Agreed delivery time [traditio tempus]';
@@ -1180,7 +1180,7 @@ COMMENT ON COLUMN sd.vbkd.pct_rat_num IS 'VKONT — Contract Account Number [pac
 
 CREATE TABLE IF NOT EXISTS sd.vbpa (
   cli char(3),
-  vdt_ndo varchar(10),
+  vdt_dtb_ndo varchar(10),
   pos_num_doc varchar(6),
   scs varchar(2),
   emp_num varchar(10),
@@ -1203,11 +1203,11 @@ CREATE TABLE IF NOT EXISTS sd.vbpa (
   idx varchar(1),
   psn_num varchar(10),
   kale varchar(1),
-  CONSTRAINT vbpa_pk PRIMARY KEY (cli, vdt_ndo, pos_num_doc, scs)
+  CONSTRAINT vbpa_pk PRIMARY KEY (cli, vdt_dtb_ndo, pos_num_doc, scs)
 );
 COMMENT ON TABLE sd.vbpa IS 'VBPA — Sales document partner — the partner-function table that answers who the sold-to, ship-to, payer, and bill-to actually were on a given sales document (header, POSNR = ''000000'') or item, each row keyed by PARVW (partner function, e.g. AG sold-to, WE ship-to, RE bill-to, RG payer) and resolving to a customer (KUNNR) or vendor (LIFNR).';
 COMMENT ON COLUMN sd.vbpa.cli IS 'MANDT — Client [cliens]';
-COMMENT ON COLUMN sd.vbpa.vdt_ndo IS 'VBELN — Sales and Distribution Document Number [venditio numerus documenti]';
+COMMENT ON COLUMN sd.vbpa.vdt_dtb_ndo IS 'VBELN — Sales and Distribution Document Number [venditio distributio numerus documenti]';
 COMMENT ON COLUMN sd.vbpa.pos_num_doc IS 'POSNR — Item number of the SD document [positio numerus documentum]';
 COMMENT ON COLUMN sd.vbpa.scs IS 'PARVW — Partner Function [socius]';
 COMMENT ON COLUMN sd.vbpa.emp_num IS 'KUNNR — Customer Number [emptor numerus]';
@@ -1240,7 +1240,7 @@ CREATE TABLE IF NOT EXISTS sd.vbrk (
   doc_mon varchar(5),
   ovd varchar(4),
   cds varchar(2),
-  vdt_tax varchar(6),
+  vdt_dtb_tax varchar(6),
   num_doc_cnd text,
   vsbed varchar(2),
   fac_die_idx text,
@@ -1262,7 +1262,7 @@ CREATE TABLE IF NOT EXISTS sd.vbrk (
   tmp text,
   die_tbl_cre text,
   kunrg varchar(10),
-  kunag varchar(10),
+  psn varchar(10),
   stt_mon varchar(5),
   num varchar(10),
   num2 text,
@@ -1295,7 +1295,7 @@ COMMENT ON COLUMN sd.vbrk.doc_ctg IS 'VBTYP — SD document category [documentum
 COMMENT ON COLUMN sd.vbrk.doc_mon IS 'WAERK — SD Document Currency [documentum moneta]';
 COMMENT ON COLUMN sd.vbrk.ovd IS 'VKORG — Sales Organization [organizatio venditionis]';
 COMMENT ON COLUMN sd.vbrk.cds IS 'VTWEG — Distribution Channel [canalis distributionis]';
-COMMENT ON COLUMN sd.vbrk.vdt_tax IS 'KALSM — Sales and Distribution: Pricing Procedure in Pricing [venditio taxatio]';
+COMMENT ON COLUMN sd.vbrk.vdt_dtb_tax IS 'KALSM — Sales and Distribution: Pricing Procedure in Pricing [venditio distributio taxatio]';
 COMMENT ON COLUMN sd.vbrk.num_doc_cnd IS 'KNUMV — Number of the document condition [numerus documentum condicio]';
 COMMENT ON COLUMN sd.vbrk.vsbed IS 'VSBED — Shipping Conditions';
 COMMENT ON COLUMN sd.vbrk.fac_die_idx IS 'FKDAT — Billing date for billing index and printout [factura dies index]';
@@ -1317,7 +1317,7 @@ COMMENT ON COLUMN sd.vbrk.nom_psn_cre IS 'ERNAM — Name of Person who Created t
 COMMENT ON COLUMN sd.vbrk.tmp IS 'ERZET — Entry time [tempus]';
 COMMENT ON COLUMN sd.vbrk.die_tbl_cre IS 'ERDAT — Date on Which Record Was Created [dies tabula creatus]';
 COMMENT ON COLUMN sd.vbrk.kunrg IS 'KUNRG — Payer';
-COMMENT ON COLUMN sd.vbrk.kunag IS 'KUNAG — Sold-to party';
+COMMENT ON COLUMN sd.vbrk.psn IS 'KUNAG — Sold-to party [persona]';
 COMMENT ON COLUMN sd.vbrk.stt_mon IS 'STWAE — Statistics currency [statistica moneta]';
 COMMENT ON COLUMN sd.vbrk.num IS 'EXNUM — Number of foreign trade data in MM and SD documents [numerus]';
 COMMENT ON COLUMN sd.vbrk.num2 IS 'STCEG — VAT Registration Number [numerus]';
@@ -1401,7 +1401,7 @@ CREATE TABLE IF NOT EXISTS sd.vbrp (
   val_pct_pos varchar(6),
   pos_txt text,
   pct_num text,
-  ctg text,
+  rcg_ctg text,
   logsys text,
   CONSTRAINT vbrp_pk PRIMARY KEY (cli, fac_doc, fac_pos)
 );
@@ -1466,12 +1466,12 @@ COMMENT ON COLUMN sd.vbrp.val_pct IS 'WKTNR — Value contract no. [valor pactum
 COMMENT ON COLUMN sd.vbrp.val_pct_pos IS 'WKTPS — Value contract item [valor pactum positio]';
 COMMENT ON COLUMN sd.vbrp.pos_txt IS 'SGTXT — Item Text [positio textus]';
 COMMENT ON COLUMN sd.vbrp.pct_num IS 'VERTN — Contract Number [pactum numerus]';
-COMMENT ON COLUMN sd.vbrp.ctg IS 'RRREL — Revenue recognition category [categoria]';
+COMMENT ON COLUMN sd.vbrp.rcg_ctg IS 'RRREL — Revenue recognition category [recognitio categoria]';
 COMMENT ON COLUMN sd.vbrp.logsys IS 'LOGSYS — Logical system';
 
 CREATE TABLE IF NOT EXISTS sd.vbuk (
   cli char(3),
-  vdt_ndo varchar(10),
+  vdt_dtb_ndo varchar(10),
   rfr_doc_cap varchar(1),
   tot_rfr_sta varchar(1),
   cnf_sta varchar(1),
@@ -1509,11 +1509,11 @@ CREATE TABLE IF NOT EXISTS sd.vbuk (
   sta5 varchar(1),
   sta_cap_grd varchar(1),
   doc_ctg2 varchar(4),
-  CONSTRAINT vbuk_pk PRIMARY KEY (cli, vdt_ndo)
+  CONSTRAINT vbuk_pk PRIMARY KEY (cli, vdt_dtb_ndo)
 );
 COMMENT ON TABLE sd.vbuk IS 'VBUK — Sales document header status and administrative data — the overall header-level status of a sales document across confirmation, delivery, goods movement, billing, credit checks, picking, packing, and rejection. NOTE ON RELEASE: VBUK is an ECC-era status table. In S/4HANA, SAP replaced VBUK (and its item-level counterpart VBUP) with status fields carried directly on VBAK (header) and VBAP (item) — VBUK/VBUP still exist as compatibility views/tables in S/4HANA for backward compatibility, but new status logic reads VBAK/VBAP directly. This model must read both releases: consult VBUK/VBUP for ECC ';
 COMMENT ON COLUMN sd.vbuk.cli IS 'MANDT — Client [cliens]';
-COMMENT ON COLUMN sd.vbuk.vdt_ndo IS 'VBELN — Sales and Distribution Document Number [venditio numerus documenti]';
+COMMENT ON COLUMN sd.vbuk.vdt_dtb_ndo IS 'VBELN — Sales and Distribution Document Number [venditio distributio numerus documenti]';
 COMMENT ON COLUMN sd.vbuk.rfr_doc_cap IS 'RFSTK — Reference document header status [referentia documentum caput]';
 COMMENT ON COLUMN sd.vbuk.tot_rfr_sta IS 'RFGSK — Total reference status of all items [summa totalis referentia status]';
 COMMENT ON COLUMN sd.vbuk.cnf_sta IS 'BESTK — Confirmation status [confirmatio status]';
@@ -1554,7 +1554,7 @@ COMMENT ON COLUMN sd.vbuk.doc_ctg2 IS 'VBTYP_EXT — Extension of SD Document Ca
 
 CREATE TABLE IF NOT EXISTS sd.vbup (
   cli char(3),
-  vdt_ndo varchar(10),
+  vdt_dtb_ndo varchar(10),
   pos_num_doc varchar(6),
   rfr_sta varchar(1),
   sta_rfr varchar(1),
@@ -1581,11 +1581,11 @@ CREATE TABLE IF NOT EXISTS sd.vbup (
   fac_obx_sta varchar(1),
   trd_obx_sta varchar(1),
   sta_pos_grd varchar(1),
-  CONSTRAINT vbup_pk PRIMARY KEY (cli, vdt_ndo, pos_num_doc)
+  CONSTRAINT vbup_pk PRIMARY KEY (cli, vdt_dtb_ndo, pos_num_doc)
 );
 COMMENT ON TABLE sd.vbup IS 'VBUP — Sales document item status — the item-level counterpart to VBUK, carrying per-item confirmation, delivery, goods-movement, billing, rejection, credit, picking, packing and incompletion status. NOTE ON RELEASE: VBUP is an ECC-era status table. In S/4HANA, SAP replaced VBUP (and its header-level counterpart VBUK) with status fields carried directly on VBAP (item) and VBAK (header) — VBUK/VBUP still exist as compatibility views/tables in S/4HANA for backward compatibility, but new status logic reads VBAP/VBAK directly. This model must read both releases: consult VBUP/VBUK for ECC systems and VBAP';
 COMMENT ON COLUMN sd.vbup.cli IS 'MANDT — Client [cliens]';
-COMMENT ON COLUMN sd.vbup.vdt_ndo IS 'VBELN — Sales and Distribution Document Number [venditio numerus documenti]';
+COMMENT ON COLUMN sd.vbup.vdt_dtb_ndo IS 'VBELN — Sales and Distribution Document Number [venditio distributio numerus documenti]';
 COMMENT ON COLUMN sd.vbup.pos_num_doc IS 'POSNR — Item number of the SD document [positio numerus documentum]';
 COMMENT ON COLUMN sd.vbup.rfr_sta IS 'RFSTA — Reference status [referentia status]';
 COMMENT ON COLUMN sd.vbup.sta_rfr IS 'RFGSA — Overall status of reference [status referentia]';

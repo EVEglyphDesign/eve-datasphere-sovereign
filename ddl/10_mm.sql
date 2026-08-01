@@ -1,5 +1,5 @@
 -- EVE Datasphere Sovereign — PostgreSQL materialisation
--- Generated 2026-08-01T01:47:33Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
+-- Generated 2026-08-01T02:17:52Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
 -- Column names are the canonical Latin layer (EgD-LATIN-001). The legacy SAP field name
 -- is preserved in COMMENT ON COLUMN and in egd_catalog.field_map, and is the join key.
 -- Mirror, never cannibalise. Pour le bien-etre du peuple.
@@ -150,18 +150,18 @@ CREATE TABLE IF NOT EXISTS mm.ebkn (
   die_tbl_cre date,
   nom_psn_cre varchar(12),
   pem_qnt numeric(13,3),
-  rat numeric(3,1),
+  dtb_rat numeric(3,1),
   rat_num varchar(10),
   ang varchar(4),
   csm varchar(10),
   prp_num varchar(16),
-  vdt_ndo varchar(10),
+  vdt_dtb_ndo varchar(10),
   dvd_pos varchar(6),
   trd_lor_num varchar(4),
   ptm_num varchar(12),
   ptm varchar(4),
   mnd_num varchar(12),
-  mrc varchar(12),
+  mrc_psn varchar(12),
   ablad varchar(25),
   amd varchar(4),
   ins_csm varchar(1),
@@ -199,18 +199,18 @@ COMMENT ON COLUMN mm.ebkn.idx_dem IS 'LOEKZ — Deletion Indicator in Purchasing
 COMMENT ON COLUMN mm.ebkn.die_tbl_cre IS 'ERDAT — Date on Which Record Was Created [dies tabula creatus]';
 COMMENT ON COLUMN mm.ebkn.nom_psn_cre IS 'ERNAM — Name of Person who Created the Object [nomen persona creatus]';
 COMMENT ON COLUMN mm.ebkn.pem_qnt IS 'MENGE — Purchase Requisition Quantity [petitio emptionis quantitas]';
-COMMENT ON COLUMN mm.ebkn.rat IS 'VPROZ — Distribution Percentage in Case of Multiple Account Assgt [ratio]';
+COMMENT ON COLUMN mm.ebkn.dtb_rat IS 'VPROZ — Distribution Percentage in Case of Multiple Account Assgt [distributio ratio]';
 COMMENT ON COLUMN mm.ebkn.rat_num IS 'SAKTO — G/L Account Number [ratio numerus]';
 COMMENT ON COLUMN mm.ebkn.ang IS 'GSBER — Business Area [area negotii]';
 COMMENT ON COLUMN mm.ebkn.csm IS 'KOSTL — Cost Center [centrum sumptus]';
 COMMENT ON COLUMN mm.ebkn.prp_num IS 'PROJN — Old: Project number : No longer used --> PS_POSNR [propositum numerus]';
-COMMENT ON COLUMN mm.ebkn.vdt_ndo IS 'VBELN — Sales and Distribution Document Number [venditio numerus documenti]';
+COMMENT ON COLUMN mm.ebkn.vdt_dtb_ndo IS 'VBELN — Sales and Distribution Document Number [venditio distributio numerus documenti]';
 COMMENT ON COLUMN mm.ebkn.dvd_pos IS 'VBELP — Sales Document Item [documentum venditionis positio]';
 COMMENT ON COLUMN mm.ebkn.trd_lor_num IS 'VETEN — Delivery Schedule Line Number [traditio linea ordinis numerus]';
 COMMENT ON COLUMN mm.ebkn.ptm_num IS 'ANLN1 — Main Asset Number [patrimonium numerus]';
 COMMENT ON COLUMN mm.ebkn.ptm IS 'ANLN2 — Asset Subnumber [patrimonium]';
 COMMENT ON COLUMN mm.ebkn.mnd_num IS 'AUFNR — Order Number [mandatum numerus]';
-COMMENT ON COLUMN mm.ebkn.mrc IS 'WEMPF — Goods Recipient/Ship-To Party [merces]';
+COMMENT ON COLUMN mm.ebkn.mrc_psn IS 'WEMPF — Goods Recipient/Ship-To Party [merces persona]';
 COMMENT ON COLUMN mm.ebkn.ablad IS 'ABLAD — Unloading Point';
 COMMENT ON COLUMN mm.ebkn.amd IS 'KOKRS — Controlling Area [area moderationis]';
 COMMENT ON COLUMN mm.ebkn.ins_csm IS 'XBKST — Posting to cost center? [inscriptio centrum sumptus]';
@@ -333,7 +333,7 @@ CREATE TABLE IF NOT EXISTS mm.eine (
   idx_vlm varchar(1),
   idx_qnt_vlm varchar(1),
   mem_qnt numeric(13,3),
-  mem_qnt2 numeric(13,3),
+  nrm_mem_qnt numeric(13,3),
   trd_tmp numeric(3,0),
   uebto numeric(3,1),
   idx varchar(1),
@@ -354,7 +354,7 @@ CREATE TABLE IF NOT EXISTS mm.eine (
   mnd_pre_uni2 numeric(5,0),
   mnd_pre_uni3 numeric(5,0),
   mat_tpr_txt varchar(1),
-  idx_fac varchar(1),
+  idx_fac_vrf varchar(1),
   pre_tin numeric(11,2),
   cnd_cts_ven varchar(4),
   pos_ddc varchar(1),
@@ -374,7 +374,7 @@ CREATE TABLE IF NOT EXISTS mm.eine (
   pos_per_fin varchar(1),
   mhdrz numeric(4,0),
   prd_vrs varchar(4),
-  mem_qnt3 numeric(13,3),
+  mem_qnt2 numeric(13,3),
   rdprf varchar(4),
   men_cts varchar(4),
   CONSTRAINT eine_pk PRIMARY KEY (cli, num_tin, oem, tin_ctg, ofc)
@@ -393,7 +393,7 @@ COMMENT ON COLUMN mm.eine.cvm IS 'WAERS — Currency Key [clavis monetae]';
 COMMENT ON COLUMN mm.eine.idx_vlm IS 'BONUS — Indicator: Volume-Based Rebate [index volumen]';
 COMMENT ON COLUMN mm.eine.idx_qnt_vlm IS 'MGBON — Indicator: Quantity-Based Volume Rebate [index quantitas volumen]';
 COMMENT ON COLUMN mm.eine.mem_qnt IS 'MINBM — Minimum Purchase Order Quantity [mandatum emptionis quantitas]';
-COMMENT ON COLUMN mm.eine.mem_qnt2 IS 'NORBM — Standard Purchase Order Quantity [mandatum emptionis quantitas]';
+COMMENT ON COLUMN mm.eine.nrm_mem_qnt IS 'NORBM — Standard Purchase Order Quantity [norma mandatum emptionis quantitas]';
 COMMENT ON COLUMN mm.eine.trd_tmp IS 'APLFZ — Planned Delivery Time in Days [traditio tempus]';
 COMMENT ON COLUMN mm.eine.uebto IS 'UEBTO — Overdelivery Tolerance Limit';
 COMMENT ON COLUMN mm.eine.idx IS 'UEBTK — Indicator: Unlimited Overdelivery Allowed [index]';
@@ -414,7 +414,7 @@ COMMENT ON COLUMN mm.eine.pre IS 'PRDAT — Price Valid Until [pretium]';
 COMMENT ON COLUMN mm.eine.mnd_pre_uni2 IS 'BPUMZ — Numerator for Conversion of Order Price Unit into Order Unit [mandatum pretium unitas]';
 COMMENT ON COLUMN mm.eine.mnd_pre_uni3 IS 'BPUMN — Denominator for Conv. of Order Price Unit into Order Unit [mandatum pretium unitas]';
 COMMENT ON COLUMN mm.eine.mat_tpr_txt IS 'MTXNO — Material Master Record PO Text Not Relevant [materia tabula principalis textus]';
-COMMENT ON COLUMN mm.eine.idx_fac IS 'WEBRE — Indicator: GR-Based Invoice Verification [index factura]';
+COMMENT ON COLUMN mm.eine.idx_fac_vrf IS 'WEBRE — Indicator: GR-Based Invoice Verification [index factura verificatio]';
 COMMENT ON COLUMN mm.eine.pre_tin IS 'EFFPR — Effective Price in Purchasing Info Record [pretium tabula informationis]';
 COMMENT ON COLUMN mm.eine.cnd_cts_ven IS 'EKKOL — Condition Group with Vendor [condicio coetus venditor]';
 COMMENT ON COLUMN mm.eine.pos_ddc IS 'SKTOF — Item Does Not Qualify for Cash Discount [positio deductio]';
@@ -434,7 +434,7 @@ COMMENT ON COLUMN mm.eine.tsc_cts3 IS 'EBON3 — Settlement Group 3 (Rebate Sett
 COMMENT ON COLUMN mm.eine.pos_per_fin IS 'EBONF — Item Not Relevant to Subseq. (Period-End Rebate) Settlement [positio periodus finis]';
 COMMENT ON COLUMN mm.eine.mhdrz IS 'MHDRZ — Minimum Remaining Shelf Life';
 COMMENT ON COLUMN mm.eine.prd_vrs IS 'VERID — Production Version [productio versio]';
-COMMENT ON COLUMN mm.eine.mem_qnt3 IS 'BSTMA — Maximum Purchase Order Quantity [mandatum emptionis quantitas]';
+COMMENT ON COLUMN mm.eine.mem_qnt2 IS 'BSTMA — Maximum Purchase Order Quantity [mandatum emptionis quantitas]';
 COMMENT ON COLUMN mm.eine.rdprf IS 'RDPRF — Rounding Profile';
 COMMENT ON COLUMN mm.eine.men_cts IS 'MEGRU — Unit of Measure Group [mensura coetus]';
 
@@ -592,20 +592,20 @@ CREATE TABLE IF NOT EXISTS mm.ekkn (
   idx_dem_rat varchar(1),
   die_tbl_cre date,
   qnt numeric(13,3),
-  rat numeric(3,1),
+  dtb_rat numeric(3,1),
   net_mnd_val numeric(13,2),
   rat_num varchar(10),
   ang varchar(4),
   csm varchar(10),
   prp_num varchar(16),
-  vdt_ndo varchar(10),
+  vdt_dtb_ndo varchar(10),
   dvd_pos varchar(6),
   trd_lor_num varchar(4),
   grs_idx varchar(1),
   ptm_num varchar(12),
   ptm varchar(4),
   mnd_num varchar(12),
-  mrc varchar(12),
+  mrc_psn varchar(12),
   ablad varchar(25),
   amd varchar(4),
   ins_csm varchar(1),
@@ -644,20 +644,20 @@ COMMENT ON COLUMN mm.ekkn.num_rat_asg IS 'ZEKKN — Sequential Number of Account
 COMMENT ON COLUMN mm.ekkn.idx_dem_rat IS 'LOEKZ — Deletion Indicator: Purchasing Document Account Assignment [index documentum emptionis ratio]';
 COMMENT ON COLUMN mm.ekkn.die_tbl_cre IS 'AEDAT — Date on Which Record Was Created [dies tabula creatus]';
 COMMENT ON COLUMN mm.ekkn.qnt IS 'MENGE — Quantity [quantitas]';
-COMMENT ON COLUMN mm.ekkn.rat IS 'VPROZ — Distribution Percentage in Case of Multiple Account Assgt [ratio]';
+COMMENT ON COLUMN mm.ekkn.dtb_rat IS 'VPROZ — Distribution Percentage in Case of Multiple Account Assgt [distributio ratio]';
 COMMENT ON COLUMN mm.ekkn.net_mnd_val IS 'NETWR — Net Order Value in PO Currency [netus mandatum valor]';
 COMMENT ON COLUMN mm.ekkn.rat_num IS 'SAKTO — G/L Account Number [ratio numerus]';
 COMMENT ON COLUMN mm.ekkn.ang IS 'GSBER — Business Area [area negotii]';
 COMMENT ON COLUMN mm.ekkn.csm IS 'KOSTL — Cost Center [centrum sumptus]';
 COMMENT ON COLUMN mm.ekkn.prp_num IS 'PROJN — Old: Project number : No longer used --> PS_POSNR [propositum numerus]';
-COMMENT ON COLUMN mm.ekkn.vdt_ndo IS 'VBELN — Sales and Distribution Document Number [venditio numerus documenti]';
+COMMENT ON COLUMN mm.ekkn.vdt_dtb_ndo IS 'VBELN — Sales and Distribution Document Number [venditio distributio numerus documenti]';
 COMMENT ON COLUMN mm.ekkn.dvd_pos IS 'VBELP — Sales Document Item [documentum venditionis positio]';
 COMMENT ON COLUMN mm.ekkn.trd_lor_num IS 'VETEN — Delivery Schedule Line Number [traditio linea ordinis numerus]';
 COMMENT ON COLUMN mm.ekkn.grs_idx IS 'KZBRB — Gross requirements indicator [crassus index]';
 COMMENT ON COLUMN mm.ekkn.ptm_num IS 'ANLN1 — Main Asset Number [patrimonium numerus]';
 COMMENT ON COLUMN mm.ekkn.ptm IS 'ANLN2 — Asset Subnumber [patrimonium]';
 COMMENT ON COLUMN mm.ekkn.mnd_num IS 'AUFNR — Order Number [mandatum numerus]';
-COMMENT ON COLUMN mm.ekkn.mrc IS 'WEMPF — Goods Recipient/Ship-To Party [merces]';
+COMMENT ON COLUMN mm.ekkn.mrc_psn IS 'WEMPF — Goods Recipient/Ship-To Party [merces persona]';
 COMMENT ON COLUMN mm.ekkn.ablad IS 'ABLAD — Unloading Point';
 COMMENT ON COLUMN mm.ekkn.amd IS 'KOKRS — Controlling Area [area moderationis]';
 COMMENT ON COLUMN mm.ekkn.ins_csm IS 'XBKST — Posting to cost center? [inscriptio centrum sumptus]';
@@ -718,7 +718,7 @@ CREATE TABLE IF NOT EXISTS mm.ekko (
   inco2 varchar(28),
   num_doc_cnd varchar(10),
   tax varchar(6),
-  lifre varchar(10),
+  psn varchar(10),
   num2 varchar(10),
   logsy varchar(10),
   ems_cts varchar(2),
@@ -775,7 +775,7 @@ COMMENT ON COLUMN mm.ekko.inco1 IS 'INCO1 — Incoterms (Part 1)';
 COMMENT ON COLUMN mm.ekko.inco2 IS 'INCO2 — Incoterms (Part 2)';
 COMMENT ON COLUMN mm.ekko.num_doc_cnd IS 'KNUMV — Number of the document condition [numerus documentum condicio]';
 COMMENT ON COLUMN mm.ekko.tax IS 'KALSM — Procedure (Pricing, Output Control, Acct. Det., Costing,...) [taxatio]';
-COMMENT ON COLUMN mm.ekko.lifre IS 'LIFRE — Different Invoicing Party';
+COMMENT ON COLUMN mm.ekko.psn IS 'LIFRE — Different Invoicing Party [persona]';
 COMMENT ON COLUMN mm.ekko.num2 IS 'EXNUM — Number of foreign trade data in MM and SD documents [numerus]';
 COMMENT ON COLUMN mm.ekko.logsy IS 'LOGSY — Logical System';
 COMMENT ON COLUMN mm.ekko.ems_cts IS 'FRGGR — Release group [emissio coetus]';
@@ -834,7 +834,7 @@ CREATE TABLE IF NOT EXISTS mm.ekpo (
   amr_idx varchar(1),
   amr varchar(1),
   fac_idx2 varchar(1),
-  idx_fac varchar(1),
+  idx_fac_vrf varchar(1),
   num_emt varchar(10),
   pos_num_emt varchar(5),
   men varchar(3),
@@ -900,7 +900,7 @@ COMMENT ON COLUMN mm.ekpo.ins IS 'KZVBR — Consumption Posting [inscriptio]';
 COMMENT ON COLUMN mm.ekpo.amr_idx IS 'WEPOS — Goods Receipt Indicator [acceptio mercium index]';
 COMMENT ON COLUMN mm.ekpo.amr IS 'WEUNB — Goods Receipt, Non-Valuated [acceptio mercium]';
 COMMENT ON COLUMN mm.ekpo.fac_idx2 IS 'REPOS — Invoice Receipt Indicator [factura index]';
-COMMENT ON COLUMN mm.ekpo.idx_fac IS 'WEBRE — Indicator: GR-Based Invoice Verification [index factura]';
+COMMENT ON COLUMN mm.ekpo.idx_fac_vrf IS 'WEBRE — Indicator: GR-Based Invoice Verification [index factura verificatio]';
 COMMENT ON COLUMN mm.ekpo.num_emt IS 'KONNR — Number of Principal Purchase Agreement [numerus emptio]';
 COMMENT ON COLUMN mm.ekpo.pos_num_emt IS 'KTPNR — Item Number of Principal Purchase Agreement [positio numerus emptio]';
 COMMENT ON COLUMN mm.ekpo.men IS 'LMEIN — Base Unit of Measure [mensura]';
@@ -1020,7 +1020,7 @@ CREATE TABLE IF NOT EXISTS mm.mara (
   men varchar(3),
   mem_men varchar(3),
   mat varchar(48),
-  dsc varchar(18),
+  nrm_dsc varchar(18),
   labor varchar(3),
   val_clv varchar(4),
   grs_pnd numeric(13,3),
@@ -1056,7 +1056,7 @@ CREATE TABLE IF NOT EXISTS mm.mara (
   ofc_mat varchar(18),
   mat_ctg varchar(2),
   ofc_mat_sta varchar(2),
-  mat_sta varchar(2),
+  dtb_mat_sta varchar(2),
   die_ofc_mat date,
   die_mat_sta date,
   mhdrz numeric(4,0),
@@ -1090,7 +1090,7 @@ COMMENT ON COLUMN mm.mara.mat_num2 IS 'BISMT — Old material number [materia nu
 COMMENT ON COLUMN mm.mara.men IS 'MEINS — Base Unit of Measure [mensura]';
 COMMENT ON COLUMN mm.mara.mem_men IS 'BSTME — Purchase Order Unit of Measure [mandatum emptionis mensura]';
 COMMENT ON COLUMN mm.mara.mat IS 'WRKST — Basic Material [materia]';
-COMMENT ON COLUMN mm.mara.dsc IS 'NORMT — Industry Standard Description [descriptio]';
+COMMENT ON COLUMN mm.mara.nrm_dsc IS 'NORMT — Industry Standard Description [norma descriptio]';
 COMMENT ON COLUMN mm.mara.labor IS 'LABOR — Laboratory/design office';
 COMMENT ON COLUMN mm.mara.val_clv IS 'EKWSL — Purchasing Value Key [valor clavis]';
 COMMENT ON COLUMN mm.mara.grs_pnd IS 'BRGEW — Gross Weight [crassus pondus]';
@@ -1126,7 +1126,7 @@ COMMENT ON COLUMN mm.mara.mat_cts2 IS 'EXTWG — External Material Group [materi
 COMMENT ON COLUMN mm.mara.ofc_mat IS 'SATNR — Cross-Plant Configurable Material [officina materia]';
 COMMENT ON COLUMN mm.mara.mat_ctg IS 'ATTYP — Material Category [materia categoria]';
 COMMENT ON COLUMN mm.mara.ofc_mat_sta IS 'MSTAE — Cross-Plant Material Status [officina materia status]';
-COMMENT ON COLUMN mm.mara.mat_sta IS 'MSTAV — Cross-distribution-chain material status [materia status]';
+COMMENT ON COLUMN mm.mara.dtb_mat_sta IS 'MSTAV — Cross-distribution-chain material status [distributio materia status]';
 COMMENT ON COLUMN mm.mara.die_ofc_mat IS 'MSTDE — Date from which the cross-plant material status is valid [dies officina materia]';
 COMMENT ON COLUMN mm.mara.die_mat_sta IS 'MSTDV — Date from which the X-distr.-chain material status is valid [dies materia status]';
 COMMENT ON COLUMN mm.mara.mhdrz IS 'MHDRZ — Minimum Remaining Shelf Life';
@@ -1517,7 +1517,7 @@ CREATE TABLE IF NOT EXISTS mm.mbew (
   val_tot_cpa numeric(13,2),
   pre_idx varchar(1),
   pre_uni numeric(11,2),
-  pre numeric(11,2),
+  nrm_pre numeric(11,2),
   pre_uni2 numeric(5,0),
   aes_cls varchar(4),
   val_pre numeric(13,2),
@@ -1528,9 +1528,9 @@ CREATE TABLE IF NOT EXISTS mm.mbew (
   anf_per varchar(4),
   per_ins varchar(2),
   aes_ctg varchar(1),
-  pre2 numeric(11,2),
+  pre numeric(11,2),
   die_ult_pre date,
-  pre3 numeric(11,2),
+  pre2 numeric(11,2),
   die_pre date,
   aes_pre_trb numeric(11,2),
   aes_pre_grd numeric(11,2),
@@ -1541,10 +1541,10 @@ CREATE TABLE IF NOT EXISTS mm.mbew (
   smp_num2 varchar(12),
   org_cts_smp varchar(4),
   mat_qnt varchar(1),
-  pre4 numeric(11,2),
+  pre3 numeric(11,2),
   mat_lbr_grd varchar(1),
   mat_pre varchar(1),
-  pre5 numeric(11,2),
+  pre4 numeric(11,2),
   val_tot_cpa4 numeric(13,2),
   idx varchar(1),
   aes_cls_vdt varchar(4),
@@ -1563,7 +1563,7 @@ COMMENT ON COLUMN mm.mbew.tot_cpa IS 'LBKUM — Total Valuated Stock [summa tota
 COMMENT ON COLUMN mm.mbew.val_tot_cpa IS 'SALK3 — Value of Total Valuated Stock [valor summa totalis copia]';
 COMMENT ON COLUMN mm.mbew.pre_idx IS 'VPRSV — Price control indicator [pretium index]';
 COMMENT ON COLUMN mm.mbew.pre_uni IS 'VERPR — Moving Average Price/Periodic Unit Price [pretium unitas]';
-COMMENT ON COLUMN mm.mbew.pre IS 'STPRS — Standard price [pretium]';
+COMMENT ON COLUMN mm.mbew.nrm_pre IS 'STPRS — Standard price [norma pretium]';
 COMMENT ON COLUMN mm.mbew.pre_uni2 IS 'PEINH — Price Unit [pretium unitas]';
 COMMENT ON COLUMN mm.mbew.aes_cls IS 'BKLAS — Valuation Class [aestimatio classis]';
 COMMENT ON COLUMN mm.mbew.val_pre IS 'SALKV — Value based on moving average price (only with price ctrl S) [valor pretium]';
@@ -1574,9 +1574,9 @@ COMMENT ON COLUMN mm.mbew.val_tot_cpa3 IS 'VJSAL — Value of total valuated sto
 COMMENT ON COLUMN mm.mbew.anf_per IS 'LFGJA — Fiscal Year of Current Period [annus fiscalis periodus]';
 COMMENT ON COLUMN mm.mbew.per_ins IS 'LFMON — Current period (posting period) [periodus inscriptio]';
 COMMENT ON COLUMN mm.mbew.aes_ctg IS 'BWTTY — Valuation Category [aestimatio categoria]';
-COMMENT ON COLUMN mm.mbew.pre2 IS 'STPRV — Previous price [pretium]';
+COMMENT ON COLUMN mm.mbew.pre IS 'STPRV — Previous price [pretium]';
 COMMENT ON COLUMN mm.mbew.die_ult_pre IS 'LAEPR — Date of the last price change [dies ultimus pretium]';
-COMMENT ON COLUMN mm.mbew.pre3 IS 'ZKPRS — Future price [pretium]';
+COMMENT ON COLUMN mm.mbew.pre2 IS 'ZKPRS — Future price [pretium]';
 COMMENT ON COLUMN mm.mbew.die_pre IS 'ZKDAT — Date as of which the price is valid [dies pretium]';
 COMMENT ON COLUMN mm.mbew.aes_pre_trb IS 'BWPRS — Valuation price based on tax law: level 1 [aestimatio pretium tributum]';
 COMMENT ON COLUMN mm.mbew.aes_pre_grd IS 'BWPRH — Valuation price based on commercial law: level 1 [aestimatio pretium gradus]';
@@ -1587,10 +1587,10 @@ COMMENT ON COLUMN mm.mbew.smp_num IS 'KALN1 — Cost Estimate Number - Product C
 COMMENT ON COLUMN mm.mbew.smp_num2 IS 'KALNR — Cost Estimate Number for Cost Est. w/o Qty Structure [sumptus numerus]';
 COMMENT ON COLUMN mm.mbew.org_cts_smp IS 'HRKFT — Origin Group as Subdivision of Cost Element [origo coetus sumptus]';
 COMMENT ON COLUMN mm.mbew.mat_qnt IS 'EKALR — Material Is Costed with Quantity Structure [materia quantitas]';
-COMMENT ON COLUMN mm.mbew.pre4 IS 'VPLPR — Previous planned price [pretium]';
+COMMENT ON COLUMN mm.mbew.pre3 IS 'VPLPR — Previous planned price [pretium]';
 COMMENT ON COLUMN mm.mbew.mat_lbr_grd IS 'MLMAA — Material ledger activated at material level [materia liber gradus]';
 COMMENT ON COLUMN mm.mbew.mat_pre IS 'MLAST — Material Price Determination: Control [materia pretium]';
-COMMENT ON COLUMN mm.mbew.pre5 IS 'LPLPR — Current Planned Price [pretium]';
+COMMENT ON COLUMN mm.mbew.pre4 IS 'LPLPR — Current Planned Price [pretium]';
 COMMENT ON COLUMN mm.mbew.val_tot_cpa4 IS 'VKSAL — Value of Total Valuated Stock at Sales Price [valor summa totalis copia]';
 COMMENT ON COLUMN mm.mbew.idx IS 'SPERW — Physical Inventory Blocking Indicator [index]';
 COMMENT ON COLUMN mm.mbew.aes_cls_vdt IS 'EKLAS — Valuation Class for Sales Order Stock [aestimatio classis venditio]';
@@ -2114,12 +2114,12 @@ CREATE TABLE IF NOT EXISTS mm.mvke (
   mat_num varchar(18),
   ovd varchar(4),
   cds varchar(2),
-  sgn_mat_grd varchar(1),
+  sgn_mat_dtb varchar(1),
   mat_stt_cts varchar(1),
   vlm_cts varchar(2),
   cts varchar(2),
   ddc_idx varchar(1),
-  mat_sta varchar(2),
+  dtb_mat_sta varchar(2),
   die_mat_sta date,
   mnd_qnt_men numeric(13,3),
   trd_qnt_adn numeric(13,3),
@@ -2139,18 +2139,18 @@ CREATE TABLE IF NOT EXISTS mm.mvke (
   mat_cts4 varchar(3),
   mat_cts5 varchar(3),
   sstuf varchar(2),
-  pflks varchar(1),
+  pri varchar(1),
   lstfl varchar(2),
   lstvz varchar(2),
   lstak varchar(1),
   die date,
   die2 date,
-  die3 date,
+  die_dtb date,
   die_hor date,
+  die3 date,
   die4 date,
-  die5 date,
-  die6 date,
-  die7 date,
+  die_dtb2 date,
+  die_dtb3 date,
   prat1 varchar(1),
   prat2 varchar(1),
   prat3 varchar(1),
@@ -2177,12 +2177,12 @@ COMMENT ON COLUMN mm.mvke.cli IS 'MANDT — Client [cliens]';
 COMMENT ON COLUMN mm.mvke.mat_num IS 'MATNR — Material Number [materia numerus]';
 COMMENT ON COLUMN mm.mvke.ovd IS 'VKORG — Sales Organization [organizatio venditionis]';
 COMMENT ON COLUMN mm.mvke.cds IS 'VTWEG — Distribution Channel [canalis distributionis]';
-COMMENT ON COLUMN mm.mvke.sgn_mat_grd IS 'LVORM — Ind.: Flag material for deletion at distribution chain level [signum materia gradus]';
+COMMENT ON COLUMN mm.mvke.sgn_mat_dtb IS 'LVORM — Ind.: Flag material for deletion at distribution chain level [signum materia distributio]';
 COMMENT ON COLUMN mm.mvke.mat_stt_cts IS 'VERSG — Material statistics group [materia statistica coetus]';
 COMMENT ON COLUMN mm.mvke.vlm_cts IS 'BONUS — Volume rebate group [volumen coetus]';
 COMMENT ON COLUMN mm.mvke.cts IS 'PROVG — Commission group [coetus]';
 COMMENT ON COLUMN mm.mvke.ddc_idx IS 'SKTOF — Cash discount indicator [deductio index]';
-COMMENT ON COLUMN mm.mvke.mat_sta IS 'VMSTA — Distribution-chain-specific material status [materia status]';
+COMMENT ON COLUMN mm.mvke.dtb_mat_sta IS 'VMSTA — Distribution-chain-specific material status [distributio materia status]';
 COMMENT ON COLUMN mm.mvke.die_mat_sta IS 'VMSTD — Date from which distr.-chain-spec. material status is valid [dies materia status]';
 COMMENT ON COLUMN mm.mvke.mnd_qnt_men IS 'AUMNG — Minimum order quantity in base unit of measure [mandatum quantitas mensura]';
 COMMENT ON COLUMN mm.mvke.trd_qnt_adn IS 'LFMNG — Minimum delivery quantity in delivery note processing [traditio quantitas adnotatio]';
@@ -2202,18 +2202,18 @@ COMMENT ON COLUMN mm.mvke.mat_cts3 IS 'MVGR3 — Material group 3 [materia coetu
 COMMENT ON COLUMN mm.mvke.mat_cts4 IS 'MVGR4 — Material group 4 [materia coetus]';
 COMMENT ON COLUMN mm.mvke.mat_cts5 IS 'MVGR5 — Material group 5 [materia coetus]';
 COMMENT ON COLUMN mm.mvke.sstuf IS 'SSTUF — Assortment grade';
-COMMENT ON COLUMN mm.mvke.pflks IS 'PFLKS — External assortment priority';
+COMMENT ON COLUMN mm.mvke.pri IS 'PFLKS — External assortment priority [prioritas]';
 COMMENT ON COLUMN mm.mvke.lstfl IS 'LSTFL — Listing procedure for store or other assortment categories';
 COMMENT ON COLUMN mm.mvke.lstvz IS 'LSTVZ — Listing procedure for distr. center assortment categories';
 COMMENT ON COLUMN mm.mvke.lstak IS 'LSTAK — Listing functions (assortments) are active';
 COMMENT ON COLUMN mm.mvke.die IS 'LDVFL — Date from which listed in the store [dies]';
 COMMENT ON COLUMN mm.mvke.die2 IS 'LDBFL — Date to which listed in the store [dies]';
-COMMENT ON COLUMN mm.mvke.die3 IS 'LDVZL — Date from which listed in the distribution center [dies]';
+COMMENT ON COLUMN mm.mvke.die_dtb IS 'LDVZL — Date from which listed in the distribution center [dies distributio]';
 COMMENT ON COLUMN mm.mvke.die_hor IS 'LDBZL — Date to which listed in the central warehouse/distr. center [dies horreum]';
-COMMENT ON COLUMN mm.mvke.die4 IS 'VDVFL — Date from which sold in the store [dies]';
-COMMENT ON COLUMN mm.mvke.die5 IS 'VDBFL — Date to which sold in the store [dies]';
-COMMENT ON COLUMN mm.mvke.die6 IS 'VDVZL — Date from which sold in the distribution center [dies]';
-COMMENT ON COLUMN mm.mvke.die7 IS 'VDBZL — Date to which sold in the distribution center [dies]';
+COMMENT ON COLUMN mm.mvke.die3 IS 'VDVFL — Date from which sold in the store [dies]';
+COMMENT ON COLUMN mm.mvke.die4 IS 'VDBFL — Date to which sold in the store [dies]';
+COMMENT ON COLUMN mm.mvke.die_dtb2 IS 'VDVZL — Date from which sold in the distribution center [dies distributio]';
+COMMENT ON COLUMN mm.mvke.die_dtb3 IS 'VDBZL — Date to which sold in the distribution center [dies distributio]';
 COMMENT ON COLUMN mm.mvke.prat1 IS 'PRAT1 — ID for product attribute 1';
 COMMENT ON COLUMN mm.mvke.prat2 IS 'PRAT2 — ID for product attribute 2';
 COMMENT ON COLUMN mm.mvke.prat3 IS 'PRAT3 — ID for product attribute 3';

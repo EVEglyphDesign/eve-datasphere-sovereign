@@ -30,6 +30,8 @@ MODULE_TITLES = {
     "qm": "QM — Quality Management", "hr": "HR — Human Resources",
     "ps": "PS — Project System", "bw": "BW — Business Warehouse",
     "cross": "CROSS — Cross-Application Foundation",
+    "ext": "EXT — Societal Effect Extension",
+    "int": "INT — Universal Interaction Journal",
 }
 
 CSS = """
@@ -206,7 +208,7 @@ def load_register():
 
 def load_all():
     data = {}
-    for path in sorted(glob.glob(f"{BASE}/*/tables/*.yaml")):
+    for path in sorted(glob.glob(f"{BASE}/*/tables/*.yaml") + glob.glob("schema/extension/*/tables/*.yaml") + glob.glob("schema/interaction/*/tables/*.yaml")):
         module = path.split("/")[2]
         try:
             doc = yaml.safe_load(open(path))
@@ -333,46 +335,130 @@ def build():
             f'<div class="meta">{len(entries)} tables · {fcount} fields</div>'
             f'<div class="bar"><span style="width:{pct}%"></span></div></div>')
 
-    body = head("EVEglyphDesign · sovereign reference model", "EVE Datasphere Sovereign",
-                "The wireframe: SAP-parity structures of a customer-owned mirror, published "
-                "as field-level definitions in a canonical Latin naming layer. ACDOCA is the "
-                "spine. The customer's system of record stays the system of record.")
+    body = head(
+        "EVEglyphDesign · a reference model, openly held",
+        "The Universal Journal, extended",
+        "A consolidated reference model for the single ledger line — extended so that an entry "
+        "records not only what it cost, but what it did for the people around it. Built by a "
+        "professional community, for the one that comes after it.")
     body += f"""<main><div class="wrap">
-<div class="stats">
-<div class="stat"><span class="n">{tot_t}</span><span class="l">Tables defined</span></div>
-<div class="stat"><span class="n">{tot_f:,}</span><span class="l">Fields</span></div>
-<div class="stat"><span class="n">{tot_fk:,}</span><span class="l">Foreign keys</span></div>
-<div class="stat"><span class="n">{derived:,}</span><span class="l">Latin canonical names</span></div>
-<div class="stat"><span class="n">{len(data)}</span><span class="l">Modules</span></div>
+<div class="notice">
+<p><strong>What this is.</strong> A reference model. One consolidated, field-level definition of
+the Universal Journal and the structures around it, held in the open so that the people who
+work with it every day stop re-deriving it privately, in isolation, from the same
+documentation. It is a shared vocabulary — the thing a profession is supposed to have.</p>
+<p><strong>What this is not.</strong> It is not SAP software, an SAP product, or SAP data. There
+is nothing here to download from anybody's system, no code, no content of any customer's
+database. The structures are described so that a model can be <em>reasoned about</em>, and
+they are described in the source vendor's own vocabulary for one reason: a model that a
+practitioner cannot already read is a model nobody adopts.</p>
 </div>
+
+<h2>Why extend the journal at all</h2>
+<p class="desc">S/4HANA's achievement was collapsing finance, controlling, assets and margin
+into one line — the Universal Journal. Every posting became one row, with every dimension it
+belongs to, in one place. But that row still answers exactly one question: what did this cost
+and where did the money sit. It cannot answer what the money <em>did</em>.</p>
+<p class="desc">So the model extends it. Beside every accounting line sits an optional
+<a href="model/ext/ACDOCX.html">societal effect line</a> — keyed on the accounting line's own
+key, so an effect cannot exist without a posting behind it and the financial record is never
+touched. Extension at the edges, never in the middle. A ledger that records only the amount
+is recording half the transaction.</p>
+
+<h2>Effect that travels down the organisation</h2>
+<p class="desc">Because the effect line carries the same cost object dimensions the accounting
+line does — cost centre, profit centre, WBS element, order, material, vendor, customer — an
+effect can be pushed down to the level that actually earned it. A branch, a crew, a parish,
+a single project. What a large organisation currently reports as one flat number at the top,
+this model can attribute to the part of the organisation that did the work. It also runs
+upstream and downstream: an effect can be recorded where it happened in the supply chain,
+not only where it was paid for.</p>
+<p class="desc">Every claim carries its attribution method, its share, its evidence type, an
+evidence hash, and its verification status — self-attested, peer-reviewed, or independently
+assured. The taxonomy of effects is <a href="model/ext/EFFCAT.html">master data</a>, so a
+community extends its own vocabulary without a schema change, and each category maps outward
+to the <a href="model/ext/EFFSTD.html">published disclosure point</a> it answers, in the
+language a regulator or auditor already reads.</p>
+
+<h2>Recognition the community mints itself</h2>
+<p class="desc">An organisation that accomplishes what its peers could only plan for should be
+able to prove it and be visibly the better for it. Verified effect lines mint units into a
+<a href="model/ext/MRTDOC.html">recognition ledger</a> — double-sided, reversible, hash-chained
+to its source, decaying if unspent. It is not a security and it is not a financial instrument;
+it is standing, and it is earned. Nothing is minted from an intention: no verified effect line
+behind it, no units. That is the whole difference between this and a sustainability brochure.</p>
+
+<h2>The same idea, applied to every interaction</h2>
+<p class="desc">If one line can carry a financial fact and its societal effect, it can carry any
+human interaction. <a href="model/int/ACDOCI.html">ACDOCI</a> is the Universal Journal's shape
+applied to interaction: a case, an incident, a phone call, a home visit, a class taught, a
+satellite session in a place with no road to it — the same row, the same dimensions, the same
+cost-object spine, so an interaction ties back to the money it caused and forward to the effect
+it produced.</p>
+<p class="desc">The foundation is SAP, and it stays SAP. The consolidation begins with the two
+systems of record most interaction actually lives in — a CRM and a service-management platform —
+under one combined schema, then extends outward to telephony and satellite. That is not achieved
+by forcing two vendors to agree. It is achieved by a
+<a href="model/int/XWALK.html">crosswalk registry</a> that records, field by field, how each
+source maps onto the canonical line, with its transform, its confidence, and an honest
+<em>unmapped</em> where no mapping exists. A third system becomes configuration instead of a
+rewrite.</p>
+<p class="desc">Voice keeps its call detail in <a href="model/int/IJTEL.html">IJTEL</a> — numbers
+held only as salted hashes, because a mirror is not a wiretap. Remote links keep their pass
+window, elevation, rain fade and minutes-waiting-for-a-link in
+<a href="model/int/IJSAT.html">IJSAT</a>, so service to places that have no other way to be
+reached can be measured honestly instead of averaged away against city traffic. Parties are
+<a href="model/int/PARTY.html">pseudonymous keys</a>: identity stays in the system already
+lawfully holding it. Every source is declared in the
+<a href="model/int/SYSRC.html">system-of-record register</a> with its legal basis, because a
+mirror without a declared basis is surveillance.</p>
+
+<h2>A professional community, and the next generation</h2>
+<p class="desc">The <a href="model/ext/MEMBR.html">member register</a> is the point of the
+exercise. Firms, parishes, councils, schools and non-profits that post effects, verify each
+other's claims, and hold standing within a peer group — consolidating what they have each
+learned separately into one record the next generation can pick up and read, rather than
+learning it all again from scratch. Every member controls the visibility of its own record.</p>
 <div class="notice">
 <p><strong>EVE DICOE Blueprint designs are available upon request and without charge to
 qualified non-profit organizations.</strong></p>
-<p>This repository is the wireframe. The blueprint extracted from it is provided free to
-registered non-profits and the parishes, councils, schools and mutual-aid bodies under them.
-<a href="{REPO}/blob/main/docs/AVAILABILITY-NONPROFIT.md">Read the notice</a>.</p>
+<p><strong>Vendors of legacy safety systems are offered these services free of charge.</strong>
+Emergency dispatch, alarm and monitoring, life safety, safety instrumented systems, marine and
+aviation safety, public safety communications. Work that keeps people alive is not a revenue
+opportunity.</p>
+<p><a href="{REPO}/blob/main/docs/AVAILABILITY-NONPROFIT.md">Read the notice</a>. Both waivers are
+recorded in the model itself, on the member register, so they cannot quietly stop being true.</p>
 </div>
-<h2>The compact</h2>
-<p class="desc">Mirror, never cannibalise. In exchange for full cooperation with the platform
-vendors — read-only access, no write-back, no support-term violation, no displacement of the
-system of record — we reserve the right to mirror what the model needs in order to offer
-new-dimensional services the source platform does not offer. A consolidation of an industry
-can only be built on a model every participant already speaks, so the structures here are
-SAP's own, verbatim. Extension happens at the edges only.</p>
-<h2>Two names for every field</h2>
-<p class="desc">SAP's field names are abbreviations of German words — <code>BUKRS</code> from
-<em>Buchungskreis</em>, <code>KOSTL</code> from <em>Kostenstelle</em>. A blueprint for those
-who come after should not hand them a foreign language's consonant clusters, so every field
-carries a canonical Latin name composed from a published concept lexicon, with the legacy SAP
-name preserved as the join key and shown on hover. Because translation happens at the concept
-layer, switching the language selector renames the entire model — {tot_f:,} fields — without
-one schema file changing.</p>
-<p class="desc"><a href="{REPO}/blob/main/docs/DOCTRINE-LATIN-CANON.md">The Latin canon</a> ·
-<a href="{REPO}/blob/main/docs/DOCTRINE-MIRROR-NON-PROLIFERATION.md">the non-proliferation
-compact</a> · <a href="{REPO}/blob/main/docs/ROADMAP-UNIVERSAL-COVERAGE.md">coverage
-register</a> · <a href="{REPO}/blob/main/schema/lexicon/latin-lexicon.yaml">concept
-lexicon</a></p>
-<h2>Modules</h2>
+
+<h2>How the model is written</h2>
+<p class="desc"><strong>Two names for every field.</strong> The legacy names are abbreviations
+of German words — <code>BUKRS</code> from <em>Buchungskreis</em>, <code>KOSTL</code> from
+<em>Kostenstelle</em>. A blueprint for those who come after should not hand them a foreign
+language's consonant clusters, so every field also carries a canonical Latin name composed from
+a published concept lexicon, with the legacy name preserved as the join key and shown on hover.
+Translation happens at the concept layer, so switching the language selector renames the whole
+model — all {tot_f:,} fields — without one schema file changing.</p>
+<p class="desc"><strong>Mirror, never cannibalise.</strong> Read-only, no write-back, no
+displacement of anybody's system of record. In exchange for cooperation, the model mirrors what
+it needs in order to offer a dimension the source platform does not offer. This page is that
+dimension.</p>
+<p class="desc"><strong>It loads.</strong> The whole model materialises as
+<a href="{REPO}/blob/main/ddl/README.md">PostgreSQL DDL</a> — canonical column names, legacy
+names in column comments, round-trip views under the original table names, and a catalog that
+renames the model into ten languages with one query.</p>
+<p class="desc"><a href="{REPO}/blob/main/docs/DOCTRINE-UNIVERSAL-JOURNAL-ESG.md">The extended
+journal</a> · <a href="{REPO}/blob/main/docs/DOCTRINE-LATIN-CANON.md">the Latin canon</a> ·
+<a href="{REPO}/blob/main/docs/DOCTRINE-MIRROR-NON-PROLIFERATION.md">the compact</a> ·
+<a href="{REPO}/blob/main/docs/ROADMAP-UNIVERSAL-COVERAGE.md">coverage register</a></p>
+
+<div class="stats">
+<div class="stat"><span class="n">{tot_t}</span><span class="l">Structures defined</span></div>
+<div class="stat"><span class="n">{tot_f:,}</span><span class="l">Fields</span></div>
+<div class="stat"><span class="n">{tot_fk:,}</span><span class="l">Declared relationships</span></div>
+<div class="stat"><span class="n">{derived:,}</span><span class="l">Canonical Latin names</span></div>
+<div class="stat"><span class="n">10</span><span class="l">Languages</span></div>
+</div>
+<h2>The model</h2>
 <div class="bar-tools">{lang_select()}</div>
 <div class="grid">{"".join(cards)}</div>
 </div></main>"""

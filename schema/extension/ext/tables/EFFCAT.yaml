@@ -1,0 +1,92 @@
+table: EFFCAT
+module: EXT
+description: Effect category master — the taxonomy of societal effects a ledger line may carry. Held as
+  master data rather than hard-coded so a community can extend its own vocabulary without a schema change,
+  the same way an operating concern extends CO-PA.
+source: EVEglyphDesign extension. Categories map outward to published reporting standards via EFFSTD.
+fields:
+- name: RCLNT
+  description: Client
+  data_element: MANDT
+  datatype: CLNT
+  length: 3
+  decimals: 0
+  key: true
+  check_table: T000
+- name: EFFCAT
+  description: Effect category key
+  data_element: EGD_EFFCAT
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: true
+- name: EFFDOM
+  description: 'Effect domain: environmental, social, governance or community'
+  data_element: EGD_EFFDOM
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: EFFTXT
+  description: Effect category description
+  data_element: TEXT60
+  datatype: CHAR
+  length: 60
+  decimals: 0
+  key: false
+- name: DEFUOM
+  description: Default unit of measure for quantities in this category
+  data_element: MEINS
+  datatype: UNIT
+  length: 3
+  decimals: 0
+  key: false
+  check_table: T006
+- name: MONETB
+  description: 'Category may be monetised: a defensible price exists'
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: MINTBL
+  description: Category is eligible for recognition minting
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: MINTRT
+  description: Recognition units minted per unit of measured effect
+  data_element: EGD_MINTRT
+  datatype: DEC
+  length: 13
+  decimals: 5
+  key: false
+- name: EVDMIN
+  description: Minimum evidence type accepted before a claim in this category counts
+  data_element: EGD_EVDTYP
+  datatype: CHAR
+  length: 4
+  decimals: 0
+  key: false
+- name: VALFRM
+  description: Valid from date of the category definition
+  data_element: DATUM
+  datatype: DATS
+  length: 8
+  decimals: 0
+  key: false
+- name: VALTO
+  description: Valid to date of the category definition
+  data_element: DATUM
+  datatype: DATS
+  length: 8
+  decimals: 0
+  key: false
+foreign_keys:
+- field: EFFCAT
+  check_table: EFFCAT
+  check_field: EFFCAT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

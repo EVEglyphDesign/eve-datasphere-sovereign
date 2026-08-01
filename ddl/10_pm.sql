@@ -1,5 +1,5 @@
 -- EVE Datasphere Sovereign — PostgreSQL materialisation
--- Generated 2026-08-01T01:47:33Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
+-- Generated 2026-08-01T02:17:52Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
 -- Column names are the canonical Latin layer (EgD-LATIN-001). The legacy SAP field name
 -- is preserved in COMMENT ON COLUMN and in egd_catalog.field_map, and is the join key.
 -- Mirror, never cannibalise. Pour le bien-etre du peuple.
@@ -43,20 +43,20 @@ CREATE TABLE IF NOT EXISTS pm.affh (
   mra double precision,
   tmp_uni_mra varchar(3),
   qnt_uni_prd varchar(3),
-  val_qnt numeric(9,3),
+  nrm_val_qnt numeric(9,3),
   tot_qnt_prd numeric(9,3),
   qnt_prd_sbs numeric(9,3),
   qnt_prd_sbs2 numeric(9,3),
   qnt_prd numeric(9,3),
   tot_qnt varchar(6),
   val_uni_prd varchar(3),
-  val_prd numeric(9,3),
+  nrm_val_prd numeric(9,3),
   tot_val_prd numeric(9,3),
   acl_val_prd numeric(9,3),
   val_prd_sbs numeric(9,3),
   tot_val varchar(6),
   lng_clv char(1),
-  txt_clv_prd varchar(7),
+  nrm_txt_clv varchar(7),
   pri_txt_prd varchar(40),
   idx4 varchar(1),
   obi varchar(1),
@@ -100,20 +100,20 @@ COMMENT ON COLUMN pm.affh.acl_fin_die IS 'IEFHD — Actual finish (date) of PRT 
 COMMENT ON COLUMN pm.affh.mra IS 'DAUFL — Duration of PRT usage [mora]';
 COMMENT ON COLUMN pm.affh.tmp_uni_mra IS 'DAUEH — Time unit for duration of PRT usage [tempus unitas mora]';
 COMMENT ON COLUMN pm.affh.qnt_uni_prd IS 'MGEINH — Quantity unit of production resource/tool [quantitas unitas productio]';
-COMMENT ON COLUMN pm.affh.val_qnt IS 'MGVGW — Standard value for the PRT quantity [valor quantitas]';
+COMMENT ON COLUMN pm.affh.nrm_val_qnt IS 'MGVGW — Standard value for the PRT quantity [norma valor quantitas]';
 COMMENT ON COLUMN pm.affh.tot_qnt_prd IS 'MGSOL — Total planned quantity of production resource/tool [summa totalis quantitas productio]';
 COMMENT ON COLUMN pm.affh.qnt_prd_sbs IS 'MGIST — Confirmed quantity of production resource/tool [quantitas productio subsidium]';
 COMMENT ON COLUMN pm.affh.qnt_prd_sbs2 IS 'MGRST — Remaining quantity of the production resource/tool [quantitas productio subsidium]';
 COMMENT ON COLUMN pm.affh.qnt_prd IS 'MGAUS — Quantity of checked-out production resources/tools [quantitas productio]';
 COMMENT ON COLUMN pm.affh.tot_qnt IS 'MGFORM — Formula for calculating the total quantity of PRT [summa totalis quantitas]';
 COMMENT ON COLUMN pm.affh.val_uni_prd IS 'EWEINH — Usage value unit of the production resource/tool [valor unitas productio]';
-COMMENT ON COLUMN pm.affh.val_prd IS 'EWVGW — Standard usage value for production resources/tools [valor productio]';
+COMMENT ON COLUMN pm.affh.nrm_val_prd IS 'EWVGW — Standard usage value for production resources/tools [norma valor productio]';
 COMMENT ON COLUMN pm.affh.tot_val_prd IS 'EWSOL — Total planned usage value of production resource/tool [summa totalis valor productio]';
 COMMENT ON COLUMN pm.affh.acl_val_prd IS 'EWIST — Actual usage value for production resource/tool [actualis valor productio]';
 COMMENT ON COLUMN pm.affh.val_prd_sbs IS 'EWRST — Remaining usage value of the production resource/tool [valor productio subsidium]';
 COMMENT ON COLUMN pm.affh.tot_val IS 'EWFORM — Formula for calculating the total usage value of PRT [summa totalis valor]';
 COMMENT ON COLUMN pm.affh.lng_clv IS 'TXTSP — Language Key [lingua clavis]';
-COMMENT ON COLUMN pm.affh.txt_clv_prd IS 'KTSCH — Standard text key for production resources/tools [textus clavis productio]';
+COMMENT ON COLUMN pm.affh.nrm_txt_clv IS 'KTSCH — Standard text key for production resources/tools [norma textus clavis]';
 COMMENT ON COLUMN pm.affh.pri_txt_prd IS 'TXTZ1 — First line of text for production resources/tools [primus textus productio]';
 COMMENT ON COLUMN pm.affh.idx4 IS 'OBJTYPE — Change indicator [index]';
 COMMENT ON COLUMN pm.affh.obi IS 'CH_PROC — Process that has lead to the change of an object [obiectum]';
@@ -220,8 +220,8 @@ COMMENT ON COLUMN pm.affv.num5 IS 'AENNR — Change Number [numerus]';
 CREATE TABLE IF NOT EXISTS pm.afih (
   cli char(3),
   mnd_num varchar(12),
-  gen varchar(2),
-  priok varchar(1),
+  pri_gen varchar(2),
+  pri varchar(1),
   inm_num varchar(18),
   bautl varchar(18),
   loc_rat_asg varchar(12),
@@ -243,7 +243,7 @@ CREATE TABLE IF NOT EXISTS pm.afih (
   nom_psn_isp varchar(12),
   die_isp date,
   ccu varchar(12),
-  ccu_num integer,
+  ccu_voc_num integer,
   cur_pos varchar(16),
   mnd_num2 varchar(12),
   obi_num integer,
@@ -265,13 +265,13 @@ CREATE TABLE IF NOT EXISTS pm.afih (
   obi_num2 varchar(22),
   inm varchar(18),
   pos varchar(72),
-  CONSTRAINT afih_pk PRIMARY KEY (cli, mnd_num, gen, priok)
+  CONSTRAINT afih_pk PRIMARY KEY (cli, mnd_num, pri_gen, pri)
 );
 COMMENT ON TABLE pm.afih IS 'AFIH — Maintenance order header — the master record for a plant maintenance work order: equipment reference, planning plant, priority, dates, notification linkage.';
 COMMENT ON COLUMN pm.afih.cli IS 'MANDT — Client [cliens]';
 COMMENT ON COLUMN pm.afih.mnd_num IS 'AUFNR — Order Number [mandatum numerus]';
-COMMENT ON COLUMN pm.afih.gen IS 'ARTPR — Priority Type [genus]';
-COMMENT ON COLUMN pm.afih.priok IS 'PRIOK — Priority';
+COMMENT ON COLUMN pm.afih.pri_gen IS 'ARTPR — Priority Type [prioritas genus]';
+COMMENT ON COLUMN pm.afih.pri IS 'PRIOK — Priority [prioritas]';
 COMMENT ON COLUMN pm.afih.inm_num IS 'EQUNR — Equipment Number [instrumentum numerus]';
 COMMENT ON COLUMN pm.afih.bautl IS 'BAUTL — Assembly';
 COMMENT ON COLUMN pm.afih.loc_rat_asg IS 'ILOAN — Location and account assignment for technical object [locus ratio assignatio]';
@@ -293,7 +293,7 @@ COMMENT ON COLUMN pm.afih.tmp2 IS 'ANLVZ — Time from Which System is Available
 COMMENT ON COLUMN pm.afih.nom_psn_isp IS 'INSPK — Name of Person Responsible for Technical Inspection [nomen persona inspectio]';
 COMMENT ON COLUMN pm.afih.die_isp IS 'DATAN — Date of Technical Inspection [dies inspectio]';
 COMMENT ON COLUMN pm.afih.ccu IS 'WARPL — Maintenance Plan [consilium curationis]';
-COMMENT ON COLUMN pm.afih.ccu_num IS 'ABNUM — Maintenance Plan Call Number [consilium curationis numerus]';
+COMMENT ON COLUMN pm.afih.ccu_voc_num IS 'ABNUM — Maintenance Plan Call Number [consilium curationis vocatio numerus]';
 COMMENT ON COLUMN pm.afih.cur_pos IS 'WAPOS — Maintenance item [curatio positio]';
 COMMENT ON COLUMN pm.afih.mnd_num2 IS 'LAUFN — Order number [mandatum numerus]';
 COMMENT ON COLUMN pm.afih.obi_num IS 'OBKNR — Object list number [obiectum numerus]';
@@ -324,18 +324,18 @@ CREATE TABLE IF NOT EXISTS pm.afvv (
   umren numeric(5,0),
   ixp numeric(5,0),
   qnt numeric(13,3),
-  men_val varchar(3),
-  val numeric(9,3),
-  men_val2 varchar(3),
-  val2 numeric(9,3),
-  men_val3 varchar(3),
-  val3 numeric(9,3),
-  men_val4 varchar(3),
-  val4 numeric(9,3),
-  men_val5 varchar(3),
-  val5 numeric(9,3),
-  men_val6 varchar(3),
-  val6 numeric(9,3),
+  men_nrm_val varchar(3),
+  nrm_val numeric(9,3),
+  men_nrm_val2 varchar(3),
+  nrm_val2 numeric(9,3),
+  men_nrm_val3 varchar(3),
+  nrm_val3 numeric(9,3),
+  men_nrm_val4 varchar(3),
+  nrm_val4 numeric(9,3),
+  men_nrm_val5 varchar(3),
+  nrm_val5 numeric(9,3),
+  men_nrm_val6 varchar(3),
+  nrm_val6 numeric(9,3),
   mra_act numeric(5,1),
   mra_uni varchar(3),
   ops_act numeric(7,1),
@@ -359,12 +359,12 @@ CREATE TABLE IF NOT EXISTS pm.afvv (
   acl_fin_tmp time,
   pvs_fin_die date,
   pvs_fin_tmp time,
+  ord_tmp double precision,
   tmp double precision,
   tmp2 double precision,
-  tmp3 double precision,
   abrue double precision,
+  tmp3 double precision,
   tmp4 double precision,
-  tmp5 double precision,
   CONSTRAINT afvv_pk PRIMARY KEY (cli, itn_num_mnd, nmr_mnd)
 );
 COMMENT ON TABLE pm.afvv IS 'AFVV — DB structure of the quantities/dates/values in the operation — one row per order operation (AUFPL/APLZL) carrying standard-value quantities, scheduled and actual execution/setup/teardown dates and times, work, and confirmation quantities that drive PM order operation costing and scheduling. SAP''s real table carries 190+ fields (six parallel standard-value slots, forecast/business-process variants, and PS-specific date sets); this definition is scoped to the key, the unit-of-measure/base-quantity fields, the six standard-value pairs, confirmed/scrap/work quantities, and the earliest/latest/actu';
@@ -375,18 +375,18 @@ COMMENT ON COLUMN pm.afvv.men_act_ope IS 'MEINH — Unit of Measure for Activity
 COMMENT ON COLUMN pm.afvv.umren IS 'UMREN — Denominator for converting rtg and op units of measure';
 COMMENT ON COLUMN pm.afvv.ixp IS 'UMREZ — Numerator for converting task list and oper. un. of measure [index pensorum]';
 COMMENT ON COLUMN pm.afvv.qnt IS 'BMSCH — Base Quantity [quantitas]';
-COMMENT ON COLUMN pm.afvv.men_val IS 'VGE01 — Unit of measure for the standard value [mensura valor]';
-COMMENT ON COLUMN pm.afvv.val IS 'VGW01 — Standard Value [valor]';
-COMMENT ON COLUMN pm.afvv.men_val2 IS 'VGE02 — Unit of measure for the standard value [mensura valor]';
-COMMENT ON COLUMN pm.afvv.val2 IS 'VGW02 — Standard Value [valor]';
-COMMENT ON COLUMN pm.afvv.men_val3 IS 'VGE03 — Unit of measure for the standard value [mensura valor]';
-COMMENT ON COLUMN pm.afvv.val3 IS 'VGW03 — Standard Value [valor]';
-COMMENT ON COLUMN pm.afvv.men_val4 IS 'VGE04 — Unit of measure for the standard value [mensura valor]';
-COMMENT ON COLUMN pm.afvv.val4 IS 'VGW04 — Standard Value [valor]';
-COMMENT ON COLUMN pm.afvv.men_val5 IS 'VGE05 — Unit of measure for the standard value [mensura valor]';
-COMMENT ON COLUMN pm.afvv.val5 IS 'VGW05 — Standard Value [valor]';
-COMMENT ON COLUMN pm.afvv.men_val6 IS 'VGE06 — Unit of measure for the standard value [mensura valor]';
-COMMENT ON COLUMN pm.afvv.val6 IS 'VGW06 — Standard Value [valor]';
+COMMENT ON COLUMN pm.afvv.men_nrm_val IS 'VGE01 — Unit of measure for the standard value [mensura norma valor]';
+COMMENT ON COLUMN pm.afvv.nrm_val IS 'VGW01 — Standard Value [norma valor]';
+COMMENT ON COLUMN pm.afvv.men_nrm_val2 IS 'VGE02 — Unit of measure for the standard value [mensura norma valor]';
+COMMENT ON COLUMN pm.afvv.nrm_val2 IS 'VGW02 — Standard Value [norma valor]';
+COMMENT ON COLUMN pm.afvv.men_nrm_val3 IS 'VGE03 — Unit of measure for the standard value [mensura norma valor]';
+COMMENT ON COLUMN pm.afvv.nrm_val3 IS 'VGW03 — Standard Value [norma valor]';
+COMMENT ON COLUMN pm.afvv.men_nrm_val4 IS 'VGE04 — Unit of measure for the standard value [mensura norma valor]';
+COMMENT ON COLUMN pm.afvv.nrm_val4 IS 'VGW04 — Standard Value [norma valor]';
+COMMENT ON COLUMN pm.afvv.men_nrm_val5 IS 'VGE05 — Unit of measure for the standard value [mensura norma valor]';
+COMMENT ON COLUMN pm.afvv.nrm_val5 IS 'VGW05 — Standard Value [norma valor]';
+COMMENT ON COLUMN pm.afvv.men_nrm_val6 IS 'VGE06 — Unit of measure for the standard value [mensura norma valor]';
+COMMENT ON COLUMN pm.afvv.nrm_val6 IS 'VGW06 — Standard Value [norma valor]';
 COMMENT ON COLUMN pm.afvv.mra_act IS 'DAUNO — Normal duration of the activity [mora actio]';
 COMMENT ON COLUMN pm.afvv.mra_uni IS 'DAUNE — Normal duration/unit [mora unitas]';
 COMMENT ON COLUMN pm.afvv.ops_act IS 'ARBEI — Work involved in the activity [opus actio]';
@@ -410,12 +410,12 @@ COMMENT ON COLUMN pm.afvv.acl_fin_die IS 'IEDD — Actual finish: Execution (dat
 COMMENT ON COLUMN pm.afvv.acl_fin_tmp IS 'IEDZ — Actual finish: Execution (time) [actualis finis tempus]';
 COMMENT ON COLUMN pm.afvv.pvs_fin_die IS 'PEDD — Forecast finish date of operation from confirmation [praevisio finis dies]';
 COMMENT ON COLUMN pm.afvv.pvs_fin_tmp IS 'PEDZ — Forecast finish time of operation from confirmation [praevisio finis tempus]';
-COMMENT ON COLUMN pm.afvv.tmp IS 'WARTZ — Queue time used for scheduling [tempus]';
-COMMENT ON COLUMN pm.afvv.tmp2 IS 'RUEST — Setup time [tempus]';
-COMMENT ON COLUMN pm.afvv.tmp3 IS 'BEARZ — Processing time [tempus]';
+COMMENT ON COLUMN pm.afvv.ord_tmp IS 'WARTZ — Queue time used for scheduling [ordo expectantium tempus]';
+COMMENT ON COLUMN pm.afvv.tmp IS 'RUEST — Setup time [tempus]';
+COMMENT ON COLUMN pm.afvv.tmp2 IS 'BEARZ — Processing time [tempus]';
 COMMENT ON COLUMN pm.afvv.abrue IS 'ABRUE — Teardown';
-COMMENT ON COLUMN pm.afvv.tmp4 IS 'LIEGZ — Wait time used for scheduling [tempus]';
-COMMENT ON COLUMN pm.afvv.tmp5 IS 'TRANZ — Move time used for scheduling [tempus]';
+COMMENT ON COLUMN pm.afvv.tmp3 IS 'LIEGZ — Wait time used for scheduling [tempus]';
+COMMENT ON COLUMN pm.afvv.tmp4 IS 'TRANZ — Move time used for scheduling [tempus]';
 
 CREATE TABLE IF NOT EXISTS pm.eqbs (
   cli char(3),
@@ -430,7 +430,7 @@ CREATE TABLE IF NOT EXISTS pm.eqbs (
   vdt_mnd_num varchar(10),
   pos_num_vdt varchar(6),
   ops_elm_eop varchar(8),
-  cpa varchar(10),
+  cpa_psn varchar(10),
   CONSTRAINT eqbs_pk PRIMARY KEY (cli, inm_num)
 );
 COMMENT ON TABLE pm.eqbs IS 'EQBS — Serial Number Stock Segment — the inventory-management stock segment (plant, storage location, batch, special-stock indicator) attached to a serialized equipment master (EQUI), linking a piece of serial-managed equipment to its MM stock position. Small, complete table.';
@@ -446,7 +446,7 @@ COMMENT ON COLUMN pm.eqbs.rat_num_ven IS 'LIFNR — Account Number of Vendor or 
 COMMENT ON COLUMN pm.eqbs.vdt_mnd_num IS 'KDAUF — Sales Order Number [venditio mandatum numerus]';
 COMMENT ON COLUMN pm.eqbs.pos_num_vdt IS 'KDPOS — Item Number in Sales Order [positio numerus venditio]';
 COMMENT ON COLUMN pm.eqbs.ops_elm_eop IS 'PS_PSP_PNR — Work Breakdown Structure Element (WBS Element) [opus elementum elementum operis]';
-COMMENT ON COLUMN pm.eqbs.cpa IS 'DISUB_OWNER — Owner of the stock (in case of third-party stocks) [copia]';
+COMMENT ON COLUMN pm.eqbs.cpa_psn IS 'DISUB_OWNER — Owner of the stock (in case of third-party stocks) [copia persona]';
 
 CREATE TABLE IF NOT EXISTS pm.eqkt (
   cli char(3),
@@ -482,7 +482,7 @@ CREATE TABLE IF NOT EXISTS pm.eqse (
   loc varchar(4),
   grx_num varchar(10),
   emp_num varchar(10),
-  vdt_ndo varchar(10),
+  vdt_dtb_ndo varchar(10),
   num_mtm_mat varchar(10),
   gdo varchar(2),
   nsr3 varchar(10),
@@ -507,7 +507,7 @@ COMMENT ON COLUMN pm.eqse.ofc IS 'WERK — Plant [officina]';
 COMMENT ON COLUMN pm.eqse.loc IS 'LAGER — Storage Location [locus repositionis]';
 COMMENT ON COLUMN pm.eqse.grx_num IS 'CHARGE — Batch Number [grex numerus]';
 COMMENT ON COLUMN pm.eqse.emp_num IS 'KUNDE — Customer Number [emptor numerus]';
-COMMENT ON COLUMN pm.eqse.vdt_ndo IS 'SDBELN — Sales and Distribution Document Number [venditio numerus documenti]';
+COMMENT ON COLUMN pm.eqse.vdt_dtb_ndo IS 'SDBELN — Sales and Distribution Document Number [venditio distributio numerus documenti]';
 COMMENT ON COLUMN pm.eqse.num_mtm_mat IS 'WABELN — Number of Goods Movement (Material Document) [numerus motus mercium materia]';
 COMMENT ON COLUMN pm.eqse.gdo IS 'BLART — Document Type [genus documenti]';
 COMMENT ON COLUMN pm.eqse.nsr3 IS 'HEQSNR — History: Internal serial number [numerus serialis]';
@@ -551,7 +551,7 @@ CREATE TABLE IF NOT EXISTS pm.equi (
   ini_die_obi date,
   nsr2 varchar(18),
   die4 varchar(3),
-  die_vdt date,
+  die_vdt_dtb date,
   die5 date,
   eqber varchar(30),
   cmp varchar(9),
@@ -632,7 +632,7 @@ COMMENT ON COLUMN pm.equi.pri_trd_die IS 'AULDT — First delivery date of the e
 COMMENT ON COLUMN pm.equi.ini_die_obi IS 'INBDT — Start-up Date of the Technical Object [initium dies obiectum]';
 COMMENT ON COLUMN pm.equi.nsr2 IS 'GERNR — Serial Number [numerus serialis]';
 COMMENT ON COLUMN pm.equi.die4 IS 'EQLFN — Consecutive numbering of EquipUsagePeriods on same day [dies]';
-COMMENT ON COLUMN pm.equi.die_vdt IS 'GWLDV — Warranty date for Sales and Distribution [dies venditio]';
+COMMENT ON COLUMN pm.equi.die_vdt_dtb IS 'GWLDV — Warranty date for Sales and Distribution [dies venditio distributio]';
 COMMENT ON COLUMN pm.equi.die5 IS 'EQDAT — Date, intended for SAP internal use [dies]';
 COMMENT ON COLUMN pm.equi.eqber IS 'EQBER — Technical information, intended for SAP internal use';
 COMMENT ON COLUMN pm.equi.cmp IS 'EQNUM — Numerical field, intended for SAP internal use [campus]';
@@ -720,7 +720,7 @@ CREATE TABLE IF NOT EXISTS pm.equz (
   ddc_doc date,
   pvs_focus bytea,
   ppeguid bytea,
-  techs varchar(12),
+  nrm varchar(12),
   funcid varchar(40),
   idx varchar(1),
   sgn varchar(1),
@@ -769,7 +769,7 @@ COMMENT ON COLUMN pm.equz.doc IS 'IBLNR — Physical Inventory Document [documen
 COMMENT ON COLUMN pm.equz.ddc_doc IS 'BLDAT — Document Date in Document [dies documenti documentum]';
 COMMENT ON COLUMN pm.equz.pvs_focus IS 'PVS_FOCUS — Internal Identification for PVS Objects';
 COMMENT ON COLUMN pm.equz.ppeguid IS 'PPEGUID — Internal Identification for PVS Objects';
-COMMENT ON COLUMN pm.equz.techs IS 'TECHS — Parameter Variant/Standard Variant';
+COMMENT ON COLUMN pm.equz.nrm IS 'TECHS — Parameter Variant/Standard Variant [norma]';
 COMMENT ON COLUMN pm.equz.funcid IS 'FUNCID — Function Identifier';
 COMMENT ON COLUMN pm.equz.idx IS 'FRCFIT — Indicator: Forced Installation/Dismantling [index]';
 COMMENT ON COLUMN pm.equz.sgn IS 'FRCRMV — Force Dismantling Flag [signum]';
@@ -783,18 +783,18 @@ CREATE TABLE IF NOT EXISTS pm.fleet (
   vhc_num2 varchar(24),
   num varchar(24),
   lcn_num varchar(15),
-  die_lcn date,
+  exp_die_lcn date,
   gvh_obi numeric(9,3),
   gvh_obi2 numeric(9,3),
   gvh_obi3 numeric(9,3),
   uni_msu varchar(3),
-  num2 varchar(2),
+  pri_num varchar(2),
   die_ult_nmr date,
   tmp_nmr numeric(9,3),
   tmp_nmr2 numeric(9,3),
-  num3 varchar(2),
-  num4 varchar(3),
-  num5 varchar(20),
+  num2 varchar(2),
+  num3 varchar(3),
+  num4 varchar(20),
   clv_num varchar(10),
   gvh_obi4 varchar(4),
   gvh_obi_gen2 varchar(4),
@@ -833,18 +833,18 @@ COMMENT ON COLUMN pm.fleet.vhc_num IS 'FLEET_NUM — Vehicle Number [vehiculum n
 COMMENT ON COLUMN pm.fleet.vhc_num2 IS 'FLEET_VIN — Vehicle Identification Number [vehiculum numerus]';
 COMMENT ON COLUMN pm.fleet.num IS 'CHASSIS_NUM — Chassis Number [numerus]';
 COMMENT ON COLUMN pm.fleet.lcn_num IS 'LICENSE_NUM — License Plate Number [licentia numerus]';
-COMMENT ON COLUMN pm.fleet.die_lcn IS 'EXPIRY_DATE — Expiry date of license plate [dies licentia]';
+COMMENT ON COLUMN pm.fleet.exp_die_lcn IS 'EXPIRY_DATE — Expiry date of license plate [expiratio dies licentia]';
 COMMENT ON COLUMN pm.fleet.gvh_obi IS 'FLEET_HGT — Fleet Object: Height [grex vehiculorum obiectum]';
 COMMENT ON COLUMN pm.fleet.gvh_obi2 IS 'FLEET_WID — Fleet Object: Width [grex vehiculorum obiectum]';
 COMMENT ON COLUMN pm.fleet.gvh_obi3 IS 'FLEET_LEN — Fleet Object: Length [grex vehiculorum obiectum]';
 COMMENT ON COLUMN pm.fleet.uni_msu IS 'DIM_UNIT — Unit of Measurement [unitas mensuratio]';
-COMMENT ON COLUMN pm.fleet.num2 IS 'PRI_CALC — Priority Number of PM Calculation [numerus]';
+COMMENT ON COLUMN pm.fleet.pri_num IS 'PRI_CALC — Priority Number of PM Calculation [prioritas numerus]';
 COMMENT ON COLUMN pm.fleet.die_ult_nmr IS 'REPLA_DATE — Date of Last Counter Replacement [dies ultimus numerator]';
 COMMENT ON COLUMN pm.fleet.tmp_nmr IS 'REPLA_ODOM — Odometer Reading at Time of Counter Replacement [tempus numerator]';
 COMMENT ON COLUMN pm.fleet.tmp_nmr2 IS 'REPLA_OPH — Operating Hours at Time of Counter Replacement [tempus numerator]';
-COMMENT ON COLUMN pm.fleet.num3 IS 'NUM_AXLE — Number of Axles [numerus]';
-COMMENT ON COLUMN pm.fleet.num4 IS 'MAX_OCCUPANTS — Maximum Number of Occupants [numerus]';
-COMMENT ON COLUMN pm.fleet.num5 IS 'CARD_NUM — Fuel Card Number [numerus]';
+COMMENT ON COLUMN pm.fleet.num2 IS 'NUM_AXLE — Number of Axles [numerus]';
+COMMENT ON COLUMN pm.fleet.num3 IS 'MAX_OCCUPANTS — Maximum Number of Occupants [numerus]';
+COMMENT ON COLUMN pm.fleet.num4 IS 'CARD_NUM — Fuel Card Number [numerus]';
 COMMENT ON COLUMN pm.fleet.clv_num IS 'KEY_NUM — Key Number [clavis numerus]';
 COMMENT ON COLUMN pm.fleet.gvh_obi4 IS 'FLEET_USE — Fleet Object: Usage [grex vehiculorum obiectum]';
 COMMENT ON COLUMN pm.fleet.gvh_obi_gen2 IS 'ENGINE_TYPE — Fleet Object: Engine Type [grex vehiculorum obiectum genus]';
@@ -1072,7 +1072,7 @@ CREATE TABLE IF NOT EXISTS pm.ihpa (
   nom_psn_mut varchar(12),
   tbl varchar(1),
   dml_num varchar(10),
-  tmp_scs varchar(6),
+  ztm_scs varchar(6),
   CONSTRAINT ihpa_pk PRIMARY KEY (cli, obi_num, scs, nmr, obi_ctg, scs2)
 );
 COMMENT ON TABLE pm.ihpa IS 'IHPA — Plant Maintenance Partners — humans and organizations linked to a technical object. Foundation of the Layer-3 interaction record for equipment.';
@@ -1091,7 +1091,7 @@ COMMENT ON COLUMN pm.ihpa.tmp IS 'AEZEIT — Time of Change [tempus]';
 COMMENT ON COLUMN pm.ihpa.nom_psn_mut IS 'AENAM — Name of Person Who Changed Object [nomen persona mutatus]';
 COMMENT ON COLUMN pm.ihpa.tbl IS 'KZLOESCH — Delete Data Record [tabula]';
 COMMENT ON COLUMN pm.ihpa.dml_num IS 'ADRNR — Address number [domicilium numerus]';
-COMMENT ON COLUMN pm.ihpa.tmp_scs IS 'TZONSP — Time Zone for Partner [tempus socius]';
+COMMENT ON COLUMN pm.ihpa.ztm_scs IS 'TZONSP — Time Zone for Partner [zona temporis socius]';
 
 CREATE TABLE IF NOT EXISTS pm.ihsg (
   cli char(3),
@@ -1185,8 +1185,8 @@ CREATE TABLE IF NOT EXISTS pm.iloa (
   org_ptm varchar(1),
   ptm varchar(4),
   org_idx varchar(1),
-  mnd_num varchar(12),
-  org_mnd_num varchar(1),
+  dgn_mnd_num varchar(12),
+  org_dgn_mnd varchar(1),
   tsc_mnd varchar(12),
   org_tsc_mnd varchar(1),
   org_lcf_cmp varchar(1),
@@ -1236,8 +1236,8 @@ COMMENT ON COLUMN pm.iloa.ptm_num IS 'ANLNR — Main Asset Number [patrimonium n
 COMMENT ON COLUMN pm.iloa.org_ptm IS 'ANLNRI — Data origin for asset main no./sub-no. fields [origo patrimonium]';
 COMMENT ON COLUMN pm.iloa.ptm IS 'ANLUN — Asset Subnumber [patrimonium]';
 COMMENT ON COLUMN pm.iloa.org_idx IS 'ANLUNI — Data origin indicator [origo index]';
-COMMENT ON COLUMN pm.iloa.mnd_num IS 'DAUFN — Standing order number [mandatum numerus]';
-COMMENT ON COLUMN pm.iloa.org_mnd_num IS 'DAUFNI — Data origin of standing order number field [origo mandatum numerus]';
+COMMENT ON COLUMN pm.iloa.dgn_mnd_num IS 'DAUFN — Standing order number [dignitas mandatum numerus]';
+COMMENT ON COLUMN pm.iloa.org_dgn_mnd IS 'DAUFNI — Data origin of standing order number field [origo dignitas mandatum]';
 COMMENT ON COLUMN pm.iloa.tsc_mnd IS 'AUFNR — Settlement order [transactio mandatum]';
 COMMENT ON COLUMN pm.iloa.org_tsc_mnd IS 'AUFNRI — Data origin for settlement order field [origo transactio mandatum]';
 COMMENT ON COLUMN pm.iloa.org_lcf_cmp IS 'TPLNRI — Data origin for functional location field [origo locus functionalis campus]';
@@ -1651,43 +1651,43 @@ COMMENT ON COLUMN pm.mcipmis.mat_num IS 'MATNR — Material Number [materia nume
 CREATE TABLE IF NOT EXISTS pm.mhio (
   cli char(3),
   ccu varchar(12),
-  num varchar(4),
-  pos_num_obi varchar(4),
+  voc_num varchar(4),
+  pos_num_voc varchar(4),
   mnd_num varchar(12),
-  die_obi date,
+  die_voc_obi date,
   isp_num varchar(12),
-  sta_obi varchar(1),
-  sta_cur varchar(1),
+  sta_voc_obi varchar(1),
+  sta_cur_voc varchar(1),
   ini_die date,
   cmp varchar(10),
   nts_num varchar(12),
-  tmp_obi_cre time,
+  tmp_voc_obi time,
   isp_num2 varchar(12),
   usr_ult_mut varchar(12),
-  idx_obi_cre varchar(1),
+  idx_voc_obi varchar(1),
   cur bytea,
   cur_num varchar(12),
   revision_no varchar(12),
   ofc varchar(4),
-  CONSTRAINT mhio_pk PRIMARY KEY (cli, ccu, num, pos_num_obi)
+  CONSTRAINT mhio_pk PRIMARY KEY (cli, ccu, voc_num, pos_num_voc)
 );
 COMMENT ON TABLE pm.mhio IS 'MHIO — Call Object from Maintenance Order — the maintenance-plan call object created when a maintenance plan (MPLA) schedules and triggers an order, notification, or inspection lot. This is the scheduled-maintenance record''s execution link: it ties a plan cycle (WARPL+ABNUM+WPPOS) to the concrete order (AUFNR), notification (QMNUM), or inspection lot it generated, with the scheduled call date (GSTRP) and enqueue/status flags. Small, complete table.';
 COMMENT ON COLUMN pm.mhio.cli IS 'MANDT — Client [cliens]';
 COMMENT ON COLUMN pm.mhio.ccu IS 'WARPL — Maintenance Plan [consilium curationis]';
-COMMENT ON COLUMN pm.mhio.num IS 'ABNUM — Call number [numerus]';
-COMMENT ON COLUMN pm.mhio.pos_num_obi IS 'WPPOS — Item number of the call object [positio numerus obiectum]';
+COMMENT ON COLUMN pm.mhio.voc_num IS 'ABNUM — Call number [vocatio numerus]';
+COMMENT ON COLUMN pm.mhio.pos_num_voc IS 'WPPOS — Item number of the call object [positio numerus vocatio]';
 COMMENT ON COLUMN pm.mhio.mnd_num IS 'AUFNR — Order Number [mandatum numerus]';
-COMMENT ON COLUMN pm.mhio.die_obi IS 'ADDAT — Creation date of the call object [dies obiectum]';
+COMMENT ON COLUMN pm.mhio.die_voc_obi IS 'ADDAT — Creation date of the call object [dies vocatio obiectum]';
 COMMENT ON COLUMN pm.mhio.isp_num IS 'LBLNI — Inspection Lot Number [inspectio numerus]';
-COMMENT ON COLUMN pm.mhio.sta_obi IS 'TSENQ — Status of the call object: enqueued [status obiectum]';
-COMMENT ON COLUMN pm.mhio.sta_cur IS 'TSTAT — Processing status of the maintenance call [status curatio]';
+COMMENT ON COLUMN pm.mhio.sta_voc_obi IS 'TSENQ — Status of the call object: enqueued [status vocatio obiectum]';
+COMMENT ON COLUMN pm.mhio.sta_cur_voc IS 'TSTAT — Processing status of the maintenance call [status curatio vocatio]';
 COMMENT ON COLUMN pm.mhio.ini_die IS 'GSTRP — Scheduled start date [initium dies]';
 COMMENT ON COLUMN pm.mhio.cmp IS 'SORTF — Sort field [campus]';
 COMMENT ON COLUMN pm.mhio.nts_num IS 'QMNUM — Notification Number [nuntius numerus]';
-COMMENT ON COLUMN pm.mhio.tmp_obi_cre IS 'ADTIME — Time when call object was created [tempus obiectum creatus]';
+COMMENT ON COLUMN pm.mhio.tmp_voc_obi IS 'ADTIME — Time when call object was created [tempus vocatio obiectum]';
 COMMENT ON COLUMN pm.mhio.isp_num2 IS 'PRUEFLOS — Inspection Lot Number [inspectio numerus]';
 COMMENT ON COLUMN pm.mhio.usr_ult_mut IS 'USERMOD — User who last changed the call object [usor ultimus mutatus]';
-COMMENT ON COLUMN pm.mhio.idx_obi_cre IS 'IND_MPLA_API — Indicator: call object created/changed via maint. plan API [index obiectum creatus]';
+COMMENT ON COLUMN pm.mhio.idx_voc_obi IS 'IND_MPLA_API — Indicator: call object created/changed via maint. plan API [index vocatio obiectum]';
 COMMENT ON COLUMN pm.mhio.cur IS 'DEMAND_ID — Maintenance demand: unique ID [curatio]';
 COMMENT ON COLUMN pm.mhio.cur_num IS 'DEMAND_NO — Maintenance demand number [curatio numerus]';
 COMMENT ON COLUMN pm.mhio.revision_no IS 'REVISION_NO — Revision';
@@ -1696,15 +1696,15 @@ COMMENT ON COLUMN pm.mhio.ofc IS 'REV_PLANT — Plant for Revisions [officina]';
 CREATE TABLE IF NOT EXISTS pm.mhis (
   cli char(3),
   ccu varchar(12),
-  num varchar(4),
+  voc_num varchar(4),
   num_tbl varchar(4),
-  die date,
-  gen_cur varchar(1),
+  voc_die date,
+  gen_cur_voc varchar(1),
   sta_tmp_cur varchar(1),
   ult_tmp date,
   tmp_ini numeric(5,2),
   uni varchar(3),
-  die_cur date,
+  die_cur_voc date,
   nom_psn_cur varchar(12),
   sfakt numeric(5,2),
   idx varchar(1),
@@ -1712,19 +1712,19 @@ CREATE TABLE IF NOT EXISTS pm.mhis (
   toler numeric(3,0),
   knnrm varchar(3),
   knprm numeric(3,0),
-  die2 date,
-  tmp time,
-  mut_die date,
+  voc_die2 date,
+  tmp_voc time,
+  mut_voc_die date,
   tmp_fin numeric(5,2),
   uni_fin varchar(3),
   idx3 varchar(1),
   idx_nmr varchar(1),
-  tmp_cur numeric(15,0),
-  tmp_cre numeric(15,0),
-  tmp_obi numeric(15,0),
-  usr_obi varchar(12),
+  tmp_cur_voc numeric(15,0),
+  tmp_voc_cre numeric(15,0),
+  tmp_voc_obi numeric(15,0),
+  usr_voc_obi varchar(12),
   rfr_die date,
-  sta_cur varchar(1),
+  sta_cur_voc varchar(1),
   tmp_ini_die numeric(5,2),
   ini_die date,
   num_tbl2 varchar(4),
@@ -1758,20 +1758,20 @@ CREATE TABLE IF NOT EXISTS pm.mhis (
   idx5 varchar(1),
   idx_mut_ccu varchar(1),
   die_tmp numeric(15,0),
-  CONSTRAINT mhis_pk PRIMARY KEY (cli, ccu, num, num_tbl)
+  CONSTRAINT mhis_pk PRIMARY KEY (cli, ccu, voc_num, num_tbl)
 );
 COMMENT ON TABLE pm.mhis IS 'MHIS — Maintenance plan history — the scheduling-cycle history record for a maintenance plan (WARPL), carrying each cycle''s planned/actual call dates, tolerance and shift parameters, completion and confirmation timestamps, and (for time-based/strategy plans) the cycle sequence and offset-based scheduling parameters. Every call MHIO produces has one MHIS history row recording how and when the cycle counter advanced. SAP''s real table carries fields beyond the core scheduling set (extended AD*/ADEXT*/ADSYS* offset-scheduling fields); this definition carries the full key, all core cycle/date/tolerance fi';
 COMMENT ON COLUMN pm.mhis.cli IS 'MANDT — Client [cliens]';
 COMMENT ON COLUMN pm.mhis.ccu IS 'WARPL — Maintenance Plan [consilium curationis]';
-COMMENT ON COLUMN pm.mhis.num IS 'ABNUM — Call number [numerus]';
+COMMENT ON COLUMN pm.mhis.voc_num IS 'ABNUM — Call number [vocatio numerus]';
 COMMENT ON COLUMN pm.mhis.num_tbl IS 'ZAEHL — Sequential number of history record [numerus tabula]';
-COMMENT ON COLUMN pm.mhis.die IS 'NPLDA — Scheduled call date [dies]';
-COMMENT ON COLUMN pm.mhis.gen_cur IS 'TERMA — Type of maintenance call [genus curatio]';
+COMMENT ON COLUMN pm.mhis.voc_die IS 'NPLDA — Scheduled call date [vocatio dies]';
+COMMENT ON COLUMN pm.mhis.gen_cur_voc IS 'TERMA — Type of maintenance call [genus curatio vocatio]';
 COMMENT ON COLUMN pm.mhis.sta_tmp_cur IS 'STADT — Status of cycle at time of maintenance call [status tempus curatio]';
 COMMENT ON COLUMN pm.mhis.ult_tmp IS 'LRMDT — Last time the cycle was completed [ultimus tempus]';
 COMMENT ON COLUMN pm.mhis.tmp_ini IS 'OFFZE — Time factor for offset from cycle start [tempus initium]';
 COMMENT ON COLUMN pm.mhis.uni IS 'OFFZO — Cycle unit for offset [unitas]';
-COMMENT ON COLUMN pm.mhis.die_cur IS 'ABRUD — Date on which maintenance call was completed [dies curatio]';
+COMMENT ON COLUMN pm.mhis.die_cur_voc IS 'ABRUD — Date on which maintenance call was completed [dies curatio vocatio]';
 COMMENT ON COLUMN pm.mhis.nom_psn_cur IS 'ABRNA — Name of the person who completed the maintenance call [nomen persona curatio]';
 COMMENT ON COLUMN pm.mhis.sfakt IS 'SFAKT — Cycle modification factor';
 COMMENT ON COLUMN pm.mhis.idx IS 'TERMK — Indicator: cycle skipped [index]';
@@ -1779,19 +1779,19 @@ COMMENT ON COLUMN pm.mhis.idx2 IS 'VERSCH — Scheduling indicator [index]';
 COMMENT ON COLUMN pm.mhis.toler IS 'TOLER — Cycle tolerance (as a percentage)';
 COMMENT ON COLUMN pm.mhis.knnrm IS 'KNNRM — Cycle at maximum tolerance';
 COMMENT ON COLUMN pm.mhis.knprm IS 'KNPRM — Cycle at maximum tolerance (percentage)';
-COMMENT ON COLUMN pm.mhis.die2 IS 'NPLDO — Scheduled call date (before rescheduling) [dies]';
-COMMENT ON COLUMN pm.mhis.tmp IS 'NPLDZ — Time of call [tempus]';
-COMMENT ON COLUMN pm.mhis.mut_die IS 'MANDA — Manually changed call date [mutatus dies]';
+COMMENT ON COLUMN pm.mhis.voc_die2 IS 'NPLDO — Scheduled call date (before rescheduling) [vocatio dies]';
+COMMENT ON COLUMN pm.mhis.tmp_voc IS 'NPLDZ — Time of call [tempus vocatio]';
+COMMENT ON COLUMN pm.mhis.mut_voc_die IS 'MANDA — Manually changed call date [mutatus vocatio dies]';
 COMMENT ON COLUMN pm.mhis.tmp_fin IS 'OFFLE — Time factor for offset from cycle end [tempus finis]';
 COMMENT ON COLUMN pm.mhis.uni_fin IS 'OFFLO — Cycle unit for offset from cycle end [unitas finis]';
 COMMENT ON COLUMN pm.mhis.idx3 IS 'KNAUT — Indicator: cycle automatically generated [index]';
 COMMENT ON COLUMN pm.mhis.idx_nmr IS 'KNASR — Indicator: cycle called from array/counter [index numerator]';
-COMMENT ON COLUMN pm.mhis.tmp_cur IS 'TSABR — Time stamp when maintenance call was completed [tempus curatio]';
-COMMENT ON COLUMN pm.mhis.tmp_cre IS 'TSVBT — Time stamp when call was created [tempus creatus]';
-COMMENT ON COLUMN pm.mhis.tmp_obi IS 'TSENQ — Time stamp when call object was enqueued [tempus obiectum]';
-COMMENT ON COLUMN pm.mhis.usr_obi IS 'TSENM — User who enqueued the call object [usor obiectum]';
+COMMENT ON COLUMN pm.mhis.tmp_cur_voc IS 'TSABR — Time stamp when maintenance call was completed [tempus curatio vocatio]';
+COMMENT ON COLUMN pm.mhis.tmp_voc_cre IS 'TSVBT — Time stamp when call was created [tempus vocatio creatus]';
+COMMENT ON COLUMN pm.mhis.tmp_voc_obi IS 'TSENQ — Time stamp when call object was enqueued [tempus vocatio obiectum]';
+COMMENT ON COLUMN pm.mhis.usr_voc_obi IS 'TSENM — User who enqueued the call object [usor vocatio obiectum]';
 COMMENT ON COLUMN pm.mhis.rfr_die IS 'HORDA — Reference date of the cycle [referentia dies]';
-COMMENT ON COLUMN pm.mhis.sta_cur IS 'TSTAT — Processing status of the maintenance call [status curatio]';
+COMMENT ON COLUMN pm.mhis.sta_cur_voc IS 'TSTAT — Processing status of the maintenance call [status curatio vocatio]';
 COMMENT ON COLUMN pm.mhis.tmp_ini_die IS 'FIXDU — Time factor for start date of scheduling [tempus initium dies]';
 COMMENT ON COLUMN pm.mhis.ini_die IS 'FIXDA — Fixed start date for scheduling [initium dies]';
 COMMENT ON COLUMN pm.mhis.num_tbl2 IS 'VGNUM — Sequential number of the previous history record [numerus tabula]';
@@ -1844,7 +1844,7 @@ CREATE TABLE IF NOT EXISTS pm.mpla (
   txt_idx varchar(1),
   idx_ccu varchar(1),
   num_cur_ccu varchar(4),
-  ccu_num integer,
+  ccu_voc_num integer,
   lng_clv_txt char(1),
   vic varchar(3),
   vic2 varchar(3),
@@ -1853,9 +1853,9 @@ CREATE TABLE IF NOT EXISTS pm.mpla (
   sfakt numeric(3,2),
   idx3 varchar(1),
   tgoon varchar(3),
-  ccu2 varchar(3),
-  ccu3 varchar(3),
-  gen varchar(1),
+  voc_ccu varchar(3),
+  voc_ccu2 varchar(3),
+  gen_voc varchar(1),
   idx4 varchar(1),
   knaut varchar(1),
   obi_cts varchar(4),
@@ -1864,14 +1864,14 @@ CREATE TABLE IF NOT EXISTS pm.mpla (
   uni varchar(3),
   ini_die date,
   ini_nmr varchar(22),
-  obi varchar(1),
+  voc_obi varchar(1),
   cmp_cur varchar(20),
   clv varchar(2),
   puffp varchar(3),
   puffn varchar(3),
   ini_die2 date,
   ini_tmp time,
-  idx_obi varchar(1),
+  idx_voc_obi varchar(1),
   ccu_cre_mut varchar(2),
   vic_nmr_cns varchar(1),
   CONSTRAINT mpla_pk PRIMARY KEY (ccu)
@@ -1894,7 +1894,7 @@ COMMENT ON COLUMN pm.mpla.emp_num IS 'KUNUM — Customer Number [emptor numerus]
 COMMENT ON COLUMN pm.mpla.txt_idx IS 'LTKNZ — Long Text Indicator [textus index]';
 COMMENT ON COLUMN pm.mpla.idx_ccu IS 'LVORM — Indicator: maintenance plan locked against calls [index consilium curationis]';
 COMMENT ON COLUMN pm.mpla.num_cur_ccu IS 'ANZPS — Number of maintenance items in the maintenance plan [numerus curatio consilium curationis]';
-COMMENT ON COLUMN pm.mpla.ccu_num IS 'ABNUM — Maintenance Plan Call Number [consilium curationis numerus]';
+COMMENT ON COLUMN pm.mpla.ccu_voc_num IS 'ABNUM — Maintenance Plan Call Number [consilium curationis vocatio numerus]';
 COMMENT ON COLUMN pm.mpla.lng_clv_txt IS 'LANGU — Language key of the long text [lingua clavis textus]';
 COMMENT ON COLUMN pm.mpla.vic IS 'VSPOS — Shift Factor for Late Completion [vicis]';
 COMMENT ON COLUMN pm.mpla.vic2 IS 'VSNEG — Shift Factor for Early Completion [vicis]';
@@ -1903,9 +1903,9 @@ COMMENT ON COLUMN pm.mpla.toneg IS 'TONEG — Tolerance for Early Completion (%)
 COMMENT ON COLUMN pm.mpla.sfakt IS 'SFAKT — Cycle modification factor';
 COMMENT ON COLUMN pm.mpla.idx3 IS 'STICH — Scheduling indicator [index]';
 COMMENT ON COLUMN pm.mpla.tgoon IS 'TGOON — Scheduling to reoccur when lead float reached';
-COMMENT ON COLUMN pm.mpla.ccu2 IS 'HORIZ — Call horizon for maintenance plan calls [consilium curationis]';
-COMMENT ON COLUMN pm.mpla.ccu3 IS 'HORIZ_DAYS — Call horizon for maintenance plan calls [consilium curationis]';
-COMMENT ON COLUMN pm.mpla.gen IS 'HORIZ_QUALIFIER — Calculation Type of Call Horizon [genus]';
+COMMENT ON COLUMN pm.mpla.voc_ccu IS 'HORIZ — Call horizon for maintenance plan calls [vocatio consilium curationis]';
+COMMENT ON COLUMN pm.mpla.voc_ccu2 IS 'HORIZ_DAYS — Call horizon for maintenance plan calls [vocatio consilium curationis]';
+COMMENT ON COLUMN pm.mpla.gen_voc IS 'HORIZ_QUALIFIER — Calculation Type of Call Horizon [genus vocatio]';
 COMMENT ON COLUMN pm.mpla.idx4 IS 'ANDOR — Indicator for OR or AND link [index]';
 COMMENT ON COLUMN pm.mpla.knaut IS 'KNAUT — Reserved';
 COMMENT ON COLUMN pm.mpla.obi_cts IS 'BEGRU — Technical object authorization group [obiectum coetus]';
@@ -1914,14 +1914,14 @@ COMMENT ON COLUMN pm.mpla.ccu_ctg IS 'MPTYP — Maintenance plan category [consi
 COMMENT ON COLUMN pm.mpla.uni IS 'HUNIT — Unit in scheduling interval [unitas]';
 COMMENT ON COLUMN pm.mpla.ini_die IS 'STADT — Start date [initium dies]';
 COMMENT ON COLUMN pm.mpla.ini_nmr IS 'SZAEH — Start counter reading [initium numerator]';
-COMMENT ON COLUMN pm.mpla.obi IS 'CALL_CONFIRM — Only Create New Call Object After Completing Predecessor [obiectum]';
+COMMENT ON COLUMN pm.mpla.voc_obi IS 'CALL_CONFIRM — Only Create New Call Object After Completing Predecessor [vocatio obiectum]';
 COMMENT ON COLUMN pm.mpla.cmp_cur IS 'PLAN_SORT — Sort field for maintenance plans [campus curatio]';
 COMMENT ON COLUMN pm.mpla.clv IS 'FABKL — Factory calendar key [clavis]';
 COMMENT ON COLUMN pm.mpla.puffp IS 'PUFFP — Lead Float in Days';
 COMMENT ON COLUMN pm.mpla.puffn IS 'PUFFN — Follow-up float in days';
 COMMENT ON COLUMN pm.mpla.ini_die2 IS 'START_DATE — Start Date for Scheduling [initium dies]';
 COMMENT ON COLUMN pm.mpla.ini_tmp IS 'START_TIME — Start Time for Scheduling [initium tempus]';
-COMMENT ON COLUMN pm.mpla.idx_obi IS 'CALL_UPDATE_IND — Indicator for Adapting Basic Dates of Call Object [index obiectum]';
+COMMENT ON COLUMN pm.mpla.idx_voc_obi IS 'CALL_UPDATE_IND — Indicator for Adapting Basic Dates of Call Object [index vocatio obiectum]';
 COMMENT ON COLUMN pm.mpla.ccu_cre_mut IS 'IND_MPLA_API — Maintenance Plan Was Created/Changed by API [consilium curationis creatus mutatus]';
 COMMENT ON COLUMN pm.mpla.vic_nmr_cns IS 'MCP_SF — Shift Factor for Multiple Counter Plan [vicis numerator consilium]';
 
@@ -1983,7 +1983,7 @@ CREATE TABLE IF NOT EXISTS pm.mpos (
   nts_gen varchar(2),
   num2 varchar(10),
   pns_nts varchar(1),
-  priok varchar(1),
+  pri varchar(1),
   gen varchar(1),
   cod_cts varchar(8),
   qmcod varchar(4),
@@ -2056,7 +2056,7 @@ COMMENT ON COLUMN pm.mpos.nts IS 'QMNUM — Notification No [nuntius]';
 COMMENT ON COLUMN pm.mpos.nts_gen IS 'QMART — Notification Type [nuntius genus]';
 COMMENT ON COLUMN pm.mpos.num2 IS 'LBLNI — Entry Sheet Number [numerus]';
 COMMENT ON COLUMN pm.mpos.pns_nts IS 'TASK_DETERMINE — Automatic task determination in the notification [pensum nuntius]';
-COMMENT ON COLUMN pm.mpos.priok IS 'PRIOK — Priority';
+COMMENT ON COLUMN pm.mpos.pri IS 'PRIOK — Priority [prioritas]';
 COMMENT ON COLUMN pm.mpos.gen IS 'QMKAT — Catalog Type - Coding [genus]';
 COMMENT ON COLUMN pm.mpos.cod_cts IS 'QMGRP — Code Group - Coding [codex coetus]';
 COMMENT ON COLUMN pm.mpos.qmcod IS 'QMCOD — Coding';
@@ -2220,7 +2220,7 @@ CREATE TABLE IF NOT EXISTS pm.pmco (
   anf varchar(4),
   smp_elm_val varchar(10),
   vrs varchar(3),
-  clv_per varchar(3),
+  dtb_clv_per varchar(3),
   vorga varchar(4),
   rqs_idx varchar(2),
   mnd_ctg varchar(1),
@@ -2241,7 +2241,7 @@ CREATE TABLE IF NOT EXISTS pm.pmco (
   per_val15 numeric(15,2),
   per_val16 numeric(15,2),
   per_val_tot numeric(15,2),
-  CONSTRAINT pmco_pk PRIMARY KEY (cli, obi_num, cvm, gen, val_gen, anf, smp_elm_val, vrs, clv_per)
+  CONSTRAINT pmco_pk PRIMARY KEY (cli, obi_num, cvm, gen, val_gen, anf, smp_elm_val, vrs, dtb_clv_per)
 );
 COMMENT ON TABLE pm.pmco IS 'PMCO — Cost structure of maintenance order — the CO totals-record table holding period-bucketed planned/actual/commitment cost values (WRT00–WRT16, one slot per posting period plus adjustment/total periods) for a maintenance order object (OBJNR), broken out by value type, fiscal year, version, and category. This is the cost side of order settlement/reporting that reconciles against PMCO''s controlling-area currency (COCUR).';
 COMMENT ON COLUMN pm.pmco.cli IS 'MANDT — Client [cliens]';
@@ -2252,7 +2252,7 @@ COMMENT ON COLUMN pm.pmco.val_gen IS 'WRTTP — Value Type for Reporting [valor 
 COMMENT ON COLUMN pm.pmco.anf IS 'GJAHR — Fiscal Year [annus fiscalis]';
 COMMENT ON COLUMN pm.pmco.smp_elm_val IS 'ACPOS — Cost element for value/quantity update [sumptus elementum valor]';
 COMMENT ON COLUMN pm.pmco.vrs IS 'VERSN — Version [versio]';
-COMMENT ON COLUMN pm.pmco.clv_per IS 'PERBL — Distribution key for period totals records [clavis periodus]';
+COMMENT ON COLUMN pm.pmco.dtb_clv_per IS 'PERBL — Distribution key for period totals records [distributio clavis periodus]';
 COMMENT ON COLUMN pm.pmco.vorga IS 'VORGA — Business Transaction';
 COMMENT ON COLUMN pm.pmco.rqs_idx IS 'BEMOT — Requirement/inventory management indicator [requisitum index]';
 COMMENT ON COLUMN pm.pmco.mnd_ctg IS 'ABKAT — Order category [mandatum categoria]';
@@ -2312,8 +2312,8 @@ CREATE TABLE IF NOT EXISTS pm.qmel (
   nts varchar(12),
   nts_gen varchar(2),
   txt varchar(40),
-  gen varchar(2),
-  priok varchar(1),
+  pri_gen varchar(2),
+  pri varchar(1),
   nom_psn_cre varchar(12),
   die_tbl_cre date,
   nom_psn_mut varchar(12),
@@ -2362,7 +2362,7 @@ CREATE TABLE IF NOT EXISTS pm.qmel (
   tmp time,
   tmp_tbl time,
   ofc_mat varchar(4),
-  gen2 varchar(1),
+  gen varchar(1),
   cod_cts varchar(8),
   qmcod varchar(4),
   clv varchar(4),
@@ -2390,7 +2390,7 @@ CREATE TABLE IF NOT EXISTS pm.qmel (
   obi_sbs varchar(2),
   obi_sto varchar(8),
   ofc_sto varchar(4),
-  gen3 varchar(8),
+  gen2 varchar(8),
   num_mnd_nmr varchar(8),
   qnt numeric(13,3),
   qnt2 numeric(13,3),
@@ -2418,8 +2418,8 @@ CREATE TABLE IF NOT EXISTS pm.qmel (
   tmp_seg varchar(22),
   tmp_seg2 varchar(1),
   tsegtp varchar(10),
-  tmp_nts3 varchar(6),
-  org_tmp_nts varchar(1),
+  ztm_nts varchar(6),
+  org_ztm_nts varchar(1),
   funktion varchar(4),
   eop varchar(8),
   estimated_costs numeric(13,2),
@@ -2448,8 +2448,8 @@ COMMENT ON COLUMN pm.qmel.cli IS 'MANDT — Client [cliens]';
 COMMENT ON COLUMN pm.qmel.nts IS 'QMNUM — Notification No [nuntius]';
 COMMENT ON COLUMN pm.qmel.nts_gen IS 'QMART — Notification Type [nuntius genus]';
 COMMENT ON COLUMN pm.qmel.txt IS 'QMTXT — Short Text [textus]';
-COMMENT ON COLUMN pm.qmel.gen IS 'ARTPR — Priority Type [genus]';
-COMMENT ON COLUMN pm.qmel.priok IS 'PRIOK — Priority';
+COMMENT ON COLUMN pm.qmel.pri_gen IS 'ARTPR — Priority Type [prioritas genus]';
+COMMENT ON COLUMN pm.qmel.pri IS 'PRIOK — Priority [prioritas]';
 COMMENT ON COLUMN pm.qmel.nom_psn_cre IS 'ERNAM — Name of Person who Created the Object [nomen persona creatus]';
 COMMENT ON COLUMN pm.qmel.die_tbl_cre IS 'ERDAT — Date on Which Record Was Created [dies tabula creatus]';
 COMMENT ON COLUMN pm.qmel.nom_psn_mut IS 'AENAM — Name of Person Who Changed Object [nomen persona mutatus]';
@@ -2498,7 +2498,7 @@ COMMENT ON COLUMN pm.qmel.dml_num IS 'ADRNR — Addresses: Address Number [domic
 COMMENT ON COLUMN pm.qmel.tmp IS 'AEZEIT — Time of Change [tempus]';
 COMMENT ON COLUMN pm.qmel.tmp_tbl IS 'ERZEIT — Time, at Which Record Was Added [tempus tabula]';
 COMMENT ON COLUMN pm.qmel.ofc_mat IS 'MAWERK — Plant for Material [officina materia]';
-COMMENT ON COLUMN pm.qmel.gen2 IS 'QMKAT — Catalog Type - Coding [genus]';
+COMMENT ON COLUMN pm.qmel.gen IS 'QMKAT — Catalog Type - Coding [genus]';
 COMMENT ON COLUMN pm.qmel.cod_cts IS 'QMGRP — Code Group - Coding [codex coetus]';
 COMMENT ON COLUMN pm.qmel.qmcod IS 'QMCOD — Coding';
 COMMENT ON COLUMN pm.qmel.clv IS 'AUSWIRK — Key for a Scenario [clavis]';
@@ -2526,7 +2526,7 @@ COMMENT ON COLUMN pm.qmel.trd_pos IS 'LS_POSNR — Delivery Item [traditio posit
 COMMENT ON COLUMN pm.qmel.obi_sbs IS 'CROBJTY — Object types of the CIM resource [obiectum subsidium]';
 COMMENT ON COLUMN pm.qmel.obi_sto IS 'ARBPL — Object ID of the Work Center [obiectum statio operis]';
 COMMENT ON COLUMN pm.qmel.ofc_sto IS 'ARBPLWERK — Plant for Work Center [officina statio operis]';
-COMMENT ON COLUMN pm.qmel.gen3 IS 'FEART — Report Type for Defects Recording [genus]';
+COMMENT ON COLUMN pm.qmel.gen2 IS 'FEART — Report Type for Defects Recording [genus]';
 COMMENT ON COLUMN pm.qmel.num_mnd_nmr IS 'PNLKN — Current Node Number from Order Counter APLZL [numerus mandatum numerator]';
 COMMENT ON COLUMN pm.qmel.qnt IS 'MGEIG — Defective Quantity (Internal) [quantitas]';
 COMMENT ON COLUMN pm.qmel.qnt2 IS 'MGFRD — Defective Quantity (External) [quantitas]';
@@ -2554,8 +2554,8 @@ COMMENT ON COLUMN pm.qmel.obi IS 'PROFIL_ID — Object ID [obiectum]';
 COMMENT ON COLUMN pm.qmel.tmp_seg IS 'HANDLE — Globally unique identifier (linked to time segment, etc) [tempus segmentum]';
 COMMENT ON COLUMN pm.qmel.tmp_seg2 IS 'TSEGFL — Time segment exists [tempus segmentum]';
 COMMENT ON COLUMN pm.qmel.tsegtp IS 'TSEGTP — Template';
-COMMENT ON COLUMN pm.qmel.tmp_nts3 IS 'TZONSO — Time Zone for Notification [tempus nuntius]';
-COMMENT ON COLUMN pm.qmel.org_tmp_nts IS 'TZONID — Origin of Time Zone in Notification [origo tempus nuntius]';
+COMMENT ON COLUMN pm.qmel.ztm_nts IS 'TZONSO — Time Zone for Notification [zona temporis nuntius]';
+COMMENT ON COLUMN pm.qmel.org_ztm_nts IS 'TZONID — Origin of Time Zone in Notification [origo zona temporis nuntius]';
 COMMENT ON COLUMN pm.qmel.funktion IS 'FUNKTION — Keys for Function in Action Box';
 COMMENT ON COLUMN pm.qmel.eop IS 'PSP_NR — WBS Element [elementum operis]';
 COMMENT ON COLUMN pm.qmel.estimated_costs IS 'ESTIMATED_COSTS — Estimated Costs for a Claim';
@@ -2803,17 +2803,17 @@ CREATE TABLE IF NOT EXISTS pm.qmsm (
   tmp_seg varchar(22),
   tmp_seg2 varchar(1),
   tsegtp varchar(10),
-  tmp_nts varchar(6),
-  tmp_pns2 varchar(6),
-  org_tmp_nts varchar(1),
+  ztm_nts varchar(6),
+  ztm_pns varchar(6),
+  org_ztm_nts varchar(1),
   cre varchar(1),
   funktion varchar(4),
   adn_num varchar(7),
   adn_cre varchar(35),
   tmp_die varchar(14),
   abc_templ varchar(10),
-  effectperc varchar(3),
-  txt varchar(40),
+  efc varchar(3),
+  efc_txt varchar(40),
   CONSTRAINT qmsm_pk PRIMARY KEY (cli, nts, pns_num)
 );
 COMMENT ON TABLE pm.qmsm IS 'QMSM — Quality Notification Tasks — the task record for a quality notification (QMEL): task catalog/code, follow-up action, responsible-party assignment, planned/actual start-finish dates and times. Modeled here under PM per this registry''s shared-structures convention (quality-notification family owned by PM, not QM).';
@@ -2857,17 +2857,17 @@ COMMENT ON COLUMN pm.qmsm.tbl_cre IS 'AUTKZ — Data Record Created with Functio
 COMMENT ON COLUMN pm.qmsm.tmp_seg IS 'HANDLE — Globally unique identifier (linked to time segment, etc) [tempus segmentum]';
 COMMENT ON COLUMN pm.qmsm.tmp_seg2 IS 'TSEGFL — Time segment exists [tempus segmentum]';
 COMMENT ON COLUMN pm.qmsm.tsegtp IS 'TSEGTP — Template';
-COMMENT ON COLUMN pm.qmsm.tmp_nts IS 'TZONSO — Time Zone for Notification [tempus nuntius]';
-COMMENT ON COLUMN pm.qmsm.tmp_pns2 IS 'TZONSM — Time Zone for Task [tempus pensum]';
-COMMENT ON COLUMN pm.qmsm.org_tmp_nts IS 'TZONID — Origin of Time Zone in Notification [origo tempus nuntius]';
+COMMENT ON COLUMN pm.qmsm.ztm_nts IS 'TZONSO — Time Zone for Notification [zona temporis nuntius]';
+COMMENT ON COLUMN pm.qmsm.ztm_pns IS 'TZONSM — Time Zone for Task [zona temporis pensum]';
+COMMENT ON COLUMN pm.qmsm.org_ztm_nts IS 'TZONID — Origin of Time Zone in Notification [origo zona temporis nuntius]';
 COMMENT ON COLUMN pm.qmsm.cre IS 'KZACTIONBOX — Created Using Action Box [creatus]';
 COMMENT ON COLUMN pm.qmsm.funktion IS 'FUNKTION — Keys for Function in Action Box';
 COMMENT ON COLUMN pm.qmsm.adn_num IS '/SAPSMOSS/NOTE — Note number [adnotatio numerus]';
 COMMENT ON COLUMN pm.qmsm.adn_cre IS '/SAPSMOSS/REPORT — Note created by [adnotatio creatus]';
 COMMENT ON COLUMN pm.qmsm.tmp_die IS '/SAPSMOSS/MTSTMP — Time stamp (date + time) [tempus dies]';
 COMMENT ON COLUMN pm.qmsm.abc_templ IS 'ABC_TEMPL — Template';
-COMMENT ON COLUMN pm.qmsm.effectperc IS 'EFFECTPERC — Effect in Percentage';
-COMMENT ON COLUMN pm.qmsm.txt IS 'EFFECTTEXT — Effect Text [textus]';
+COMMENT ON COLUMN pm.qmsm.efc IS 'EFFECTPERC — Effect in Percentage [effectus]';
+COMMENT ON COLUMN pm.qmsm.efc_txt IS 'EFFECTTEXT — Effect Text [effectus textus]';
 
 CREATE TABLE IF NOT EXISTS pm.qmur (
   cli char(3),
@@ -2887,9 +2887,9 @@ CREATE TABLE IF NOT EXISTS pm.qmur (
   idx_txt_lng varchar(1),
   tmp_tbl_cre time,
   tmp_tbl_mut time,
-  gen_csa varchar(1),
+  gen_csa_vrf varchar(1),
   cod_cts_csa varchar(8),
-  csa2 varchar(4),
+  csa_vrf varchar(4),
   scs varchar(2),
   num_scs_emp varchar(10),
   mat_num_obi varchar(18),
@@ -2898,7 +2898,7 @@ CREATE TABLE IF NOT EXISTS pm.qmur (
   idx varchar(1),
   rfr_csa_num varchar(4),
   idx_csa varchar(1),
-  csa3 numeric(3,0),
+  csa2 numeric(3,0),
   CONSTRAINT qmur_pk PRIMARY KEY (cli, nts_num, pos_num, csa_num)
 );
 COMMENT ON TABLE pm.qmur IS 'QMUR — Quality notification - causes — the failure-cause record any reliability analysis depends on. Ties a cause (URNUM) to a specific defect item (FENUM) on a notification (QMNUM), carrying the cause catalog code/group/coding, the responsible party (PARVW/PARNR), the affected assembly (BAUTL), and the quantity/percentage of the defect attributable to this cause (URMENGE/INVOLVPERC). Small, complete table.';
@@ -2919,9 +2919,9 @@ COMMENT ON COLUMN pm.qmur.idx_txt IS 'INDTX — Indicator: long text exists [ind
 COMMENT ON COLUMN pm.qmur.idx_txt_lng IS 'KZMLA — Indicator: text in more than one language [index textus lingua]';
 COMMENT ON COLUMN pm.qmur.tmp_tbl_cre IS 'ERZEIT — Time record was created [tempus tabula creatus]';
 COMMENT ON COLUMN pm.qmur.tmp_tbl_mut IS 'AEZEIT — Time record was changed [tempus tabula mutatus]';
-COMMENT ON COLUMN pm.qmur.gen_csa IS 'VUKAT — Catalog type for cause verification [genus causa]';
+COMMENT ON COLUMN pm.qmur.gen_csa_vrf IS 'VUKAT — Catalog type for cause verification [genus causa verificatio]';
 COMMENT ON COLUMN pm.qmur.cod_cts_csa IS 'VUGRP — Code group for cause verification [codex coetus causa]';
-COMMENT ON COLUMN pm.qmur.csa2 IS 'VUCOD — Coding for cause verification [causa]';
+COMMENT ON COLUMN pm.qmur.csa_vrf IS 'VUCOD — Coding for cause verification [causa verificatio]';
 COMMENT ON COLUMN pm.qmur.scs IS 'PARVW — Partner Function [socius]';
 COMMENT ON COLUMN pm.qmur.num_scs_emp IS 'PARNR — Number of partner (customer, vendor, employee) [numerus socius emptor]';
 COMMENT ON COLUMN pm.qmur.mat_num_obi IS 'BAUTL — Assembly (material number of technical object) [materia numerus obiectum]';
@@ -2930,7 +2930,7 @@ COMMENT ON COLUMN pm.qmur.men_csa_qnt IS 'URMGEIN — Unit of measure for cause 
 COMMENT ON COLUMN pm.qmur.idx IS 'KZLOESCH — Deletion Indicator [index]';
 COMMENT ON COLUMN pm.qmur.rfr_csa_num IS 'QURNUM — Reference cause number [referentia causa numerus]';
 COMMENT ON COLUMN pm.qmur.idx_csa IS 'AUTKZ — Indicator: automatically generated cause [index causa]';
-COMMENT ON COLUMN pm.qmur.csa3 IS 'INVOLVPERC — Percentage to which the cause is involved in the defect [causa]';
+COMMENT ON COLUMN pm.qmur.csa2 IS 'INVOLVPERC — Percentage to which the cause is involved in the defect [causa]';
 
 CREATE TABLE IF NOT EXISTS pm.t024i (
   cli char(3),
@@ -3183,8 +3183,8 @@ CREATE TABLE IF NOT EXISTS pm.viqmel (
   nts_gen varchar(2),
   nts_txt varchar(40),
   nts_org varchar(2),
-  gen varchar(2),
-  priokx varchar(1),
+  pri_gen varchar(2),
+  pri varchar(1),
   nom_psn_cre varchar(12),
   die_tbl_cre date,
   nom_psn_mut varchar(12),
@@ -3213,7 +3213,7 @@ CREATE TABLE IF NOT EXISTS pm.viqmel (
   nsr varchar(18),
   emp_num varchar(10),
   rbnr varchar(8),
-  gen2 varchar(1),
+  gen varchar(1),
   nts_cod_cts varchar(8),
   nts varchar(4),
   amd varchar(4),
@@ -3235,8 +3235,8 @@ COMMENT ON COLUMN pm.viqmel.nts_num IS 'QMNUM — Notification Number [nuntius n
 COMMENT ON COLUMN pm.viqmel.nts_gen IS 'QMART — Notification type [nuntius genus]';
 COMMENT ON COLUMN pm.viqmel.nts_txt IS 'QMTXT — Notification short text [nuntius textus]';
 COMMENT ON COLUMN pm.viqmel.nts_org IS 'ARTPR — Notification origin [nuntius origo]';
-COMMENT ON COLUMN pm.viqmel.gen IS 'PRIOK — Priority type [genus]';
-COMMENT ON COLUMN pm.viqmel.priokx IS 'PRIOKX — Priority';
+COMMENT ON COLUMN pm.viqmel.pri_gen IS 'PRIOK — Priority type [prioritas genus]';
+COMMENT ON COLUMN pm.viqmel.pri IS 'PRIOKX — Priority [prioritas]';
 COMMENT ON COLUMN pm.viqmel.nom_psn_cre IS 'ERNAM — Name of Person who Created the Object [nomen persona creatus]';
 COMMENT ON COLUMN pm.viqmel.die_tbl_cre IS 'ERDAT — Date on which the record was created [dies tabula creatus]';
 COMMENT ON COLUMN pm.viqmel.nom_psn_mut IS 'AENAM — Name of Person Who Changed Object [nomen persona mutatus]';
@@ -3265,7 +3265,7 @@ COMMENT ON COLUMN pm.viqmel.mat_num IS 'MATNR — Material Number [materia numer
 COMMENT ON COLUMN pm.viqmel.nsr IS 'SERIALNR — Serial number [numerus serialis]';
 COMMENT ON COLUMN pm.viqmel.emp_num IS 'KUNUM — Customer Number [emptor numerus]';
 COMMENT ON COLUMN pm.viqmel.rbnr IS 'RBNR — Catalog profile';
-COMMENT ON COLUMN pm.viqmel.gen2 IS 'QMKAT — Catalog type for coding [genus]';
+COMMENT ON COLUMN pm.viqmel.gen IS 'QMKAT — Catalog type for coding [genus]';
 COMMENT ON COLUMN pm.viqmel.nts_cod_cts IS 'QMGRP — Notification: code group [nuntius codex coetus]';
 COMMENT ON COLUMN pm.viqmel.nts IS 'QMCOD — Notification: coding [nuntius]';
 COMMENT ON COLUMN pm.viqmel.amd IS 'KOKRS — Controlling Area [area moderationis]';

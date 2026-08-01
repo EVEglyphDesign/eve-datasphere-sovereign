@@ -1,0 +1,127 @@
+table: PARTY
+module: INT
+description: Party registry. Pseudonymous keys for the humans and organisations on either side of an interaction.
+  The registry holds the key, the role, the member it belongs to and the consent governing it — the identifying
+  detail stays in the system of record that is already lawfully holding it. A model that copies everyone's
+  name into a second database has not improved anybody's position.
+source: EVEglyphDesign canonical structure. Pseudonymisation is a design requirement, not a setting.
+fields:
+- name: RCLNT
+  description: Client
+  data_element: MANDT
+  datatype: CLNT
+  length: 3
+  decimals: 0
+  key: true
+  check_table: T000
+- name: PARTY
+  description: Pseudonymous party key
+  data_element: EGD_PARTY
+  datatype: CHAR
+  length: 32
+  decimals: 0
+  key: true
+- name: PTYKND
+  description: 'Party kind: person, organisation, team, system or agent'
+  data_element: EGD_PTYKND
+  datatype: CHAR
+  length: 4
+  decimals: 0
+  key: false
+- name: PTYROL
+  description: 'Primary role: customer, citizen, parishioner, employee, supplier, volunteer or agent'
+  data_element: EGD_PTYROL
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+- name: MEMBER
+  description: Member organisation the party is associated with
+  data_element: EGD_MEMBER
+  datatype: CHAR
+  length: 18
+  decimals: 0
+  key: false
+  check_table: MEMBR
+- name: SRCSYS
+  description: Source system holding the identifying record
+  data_element: EGD_SRCSYS
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+  check_table: SYSRC
+- name: SRCID
+  description: Identifier of the party in that source system
+  data_element: EGD_SRCID
+  datatype: CHAR
+  length: 60
+  decimals: 0
+  key: false
+- name: IDHASH
+  description: Salted hash used to resolve the same party across systems without storing identity
+  data_element: EGD_EVDHSH
+  datatype: CHAR
+  length: 64
+  decimals: 0
+  key: false
+- name: SPRAS
+  description: Language the party prefers to be addressed in
+  data_element: SPRAS
+  datatype: LANG
+  length: 1
+  decimals: 0
+  key: false
+  check_table: T002
+- name: LAND1
+  description: Country Key of the party
+  data_element: LAND1
+  datatype: CHAR
+  length: 3
+  decimals: 0
+  key: false
+  check_table: T005
+- name: CNSSTA
+  description: Consent status governing use of this party record
+  data_element: EGD_CNSSTA
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: CNSREF
+  description: Consent reference
+  data_element: EGD_SRCID
+  datatype: CHAR
+  length: 60
+  decimals: 0
+  key: false
+- name: ERASRQ
+  description: Erasure requested — the party has asked to be forgotten
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: ERASDT
+  description: Date the erasure request was recorded
+  data_element: DATUM
+  datatype: DATS
+  length: 8
+  decimals: 0
+  key: false
+- name: VULNFL
+  description: Vulnerability flag requiring additional care in handling
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+foreign_keys:
+- field: MEMBER
+  check_table: MEMBR
+  check_field: MEMBER
+- field: SRCSYS
+  check_table: SYSRC
+  check_field: SRCSYS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

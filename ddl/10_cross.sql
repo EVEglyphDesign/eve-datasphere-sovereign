@@ -1,5 +1,5 @@
 -- EVE Datasphere Sovereign — PostgreSQL materialisation
--- Generated 2026-08-01T01:47:33Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
+-- Generated 2026-08-01T02:17:52Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
 -- Column names are the canonical Latin layer (EgD-LATIN-001). The legacy SAP field name
 -- is preserved in COMMENT ON COLUMN and in egd_catalog.field_map, and is the join key.
 -- Mirror, never cannibalise. Pour le bien-etre du peuple.
@@ -13,9 +13,9 @@ CREATE TABLE IF NOT EXISTS cross_app.adr2 (
   vla_die_ems date,
   ord_num varchar(3),
   ptr_tel_num varchar(3),
-  dml_gen varchar(1),
+  nrm_dml_gen varchar(1),
   sgn_num varchar(1),
-  dml_gen2 varchar(1),
+  dml_gen varchar(1),
   tel_cod_num varchar(30),
   tel varchar(10),
   num_cod varchar(30),
@@ -33,9 +33,9 @@ COMMENT ON COLUMN cross_app.adr2.psn_num IS 'PERSNUMBER — Person number [perso
 COMMENT ON COLUMN cross_app.adr2.vla_die_ems IS 'DATE_FROM — Valid-from date - in current Release only 00010101 possible [validus ab dies emissio]';
 COMMENT ON COLUMN cross_app.adr2.ord_num IS 'CONSNUMBER — Sequence Number [ordo numerus]';
 COMMENT ON COLUMN cross_app.adr2.ptr_tel_num IS 'COUNTRY — Country for telephone/fax number [patria telephonum numerus]';
-COMMENT ON COLUMN cross_app.adr2.dml_gen IS 'FLGDEFAULT — Standard Sender Address in this Communication Type [domicilium genus]';
+COMMENT ON COLUMN cross_app.adr2.nrm_dml_gen IS 'FLGDEFAULT — Standard Sender Address in this Communication Type [norma domicilium genus]';
 COMMENT ON COLUMN cross_app.adr2.sgn_num IS 'FLG_NOUSE — Flag: This Communication Number is Not Used [signum numerus]';
-COMMENT ON COLUMN cross_app.adr2.dml_gen2 IS 'HOME_FLAG — Recipient address in this communication type (mail sys.grp) [domicilium genus]';
+COMMENT ON COLUMN cross_app.adr2.dml_gen IS 'HOME_FLAG — Recipient address in this communication type (mail sys.grp) [domicilium genus]';
 COMMENT ON COLUMN cross_app.adr2.tel_cod_num IS 'TEL_NUMBER — Telephone no.: dialling code+number [telephonum codex numerus]';
 COMMENT ON COLUMN cross_app.adr2.tel IS 'TEL_EXTENS — Telephone no.: Extension [telephonum]';
 COMMENT ON COLUMN cross_app.adr2.num_cod IS 'TELNR_LONG — Complete number: dialling code+number+extension [numerus codex]';
@@ -52,15 +52,15 @@ CREATE TABLE IF NOT EXISTS cross_app.adr3 (
   vla_die_ems date,
   ord_num varchar(3),
   ptr_tel_num varchar(3),
-  dml_gen varchar(1),
+  nrm_dml_gen varchar(1),
   sgn_num varchar(1),
-  dml_gen2 varchar(1),
+  dml_gen varchar(1),
   num_cod varchar(30),
   fax_extens varchar(10),
   num_cod2 varchar(30),
   num varchar(30),
   cts varchar(1),
-  sgn_num2 varchar(1),
+  sgn_nrm_num varchar(1),
   sgn varchar(1),
   vla varchar(14),
   vld varchar(14),
@@ -73,15 +73,15 @@ COMMENT ON COLUMN cross_app.adr3.psn_num IS 'PERSNUMBER — Person number [perso
 COMMENT ON COLUMN cross_app.adr3.vla_die_ems IS 'DATE_FROM — Valid-from date - in current Release only 00010101 possible [validus ab dies emissio]';
 COMMENT ON COLUMN cross_app.adr3.ord_num IS 'CONSNUMBER — Sequence Number [ordo numerus]';
 COMMENT ON COLUMN cross_app.adr3.ptr_tel_num IS 'COUNTRY — Country for telephone/fax number [patria telephonum numerus]';
-COMMENT ON COLUMN cross_app.adr3.dml_gen IS 'FLGDEFAULT — Standard Sender Address in this Communication Type [domicilium genus]';
+COMMENT ON COLUMN cross_app.adr3.nrm_dml_gen IS 'FLGDEFAULT — Standard Sender Address in this Communication Type [norma domicilium genus]';
 COMMENT ON COLUMN cross_app.adr3.sgn_num IS 'FLG_NOUSE — Flag: This Communication Number is Not Used [signum numerus]';
-COMMENT ON COLUMN cross_app.adr3.dml_gen2 IS 'HOME_FLAG — Recipient address in this communication type (mail sys.grp) [domicilium genus]';
+COMMENT ON COLUMN cross_app.adr3.dml_gen IS 'HOME_FLAG — Recipient address in this communication type (mail sys.grp) [domicilium genus]';
 COMMENT ON COLUMN cross_app.adr3.num_cod IS 'FAX_NUMBER — Fax number: dialling code+number [numerus codex]';
 COMMENT ON COLUMN cross_app.adr3.fax_extens IS 'FAX_EXTENS — Fax no.: Extension';
 COMMENT ON COLUMN cross_app.adr3.num_cod2 IS 'FAXNR_LONG — Complete number: dialling code+number+extension [numerus codex]';
 COMMENT ON COLUMN cross_app.adr3.num IS 'FAXNR_CALL — Fax number for finding sender [numerus]';
 COMMENT ON COLUMN cross_app.adr3.cts IS 'FAX_GROUP — Fax group (G3, G4, ...) [coetus]';
-COMMENT ON COLUMN cross_app.adr3.sgn_num2 IS 'DFT_RECEIV — Flag: Recipient is standard recipient for this number [signum numerus]';
+COMMENT ON COLUMN cross_app.adr3.sgn_nrm_num IS 'DFT_RECEIV — Flag: Recipient is standard recipient for this number [signum norma numerus]';
 COMMENT ON COLUMN cross_app.adr3.sgn IS 'R3_USER — Flag: Connected to an SAP System [signum]';
 COMMENT ON COLUMN cross_app.adr3.vla IS 'VALID_FROM — Communication Data: Valid From (YYYYMMDDHHMMSS) [validus ab]';
 COMMENT ON COLUMN cross_app.adr3.vld IS 'VALID_TO — Communication Data: Valid To (YYYYMMDDHHMMSS) [validus ad]';
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS cross_app.adr6 (
   dml_gen varchar(1),
   dml varchar(241),
   dml_cmp varchar(20),
-  sgn_dml2 varchar(1),
+  sgn_nrm_dml varchar(1),
   sgn varchar(1),
   encode varchar(1),
   sgn2 varchar(1),
@@ -116,7 +116,7 @@ COMMENT ON COLUMN cross_app.adr6.sgn_num IS 'FLG_NOUSE — Flag: This Communicat
 COMMENT ON COLUMN cross_app.adr6.dml_gen IS 'HOME_FLAG — Recipient address in this communication type (mail sys.grp) [domicilium genus]';
 COMMENT ON COLUMN cross_app.adr6.dml IS 'SMTP_ADDR — E-Mail Address [domicilium]';
 COMMENT ON COLUMN cross_app.adr6.dml_cmp IS 'SMTP_SRCH — E-Mail Address Search Field [domicilium campus]';
-COMMENT ON COLUMN cross_app.adr6.sgn_dml2 IS 'DFT_RECEIV — Flag: Recipient is standard recipient for this address [signum domicilium]';
+COMMENT ON COLUMN cross_app.adr6.sgn_nrm_dml IS 'DFT_RECEIV — Flag: Recipient is standard recipient for this address [signum norma domicilium]';
 COMMENT ON COLUMN cross_app.adr6.sgn IS 'R3_USER — Flag: Connected to an SAP System [signum]';
 COMMENT ON COLUMN cross_app.adr6.encode IS 'ENCODE — Desired Data Coding (E-Mail)';
 COMMENT ON COLUMN cross_app.adr6.sgn2 IS 'TNEF — Flag: Receiver can receive TNEF coding via SMTP [signum]';
@@ -151,13 +151,13 @@ CREATE TABLE IF NOT EXISTS cross_app.adrc (
   dml_cts_clv varchar(4),
   sort1 varchar(20),
   sort2 varchar(20),
-  clv_dml varchar(3),
+  clv_dml_cnl varchar(3),
   pri_tel_cod varchar(30),
   pri_cod_num varchar(30),
   sgn_tel_num varchar(1),
   sgn_num varchar(1),
   idx_dml varchar(1),
-  dml_tmp varchar(6),
+  dml_ztm varchar(6),
   trb varchar(15),
   dml bytea,
   sta_dml varchar(1),
@@ -191,13 +191,13 @@ COMMENT ON COLUMN cross_app.adrc.reg IS 'REGION — Region (State, Province, Cou
 COMMENT ON COLUMN cross_app.adrc.dml_cts_clv IS 'ADDR_GROUP — Address Group (Key) (Business Address Services) [domicilium coetus clavis]';
 COMMENT ON COLUMN cross_app.adrc.sort1 IS 'SORT1 — Search Term 1';
 COMMENT ON COLUMN cross_app.adrc.sort2 IS 'SORT2 — Search Term 2';
-COMMENT ON COLUMN cross_app.adrc.clv_dml IS 'DEFLT_COMM — Communication Method (Key) (Business Address Services) — which of ADR2/ADR3/ADR6 etc. is the default channel [clavis domicilium]';
+COMMENT ON COLUMN cross_app.adrc.clv_dml_cnl IS 'DEFLT_COMM — Communication Method (Key) (Business Address Services) — which of ADR2/ADR3/ADR6 etc. is the default channel [clavis domicilium canalis]';
 COMMENT ON COLUMN cross_app.adrc.pri_tel_cod IS 'TEL_NUMBER — First telephone no.: dialling code+number [primus telephonum codex]';
 COMMENT ON COLUMN cross_app.adrc.pri_cod_num IS 'FAX_NUMBER — First fax no.: dialling code+number [primus codex numerus]';
 COMMENT ON COLUMN cross_app.adrc.sgn_tel_num IS 'FLAGCOMM2 — Flag: Telephone number(s) maintained — points at ADR2 [signum telephonum numerus]';
 COMMENT ON COLUMN cross_app.adrc.sgn_num IS 'FLAGCOMM3 — Flag: Fax number(s) maintained — points at ADR3 [signum numerus]';
 COMMENT ON COLUMN cross_app.adrc.idx_dml IS 'FLAGCOMM6 — Indicator: E-Mail Address(es) Maintained — points at ADR6 [index domicilium]';
-COMMENT ON COLUMN cross_app.adrc.dml_tmp IS 'TIME_ZONE — Address time zone [domicilium tempus]';
+COMMENT ON COLUMN cross_app.adrc.dml_ztm IS 'TIME_ZONE — Address time zone [domicilium zona temporis]';
 COMMENT ON COLUMN cross_app.adrc.trb IS 'TAXJURCODE — Tax Jurisdiction [tributum]';
 COMMENT ON COLUMN cross_app.adrc.dml IS 'ADRC_UUID — UUID Used in the Address [domicilium]';
 COMMENT ON COLUMN cross_app.adrc.sta_dml IS 'ADRC_ERR_STATUS — Error Status of Address [status domicilium]';
@@ -537,7 +537,7 @@ CREATE TABLE IF NOT EXISTS cross_app.dd02l (
   die_ult date,
   ult_mut2 time,
   lng2 char(1),
-  sgn_cur varchar(1),
+  sgn_cur_nrm varchar(1),
   trd_cls_emp varchar(1),
   reservetab varchar(4),
   sgn3 varchar(1),
@@ -568,7 +568,7 @@ COMMENT ON COLUMN cross_app.dd02l.ult_mut IS 'AS4USER — Last Changed by [ultim
 COMMENT ON COLUMN cross_app.dd02l.die_ult IS 'AS4DATE — Date of Last Change [dies ultimus]';
 COMMENT ON COLUMN cross_app.dd02l.ult_mut2 IS 'AS4TIME — Last changed at [ultimus mutatus]';
 COMMENT ON COLUMN cross_app.dd02l.lng2 IS 'MASTERLANG — Original Language in Repository objects [lingua]';
-COMMENT ON COLUMN cross_app.dd02l.sgn_cur IS 'MAINFLAG — Flag if Maintenance with Standard Tools is allowed [signum curatio]';
+COMMENT ON COLUMN cross_app.dd02l.sgn_cur_nrm IS 'MAINFLAG — Flag if Maintenance with Standard Tools is allowed [signum curatio norma]';
 COMMENT ON COLUMN cross_app.dd02l.trd_cls_emp IS 'CONTFLAG — Delivery class — controls who may add/change data (SAP, customer, both) [traditio classis emptor]';
 COMMENT ON COLUMN cross_app.dd02l.reservetab IS 'RESERVETAB — SDIC: Reserve for tables';
 COMMENT ON COLUMN cross_app.dd02l.sgn3 IS 'GLOBALFLAG — Flag for private DD objects (not used) [signum]';
@@ -918,7 +918,7 @@ CREATE TABLE IF NOT EXISTS cross_app.dd25l (
   lng char(1),
   trd_cls varchar(1),
   cur_sta_vis varchar(1),
-  sgn_cur varchar(1),
+  sgn_cur_nrm varchar(1),
   lcn_cur_clv varchar(1),
   nom_vis varchar(250),
   CONSTRAINT dd25l_pk PRIMARY KEY (nom_tbl_vis)
@@ -940,7 +940,7 @@ COMMENT ON COLUMN cross_app.dd25l.sgn2 IS 'ACTFLAG — Activation flag [signum]'
 COMMENT ON COLUMN cross_app.dd25l.lng IS 'MASTERLANG — Original Language in Repository objects [lingua]';
 COMMENT ON COLUMN cross_app.dd25l.trd_cls IS 'CUSTOMAUTH — Delivery class [traditio classis]';
 COMMENT ON COLUMN cross_app.dd25l.cur_sta_vis IS 'VIEWGRANT — Maintenance status (modification authorization) for view data [curatio status visus]';
-COMMENT ON COLUMN cross_app.dd25l.sgn_cur IS 'GLOBALFLAG — Flag if Maintenance with Standard Tools is allowed [signum curatio]';
+COMMENT ON COLUMN cross_app.dd25l.sgn_cur_nrm IS 'GLOBALFLAG — Flag if Maintenance with Standard Tools is allowed [signum curatio norma]';
 COMMENT ON COLUMN cross_app.dd25l.lcn_cur_clv IS 'MANKEY — Permit manual maintenance of key attribute [licentia curatio clavis]';
 COMMENT ON COLUMN cross_app.dd25l.nom_vis IS 'DBREFNAME — DD: Name of View on Database [nomen visus]';
 
@@ -1136,7 +1136,7 @@ CREATE TABLE IF NOT EXISTS cross_app.t000 (
   cli char(3),
   cli_nom varchar(25),
   urb varchar(25),
-  mon_cli varchar(5),
+  nrm_mon_cli varchar(5),
   dml varchar(10),
   cli_prd varchar(1),
   cli2 varchar(1),
@@ -1156,7 +1156,7 @@ COMMENT ON TABLE cross_app.t000 IS 'T000 — Clients — the root of the SAP cli
 COMMENT ON COLUMN cross_app.t000.cli IS 'MANDT — Client [cliens]';
 COMMENT ON COLUMN cross_app.t000.cli_nom IS 'MTEXT — Client Name [cliens nomen]';
 COMMENT ON COLUMN cross_app.t000.urb IS 'ORT01 — City [urbs]';
-COMMENT ON COLUMN cross_app.t000.mon_cli IS 'MWAER — Standard Currency Throughout Client [moneta cliens]';
+COMMENT ON COLUMN cross_app.t000.nrm_mon_cli IS 'MWAER — Standard Currency Throughout Client [norma moneta cliens]';
 COMMENT ON COLUMN cross_app.t000.dml IS 'ADRNR — Address (business address services) [domicilium]';
 COMMENT ON COLUMN cross_app.t000.cli_prd IS 'CCCATEGORY — Role of client (production, test, ...) [cliens productio]';
 COMMENT ON COLUMN cross_app.t000.cli2 IS 'CCCORACTIV — Change and transport for client-specific objects [cliens]';
@@ -1233,11 +1233,11 @@ CREATE TABLE IF NOT EXISTS cross_app.t005 (
   clv varchar(3),
   lng_clv_ptr char(1),
   ptr_vrs_sgn varchar(1),
-  nom varchar(2),
+  nrm_nom varchar(2),
   ptr_cod varchar(2),
   ptr_cod2 varchar(3),
   ptr_cod3 varchar(3),
-  idx varchar(1),
+  idx_mbr varchar(1),
   rag_num varchar(2),
   arg_num varchar(2),
   num varchar(2),
@@ -1262,11 +1262,11 @@ COMMENT ON COLUMN cross_app.t005.cod IS 'LNPLZ — Postal code length [codex]';
 COMMENT ON COLUMN cross_app.t005.clv IS 'ADDRS — Formatting routine key for printing addresses [clavis]';
 COMMENT ON COLUMN cross_app.t005.lng_clv_ptr IS 'SPRAS — Language Key — the country''s default language [lingua clavis patria]';
 COMMENT ON COLUMN cross_app.t005.ptr_vrs_sgn IS 'XLAND — Country version flag [patria versio signum]';
-COMMENT ON COLUMN cross_app.t005.nom IS 'NMFMT — Standard name format [nomen]';
+COMMENT ON COLUMN cross_app.t005.nrm_nom IS 'NMFMT — Standard name format [norma nomen]';
 COMMENT ON COLUMN cross_app.t005.ptr_cod IS 'INTCA — Country ISO code (2-char) [patria codex]';
 COMMENT ON COLUMN cross_app.t005.ptr_cod2 IS 'INTCA3 — ISO country code 3 char [patria codex]';
 COMMENT ON COLUMN cross_app.t005.ptr_cod3 IS 'INTCN3 — ISO Country Code Numeric 3-Characters [patria codex]';
-COMMENT ON COLUMN cross_app.t005.idx IS 'XEGLD — Indicator: European Union Member? [index]';
+COMMENT ON COLUMN cross_app.t005.idx_mbr IS 'XEGLD — Indicator: European Union Member? [index membrum]';
 COMMENT ON COLUMN cross_app.t005.rag_num IS 'LNBKN — Bank account number length [ratio argentariae numerus]';
 COMMENT ON COLUMN cross_app.t005.arg_num IS 'LNBLZ — Bank number length [argentaria numerus]';
 COMMENT ON COLUMN cross_app.t005.num IS 'UINLN — VAT registration number length [numerus]';

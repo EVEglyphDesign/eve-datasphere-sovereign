@@ -1,0 +1,503 @@
+table: ACDOCI
+module: INT
+description: 'Universal Interaction Journal. The same idea as ACDOCA, applied to human interaction: one
+  line per interaction, carrying every dimension that interaction belongs to, whatever system of record
+  it originated in. A case in Salesforce, an incident in ServiceNow, a phone call, a satellite session
+  and a visit in a parish hall all land as the same shape of row. The source record is never altered and
+  never replaced — SRCSYS, SRCTYP and SRCID always point back to it. Carries the ACDOCA cost-object spine
+  so an interaction can be tied to the money it caused and to the societal effect it produced.'
+source: EVEglyphDesign canonical structure. Not a vendor table. Mirrors Salesforce and ServiceNow systems
+  of record; extensible to telephony and satellite via IJTEL and IJSAT.
+fields:
+- name: RCLNT
+  description: Client
+  data_element: MANDT
+  datatype: CLNT
+  length: 3
+  decimals: 0
+  key: true
+  check_table: T000
+- name: IJYR
+  description: Interaction journal year
+  data_element: GJAHR
+  datatype: NUMC
+  length: 4
+  decimals: 0
+  key: true
+- name: IJNO
+  description: Interaction journal document number
+  data_element: EGD_IJNO
+  datatype: CHAR
+  length: 20
+  decimals: 0
+  key: true
+- name: IJLN
+  description: Interaction journal item
+  data_element: EGD_IJLN
+  datatype: NUMC
+  length: 6
+  decimals: 0
+  key: true
+- name: SRCSYS
+  description: Source system of record the interaction was mirrored from
+  data_element: EGD_SRCSYS
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+  check_table: SYSRC
+- name: SRCTYP
+  description: Source object or table name in the system of record
+  data_element: EGD_SRCTYP
+  datatype: CHAR
+  length: 40
+  decimals: 0
+  key: false
+- name: SRCID
+  description: Source record identifier, unaltered
+  data_element: EGD_SRCID
+  datatype: CHAR
+  length: 60
+  decimals: 0
+  key: false
+- name: SRCPAR
+  description: Source parent record identifier, where the interaction hangs off a case or request
+  data_element: EGD_SRCID
+  datatype: CHAR
+  length: 60
+  decimals: 0
+  key: false
+- name: SRCMOD
+  description: Last modified timestamp in the source system
+  data_element: TIMESTAMP
+  datatype: DEC
+  length: 15
+  decimals: 0
+  key: false
+- name: MIRTS
+  description: Mirror timestamp — when this line was read from the source
+  data_element: TIMESTAMP
+  datatype: DEC
+  length: 15
+  decimals: 0
+  key: false
+- name: MIRHSH
+  description: SHA-256 hash of the mirrored source payload, so drift is detectable
+  data_element: EGD_EVDHSH
+  datatype: CHAR
+  length: 64
+  decimals: 0
+  key: false
+- name: INTTYP
+  description: 'Interaction type: case, incident, call, meeting, message, task, service request or visit'
+  data_element: EGD_INTTYP
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+  check_table: ITYP
+- name: CHANNL
+  description: Channel the interaction travelled over
+  data_element: EGD_CHANNL
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+  check_table: CHNL
+- name: DIRECT
+  description: 'Direction: inbound, outbound or internal'
+  data_element: EGD_DIRECT
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: PTYINI
+  description: Initiating party — pseudonymous party key of whoever began the interaction
+  data_element: EGD_PARTY
+  datatype: CHAR
+  length: 32
+  decimals: 0
+  key: false
+  check_table: PARTY
+- name: PTYREC
+  description: Receiving party — pseudonymous party key of whoever answered
+  data_element: EGD_PARTY
+  datatype: CHAR
+  length: 32
+  decimals: 0
+  key: false
+  check_table: PARTY
+- name: PTYOWN
+  description: Owning party — the person or team accountable for the interaction
+  data_element: EGD_PARTY
+  datatype: CHAR
+  length: 32
+  decimals: 0
+  key: false
+  check_table: PARTY
+- name: MEMBER
+  description: Member organisation the interaction belongs to
+  data_element: EGD_MEMBER
+  datatype: CHAR
+  length: 18
+  decimals: 0
+  key: false
+  check_table: MEMBR
+- name: RBUKRS
+  description: Company Code the interaction is attributed to
+  data_element: BUKRS
+  datatype: CHAR
+  length: 4
+  decimals: 0
+  key: false
+  check_table: T001
+- name: KOSTL
+  description: Cost Center carrying the cost of the interaction
+  data_element: KOSTL
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+  check_table: CSKS
+- name: PRCTR
+  description: Profit Center carrying the interaction
+  data_element: PRCTR
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+  check_table: CEPC
+- name: PS_PSP_PNR
+  description: Work Breakdown Structure Element the interaction belongs to
+  data_element: PS_PSP_PNR
+  datatype: NUMC
+  length: 8
+  decimals: 0
+  key: false
+  check_table: PRPS
+- name: AUFNR
+  description: Order Number the interaction belongs to
+  data_element: AUFNR
+  datatype: CHAR
+  length: 12
+  decimals: 0
+  key: false
+  check_table: AUFK
+- name: KUNNR
+  description: Customer Number, where the counterparty is a customer of record
+  data_element: KUNNR
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+  check_table: KNA1
+- name: LIFNR
+  description: Vendor Account Number, where the counterparty is a supplier
+  data_element: LIFNR
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+  check_table: LFA1
+- name: EQUNR
+  description: Equipment Number the interaction concerns, for field service and maintenance
+  data_element: EQUNR
+  datatype: CHAR
+  length: 18
+  decimals: 0
+  key: false
+  check_table: EQUI
+- name: BEGDAT
+  description: Interaction start date
+  data_element: DATUM
+  datatype: DATS
+  length: 8
+  decimals: 0
+  key: false
+- name: BEGTIM
+  description: Interaction start time
+  data_element: UZEIT
+  datatype: TIMS
+  length: 6
+  decimals: 0
+  key: false
+- name: ENDDAT
+  description: Interaction end date
+  data_element: DATUM
+  datatype: DATS
+  length: 8
+  decimals: 0
+  key: false
+- name: ENDTIM
+  description: Interaction end time
+  data_element: UZEIT
+  datatype: TIMS
+  length: 6
+  decimals: 0
+  key: false
+- name: DURSEC
+  description: Interaction duration in seconds
+  data_element: EGD_DURSEC
+  datatype: DEC
+  length: 13
+  decimals: 0
+  key: false
+- name: TZONE
+  description: Time zone the interaction occurred in
+  data_element: TZNZONE
+  datatype: CHAR
+  length: 6
+  decimals: 0
+  key: false
+  check_table: TTZZ
+- name: QUEUE
+  description: Queue or work group the interaction was handled in
+  data_element: EGD_QUEUE
+  datatype: CHAR
+  length: 30
+  decimals: 0
+  key: false
+- name: PRIORT
+  description: Priority assigned in the source system
+  data_element: EGD_PRIORT
+  datatype: CHAR
+  length: 2
+  decimals: 0
+  key: false
+- name: SEVERT
+  description: Severity assigned in the source system
+  data_element: EGD_SEVERT
+  datatype: CHAR
+  length: 2
+  decimals: 0
+  key: false
+- name: STATUS
+  description: Canonical status, crosswalked from the source system status
+  data_element: EGD_STATUS
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+  check_table: STSMAP
+- name: SRCSTA
+  description: Status value exactly as held in the source system, never normalised away
+  data_element: EGD_SRCSTA
+  datatype: CHAR
+  length: 40
+  decimals: 0
+  key: false
+- name: RESCOD
+  description: Resolution code, crosswalked
+  data_element: EGD_RESCOD
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+- name: FSTSEC
+  description: First response time in seconds
+  data_element: EGD_DURSEC
+  datatype: DEC
+  length: 13
+  decimals: 0
+  key: false
+- name: RESSEC
+  description: Time to resolution in seconds
+  data_element: EGD_DURSEC
+  datatype: DEC
+  length: 13
+  decimals: 0
+  key: false
+- name: REOPEN
+  description: Number of times the interaction was reopened
+  data_element: EGD_COUNT
+  datatype: NUMC
+  length: 3
+  decimals: 0
+  key: false
+- name: ESCLVL
+  description: Escalation level reached
+  data_element: EGD_COUNT
+  datatype: NUMC
+  length: 3
+  decimals: 0
+  key: false
+- name: CSATSC
+  description: Satisfaction score recorded for the interaction
+  data_element: EGD_CSATSC
+  datatype: DEC
+  length: 5
+  decimals: 2
+  key: false
+- name: SENTIM
+  description: Sentiment score derived from the interaction, where consent permits derivation
+  data_element: EGD_SENTIM
+  datatype: DEC
+  length: 5
+  decimals: 2
+  key: false
+- name: TOPIC
+  description: Topic classification of the interaction
+  data_element: EGD_TOPIC
+  datatype: CHAR
+  length: 40
+  decimals: 0
+  key: false
+- name: SUBJRF
+  description: Subject reference — pointer to the subject line held in the source system
+  data_element: EGD_SRCID
+  datatype: CHAR
+  length: 60
+  decimals: 0
+  key: false
+- name: CNTREF
+  description: Content reference — pointer to the interaction body in the source system. The body is not
+    copied here
+  data_element: EGD_SRCID
+  datatype: CHAR
+  length: 60
+  decimals: 0
+  key: false
+- name: CNTHSH
+  description: SHA-256 hash of the referenced content, so a record cannot be silently rewritten
+  data_element: EGD_EVDHSH
+  datatype: CHAR
+  length: 64
+  decimals: 0
+  key: false
+- name: PIIIND
+  description: 'Personal data indicator: the line references personal data and is consent-scoped'
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: CNSSTA
+  description: Consent status governing use of this interaction record
+  data_element: EGD_CNSSTA
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: CNSREF
+  description: Consent reference — the recorded consent this use relies on
+  data_element: EGD_SRCID
+  datatype: CHAR
+  length: 60
+  decimals: 0
+  key: false
+- name: RETPOL
+  description: Retention policy key governing how long this line may be held
+  data_element: EGD_RETPOL
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+- name: LEGHLD
+  description: Legal hold indicator suspending deletion
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: SPRAS
+  description: Language the interaction was conducted in
+  data_element: SPRAS
+  datatype: LANG
+  length: 1
+  decimals: 0
+  key: false
+  check_table: T002
+- name: LAND1
+  description: Country Key the interaction occurred in
+  data_element: LAND1
+  datatype: CHAR
+  length: 3
+  decimals: 0
+  key: false
+  check_table: T005
+- name: GEOREG
+  description: Region the interaction occurred in
+  data_element: REGIO
+  datatype: CHAR
+  length: 3
+  decimals: 0
+  key: false
+  check_table: T005S
+- name: DEVTYP
+  description: Device type used by the initiating party
+  data_element: EGD_DEVTYP
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+- name: COSTAM
+  description: Cost to serve the interaction
+  data_element: EGD_EFFAMT
+  datatype: CURR
+  length: 23
+  decimals: 2
+  key: false
+- name: COSTCU
+  description: Currency key of the cost to serve
+  data_element: WAERS
+  datatype: CUKY
+  length: 5
+  decimals: 0
+  key: false
+  check_table: TCURC
+- name: FI_BELNR
+  description: Accounting Document Number this interaction caused, where it caused a posting
+  data_element: BELNR_D
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+- name: FI_GJAHR
+  description: Fiscal Year of the accounting document
+  data_element: GJAHR
+  datatype: NUMC
+  length: 4
+  decimals: 0
+  key: false
+- name: FI_DOCLN
+  description: Posting item of the accounting document
+  data_element: DOCLN6
+  datatype: CHAR
+  length: 6
+  decimals: 0
+  key: false
+- name: EFFLN
+  description: Effect item counter, where the interaction produced a recorded societal effect
+  data_element: EGD_EFFLN
+  datatype: NUMC
+  length: 3
+  decimals: 0
+  key: false
+- name: REVLN
+  description: Reversal reference to the interaction line this line supersedes
+  data_element: EGD_IJLN
+  datatype: NUMC
+  length: 6
+  decimals: 0
+  key: false
+foreign_keys:
+- field: SRCSYS
+  check_table: SYSRC
+  check_field: SRCSYS
+- field: INTTYP
+  check_table: ITYP
+  check_field: INTTYP
+- field: CHANNL
+  check_table: CHNL
+  check_field: CHANNL
+- field: MEMBER
+  check_table: MEMBR
+  check_field: MEMBER
+- field: RBUKRS
+  check_table: T001
+  check_field: BUKRS
+- field: KOSTL
+  check_table: CSKS
+  check_field: KOSTL
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

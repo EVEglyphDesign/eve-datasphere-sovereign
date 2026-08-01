@@ -1,0 +1,72 @@
+table: ITYP
+module: INT
+description: 'Interaction type master. What kind of human interaction the line records: a case, an incident,
+  a call, a meeting, a task, a service request, a home visit, a sacrament, a class taught. The list is
+  deliberately not limited to commercial support work, because the ledger is meant to cover all forms
+  of human interaction, not only the ones that bill.'
+source: EVEglyphDesign canonical structure.
+fields:
+- name: RCLNT
+  description: Client
+  data_element: MANDT
+  datatype: CLNT
+  length: 3
+  decimals: 0
+  key: true
+  check_table: T000
+- name: INTTYP
+  description: Interaction type key
+  data_element: EGD_INTTYP
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: true
+- name: ITYTXT
+  description: Interaction type description
+  data_element: TEXT60
+  datatype: CHAR
+  length: 60
+  decimals: 0
+  key: false
+- name: ITYDOM
+  description: 'Domain: commercial, service, care, education, civic or faith'
+  data_element: EGD_ITYDOM
+  datatype: CHAR
+  length: 4
+  decimals: 0
+  key: false
+- name: SLAREL
+  description: Service level applies to this interaction type
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: EFFREL
+  description: Interaction type is expected to produce a societal effect line
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: EFFCAT
+  description: Default effect category for interactions of this type
+  data_element: EGD_EFFCAT
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+  check_table: EFFCAT
+- name: CNSREQ
+  description: Consent is required before an interaction of this type may be mirrored
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+foreign_keys:
+- field: EFFCAT
+  check_table: EFFCAT
+  check_field: EFFCAT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

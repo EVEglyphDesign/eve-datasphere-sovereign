@@ -1,0 +1,85 @@
+table: CHNL
+module: INT
+description: Channel master. The medium an interaction travelled over — voice, chat, email, portal, field
+  visit, in person, satellite link, letter. Held as master data so that a channel nobody has thought of
+  yet is an insert, not a schema change.
+source: EVEglyphDesign canonical structure.
+fields:
+- name: RCLNT
+  description: Client
+  data_element: MANDT
+  datatype: CLNT
+  length: 3
+  decimals: 0
+  key: true
+  check_table: T000
+- name: CHANNL
+  description: Channel key
+  data_element: EGD_CHANNL
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: true
+- name: CHNTXT
+  description: Channel description
+  data_element: TEXT60
+  datatype: CHAR
+  length: 60
+  decimals: 0
+  key: false
+- name: CHNGRP
+  description: 'Channel group: synchronous, asynchronous or in person'
+  data_element: EGD_CHNGRP
+  datatype: CHAR
+  length: 4
+  decimals: 0
+  key: false
+- name: SYNCHR
+  description: Channel is synchronous — both parties present at once
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: EXTFLG
+  description: Channel requires the telephony extension
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: SATFLG
+  description: Channel requires the satellite extension
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: COSTUN
+  description: Standard cost per unit of use of this channel
+  data_element: EGD_EFFAMT
+  datatype: CURR
+  length: 23
+  decimals: 2
+  key: false
+- name: COSTCU
+  description: Currency key of the standard cost
+  data_element: WAERS
+  datatype: CUKY
+  length: 5
+  decimals: 0
+  key: false
+  check_table: TCURC
+- name: ACCESS
+  description: Accessibility class — channels that reach people other channels do not
+  data_element: EGD_ACCESS
+  datatype: CHAR
+  length: 4
+  decimals: 0
+  key: false
+foreign_keys:
+- field: CHANNL
+  check_table: CHNL
+  check_field: CHANNL
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

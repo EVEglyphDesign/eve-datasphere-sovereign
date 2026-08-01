@@ -1,0 +1,144 @@
+table: MEMBR
+module: EXT
+description: 'Member organisation registry. The professional community this model exists to serve: the
+  firms, parishes, councils, schools and non-profits that post effects, verify each other''s claims and
+  hold recognition. Membership carries a peer group and a standing, because the point of the register
+  is that an organisation which accomplished something can be told apart from one that described something.'
+source: 'EVEglyphDesign extension. Consent-scoped: a member controls the visibility of its own record.'
+fields:
+- name: RCLNT
+  description: Client
+  data_element: MANDT
+  datatype: CLNT
+  length: 3
+  decimals: 0
+  key: true
+  check_table: T000
+- name: MEMBER
+  description: Member organisation key
+  data_element: EGD_MEMBER
+  datatype: CHAR
+  length: 18
+  decimals: 0
+  key: true
+- name: MEMNAM
+  description: Member organisation name
+  data_element: NAME1
+  datatype: CHAR
+  length: 80
+  decimals: 0
+  key: false
+- name: MEMTYP
+  description: 'Member type: enterprise, non-profit, parish, council, school or individual practitioner'
+  data_element: EGD_MEMTYP
+  datatype: CHAR
+  length: 4
+  decimals: 0
+  key: false
+- name: PEERGP
+  description: Peer group the member is compared within
+  data_element: EGD_PEERGP
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+- name: BUKRS
+  description: Company Code the member posts under, where the member runs its own ledger
+  data_element: BUKRS
+  datatype: CHAR
+  length: 4
+  decimals: 0
+  key: false
+  check_table: T001
+- name: LAND1
+  description: Country Key of the member
+  data_element: LAND1
+  datatype: CHAR
+  length: 3
+  decimals: 0
+  key: false
+  check_table: T005
+- name: SPRAS
+  description: Language Key in which the member reads the model
+  data_element: SPRAS
+  datatype: LANG
+  length: 1
+  decimals: 0
+  key: false
+  check_table: T002
+- name: NPOIND
+  description: 'Qualified non-profit: blueprint designs are provided without charge'
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: SAFIND
+  description: 'Legacy safety systems vendor: blueprint designs and services are provided without charge.
+    Work that keeps people alive is not a revenue opportunity'
+  data_element: EGD_SAFIND
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: SAFKND
+  description: 'Safety system kind: emergency dispatch, alarm and monitoring, life safety, industrial
+    safety instrumented systems, marine or aviation safety, or public safety communications'
+  data_element: EGD_SAFKND
+  datatype: CHAR
+  length: 4
+  decimals: 0
+  key: false
+- name: FOCBAS
+  description: 'Basis on which charges are waived: non-profit status, safety vendor status, parish or
+    council standing, or granted exception'
+  data_element: EGD_FOCBAS
+  datatype: CHAR
+  length: 4
+  decimals: 0
+  key: false
+- name: JOINDT
+  description: Date the member joined the community
+  data_element: DATUM
+  datatype: DATS
+  length: 8
+  decimals: 0
+  key: false
+- name: VERRGT
+  description: Member is entitled to verify other members effect claims
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: STANDG
+  description: 'Standing: recognition held net of decay, the members visible record'
+  data_element: EGD_MRTAMT
+  datatype: DEC
+  length: 23
+  decimals: 3
+  key: false
+- name: VISIBL
+  description: 'Visibility consent: private, peer group or public'
+  data_element: EGD_VISIBL
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: ADRNR
+  description: Address number of the member
+  data_element: ADRNR
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+  check_table: ADRC
+foreign_keys:
+- field: BUKRS
+  check_table: T001
+  check_field: BUKRS
+- field: ADRNR
+  check_table: ADRC
+  check_field: ADDRNUMBER
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

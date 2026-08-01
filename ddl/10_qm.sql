@@ -1,5 +1,5 @@
 -- EVE Datasphere Sovereign — PostgreSQL materialisation
--- Generated 2026-08-01T01:47:33Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
+-- Generated 2026-08-01T02:17:52Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
 -- Column names are the canonical Latin layer (EgD-LATIN-001). The legacy SAP field name
 -- is preserved in COMMENT ON COLUMN and in egd_catalog.field_map, and is the join key.
 -- Mirror, never cannibalise. Pour le bien-etre du peuple.
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS qm.qals (
   obi_num_grx varchar(18),
   prd_vrs varchar(4),
   cap_num varchar(12),
-  emp2 varchar(10),
+  emp_psn varchar(10),
   ven_rat_num2 varchar(10),
   num3 varchar(10),
   mat_num2 varchar(18),
@@ -140,7 +140,7 @@ CREATE TABLE IF NOT EXISTS qm.qals (
   trd_ctg varchar(3),
   ls_route varchar(6),
   ptr varchar(3),
-  ls_kunag varchar(10),
+  psn varchar(10),
   ovd varchar(4),
   mat_emp varchar(35),
   lng_clv char(1),
@@ -161,7 +161,7 @@ CREATE TABLE IF NOT EXISTS qm.qals (
   dynregel varchar(3),
   tmp_isp varchar(1),
   isp8 varchar(4),
-  isp9 varchar(3),
+  isp_grv varchar(3),
   qnt_cpa numeric(13,3),
   qnt numeric(13,3),
   qnt_exm numeric(13,3),
@@ -180,7 +180,7 @@ CREATE TABLE IF NOT EXISTS qm.qals (
   acl_qnt numeric(13,3),
   qnt5 numeric(13,3),
   iud4 varchar(1),
-  isp10 numeric(16,3),
+  isp9 numeric(16,3),
   qkzverf varchar(2),
   iud_org varchar(1),
   qpmatlos numeric(16,3),
@@ -210,7 +210,7 @@ CREATE TABLE IF NOT EXISTS qm.qals (
   nsr2 varchar(4),
   isp_num2 varchar(12),
   cmp varchar(2),
-  isp11 varchar(1),
+  isp10 varchar(1),
   idx varchar(1),
   cmp2 varchar(1),
   cmp3 varchar(1),
@@ -230,7 +230,7 @@ CREATE TABLE IF NOT EXISTS qm.qals (
   cmp17 varchar(1),
   ccu varchar(12),
   cur_pos varchar(16),
-  ccu_num integer,
+  ccu_voc_num integer,
   cur varchar(6),
   num7 varchar(12),
   responsible varchar(45),
@@ -238,11 +238,11 @@ CREATE TABLE IF NOT EXISTS qm.qals (
   log_system varchar(10),
   exm_mgn2 numeric(13,3),
   men_exm varchar(3),
-  prio_punkte integer,
+  pri integer,
   gen_isp varchar(1),
   gen_isp_iud varchar(1),
   gen_exm varchar(1),
-  isp12 varchar(8),
+  isp11 varchar(8),
   iud5 varchar(8),
   exm4 varchar(8),
   CONSTRAINT qals_pk PRIMARY KEY (cli, isp_num, ofc, isp_gen, isp_org, obi_num, obi_ctg, sta, mat_cts)
@@ -343,7 +343,7 @@ COMMENT ON COLUMN qm.qals.obi_num2 IS 'CUOBJ — Configuration (internal object 
 COMMENT ON COLUMN qm.qals.obi_num_grx IS 'CUOBJ_CH — Internal object number of the batch classification [obiectum numerus grex]';
 COMMENT ON COLUMN qm.qals.prd_vrs IS 'VERID — Production Version [productio versio]';
 COMMENT ON COLUMN qm.qals.cap_num IS 'SA_AUFNR — Run schedule header number [caput numerus]';
-COMMENT ON COLUMN qm.qals.emp2 IS 'KUNNR — Customer (Ship-To Party) [emptor]';
+COMMENT ON COLUMN qm.qals.emp_psn IS 'KUNNR — Customer (Ship-To Party) [emptor persona]';
 COMMENT ON COLUMN qm.qals.ven_rat_num2 IS 'LIFNR — Vendor Account Number [venditor ratio numerus]';
 COMMENT ON COLUMN qm.qals.num3 IS 'HERSTELLER — Number of Manufacturer [numerus]';
 COMMENT ON COLUMN qm.qals.mat_num2 IS 'EMATNR — Material Number Corresponding to Manufacturer Part Number [materia numerus]';
@@ -381,7 +381,7 @@ COMMENT ON COLUMN qm.qals.trd_pos IS 'LS_POSNR — Delivery Item [traditio posit
 COMMENT ON COLUMN qm.qals.trd_ctg IS 'LS_ABRVW — Delivery Category [traditio categoria]';
 COMMENT ON COLUMN qm.qals.ls_route IS 'LS_ROUTE — Route';
 COMMENT ON COLUMN qm.qals.ptr IS 'LS_LLAND — Country of Destination [patria]';
-COMMENT ON COLUMN qm.qals.ls_kunag IS 'LS_KUNAG — Sold-to party';
+COMMENT ON COLUMN qm.qals.psn IS 'LS_KUNAG — Sold-to party [persona]';
 COMMENT ON COLUMN qm.qals.ovd IS 'LS_VKORG — Sales Organization [organizatio venditionis]';
 COMMENT ON COLUMN qm.qals.mat_emp IS 'LS_KDMAT — Material belonging to the customer [materia emptor]';
 COMMENT ON COLUMN qm.qals.lng_clv IS 'SPRACHE — Language Key [lingua clavis]';
@@ -402,7 +402,7 @@ COMMENT ON COLUMN qm.qals.men_exm_uni IS 'EINHPROBE — Base Unit of Measure for
 COMMENT ON COLUMN qm.qals.dynregel IS 'DYNREGEL — Dynamic Modification Rule';
 COMMENT ON COLUMN qm.qals.tmp_isp IS 'STAT44 — Time of Dynamic Modification in Inspection Lot [tempus inspectio]';
 COMMENT ON COLUMN qm.qals.isp8 IS 'PRSTUFE — Inspection Stage [inspectio]';
-COMMENT ON COLUMN qm.qals.isp9 IS 'PRSCHAERFE — Inspection Severity [inspectio]';
+COMMENT ON COLUMN qm.qals.isp_grv IS 'PRSCHAERFE — Inspection Severity [inspectio gravitas]';
 COMMENT ON COLUMN qm.qals.qnt_cpa IS 'LMENGE01 — Quantity Posted to Unrestricted-Use Stock [quantitas copia]';
 COMMENT ON COLUMN qm.qals.qnt IS 'LMENGE02 — Quantity Posted to Scrap [quantitas]';
 COMMENT ON COLUMN qm.qals.qnt_exm IS 'LMENGE03 — Quantity Posted to Sample [quantitas exemplum]';
@@ -421,7 +421,7 @@ COMMENT ON COLUMN qm.qals.qnt_isp IS 'LMENGEZER — Quantity Destroyed During In
 COMMENT ON COLUMN qm.qals.acl_qnt IS 'LMENGEIST — Actual Lot Quantity [actualis quantitas]';
 COMMENT ON COLUMN qm.qals.qnt5 IS 'LMENGESCH — Defective Quantity in Inspected Quantity [quantitas]';
 COMMENT ON COLUMN qm.qals.iud4 IS 'LTEXTKZBB — Logs Exist for Usage Decision [iudicium usus]';
-COMMENT ON COLUMN qm.qals.isp10 IS 'ANTEIL — Share of Scrap in Inspection Lot [inspectio]';
+COMMENT ON COLUMN qm.qals.isp9 IS 'ANTEIL — Share of Scrap in Inspection Lot [inspectio]';
 COMMENT ON COLUMN qm.qals.qkzverf IS 'QKZVERF — Procedure for Calculating Quality Score';
 COMMENT ON COLUMN qm.qals.iud_org IS 'STAT03 — Usage Decision Mmode (UD Origin) [iudicium usus origo]';
 COMMENT ON COLUMN qm.qals.qpmatlos IS 'QPMATLOS — Allowed Share of Scrap';
@@ -451,7 +451,7 @@ COMMENT ON COLUMN qm.qals.soc IS 'BUKRS — Company Code [codex societatis]';
 COMMENT ON COLUMN qm.qals.nsr2 IS 'SERNP — Serial Number Profile [numerus serialis]';
 COMMENT ON COLUMN qm.qals.isp_num2 IS 'LOS_REF — Inspection Lot Number Which Is Referenced [inspectio numerus]';
 COMMENT ON COLUMN qm.qals.cmp IS 'BEARBSTATU — Field Not Used as of 3.0 Field Reserved for SAP [campus]';
-COMMENT ON COLUMN qm.qals.isp11 IS 'STAT32 — Inspection lot for stability study [inspectio]';
+COMMENT ON COLUMN qm.qals.isp10 IS 'STAT32 — Inspection lot for stability study [inspectio]';
 COMMENT ON COLUMN qm.qals.idx IS 'STAT33 — Indicator: Multiple Specifications [index]';
 COMMENT ON COLUMN qm.qals.cmp2 IS 'STAT36 — Field Not Used as of 3.0 Field Reserved for SAP [campus]';
 COMMENT ON COLUMN qm.qals.cmp3 IS 'STAT37 — Field Not Used as of 3.0 Field Reserved for SAP [campus]';
@@ -471,7 +471,7 @@ COMMENT ON COLUMN qm.qals.cmp16 IS 'KZERSTMUST — Field Not Used as of 3.0 Fiel
 COMMENT ON COLUMN qm.qals.cmp17 IS 'ADDON_DUMMY — Dummy Field for ADDON Structures in QM [campus]';
 COMMENT ON COLUMN qm.qals.ccu IS 'WARPL — Maintenance Plan [consilium curationis]';
 COMMENT ON COLUMN qm.qals.cur_pos IS 'WAPOS — Maintenance item [curatio positio]';
-COMMENT ON COLUMN qm.qals.ccu_num IS 'ABNUM — Maintenance Plan Call Number [consilium curationis numerus]';
+COMMENT ON COLUMN qm.qals.ccu_voc_num IS 'ABNUM — Maintenance Plan Call Number [consilium curationis vocatio numerus]';
 COMMENT ON COLUMN qm.qals.cur IS 'STRAT — Maintenance strategy [curatio]';
 COMMENT ON COLUMN qm.qals.num7 IS 'TRIALID — Trial Number [numerus]';
 COMMENT ON COLUMN qm.qals.responsible IS 'RESPONSIBLE — Responsible';
@@ -479,11 +479,11 @@ COMMENT ON COLUMN qm.qals.isp_ndo IS 'INSP_DOC_NUMBER — Inspection Document Nu
 COMMENT ON COLUMN qm.qals.log_system IS 'LOG_SYSTEM — Logical system';
 COMMENT ON COLUMN qm.qals.exm_mgn2 IS 'GESSTICHPR_EXT — Sample Size from External System [exemplum magnitudo]';
 COMMENT ON COLUMN qm.qals.men_exm IS 'EINHPROBE_EXT — Unit of Measure of External Sample [mensura exemplum]';
-COMMENT ON COLUMN qm.qals.prio_punkte IS 'PRIO_PUNKTE — Priority Points';
+COMMENT ON COLUMN qm.qals.pri IS 'PRIO_PUNKTE — Priority Points [prioritas]';
 COMMENT ON COLUMN qm.qals.gen_isp IS 'SIGN_TYPE_RR — Signature Type: Inspection Lot Results Recording [genus inspectio]';
 COMMENT ON COLUMN qm.qals.gen_isp_iud IS 'SIGN_TYPE_UD — Signature Type: Inspection Lot Usage Decision [genus inspectio iudicium usus]';
 COMMENT ON COLUMN qm.qals.gen_exm IS 'SIGN_TYPE_SM — Signature Type: Physical-Sample Drawing [genus exemplum]';
-COMMENT ON COLUMN qm.qals.isp12 IS 'SIGNSTRAT_RR — Signature Strategy: Inspection Lot Results Recording [inspectio]';
+COMMENT ON COLUMN qm.qals.isp11 IS 'SIGNSTRAT_RR — Signature Strategy: Inspection Lot Results Recording [inspectio]';
 COMMENT ON COLUMN qm.qals.iud5 IS 'SIGNSTRAT_UD — Signature Strategy with Individual Signature: Usage Decision [iudicium usus]';
 COMMENT ON COLUMN qm.qals.exm4 IS 'SIGNSTRAT_SM — Signature Strategy w. Ind.Signature: Physical-Sample Drawing [exemplum]';
 

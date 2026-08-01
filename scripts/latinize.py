@@ -68,7 +68,7 @@ def build():
     register, stats = {}, {"fields": 0, "derived": 0, "underived": 0}
     used_concepts = set()
 
-    for path in sorted(glob.glob(f"{BASE}/*/tables/*.yaml")):
+    for path in sorted(glob.glob(f"{BASE}/*/tables/*.yaml") + glob.glob("schema/extension/*/tables/*.yaml") + glob.glob("schema/interaction/*/tables/*.yaml")):
         table = yaml.safe_load(open(path))
         if not isinstance(table, dict) or not table.get("table"):
             continue

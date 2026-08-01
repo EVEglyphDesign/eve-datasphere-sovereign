@@ -1,5 +1,5 @@
 -- EVE Datasphere Sovereign — PostgreSQL materialisation
--- Generated 2026-08-01T01:47:33Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
+-- Generated 2026-08-01T02:17:52Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
 -- Column names are the canonical Latin layer (EgD-LATIN-001). The legacy SAP field name
 -- is preserved in COMMENT ON COLUMN and in egd_catalog.field_map, and is the join key.
 -- Mirror, never cannibalise. Pour le bien-etre du peuple.
@@ -521,7 +521,7 @@ CREATE TABLE IF NOT EXISTS fi.anek (
   glvor varchar(4),
   soc_sng varchar(6),
   sng_ang varchar(4),
-  cts varchar(3),
+  dtb_cts varchar(3),
   cmp varchar(3),
   ins_per_tsc varchar(2),
   obi_gen_tsc varchar(2),
@@ -575,7 +575,7 @@ COMMENT ON COLUMN fi.anek.idx_gen_tbl IS 'ANUPD — Indicator: Type of change to
 COMMENT ON COLUMN fi.anek.glvor IS 'GLVOR — Business Transaction';
 COMMENT ON COLUMN fi.anek.soc_sng IS 'VBUND — Company ID of trading partner [societas socius negotiationis]';
 COMMENT ON COLUMN fi.anek.sng_ang IS 'PARGB — Trading partner''s business area [socius negotiationis area negotii]';
-COMMENT ON COLUMN fi.anek.cts IS 'BUREG — Distribution rule group [coetus]';
+COMMENT ON COLUMN fi.anek.dtb_cts IS 'BUREG — Distribution rule group [distributio coetus]';
 COMMENT ON COLUMN fi.anek.cmp IS 'AUGLZ — Unused field length 3 [campus]';
 COMMENT ON COLUMN fi.anek.ins_per_tsc IS 'ABRBUP — Posting period of settlement [inscriptio periodus transactio]';
 COMMENT ON COLUMN fi.anek.obi_gen_tsc IS 'OBART — Object type of forwarding object at settlement [obiectum genus transactio]';
@@ -2746,12 +2746,12 @@ CREATE TABLE IF NOT EXISTS fi.febko (
   are varchar(1),
   are2 varchar(1),
   cap_tbl varchar(1),
-  die date,
+  exp_die date,
   nom_arg varchar(12),
   xkep1 varchar(1),
   nom varchar(12),
   xkep2 varchar(1),
-  die2 date,
+  die date,
   tmp time,
   gen varchar(1),
   lbr_rat varchar(10),
@@ -2760,7 +2760,7 @@ CREATE TABLE IF NOT EXISTS fi.febko (
   rat_nom varchar(35),
   num varchar(5),
   num2 varchar(3),
-  die3 date,
+  die2 date,
   soc varchar(4),
   tbr varchar(4),
   cvm varchar(5),
@@ -2810,12 +2810,12 @@ COMMENT ON COLUMN fi.febko.sta2 IS 'DSTAT — Print status [status]';
 COMMENT ON COLUMN fi.febko.are IS 'VB1OK — All postings in area 1 are OK [area]';
 COMMENT ON COLUMN fi.febko.are2 IS 'VB2OK — All postings in area 2 are OK [area]';
 COMMENT ON COLUMN fi.febko.cap_tbl IS 'KIPRE — All items on header record were interpreted [caput tabula]';
-COMMENT ON COLUMN fi.febko.die IS 'VFDAT — Data expiry date [dies]';
+COMMENT ON COLUMN fi.febko.exp_die IS 'VFDAT — Data expiry date [expiratio dies]';
 COMMENT ON COLUMN fi.febko.nom_arg IS 'GRP01 — Session name for bank postings [nomen argentaria]';
 COMMENT ON COLUMN fi.febko.xkep1 IS 'XKEP1 — Keep session 1 after processing';
 COMMENT ON COLUMN fi.febko.nom IS 'GRP02 — Session name for subledger accounting [nomen]';
 COMMENT ON COLUMN fi.febko.xkep2 IS 'XKEP2 — Keep session 2 after processing';
-COMMENT ON COLUMN fi.febko.die2 IS 'WVDAT — Further processing date [dies]';
+COMMENT ON COLUMN fi.febko.die IS 'WVDAT — Further processing date [dies]';
 COMMENT ON COLUMN fi.febko.tmp IS 'WVTIM — Further processing time [tempus]';
 COMMENT ON COLUMN fi.febko.gen IS 'WVART — Further processing type [genus]';
 COMMENT ON COLUMN fi.febko.lbr_rat IS 'HKONT — General Ledger Account [liber ratio]';
@@ -2824,7 +2824,7 @@ COMMENT ON COLUMN fi.febko.rag IS 'KTOIH — Bank account holder [ratio argentar
 COMMENT ON COLUMN fi.febko.rat_nom IS 'KTOSB — Special account name [ratio nomen]';
 COMMENT ON COLUMN fi.febko.num IS 'AZNUM — Statement number [numerus]';
 COMMENT ON COLUMN fi.febko.num2 IS 'AZSNR — Statement page number [numerus]';
-COMMENT ON COLUMN fi.febko.die3 IS 'AZDAT — Statement Date [dies]';
+COMMENT ON COLUMN fi.febko.die2 IS 'AZDAT — Statement Date [dies]';
 COMMENT ON COLUMN fi.febko.soc IS 'BUKRS — Company Code [codex societatis]';
 COMMENT ON COLUMN fi.febko.tbr IS 'KTOPL — Chart of Accounts [tabula rationum]';
 COMMENT ON COLUMN fi.febko.cvm IS 'WAERS — Currency Key [clavis monetae]';
@@ -3153,7 +3153,7 @@ CREATE TABLE IF NOT EXISTS fi.knb1 (
   idx_rat_num varchar(1),
   sol_clv_crd varchar(4),
   act_cod_grs varchar(2),
-  gen_trb varchar(2),
+  dtb_gen_trb varchar(2),
   val_clv varchar(2),
   sta_soc_grd varchar(1),
   die2 date,
@@ -3162,7 +3162,7 @@ CREATE TABLE IF NOT EXISTS fi.knb1 (
   tel_num_scs varchar(30),
   idx4 varchar(2),
   idx_sol4 varchar(1),
-  dml_val varchar(10),
+  dml_hsh_val varchar(10),
   trb_ptr_clv varchar(3),
   cod varchar(4),
   CONSTRAINT knb1_pk PRIMARY KEY (cli, emp_num, soc)
@@ -3233,7 +3233,7 @@ COMMENT ON COLUMN fi.knb1.dml_scs_soc IS 'INTAD — Internet address of partner 
 COMMENT ON COLUMN fi.knb1.idx_rat_num IS 'XKNZB — Indicator: Alternative payer using account number [index ratio numerus]';
 COMMENT ON COLUMN fi.knb1.sol_clv_crd IS 'GUZTE — Payment Terms Key for Credit Memos [solutio clavis creditum]';
 COMMENT ON COLUMN fi.knb1.act_cod_grs IS 'GRICD — Activity Code for Gross Income Tax [actio codex crassus]';
-COMMENT ON COLUMN fi.knb1.gen_trb IS 'GRIDT — Distribution Type for Employment Tax [genus tributum]';
+COMMENT ON COLUMN fi.knb1.dtb_gen_trb IS 'GRIDT — Distribution Type for Employment Tax [distributio genus tributum]';
 COMMENT ON COLUMN fi.knb1.val_clv IS 'WBRSL — Value Adjustment Key [valor clavis]';
 COMMENT ON COLUMN fi.knb1.sta_soc_grd IS 'CONFS — Status of Change Authorization (Company Code Level) [status codex societatis gradus]';
 COMMENT ON COLUMN fi.knb1.die2 IS 'UPDAT — Date on Which the Changes Were Confirmed [dies]';
@@ -3242,7 +3242,7 @@ COMMENT ON COLUMN fi.knb1.tpr_soc_grd IS 'NODEL — Deletion bock for master rec
 COMMENT ON COLUMN fi.knb1.tel_num_scs IS 'TLFNS — Accounting clerk''s telephone number at business partner [telephonum numerus socius]';
 COMMENT ON COLUMN fi.knb1.idx4 IS 'CESSION_KZ — Accounts Receivable Pledging Indicator [index]';
 COMMENT ON COLUMN fi.knb1.idx_sol4 IS 'AVSND — Indicator: Send Payment Advice by XML [index solutio]';
-COMMENT ON COLUMN fi.knb1.dml_val IS 'AD_HASH — E-Mail Address for Avis: Hash Value [domicilium valor]';
+COMMENT ON COLUMN fi.knb1.dml_hsh_val IS 'AD_HASH — E-Mail Address for Avis: Hash Value [domicilium summa digesta valor]';
 COMMENT ON COLUMN fi.knb1.trb_ptr_clv IS 'QLAND — Withholding Tax Country Key [tributum patria clavis]';
 COMMENT ON COLUMN fi.knb1.cod IS 'INTERCOCD — Intercompany code [codex]';
 
@@ -3338,7 +3338,7 @@ CREATE TABLE IF NOT EXISTS fi.knvv (
   trd_pos_grd varchar(1),
   mnd_idx varchar(1),
   grx varchar(1),
-  trd varchar(2),
+  trd_pri varchar(2),
   rat_num_emp varchar(12),
   vsbed varchar(2),
   fac_obx_emp varchar(2),
@@ -3404,7 +3404,7 @@ COMMENT ON COLUMN fi.knvv.num_pos IS 'ANTLF — Maximum Number of Partial Delive
 COMMENT ON COLUMN fi.knvv.trd_pos_grd IS 'KZTLF — Partial delivery at item level [traditio positio gradus]';
 COMMENT ON COLUMN fi.knvv.mnd_idx IS 'KZAZU — Order Combination Indicator [mandatum index]';
 COMMENT ON COLUMN fi.knvv.grx IS 'CHSPL — Batch split allowed [grex]';
-COMMENT ON COLUMN fi.knvv.trd IS 'LPRIO — Delivery Priority [traditio]';
+COMMENT ON COLUMN fi.knvv.trd_pri IS 'LPRIO — Delivery Priority [traditio prioritas]';
 COMMENT ON COLUMN fi.knvv.rat_num_emp IS 'EIKTO — Shipper''s (Our) Account Number at the Customer or Vendor [ratio numerus emptor]';
 COMMENT ON COLUMN fi.knvv.vsbed IS 'VSBED — Shipping Conditions';
 COMMENT ON COLUMN fi.knvv.fac_obx_emp IS 'FAKSD — Billing block for customer (sales and distribution) [factura obex emptor]';
@@ -3516,7 +3516,7 @@ CREATE TABLE IF NOT EXISTS fi.lfa1 (
   sta_ems varchar(1),
   trb varchar(15),
   sol_obx varchar(1),
-  cod3 varchar(4),
+  nrm_cod varchar(4),
   cts2 varchar(4),
   mrc varchar(10),
   idx_rat_num varchar(1),
@@ -3605,7 +3605,7 @@ COMMENT ON COLUMN fi.lfa1.clv3 IS 'PLKAL — Factory calendar key [clavis]';
 COMMENT ON COLUMN fi.lfa1.sta_ems IS 'DUEFL — Status of Data Transfer into Subsequent Release [status emissio]';
 COMMENT ON COLUMN fi.lfa1.trb IS 'TXJCD — Tax Jurisdiction [tributum]';
 COMMENT ON COLUMN fi.lfa1.sol_obx IS 'SPERZ — Payment Block [solutio obex]';
-COMMENT ON COLUMN fi.lfa1.cod3 IS 'SCACD — Standard carrier access code [codex]';
+COMMENT ON COLUMN fi.lfa1.nrm_cod IS 'SCACD — Standard carrier access code [norma codex]';
 COMMENT ON COLUMN fi.lfa1.cts2 IS 'SFRGR — Forwarding agent freight group [coetus]';
 COMMENT ON COLUMN fi.lfa1.mrc IS 'LZONE — Transportation zone to or from which the goods are delivered [merces]';
 COMMENT ON COLUMN fi.lfa1.idx_rat_num IS 'XLFZA — Indicator: Alternative payee using account number [index ratio numerus]';
@@ -3668,13 +3668,13 @@ CREATE TABLE IF NOT EXISTS fi.lfb1 (
   trb_ptr_clv varchar(3),
   idx_sol varchar(1),
   ems_apb_cts varchar(4),
-  cts_fac varchar(4),
+  cts_fac_vrf varchar(4),
   num_emp_ven varchar(31),
   dml_scs_soc varchar(130),
   idx_rat_num varchar(1),
   sol_clv_crd varchar(4),
   act_cod_grs varchar(2),
-  gen_trb varchar(2),
+  dtb_gen_trb varchar(2),
   idx_rat varchar(1),
   die date,
   sta_soc_grd varchar(1),
@@ -3683,7 +3683,7 @@ CREATE TABLE IF NOT EXISTS fi.lfb1 (
   tpr_soc_grd varchar(1),
   tel_num_scs varchar(30),
   idx_sol2 varchar(1),
-  dml_val varchar(10),
+  dml_hsh_val varchar(10),
   cod varchar(4),
   CONSTRAINT lfb1_pk PRIMARY KEY (cli, rat_num_ven, soc)
 );
@@ -3735,13 +3735,13 @@ COMMENT ON COLUMN fi.lfb1.trb IS 'QSBGR — Authority for Exemption from Withhol
 COMMENT ON COLUMN fi.lfb1.trb_ptr_clv IS 'QLAND — Withholding Tax Country Key [tributum patria clavis]';
 COMMENT ON COLUMN fi.lfb1.idx_sol IS 'XEDIP — Indicator: Send Payment Advices by EDI [index solutio]';
 COMMENT ON COLUMN fi.lfb1.ems_apb_cts IS 'FRGRP — Release Approval Group [emissio approbatio coetus]';
-COMMENT ON COLUMN fi.lfb1.cts_fac IS 'TOGRR — Tolerance group; Invoice Verification [coetus factura]';
+COMMENT ON COLUMN fi.lfb1.cts_fac_vrf IS 'TOGRR — Tolerance group; Invoice Verification [coetus factura verificatio]';
 COMMENT ON COLUMN fi.lfb1.num_emp_ven IS 'TLFXS — Accounting clerk''s fax number at the customer/vendor [numerus emptor venditor]';
 COMMENT ON COLUMN fi.lfb1.dml_scs_soc IS 'INTAD — Internet address of partner company clerk [domicilium socius societas]';
 COMMENT ON COLUMN fi.lfb1.idx_rat_num IS 'XLFZB — Indicator: Alternative payee using account number [index ratio numerus]';
 COMMENT ON COLUMN fi.lfb1.sol_clv_crd IS 'GUZTE — Payment Terms Key for Credit Memos [solutio clavis creditum]';
 COMMENT ON COLUMN fi.lfb1.act_cod_grs IS 'GRICD — Activity Code for Gross Income Tax [actio codex crassus]';
-COMMENT ON COLUMN fi.lfb1.gen_trb IS 'GRIDT — Distribution Type for Employment Tax [genus tributum]';
+COMMENT ON COLUMN fi.lfb1.dtb_gen_trb IS 'GRIDT — Distribution Type for Employment Tax [distributio genus tributum]';
 COMMENT ON COLUMN fi.lfb1.idx_rat IS 'XAUSZ — Indicator for periodic account statements [index ratio]';
 COMMENT ON COLUMN fi.lfb1.die IS 'CERDT — Certification date [dies]';
 COMMENT ON COLUMN fi.lfb1.sta_soc_grd IS 'CONFS — Status of Change Authorization (Company Code Level) [status codex societatis gradus]';
@@ -3750,7 +3750,7 @@ COMMENT ON COLUMN fi.lfb1.tmp_ult_cnf IS 'UPTIM — Time of Last Change Confirma
 COMMENT ON COLUMN fi.lfb1.tpr_soc_grd IS 'NODEL — Deletion bock for master record (company code level) [tabula principalis codex societatis gradus]';
 COMMENT ON COLUMN fi.lfb1.tel_num_scs IS 'TLFNS — Accounting clerk''s telephone number at business partner [telephonum numerus socius]';
 COMMENT ON COLUMN fi.lfb1.idx_sol2 IS 'AVSND — Indicator: Send Payment Advice by XML [index solutio]';
-COMMENT ON COLUMN fi.lfb1.dml_val IS 'AD_HASH — E-Mail Address for Avis: Hash Value [domicilium valor]';
+COMMENT ON COLUMN fi.lfb1.dml_hsh_val IS 'AD_HASH — E-Mail Address for Avis: Hash Value [domicilium summa digesta valor]';
 COMMENT ON COLUMN fi.lfb1.cod IS 'INTERCOCD — Intercompany code [codex]';
 
 CREATE TABLE IF NOT EXISTS fi.lfbk (
@@ -3827,7 +3827,7 @@ CREATE TABLE IF NOT EXISTS fi.lfm1 (
   sol_clv varchar(4),
   inco1 varchar(3),
   inco2 varchar(28),
-  idx_fac varchar(1),
+  idx_fac_vrf varchar(1),
   mnd_rqs varchar(1),
   cts_ven varchar(2),
   mem varchar(1),
@@ -3851,7 +3851,7 @@ CREATE TABLE IF NOT EXISTS fi.lfm1 (
   cnf_clv varchar(4),
   rdprf varchar(4),
   men_cts varchar(4),
-  ven_min_grd numeric(4,1),
+  ven_gsv numeric(4,1),
   bopnr varchar(4),
   tsc2 varchar(1),
   rat_num_ven varchar(12),
@@ -3881,7 +3881,7 @@ COMMENT ON COLUMN fi.lfm1.mnd_val IS 'MINBW — Minimum order value [mandatum va
 COMMENT ON COLUMN fi.lfm1.sol_clv IS 'ZTERM — Terms of Payment Key [solutio clavis]';
 COMMENT ON COLUMN fi.lfm1.inco1 IS 'INCO1 — Incoterms (Part 1)';
 COMMENT ON COLUMN fi.lfm1.inco2 IS 'INCO2 — Incoterms (Part 2)';
-COMMENT ON COLUMN fi.lfm1.idx_fac IS 'WEBRE — Indicator: GR-Based Invoice Verification [index factura]';
+COMMENT ON COLUMN fi.lfm1.idx_fac_vrf IS 'WEBRE — Indicator: GR-Based Invoice Verification [index factura verificatio]';
 COMMENT ON COLUMN fi.lfm1.mnd_rqs IS 'KZABS — Order Acknowledgment Requirement [mandatum requisitum]';
 COMMENT ON COLUMN fi.lfm1.cts_ven IS 'KALSK — Group for Calculation Schema (Vendor) [coetus venditor]';
 COMMENT ON COLUMN fi.lfm1.mem IS 'KZAUT — Automatic Generation of Purchase Order Allowed [mandatum emptionis]';
@@ -3905,7 +3905,7 @@ COMMENT ON COLUMN fi.lfm1.ven4 IS 'SKRIT — Vendor sort criterion for materials
 COMMENT ON COLUMN fi.lfm1.cnf_clv IS 'BSTAE — Confirmation Control Key [confirmatio clavis]';
 COMMENT ON COLUMN fi.lfm1.rdprf IS 'RDPRF — Rounding Profile';
 COMMENT ON COLUMN fi.lfm1.men_cts IS 'MEGRU — Unit of Measure Group [mensura coetus]';
-COMMENT ON COLUMN fi.lfm1.ven_min_grd IS 'VENSL — Vendor service level [venditor ministerium gradus]';
+COMMENT ON COLUMN fi.lfm1.ven_gsv IS 'VENSL — Vendor service level [venditor gradus servitii]';
 COMMENT ON COLUMN fi.lfm1.bopnr IS 'BOPNR — Restriction Profile for PO-Based Load Building';
 COMMENT ON COLUMN fi.lfm1.tsc2 IS 'XERSR — Automatic evaluated receipt settlement for return items [transactio]';
 COMMENT ON COLUMN fi.lfm1.rat_num_ven IS 'EIKTO — Our account number with the vendor [ratio numerus venditor]';
@@ -4109,7 +4109,7 @@ CREATE TABLE IF NOT EXISTS fi.t001w (
   num4 varchar(3),
   j_1bbranch varchar(4),
   vdt_are_cpa varchar(2),
-  ofc_grd varchar(3),
+  dtb_ofc_grd varchar(3),
   vstel varchar(4),
   CONSTRAINT t001w_pk PRIMARY KEY (cli, ofc)
 );
@@ -4155,7 +4155,7 @@ COMMENT ON COLUMN fi.t001w.num3 IS 'LET03 — Number of Days for Third Reminder/
 COMMENT ON COLUMN fi.t001w.num4 IS 'BETOL — Number of days for PO tolerance - Compress info records - SU [numerus]';
 COMMENT ON COLUMN fi.t001w.j_1bbranch IS 'J_1BBRANCH — Business Place';
 COMMENT ON COLUMN fi.t001w.vdt_are_cpa IS 'VTBFI — Rule for determining the sales area for stock transfers [venditio area copia]';
-COMMENT ON COLUMN fi.t001w.ofc_grd IS 'FPRFW — Distribution profile at plant level [officina gradus]';
+COMMENT ON COLUMN fi.t001w.dtb_ofc_grd IS 'FPRFW — Distribution profile at plant level [distributio officina gradus]';
 COMMENT ON COLUMN fi.t001w.vstel IS 'VSTEL — Shipping Point/Receiving Point';
 
 CREATE TABLE IF NOT EXISTS fi.t012 (
@@ -4194,7 +4194,7 @@ CREATE TABLE IF NOT EXISTS fi.t012k (
   arg_clv varchar(2),
   cvm varchar(5),
   rfr varchar(27),
-  dtaai varchar(5),
+  psn varchar(5),
   arg_num varchar(24),
   cns_cts varchar(10),
   tsc_mon_arg varchar(5),
@@ -4220,7 +4220,7 @@ COMMENT ON COLUMN fi.t012k.rag_num IS 'BANKN — Bank account number [ratio arge
 COMMENT ON COLUMN fi.t012k.arg_clv IS 'BKONT — Bank Control Key [argentaria clavis]';
 COMMENT ON COLUMN fi.t012k.cvm IS 'WAERS — Currency Key [clavis monetae]';
 COMMENT ON COLUMN fi.t012k.rfr IS 'REFZL — Reference Information [referentia]';
-COMMENT ON COLUMN fi.t012k.dtaai IS 'DTAAI — DME Sold-To Party Identification (Switzerland)';
+COMMENT ON COLUMN fi.t012k.psn IS 'DTAAI — DME Sold-To Party Identification (Switzerland) [persona]';
 COMMENT ON COLUMN fi.t012k.arg_num IS 'BNKN2 — Alternative Bank Acct Number (for Ambiguous Acct Number) [argentaria numerus]';
 COMMENT ON COLUMN fi.t012k.cns_cts IS 'FDGRP — Planning Group [consilium coetus]';
 COMMENT ON COLUMN fi.t012k.tsc_mon_arg IS 'ABWAE — Settlement currency for bank transfers [transactio moneta argentaria]';

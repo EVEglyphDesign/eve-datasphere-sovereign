@@ -1,0 +1,206 @@
+table: IJSAT
+module: INT
+description: Satellite and remote-link extension of the interaction journal. An interaction carried over
+  a satellite terminal has properties no terrestrial channel has — a pass window, an elevation angle,
+  a beam, a link budget — and they decide whether the interaction could happen at all. Recorded so that
+  service to remote and underserved places can be measured honestly rather than averaged away against
+  urban traffic.
+source: EVEglyphDesign canonical structure. Shapes follow standard satellite ground-segment session practice;
+  not a vendor table.
+fields:
+- name: RCLNT
+  description: Client
+  data_element: MANDT
+  datatype: CLNT
+  length: 3
+  decimals: 0
+  key: true
+  check_table: T000
+- name: IJYR
+  description: Interaction journal year
+  data_element: GJAHR
+  datatype: NUMC
+  length: 4
+  decimals: 0
+  key: true
+- name: IJNO
+  description: Interaction journal document number
+  data_element: EGD_IJNO
+  datatype: CHAR
+  length: 20
+  decimals: 0
+  key: true
+- name: IJLN
+  description: Interaction journal item
+  data_element: EGD_IJLN
+  datatype: NUMC
+  length: 6
+  decimals: 0
+  key: true
+- name: SATID
+  description: Satellite or constellation member the session used
+  data_element: EGD_SATID
+  datatype: CHAR
+  length: 20
+  decimals: 0
+  key: false
+- name: CONSTL
+  description: Constellation or operator identifier
+  data_element: EGD_CONSTL
+  datatype: CHAR
+  length: 20
+  decimals: 0
+  key: false
+- name: ORBTYP
+  description: 'Orbit type: geostationary, medium or low earth orbit'
+  data_element: EGD_ORBTYP
+  datatype: CHAR
+  length: 4
+  decimals: 0
+  key: false
+- name: BEAMID
+  description: Beam or spot the terminal was served by
+  data_element: EGD_BEAMID
+  datatype: CHAR
+  length: 20
+  decimals: 0
+  key: false
+- name: GATWAY
+  description: Ground gateway the session was routed through
+  data_element: EGD_GATWAY
+  datatype: CHAR
+  length: 20
+  decimals: 0
+  key: false
+- name: TERMID
+  description: Terminal identifier of the remote station
+  data_element: EGD_TERMID
+  datatype: CHAR
+  length: 30
+  decimals: 0
+  key: false
+- name: TERTYP
+  description: 'Terminal type: fixed, portable, maritime, aeronautical or handheld'
+  data_element: EGD_TERTYP
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+- name: PASSID
+  description: Pass identifier of the visibility window used
+  data_element: EGD_PASSID
+  datatype: CHAR
+  length: 20
+  decimals: 0
+  key: false
+- name: PASBEG
+  description: Pass window start time
+  data_element: TIMESTAMP
+  datatype: DEC
+  length: 15
+  decimals: 0
+  key: false
+- name: PASEND
+  description: Pass window end time
+  data_element: TIMESTAMP
+  datatype: DEC
+  length: 15
+  decimals: 0
+  key: false
+- name: ELEVAT
+  description: Elevation angle of the satellite above the horizon, in degrees
+  data_element: EGD_ELEVAT
+  datatype: DEC
+  length: 5
+  decimals: 2
+  key: false
+- name: AZIMUT
+  description: Azimuth of the link, in degrees
+  data_element: EGD_AZIMUT
+  datatype: DEC
+  length: 6
+  decimals: 2
+  key: false
+- name: SNRDB
+  description: Signal to noise ratio of the link, in decibels
+  data_element: EGD_SNRDB
+  datatype: DEC
+  length: 6
+  decimals: 2
+  key: false
+- name: RAINFD
+  description: Rain fade attenuation observed on the link, in decibels
+  data_element: EGD_SNRDB
+  datatype: DEC
+  length: 6
+  decimals: 2
+  key: false
+- name: LATMS
+  description: One-way link latency in milliseconds
+  data_element: EGD_LATMS
+  datatype: DEC
+  length: 9
+  decimals: 2
+  key: false
+- name: BYTEUP
+  description: Bytes sent on the uplink during the session
+  data_element: EGD_BYTES
+  datatype: DEC
+  length: 20
+  decimals: 0
+  key: false
+- name: BYTEDN
+  description: Bytes received on the downlink during the session
+  data_element: EGD_BYTES
+  datatype: DEC
+  length: 20
+  decimals: 0
+  key: false
+- name: DEGRAD
+  description: 'Session ran in degraded mode: reduced bandwidth or store and forward'
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: STOFWD
+  description: Store and forward indicator — the interaction was queued until a pass was available
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: QUEMIN
+  description: Minutes the interaction waited for a link, the honest measure of remote service
+  data_element: EGD_DURSEC
+  datatype: DEC
+  length: 13
+  decimals: 0
+  key: false
+- name: GEOLAT
+  description: Terminal latitude, rounded to the precision the consent record permits
+  data_element: EGD_GEOCRD
+  datatype: DEC
+  length: 9
+  decimals: 5
+  key: false
+- name: GEOLON
+  description: Terminal longitude, rounded to the precision the consent record permits
+  data_element: EGD_GEOCRD
+  datatype: DEC
+  length: 9
+  decimals: 5
+  key: false
+- name: GEOPRC
+  description: Geographic precision actually applied, in metres
+  data_element: EGD_GEOPRC
+  datatype: DEC
+  length: 9
+  decimals: 0
+  key: false
+foreign_keys:
+- field: RCLNT
+  check_table: T000
+  check_field: MANDT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

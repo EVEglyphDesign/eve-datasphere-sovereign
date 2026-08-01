@@ -1,0 +1,115 @@
+table: XWALK
+module: INT
+description: Field crosswalk registry. The combined schema is not achieved by forcing Salesforce and ServiceNow
+  to agree; it is achieved by recording, field by field, how each one maps onto the canonical interaction
+  line. Every mapping declares its transform and its confidence, and an unmapped source field is recorded
+  as unmapped rather than quietly dropped. This table is what makes a third system — a phone platform,
+  a satellite ground segment, a parish register — a configuration exercise instead of a rewrite.
+source: EVEglyphDesign canonical structure. Populated per source system; the mappings are the deliverable.
+fields:
+- name: RCLNT
+  description: Client
+  data_element: MANDT
+  datatype: CLNT
+  length: 3
+  decimals: 0
+  key: true
+  check_table: T000
+- name: SRCSYS
+  description: Source system key
+  data_element: EGD_SRCSYS
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: true
+  check_table: SYSRC
+- name: SRCTYP
+  description: Source object or table name
+  data_element: EGD_SRCTYP
+  datatype: CHAR
+  length: 40
+  decimals: 0
+  key: true
+- name: SRCFLD
+  description: Source field or attribute name
+  data_element: EGD_SRCFLD
+  datatype: CHAR
+  length: 60
+  decimals: 0
+  key: true
+- name: TGTTAB
+  description: Target table in the interaction journal
+  data_element: EGD_SRCTYP
+  datatype: CHAR
+  length: 40
+  decimals: 0
+  key: false
+- name: TGTFLD
+  description: Target field in the interaction journal
+  data_element: EGD_SRCFLD
+  datatype: CHAR
+  length: 60
+  decimals: 0
+  key: false
+- name: TGTCAN
+  description: Canonical Latin name of the target field
+  data_element: EGD_SRCFLD
+  datatype: CHAR
+  length: 64
+  decimals: 0
+  key: false
+- name: MAPTYP
+  description: 'Mapping type: direct, transformed, derived, constant, crosswalked or unmapped'
+  data_element: EGD_MAPTYP
+  datatype: CHAR
+  length: 10
+  decimals: 0
+  key: false
+- name: TRNRUL
+  description: Transform rule applied, stated plainly enough to be argued with
+  data_element: TEXT80
+  datatype: CHAR
+  length: 255
+  decimals: 0
+  key: false
+- name: CONFID
+  description: 'Confidence in the mapping: asserted, reviewed or verified against live data'
+  data_element: EGD_CONFID
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: LOSSY
+  description: Mapping loses information; the source value is preserved in the raw mirror
+  data_element: XFELD
+  datatype: CHAR
+  length: 1
+  decimals: 0
+  key: false
+- name: OWNER
+  description: Party accountable for the correctness of this mapping
+  data_element: EGD_PARTY
+  datatype: CHAR
+  length: 32
+  decimals: 0
+  key: false
+- name: VALFRM
+  description: Valid from date of the mapping
+  data_element: DATUM
+  datatype: DATS
+  length: 8
+  decimals: 0
+  key: false
+- name: NOTES
+  description: Notes recording why the mapping is what it is
+  data_element: TEXT80
+  datatype: CHAR
+  length: 255
+  decimals: 0
+  key: false
+foreign_keys:
+- field: SRCSYS
+  check_table: SYSRC
+  check_field: SRCSYS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.
