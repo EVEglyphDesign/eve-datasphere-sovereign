@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TGSB · EVE Datasphere Sovereign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+</head><body>
+<header class="top"><div class="wrap"><p class="crumb"><a href="../../index.html">Model</a> / <a href="index.html">FI</a> / TGSB</p><p class="eyebrow">FI — Financial Accounting</p><h1>TGSB</h1><p class="lede">4 fields · 2 key · 2 foreign keys · sourced from <a href="https://leanx.eu/en/sap/table/tgsb.html">leanx.eu</a></p></div></header><main><div class="wrap"><p class="desc">Business Areas — the master list of business areas (GSBER), the cross-company-code reporting dimension used throughout FI (BSIS/BSAS, BSID/BSAD, BSIK/BSAK, FAGLFLEXA/FAGLFLEXT, GLT0) wherever a line item is tagged RBUSA/GSBER.</p><h2>Fields</h2><table><tr><th>Field</th><th>Description</th><th>Data element</th><th>Type</th><th>Check table</th></tr><tr><td class="k"><code>MANDT</code> <span class="tag">key</span></td><td>Client</td><td class="k"><code>MANDT</code></td><td class="k mono">CLNT 3</td><td class="k"><span style="color:#b9b3a5">—</span></td></tr><tr><td class="k"><code>GSBER</code> <span class="tag">key</span></td><td>Business Area</td><td class="k"><code>GSBER</code></td><td class="k mono">CHAR 4</td><td class="k"><span style="color:#b9b3a5">—</span></td></tr><tr><td class="k"><code>GSBER_KONS</code></td><td>Consolidation business area</td><td class="k"><code>GSBER_KONS</code></td><td class="k mono">CHAR 4</td><td class="k"><code>TGSBK</code></td></tr><tr><td class="k"><code>GSBER_GLOB</code></td><td>Globally unique business area</td><td class="k"><code>GSBER_GLOB</code></td><td class="k mono">CHAR 4</td><td class="k"><code>TGSBG</code></td></tr></table><h2>Foreign keys</h2><table><tr><th>Field</th><th>Check table</th><th>Check field</th></tr><tr><td class="k"><code>GSBER_KONS</code></td><td class="k"><code>TGSBK</code></td><td class="k"><code>GSBER_KONS</code></td></tr><tr><td class="k"><code>GSBER_GLOB</code></td><td class="k"><code>TGSBG</code></td><td class="k"><code>GSBER_GLOB</code></td></tr></table><p style="margin-top:28px"><a href="https://github.com/EVEglyphDesign/eve-datasphere-sovereign/blob/main/schema/sap-modules/fi/tables/TGSB.yaml">View <code>TGSB.yaml</code> in the repository</a></p></div></main>
+<footer><div class="wrap">
+<p>EVEglyphDesign · <a href="https://github.com/EVEglyphDesign/eve-datasphere-sovereign">eve-datasphere-sovereign on GitHub</a> · generated 2026-08-01 01:17 UTC</p>
+<p>Mirror, never cannibalise. Read-only from the source; the customer's system of record stays the system of record.</p>
+<p class="sig">Pour le bien-être du peuple. © 2026 Dany Thériault / EVE Glyph Design.</p>
+</div></footer></body></html>
