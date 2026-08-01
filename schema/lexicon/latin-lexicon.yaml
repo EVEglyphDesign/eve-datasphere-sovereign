@@ -1,0 +1,752 @@
+# Canonical Latin concept lexicon — EgD-LATIN-001
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.
+lexicon_id: EgD-LATIN-001
+purpose: 'Concept lexicon for the canonical Latin naming layer. SAP field names are abbreviations of German
+  words — BUKRS from Buchungskreis, WERKS from Werk, KOSTL from Kostenstelle. That is a source-language
+  accident, not a design. The blueprint extracted from this wireframe carries a language-neutral Latin
+  root vocabulary instead, so that a reader in any country resolves a field to a concept rather than to
+  somebody else''s mother tongue. The legacy SAP name is never discarded: it is the mirror''s join key
+  and is always shown on hover.'
+rule: A canonical name is composed of up to three concept abbreviations, longest phrase matched first,
+  in the order the concepts appear in the field's own description. Collisions inside a table are resolved
+  with a numeric suffix. A field whose description matches no concept keeps its legacy name and is reported
+  as underived rather than given an invented Latin form.
+concepts:
+- en: company code
+  la: codex societatis
+  ab: SOC
+- en: chart of accounts
+  la: tabula rationum
+  ab: TBR
+- en: cost center
+  la: centrum sumptus
+  ab: CSM
+- en: cost centre
+  la: centrum sumptus
+  ab: CSM
+- en: profit center
+  la: centrum lucri
+  ab: CLU
+- en: profit centre
+  la: centrum lucri
+  ab: CLU
+- en: business area
+  la: area negotii
+  ab: ANG
+- en: controlling area
+  la: area moderationis
+  ab: AMD
+- en: functional area
+  la: area functionis
+  ab: AFN
+- en: credit control area
+  la: area fidei
+  ab: AFD
+- en: functional location
+  la: locus functionalis
+  ab: LCF
+- en: work center
+  la: statio operis
+  ab: STO
+- en: work centre
+  la: statio operis
+  ab: STO
+- en: storage location
+  la: locus repositionis
+  ab: LOC
+- en: storage type
+  la: genus repositionis
+  ab: GRP
+- en: warehouse number
+  la: numerus horrei
+  ab: NHR
+- en: purchase order
+  la: mandatum emptionis
+  ab: MEM
+- en: purchase requisition
+  la: petitio emptionis
+  ab: PEM
+- en: purchasing document
+  la: documentum emptionis
+  ab: DEM
+- en: purchasing organization
+  la: organizatio emptionis
+  ab: OEM
+- en: sales organization
+  la: organizatio venditionis
+  ab: OVD
+- en: sales document
+  la: documentum venditionis
+  ab: DVD
+- en: distribution channel
+  la: canalis distributionis
+  ab: CDS
+- en: schedule line
+  la: linea ordinis
+  ab: LOR
+- en: bill of material
+  la: index materiarum
+  ab: IXM
+- en: task list
+  la: index pensorum
+  ab: IXP
+- en: serial number
+  la: numerus serialis
+  ab: NSR
+- en: personnel number
+  la: numerus personae
+  ab: NPS
+- en: personnel area
+  la: area personalis
+  ab: APR
+- en: personnel subarea
+  la: subarea personalis
+  ab: SPR
+- en: employee group
+  la: coetus operariorum
+  ab: COP
+- en: employee subgroup
+  la: subcoetus operariorum
+  ab: SOP
+- en: organizational unit
+  la: unitas ordinis
+  ab: UOR
+- en: organizational assignment
+  la: assignatio ordinis
+  ab: AOR
+- en: measuring point
+  la: punctum mensurae
+  ab: PMS
+- en: usage decision
+  la: iudicium usus
+  ab: IUD
+- en: inspection characteristic
+  la: nota inspectionis
+  ab: NIS
+- en: master record
+  la: tabula principalis
+  ab: TPR
+- en: fiscal year
+  la: annus fiscalis
+  ab: ANF
+- en: posting date
+  la: dies inscriptionis
+  ab: DIN
+- en: document date
+  la: dies documenti
+  ab: DDC
+- en: document number
+  la: numerus documenti
+  ab: NDO
+- en: document type
+  la: genus documenti
+  ab: GDO
+- en: line item
+  la: positio
+  ab: POS
+- en: open item
+  la: positio aperta
+  ab: PAP
+- en: data element
+  la: elementum datorum
+  ab: EDT
+- en: check table
+  la: tabula probationis
+  ab: TPB
+- en: foreign key
+  la: clavis externa
+  ab: CVX
+- en: search help
+  la: auxilium quaerendi
+  ab: AXQ
+- en: change document
+  la: documentum mutationis
+  ab: DMU
+- en: trading partner
+  la: socius negotiationis
+  ab: SNG
+- en: plant section
+  la: sectio officinae
+  ab: SOF
+- en: planner group
+  la: coetus consiliorum
+  ab: CCS
+- en: maintenance plan
+  la: consilium curationis
+  ab: CCU
+- en: order type
+  la: genus mandati
+  ab: GMD
+- en: goods movement
+  la: motus mercium
+  ab: MTM
+- en: goods receipt
+  la: acceptio mercium
+  ab: AMR
+- en: valid from
+  la: validus ab
+  ab: VLA
+- en: valid to
+  la: validus ad
+  ab: VLD
+- en: unit of measure
+  la: mensura
+  ab: MEN
+- en: exchange rate
+  la: ratio permutationis
+  ab: RPM
+- en: condition type
+  la: genus condicionis
+  ab: GCN
+- en: condition record
+  la: tabula condicionis
+  ab: TCN
+- en: info record
+  la: tabula informationis
+  ab: TIN
+- en: infotype
+  la: genus informationis
+  ab: GIN
+- en: data store
+  la: repositorium datorum
+  ab: RPS
+- en: info object
+  la: obiectum informationis
+  ab: OIN
+- en: wbs element
+  la: elementum operis
+  ab: EOP
+- en: network
+  la: rete
+  ab: RET
+- en: project
+  la: propositum
+  ab: PRP
+- en: client
+  la: cliens
+  ab: CLI
+- en: company
+  la: societas
+  ab: SOC
+- en: plant
+  la: officina
+  ab: OFC
+- en: warehouse
+  la: horreum
+  ab: HOR
+- en: material
+  la: materia
+  ab: MAT
+- en: batch
+  la: grex
+  ab: GRX
+- en: vendor
+  la: venditor
+  ab: VEN
+- en: supplier
+  la: venditor
+  ab: VEN
+- en: customer
+  la: emptor
+  ab: EMP
+- en: account
+  la: ratio
+  ab: RAT
+- en: ledger
+  la: liber
+  ab: LBR
+- en: journal
+  la: ephemeris
+  ab: EPH
+- en: document
+  la: documentum
+  ab: DOC
+- en: item
+  la: positio
+  ab: POS
+- en: header
+  la: caput
+  ab: CAP
+- en: date
+  la: dies
+  ab: DIE
+- en: time
+  la: tempus
+  ab: TMP
+- en: amount
+  la: summa
+  ab: SUM
+- en: currency
+  la: moneta
+  ab: MON
+- en: quantity
+  la: quantitas
+  ab: QNT
+- en: price
+  la: pretium
+  ab: PRE
+- en: value
+  la: valor
+  ab: VAL
+- en: cost
+  la: sumptus
+  ab: SMP
+- en: profit
+  la: lucrum
+  ab: LUC
+- en: order
+  la: mandatum
+  ab: MND
+- en: purchase
+  la: emptio
+  ab: EMT
+- en: sales
+  la: venditio
+  ab: VDT
+- en: delivery
+  la: traditio
+  ab: TRD
+- en: billing
+  la: factura
+  ab: FAC
+- en: invoice
+  la: factura
+  ab: FAC
+- en: contract
+  la: pactum
+  ab: PCT
+- en: condition
+  la: condicio
+  ab: CND
+- en: pricing
+  la: taxatio
+  ab: TAX
+- en: tax
+  la: tributum
+  ab: TRB
+- en: posting
+  la: inscriptio
+  ab: INS
+- en: period
+  la: periodus
+  ab: PER
+- en: year
+  la: annus
+  ab: ANN
+- en: month
+  la: mensis
+  ab: MNS
+- en: day
+  la: dies
+  ab: DIE
+- en: status
+  la: status
+  ab: STA
+- en: type
+  la: genus
+  ab: GEN
+- en: category
+  la: categoria
+  ab: CTG
+- en: group
+  la: coetus
+  ab: CTS
+- en: text
+  la: textus
+  ab: TXT
+- en: description
+  la: descriptio
+  ab: DSC
+- en: name
+  la: nomen
+  ab: NOM
+- en: language
+  la: lingua
+  ab: LNG
+- en: country
+  la: patria
+  ab: PTR
+- en: region
+  la: regio
+  ab: REG
+- en: city
+  la: urbs
+  ab: URB
+- en: address
+  la: domicilium
+  ab: DML
+- en: telephone
+  la: telephonum
+  ab: TEL
+- en: email
+  la: epistula
+  ab: EPL
+- en: person
+  la: persona
+  ab: PSN
+- en: employee
+  la: operarius
+  ab: OPR
+- en: position
+  la: munus
+  ab: MNU
+- en: job
+  la: officium
+  ab: OFM
+- en: operation
+  la: operatio
+  ab: OPE
+- en: confirmation
+  la: confirmatio
+  ab: CNF
+- en: equipment
+  la: instrumentum
+  ab: INM
+- en: maintenance
+  la: curatio
+  ab: CUR
+- en: notification
+  la: nuntius
+  ab: NTS
+- en: task
+  la: pensum
+  ab: PNS
+- en: plan
+  la: consilium
+  ab: CNS
+- en: planning
+  la: consilium
+  ab: CNS
+- en: production
+  la: productio
+  ab: PRD
+- en: routing
+  la: itinerarium
+  ab: ITN
+- en: inspection
+  la: inspectio
+  ab: ISP
+- en: characteristic
+  la: nota
+  ab: NOT
+- en: sample
+  la: exemplum
+  ab: EXM
+- en: result
+  la: effectus
+  ab: EFC
+- en: asset
+  la: patrimonium
+  ab: PTM
+- en: depreciation
+  la: deminutio
+  ab: DMN
+- en: bank
+  la: argentaria
+  ab: ARG
+- en: payment
+  la: solutio
+  ab: SOL
+- en: clearing
+  la: compensatio
+  ab: CPN
+- en: credit
+  la: creditum
+  ab: CRD
+- en: debit
+  la: debitum
+  ab: DBT
+- en: balance
+  la: aequilibrium
+  ab: AEQ
+- en: total
+  la: summa totalis
+  ab: TOT
+- en: reference
+  la: referentia
+  ab: RFR
+- en: indicator
+  la: index
+  ab: IDX
+- en: version
+  la: versio
+  ab: VRS
+- en: created
+  la: creatus
+  ab: CRE
+- en: changed
+  la: mutatus
+  ab: MUT
+- en: deleted
+  la: deletus
+  ab: DEL
+- en: user
+  la: usor
+  ab: USR
+- en: segment
+  la: segmentum
+  ab: SEG
+- en: division
+  la: divisio
+  ab: DVS
+- en: partner
+  la: socius
+  ab: SCS
+- en: requisition
+  la: petitio
+  ab: PET
+- en: goods
+  la: merces
+  ab: MRC
+- en: movement
+  la: motus
+  ab: MTM
+- en: stock
+  la: copia
+  ab: CPA
+- en: vehicle
+  la: vehiculum
+  ab: VHC
+- en: fleet
+  la: grex vehiculorum
+  ab: GVH
+- en: counter
+  la: numerator
+  ab: NMR
+- en: cause
+  la: causa
+  ab: CSA
+- en: activity
+  la: actio
+  ab: ACT
+- en: class
+  la: classis
+  ab: CLS
+- en: field
+  la: campus
+  ab: CMP
+- en: table
+  la: tabula
+  ab: TBL
+- en: domain
+  la: dominium
+  ab: DMI
+- en: view
+  la: visus
+  ab: VIS
+- en: component
+  la: componens
+  ab: CMN
+- en: allocation
+  la: attributio
+  ab: ATB
+- en: assignment
+  la: assignatio
+  ab: ASG
+- en: hierarchy
+  la: hierarchia
+  ab: HIR
+- en: element
+  la: elementum
+  ab: ELM
+- en: absence
+  la: absentia
+  ab: ABS
+- en: attendance
+  la: praesentia
+  ab: PRA
+- en: wage
+  la: salarium
+  ab: SAL
+- en: deduction
+  la: deductio
+  ab: DDC
+- en: cluster
+  la: glomus
+  ab: GLM
+- en: subtype
+  la: subgenus
+  ab: SBG
+- en: object
+  la: obiectum
+  ab: OBI
+- en: relationship
+  la: relatio
+  ab: RLT
+- en: requirement
+  la: requisitum
+  ab: RQS
+- en: forecast
+  la: praevisio
+  ab: PVS
+- en: capacity
+  la: capacitas
+  ab: CPC
+- en: resource
+  la: subsidium
+  ab: SBS
+- en: permit
+  la: licentia
+  ab: LCN
+- en: safety
+  la: securitas
+  ab: SEC
+- en: measurement
+  la: mensuratio
+  ab: MSU
+- en: statistics
+  la: statistica
+  ab: STT
+- en: monitor
+  la: monitor
+  ab: MNT
+- en: cube
+  la: cubus
+  ab: CUB
+- en: number
+  la: numerus
+  ab: NUM
+- en: code
+  la: codex
+  ab: COD
+- en: key
+  la: clavis
+  ab: CLV
+- en: index
+  la: index
+  ab: IDX
+- en: lock
+  la: obex
+  ab: OBX
+- en: flag
+  la: signum
+  ab: SGN
+- en: block
+  la: obex
+  ab: OBX
+- en: reversal
+  la: reversio
+  ab: RVS
+- en: settlement
+  la: transactio
+  ab: TSC
+- en: valuation
+  la: aestimatio
+  ab: AES
+- en: area
+  la: area
+  ab: ARE
+- en: level
+  la: gradus
+  ab: GRD
+- en: rate
+  la: ratio
+  ab: RAT
+- en: weight
+  la: pondus
+  ab: PND
+- en: volume
+  la: volumen
+  ab: VLM
+- en: size
+  la: magnitudo
+  ab: MGN
+- en: start
+  la: initium
+  ab: INI
+- en: finish
+  la: finis
+  ab: FIN
+- en: end
+  la: finis
+  ab: FIN
+- en: duration
+  la: mora
+  ab: MRA
+- en: shift
+  la: vicis
+  ab: VIC
+- en: note
+  la: adnotatio
+  ab: ADN
+- en: reason
+  la: causa
+  ab: CSA
+- en: scope
+  la: ambitus
+  ab: AMB
+- en: origin
+  la: origo
+  ab: ORG
+- en: source
+  la: fons
+  ab: FNS
+- en: target
+  la: meta
+  ab: MTA
+- en: actual
+  la: actualis
+  ab: ACL
+- en: record
+  la: tabula
+  ab: TBL
+- en: sequence
+  la: ordo
+  ab: ORD
+- en: release
+  la: emissio
+  ab: EMS
+- en: approval
+  la: approbatio
+  ab: APB
+- en: currency key
+  la: clavis monetae
+  ab: CVM
+- en: bank account
+  la: ratio argentariae
+  ab: RAG
+- en: license
+  la: licentia
+  ab: LCN
+- en: location
+  la: locus
+  ab: LOC
+- en: unit
+  la: unitas
+  ab: UNI
+- en: work
+  la: opus
+  ab: OPS
+- en: service
+  la: ministerium
+  ab: MIN
+- en: supply
+  la: copia
+  ab: CPA
+- en: interest
+  la: usura
+  ab: USU
+- en: discount
+  la: deductio
+  ab: DDC
+- en: net
+  la: netus
+  ab: NET
+- en: gross
+  la: crassus
+  ab: GRS
+- en: first
+  la: primus
+  ab: PRI
+- en: last
+  la: ultimus
+  ab: ULT
+- en: number range
+  la: series numerorum
+  ab: SNM
+- en: title
+  la: titulus
+  ab: TTL
+- en: form
+  la: forma
+  ab: FRM
