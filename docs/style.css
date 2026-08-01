@@ -21,11 +21,13 @@ main{padding:8px 0 72px}
 .crumb{font-size:13px;color:var(--mute);margin:22px 0 0}
 .crumb a{border:none}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:16px;margin:22px 0}
-.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 18px 16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 18px 16px;
+  display:flex;flex-direction:column}
 .card h3{margin:0 0 6px;font-size:17px}
 .card h3 a{border:none}
 .card .meta{font-size:13px;color:var(--mute)}
-.bar{height:5px;background:var(--line);border-radius:3px;margin-top:12px;overflow:hidden}
+.bar{height:5px;background:var(--line);border-radius:3px;margin-top:auto;overflow:hidden}
+.card .meta{margin-bottom:12px}
 .bar span{display:block;height:100%;background:var(--accent)}
 table{border-collapse:collapse;width:100%;margin:18px 0;font-size:14px;background:#fff;
   border:1px solid var(--line);border-radius:10px;overflow:hidden}
