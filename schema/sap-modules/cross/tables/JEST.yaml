@@ -1,0 +1,54 @@
+table: JEST
+module: CROSS
+description: "Individual Object Status — the active/inactive system and user status assignments for a general status-management object (keyed by OBJNR, the same object-number key used across PM/PP/QM order and notification headers). One row per status per object; TJ02 supplies the system-status text, TJ03 the object-type metadata, and JSTO carries the status-profile assignment per object. SAP's real JEST carries all its fields; this definition carries the table complete."
+source: https://leanx.eu/en/sap/table/jest.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: OBJNR
+    description: "Object number — the general object-number key shared with JSTO and order/notification headers across modules"
+    data_element: J_OBJNR
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: true
+  - name: STAT
+    description: "Object status — key into TJ02 (system status) or TJ30 (user status)"
+    data_element: J_STATUS
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: true
+  - name: INACT
+    description: "Indicator: Status Is Inactive"
+    data_element: J_INACT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CHGNR
+    description: "Change number"
+    data_element: J_CHGNR
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: OBJNR
+    check_table: ONR00
+    check_field: OBJNR
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

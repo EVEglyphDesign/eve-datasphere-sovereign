@@ -1,0 +1,527 @@
+table: FEBEP
+module: FI
+description: "Electronic Bank Statement Line Items — each individual memo/transaction line within an imported bank statement (amount, value date, business transaction code, posting rule, partner bank details, and the resulting subledger/accounting document number), keyed by KUKEY (pointing to its FEBKO header) plus ESNUM. This is where the bank statement's cash movements are matched to open items and posted: BELNR/NBBLN carry the accounting or subledger document number that the interpretation algorithm created, and that document is what lands in BSEG and, in S/4HANA, ACDOCA — an FEBEP line whose amount (KWBTR) and posted document don't agree with the corresponding ACDOCA bank-clearing entry is exactly the drift point cash-side reconciliation is built to catch. SAP's real table carries 100+ fields (BDC helper fields, lockbox and lockbox-batch fields, lockbox lockbox-only algorithm fields); this definition is scoped to the key, all date/amount/currency fields, all document-linkage fields, and all account-assignment/reference fields a reconciliation or crosswalk would consume."
+source: https://leanx.eu/en/sap/table/febep.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: KUKEY
+    description: "Short key (surrogate)"
+    data_element: KUKEY_EB
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: ESNUM
+    description: "Memo record number (line item number in bank statement)"
+    data_element: ESNUM_EB
+    check_table: ~
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: true
+  - name: EPERL
+    description: "Line item completed"
+    data_element: EPERL_EB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VB1OK
+    description: "Update 1 OK"
+    data_element: VB1OK_EB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VB2BA
+    description: "2nd update processed"
+    data_element: VB2BA_EB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VB2OK
+    description: "2nd update OK"
+    data_element: VB2OK_EB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PIPRE
+    description: "Line items were interpreted"
+    data_element: PIPRE_EB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GRPNR
+    description: "Bundle number for grouping line items"
+    data_element: GRPNR_EB
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ESTAT
+    description: "Error status"
+    data_element: ESTAT_EB
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BELNR
+    description: "Accounting Document Number"
+    data_element: BELNR_D
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: GJAHR
+    description: "Fiscal Year"
+    data_element: GJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: BVDAT
+    description: "Posting date at the bank"
+    data_element: BVDAT_EB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BUDAT
+    description: "Posting date in the document"
+    data_element: BUDAT_EB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: VALUT
+    description: "Value date of the item to be cleared"
+    data_element: VALUT_EB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BUTIM
+    description: "Value date time"
+    data_element: BUTIM_EB
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: KWAER
+    description: "Account Currency Key"
+    data_element: KWAER_EB
+    check_table: ~
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: KWBTR
+    description: "Amount in account currency"
+    data_element: KWBTR_EB
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: SPESK
+    description: "Fees in account currency"
+    data_element: SPESK_EB
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: FWAER
+    description: "Foreign currency key (unequal to account currency)"
+    data_element: FWAER_EB
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: FWBTR
+    description: "Foreign currency amount (different from account currency)"
+    data_element: FWBTR_EB
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: SPESF
+    description: "Fees in foreign currency (not same as account currency)"
+    data_element: SPESF_EB
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: VORGC
+    description: "Business transaction code"
+    data_element: VORGC_EB
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: TEXTS
+    description: "Text key"
+    data_element: TEXTS_EB
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VGEXT
+    description: "External business transaction"
+    data_element: VGEXT_EB
+    check_table: ~
+    datatype: CHAR
+    length: 27
+    decimals: 0
+    key: false
+  - name: VGMAN
+    description: "Transaction"
+    data_element: VGMAN_EB
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VGINT
+    description: "Posting rule"
+    data_element: VGINT_EB
+    check_table: T028D
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KFMOD
+    description: "Account modification"
+    data_element: KFMOD_EB
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BUTXT
+    description: "Bank posting text"
+    data_element: BUTXT_EB
+    check_table: ~
+    datatype: CHAR
+    length: 50
+    decimals: 0
+    key: false
+  - name: XBLNR
+    description: "Reference Document Number"
+    data_element: XBLNR1
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: ZUONR
+    description: "Assignment Number"
+    data_element: DZUONR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: PABKS
+    description: "Country key of partner bank"
+    data_element: PABKS_EB
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: PABLZ
+    description: "Bank number of partner bank"
+    data_element: PABLZ_EB
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: PASWI
+    description: "SWIFT code of partner bank"
+    data_element: PASWI_EB
+    check_table: ~
+    datatype: CHAR
+    length: 11
+    decimals: 0
+    key: false
+  - name: PAKTO
+    description: "Account number at the partner bank"
+    data_element: PAKTO_EB
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: PARTN
+    description: "Business Partner"
+    data_element: PARTN_EB
+    check_table: ~
+    datatype: CHAR
+    length: 55
+    decimals: 0
+    key: false
+  - name: BUSAB
+    description: "Accounting Clerk"
+    data_element: BUSAB_EB
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KOSTL
+    description: "Cost center"
+    data_element: KOSTL_EB
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: GSBER
+    description: "Business area"
+    data_element: GSBER_EB
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PRCTR
+    description: "Profit Center"
+    data_element: PRCTR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: VERTN
+    description: "Contract Number"
+    data_element: RANL
+    check_table: ~
+    datatype: CHAR
+    length: 13
+    decimals: 0
+    key: false
+  - name: VERTT
+    description: "Contract Type"
+    data_element: RANTYP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PNOTA
+    description: "Daybook number"
+    data_element: PNOTA_EB
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: CHECT
+    description: "Check number"
+    data_element: CHECT
+    check_table: ~
+    datatype: CHAR
+    length: 13
+    decimals: 0
+    key: false
+  - name: EPVOZ
+    description: "Debit/credit key for line items (for bank purposes)"
+    data_element: EPVOZ_EB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AVSID
+    description: "Payment Advice Number"
+    data_element: AVSID
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: INTAG
+    description: "Interpretation algorithm"
+    data_element: INTAG_EB
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: NBBLN
+    description: "Subledger document number"
+    data_element: NBBLN_EB
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AKBLN
+    description: "Payment on account document number"
+    data_element: AKBLN_EB
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KNRZA
+    description: "Account number of an alternative payer"
+    data_element: KNRZA
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AVKOA
+    description: "Payment Advice Account Type"
+    data_element: KOART_AV
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AVKON
+    description: "Account Number"
+    data_element: KTONR_AV
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KURSF
+    description: "Exchange rate (different from local currency)"
+    data_element: KURSF_EB
+    check_table: ~
+    datatype: DEC
+    length: 9
+    decimals: 5
+    key: false
+  - name: SGTXT
+    description: "Item Text"
+    data_element: SGTXT
+    check_table: ~
+    datatype: CHAR
+    length: 50
+    decimals: 0
+    key: false
+  - name: VGREF
+    description: "Bank Reference Number"
+    data_element: REFBK
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: XBENR
+    description: "Reference Key"
+    data_element: AWKEY
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: XBTYP
+    description: "Reference Transaction"
+    data_element: AWTYP
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: KIDNO
+    description: "Payment Reference"
+    data_element: KIDNO
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: PIBAN
+    description: "Partner Bank Account: IBAN"
+    data_element: PIBAN_EB
+    check_table: ~
+    datatype: CHAR
+    length: 34
+    decimals: 0
+    key: false
+  - name: SVBUK
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: TRNID
+    description: "Transaction ID"
+    data_element: EB_TRANSID
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: CURR_RATE
+    description: "Exchange Rate: Foreign Currency to Account Currency"
+    data_element: FEB_CURR_RATE
+    check_table: ~
+    datatype: DEC
+    length: 9
+    decimals: 5
+    key: false
+  - name: FIPEX
+    description: "Commitment Item"
+    data_element: FM_FIPEX
+    check_table: ~
+    datatype: CHAR
+    length: 24
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: KUKEY
+    check_table: FEBKO
+    check_field: KUKEY
+  - field: FWAER
+    check_table: TCURC
+    check_field: WAERS
+  - field: PABKS
+    check_table: T005
+    check_field: LAND1
+  - field: VGINT
+    check_table: T028D
+    check_field: VGINT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

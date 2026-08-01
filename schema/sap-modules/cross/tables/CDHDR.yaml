@@ -1,0 +1,126 @@
+table: CDHDR
+module: CROSS
+description: "Change document header — the audit-trail record the ledger's provenance claim depends on: who changed what business object, in which transaction, and when. Every change captured by SAP's change-document service writes one CDHDR row per change session, with the field-level detail in CDPOS underneath it. SAP's real CDHDR carries all its fields; this definition carries the table complete."
+source: https://leanx.eu/en/sap/table/cdhdr.html
+fields:
+  - name: MANDANT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: OBJECTCLAS
+    description: "Object class — groups the business object type being audited"
+    data_element: CDOBJECTCL
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: true
+  - name: OBJECTID
+    description: "Object value — the key of the changed business object instance"
+    data_element: CDOBJECTV
+    check_table: ~
+    datatype: CHAR
+    length: 90
+    decimals: 0
+    key: true
+  - name: CHANGENR
+    description: "Document change number — the key CDPOS items join back on"
+    data_element: CDCHANGENR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: USERNAME
+    description: "User name of the person responsible in change document"
+    data_element: CDUSERNAME
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: UDATE
+    description: "Creation date of the change document"
+    data_element: CDDATUM
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: UTIME
+    description: "Time changed"
+    data_element: CDUZEIT
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: TCODE
+    description: "Transaction in which a change was made"
+    data_element: CDTCODE
+    check_table: TSTC
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: PLANCHNGNR
+    description: "Planned change number"
+    data_element: PLANCHNGNR
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ACT_CHNGNO
+    description: "Change number of the document created by this change"
+    data_element: CD_CHNGNO
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: WAS_PLANND
+    description: "Flag that changes were generated from planned changes"
+    data_element: CD_PLANNED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CHANGE_IND
+    description: "Application object change type (U, I, E, D)"
+    data_element: CDCHNGINDH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LANGU
+    description: "Language Key"
+    data_element: LANGU
+    check_table: ~
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: VERSION
+    description: "3-Byte field"
+    data_element: CHAR3
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDANT
+    check_table: T000
+    check_field: MANDT
+  - field: TCODE
+    check_table: TSTC
+    check_field: TCODE
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

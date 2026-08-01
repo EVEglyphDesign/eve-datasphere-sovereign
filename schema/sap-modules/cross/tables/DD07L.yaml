@@ -1,0 +1,67 @@
+table: DD07L
+module: CROSS
+description: "Values for the domains — the fixed-value list (single values and value ranges) attached to a domain in DD01L when VALEXI is set. This is the table the mirror checks a crosswalk's claimed enumeration against: if a crosswalk asserts that a status field only ever takes certain codes, DD07L is where that claim gets settled against the customer's own configured domain values rather than an assumption baked into the crosswalk. Table carried complete."
+source: https://leanx.eu/en/sap/table/dd07l.html
+fields:
+  - name: DOMNAME
+    description: "Domain name"
+    data_element: DOMNAME
+    check_table: DD01L
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: AS4LOCAL
+    description: "Activation Status of a Repository Object"
+    data_element: AS4LOCAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: VALPOS
+    description: "Domain value key"
+    data_element: VALPOS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: AS4VERS
+    description: "Version of the entry (not used)"
+    data_element: AS4VERS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: DOMVALUE_L
+    description: "Values for Domains: Single Value / Upper Limit"
+    data_element: DOMVALUE_L
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: DOMVALUE_H
+    description: "Values for domains, upper limit"
+    data_element: DOMVALUE_H
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: APPVAL
+    description: "DD: Defines whether value of appender belongs to append"
+    data_element: DDAPPVAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: DOMNAME
+    check_table: DD01L
+    check_field: DOMNAME
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

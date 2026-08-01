@@ -1,0 +1,242 @@
+table: ANEA
+module: FI
+description: "Asset Line Items for Proportional Values — the proportional (time-apportioned) cumulative and annual depreciation-area values attached to a specific ANEP line item, used chiefly for mid-year retirements and transfers where only part of the year's depreciation, revaluation, or reserve movement is attributable. Keyed one-to-one with an ANEP row (BUKRS/ANLN1/ANLN2/GJAHR/LNRAN/AFABE), it supplies the proportional figures (e.g. revenue and cost of retirement, ERLBT/VERKO) that feed the gain/loss postings on retirement — those postings are what ultimately hit the P&L and asset-disposal accounts in ACDOCA/BSEG, so ANEA's proportional splits must foot to the retirement amounts recognized in the universal journal for the transaction to reconcile."
+source: https://leanx.eu/en/sap/table/anea.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: ANLN1
+    description: "Main Asset Number"
+    data_element: ANLN1
+    check_table: ANLH
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: true
+  - name: ANLN2
+    description: "Asset Subnumber"
+    data_element: ANLN2
+    check_table: ANLA
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: GJAHR
+    description: "Fiscal Year"
+    data_element: GJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: LNRAN
+    description: "Sequence number of asset line items in fiscal year"
+    data_element: LNRAN
+    check_table: ANEP
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: true
+  - name: AFABE
+    description: "Real depreciation area"
+    data_element: AFABE_D
+    check_table: T093
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: true
+  - name: ZUJHR
+    description: "Asset acquisition year (currently not used)"
+    data_element: DZUJHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: ZUCOD
+    description: "Sub-classification of asset acquisitions (currently not used)"
+    data_element: DZUCOD
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: AUFWV
+    description: "Proportional cumulative revaluation on replacement value"
+    data_element: AUFWV
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: INVZV
+    description: "Proportional cumulative investment grants"
+    data_element: INVZV
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: NAFAV
+    description: "Proportional accumulated ordinary depreciation"
+    data_element: NAFAV
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: SAFAV
+    description: "Proportional cumulative special depreciation"
+    data_element: SAFAV
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: AAFAV
+    description: "Proportional cumulative unplanned depreciation"
+    data_element: AAFAV
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: MAFAV
+    description: "Proportional cumulative transfer of reserves"
+    data_element: MAFAV
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: AUFNV
+    description: "Proportional cum. revaluation on ordinary depreciation"
+    data_element: AUFNV
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: AUFWL
+    description: "Proportional revaluation for the year on replacement value"
+    data_element: AUFWL
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: INVZL
+    description: "Proportional investment grant for the year"
+    data_element: INVZL
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: NAFAL
+    description: "Proportional ordinary depreciation for the year"
+    data_element: NAFAL
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: SAFAL
+    description: "Proportional special depreciation for the year"
+    data_element: SAFAL
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: AAFAL
+    description: "Proportional unplanned depreciation for the year"
+    data_element: AAFAL
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: MAFAL
+    description: "Proportional transfer of reserves for the year"
+    data_element: MAFAL
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: AUFNL
+    description: "Proportional revaluation of annual ordinary dep."
+    data_element: AUFNL
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ERLBT
+    description: "Revenue from asset sale"
+    data_element: ERLBT
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ANUPD
+    description: "Indicator: Type of change to table"
+    data_element: ANUPD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VERKO
+    description: "Costs from asset retirement"
+    data_element: VERKO_D
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: SANWV
+    description: "Prop. statistical acquisition value retired"
+    data_element: SANWV
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: ANLN1
+    check_table: ANLH
+    check_field: ANLN1
+  - field: ANLN2
+    check_table: ANLA
+    check_field: ANLN2
+  - field: LNRAN
+    check_table: ANEP
+    check_field: LNRAN
+  - field: AFABE
+    check_table: T093
+    check_field: AFABER
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

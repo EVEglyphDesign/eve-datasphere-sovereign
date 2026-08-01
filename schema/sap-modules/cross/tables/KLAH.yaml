@@ -1,0 +1,207 @@
+table: KLAH
+module: CROSS
+description: "Class Header Data — the class master of SAP's classification system, the extension mechanism SAP itself sanctions for attaching arbitrary characteristics (CABN/CAWN) to any object without altering the object's own standard fields. This matters directly for this model: ESG attributes and interaction-record metadata that don't belong on a standard master table are intended to attach here, at the classification edge, rather than through custom fields bolted onto core tables. KLAH holds one row per class (CLASS/CLINT), its type (KLART, via TCLA), status (STATU, via TCLU), and characteristics-table linkage; the actual characteristic assignments live in AUSP against the classified object, keyed via CABN. SAP's real KLAH carries roughly 55 fields, mostly document-linkage and display-formatting control; this definition carries the full key, classification-status, class-type, and document/document-linkage fields plus the base unit of measure — the set that identifies a class and its status, not every list-display formatting flag."
+source: https://leanx.eu/en/sap/table/klah.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: CLINT
+    description: "Internal Class Number — the technical key AUSP and CABN reference"
+    data_element: CLINT
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: true
+  - name: KLART
+    description: "Class Type"
+    data_element: KLASSENART
+    check_table: TCLA
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: CLASS
+    description: "Class number — the external, human-visible class identifier"
+    data_element: KLASSE_D
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: STATU
+    description: "Class status"
+    data_element: KLSTATUS
+    check_table: TCLU
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KLAGR
+    description: "Class Group"
+    data_element: KLASSENGR
+    check_table: TCLG
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BGRSE
+    description: "Authorization group for finding objects"
+    data_element: BGRSE
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: BGRKL
+    description: "Classification authorization group"
+    data_element: BGRKL
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: ANAME
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ADATU
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: VNAME
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: VDATU
+    description: "Changed On"
+    data_element: AEDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: VONDT
+    description: "Valid-From Date"
+    data_element: VONDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BISDT
+    description: "Valid-to date"
+    data_element: BISDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ANZUO
+    description: "Number of Assignments"
+    data_element: ANZUOR
+    check_table: ~
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: DOKNR
+    description: "Document number"
+    data_element: DOKNR
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: DOKAR
+    description: "Document Type"
+    data_element: DOKAR
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: DOKTL
+    description: "Document Part"
+    data_element: DOKTL_D
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: DOKVR
+    description: "Document Version"
+    data_element: DOKVR
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: SPART
+    description: "Division"
+    data_element: SPART
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LEIST
+    description: "Characteristics table — the table holding the class's characteristic assignments"
+    data_element: LEISTE
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: MEINS
+    description: "Base Unit of Measure"
+    data_element: MEINS
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: LOCLA
+    description: "Local class"
+    data_element: LOCAL_CLASS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: KLART
+    check_table: TCLA
+    check_field: KLART
+  - field: STATU
+    check_table: TCLU
+    check_field: STATUS
+  - field: KLAGR
+    check_table: TCLG
+    check_field: KLAGR
+  - field: MEINS
+    check_table: T006
+    check_field: MSEHI
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

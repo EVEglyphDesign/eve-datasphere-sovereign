@@ -1,0 +1,470 @@
+table: LFM1
+module: FI
+description: "Vendor master record purchasing organization data — the purchasing-organization-level view of the vendor master (payment terms, incoterms, purchasing group, order currency, ERS settings), sitting alongside LFA1 (general) and LFB1 (company code) in the vendor master's three-tier structure."
+source: https://leanx.eu/en/sap/table/lfm1.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: LIFNR
+    description: "Vendor Account Number"
+    data_element: ELIFN
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: EKORG
+    description: "Purchasing Organization"
+    data_element: EKORG
+    check_table: T024E
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: ERDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: SPERM
+    description: "Purchasing block at purchasing organization level"
+    data_element: SPERM_M
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LOEVM
+    description: "Delete flag for vendor at purchasing level"
+    data_element: LOEVM_M
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LFABC
+    description: "ABC indicator"
+    data_element: LFABC
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Purchase order currency"
+    data_element: BSTWA
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: VERKF
+    description: "Responsible Salesperson at Vendor's Office"
+    data_element: EVERK
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: TELF1
+    description: "Vendor's telephone number"
+    data_element: TELFE
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: MINBW
+    description: "Minimum order value"
+    data_element: MINBW
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ZTERM
+    description: "Terms of Payment Key"
+    data_element: DZTERM
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: INCO1
+    description: "Incoterms (Part 1)"
+    data_element: INCO1
+    check_table: TINC
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: INCO2
+    description: "Incoterms (Part 2)"
+    data_element: INCO2
+    check_table: ~
+    datatype: CHAR
+    length: 28
+    decimals: 0
+    key: false
+  - name: WEBRE
+    description: "Indicator: GR-Based Invoice Verification"
+    data_element: WEBRE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZABS
+    description: "Order Acknowledgment Requirement"
+    data_element: KZABS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KALSK
+    description: "Group for Calculation Schema (Vendor)"
+    data_element: KALSK
+    check_table: TMKK
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KZAUT
+    description: "Automatic Generation of Purchase Order Allowed"
+    data_element: KZAUT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EXPVZ
+    description: "Mode of Transport for Foreign Trade"
+    data_element: EXPVZ
+    check_table: T618
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ZOLLA
+    description: "Customs Office: Office of Exit/Entry for Foreign Trade"
+    data_element: DZOLLS
+    check_table: T615
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: MEPRF
+    description: "Price Determination (Pricing) Date Control"
+    data_element: MEPRF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EKGRP
+    description: "Purchasing Group"
+    data_element: EKGRP
+    check_table: T024
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: XERSY
+    description: "Evaluated Receipt Settlement (ERS)"
+    data_element: XERSY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PLIFZ
+    description: "Planned Delivery Time in Days"
+    data_element: PLIFZ
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: MRPPP
+    description: "Planning calendar"
+    data_element: MRPPP_W
+    check_table: T439G
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LFRHY
+    description: "Planning cycle"
+    data_element: LFRHY
+    check_table: T439G
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LIBES
+    description: "Order entry by vendor"
+    data_element: LIBES
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LIPRE
+    description: "Price marking, vendor"
+    data_element: LIPRE
+    check_table: TWYAZ
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LISER
+    description: "Rack-jobbing: vendor"
+    data_element: LISER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PRFRE
+    description: "Indicator: relevant to price determination (vendor hierarchy)"
+    data_element: PRFRE_LH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: NRGEW
+    description: "Indicator whether discount in kind granted"
+    data_element: NRGEW
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BOIND
+    description: "Indicator: index compilation for subsequent settlement active"
+    data_element: BOIND
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BLIND
+    description: "Indicator: Doc. index compilation active for purchase orders"
+    data_element: BLIND
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZRET
+    description: "Indicates whether vendor is returns vendor"
+    data_element: KZRET
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SKRIT
+    description: "Vendor sort criterion for materials"
+    data_element: SKRIT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BSTAE
+    description: "Confirmation Control Key"
+    data_element: BSTAE
+    check_table: T163L
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: RDPRF
+    description: "Rounding Profile"
+    data_element: RDPRF
+    check_table: RDPR
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: MEGRU
+    description: "Unit of Measure Group"
+    data_element: MEGRU
+    check_table: TWMEG
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VENSL
+    description: "Vendor service level"
+    data_element: VENSL
+    check_table: ~
+    datatype: DEC
+    length: 4
+    decimals: 1
+    key: false
+  - name: BOPNR
+    description: "Restriction Profile for PO-Based Load Building"
+    data_element: BOPNR
+    check_table: TWBO1
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: XERSR
+    description: "Automatic evaluated receipt settlement for return items"
+    data_element: XERSR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: EIKTO
+    description: "Our account number with the vendor"
+    data_element: EIKTO_M
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ABUEB
+    description: "Release Creation Profile"
+    data_element: ABUEB
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PAPRF
+    description: "Profile for transferring material data via IDoc PROACT"
+    data_element: WVMI_PAPRF
+    check_table: TWVMO
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: AGREL
+    description: "Indicator: Relevant for agency business"
+    data_element: AGREL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XNBWY
+    description: "Revaluation allowed"
+    data_element: XNBWY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VSBED
+    description: "Shipping Conditions"
+    data_element: VSBED
+    check_table: TVSB
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: LEBRE
+    description: "Indicator for Service-Based Invoice Verification"
+    data_element: LEBRE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BOLRE
+    description: "Indicator: vendor subject to subsequent settlement accounting"
+    data_element: BOLRE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: UMSAE
+    description: "Comparison/agreement of business volumes necessary"
+    data_element: UMSAE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: LIFNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: EKORG
+    check_table: T024E
+    check_field: EKORG
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: INCO1
+    check_table: TINC
+    check_field: INCO1
+  - field: KALSK
+    check_table: TMKK
+    check_field: KALSK
+  - field: EXPVZ
+    check_table: T618
+    check_field: EXPVZ
+  - field: ZOLLA
+    check_table: T615
+    check_field: ZOLLA
+  - field: EKGRP
+    check_table: T024
+    check_field: EKGRP
+  - field: MRPPP
+    check_table: T439G
+    check_field: MRPPP
+  - field: LFRHY
+    check_table: T439G
+    check_field: MRPPP
+  - field: LIPRE
+    check_table: TWYAZ
+    check_field: LIPRE
+  - field: BSTAE
+    check_table: T163L
+    check_field: BSTAE
+  - field: RDPRF
+    check_table: RDPR
+    check_field: RDPRF
+  - field: MEGRU
+    check_table: TWMEG
+    check_field: MEGRU
+  - field: BOPNR
+    check_table: TWBO1
+    check_field: BOPNR
+  - field: PAPRF
+    check_table: TWVMO
+    check_field: PAPRF
+  - field: VSBED
+    check_table: TVSB
+    check_field: VSBED
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

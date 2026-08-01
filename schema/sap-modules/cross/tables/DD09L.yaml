@@ -1,0 +1,166 @@
+table: DD09L
+module: CROSS
+description: "Technical settings of tables — the physical/storage configuration for each table registered in DD02L: data class, size category, buffering type, generic-buffer key-field count, change logging, and row/column store designation. This is not semantic metadata like DD01L/DD03L/DD04L; it is operational metadata the mirror uses to sanity-check crosswalk assumptions about a table's runtime behavior — e.g. whether a table is buffered (and therefore may show stale reads to certain report paths) or whether change logging is active (and therefore audit trail claims are checkable). Table carried complete."
+source: https://leanx.eu/en/sap/table/dd09l.html
+fields:
+  - name: TABNAME
+    description: "Table Name"
+    data_element: TABNAME
+    check_table: DD02L
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: AS4LOCAL
+    description: "Activation Status of a Repository Object"
+    data_element: AS4LOCAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: AS4VERS
+    description: "Version of the entry (not used)"
+    data_element: AS4VERS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: TABKAT
+    description: "Size category"
+    data_element: TABKAT
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: TABART
+    description: "Data class in technical settings"
+    data_element: DDART
+    check_table: DDART
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: PUFFERUNG
+    description: "Buffering type indicator"
+    data_element: PUFFERUNG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SCHFELDANZ
+    description: "No. of key fields for generic buffers"
+    data_element: SCHFELDANZ
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: PROTOKOLL
+    description: "Log Data Changes"
+    data_element: DDPROTOCOL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SPEICHPUFF
+    description: "Flag for the storage type in the buffer"
+    data_element: SPEICHPUFF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AS4USER
+    description: "Last Changed by"
+    data_element: AS4USER
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AS4DATE
+    description: "Date of Last Change"
+    data_element: AS4DATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AS4TIME
+    description: "Last changed at"
+    data_element: AS4TIME
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: TRANSPFLAG
+    description: "Convert to transparent table or maintain transparency"
+    data_element: DDTRANSP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RESERVE
+    description: "Reserved field in the ABAP Dictionary"
+    data_element: DDRESERVE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: UEBERSETZ
+    description: "Flag whether table is relevant for translation"
+    data_element: UEBERSETZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ACTFLAG
+    description: "Activation flag"
+    data_element: ACTFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BUFALLOW
+    description: "Indicator for buffering allowed/not allowed"
+    data_element: BUFALLOW
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: JAVAONLY
+    description: "Write access only with JAVA"
+    data_element: DDJAVAONLY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ROWORCOLST
+    description: "For distinction between Row or Column Store"
+    data_element: DDROWORCOLST
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: TABART
+    check_table: DDART
+    check_field: TABART
+  - field: TABNAME
+    check_table: DD02L
+    check_field: TABNAME
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

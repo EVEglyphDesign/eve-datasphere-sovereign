@@ -1,0 +1,461 @@
+table: ANEK
+module: FI
+description: "Document Header Asset Posting — the header of an asset accounting document, one row per asset business transaction (acquisition, retirement, transfer, depreciation posting run) carrying document date, posting date, period, user, transaction type and the reference to the originating purchasing or accounting document. This is the asset subledger's own journal header and is the FI-AA counterpart of BKPF: BELNR/BUZEI on the paired ANEP line items point back to the accounting document that also posted to BSEG and, in S/4HANA, to ACDOCA — any asset document in ANEK that lacks a matching ACDOCA/BKPF document number is a sign the subledger and the universal journal have drifted apart."
+source: https://leanx.eu/en/sap/table/anek.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: ANLN1
+    description: "Main Asset Number"
+    data_element: ANLN1
+    check_table: ANLH
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: true
+  - name: ANLN2
+    description: "Asset Subnumber"
+    data_element: ANLN2
+    check_table: ANLA
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: GJAHR
+    description: "Fiscal Year"
+    data_element: GJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: LNRAN
+    description: "Sequence number of asset line items in fiscal year"
+    data_element: LNRAN
+    check_table: ~
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: true
+  - name: BLDAT
+    description: "Document Date in Document"
+    data_element: BLDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BUDAT
+    description: "Posting Date in the Document"
+    data_element: BUDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: MONAT
+    description: "Fiscal Period"
+    data_element: MONAT
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: CPUDT
+    description: "Day On Which Accounting Document Was Entered"
+    data_element: CPUDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: CPUTM
+    description: "Time of Entry"
+    data_element: CPUTM
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Date of the Last Document Change by Transaction"
+    data_element: AEDAT_BKPF
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: UPDDT
+    description: "Date of the Last Document Update"
+    data_element: UPDDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: USNAM
+    description: "User name"
+    data_element: USNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: TCODE
+    description: "Transaction Code"
+    data_element: TCODE
+    check_table: TSTC
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: BVORG
+    description: "Number of Cross-Company Code Posting Transaction"
+    data_element: BVORG
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: XBLNR
+    description: "Reference Document Number"
+    data_element: XBLNR1
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: STBLG
+    description: "Reverse Document Number"
+    data_element: STBLG
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: STJAH
+    description: "Reverse document fiscal year"
+    data_element: STJAH
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: SGTXT
+    description: "Item Text"
+    data_element: SGTXT
+    check_table: ~
+    datatype: CHAR
+    length: 50
+    decimals: 0
+    key: false
+  - name: MENGE
+    description: "Quantity"
+    data_element: MENGE_D
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 3
+    key: false
+  - name: MEINS
+    description: "Base Unit of Measure"
+    data_element: MEINS
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ANLU1
+    description: "Asset number acquiring/retiring asset in transfer"
+    data_element: ANLU1
+    check_table: ANLH
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ANLU2
+    description: "Subnumber of receiving/sending asset in transfer"
+    data_element: ANLU2
+    check_table: ANLA
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ANUPD
+    description: "Indicator: Type of change to table"
+    data_element: ANUPD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GLVOR
+    description: "Business Transaction"
+    data_element: GLVOR
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VBUND
+    description: "Company ID of trading partner"
+    data_element: RASSC
+    check_table: T880
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: PARGB
+    description: "Trading partner's business area"
+    data_element: PARGB
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BUREG
+    description: "Distribution rule group"
+    data_element: BUREG
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: AUGLZ
+    description: "Unused field length 3"
+    data_element: FILL03
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: ABRBUP
+    description: "Posting period of settlement"
+    data_element: ABRBUP
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: OBART
+    description: "Object type of forwarding object at settlement"
+    data_element: A_OBART
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: OBJID
+    description: "Forwarding object nr."
+    data_element: A_OBJID
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: ZUONR
+    description: "Assignment Number"
+    data_element: DZUONR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: MWSKZ
+    description: "Tax on sales/purchases code"
+    data_element: MWSKZ
+    check_table: T007A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: EBELN
+    description: "Purchasing Document Number"
+    data_element: EBELN
+    check_table: EKKO
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: EBELP
+    description: "Item Number of Purchasing Document"
+    data_element: EBELP
+    check_table: EKPO
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: AUGLN
+    description: "Reserve Field"
+    data_element: RSERV
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: BELNR
+    description: "Reference Document Number"
+    data_element: AWREF
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BUZEI
+    description: "Number of Line Item Within Accounting Document"
+    data_element: BUZEI
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: BZDAT
+    description: "Asset value date"
+    data_element: BZDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: XANTEI
+    description: "Ind: Post proportional values automatically"
+    data_element: XANTEI
+    check_table: ~
+    datatype: NUMC
+    length: 1
+    decimals: 0
+    key: false
+  - name: AWTYP
+    description: "Reference Transaction"
+    data_element: AWTYP
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: AWORG
+    description: "Reference Organizational Units"
+    data_element: AWORG
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AWSYS
+    description: "Logical System"
+    data_element: LOGSYSTEM
+    check_table: TBDLS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PBUKR
+    description: "Partner Company Code"
+    data_element: PBUKR
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VORGN
+    description: "Transaction Type for General Ledger"
+    data_element: VORGN
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LDGRP
+    description: "Ledger Group"
+    data_element: FAGL_LDGRP
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: DOCUMENT_UUID
+    description: "16 Byte UUID in 16 Bytes (Raw Format)"
+    data_element: SYSUUID_X16
+    check_table: ~
+    datatype: RAW
+    length: 16
+    decimals: 0
+    key: false
+  - name: TRANSACTION_UUID
+    description: "16 Byte UUID in 16 Bytes (Raw Format)"
+    data_element: SYSUUID_X16
+    check_table: ~
+    datatype: RAW
+    length: 16
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: ANLN1
+    check_table: ANLH
+    check_field: ANLN1
+  - field: ANLN2
+    check_table: ANLA
+    check_field: ANLN2
+  - field: ANLU1
+    check_table: ANLH
+    check_field: ANLN1
+  - field: ANLU2
+    check_table: ANLA
+    check_field: ANLN2
+  - field: AWSYS
+    check_table: TBDLS
+    check_field: LOGSYS
+  - field: EBELN
+    check_table: EKKO
+    check_field: EBELN
+  - field: EBELP
+    check_table: EKPO
+    check_field: EBELP
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: MEINS
+    check_table: T006
+    check_field: MSEHI
+  - field: MWSKZ
+    check_table: T007A
+    check_field: MWSKZ
+  - field: PARGB
+    check_table: TGSB
+    check_field: GSBER
+  - field: TCODE
+    check_table: TSTC
+    check_field: TCODE
+  - field: VBUND
+    check_table: T880
+    check_field: RCOMP
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

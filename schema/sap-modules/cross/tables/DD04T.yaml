@@ -1,0 +1,83 @@
+table: DD04T
+module: CROSS
+description: "Data element texts — the language-dependent short/heading/short-medium-long field labels for every data element in DD04L. Small text-carrier table, carried complete. This is the source the mirror checks when a crosswalk claims a specific business label (e.g. 'Company Code') for a field: DD04T holds SAP's own field-label texts, per language, so the label claim is checkable rather than assumed."
+source: https://leanx.eu/en/sap/table/dd04t.html
+fields:
+  - name: ROLLNAME
+    description: "Data element (semantic domain)"
+    data_element: ROLLNAME
+    check_table: DD04L
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: DDLANGUAGE
+    description: "Language Key"
+    data_element: DDLANGUAGE
+    check_table: ~
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: true
+  - name: AS4LOCAL
+    description: "Activation Status of a Repository Object"
+    data_element: AS4LOCAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AS4VERS
+    description: "Version of the entry (not used)"
+    data_element: AS4VERS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: DDTEXT
+    description: "Short Description of Repository Objects"
+    data_element: AS4TEXT
+    check_table: ~
+    datatype: CHAR
+    length: 60
+    decimals: 0
+    key: false
+  - name: REPTEXT
+    description: "Heading"
+    data_element: REPTEXT
+    check_table: ~
+    datatype: CHAR
+    length: 55
+    decimals: 0
+    key: false
+  - name: SCRTEXT_S
+    description: "Short Field Label"
+    data_element: SCRTEXT_S
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SCRTEXT_M
+    description: "Medium Field Label"
+    data_element: SCRTEXT_M
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: SCRTEXT_L
+    description: "Long Field Label"
+    data_element: SCRTEXT_L
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: ROLLNAME
+    check_table: DD04L
+    check_field: ROLLNAME
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

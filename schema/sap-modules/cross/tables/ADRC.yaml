@@ -1,0 +1,328 @@
+table: ADRC
+module: CROSS
+description: "Addresses (Business Address Services) — the central address table every ADRNR/ADDRNUMBER field in the model resolves to. ADRC holds the postal name, street, city, region, country, and default-communication-method data for every business partner, customer, vendor, company code, plant, and personnel address in the system; ADR2 (telephone), ADR3 (fax), and ADR6 (e-mail) are its per-communication-type child tables, all keyed on ADDRNUMBER back to this header. SAP's real ADRC carries roughly 95 fields covering city/street-file validation, PO-box handling, and township/county extensions; this definition carries the full postal identity, key/organizational fields, language, region/country linkage, default communication flags, and the UUID/error-status fields — the set any address resolution or downstream ESG/interaction-record join actually consumes, not every not-supported legacy field."
+source: https://leanx.eu/en/sap/table/adrc.html
+fields:
+  - name: CLIENT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: ADDRNUMBER
+    description: "Address number — the key every ADRNR field elsewhere in the model points to"
+    data_element: AD_ADDRNUM
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: DATE_FROM
+    description: "Valid-from date - in current Release only 00010101 possible"
+    data_element: AD_DATE_FR
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: NATION
+    description: "Version ID for International Addresses"
+    data_element: AD_NATION
+    check_table: TSADV
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: DATE_TO
+    description: "Valid-to date - in current Release only 99991231 possible"
+    data_element: AD_DATE_TO
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: TITLE
+    description: "Form-of-Address Key"
+    data_element: AD_TITLE
+    check_table: TSAD3
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: NAME1
+    description: "Name 1"
+    data_element: AD_NAME1
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: NAME2
+    description: "Name 2"
+    data_element: AD_NAME2
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: NAME3
+    description: "Name 3"
+    data_element: AD_NAME3
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: NAME4
+    description: "Name 4"
+    data_element: AD_NAME4
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: NAME_TEXT
+    description: "Converted name field (with form of address)"
+    data_element: AD_NAMETXT
+    check_table: ~
+    datatype: CHAR
+    length: 50
+    decimals: 0
+    key: false
+  - name: NAME_CO
+    description: "c/o name"
+    data_element: AD_NAME_CO
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: CITY1
+    description: "City"
+    data_element: AD_CITY1
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: CITY2
+    description: "District"
+    data_element: AD_CITY2
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: POST_CODE1
+    description: "City postal code"
+    data_element: AD_PSTCD1
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PO_BOX
+    description: "PO Box"
+    data_element: AD_POBX
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: STREET
+    description: "Street"
+    data_element: AD_STREET
+    check_table: ~
+    datatype: CHAR
+    length: 60
+    decimals: 0
+    key: false
+  - name: HOUSE_NUM1
+    description: "House Number"
+    data_element: AD_HSNM1
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: STR_SUPPL1
+    description: "Street 2"
+    data_element: AD_STRSPP1
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: LOCATION
+    description: "Street 5"
+    data_element: AD_LCTN
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: BUILDING
+    description: "Building (Number or Code)"
+    data_element: AD_BLDNG
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: COUNTRY
+    description: "Country Key"
+    data_element: LAND1
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LANGU
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: REGION
+    description: "Region (State, Province, County)"
+    data_element: REGIO
+    check_table: T005S
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: ADDR_GROUP
+    description: "Address Group (Key) (Business Address Services)"
+    data_element: AD_GROUP
+    check_table: TSAD7
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SORT1
+    description: "Search Term 1"
+    data_element: AD_SORT1
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: SORT2
+    description: "Search Term 2"
+    data_element: AD_SORT2
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: DEFLT_COMM
+    description: "Communication Method (Key) (Business Address Services) — which of ADR2/ADR3/ADR6 etc. is the default channel"
+    data_element: AD_COMM
+    check_table: TSAC
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: TEL_NUMBER
+    description: "First telephone no.: dialling code+number"
+    data_element: AD_TLNMBR1
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: FAX_NUMBER
+    description: "First fax no.: dialling code+number"
+    data_element: AD_FXNMBR1
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: FLAGCOMM2
+    description: "Flag: Telephone number(s) maintained — points at ADR2"
+    data_element: AD_FLGCM02
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLAGCOMM3
+    description: "Flag: Fax number(s) maintained — points at ADR3"
+    data_element: AD_FLGCM03
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLAGCOMM6
+    description: "Indicator: E-Mail Address(es) Maintained — points at ADR6"
+    data_element: AD_FLGCM06
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TIME_ZONE
+    description: "Address time zone"
+    data_element: AD_TZONE
+    check_table: TTZZ
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: TAXJURCODE
+    description: "Tax Jurisdiction"
+    data_element: AD_TXJCD
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: ADRC_UUID
+    description: "UUID Used in the Address"
+    data_element: AD_UUID
+    check_table: ~
+    datatype: RAW
+    length: 16
+    decimals: 0
+    key: false
+  - name: ADRC_ERR_STATUS
+    description: "Error Status of Address"
+    data_element: AD_ERR_STATUS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: CLIENT
+    check_table: T000
+    check_field: MANDT
+  - field: COUNTRY
+    check_table: T005
+    check_field: LAND1
+  - field: LANGU
+    check_table: T002
+    check_field: SPRAS
+  - field: REGION
+    check_table: T005S
+    check_field: BLAND
+  - field: TITLE
+    check_table: TSAD3
+    check_field: TITLE
+  - field: ADDR_GROUP
+    check_table: TSAD7
+    check_field: ADDR_GROUP
+  - field: DEFLT_COMM
+    check_table: TSAC
+    check_field: COMM_TYPE
+  - field: TIME_ZONE
+    check_table: TTZZ
+    check_field: TZONE
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

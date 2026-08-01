@@ -1,0 +1,40 @@
+table: T002
+module: CROSS
+description: "Language Keys (Component BC-I18) — the master list of SAP language keys, the check table nearly every SPRAS field across every module already defined in this repository resolves against (ADRC.LANGU, T001.SPRAS, CABN/CAWN's language handling, TCURT.SPRAS, and dozens more). Language key descriptions are stored separately in T002T. SAP's real T002 carries all its fields; this definition carries the table complete."
+source: https://leanx.eu/en/sap/table/t002.html
+fields:
+  - name: SPRAS
+    description: "Language Key — the value every SPRAS field in the model checks against"
+    data_element: SPRAS
+    check_table: ~
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: true
+  - name: LASPEZ
+    description: "Language specifications"
+    data_element: LASPEZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LAHQ
+    description: "Degree of Translation of Language"
+    data_element: LAHQ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LAISO
+    description: "2-Character SAP Language Code"
+    data_element: LAISO
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+foreign_keys: []
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

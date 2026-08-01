@@ -1,0 +1,51 @@
+table: DD02T
+module: CROSS
+description: "SAP Table Texts — the language-dependent short description for every table registered in DD02L. Small text-carrier table, carried complete. Gives the mirror the human-readable label behind a TABNAME so a validated crosswalk claim can be reported back in the customer's own terms, not just as a technical table code."
+source: https://leanx.eu/en/sap/table/dd02t.html
+fields:
+  - name: TABNAME
+    description: "Table Name"
+    data_element: TABNAME
+    check_table: DD02L
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: DDLANGUAGE
+    description: "Language Key"
+    data_element: DDLANGUAGE
+    check_table: ~
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: true
+  - name: AS4LOCAL
+    description: "Activation Status of a Repository Object"
+    data_element: AS4LOCAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AS4VERS
+    description: "Version of the entry (not used)"
+    data_element: AS4VERS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: DDTEXT
+    description: "Short Description of Repository Objects"
+    data_element: AS4TEXT
+    check_table: ~
+    datatype: CHAR
+    length: 60
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: TABNAME
+    check_table: DD02L
+    check_field: TABNAME
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

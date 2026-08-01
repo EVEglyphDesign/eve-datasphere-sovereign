@@ -1,0 +1,54 @@
+table: DD03T
+module: CROSS
+description: "Texts for fields (language dependent) — the language-dependent short description for every table field registered in DD03L. Small text-carrier table, carried complete. Lets the mirror surface a validated field-level crosswalk claim with the customer's own field label, in the customer's own working language, rather than a bare technical field name."
+source: https://leanx.eu/en/sap/table/dd03t.html
+fields:
+  - name: TABNAME
+    description: "Table Name"
+    data_element: TABNAME
+    check_table: DD02L
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: DDLANGUAGE
+    description: "Language Key"
+    data_element: DDLANGUAGE
+    check_table: ~
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: true
+  - name: FIELDNAME
+    description: "Field Name"
+    data_element: FIELDNAME
+    check_table: DD03L
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: AS4LOCAL
+    description: "Activation Status of a Repository Object"
+    data_element: AS4LOCAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DDTEXT
+    description: "Short Description of Repository Objects"
+    data_element: AS4TEXT
+    check_table: ~
+    datatype: CHAR
+    length: 60
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: TABNAME
+    check_table: DD02L
+    check_field: TABNAME
+  - field: FIELDNAME
+    check_table: DD03L
+    check_field: FIELDNAME
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

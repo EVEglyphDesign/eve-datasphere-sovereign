@@ -1,0 +1,289 @@
+table: DD04L
+module: CROSS
+description: "Data elements — the semantic layer between a domain (DD01L, pure datatype) and a table field (DD03L, physical placement): each data element binds a domain to field labels (short/medium/long/heading text), a set/get parameter ID, and optionally a search help. DD04L is where SAP's business meaning for a field actually lives — 'this is a Company Code' rather than 'this is a 4-character string' — and it is the layer the mirror uses to check that a crosswalk's claimed business semantics for a field match what the customer's own dictionary declares, not just that the datatypes are compatible. SAP's real DD04L carries roughly 37 fields, several BIDI/history/proxy display flags among them; this definition carries the full functional field set — identity, domain linkage, label lengths, memory ID, search-help linkage, and datatype/length/decimals — that a crosswalk or validation engine actually consumes."
+source: https://leanx.eu/en/sap/table/dd04l.html
+fields:
+  - name: ROLLNAME
+    description: "Data element (semantic domain)"
+    data_element: ROLLNAME
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: AS4LOCAL
+    description: "Activation Status of a Repository Object"
+    data_element: AS4LOCAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AS4VERS
+    description: "Version of the entry (not used)"
+    data_element: AS4VERS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: DOMNAME
+    description: "Domain name — the domain this data element is built on"
+    data_element: DOMNAME
+    check_table: DD01L
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: ROUTPUTLEN
+    description: "Length (No. of Characters)"
+    data_element: DDLENG
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: MEMORYID
+    description: "Set/Get parameter ID"
+    data_element: MEMORYID
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: LOGFLAG
+    description: "Indicator for writing change documents"
+    data_element: LOGFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: HEADLEN
+    description: "Maximum length of heading"
+    data_element: HEADLEN
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: SCRLEN1
+    description: "Max. length for short field label"
+    data_element: SCRLEN_S
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: SCRLEN2
+    description: "Max. length for medium field label"
+    data_element: SCRLEN_M
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: SCRLEN3
+    description: "Max. length for long field label"
+    data_element: SCRLEN_L
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: ACTFLAG
+    description: "Activation flag"
+    data_element: DTACTFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: APPLCLASS
+    description: "Application class for DD objects (not used)"
+    data_element: APPLCLASS
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: AUTHCLASS
+    description: "Activation type"
+    data_element: AUTHCLASS_
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: AS4USER
+    description: "Last Changed by"
+    data_element: AS4USER
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AS4DATE
+    description: "Date of Last Change"
+    data_element: AS4DATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AS4TIME
+    description: "Last changed at"
+    data_element: AS4TIME
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: DTELMASTER
+    description: "Original Language in Repository objects"
+    data_element: MASTERLANG
+    check_table: ~
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: RESERVEDTE
+    description: "SDIC: Reserve for data elements (not used)"
+    data_element: RESERVEDTE
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: DTELGLOBAL
+    description: "Flag for private DD objects (not used)"
+    data_element: GLOBALFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SHLPNAME
+    description: "Name of a Search Help"
+    data_element: SHLPNAME
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: SHLPFIELD
+    description: "Name of a search help parameter"
+    data_element: SHLPFIELD
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: DEFFDNAME
+    description: "Default name for components using the data element"
+    data_element: DEFFDNAME
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: DATATYPE
+    description: "Data Type in ABAP Dictionary"
+    data_element: DATATYPE_D
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LENG
+    description: "Length (No. of Characters)"
+    data_element: DDLENG
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: DECIMALS
+    description: "Number of Decimal Places"
+    data_element: DECIMALS
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: OUTPUTLEN
+    description: "Output Length"
+    data_element: OUTPUTLEN
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: LOWERCASE
+    description: "Lowercase letters allowed/not allowed"
+    data_element: LOWERCASE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SIGNFLAG
+    description: "Flag for sign in numerical fields"
+    data_element: SIGNFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CONVEXIT
+    description: "Conversion Routine"
+    data_element: CONVEXIT
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: VALEXI
+    description: "Existence of fixed values"
+    data_element: VALEXI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ENTITYTAB
+    description: "Value table"
+    data_element: ENTITYTAB
+    check_table: DD02L
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: REFKIND
+    description: "Category of Dictionary Type"
+    data_element: TYPEKIND
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: REFTYPE
+    description: "Type of Object Referenced"
+    data_element: DDREFTYPE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: DOMNAME
+    check_table: DD01L
+    check_field: DOMNAME
+  - field: ENTITYTAB
+    check_table: DD02L
+    check_field: TABNAME
+  - field: MEMORYID
+    check_table: TPARA
+    check_field: PARAMID
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

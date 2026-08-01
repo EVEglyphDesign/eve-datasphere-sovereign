@@ -1,0 +1,163 @@
+table: DD12L
+module: CROSS
+description: "Secondary indexes, header — the registry of every secondary (non-primary) database index defined on a table, including uniqueness and per-database-system inclusion/exclusion. This matters to the sovereign mirror because a crosswalk's claim that a field or field combination is uniquely identifying, or that a lookup is index-supported, is checkable against DD12L rather than inferred from query behavior — the mirror can confirm the customer's own system actually defines that index instead of trusting a performance assumption. Table carried complete."
+source: https://leanx.eu/en/sap/table/dd12l.html
+fields:
+  - name: SQLTAB
+    description: "Table Name"
+    data_element: TABNAME
+    check_table: DD02L
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: INDEXNAME
+    description: "Unique Index ID in a Table"
+    data_element: INDEXID
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: true
+  - name: AS4LOCAL
+    description: "Activation Status of a Repository Object"
+    data_element: AS4LOCAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: AS4VERS
+    description: "Version of the entry (not used)"
+    data_element: AS4VERS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: AUTHCLASS
+    description: "Activation type"
+    data_element: AUTHCLASS_
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: UNIQUEFLAG
+    description: "Flag for UNIQUE indexes"
+    data_element: UNIQUEFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AS4USER
+    description: "Last Changed by"
+    data_element: AS4USER
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AS4DATE
+    description: "Date of Last Change"
+    data_element: AS4DATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AS4TIME
+    description: "Last changed at"
+    data_element: AS4TIME
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: ACTFLAG
+    description: "Activation flag"
+    data_element: ACTFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DBINDEX
+    description: "Database index"
+    data_element: DBINDEX_D
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: DBSTATE
+    description: "Status of index on the database"
+    data_element: DDIXDBSTAT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DBINCLEXCL
+    description: "List of DB systems used as list of inclusions/exclusions"
+    data_element: DDIXINCEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DBSYSSEL1
+    description: "Choose a database system for DB-specific indexes"
+    data_element: DDIXDBSEL
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: DBSYSSEL2
+    description: "Choose a database system for DB-specific indexes"
+    data_element: DDIXDBSEL
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: DBSYSSEL3
+    description: "Choose a database system for DB-specific indexes"
+    data_element: DDIXDBSEL
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: DBSYSSEL4
+    description: "Choose a database system for DB-specific indexes"
+    data_element: DDIXDBSEL
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: ISEXTIND
+    description: "DD: Flag if index is extension index"
+    data_element: DDISEXTIND
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FULL_TEXT
+    description: "DD: Full Text Index"
+    data_element: DDFULLTEXT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: SQLTAB
+    check_table: DD02L
+    check_field: TABNAME
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

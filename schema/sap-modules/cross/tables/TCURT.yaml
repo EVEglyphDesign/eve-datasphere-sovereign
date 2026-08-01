@@ -1,0 +1,57 @@
+table: TCURT
+module: CROSS
+description: "Currency Code Names — the language-dependent short and long text for each currency key in TCURC, the table WAERS-typed fields' display text resolves through once a currency check-table hit is confirmed against TCURC itself. SAP's real TCURT carries all its fields; this definition carries the table complete."
+source: https://leanx.eu/en/sap/table/tcurt.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: SPRAS
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: true
+  - name: WAERS
+    description: "Currency Key — resolves to TCURC"
+    data_element: WAERS_CURC
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: true
+  - name: LTEXT
+    description: "Long Text"
+    data_element: LTEXT
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: KTEXT
+    description: "Short text"
+    data_element: KTEXT_CURT
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: SPRAS
+    check_table: T002
+    check_field: SPRAS
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

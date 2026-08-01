@@ -1,0 +1,224 @@
+table: ANEP
+module: FI
+description: "Asset Line Items — the depreciation-area-level value movements for an asset transaction (amount posted, ordinary/special depreciation, interest on the transaction), one row per ANEK header per real depreciation area, keyed by BUKRS/ANLN1/ANLN2/GJAHR/LNRAN/AFABE. ANEP is where an asset posting actually carries its amounts: BELNR/BUZEI tie each row to the accounting document that also hit BSEG and ACDOCA, and the depreciation-area split here (AFABE) is what must sum, area by area, to the annual balances carried in ANLC — a break between ANEP's postings and ACDOCA's asset reconciliation-account balance is the most direct evidence of subledger drift."
+source: https://leanx.eu/en/sap/table/anep.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: ANLN1
+    description: "Main Asset Number"
+    data_element: ANLN1
+    check_table: ANLH
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: true
+  - name: ANLN2
+    description: "Asset Subnumber"
+    data_element: ANLN2
+    check_table: ANLA
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: GJAHR
+    description: "Fiscal Year"
+    data_element: GJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: LNRAN
+    description: "Sequence number of asset line items in fiscal year"
+    data_element: LNRAN
+    check_table: ANEK
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: true
+  - name: AFABE
+    description: "Real depreciation area"
+    data_element: AFABE_D
+    check_table: ANLB
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: true
+  - name: ZUJHR
+    description: "Asset acquisition year (currently not used)"
+    data_element: DZUJHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: ZUCOD
+    description: "Sub-classification of asset acquisitions (currently not used)"
+    data_element: DZUCOD
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: PERAF
+    description: "Depreciation calculation period"
+    data_element: PERAF
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: BELNR
+    description: "Accounting Document Number"
+    data_element: BELNR_D
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BUZEI
+    description: "Number of Line Item Within Accounting Document"
+    data_element: BUZEI
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: BZDAT
+    description: "Asset value date"
+    data_element: BZDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BWASL
+    description: "Asset Transaction Type"
+    data_element: BWASL
+    check_table: TABW
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: XAFAR
+    description: "Indicator: Errors in depreciation"
+    data_element: XAFAR
+    check_table: ~
+    datatype: NUMC
+    length: 1
+    decimals: 0
+    key: false
+  - name: ANBTR
+    description: "Amount posted"
+    data_element: ANBTR
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: NAFAB
+    description: "Ordinary depreciation on transactions"
+    data_element: NAFAB
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: SAFAB
+    description: "Special depreciation on transactions"
+    data_element: SAFAB
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ZINSB
+    description: "Interest on transaction"
+    data_element: DZINSB
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: XANTW
+    description: "Indicator: Proportional values posted automatically"
+    data_element: XANTW
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XAWBT
+    description: "Indicator: Different posting amount entered"
+    data_element: XAWBT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LNSAN
+    description: "Sequence number of reversed asset line items"
+    data_element: LNSAN
+    check_table: ~
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: ANUPD
+    description: "Indicator: Type of change to table"
+    data_element: ANUPD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUGLN
+    description: "Current number of the clearing asset line item"
+    data_element: AM_AUGLN
+    check_table: ANEK
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: ANLN1
+    check_table: ANLH
+    check_field: ANLN1
+  - field: ANLN2
+    check_table: ANLA
+    check_field: ANLN2
+  - field: LNRAN
+    check_table: ANEK
+    check_field: LNRAN
+  - field: AFABE
+    check_table: ANLB
+    check_field: AFABE
+  - field: BWASL
+    check_table: TABW
+    check_field: BWASL
+  - field: AUGLN
+    check_table: ANEK
+    check_field: LNRAN
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

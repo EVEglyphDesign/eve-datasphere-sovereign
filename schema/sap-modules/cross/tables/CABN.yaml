@@ -1,0 +1,258 @@
+table: CABN
+module: CROSS
+description: "Characteristic — the master definition of a classification characteristic (name, data type, length, decimals, unit, value-entry rules), the row ATINN in AUSP and CAWN resolves to. CABN defines what a characteristic is and how its values are validated; CAWN carries its predefined value texts, AUSP carries its actual assignments to objects. This is the definitional layer of the classification extension mechanism that lets ESG and interaction-record attributes be declared without modifying any standard table structure. SAP's real CABN carries roughly 68 fields, most of them display/formatting and hierarchy-navigation control; this definition carries the full key, characteristic identity, data-type/length/decimal, unit-of-measure, value-entry-control, and class-linkage fields — the set that defines a characteristic's shape and validation, not every UI display flag."
+source: https://leanx.eu/en/sap/table/cabn.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: ATINN
+    description: "Internal characteristic — the key AUSP and CAWN reference"
+    data_element: ATINN
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: true
+  - name: ADZHL
+    description: "Internal counter for archiving objects via engin. chg. mgmt"
+    data_element: ADZHL
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: ATNAM
+    description: "Characteristic Name — the external, human-visible characteristic key"
+    data_element: ATNAM
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: ATIDN
+    description: "Object identification"
+    data_element: ATIDN
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ATFOR
+    description: "Data type of characteristic"
+    data_element: ATFOR
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ANZST
+    description: "Number of Characters"
+    data_element: ANZST
+    check_table: ~
+    datatype: INT2
+    length: 5
+    decimals: 0
+    key: false
+  - name: ANZDZ
+    description: "Number of Decimal Places"
+    data_element: ANZDZ
+    check_table: ~
+    datatype: INT2
+    length: 5
+    decimals: 0
+    key: false
+  - name: ATVOR
+    description: "Value with Plus or Minus Sign"
+    data_element: ATVOR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ATKLE
+    description: "Case Sensitive"
+    data_element: ATKLE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ATKON
+    description: "Name of Conversion Routine"
+    data_element: ATKON
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: ATKLA
+    description: "Chars Group"
+    data_element: ATKLA
+    check_table: TCMG
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ATERF
+    description: "Entry Required"
+    data_element: ATERF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ATEIN
+    description: "Single value"
+    data_element: ATEIN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ATAME
+    description: "Multilingual characteristic"
+    data_element: ATAME
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ATWME
+    description: "Values in more than one language"
+    data_element: ATWME
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MSEHI
+    description: "Unit of Measurement"
+    data_element: MSEHI
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: ATDIM
+    description: "Exponent display"
+    data_element: ATDIM
+    check_table: ~
+    datatype: INT2
+    length: 5
+    decimals: 0
+    key: false
+  - name: ATINT
+    description: "Interval Values Allowed"
+    data_element: ATINT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ATUNS
+    description: "Entry Required in Configuration"
+    data_element: ATUNS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ATTAB
+    description: "Table Name — for characteristics referencing an existing table field"
+    data_element: ATTAB
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: ATFEL
+    description: "Field Name — for characteristics referencing an existing table field"
+    data_element: ATFEL
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: ATPRT
+    description: "Check table — for characteristics with an SAP check-table value list"
+    data_element: ATPRT
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: ATMST
+    description: "Status of a characteristic"
+    data_element: ATMST
+    check_table: TCMS
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DATUV
+    description: "Valid-From Date"
+    data_element: DATUV
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENNR
+    description: "Change Number"
+    data_element: AENNR
+    check_table: AENR
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: LKENZ
+    description: "Deletion Indicator"
+    data_element: LKENZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CLINT
+    description: "Internal Class Number — links a characteristic back to its class header"
+    data_element: CLINT
+    check_table: KLAH
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: ATKLA
+    check_table: TCMG
+    check_field: ATKLA
+  - field: MSEHI
+    check_table: T006
+    check_field: MSEHI
+  - field: ATMST
+    check_table: TCMS
+    check_field: ATMST
+  - field: AENNR
+    check_table: AENR
+    check_field: AENNR
+  - field: CLINT
+    check_table: KLAH
+    check_field: CLINT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

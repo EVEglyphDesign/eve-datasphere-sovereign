@@ -1,0 +1,57 @@
+table: MAKT
+module: MM
+description: "Material Descriptions — the language-dependent short-text description of a material, keyed by material number and language. Small text table joined onto MARA wherever a material-level line item needs a human-readable description."
+source: https://leanx.eu/en/sap/table/makt.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: true
+  - name: SPRAS
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: true
+  - name: MAKTX
+    description: "Material Description (Short Text)"
+    data_element: MAKTX
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: MAKTG
+    description: "Material description in upper case for matchcodes"
+    data_element: MAKTG
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: SPRAS
+    check_table: T002
+    check_field: SPRAS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

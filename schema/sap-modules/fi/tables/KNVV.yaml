@@ -1,0 +1,617 @@
+table: KNVV
+module: FI
+description: "Customer Master Sales Data — the sales-area-level view of the customer master (sales organization/distribution channel/division), carrying order/delivery/billing blocks, pricing procedure, credit control area, incoterms, and payment terms used wherever an SD document needs to resolve customer sales-area defaults. Sits alongside KNA1 (general) and KNB1/KNB1-style company code data in the customer master's structure."
+source: https://leanx.eu/en/sap/table/knvv.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: KUNNR
+    description: "Customer Number"
+    data_element: KUNNR
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: VKORG
+    description: "Sales Organization"
+    data_element: VKORG
+    check_table: TVKO
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: VTWEG
+    description: "Distribution Channel"
+    data_element: VTWEG
+    check_table: TVTW
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: SPART
+    description: "Division"
+    data_element: SPART
+    check_table: TSPA
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BEGRU
+    description: "Authorization Group"
+    data_element: BEGRU
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LOEVM
+    description: "Deletion flag for customer (sales level)"
+    data_element: LOEVM_V
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VERSG
+    description: "Customer Statistics Group"
+    data_element: STGKU
+    check_table: TVSD
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUFSD
+    description: "Customer order block (sales area)"
+    data_element: AUFSD_V
+    check_table: TVAST
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KALKS
+    description: "Pricing procedure assigned to this customer"
+    data_element: KALKS
+    check_table: TVKD
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KDGRP
+    description: "Customer group"
+    data_element: KDGRP
+    check_table: T151
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: BZIRK
+    description: "Sales district"
+    data_element: BZIRK
+    check_table: T171
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: KONDA
+    description: "Price group (customer)"
+    data_element: KONDA
+    check_table: T188
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PLTYP
+    description: "Price list type"
+    data_element: PLTYP
+    check_table: T189
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: AWAHR
+    description: "Order probability of the item"
+    data_element: AWAHR
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: INCO1
+    description: "Incoterms (Part 1)"
+    data_element: INCO1
+    check_table: TINC
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: INCO2
+    description: "Incoterms (Part 2)"
+    data_element: INCO2
+    check_table: ~
+    datatype: CHAR
+    length: 28
+    decimals: 0
+    key: false
+  - name: LIFSD
+    description: "Customer delivery block (sales area)"
+    data_element: LIFSD_V
+    check_table: TVLS
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: AUTLF
+    description: "Complete delivery defined for each sales order?"
+    data_element: AUTLF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ANTLF
+    description: "Maximum Number of Partial Deliveries Allowed Per Item"
+    data_element: ANTLF
+    check_table: ~
+    datatype: DEC
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZTLF
+    description: "Partial delivery at item level"
+    data_element: KZTLF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KZAZU
+    description: "Order Combination Indicator"
+    data_element: KZAZU_D
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CHSPL
+    description: "Batch split allowed"
+    data_element: CHSPL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LPRIO
+    description: "Delivery Priority"
+    data_element: TPRIO
+    check_table: TPRIO
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: EIKTO
+    description: "Shipper's (Our) Account Number at the Customer or Vendor"
+    data_element: EIKTO
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: VSBED
+    description: "Shipping Conditions"
+    data_element: VSBED
+    check_table: TVSB
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FAKSD
+    description: "Billing block for customer (sales and distribution)"
+    data_element: FAKSD_V
+    check_table: TVFS
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: MRNKZ
+    description: "Manual invoice maintenance"
+    data_element: MRNKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PERFK
+    description: "Invoice dates (calendar identification)"
+    data_element: PERFK
+    check_table: TFACD
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PERRL
+    description: "Invoice list schedule (calendar identification)"
+    data_element: PERRL
+    check_table: TFACD
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KVAKZ
+    description: "Cost estimate indicator (inactive)"
+    data_element: KVAKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KVAWT
+    description: "Value limit for cost estimate (inactive)"
+    data_element: KVAWT
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: WAERS
+    description: "Currency"
+    data_element: WAERS_V02D
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: KLABC
+    description: "Customer classification (ABC analysis)"
+    data_element: KLABC
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: KTGRD
+    description: "Account assignment group for this customer"
+    data_element: KTGRD
+    check_table: TVKT
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: ZTERM
+    description: "Terms of Payment Key"
+    data_element: DZTERM
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VWERK
+    description: "Delivering Plant (Own or External)"
+    data_element: DWERK_EXT
+    check_table: TVKWZ
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VKGRP
+    description: "Sales Group"
+    data_element: VKGRP
+    check_table: TVBVK
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: VKBUR
+    description: "Sales Office"
+    data_element: VKBUR
+    check_table: TVBUR
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VSORT
+    description: "Item proposal"
+    data_element: VSORT
+    check_table: VBUK
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KVGR1
+    description: "Customer group 1"
+    data_element: KVGR1
+    check_table: TVV1
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: KVGR2
+    description: "Customer group 2"
+    data_element: KVGR2
+    check_table: TVV2
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: KVGR3
+    description: "Customer group 3"
+    data_element: KVGR3
+    check_table: TVV3
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: KVGR4
+    description: "Customer group 4"
+    data_element: KVGR4
+    check_table: TVV4
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: KVGR5
+    description: "Customer group 5"
+    data_element: KVGR5
+    check_table: TVV5
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: BOKRE
+    description: "Indicator: Customer Is Rebate-Relevant"
+    data_element: BOKRE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BOIDT
+    description: "Start of validity period for the rebate index for the customer"
+    data_element: BOIDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: KURST
+    description: "Exchange Rate Type"
+    data_element: KURST
+    check_table: TCURV
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PRFRE
+    description: "Relevant for price determination ID"
+    data_element: PRFRE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KABSS
+    description: "Customer payment guarantee procedure"
+    data_element: KABSSCH_CM
+    check_table: T691P
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KKBER
+    description: "Credit control area"
+    data_element: KKBER
+    check_table: T014
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: CASSD
+    description: "Sales block for customer (sales area)"
+    data_element: CASSD_V
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: RDOFF
+    description: "Switch off rounding?"
+    data_element: RDOFF
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AGREL
+    description: "Indicator: Relevant for agency business"
+    data_element: AGREL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MEGRU
+    description: "Unit of Measure Group"
+    data_element: MEGRU
+    check_table: TWMEG
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: UEBTO
+    description: "Overdelivery Tolerance Limit"
+    data_element: UEBTO
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 1
+    key: false
+  - name: UNTTO
+    description: "Underdelivery Tolerance Limit"
+    data_element: UNTTO
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 1
+    key: false
+  - name: UEBTK
+    description: "Unlimited overdelivery allowed"
+    data_element: UEBTK_V
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PVKSM
+    description: "Customer procedure for product proposal"
+    data_element: PVKSM
+    check_table: TPVD
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: PODKZ
+    description: "Relevant for POD processing"
+    data_element: PODKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PODTG
+    description: "Timeframe for Confirmation of POD"
+    data_element: PODTG
+    check_table: ~
+    datatype: DEC
+    length: 11
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: KUNNR
+    check_table: KNA1
+    check_field: KUNNR
+  - field: VKORG
+    check_table: TVKO
+    check_field: VKORG
+  - field: VTWEG
+    check_table: TVTW
+    check_field: VTWEG
+  - field: SPART
+    check_table: TSPA
+    check_field: SPART
+  - field: VERSG
+    check_table: TVSD
+    check_field: STGKU
+  - field: AUFSD
+    check_table: TVAST
+    check_field: AUFSP
+  - field: KALKS
+    check_table: TVKD
+    check_field: KALKS
+  - field: KDGRP
+    check_table: T151
+    check_field: KDGRP
+  - field: BZIRK
+    check_table: T171
+    check_field: BZIRK
+  - field: KONDA
+    check_table: T188
+    check_field: KONDA
+  - field: PLTYP
+    check_table: T189
+    check_field: PLTYP
+  - field: INCO1
+    check_table: TINC
+    check_field: INCO1
+  - field: LIFSD
+    check_table: TVLS
+    check_field: LIFSP
+  - field: LPRIO
+    check_table: TPRIO
+    check_field: LPRIO
+  - field: VSBED
+    check_table: TVSB
+    check_field: VSBED
+  - field: FAKSD
+    check_table: TVFS
+    check_field: FAKSP
+  - field: PERFK
+    check_table: TFACD
+    check_field: IDENT
+  - field: PERRL
+    check_table: TFACD
+    check_field: IDENT
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: KTGRD
+    check_table: TVKT
+    check_field: KTGRD
+  - field: VWERK
+    check_table: TVKWZ
+    check_field: WERKS
+  - field: VKGRP
+    check_table: TVBVK
+    check_field: VKGRP
+  - field: VKBUR
+    check_table: TVBUR
+    check_field: VKBUR
+  - field: VSORT
+    check_table: VBUK
+    check_field: VBELN
+  - field: KVGR1
+    check_table: TVV1
+    check_field: KVGR1
+  - field: KVGR2
+    check_table: TVV2
+    check_field: KVGR2
+  - field: KVGR3
+    check_table: TVV3
+    check_field: KVGR3
+  - field: KVGR4
+    check_table: TVV4
+    check_field: KVGR4
+  - field: KVGR5
+    check_table: TVV5
+    check_field: KVGR5
+  - field: KURST
+    check_table: TCURV
+    check_field: KURST
+  - field: KABSS
+    check_table: T691P
+    check_field: KABSS
+  - field: KKBER
+    check_table: T014
+    check_field: KKBER
+  - field: MEGRU
+    check_table: TWMEG
+    check_field: MEGRU
+  - field: PVKSM
+    check_table: TPVD
+    check_field: PVKSM
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

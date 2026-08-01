@@ -1,0 +1,111 @@
+table: T012
+module: FI
+description: "House Banks — the company-code-level master for each house bank a company uses (bank country, bank key, contact details), the parent record for the individual accounts held in T012K."
+source: https://leanx.eu/en/sap/table/t012.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: HBKID
+    description: "Short Key for a House Bank"
+    data_element: HBKID
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: true
+  - name: BANKS
+    description: "Bank country key"
+    data_element: BANKS
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: BANKL
+    description: "Bank Keys"
+    data_element: BANKK
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: TELF1
+    description: "First telephone number"
+    data_element: TELF1
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: STCD1
+    description: "Tax Number 1"
+    data_element: STCD1
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: NAME1
+    description: "Name of contact person"
+    data_element: NAME1_A
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: SPRAS
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: BUPLA
+    description: "Business Place"
+    data_element: BUPLA_T012
+    check_table: J_1BBRANCH
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VPAST
+    description: "Value date in the past allowed"
+    data_element: VPAST
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: BANKS
+    check_table: T005
+    check_field: LAND1
+  - field: SPRAS
+    check_table: T002
+    check_field: SPRAS
+  - field: BUPLA
+    check_table: J_1BBRANCH
+    check_field: BRANCH
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

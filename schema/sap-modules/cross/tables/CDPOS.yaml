@@ -1,0 +1,140 @@
+table: CDPOS
+module: CROSS
+description: "Change document items — the field-level detail under CDHDR, one row per changed field per change document: old value, new value, unit/currency context. This is where the audit trail actually shows what changed, not just that something changed. SAP's real CDPOS carries all its fields; this definition carries the table complete."
+source: https://leanx.eu/en/sap/table/cdpos.html
+fields:
+  - name: MANDANT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: OBJECTCLAS
+    description: "Object class"
+    data_element: CDOBJECTCL
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: true
+  - name: OBJECTID
+    description: "Object value"
+    data_element: CDOBJECTV
+    check_table: ~
+    datatype: CHAR
+    length: 90
+    decimals: 0
+    key: true
+  - name: CHANGENR
+    description: "Document change number — joins back to CDHDR"
+    data_element: CDCHANGENR
+    check_table: CDHDR
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: TABNAME
+    description: "Table Name — the changed table"
+    data_element: TABNAME
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: TABKEY
+    description: "Changed table record key"
+    data_element: CDTABKEY
+    check_table: ~
+    datatype: CHAR
+    length: 70
+    decimals: 0
+    key: true
+  - name: FNAME
+    description: "Field Name — the changed field"
+    data_element: FIELDNAME
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: CHNGIND
+    description: "Change Type (U, I, S, D)"
+    data_element: CDCHNGIND
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TEXT_CASE
+    description: "Flag: X=Text change"
+    data_element: CDXFELD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: UNIT_OLD
+    description: "Change documents, unit referenced (old value)"
+    data_element: CDUNIT
+    check_table: ~
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: UNIT_NEW
+    description: "Change documents, unit referenced (new value)"
+    data_element: CDUNIT
+    check_table: ~
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: CUKY_OLD
+    description: "Change documents, referenced currency (old value)"
+    data_element: CDCUKY
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: CUKY_NEW
+    description: "Change documents, referenced currency (new value)"
+    data_element: CDCUKY
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: VALUE_NEW
+    description: "New contents of changed field"
+    data_element: CDFLDVALN
+    check_table: ~
+    datatype: CHAR
+    length: 254
+    decimals: 0
+    key: false
+  - name: VALUE_OLD
+    description: "Old contents of changed field"
+    data_element: CDFLDVALO
+    check_table: ~
+    datatype: CHAR
+    length: 254
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDANT
+    check_table: T000
+    check_field: MANDT
+  - field: CHANGENR
+    check_table: CDHDR
+    check_field: CHANGENR
+  - field: CUKY_OLD
+    check_table: TCURC
+    check_field: WAERS
+  - field: CUKY_NEW
+    check_table: TCURC
+    check_field: WAERS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

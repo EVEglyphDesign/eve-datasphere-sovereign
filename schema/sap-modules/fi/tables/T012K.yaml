@@ -1,0 +1,234 @@
+table: T012K
+module: FI
+description: "House Bank Accounts — the individual bank account master beneath each T012 house bank, carrying the bank account number, currency, and the linked G/L account (HKONT) that account postings hit."
+source: https://leanx.eu/en/sap/table/t012k.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: HBKID
+    description: "Short Key for a House Bank"
+    data_element: HBKID
+    check_table: T012
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: true
+  - name: HKTID
+    description: "ID for account details"
+    data_element: HKTID
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: true
+  - name: BANKN
+    description: "Bank account number"
+    data_element: BANKN
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: BKONT
+    description: "Bank Control Key"
+    data_element: BKONT
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: REFZL
+    description: "Reference Information"
+    data_element: REFZL
+    check_table: ~
+    datatype: CHAR
+    length: 27
+    decimals: 0
+    key: false
+  - name: DTAAI
+    description: "DME Sold-To Party Identification (Switzerland)"
+    data_element: DTAAI
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: BNKN2
+    description: "Alternative Bank Acct Number (for Ambiguous Acct Number)"
+    data_element: BNKN2
+    check_table: ~
+    datatype: CHAR
+    length: 24
+    decimals: 0
+    key: false
+  - name: FDGRP
+    description: "Planning Group"
+    data_element: FDGRP
+    check_table: T035
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ABWAE
+    description: "Settlement currency for bank transfers"
+    data_element: ABWAE
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: HKONT
+    description: "General Ledger Account — the G/L account this bank account posts against"
+    data_element: HKONT
+    check_table: SKB1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: WEKON
+    description: "Subaccount for bill of exchange presentation for discounting"
+    data_element: WEKON
+    check_table: SKB1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: MINDT
+    description: "Minimum days until due date when presenting for collection"
+    data_element: MINDT
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: HBID1
+    description: "Alternative house bank for bill/exch. presentation debit memo"
+    data_element: HBID1_012K
+    check_table: T012
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: HKID1
+    description: "Account details for debit memo from bill/exch. presentation"
+    data_element: HKID1_012K
+    check_table: T012K
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: HBID2
+    description: "Alternative house bank for failed bill/exch. receivable"
+    data_element: HBID2_012K
+    check_table: T012
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: HKID2
+    description: "Account details for debit memo from bill/exch. presentation"
+    data_element: HKID2_012K
+    check_table: T012K
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: WKKON
+    description: "Bk act to be debited with amount from returned bill payable"
+    data_element: WKKON_012K
+    check_table: SKB1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: WIKON
+    description: "Subaccount for bill of exchange collection"
+    data_element: WIKON_012K
+    check_table: SKB1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BROLL
+    description: "Attribute for use by house banks in PRQ payment program"
+    data_element: PRQ_BROLL
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: XTPRB
+    description: "Flag for determining whether transit or principal bank"
+    data_element: PRQ_XTPRB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: HBKID
+    check_table: T012
+    check_field: HBKID
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: ABWAE
+    check_table: TCURC
+    check_field: WAERS
+  - field: FDGRP
+    check_table: T035
+    check_field: GRUPP
+  - field: HKONT
+    check_table: SKB1
+    check_field: SAKNR
+  - field: WEKON
+    check_table: SKB1
+    check_field: SAKNR
+  - field: HBID1
+    check_table: T012
+    check_field: HBKID
+  - field: HKID1
+    check_table: T012K
+    check_field: HKTID
+  - field: HBID2
+    check_table: T012
+    check_field: HBKID
+  - field: HKID2
+    check_table: T012K
+    check_field: HKTID
+  - field: WKKON
+    check_table: SKB1
+    check_field: SAKNR
+  - field: WIKON
+    check_table: SKB1
+    check_field: SAKNR
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

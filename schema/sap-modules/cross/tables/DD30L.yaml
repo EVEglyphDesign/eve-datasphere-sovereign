@@ -1,0 +1,166 @@
+table: DD30L
+module: CROSS
+description: "Search helps — the header registry for elementary and collective search helps (F4 value-help definitions): selection method, selection method type, exit module, hotkey, and dialog behavior. Search helps are frequently where a crosswalk's implicit business rule about 'what values are valid here' is actually enforced at data-entry time in the source system, so DD30L lets the mirror check whether a claimed value-help constraint genuinely exists in the customer's dictionary, and what selection method actually backs it, rather than inferring intent from the field's domain alone. SAP's real DD30L carries roughly 25 fields (including newer fuzzy-search fields); this definition carries the full functional field set that a crosswalk or validation engine actually consumes."
+source: https://leanx.eu/en/sap/table/dd30l.html
+fields:
+  - name: SHLPNAME
+    description: "Name of a Search Help"
+    data_element: SHLPNAME
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: AS4LOCAL
+    description: "Activation Status of a Repository Object"
+    data_element: AS4LOCAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ISSIMPLE
+    description: "Flag if a search help is an elementary search help"
+    data_element: DDSHSIMPLE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ELEMEXI
+    description: "Existence of included search helps"
+    data_element: ELEMEXI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: NOFIELDS
+    description: "Flag if a search help has fields"
+    data_element: DDSHNOFLD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ATTACHEXI
+    description: "Flag if search help field assignment exists for search help"
+    data_element: DDSHATTEXI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SELMETHOD
+    description: "Selection method of an elementary search help — the table or view the help reads from"
+    data_element: SELMETHOD
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: SELMTYPE
+    description: "Category of selection method of an elementary search help"
+    data_element: SELMTYPE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TEXTTAB
+    description: "Text table for selection method"
+    data_element: SELMETHTXT
+    check_table: DD02L
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: SELMEXIT
+    description: "Search help exit — the function module invoked at runtime"
+    data_element: DDSHSELEXT
+    check_table: TFDIR
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: HOTKEY
+    description: "Hot key for a search help"
+    data_element: DDSHHOTKEY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DIALOGTYPE
+    description: "Dialog type"
+    data_element: DDSHDIATYP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ACTFLAG
+    description: "Activation flag"
+    data_element: ACTFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AS4USER
+    description: "Last Changed by"
+    data_element: AS4USER
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AS4DATE
+    description: "Date of Last Change"
+    data_element: AS4DATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AS4TIME
+    description: "Last changed at"
+    data_element: AS4TIME
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: AUTOSUGGEST
+    description: "Proposal Search for Input Fields"
+    data_element: DDAUTOSUGGEST
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FUZZY_SEARCH
+    description: "Full Text Fuzzy Search"
+    data_element: DDFUZZY_SEARCH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FUZZY_SIMILARITY
+    description: "Accuracy Value for Error-Tolerant Full Text Search"
+    data_element: DDFUZZY_SIMILARITY
+    check_table: ~
+    datatype: DEC
+    length: 2
+    decimals: 1
+    key: false
+foreign_keys:
+  - field: TEXTTAB
+    check_table: DD02L
+    check_field: TABNAME
+  - field: SELMEXIT
+    check_table: TFDIR
+    check_field: FUNCNAME
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

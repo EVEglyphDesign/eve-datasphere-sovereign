@@ -1,0 +1,156 @@
+table: ADR2
+module: CROSS
+description: "Telephone Numbers (Business Address Services) — the per-communication-type child of ADRC holding phone numbers for a given ADDRNUMBER, one of the sibling tables (with ADR3 fax, ADR6 e-mail) that ADRC's DEFLT_COMM/FLAGCOMM2 flags point at. SAP's real ADR2 carries all its fields; this definition carries the table complete, as it is a small check/detail table."
+source: https://leanx.eu/en/sap/table/adr2.html
+fields:
+  - name: CLIENT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: ADDRNUMBER
+    description: "Address number"
+    data_element: AD_ADDRNUM
+    check_table: ADRC
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: PERSNUMBER
+    description: "Person number"
+    data_element: AD_PERSNUM
+    check_table: ADRP
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: DATE_FROM
+    description: "Valid-from date - in current Release only 00010101 possible"
+    data_element: AD_DATE_FR
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: CONSNUMBER
+    description: "Sequence Number"
+    data_element: AD_CONSNUM
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: true
+  - name: COUNTRY
+    description: "Country for telephone/fax number"
+    data_element: AD_COMCTRY
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: FLGDEFAULT
+    description: "Standard Sender Address in this Communication Type"
+    data_element: AD_FLGDFNR
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLG_NOUSE
+    description: "Flag: This Communication Number is Not Used"
+    data_element: AD_FLNOUSE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: HOME_FLAG
+    description: "Recipient address in this communication type (mail sys.grp)"
+    data_element: AD_FLGHOME
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TEL_NUMBER
+    description: "Telephone no.: dialling code+number"
+    data_element: AD_TLNMBR
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: TEL_EXTENS
+    description: "Telephone no.: Extension"
+    data_element: AD_TLXTNS
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: TELNR_LONG
+    description: "Complete number: dialling code+number+extension"
+    data_element: AD_TELNRLG
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: TELNR_CALL
+    description: "Telephone number for determining caller"
+    data_element: AD_TELNRCL
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: DFT_RECEIV
+    description: "Indicator: Telephone is SMS-Enabled"
+    data_element: AD_FLGSMS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: R3_USER
+    description: "Indicator: Telephone is a Mobile Telephone"
+    data_element: AD_FLGMOB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VALID_FROM
+    description: "Communication Data: Valid From (YYYYMMDDHHMMSS)"
+    data_element: AD_VALFROM
+    check_table: ~
+    datatype: CHAR
+    length: 14
+    decimals: 0
+    key: false
+  - name: VALID_TO
+    description: "Communication Data: Valid To (YYYYMMDDHHMMSS)"
+    data_element: AD_VALTO
+    check_table: ~
+    datatype: CHAR
+    length: 14
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: CLIENT
+    check_table: T000
+    check_field: MANDT
+  - field: ADDRNUMBER
+    check_table: ADRC
+    check_field: ADDRNUMBER
+  - field: PERSNUMBER
+    check_table: ADRP
+    check_field: PERSNUMBER
+  - field: COUNTRY
+    check_table: T005
+    check_field: LAND1
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

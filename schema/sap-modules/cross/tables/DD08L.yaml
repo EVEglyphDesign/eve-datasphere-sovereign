@@ -1,0 +1,135 @@
+table: DD08L
+module: CROSS
+description: "Relationship definitions — the ABAP Dictionary's foreign-key registry: for every checked field on every table, which check table it points to, the cardinality of that relationship, and the error message raised on violation. DD08L is what turns a crosswalk's asserted foreign-key relationship ('this field points to that check table') into a checkable fact: the mirror can confirm the relationship actually exists in the customer's own dictionary, with the customer's own cardinality and check semantics, rather than accept it as declared. Table carried complete — this is exactly the kind of small, high-leverage check table the model depends on being exhaustive."
+source: https://leanx.eu/en/sap/table/dd08l.html
+fields:
+  - name: TABNAME
+    description: "Table Name"
+    data_element: TABNAME
+    check_table: DD02L
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: FIELDNAME
+    description: "Name of the field to be checked"
+    data_element: FORFIELD
+    check_table: DD03L
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: AS4LOCAL
+    description: "Activation Status of a Repository Object"
+    data_element: AS4LOCAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: AS4VERS
+    description: "Version of the entry (not used)"
+    data_element: AS4VERS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: CHECKTABLE
+    description: "Check table name of the foreign key"
+    data_element: CHECKTABLE
+    check_table: DD02L
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: FRKART
+    description: "Dependency factor for semantic foreign keys"
+    data_element: FRKART
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: CLASFIELD
+    description: "Internal classification of foreign keys: partial, etc."
+    data_element: CLASFIELD
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: CLASVALUE
+    description: "Values for classification field of CLAS relationship type"
+    data_element: CLASVALUE
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: CARDLEFT
+    description: "Cardinality of a relationship (left/source side)"
+    data_element: CARDLEFT
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: CARD
+    description: "Cardinality of a relationship"
+    data_element: CARD
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: CHECKFLAG
+    description: "No check in Screen Painter"
+    data_element: CHECKFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ARBGB
+    description: "Application Area — message class for the FK violation message"
+    data_element: ARBGB
+    check_table: T100A
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: MSGNR
+    description: "Message number — the error message raised on foreign-key violation"
+    data_element: MSGNR
+    check_table: T100
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: NOINHERIT
+    description: "DD: Flag whether inheritance is switched off for the foreign key"
+    data_element: INCNOINHER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: ARBGB
+    check_table: T100A
+    check_field: ARBGB
+  - field: CHECKTABLE
+    check_table: DD02L
+    check_field: TABNAME
+  - field: TABNAME
+    check_table: DD02L
+    check_field: TABNAME
+  - field: FIELDNAME
+    check_table: DD03L
+    check_field: FIELDNAME
+  - field: MSGNR
+    check_table: T100
+    check_field: MSGNR
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

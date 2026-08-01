@@ -1,0 +1,86 @@
+table: TJ03
+module: CROSS
+description: "Object types — the master list of general-status-management object categories (the values JSTO.OBTYP resolves to), one row per object type registered with status management, carrying its screen include, status-count limits, and callback function modules. SAP's real TJ03 carries all its fields; this definition carries the table complete."
+source: https://leanx.eu/en/sap/table/tj03.html
+fields:
+  - name: OBTYP
+    description: "Object Category"
+    data_element: J_OBTYP
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: true
+  - name: AGSUBSCR
+    description: "Module pool for Include screen"
+    data_element: J_PROGRAM
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: NRSUBSCR
+    description: "No. of include screens"
+    data_element: J_DYNNR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: NOSMA
+    description: "Indicator: No Status Profile"
+    data_element: J_NOSMA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SVEXT
+    description: "Flag: External status management"
+    data_element: J_SVEXT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SNUMB
+    description: "Maximum number of system statuses"
+    data_element: J_SNUMB
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: ANUMB
+    description: "Maximum number of user statuses"
+    data_element: J_ANUMB
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: FNAME
+    description: "Function name"
+    data_element: FUNCNAME
+    check_table: TFDIR
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: OBJINFO
+    description: "Callback for Object Information"
+    data_element: J_OBINFO
+    check_table: TFDIR
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: FNAME
+    check_table: TFDIR
+    check_field: FUNCNAME
+  - field: OBJINFO
+    check_table: TFDIR
+    check_field: FUNCNAME
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

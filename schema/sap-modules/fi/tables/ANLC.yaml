@@ -1,0 +1,636 @@
+table: ANLC
+module: FI
+description: "Asset Value Fields — cumulative and annual asset values (acquisition cost, ordinary/special/unplanned depreciation, revaluation, transfers) by depreciation area and fiscal year, one row per asset per area per year. This is the balance-carrying twin of ANLA/ANLB: it holds the year-end APC and accumulated-depreciation balances that the depreciation area's ledger must equal, and every posted movement here should trace back to ANEP/ANEK line items and forward to the corresponding G/L balance in ACDOCA/BSEG for the linked asset G/L accounts — a mismatch between ANLC's cumulative fields and ACDOCA's asset reconciliation accounts is the classic sign of a depreciation-run posting that didn't fully land in the universal journal."
+source: https://leanx.eu/en/sap/table/anlc.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: ~
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: ANLN1
+    description: "Main Asset Number"
+    data_element: ANLN1
+    check_table: ANLH
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: true
+  - name: ANLN2
+    description: "Asset Subnumber"
+    data_element: ANLN2
+    check_table: ANLA
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: GJAHR
+    description: "Fiscal Year"
+    data_element: GJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: AFABE
+    description: "Real depreciation area"
+    data_element: AFABE_D
+    check_table: ANLB
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: true
+  - name: ZUJHR
+    description: "Asset acquisition year (currently not used)"
+    data_element: DZUJHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: ZUCOD
+    description: "Sub-classification of asset acquisitions (currently not used)"
+    data_element: DZUCOD
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: AFBLPE
+    description: "Period in which last depreciation was posted"
+    data_element: AFBLPE
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: AFBANZ
+    description: "Number of depreciation posting runs in the period"
+    data_element: AFBANZ
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: XAFAR
+    description: "Indicator: Errors in depreciation"
+    data_element: XAFAR
+    check_table: ~
+    datatype: NUMC
+    length: 1
+    decimals: 0
+    key: false
+  - name: NDABJ
+    description: "Expired useful life in years at start of the fiscal year"
+    data_element: NDABJ
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: NDABP
+    description: "Expired useful life in periods at start of fiscal year"
+    data_element: NDABP
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: ANDSJ
+    description: "Yrs Expired up to Fisc.Yr Start from Start of Spec.Dep."
+    data_element: ANDSJ
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: ANDSP
+    description: "Expired useful life in periods during FY from SDep start dat"
+    data_element: ANDSP
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: RSTCK
+    description: "Number of units depreciated in unit-of-prod. depreciation"
+    data_element: RSTCK
+    check_table: ~
+    datatype: DEC
+    length: 15
+    decimals: 0
+    key: false
+  - name: KANSW
+    description: "Cumulative acquisition and production costs"
+    data_element: KANSW
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: KAUFW
+    description: "Cumulative revaluation on the replacement value"
+    data_element: KAUFW
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: KINVZ
+    description: "Cumulative investment grants"
+    data_element: KINVZ
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: KNAFA
+    description: "Accumulated ordinary depreciation"
+    data_element: KNAFA
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: KSAFA
+    description: "Cumulative special depreciation"
+    data_element: KSAFA
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: KAAFA
+    description: "Cumulative unplanned depreciation"
+    data_element: KAAFA
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: KMAFA
+    description: "Cumulative reserves transfer"
+    data_element: KMAFA
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: KZINW
+    description: "Cumulative interest"
+    data_element: KZINW
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: KAUFN
+    description: "Cumulative revaluation of ordinary depreciation"
+    data_element: KAUFN
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: KANZA
+    description: "Cumulative down payments"
+    data_element: KANZA
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: KVOST
+    description: "Cumulative input tax"
+    data_element: KVOST
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: AUFWP
+    description: "Planned revaluation on replacement value"
+    data_element: AUFWP
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: NAFAP
+    description: "Planned ordinary depreciation for the year"
+    data_element: NAFAP
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: SAFAP
+    description: "Planned special depreciation for the year"
+    data_element: SAFAP
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: AAFAP
+    description: "Scheduled unplanned depreciation for the year"
+    data_element: AAFAP
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: MAFAP
+    description: "Planned transfer of reserves for the year"
+    data_element: MAFAP
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ZINSP
+    description: "Interest planned for the year"
+    data_element: DZINSP
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: AUFNP
+    description: "Planned revaluation of accumulated ordinary depreciation"
+    data_element: AUFNP
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: AUFWB
+    description: "Revaluation posted on replacement value"
+    data_element: AUFWB
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: NAFAG
+    description: "Ordinary depreciation posted in the current year"
+    data_element: NAFAG
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: SAFAG
+    description: "Special depreciation posted in the current fiscal year"
+    data_element: SAFAG
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: AAFAG
+    description: "Unplanned depreciation posted for the year"
+    data_element: AAFAG
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: MAFAG
+    description: "Acquisition value reducing depreciation posted for the year"
+    data_element: MAFAG
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ZINSG
+    description: "Interest posted for the year"
+    data_element: DZINSG
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: AUFNG
+    description: "Posted revaluation of accumulated ordinary depreciation"
+    data_element: AUFNG
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ANSWL
+    description: "Transactions for the year affecting asset values"
+    data_element: ANSWL
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ABGAN
+    description: "Total retirements and retiring transfers"
+    data_element: ABGAN
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ANSAZ
+    description: "Down payments on asset"
+    data_element: ANSAZ
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: AUFWM
+    description: "Manual revaluation on replacement value"
+    data_element: AUFWM
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: INVZM
+    description: "Investment grant for the year"
+    data_element: INVZM
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: NAFAM
+    description: "Manually planned ordinary depreciation for the year"
+    data_element: NAFAM
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: SAFAM
+    description: "Manual special depreciation planned for the year"
+    data_element: SAFAM
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: AAFAM
+    description: "Manual unplanned depreciation for the year"
+    data_element: AAFAM
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: MAFAM
+    description: "Manual transfer of reserves for the year"
+    data_element: MAFAM
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ZINSM
+    description: "Manual interest planned for the year"
+    data_element: DZINSM
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: AUFNM
+    description: "Manual revaluation of cumulative ordinary depreciation"
+    data_element: AUFNM
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ZUSNA
+    description: "Write-up on ordinary depreciation"
+    data_element: DZUSNA
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ZUSSA
+    description: "Write-up on special depreciation"
+    data_element: DZUSSA
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ZUSAA
+    description: "Write-up on unplanned depreciation"
+    data_element: DZUSAA
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ZUSMA
+    description: "Write-up on transferred reserves"
+    data_element: DZUSMA
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: AUFWV
+    description: "Proportional cumulative revaluation on replacement value"
+    data_element: AUFWV
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: INVZV
+    description: "Proportional cumulative investment grants"
+    data_element: INVZV
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: NAFAV
+    description: "Proportional accumulated ordinary depreciation"
+    data_element: NAFAV
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: SAFAV
+    description: "Proportional cumulative special depreciation"
+    data_element: SAFAV
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: AAFAV
+    description: "Proportional cumulative unplanned depreciation"
+    data_element: AAFAV
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: MAFAV
+    description: "Proportional cumulative transfer of reserves"
+    data_element: MAFAV
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: AUFNV
+    description: "Proportional cum. revaluation on ordinary depreciation"
+    data_element: AUFNV
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: AUFWL
+    description: "Proportional revaluation for the year on replacement value"
+    data_element: AUFWL
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: INVZL
+    description: "Proportional investment grant for the year"
+    data_element: INVZL
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: NAFAL
+    description: "Proportional ordinary depreciation for the year"
+    data_element: NAFAL
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: SAFAL
+    description: "Proportional special depreciation for the year"
+    data_element: SAFAL
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: AAFAL
+    description: "Proportional unplanned depreciation for the year"
+    data_element: AAFAL
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: MAFAL
+    description: "Proportional transfer of reserves for the year"
+    data_element: MAFAL
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: AUFNL
+    description: "Proportional revaluation of annual ordinary dep."
+    data_element: AUFNL
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: ANUPD
+    description: "Indicator: Type of change to table"
+    data_element: ANUPD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KSANS
+    description: "Cumulative statistical acquisition value"
+    data_element: KSANS
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: SANSL
+    description: "Statistical aquisition value of current year"
+    data_element: SANSL
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: PSTBEG
+    description: "FI-AA: Posting depreciation as of period xy"
+    data_element: PSTBEG
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: PSTEND
+    description: "FI-AA: Posting depreciation up to period xy"
+    data_element: PSTEND
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: PSTCALC
+    description: "FI-AA: New calculation of depreciation during posting"
+    data_element: PSTCALC
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PSTPER
+    description: "FI-AA: Depreciation calculation from period X"
+    data_element: PSTPER
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: ANLN1
+    check_table: ANLH
+    check_field: ANLN1
+  - field: ANLN2
+    check_table: ANLA
+    check_field: ANLN2
+  - field: AFABE
+    check_table: ANLB
+    check_field: AFABE
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

@@ -1,0 +1,421 @@
+table: T001W
+module: FI
+description: "Plants/Branches — the organizational master defining each plant, its address, and the purchasing/sales organizational links (valuation area, purchasing organization, intercompany sales organization/channel/division) a plant carries. Referenced across FI, MM and SD wherever a document line needs to resolve which plant, and therefore which valuation area and tax jurisdiction, a posting belongs to."
+source: https://leanx.eu/en/sap/table/t001w.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: NAME1
+    description: "Name"
+    data_element: NAME1
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: BWKEY
+    description: "Valuation Area"
+    data_element: BWKEY
+    check_table: T001K
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KUNNR
+    description: "Customer number of plant"
+    data_element: KUNNR_WK
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: LIFNR
+    description: "Vendor number of plant"
+    data_element: LIFNR_WK
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: FABKL
+    description: "Factory calendar key"
+    data_element: FABKL
+    check_table: TFACD
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: NAME2
+    description: "Name 2"
+    data_element: NAME2
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: STRAS
+    description: "House number and street"
+    data_element: STRAS
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: PFACH
+    description: "PO Box"
+    data_element: PFACH
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PSTLZ
+    description: "Postal Code"
+    data_element: PSTLZ
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ORT01
+    description: "City"
+    data_element: ORT01
+    check_table: ~
+    datatype: CHAR
+    length: 25
+    decimals: 0
+    key: false
+  - name: EKORG
+    description: "Purchasing Organization"
+    data_element: EKORG
+    check_table: T024E
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VKORG
+    description: "Sales organization for intercompany billing"
+    data_element: VKOIV
+    check_table: TVKO
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: CHAZV
+    description: "Indicator: batch status management active"
+    data_element: CHAZV
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KKOWK
+    description: "Indicator: Conditions at plant level"
+    data_element: KKOWK
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KORDB
+    description: "Indicator: Source list requirement"
+    data_element: KORDB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BEDPL
+    description: "Activating requirements planning"
+    data_element: BEDPL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LAND1
+    description: "Country Key"
+    data_element: LAND1
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: REGIO
+    description: "Region (State, Province, County)"
+    data_element: REGIO
+    check_table: T005S
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: COUNC
+    description: "County Code"
+    data_element: COUNC
+    check_table: T005E
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: CITYC
+    description: "City Code"
+    data_element: CITYC
+    check_table: T005G
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ADRNR
+    description: "Address"
+    data_element: ADRNR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: IWERK
+    description: "Maintenance Planning Plant"
+    data_element: IWERK
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: TXJCD
+    description: "Tax Jurisdiction"
+    data_element: TXJCD
+    check_table: TTXJ
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: false
+  - name: VTWEG
+    description: "Distribution channel for intercompany billing"
+    data_element: VTWIV
+    check_table: TVTW
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: SPART
+    description: "Division for intercompany billing"
+    data_element: SPAIV
+    check_table: TSPA
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: SPRAS
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: WKSOP
+    description: "SOP plant"
+    data_element: WKSOP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AWSLS
+    description: "Variance Key"
+    data_element: AWSLS
+    check_table: TKV01
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: VLFKZ
+    description: "Plant category"
+    data_element: VLFKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BZIRK
+    description: "Sales district"
+    data_element: BZIRK
+    check_table: T171
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: ZONE1
+    description: "Supply region (region supplied)"
+    data_element: LFREG
+    check_table: TZONE
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: TAXIW
+    description: "Tax Indicator: Plant (Purchasing)"
+    data_element: TAXIW1
+    check_table: TMKW1
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BZQHL
+    description: "Take regular vendor into account"
+    data_element: BZQHL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LET01
+    description: "Number of Days for First Reminder/Expediter"
+    data_element: MAHN1
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: LET02
+    description: "Number of Days for Second Reminder/Expediter"
+    data_element: MAHN2
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: LET03
+    description: "Number of Days for Third Reminder/Expediter"
+    data_element: MAHN3
+    check_table: ~
+    datatype: DEC
+    length: 3
+    decimals: 0
+    key: false
+  - name: BETOL
+    description: "Number of days for PO tolerance - Compress info records - SU"
+    data_element: BETOL
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: J_1BBRANCH
+    description: "Business Place"
+    data_element: J_1BBRANC_
+    check_table: J_1BBRANCH
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VTBFI
+    description: "Rule for determining the sales area for stock transfers"
+    data_element: VTBFI
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FPRFW
+    description: "Distribution profile at plant level"
+    data_element: FPRFW
+    check_table: TWFPF
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: VSTEL
+    description: "Shipping Point/Receiving Point"
+    data_element: VSTEL
+    check_table: TVST
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: BWKEY
+    check_table: T001K
+    check_field: BWKEY
+  - field: KUNNR
+    check_table: KNA1
+    check_field: KUNNR
+  - field: LIFNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: FABKL
+    check_table: TFACD
+    check_field: IDENT
+  - field: LAND1
+    check_table: T005
+    check_field: LAND1
+  - field: REGIO
+    check_table: T005S
+    check_field: BLAND
+  - field: COUNC
+    check_table: T005E
+    check_field: COUNC
+  - field: CITYC
+    check_table: T005G
+    check_field: CITYC
+  - field: IWERK
+    check_table: T001W
+    check_field: WERKS
+  - field: TXJCD
+    check_table: TTXJ
+    check_field: TXJCD
+  - field: VTWEG
+    check_table: TVTW
+    check_field: VTWEG
+  - field: SPART
+    check_table: TSPA
+    check_field: SPART
+  - field: SPRAS
+    check_table: T002
+    check_field: SPRAS
+  - field: AWSLS
+    check_table: TKV01
+    check_field: AWSLS
+  - field: BZIRK
+    check_table: T171
+    check_field: BZIRK
+  - field: ZONE1
+    check_table: TZONE
+    check_field: ZONE1
+  - field: TAXIW
+    check_table: TMKW1
+    check_field: TAXIW
+  - field: J_1BBRANCH
+    check_table: J_1BBRANCH
+    check_field: BRANCH
+  - field: FPRFW
+    check_table: TWFPF
+    check_field: FPRFW
+  - field: VSTEL
+    check_table: TVST
+    check_field: VSTEL
+  - field: EKORG
+    check_table: T024E
+    check_field: EKORG
+  - field: VKORG
+    check_table: TVKO
+    check_field: VKORG
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

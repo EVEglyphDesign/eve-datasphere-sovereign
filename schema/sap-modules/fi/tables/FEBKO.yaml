@@ -1,0 +1,511 @@
+table: FEBKO
+module: FI
+description: "Electronic Bank Statement Header Records — one row per imported electronic bank statement (house bank/account, statement number and date, opening/closing balances, total debits and credits), keyed by the surrogate KUKEY that its FEBEP line items reference. FEBKO is the cash-side counterpart to the asset subledger: the G/L account it posts against (HKONT) and the totals it carries (SSBTR/ESBTR/SUMSO/SUMHA) must equal what the statement's postings actually wrote to BSEG and, in S/4HANA, to ACDOCA for that bank G/L account — a statement whose header balances don't foot to the cleared items in FEBEP, or whose HKONT balance doesn't match the ACDOCA bank account balance, is exactly where cash-side reconciliation breaks."
+source: https://leanx.eu/en/sap/table/febko.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: KUKEY
+    description: "Short key (surrogate)"
+    data_element: KUKEY_EB
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: true
+  - name: ANWND
+    description: "Application using bank data storage"
+    data_element: ANWND_EBKO
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ABSND
+    description: "Sending bank (electronic bank statement)"
+    data_element: ABSND_EB
+    check_table: ~
+    datatype: CHAR
+    length: 50
+    decimals: 0
+    key: false
+  - name: AZIDT
+    description: "Bank statement identification"
+    data_element: AZIDT_EB
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: EMKEY
+    description: "Payee Keys"
+    data_element: EMKEY_EB
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: ASTAT
+    description: "Statement status"
+    data_element: ASTAT_EB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DSTAT
+    description: "Print status"
+    data_element: DSTAT_EB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VB1OK
+    description: "All postings in area 1 are OK"
+    data_element: VB1OK_EBKO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VB2OK
+    description: "All postings in area 2 are OK"
+    data_element: VB2OK_EBKO
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KIPRE
+    description: "All items on header record were interpreted"
+    data_element: KIPRE_EB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VFDAT
+    description: "Data expiry date"
+    data_element: VFDAT_EB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: GRP01
+    description: "Session name for bank postings"
+    data_element: GRP01_EB
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: XKEP1
+    description: "Keep session 1 after processing"
+    data_element: XKEP1_EB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GRP02
+    description: "Session name for subledger accounting"
+    data_element: GRP02_EB
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: XKEP2
+    description: "Keep session 2 after processing"
+    data_element: XKEP2_EB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: WVDAT
+    description: "Further processing date"
+    data_element: WVDAT_EB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: WVTIM
+    description: "Further processing time"
+    data_element: WVTIM_EB
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: WVART
+    description: "Further processing type"
+    data_element: WVART_EB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: HKONT
+    description: "General Ledger Account"
+    data_element: HKONT
+    check_table: SKB1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KTONR
+    description: "Bank account number"
+    data_element: BANKN
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: false
+  - name: KTOIH
+    description: "Bank account holder"
+    data_element: KTOIH_EB
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: KTOSB
+    description: "Special account name"
+    data_element: KTOSB_EB
+    check_table: ~
+    datatype: CHAR
+    length: 35
+    decimals: 0
+    key: false
+  - name: AZNUM
+    description: "Statement number"
+    data_element: AZNUM_EB
+    check_table: ~
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: AZSNR
+    description: "Statement page number"
+    data_element: AZSNR_EB
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: AZDAT
+    description: "Statement Date"
+    data_element: AZDAT_EB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KTOPL
+    description: "Chart of Accounts"
+    data_element: KTOPL
+    check_table: T004
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: SSTYP
+    description: "Beginning balance type (F=begin balance, M=interim balance)"
+    data_element: SSTYP_EB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SSVOZ
+    description: "Starting balance +/- sign"
+    data_element: SSVOZ_EB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SSBTR
+    description: "Opening balance amount"
+    data_element: SSBTR_EB
+    check_table: ~
+    datatype: CURR
+    length: 17
+    decimals: 2
+    key: false
+  - name: SUMSO
+    description: "Total Debit"
+    data_element: SUMSO_EB
+    check_table: ~
+    datatype: CURR
+    length: 17
+    decimals: 2
+    key: false
+  - name: SUMHA
+    description: "Total Credit"
+    data_element: SUMHA_EB
+    check_table: ~
+    datatype: CURR
+    length: 17
+    decimals: 2
+    key: false
+  - name: ESTYP
+    description: "Ending balance type (F=ending balance, M=interim balance)"
+    data_element: ESTYP_EB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ESVOZ
+    description: "Closing balance +/- sign"
+    data_element: ESVOZ_EB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ESBTR
+    description: "Ending balance amount"
+    data_element: ESBTR_EB
+    check_table: ~
+    datatype: CURR
+    length: 17
+    decimals: 2
+    key: false
+  - name: ESDMB
+    description: "Ending balance equivalent in local currency"
+    data_element: ESDMB_EB
+    check_table: ~
+    datatype: CURR
+    length: 17
+    decimals: 2
+    key: false
+  - name: BLAUF
+    description: "Life start"
+    data_element: BLAUF_EB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ELAUF
+    description: "Life end"
+    data_element: ELAUF_EB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: HZINS
+    description: "Credit interest"
+    data_element: HZINS_EB
+    check_table: ~
+    datatype: DEC
+    length: 9
+    decimals: 3
+    key: false
+  - name: TEILN
+    description: "Customer/vendor EB number"
+    data_element: TEILN_EB
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: BKTOA
+    description: "Bank account type"
+    data_element: BKTOA_EB
+    check_table: ~
+    datatype: CHAR
+    length: 23
+    decimals: 0
+    key: false
+  - name: ANZES
+    description: "Number of memo records from the bank statement"
+    data_element: ANZES_EB
+    check_table: ~
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: VGTYP
+    description: "Transaction type"
+    data_element: VGTYP_EB
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: EFART
+    description: "Input Type"
+    data_element: EFART_EB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: HBKID
+    description: "Short Key for a House Bank"
+    data_element: HBKID
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: HKTID
+    description: "ID for account details"
+    data_element: HKTID
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: EUSER
+    description: "User who fills the bank data buffer"
+    data_element: EUSER_EB
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: EDATE
+    description: "Import date into bank data puffer"
+    data_element: EDATE_EB
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ETIME
+    description: "Import time into bank data buffer"
+    data_element: ETIME_EB
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: BKREF
+    description: "Reference specifications for bank details"
+    data_element: BKREF
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: XFDIS
+    description: "X - cash management payment advice notes were created"
+    data_element: XFDIS_EB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DSART
+    description: "Planning type"
+    data_element: DSART
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: XVERD
+    description: "Summarize bank statement items"
+    data_element: FFDISXVERD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XBENR
+    description: "Reference Key"
+    data_element: AWKEY
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: XBTYP
+    description: "Reference Transaction"
+    data_element: AWTYP
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: SEQ_NUMBER
+    description: "Bank statement sequential number"
+    data_element: SEQ_NUMBER
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: SEQ_STATUS
+    description: "Sequence status"
+    data_element: SEQ_STATUS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: INPUT_FORMAT
+    description: "Input format"
+    data_element: INPUT_FORMAT
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: SIBAN
+    description: "Sender Bank Account: IBAN"
+    data_element: SIBAN_EB
+    check_table: ~
+    datatype: CHAR
+    length: 34
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: HKONT
+    check_table: SKB1
+    check_field: SAKNR
+  - field: KTOPL
+    check_table: T004
+    check_field: KTOPL
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

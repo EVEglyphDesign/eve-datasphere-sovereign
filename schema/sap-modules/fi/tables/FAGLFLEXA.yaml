@@ -1,0 +1,462 @@
+table: FAGLFLEXA
+module: FI
+description: "General Ledger: Actual Line Items — the New G/L (new-GL) flexible line-item table, SAP's pre-S/4HANA ancestor of ACDOCA. Where S/4HANA writes every FI+CO+AA line to the single Universal Journal (ACDOCA), an ECC/New-GL customer writes the equivalent actual line item here, one row per ledger per document per line, split by dimension (profit center, segment, functional area, business area). A customer running classic ECC mirrors this table; a customer on S/4HANA mirrors ACDOCA — the model must read both to cover the FI lane across a customer's install base."
+source: https://leanx.eu/en/sap/table/faglflexa.html
+fields:
+  - name: RCLNT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: RYEAR
+    description: "Fiscal Year"
+    data_element: GJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: DOCNR
+    description: "Accounting Document Number"
+    data_element: BELNR_D
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: RLDNR
+    description: "Ledger in General Ledger Accounting"
+    data_element: FAGL_RLDNR
+    check_table: V_FAGL_T881_DBAL
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: RBUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: DOCLN
+    description: "Six-Character Posting Item for Ledger"
+    data_element: DOCLN6
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: true
+  - name: RRCTY
+    description: "Record Type"
+    data_element: RRCTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RVERS
+    description: "Version"
+    data_element: RVERS
+    check_table: T894
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: ACTIV
+    description: "FI-SL Business Transaction"
+    data_element: ACTI1
+    check_table: T022
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: RMVCT
+    description: "Transaction Type"
+    data_element: RMVCT
+    check_table: T856
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: RTCUR
+    description: "Currency Key"
+    data_element: RTCUR
+    check_table: ~
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: RWCUR
+    description: "Currency key of the original transaction currency"
+    data_element: RWCUR
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: RUNIT
+    description: "Base Unit of Measure"
+    data_element: MEINS
+    check_table: ~
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: AWTYP
+    description: "Reference Transaction"
+    data_element: AWTYP
+    check_table: TTYP
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: LOGSYS
+    description: "Logical system"
+    data_element: LOGSYS
+    check_table: TBDLS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RACCT
+    description: "Account Number — the G/L account this journal line posted to"
+    data_element: RACCT
+    check_table: SKB1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: COST_ELEM
+    description: "Cost Element"
+    data_element: KSTAR
+    check_table: CSKB
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RCNTR
+    description: "Cost Center"
+    data_element: KOSTL
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PRCTR
+    description: "Profit Center"
+    data_element: PRCTR
+    check_table: CEPC
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RFAREA
+    description: "Functional Area"
+    data_element: FKBER
+    check_table: TFKB
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: RBUSA
+    description: "Business Area"
+    data_element: GSBER
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SEGMENT
+    description: "Segment for Segmental Reporting"
+    data_element: FB_SEGMENT
+    check_table: FAGL_SEGM
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SCNTR
+    description: "Sender cost center"
+    data_element: SKOST
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PPRCTR
+    description: "Partner Profit Center"
+    data_element: PPRCTR
+    check_table: CEPC
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SFAREA
+    description: "Partner Functional Area"
+    data_element: SFKBER
+    check_table: TFKB
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: SBUSA
+    description: "Trading partner's business area"
+    data_element: PARGB
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: RASSC
+    description: "Company ID of trading partner"
+    data_element: RASSC
+    check_table: T880
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: PSEGMENT
+    description: "Partner Segment for Segmental Reporting"
+    data_element: FB_PSEGMENT
+    check_table: FAGL_SEGM
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: TSL
+    description: "Value in Transaction Currency"
+    data_element: VTCUR12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: HSL
+    description: "Value in Local Currency"
+    data_element: VLCUR12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: KSL
+    description: "Value in Group Currency"
+    data_element: VGCUR12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: OSL
+    description: "Value in Another Currency"
+    data_element: VOCUR12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: MSL
+    description: "Quantity"
+    data_element: QUAN1_12
+    check_table: ~
+    datatype: QUAN
+    length: 23
+    decimals: 3
+    key: false
+  - name: WSL
+    description: "Value in Original Transaction Currency (Document Currency)"
+    data_element: VWCUR12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: DRCRK
+    description: "Debit/Credit Indicator"
+    data_element: SHKZG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: POPER
+    description: "Posting period"
+    data_element: POPER
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: GJAHR
+    description: "Fiscal Year"
+    data_element: GJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: BUDAT
+    description: "Posting Date in the Document"
+    data_element: BUDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BELNR
+    description: "Accounting Document Number"
+    data_element: BELNR_D
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BUZEI
+    description: "Number of Line Item Within Accounting Document"
+    data_element: BUZEI
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: BSCHL
+    description: "Posting Key"
+    data_element: BSCHL
+    check_table: TBSL
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: BSTAT
+    description: "Document Status"
+    data_element: BSTAT_D
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LINETYPE
+    description: "Item category"
+    data_element: LINETYPE
+    check_table: T8G02
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: XSPLITMOD
+    description: "Item changed by document splitting"
+    data_element: XSPLITMOD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: USNAM
+    description: "User name"
+    data_element: USNAM
+    check_table: USR02
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: TIMESTAMP
+    description: "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+    data_element: TIMESTAMP
+    check_table: ~
+    datatype: DEC
+    length: 15
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: RCLNT
+    check_table: T000
+    check_field: MANDT
+  - field: RBUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: RLDNR
+    check_table: V_FAGL_T881_DBAL
+    check_field: RLDNR
+  - field: RVERS
+    check_table: T894
+    check_field: RVERS
+  - field: ACTIV
+    check_table: T022
+    check_field: ACTIVITY
+  - field: RMVCT
+    check_table: T856
+    check_field: TRTYP
+  - field: RWCUR
+    check_table: TCURC
+    check_field: WAERS
+  - field: AWTYP
+    check_table: TTYP
+    check_field: AWTYP
+  - field: LOGSYS
+    check_table: TBDLS
+    check_field: LOGSYS
+  - field: RACCT
+    check_table: SKB1
+    check_field: SAKNR
+  - field: COST_ELEM
+    check_table: CSKB
+    check_field: KSTAR
+  - field: RCNTR
+    check_table: CSKS
+    check_field: KOSTL
+  - field: PRCTR
+    check_table: CEPC
+    check_field: PRCTR
+  - field: RFAREA
+    check_table: TFKB
+    check_field: FKBER
+  - field: RBUSA
+    check_table: TGSB
+    check_field: GSBER
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: SEGMENT
+    check_table: FAGL_SEGM
+    check_field: SEGMENT
+  - field: SCNTR
+    check_table: CSKS
+    check_field: KOSTL
+  - field: PPRCTR
+    check_table: CEPC
+    check_field: PRCTR
+  - field: SFAREA
+    check_table: TFKB
+    check_field: FKBER
+  - field: SBUSA
+    check_table: TGSB
+    check_field: GSBER
+  - field: RASSC
+    check_table: T880
+    check_field: RCOMP
+  - field: PSEGMENT
+    check_table: FAGL_SEGM
+    check_field: SEGMENT
+  - field: BSCHL
+    check_table: TBSL
+    check_field: BSCHL
+  - field: LINETYPE
+    check_table: T8G02
+    check_field: LINETYPE
+  - field: USNAM
+    check_table: USR02
+    check_field: BNAME
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

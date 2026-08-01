@@ -1,0 +1,166 @@
+table: DD25L
+module: CROSS
+description: "Aggregate Header (Views, MC Objects, Lock Objects) — the header registry for database views, maintenance/help views, matchcode objects, and lock objects: view name, aggregate type, view class, root table, and maintenance authorization. Together with DD08L and DD12L this is part of the mirror's structural-truth layer: when a crosswalk claims that a reporting field actually comes from a view joining several base tables, DD25L is where that view's existence, type, and root table are checkable rather than assumed. SAP's real DD25L carries close to 30 fields including several housekeeping/authorization flags; this definition carries the full functional field set that a crosswalk or validation engine actually consumes."
+source: https://leanx.eu/en/sap/table/dd25l.html
+fields:
+  - name: VIEWNAME
+    description: "Name of SAP table view"
+    data_element: VIEWNAME
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: AS4LOCAL
+    description: "Activation Status of a Repository Object"
+    data_element: AS4LOCAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AS4VERS
+    description: "Version of the entry (not used)"
+    data_element: AS4VERS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: AGGTYPE
+    description: "Aggregate Type — distinguishes database view, help view, matchcode object, lock object"
+    data_element: AGGTYPE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: APPLCLASS
+    description: "Application class for DD objects (not used)"
+    data_element: APPLCLASS
+    check_table: TAPPL
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: AUTHCLASS
+    description: "Activation type"
+    data_element: AUTHCLASS_
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: READONLY
+    description: "Read-Only Flag for Views (old)"
+    data_element: MCROFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ROOTTAB
+    description: "Primary table of an aggregate — the base table the view/matchcode/lock object is built on"
+    data_element: ROOTTAB
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: AS4USER
+    description: "Last Changed by"
+    data_element: AS4USER
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AS4DATE
+    description: "Date of Last Change"
+    data_element: AS4DATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AS4TIME
+    description: "Last changed at"
+    data_element: AS4TIME
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: VIEWCLASS
+    description: "View Type"
+    data_element: VIEWCLASS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ACTFLAG
+    description: "Activation flag"
+    data_element: ACTFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MASTERLANG
+    description: "Original Language in Repository objects"
+    data_element: MASTERLANG
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: CUSTOMAUTH
+    description: "Delivery class"
+    data_element: CONTFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VIEWGRANT
+    description: "Maintenance status (modification authorization) for view data"
+    data_element: VIEWGRANT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GLOBALFLAG
+    description: "Flag if Maintenance with Standard Tools is allowed"
+    data_element: MAINTFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MANKEY
+    description: "Permit manual maintenance of key attribute"
+    data_element: DDVIMANKEY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DBREFNAME
+    description: "DD: Name of View on Database"
+    data_element: DBVIEWNAME
+    check_table: ~
+    datatype: CHAR
+    length: 250
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: APPLCLASS
+    check_table: TAPPL
+    check_field: APPLCLASS
+  - field: MASTERLANG
+    check_table: T002
+    check_field: SPRAS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

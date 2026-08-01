@@ -148,3 +148,52 @@ repository does not have to re-derive it.
 
 ---
 © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.
+
+---
+
+## Wave A — universal foundation (2026-07-31)
+
+Closed the two layers every other module validates against, under
+[the non-proliferation compact](../../docs/DOCTRINE-MIRROR-NON-PROLIFERATION.md). Coverage is
+now tracked by [`scripts/coverage.py`](../../scripts/coverage.py) into
+[the coverage register](../../docs/ROADMAP-UNIVERSAL-COVERAGE.md) — no hand-maintained counts.
+
+**CROSS — ABAP Data Dictionary (14 tables).** `DD01L`/`DD01T` domains, `DD02L`/`DD02T`
+tables, `DD03L`/`DD03T` table fields, `DD04L`/`DD04T` data elements, `DD07L` domain fixed
+values, `DD08L` foreign-key definitions, `DD09L` technical settings, `DD12L` indexes,
+`DD25L` views, `DD30L` search helps. This is the layer that makes the mirror self-validating:
+a crosswalk claim is checked against the customer's own dictionary instead of trusted.
+
+**CROSS — foundation (18 tables).** Business Address Services (`ADRC`, `ADR2`, `ADR3`,
+`ADR6`); change documents (`CDHDR`, `CDPOS`), the audit trail the provenance claim rests on;
+status management (`JEST`, `JSTO`, `TJ02`, `TJ03`); classification (`KLAH`, `AUSP`, `CABN`,
+`CAWN`), the extension mechanism SAP itself sanctions and the reason companion columns attach
+at the edges rather than altering standard fields; check and text tables (`T002`, `T005`,
+`T006A`, `TCURT`).
+
+**FI — ledger completion (15 tables).** `BSIS`/`BSAS` close the G/L open-item picture beside
+the existing customer and vendor subledgers. `FAGLFLEXA`/`FAGLFLEXT` are the new-GL ancestors
+of ACDOCA — an ECC customer mirrors these where an S/4 customer mirrors ACDOCA, and the model
+reads both. `ACDOCP` plan journal and `ACDOCU` unified journal join the actuals spine.
+Plus `GLT0`, `T001W`, `T012`, `T012K`, `TGSB`, `KNBK`, `LFBK`, `KNVV`, `LFM1`.
+
+**FI — asset accounting and bank statement (9 tables).** `ANLB`, `ANLC`, `ANLH`, `ANLZ`
+around the existing `ANLA` master; `ANEK`/`ANEP`/`ANEA`, the asset subledger's own journal;
+`FEBKO`/`FEBEP` electronic bank statement. Depreciation and bank clearing are the two places
+a mirror most often drifts from the source ledger, so each description states the tie-out.
+
+**Sourcing.** Field-level from [leanx.eu](https://leanx.eu), recorded per file in `source:`.
+`ACDOCP` and `ACDOCU` are the exception: leanx.eu returned 404 and se80.co.uk is
+robots-blocked, so they were sourced from saplearners.com, declared in their own `source:`
+lines. Wide tables (`ACDOCP`, `ACDOCU`, `FAGLFLEXT`, `FEBEP`) are scoped to the fields the
+model consumes, with the scope stated in the file's `description` — never silently truncated.
+
+**Rule 4 applied.** Nine structures inventoried by two or three modules
+(`AUFK`, `AFKO`, `AFPO`, `AFVC`, `PLKO`, `PLPO`, `QMEL`, `QMFE`, `QMSM`) now resolve to a
+single owner in [`SHARED-TABLES.yaml`](SHARED-TABLES.yaml). Collapsing them closed ten
+phantom gaps without writing a table. `QMSM` remains outstanding under any module and is
+recorded as such rather than assumed. `MAKT` was produced in the FI lane and filed under its
+correct owner, MM.
+
+**Outstanding after Wave A:** 112 of 256 inventoried entries. Wave B is the operational
+spine (MM, SD, PP, PM, QM); Wave C is HR, PS and BW.

@@ -1,0 +1,51 @@
+table: DD01T
+module: CROSS
+description: "Domain texts — the language-dependent short description for every domain in DD01L. Small text-carrier table, carried complete. It matters to the sovereign mirror for the same reason all *T tables matter here: a crosswalk claim that cites a domain by name is only as verifiable as the label the customer's own dictionary attaches to it, and DD01T is that label, keyed by language so the mirror can validate in the customer's working language rather than assume English."
+source: https://leanx.eu/en/sap/table/dd01t.html
+fields:
+  - name: DOMNAME
+    description: "Domain name"
+    data_element: DOMNAME
+    check_table: DD01L
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: DDLANGUAGE
+    description: "Language Key"
+    data_element: DDLANGUAGE
+    check_table: ~
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: true
+  - name: AS4LOCAL
+    description: "Activation Status of a Repository Object"
+    data_element: AS4LOCAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AS4VERS
+    description: "Version of the entry (not used)"
+    data_element: AS4VERS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: DDTEXT
+    description: "Short Description of Repository Objects"
+    data_element: AS4TEXT
+    check_table: ~
+    datatype: CHAR
+    length: 60
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: DOMNAME
+    check_table: DD01L
+    check_field: DOMNAME
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

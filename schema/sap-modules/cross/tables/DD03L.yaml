@@ -1,0 +1,233 @@
+table: DD03L
+module: CROSS
+description: "Table Fields — the field-level definition of every table in the ABAP Dictionary: field name, position, key flag, data element, check table, ABAP datatype, length, decimals, and domain. DD03L is the single most consequential table for this mirror's purpose: every crosswalk claim this model makes about a field's name, type, length, or foreign-key target is, at bottom, a claim that should reconcile against a DD03L row in the customer's own system. This is what lets the sovereign mirror validate itself rather than trust a hand-maintained spec — the field list here is not an SAP topic, it is the mechanism of verification for every other table's field list. SAP's real DD03L carries roughly 30 fields, mostly nesting/admin/BIDI housekeeping; this definition carries the full functional field set — identity, position, key flag, data element, check table, datatype/length/decimals, domain, and reference-field linkage for currency/quantity fields — that a crosswalk or validation engine actually consumes."
+source: https://leanx.eu/en/sap/table/dd03l.html
+fields:
+  - name: TABNAME
+    description: "Table Name"
+    data_element: TABNAME
+    check_table: DD02L
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: FIELDNAME
+    description: "Field Name"
+    data_element: FIELDNAME
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: AS4LOCAL
+    description: "Activation Status of a Repository Object"
+    data_element: AS4LOCAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AS4VERS
+    description: "Version of the entry (not used)"
+    data_element: AS4VERS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: POSITION
+    description: "Position of the field in the table"
+    data_element: TABFDPOS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: KEYFLAG
+    description: "Identifies a key field of a table"
+    data_element: KEYFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MANDATORY
+    description: "Flag: Field is required (not blank)"
+    data_element: MANDATORY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ROLLNAME
+    description: "Data element (semantic domain) assigned to this field"
+    data_element: ROLLNAME
+    check_table: DD04L
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: CHECKTABLE
+    description: "Check table name of the foreign key"
+    data_element: CHECKTABLE
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: ADMINFIELD
+    description: "Nesting depth for includes"
+    data_element: ADMINFIELD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: INTTYPE
+    description: "ABAP data type (C,D,N,...)"
+    data_element: INTTYPE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: INTLEN
+    description: "Internal Length in Bytes"
+    data_element: INTLEN
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: REFTABLE
+    description: "Table for reference field — used for currency/quantity fields' unit reference"
+    data_element: REFTABLE
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: PRECFIELD
+    description: "Name of included table"
+    data_element: PRECFIELD
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: REFFIELD
+    description: "Reference field for currency and quantity fields"
+    data_element: REFFIELD
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: CONROUT
+    description: "Check or generating module for fields"
+    data_element: CONROUT
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: NOTNULL
+    description: "Indicator that NOT NULL is forced for this field"
+    data_element: NOTNULL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DATATYPE
+    description: "Data Type in ABAP Dictionary"
+    data_element: DATATYPE_D
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LENG
+    description: "Length (No. of Characters)"
+    data_element: DDLENG
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: DECIMALS
+    description: "Number of Decimal Places"
+    data_element: DECIMALS
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: DOMNAME
+    description: "Domain name"
+    data_element: DOMNAME
+    check_table: DD01L
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: SHLPORIGIN
+    description: "Origin of an Input Help"
+    data_element: SHLPORIGIN
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TABLETYPE
+    description: "DD: Flag if it is a table"
+    data_element: DDTABTYPE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DEPTH
+    description: "DD: Depth for structured types"
+    data_element: TYPEDEPTH
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: COMPTYPE
+    description: "DD: Component Type"
+    data_element: COMPTYPE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: REFTYPE
+    description: "Type of Object Referenced"
+    data_element: DDREFTYPE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LANGUFLAG
+    description: "DD: Indicator for a Language Field"
+    data_element: DDLANGUFLG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: TABNAME
+    check_table: DD02L
+    check_field: TABNAME
+  - field: ROLLNAME
+    check_table: DD04L
+    check_field: ROLLNAME
+  - field: DOMNAME
+    check_table: DD01L
+    check_field: DOMNAME
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

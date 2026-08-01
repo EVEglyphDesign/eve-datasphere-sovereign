@@ -1,0 +1,436 @@
+table: ANLB
+module: FI
+description: "Depreciation Terms — depreciation-area-level control record for a fixed asset: depreciation key, useful life, start dates, and scrap value, one row per asset per depreciation area per validity period. Anchors to the ANLA asset master via BUKRS/ANLN1/ANLN2 and drives the depreciation postings that land in ACDOCA/ANEP; if the depreciation key or useful life here drifts from what last posted to ACDOCA, planned and posted depreciation diverge and the asset subledger no longer reconciles to the universal journal."
+source: https://leanx.eu/en/sap/table/anlb.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: ~
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: ANLN1
+    description: "Main Asset Number"
+    data_element: ANLN1
+    check_table: ANLH
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: true
+  - name: ANLN2
+    description: "Asset Subnumber"
+    data_element: ANLN2
+    check_table: ANLA
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: AFABE
+    description: "Real depreciation area"
+    data_element: AFABE_D
+    check_table: T093
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: true
+  - name: BDATU
+    description: "Date validity ends"
+    data_element: BDATU
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ADATU
+    description: "Date for beginning of validity"
+    data_element: ADATU
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ERNAM
+    description: "Name of Person who Created the Object"
+    data_element: ERNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ERDAT
+    description: "Date on Which Record Was Created"
+    data_element: ERDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AENAM
+    description: "Name of Person Who Changed Object"
+    data_element: AENAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AEDAT
+    description: "Changed on"
+    data_element: AEDAT_ANLA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: XLOEV
+    description: "Indicator: Account marked for deletion?"
+    data_element: XLOEV
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XSPEB
+    description: "Indicator: Is Account Blocked for Posting?"
+    data_element: XSPEB
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FELEI
+    description: "Screen layout for Asset Accounting"
+    data_element: FELEI
+    check_table: T082A
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: XNEGA
+    description: "Indicator: Negative values allowed"
+    data_element: XNEGA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XGWGK
+    description: "Low-value asset amount and quantity check"
+    data_element: XGWGK
+    check_table: ~
+    datatype: NUMC
+    length: 1
+    decimals: 0
+    key: false
+  - name: XUNTA
+    description: "Indicator: Depreciate main asset number totally"
+    data_element: XUNTA
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AFABG
+    description: "Depreciation calculation start date"
+    data_element: AFABG
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ZINBG
+    description: "Start date for interest calculation"
+    data_element: DZINBG
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: SAFBG
+    description: "Start date for special depreciation"
+    data_element: SAFBG
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: INVSL
+    description: "Investment support key"
+    data_element: INVSL
+    check_table: T085
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: AFASL
+    description: "Depreciation key"
+    data_element: AFASL
+    check_table: T090NA
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: NDJAR
+    description: "Planned useful life in years"
+    data_element: NDJAR
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: NDPER
+    description: "Planned useful life in periods"
+    data_element: NDPER
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: NAPRZ
+    description: "Ordinary depreciation percentage rate"
+    data_element: NAPRZ
+    check_table: ~
+    datatype: DEC
+    length: 7
+    decimals: 4
+    key: false
+  - name: SAPRZ
+    description: "Special depreciation percentage rate"
+    data_element: SAPRZ
+    check_table: ~
+    datatype: DEC
+    length: 7
+    decimals: 4
+    key: false
+  - name: WBIND
+    description: "Index series for replacement values"
+    data_element: WBIND
+    check_table: T094A
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: ALIND
+    description: "Index series for replacement values by age"
+    data_element: ALIND
+    check_table: T094A
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: APROP
+    description: "Variable depreciation portion"
+    data_element: APROP
+    check_table: ~
+    datatype: DEC
+    length: 7
+    decimals: 4
+    key: false
+  - name: UMJAR
+    description: "Depreciation key for the changeover year"
+    data_element: UMJAR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: NDURJ
+    description: "Original useful life in years"
+    data_element: NDURJ
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: NDURP
+    description: "Original useful life in periods"
+    data_element: NDURP
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: SCHRW
+    description: "Asset scrap value"
+    data_element: SCHRW
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: LGJAN
+    description: "Last fiscal year for the annual values in Asset Acct."
+    data_element: LGJAN
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: PERFY
+    description: "Period scaling in depreciation start year"
+    data_element: PERFY
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: ANUPD
+    description: "Indicator: Type of change to table"
+    data_element: ANUPD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUFWTG
+    description: "Revaluation"
+    data_element: AUFWTG
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: XAFBE
+    description: "Indicator: Depreciation area is deactivated"
+    data_element: XAFBE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ANLGR
+    description: "Group asset"
+    data_element: ANLGR
+    check_table: ANLH
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: ANLGR2
+    description: "Subnumber of group asset"
+    data_element: ANLGR2
+    check_table: ANLA
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: VYEAR
+    description: "Acquisition year of the asset (manually changeable)"
+    data_element: VYEAR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: VMNTH
+    description: "Asset Accounting: Acquis. month (in depreciation area)"
+    data_element: VMNTH
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: INBDA
+    description: "Asset Accounting: Date of operating readiness"
+    data_element: INBDA
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: ABGDAT_B
+    description: "Value date of last retirement for the depreciation area"
+    data_element: ABGDAT_B
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: J_1AARVKEY
+    description: "Revaluation Key"
+    data_element: J_1AARVKEY
+    check_table: J_1AAA2
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: J_1AALTDAT
+    description: "Last Revaluation Date"
+    data_element: J_1AALTDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: J_1AALTIDX
+    description: "Last Index Used"
+    data_element: J_1AALTIDX
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: SCHRW_PROZ
+    description: "Scrap Value as Percentage of APC"
+    data_element: SCHRW_PROZ
+    check_table: ~
+    datatype: DEC
+    length: 14
+    decimals: 11
+    key: false
+  - name: UMPER
+    description: "Changeover Period of Depreciation Key"
+    data_element: UMPER
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: ANLN1
+    check_table: ANLH
+    check_field: ANLN1
+  - field: ANLN2
+    check_table: ANLA
+    check_field: ANLN2
+  - field: AFABE
+    check_table: T093
+    check_field: AFABER
+  - field: AFASL
+    check_table: T090NA
+    check_field: AFASL
+  - field: ALIND
+    check_table: T094A
+    check_field: WBIND
+  - field: WBIND
+    check_table: T094A
+    check_field: WBIND
+  - field: ANLGR
+    check_table: ANLH
+    check_field: ANLN1
+  - field: ANLGR2
+    check_table: ANLA
+    check_field: ANLN2
+  - field: FELEI
+    check_table: T082A
+    check_field: FELEI
+  - field: INVSL
+    check_table: T085
+    check_field: INVSL
+  - field: J_1AARVKEY
+    check_table: J_1AAA2
+    check_field: J_1AARVKEY
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

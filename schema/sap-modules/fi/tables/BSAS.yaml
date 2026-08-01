@@ -1,0 +1,608 @@
+table: BSAS
+module: FI
+description: "Accounting: Secondary Index for G/L Accounts (Cleared Items) — the cleared-item counterpart to BSIS. Rows migrate here from BSIS the moment AUGBL/AUGDT clear a G/L open item, completing the open-item picture alongside BSAD (customer, cleared) and BSAK (vendor, cleared)."
+source: https://leanx.eu/en/sap/table/bsas.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: HKONT
+    description: "General Ledger Account — the open-item-managed G/L account this cleared line sat behind"
+    data_element: HKONT
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: AUGDT
+    description: "Clearing Date"
+    data_element: AUGDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: AUGBL
+    description: "Document Number of the Clearing Document"
+    data_element: AUGBL
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: ZUONR
+    description: "Assignment Number — the open-item control key"
+    data_element: DZUONR
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: true
+  - name: GJAHR
+    description: "Fiscal Year"
+    data_element: GJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: BELNR
+    description: "Accounting Document Number"
+    data_element: BELNR_D
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: BUZEI
+    description: "Number of Line Item Within Accounting Document"
+    data_element: BUZEI
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: true
+  - name: BUDAT
+    description: "Posting Date in the Document"
+    data_element: BUDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BLDAT
+    description: "Document Date in Document"
+    data_element: BLDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Currency Key"
+    data_element: WAERS
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: XBLNR
+    description: "Reference Document Number"
+    data_element: XBLNR1
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: BLART
+    description: "Document Type"
+    data_element: BLART
+    check_table: T003
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: MONAT
+    description: "Fiscal Period"
+    data_element: MONAT
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: BSCHL
+    description: "Posting Key"
+    data_element: BSCHL
+    check_table: TBSL
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: SHKZG
+    description: "Debit/Credit Indicator"
+    data_element: SHKZG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: GSBER
+    description: "Business Area"
+    data_element: GSBER
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: MWSKZ
+    description: "Tax on sales/purchases code"
+    data_element: MWSKZ
+    check_table: T007A
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FKONT
+    description: "Financial Budget Item"
+    data_element: FIPLS
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: DMBTR
+    description: "Amount in Local Currency"
+    data_element: DMBTR
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: WRBTR
+    description: "Amount in document currency"
+    data_element: WRBTR
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: MWSTS
+    description: "Tax Amount in Local Currency"
+    data_element: MWSTS
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: WMWST
+    description: "Tax amount in document currency"
+    data_element: WMWST
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: SGTXT
+    description: "Item Text"
+    data_element: SGTXT
+    check_table: ~
+    datatype: CHAR
+    length: 50
+    decimals: 0
+    key: false
+  - name: PROJN
+    description: "Old: Project number : No longer used --> PS_POSNR"
+    data_element: PROJN
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: AUFNR
+    description: "Order Number"
+    data_element: AUFNR_NEU
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Plant — the plant this cleared G/L item was tied to"
+    data_element: WERKS_D
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KOSTL
+    description: "Cost Center"
+    data_element: KOSTL
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: ZFBDT
+    description: "Baseline Date for Due Date Calculation"
+    data_element: DZFBDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: XOPVW
+    description: "Indicator: Open item management?"
+    data_element: XOPVW
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VALUT
+    description: "Value date"
+    data_element: VALUT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: BSTAT
+    description: "Document Status"
+    data_element: BSTAT_D
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BDIFF
+    description: "Valuation Difference"
+    data_element: BDIFF
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: BDIF2
+    description: "Valuation Difference for the Second Local Currency"
+    data_element: BDIF2
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: VBUND
+    description: "Company ID of trading partner"
+    data_element: RASSC
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: PSWSL
+    description: "Update Currency for General Ledger Transaction Figures"
+    data_element: PSWSL
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: WVERW
+    description: "Bill of exchange usage type"
+    data_element: WVERW
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: DMBE2
+    description: "Amount in Second Local Currency"
+    data_element: DMBE2
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: DMBE3
+    description: "Amount in Third Local Currency"
+    data_element: DMBE3
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: MWST2
+    description: "Tax Amount in Second Local Currency"
+    data_element: MWST2
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: MWST3
+    description: "Tax Amount in Third Local Currency"
+    data_element: MWST3
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: BDIF3
+    description: "Valuation Difference for the Third Local Currency"
+    data_element: BDIF3
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: RDIF3
+    description: "Exchange Rate Difference Realized for Third Local Currency"
+    data_element: RDIF3
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: XRAGL
+    description: "Indicator: Clearing was Reversed"
+    data_element: XRAGL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PROJK
+    description: "Work Breakdown Structure Element (WBS Element)"
+    data_element: PS_PSP_PNR
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: PRCTR
+    description: "Profit Center"
+    data_element: PRCTR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: XSTOV
+    description: "Indicator: Document is flagged for reversal"
+    data_element: XSTOV
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: XARCH
+    description: "Indicator: Document already archived ?"
+    data_element: XARCH
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PSWBT
+    description: "Amount for Updating in General Ledger"
+    data_element: PSWBT
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: XNEGP
+    description: "Indicator: Negative posting"
+    data_element: XNEGP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RFZEI
+    description: "Payment Card Item"
+    data_element: RFZEI_CC
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: CCBTC
+    description: "Payment cards: Settlement run"
+    data_element: CCBTC
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: XREF3
+    description: "Reference key for line item"
+    data_element: XREF3
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: BUPLA
+    description: "Business Place"
+    data_element: BUPLA
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: PPDIFF
+    description: "Realized Exchange Rate Gain/Loss 1.Loc.Curr.(Part Payments)"
+    data_element: PPDIFF
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: PPDIF2
+    description: "Realized Exchange Rate Gain/Loss 2.Loc. Curr.(Part Payments)"
+    data_element: PPDIF2
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: PPDIF3
+    description: "Realized Exchange Rate Gain/Loss 3.Loc.Curr.(Part Payments)"
+    data_element: PPDIF3
+    check_table: ~
+    datatype: CURR
+    length: 13
+    decimals: 2
+    key: false
+  - name: BEWAR
+    description: "Transaction Type"
+    data_element: RMVCT
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: IMKEY
+    description: "Internal Key for Real Estate Object"
+    data_element: IMKEY
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: DABRZ
+    description: "Reference Date for Settlement"
+    data_element: DABRBEZ
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: GRANT_NBR
+    description: "Grant"
+    data_element: GM_GRANT_NBR
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: FKBER
+    description: "Functional Area"
+    data_element: FKBER
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: FIPOS
+    description: "Commitment Item"
+    data_element: FIPOS
+    check_table: ~
+    datatype: CHAR
+    length: 14
+    decimals: 0
+    key: false
+  - name: FISTL
+    description: "Funds Center"
+    data_element: FISTL
+    check_table: ~
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: GEBER
+    description: "Fund"
+    data_element: BP_GEBER
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PPRCT
+    description: "Partner Profit Center"
+    data_element: PPRCTR
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: BUZID
+    description: "Identification of the Line Item"
+    data_element: BUZID
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AUGGJ
+    description: "Fiscal Year of Clearing Document"
+    data_element: AUGGJ
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: SEGMENT
+    description: "Segment for Segmental Reporting"
+    data_element: FB_SEGMENT
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PSEGMENT
+    description: "Partner Segment for Segmental Reporting"
+    data_element: FB_PSEGMENT
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: QSSKZ
+    description: "Withholding Tax Code"
+    data_element: QSSKZ
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: BLART
+    check_table: T003
+    check_field: BLART
+  - field: BSCHL
+    check_table: TBSL
+    check_field: BSCHL
+  - field: GSBER
+    check_table: TGSB
+    check_field: GSBER
+  - field: MWSKZ
+    check_table: T007A
+    check_field: MWSKZ
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: PSWSL
+    check_table: TCURC
+    check_field: WAERS
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

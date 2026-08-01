@@ -1,0 +1,32 @@
+table: TJ02
+module: CROSS
+description: "System status — the text and behavior-flag table for SAP's standard system statuses (e.g. CRTD Created, REL Released, TECO Technically Completed), the values JEST.STAT resolves to for system (as opposed to user) statuses. SAP's real TJ02 carries all its fields; this definition carries the table complete. Note: leanx.eu lists this table without a client (MANDT) field or language key, consistent with TJ02 being a cross-client, single-language system table — language-dependent status short/long text is carried in TJ02T, not modeled in this wave."
+source: https://leanx.eu/en/sap/table/tj02.html
+fields:
+  - name: ISTAT
+    description: "System status"
+    data_element: J_ISTAT
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: true
+  - name: NODIS
+    description: "'Do not display status' flag"
+    data_element: J_NODIS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SETONLY
+    description: "'Status can only be set' flag"
+    data_element: J_SETONLY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys: []
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

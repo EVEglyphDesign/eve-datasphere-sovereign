@@ -1,0 +1,232 @@
+table: DD02L
+module: CROSS
+description: "SAP Tables — the master registry of every table and structure in the ABAP Dictionary: its category (transparent, pooled, cluster, structure, view), delivery class, buffering behavior, and activation state. DD02L is the anchor every other DD0xL table's TABNAME field checks against, and it is the single most load-bearing table in this lane: the sovereign mirror's whole validation posture rests on being able to ask 'does this table actually exist in the customer's system, and what kind of object is it' against DD02L rather than against a crosswalk author's assumption. SAP's real DD02L carries roughly 30 fields, mostly activation/versioning housekeeping and DB-specific storage flags; this definition carries the full functional set — identity, table category, delivery class, buffering, and view/search-help linkage — that a crosswalk or validation engine actually consumes."
+source: https://leanx.eu/en/sap/table/dd02l.html
+fields:
+  - name: TABNAME
+    description: "Table Name"
+    data_element: TABNAME
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: AS4LOCAL
+    description: "Activation Status of a Repository Object"
+    data_element: AS4LOCAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AS4VERS
+    description: "Version of the entry (not used)"
+    data_element: AS4VERS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: TABCLASS
+    description: "Table category — e.g. TRANSP (transparent), VIEW, INTTAB (structure), CLUSTER, POOL"
+    data_element: TABCLASS
+    check_table: ~
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: SQLTAB
+    description: "Name of an SQL table or an appended table"
+    data_element: SQLAPPDTAB
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: DATMIN
+    description: "Minimum no. of entries"
+    data_element: DATMIN
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: DATMAX
+    description: "Maximum no. of entries"
+    data_element: DATMAX
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: DATAVG
+    description: "Average number of entries"
+    data_element: DATAVG
+    check_table: ~
+    datatype: NUMC
+    length: 10
+    decimals: 0
+    key: false
+  - name: CLIDEP
+    description: "Flag indicating client-specific entries"
+    data_element: CLIDEP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BUFFERED
+    description: "Buffering flag"
+    data_element: BUFFERED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: COMPRFLAG
+    description: "Field compression indicator"
+    data_element: COMPREX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LANGDEP
+    description: "Language dependency"
+    data_element: LANGDEP
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ACTFLAG
+    description: "Activation flag"
+    data_element: ACTFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: APPLCLASS
+    description: "Application class for DD objects (not used)"
+    data_element: APPLCLASS
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: AUTHCLASS
+    description: "Activation type"
+    data_element: AUTHCLASS_
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: AS4USER
+    description: "Last Changed by"
+    data_element: AS4USER
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AS4DATE
+    description: "Date of Last Change"
+    data_element: AS4DATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AS4TIME
+    description: "Last changed at"
+    data_element: AS4TIME
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: MASTERLANG
+    description: "Original Language in Repository objects"
+    data_element: MASTERLANG
+    check_table: ~
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: MAINFLAG
+    description: "Flag if Maintenance with Standard Tools is allowed"
+    data_element: MAINTFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CONTFLAG
+    description: "Delivery class — controls who may add/change data (SAP, customer, both)"
+    data_element: CONTFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RESERVETAB
+    description: "SDIC: Reserve for tables"
+    data_element: RESERVETAB
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: GLOBALFLAG
+    description: "Flag for private DD objects (not used)"
+    data_element: GLOBALFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: PROZPUFF
+    description: "Percentage for buffers"
+    data_element: PROZPUFF
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: VIEWCLASS
+    description: "View Type"
+    data_element: VIEWCLASS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VIEWGRANT
+    description: "Maintenance status (modification authorization) for view data"
+    data_element: VIEWGRANT
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: MULTIPLEX
+    description: "Indicator whether multiplexing is possible for a table"
+    data_element: MULTIPLEX
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SHLPEXI
+    description: "Search help attachment to table exists"
+    data_element: SHLPEXI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys: []
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

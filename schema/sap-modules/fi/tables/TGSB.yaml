@@ -1,0 +1,46 @@
+table: TGSB
+module: FI
+description: "Business Areas — the master list of business areas (GSBER), the cross-company-code reporting dimension used throughout FI (BSIS/BSAS, BSID/BSAD, BSIK/BSAK, FAGLFLEXA/FAGLFLEXT, GLT0) wherever a line item is tagged RBUSA/GSBER."
+source: https://leanx.eu/en/sap/table/tgsb.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: ~
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: GSBER
+    description: "Business Area"
+    data_element: GSBER
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: GSBER_KONS
+    description: "Consolidation business area"
+    data_element: GSBER_KONS
+    check_table: TGSBK
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: GSBER_GLOB
+    description: "Globally unique business area"
+    data_element: GSBER_GLOB
+    check_table: TGSBG
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: GSBER_KONS
+    check_table: TGSBK
+    check_field: GSBER_KONS
+  - field: GSBER_GLOB
+    check_table: TGSBG
+    check_field: GSBER_GLOB
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

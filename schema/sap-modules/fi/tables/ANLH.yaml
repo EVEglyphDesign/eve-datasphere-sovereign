@@ -1,0 +1,78 @@
+table: ANLH
+module: FI
+description: "Main Asset Number — the header record for a main asset number (company code plus main number, independent of subnumber), carrying the last subnumber and line-item counters assigned under it. ANLA's ANLN1 and the check tables of ANLB/ANLC/ANLZ/ANEK/ANEP/ANEA all resolve through this table, making it the root anchor for every asset-subledger row that must ultimately tie back to the same BUKRS/ANLN1 combination posted in ACDOCA/BSEG asset line items."
+source: https://leanx.eu/en/sap/table/anlh.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: ~
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: ANLN1
+    description: "Main Asset Number"
+    data_element: ANLN1
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: true
+  - name: LUNTN
+    description: "Last subnumber assigned to this main number"
+    data_element: LUNTN
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LANEP
+    description: "Last line item number assigned"
+    data_element: LANEP
+    check_table: ~
+    datatype: NUMC
+    length: 5
+    decimals: 0
+    key: false
+  - name: ANUPD
+    description: "Indicator: Type of change to table"
+    data_element: ANUPD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FUNTN
+    description: "First subnumber assigned"
+    data_element: FUNTN
+    check_table: ANLA
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: ANLHTXT
+    description: "Asset main number text"
+    data_element: ANLHTXT
+    check_table: ~
+    datatype: CHAR
+    length: 50
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: FUNTN
+    check_table: ANLA
+    check_field: ANLN2
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

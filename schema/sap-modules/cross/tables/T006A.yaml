@@ -1,0 +1,73 @@
+table: T006A
+module: CROSS
+description: "Assign Internal to Language-Dependent Unit — the language-dependent text table for T006 units of measurement: given an internal unit (MSEHI) and a language (SPRAS), returns the commercial 3-character external unit, technical 6-character external unit, and the short/long display texts. This is the text table T006 itself lacks — T006 carries the unit's conversion factors and flags, T006A carries what a human or a printed document actually sees. SAP's real T006A carries all its fields; this definition carries the table complete."
+source: https://leanx.eu/en/sap/table/t006a.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: SPRAS
+    description: "Language Key"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: true
+  - name: MSEHI
+    description: "Unit of Measurement — the internal unit key resolving to T006"
+    data_element: MSEHI
+    check_table: T006
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: true
+  - name: MSEH3
+    description: "External Unit of Measurement in Commercial Format (3-Char.)"
+    data_element: MSEH3
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: MSEH6
+    description: "External Unit of Measurement in Technical Format (6-Char.)"
+    data_element: MSEH6
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: MSEHT
+    description: "Unit of Measurement Text (Maximum 10 Characters)"
+    data_element: MSEHT
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: MSEHL
+    description: "Unit of Measurement Text (Maximum 30 Characters)"
+    data_element: MSEHL
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: SPRAS
+    check_table: T002
+    check_field: SPRAS
+  - field: MSEHI
+    check_table: T006
+    check_field: MSEHI
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

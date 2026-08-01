@@ -1,0 +1,487 @@
+table: ACDOCP
+module: FI
+description: "Plan Data Line Items — the planning companion to the ACDOCA actuals spine already defined in this repo, structurally mirroring ACDOCA so plan and actual can be compared line-for-line. Stores period-based planning data (General Ledger Planning, Cost Center Planning, Profit Center Planning, and other CO planning) in the same universal-journal shape as ACDOCA/ACDOCU. SAP's real table carries 203 fields (source: saplearners.com field listing, corroborated by SAP Community and Eursap documentation on S/4HANA Group Reporting architecture); leanx.eu has no page for this HANA-era table, so this definition is scoped to the key, ledger, organizational (company code, cost/profit center, functional area, business area, controlling area, segment), account, amount (per-currency value fields), quantity, date, and version/category fields a plan-vs-actual crosswalk consumes — never silently truncated, but not carrying the full CO-PA and industry-specific (fashion/aviation/oil) characteristic block."
+source: https://saplearners.com/sap-tables/acdocp/
+fields:
+  - name: RCLNT
+    description: "Client"
+    data_element: MANDT
+    check_table: ~
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: REQTSN
+    description: "Request Transaction Sequence Number"
+    data_element: RSPM_REQUEST_TSN
+    check_table: ~
+    datatype: NUMC
+    length: 23
+    decimals: 0
+    key: true
+  - name: DATAPAKID
+    description: "Data packet number"
+    data_element: RSDATAPID
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: true
+  - name: RECORD
+    description: "Data record number"
+    data_element: RSARECORD
+    check_table: ~
+    datatype: INT4
+    length: 10
+    decimals: 0
+    key: true
+  - name: RYEAR
+    description: "General Ledger Fiscal Year"
+    data_element: GJAHR_POS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: RLDNR
+    description: "Ledger in General Ledger Accounting — identifies which ledger (e.g. leading ledger 0L) this plan line belongs to"
+    data_element: FINS_LEDGER
+    check_table: FINSC_LEDGER
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: RACCT
+    description: "Account Number — the G/L account this plan value posts against"
+    data_element: RACCT
+    check_table: SKA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RBUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: CATEGORY
+    description: "Plan Category — the planning version/scenario categorization (budget, forecast, plan) analogous to RVERS on the actuals side"
+    data_element: FCOM_CATEGORY
+    check_table: FCOMC_CATEGORY
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RCNTR
+    description: "Cost Center"
+    data_element: KOSTL
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PRCTR
+    description: "Profit Center"
+    data_element: PRCTR
+    check_table: CEPC
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RFAREA
+    description: "Functional Area"
+    data_element: FKBER
+    check_table: TFKB
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: RBUSA
+    description: "Business Area"
+    data_element: GSBER
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SEGMENT
+    description: "Segment for Segmental Reporting"
+    data_element: FB_SEGMENT
+    check_table: FAGL_SEGM
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PPRCTR
+    description: "Partner Profit Center"
+    data_element: PPRCTR
+    check_table: CEPC
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SFAREA
+    description: "Partner Functional Area"
+    data_element: SFKBER
+    check_table: TFKB
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: SBUSA
+    description: "Trading partner's business area"
+    data_element: PARGB
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: RASSC
+    description: "Company ID of Trading Partner"
+    data_element: RASSC
+    check_table: T880
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: PSEGMENT
+    description: "Partner Segment for Segmental Reporting"
+    data_element: FB_PSEGMENT
+    check_table: FAGL_SEGM
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: WERKS
+    description: "Plant"
+    data_element: WERKS_D
+    check_table: T001W
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KUNNR
+    description: "Customer Number"
+    data_element: KUNNR
+    check_table: KNA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: MATNR
+    description: "Material Number"
+    data_element: MATNR
+    check_table: MARA
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: AUFNR
+    description: "Order Number"
+    data_element: AUFNR
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: PS_PSP_PNR
+    description: "Work Breakdown Structure Element (WBS Element)"
+    data_element: PS_PSP_PNR
+    check_table: ~
+    datatype: NUMC
+    length: 8
+    decimals: 0
+    key: false
+  - name: KTOPL
+    description: "Chart of Accounts"
+    data_element: KTOPL
+    check_table: T004
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: RMVCT
+    description: "Transaction type"
+    data_element: RMVCT
+    check_table: T856
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: BTTYPE
+    description: "Business Transaction Type"
+    data_element: FINS_BTTYPE
+    check_table: FINSC_BTTYPE
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: AWTYP
+    description: "Reference procedure"
+    data_element: AWTYP
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: AWORG
+    description: "Reference Organizational Units"
+    data_element: AWORG
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: AWREF
+    description: "Reference document number"
+    data_element: AWREF
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: USNAM
+    description: "User Name"
+    data_element: USNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: RWCUR
+    description: "Transaction Currency"
+    data_element: FINS_CURRW
+    check_table: ~
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: RHCUR
+    description: "Company Code Currency"
+    data_element: FINS_CURRH
+    check_table: ~
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: RKCUR
+    description: "Global (Group) Currency"
+    data_element: FINS_CURRK
+    check_table: ~
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: RVUNIT
+    description: "Unit of Measure for Valuation Quantity"
+    data_element: RVUNIT
+    check_table: ~
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: RRUNIT
+    description: "Unit of Measure for Reference Quantity"
+    data_element: RRUNIT
+    check_table: ~
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: KPRICE
+    description: "Price in Global Currency"
+    data_element: FINS_PLAN_KPRICE
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: HPRICE
+    description: "Price in Company Code Currency"
+    data_element: FINS_PLAN_HPRICE
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: WPRICE
+    description: "Price in Transaction Currency"
+    data_element: FINS_PLAN_WPRICE
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: WSL
+    description: "Amount in Transaction Currency — the primary plan value field"
+    data_element: FINS_VWCUR12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: HSL
+    description: "Amount in Company Code Currency"
+    data_element: FINS_VHCUR12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: KSL
+    description: "Amount in Global Currency"
+    data_element: FINS_VKCUR12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: OSL
+    description: "Amount in Freely Defined Currency 1"
+    data_element: FINS_VOCUR12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: VMSL
+    description: "Valuation quantity"
+    data_element: VQUAN1_12
+    check_table: ~
+    datatype: QUAN
+    length: 23
+    decimals: 3
+    key: false
+  - name: RMSL
+    description: "Reference quantity"
+    data_element: RQUAN1_12
+    check_table: ~
+    datatype: QUAN
+    length: 23
+    decimals: 3
+    key: false
+  - name: LOSGR
+    description: "Lot Size for Product Costing"
+    data_element: CK_LOSGR
+    check_table: ~
+    datatype: QUAN
+    length: 13
+    decimals: 0
+    key: false
+  - name: POPER
+    description: "Posting period"
+    data_element: POPER
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: BUDAT
+    description: "Posting Date in the Document"
+    data_element: BUDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: PERIV
+    description: "Fiscal Year Variant"
+    data_element: PERIV
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: FISCYEARPER
+    description: "Period/Year"
+    data_element: JAHRPER
+    check_table: ~
+    datatype: NUMC
+    length: 7
+    decimals: 0
+    key: false
+  - name: DABRZ
+    description: "Reference date for settlement"
+    data_element: DABRBEZ
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: RLDNR
+    check_table: FINSC_LEDGER
+    check_field: RLDNR
+  - field: RACCT
+    check_table: SKA1
+    check_field: SAKNR
+  - field: RBUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: CATEGORY
+    check_table: FCOMC_CATEGORY
+    check_field: CATEGORY
+  - field: RCNTR
+    check_table: CSKS
+    check_field: KOSTL
+  - field: PRCTR
+    check_table: CEPC
+    check_field: PRCTR
+  - field: RFAREA
+    check_table: TFKB
+    check_field: FKBER
+  - field: RBUSA
+    check_table: TGSB
+    check_field: GSBER
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: SEGMENT
+    check_table: FAGL_SEGM
+    check_field: SEGMENT
+  - field: PPRCTR
+    check_table: CEPC
+    check_field: PRCTR
+  - field: SFAREA
+    check_table: TFKB
+    check_field: FKBER
+  - field: SBUSA
+    check_table: TGSB
+    check_field: GSBER
+  - field: RASSC
+    check_table: T880
+    check_field: RCOMP
+  - field: PSEGMENT
+    check_table: FAGL_SEGM
+    check_field: SEGMENT
+  - field: WERKS
+    check_table: T001W
+    check_field: WERKS
+  - field: KUNNR
+    check_table: KNA1
+    check_field: KUNNR
+  - field: MATNR
+    check_table: MARA
+    check_field: MATNR
+  - field: KTOPL
+    check_table: T004
+    check_field: KTOPL
+  - field: RMVCT
+    check_table: T856
+    check_field: TRTYP
+  - field: BTTYPE
+    check_table: FINSC_BTTYPE
+    check_field: BTTYPE
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

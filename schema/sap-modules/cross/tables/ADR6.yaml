@@ -1,0 +1,145 @@
+table: ADR6
+module: CROSS
+description: "E-Mail Addresses (Business Address Services) — the per-communication-type child of ADRC holding e-mail (SMTP) addresses for a given ADDRNUMBER, sibling to ADR2 (telephone) and ADR3 (fax), pointed at by ADRC's FLAGCOMM6 flag. This is the table an ESG or interaction-record column extending contact-channel data would attach alongside, without altering ADRC itself. SAP's real ADR6 carries all its fields; this definition carries the table complete, as it is a small check/detail table."
+source: https://leanx.eu/en/sap/table/adr6.html
+fields:
+  - name: CLIENT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: ADDRNUMBER
+    description: "Address number"
+    data_element: AD_ADDRNUM
+    check_table: ADRC
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: PERSNUMBER
+    description: "Person number"
+    data_element: AD_PERSNUM
+    check_table: ADRP
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: DATE_FROM
+    description: "Valid-from date - in current Release only 00010101 possible"
+    data_element: AD_DATE_FR
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: true
+  - name: CONSNUMBER
+    description: "Sequence Number"
+    data_element: AD_CONSNUM
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: true
+  - name: FLGDEFAULT
+    description: "Flag: this address is the default address"
+    data_element: AD_FLGDFAD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: FLG_NOUSE
+    description: "Flag: This Communication Number is Not Used"
+    data_element: AD_FLNOUSE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: HOME_FLAG
+    description: "Recipient address in this communication type (mail sys.grp)"
+    data_element: AD_FLGHOME
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SMTP_ADDR
+    description: "E-Mail Address"
+    data_element: AD_SMTPADR
+    check_table: ~
+    datatype: CHAR
+    length: 241
+    decimals: 0
+    key: false
+  - name: SMTP_SRCH
+    description: "E-Mail Address Search Field"
+    data_element: AD_SMTPAD2
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: DFT_RECEIV
+    description: "Flag: Recipient is standard recipient for this address"
+    data_element: AD_DFTRCAD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: R3_USER
+    description: "Flag: Connected to an SAP System"
+    data_element: AD_R3_USER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ENCODE
+    description: "Desired Data Coding (E-Mail)"
+    data_element: AD_ENCODE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: TNEF
+    description: "Flag: Receiver can receive TNEF coding via SMTP"
+    data_element: AD_TNEF6
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VALID_FROM
+    description: "Communication Data: Valid From (YYYYMMDDHHMMSS)"
+    data_element: AD_VALFROM
+    check_table: ~
+    datatype: CHAR
+    length: 14
+    decimals: 0
+    key: false
+  - name: VALID_TO
+    description: "Communication Data: Valid To (YYYYMMDDHHMMSS)"
+    data_element: AD_VALTO
+    check_table: ~
+    datatype: CHAR
+    length: 14
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: CLIENT
+    check_table: T000
+    check_field: MANDT
+  - field: ADDRNUMBER
+    check_table: ADRC
+    check_field: ADDRNUMBER
+  - field: PERSNUMBER
+    check_table: ADRP
+    check_field: PERSNUMBER
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

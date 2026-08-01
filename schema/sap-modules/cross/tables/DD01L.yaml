@@ -1,0 +1,195 @@
+table: DD01L
+module: CROSS
+description: "Domains — the ABAP Dictionary's atomic value-type registry: for every domain, its base datatype, length, decimals, case sensitivity, sign, conversion exit, and (via VALEXI/ENTITYTAB) whether it is bound to fixed values or a value table. DD01L is where a field's technical contract — what characters, what length, what range — is actually defined before any data element or table field inherits it. This is the metadata backbone layer: it is what lets the sovereign mirror validate itself. A crosswalk claim about a field's permissible values or format is not something the mirror has to trust from documentation — it can look up the domain in the customer's own DD01L and check the claim against the customer's own dictionary. SAP's real DD01L carries roughly 40 fields (activation/versioning housekeeping, proxy/append/BIDI flags); this definition carries the full functional field set — identity, datatype/length/decimals, case and sign handling, conversion exit, and fixed-value/value-table linkage — that a crosswalk or validation engine actually consumes."
+source: https://leanx.eu/en/sap/table/dd01l.html
+fields:
+  - name: DOMNAME
+    description: "Domain name"
+    data_element: DOMNAME
+    check_table: ~
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: true
+  - name: AS4LOCAL
+    description: "Activation Status of a Repository Object"
+    data_element: AS4LOCAL
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: AS4VERS
+    description: "Version of the entry (not used)"
+    data_element: AS4VERS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: DATATYPE
+    description: "Data Type in ABAP Dictionary"
+    data_element: DATATYPE_D
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: LENG
+    description: "Length (No. of Characters)"
+    data_element: DDLENG
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: OUTPUTLEN
+    description: "Output Length"
+    data_element: OUTPUTLEN
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: DECIMALS
+    description: "Number of Decimal Places"
+    data_element: DECIMALS
+    check_table: ~
+    datatype: NUMC
+    length: 6
+    decimals: 0
+    key: false
+  - name: LOWERCASE
+    description: "Lowercase letters allowed/not allowed"
+    data_element: LOWERCASE
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: SIGNFLAG
+    description: "Flag for sign in numerical fields"
+    data_element: SIGNFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LANGFLAG
+    description: "Flag for language-dependent values (not used)"
+    data_element: LANGFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: VALEXI
+    description: "Existence of fixed values — set when the domain has entries in DD07L"
+    data_element: VALEXI
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: ENTITYTAB
+    description: "Value table — the check table proposed for fields built on this domain"
+    data_element: ENTITYTAB
+    check_table: DD02L
+    datatype: CHAR
+    length: 30
+    decimals: 0
+    key: false
+  - name: CONVEXIT
+    description: "Conversion Routine — the function-module suffix applied on input/output"
+    data_element: CONVEXIT
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: MASK
+    description: "Template (not used)"
+    data_element: AS4MASK
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: MASKLEN
+    description: "Template length (not used)"
+    data_element: MASKLEN
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: ACTFLAG
+    description: "Activation flag"
+    data_element: ACTFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: APPLCLASS
+    description: "Application class for DD objects (not used)"
+    data_element: APPLCLASS
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: AUTHCLASS
+    description: "Activation type"
+    data_element: AUTHCLASS_
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: AS4USER
+    description: "Last Changed by"
+    data_element: AS4USER
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: AS4DATE
+    description: "Date of Last Change"
+    data_element: AS4DATE
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: AS4TIME
+    description: "Last changed at"
+    data_element: AS4TIME
+    check_table: ~
+    datatype: TIMS
+    length: 6
+    decimals: 0
+    key: false
+  - name: DOMMASTER
+    description: "Original Language in Repository objects"
+    data_element: MASTERLANG
+    check_table: ~
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: DOMGLOBAL
+    description: "Flag for private DD objects (not used)"
+    data_element: GLOBALFLAG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: ENTITYTAB
+    check_table: DD02L
+    check_field: TABNAME
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

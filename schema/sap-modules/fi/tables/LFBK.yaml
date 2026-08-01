@@ -1,0 +1,129 @@
+table: LFBK
+module: FI
+description: "Vendor Master (Bank Details) — a vendor's bank accounts as held on the general vendor master, used to route outgoing payments. Mirrors KNBK on the customer side; field-for-field identical except for the LIFNR key in place of KUNNR."
+source: https://leanx.eu/en/sap/table/lfbk.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: LIFNR
+    description: "Account Number of Vendor or Creditor"
+    data_element: LIFNR
+    check_table: LFA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: BANKS
+    description: "Bank country key"
+    data_element: BANKS
+    check_table: T005
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: true
+  - name: BANKL
+    description: "Bank Keys"
+    data_element: BANKK
+    check_table: ~
+    datatype: CHAR
+    length: 15
+    decimals: 0
+    key: true
+  - name: BANKN
+    description: "Bank account number"
+    data_element: BANKN
+    check_table: ~
+    datatype: CHAR
+    length: 18
+    decimals: 0
+    key: true
+  - name: BKONT
+    description: "Bank Control Key"
+    data_element: BKONT
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: BVTYP
+    description: "Partner Bank Type"
+    data_element: BVTYP
+    check_table: ~
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: XEZER
+    description: "Indicator: Is there collection authorization ?"
+    data_element: XEZER
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: BKREF
+    description: "Reference specifications for bank details"
+    data_element: BKREF
+    check_table: ~
+    datatype: CHAR
+    length: 20
+    decimals: 0
+    key: false
+  - name: KOINH
+    description: "Account Holder Name"
+    data_element: KOINH_FI
+    check_table: ~
+    datatype: CHAR
+    length: 60
+    decimals: 0
+    key: false
+  - name: EBPP_ACCNAME
+    description: "User-Defined Name of Bank Details"
+    data_element: EBPP_ACCNAME
+    check_table: ~
+    datatype: CHAR
+    length: 40
+    decimals: 0
+    key: false
+  - name: EBPP_BVSTATUS
+    description: "Status of Bank Details in Biller Direct"
+    data_element: EBPP_BVSTATUS
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KOVON
+    description: "Bank Details Valid From"
+    data_element: KOVON
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: KOBIS
+    description: "Bank details valid to"
+    data_element: KOBIS
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: LIFNR
+    check_table: LFA1
+    check_field: LIFNR
+  - field: BANKS
+    check_table: T005
+    check_field: LAND1
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

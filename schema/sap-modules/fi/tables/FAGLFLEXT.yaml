@@ -1,0 +1,426 @@
+table: FAGLFLEXT
+module: FI
+description: "General Ledger: Totals — the New G/L (new-GL) flexible totals table, SAP's pre-S/4HANA ancestor of the account/period aggregates a customer would otherwise derive by summarizing ACDOCA. Carries one row per ledger/company code/account/dimension combination with a balance-carryforward bucket plus 16 period buckets, in up to four parallel currencies (transaction, local, group, and a fourth freely-defined currency) and a quantity total. SAP's real table carries a full 16-period array per currency (TSL01-TSL16, HSL01-HSL16, KSL01-KSL16, OSL01-OSL16, MSL01-MSL16) plus 8 OBJNR table-group fields; this definition is scoped to the full key, all organizational/reference fields, and a representative period slice (carryforward + period 01 + period 12 + period 16) per currency/quantity bucket so a crosswalk can resolve the pattern without repeating all 80+ period columns verbatim. An ECC/New-GL customer mirrors this table for period/account balances; an S/4HANA customer derives the equivalent balance from ACDOCA directly."
+source: https://leanx.eu/en/sap/table/faglflext.html
+fields:
+  - name: RCLNT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: RYEAR
+    description: "Fiscal Year"
+    data_element: GJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: RRCTY
+    description: "Record Type"
+    data_element: RRCTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RVERS
+    description: "Version"
+    data_element: RVERS
+    check_table: T894
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: RLDNR
+    description: "Ledger in General Ledger Accounting"
+    data_element: FAGL_RLDNR
+    check_table: V_FAGL_T881_DBAL
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: RBUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: RACCT
+    description: "Account Number — the G/L account this totals row aggregates"
+    data_element: RACCT
+    check_table: SKB1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: ACTIV
+    description: "FI-SL Business Transaction"
+    data_element: ACTI1
+    check_table: T022
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: RMVCT
+    description: "Transaction Type"
+    data_element: RMVCT
+    check_table: T856
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: RTCUR
+    description: "Currency Key"
+    data_element: RTCUR
+    check_table: ~
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: true
+  - name: RUNIT
+    description: "Base Unit of Measure"
+    data_element: MEINS
+    check_table: ~
+    datatype: UNIT
+    length: 3
+    decimals: 0
+    key: false
+  - name: AWTYP
+    description: "Reference Transaction"
+    data_element: AWTYP
+    check_table: TTYP
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: LOGSYS
+    description: "Logical system"
+    data_element: LOGSYS
+    check_table: TBDLS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: COST_ELEM
+    description: "Cost Element"
+    data_element: KSTAR
+    check_table: CSKB
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RCNTR
+    description: "Cost Center"
+    data_element: KOSTL
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PRCTR
+    description: "Profit Center"
+    data_element: PRCTR
+    check_table: CEPC
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RFAREA
+    description: "Functional Area"
+    data_element: FKBER
+    check_table: TFKB
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: RBUSA
+    description: "Business Area"
+    data_element: GSBER
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SEGMENT
+    description: "Segment for Segmental Reporting"
+    data_element: FB_SEGMENT
+    check_table: FAGL_SEGM
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SCNTR
+    description: "Sender cost center"
+    data_element: SKOST
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PPRCTR
+    description: "Partner Profit Center"
+    data_element: PPRCTR
+    check_table: CEPC
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: SFAREA
+    description: "Partner Functional Area"
+    data_element: SFKBER
+    check_table: TFKB
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: SBUSA
+    description: "Trading partner's business area"
+    data_element: PARGB
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: RASSC
+    description: "Company ID of trading partner"
+    data_element: RASSC
+    check_table: T880
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: PSEGMENT
+    description: "Partner Segment for Segmental Reporting"
+    data_element: FB_PSEGMENT
+    check_table: FAGL_SEGM
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: TSLVT
+    description: "Balance carried forward in transaction currency"
+    data_element: TSLVT12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: TSL01
+    description: "Total of transactions of period 1 in transaction currency (representative of the TSL01-TSL16 period array)"
+    data_element: TSLXX12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: TSL12
+    description: "Total of transactions of period 12 in transaction currency (representative of the TSL01-TSL16 period array)"
+    data_element: TSLXX12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: TSL16
+    description: "Total of transactions of period 16 (year-end/adjustment period) in transaction currency (representative of the TSL01-TSL16 period array)"
+    data_element: TSLXX12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: HSLVT
+    description: "Balance carried forward in local currency"
+    data_element: HSLVT12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: HSL01
+    description: "Total of transactions of period 1 in local currency (representative of the HSL01-HSL16 period array)"
+    data_element: HSLXX12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: HSL12
+    description: "Total of transactions of period 12 in local currency (representative of the HSL01-HSL16 period array)"
+    data_element: HSLXX12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: HSL16
+    description: "Total of transactions of period 16 (year-end/adjustment period) in local currency (representative of the HSL01-HSL16 period array)"
+    data_element: HSLXX12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: KSLVT
+    description: "Balance carried forward in group currency"
+    data_element: KSLXX12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: KSL01
+    description: "Total of transactions of period 1 in group currency (representative of the KSL01-KSL16 period array)"
+    data_element: KSLXX12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: KSL12
+    description: "Total of transactions of period 12 in group currency (representative of the KSL01-KSL16 period array)"
+    data_element: KSLXX12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: KSL16
+    description: "Total of transactions of period 16 (year-end/adjustment period) in group currency (representative of the KSL01-KSL16 period array)"
+    data_element: KSLXX12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: OSLVT
+    description: "Balance carried forward in fourth (freely defined) currency"
+    data_element: OSLVT12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: OSL01
+    description: "Total transactions for period 1 in the fourth currency (representative of the OSL01-OSL16 period array)"
+    data_element: OSLXX12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: MSLVT
+    description: "Balance carried forward of quantity"
+    data_element: MSLVT12
+    check_table: ~
+    datatype: QUAN
+    length: 23
+    decimals: 3
+    key: false
+  - name: MSL01
+    description: "Total of the transactions of period 1 in units of measure (representative of the MSL01-MSL16 period array)"
+    data_element: MSLXX12
+    check_table: ~
+    datatype: QUAN
+    length: 23
+    decimals: 3
+    key: false
+  - name: MSL12
+    description: "Total of the transactions of period 12 in units of measure (representative of the MSL01-MSL16 period array)"
+    data_element: MSLXX12
+    check_table: ~
+    datatype: QUAN
+    length: 23
+    decimals: 3
+    key: false
+  - name: TIMESTAMP
+    description: "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+    data_element: TIMESTAMP
+    check_table: ~
+    datatype: DEC
+    length: 15
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: RCLNT
+    check_table: T000
+    check_field: MANDT
+  - field: RBUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: RLDNR
+    check_table: V_FAGL_T881_DBAL
+    check_field: RLDNR
+  - field: RVERS
+    check_table: T894
+    check_field: RVERS
+  - field: ACTIV
+    check_table: T022
+    check_field: ACTIVITY
+  - field: RMVCT
+    check_table: T856
+    check_field: TRTYP
+  - field: AWTYP
+    check_table: TTYP
+    check_field: AWTYP
+  - field: LOGSYS
+    check_table: TBDLS
+    check_field: LOGSYS
+  - field: RACCT
+    check_table: SKB1
+    check_field: SAKNR
+  - field: COST_ELEM
+    check_table: CSKB
+    check_field: KSTAR
+  - field: RCNTR
+    check_table: CSKS
+    check_field: KOSTL
+  - field: PRCTR
+    check_table: CEPC
+    check_field: PRCTR
+  - field: RFAREA
+    check_table: TFKB
+    check_field: FKBER
+  - field: RBUSA
+    check_table: TGSB
+    check_field: GSBER
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: SEGMENT
+    check_table: FAGL_SEGM
+    check_field: SEGMENT
+  - field: SCNTR
+    check_table: CSKS
+    check_field: KOSTL
+  - field: PPRCTR
+    check_table: CEPC
+    check_field: PRCTR
+  - field: SFAREA
+    check_table: TFKB
+    check_field: FKBER
+  - field: SBUSA
+    check_table: TGSB
+    check_field: GSBER
+  - field: RASSC
+    check_table: T880
+    check_field: RCOMP
+  - field: PSEGMENT
+    check_table: FAGL_SEGM
+    check_field: SEGMENT
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

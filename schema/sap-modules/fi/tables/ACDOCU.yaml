@@ -1,0 +1,396 @@
+table: ACDOCU
+module: FI
+description: "Universal Journal Entry Line Items — Consolidation — the unified/consolidation-journal companion to the ACDOCA actuals spine already defined in this repo, holding group-close (SAP S/4HANA for group reporting) consolidated line items in the same universal-journal shape as ACDOCA/ACDOCP. Used for intercompany elimination, currency translation, and consolidation-of-investment postings that produce the group-level financial statements. SAP's real table carries roughly 106 fields (source: saplearners.com field listing, corroborated by SAP Community descriptions of the S/4HANA Group Reporting universal journal); leanx.eu has no page for this HANA-era table, so this definition is scoped to the key, ledger, organizational (consolidation unit/company, cost/profit center, functional area, business area, controlling area, segment), account, amount (per-currency value fields), quantity, date, and version (consolidation end-result version) fields a group-close crosswalk consumes."
+source: https://saplearners.com/sap-tables/acdocu/
+fields:
+  - name: RCLNT
+    description: "Client"
+    data_element: MANDT
+    check_table: ~
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: RLDNR
+    description: "Ledger in General Ledger Accounting — the consolidation ledger this line belongs to"
+    data_element: FINS_LEDGER
+    check_table: FINSC_LEDGER
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: RYEAR
+    description: "Fiscal Year"
+    data_element: GJAHR_POS
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: DOCNR
+    description: "Document Number"
+    data_element: BELNR_D
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: DOCLN
+    description: "Posting Item / Document Line Number"
+    data_element: DOCLN6
+    check_table: ~
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: true
+  - name: RDIMEN
+    description: "Consolidation Dimension — the consolidation chart of accounts/group structure this document belongs to"
+    data_element: FC_RDIMEN
+    check_table: FCOMC_DIM
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: RVERS
+    description: "Version — the consolidation end-result version (actual, plan, forecast at the group level)"
+    data_element: RVERS
+    check_table: T894
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: RCOMP
+    description: "Company — the consolidation unit/company posting this line"
+    data_element: RCOMP
+    check_table: T880
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: RBUNIT
+    description: "Consolidation Unit"
+    data_element: FC_RCOMP
+    check_table: FCOMC_CONS_UNIT
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RCONGR
+    description: "Consolidation Group"
+    data_element: FC_RCONGR
+    check_table: FCOMC_CONS_GRP
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RACCT
+    description: "Account Number — the group/consolidation account this line posts against"
+    data_element: RACCT
+    check_table: SKA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RITCLG
+    description: "FS Item — the financial-statement item in the consolidation chart of accounts"
+    data_element: FC_ITEM
+    check_table: FCOMC_ITEM
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RITEM
+    description: "Sub-item — the consolidation sub-item (e.g. partner company for elimination detail)"
+    data_element: FC_SITEM
+    check_table: FCOMC_SITEM
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RCNTR
+    description: "Cost Center"
+    data_element: KOSTL
+    check_table: CSKS
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PRCTR
+    description: "Profit Center"
+    data_element: PRCTR
+    check_table: CEPC
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RFAREA
+    description: "Functional Area"
+    data_element: FKBER
+    check_table: TFKB
+    datatype: CHAR
+    length: 16
+    decimals: 0
+    key: false
+  - name: RBUSA
+    description: "Business Area"
+    data_element: GSBER
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: KOKRS
+    description: "Controlling Area"
+    data_element: KOKRS
+    check_table: TKA01
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SEGMENT
+    description: "Segment for Segmental Reporting"
+    data_element: FB_SEGMENT
+    check_table: FAGL_SEGM
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: RASSC
+    description: "Company ID of Trading/Consolidation Partner — the intercompany partner for elimination"
+    data_element: RASSC
+    check_table: T880
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: PPRCTR
+    description: "Partner Profit Center"
+    data_element: PPRCTR
+    check_table: CEPC
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: PSEGMENT
+    description: "Partner Segment for Segmental Reporting"
+    data_element: FB_PSEGMENT
+    check_table: FAGL_SEGM
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: KTOPL
+    description: "Chart of Accounts"
+    data_element: KTOPL
+    check_table: T004
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: BTTYPE
+    description: "Business Transaction Type — identifies the consolidation posting type (e.g. IC elimination, currency translation, investment consolidation)"
+    data_element: FINS_BTTYPE
+    check_table: FINSC_BTTYPE
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: AWTYP
+    description: "Reference procedure"
+    data_element: AWTYP
+    check_table: ~
+    datatype: CHAR
+    length: 5
+    decimals: 0
+    key: false
+  - name: AWREF
+    description: "Reference document number"
+    data_element: AWREF
+    check_table: ~
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: false
+  - name: USNAM
+    description: "User Name"
+    data_element: USNAM
+    check_table: ~
+    datatype: CHAR
+    length: 12
+    decimals: 0
+    key: false
+  - name: RWCUR
+    description: "Transaction Currency"
+    data_element: FINS_CURRW
+    check_table: ~
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: RHCUR
+    description: "Company Code / Local Currency"
+    data_element: FINS_CURRH
+    check_table: ~
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: RKCUR
+    description: "Group Currency"
+    data_element: FINS_CURRK
+    check_table: ~
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: TSL
+    description: "Amount in Transaction Currency"
+    data_element: FINS_VWCUR12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: HSL
+    description: "Amount in Local (Company Code) Currency"
+    data_element: FINS_VHCUR12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: KSL
+    description: "Amount in Group Currency — the primary consolidated reporting value"
+    data_element: FINS_VKCUR12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: MSL
+    description: "Quantity"
+    data_element: QUAN1_12
+    check_table: ~
+    datatype: QUAN
+    length: 23
+    decimals: 3
+    key: false
+  - name: DRCRK
+    description: "Debit/Credit Indicator"
+    data_element: SHKZG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: POPER
+    description: "Posting period"
+    data_element: POPER
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: BUDAT
+    description: "Posting Date in the Document"
+    data_element: BUDAT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: FISCYEARPER
+    description: "Period/Year"
+    data_element: JAHRPER
+    check_table: ~
+    datatype: NUMC
+    length: 7
+    decimals: 0
+    key: false
+  - name: PERIV
+    description: "Fiscal Year Variant"
+    data_element: PERIV
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: CPUDT
+    description: "Day On Which Accounting Document Was Entered"
+    data_element: CPUDT
+    check_table: ~
+    datatype: DATS
+    length: 8
+    decimals: 0
+    key: false
+  - name: TIMESTAMP
+    description: "UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"
+    data_element: TIMESTAMP
+    check_table: ~
+    datatype: DEC
+    length: 15
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: RLDNR
+    check_table: FINSC_LEDGER
+    check_field: RLDNR
+  - field: RDIMEN
+    check_table: FCOMC_DIM
+    check_field: RDIMEN
+  - field: RVERS
+    check_table: T894
+    check_field: RVERS
+  - field: RCOMP
+    check_table: T880
+    check_field: RCOMP
+  - field: RBUNIT
+    check_table: FCOMC_CONS_UNIT
+    check_field: RCOMP
+  - field: RCONGR
+    check_table: FCOMC_CONS_GRP
+    check_field: RCONGR
+  - field: RACCT
+    check_table: SKA1
+    check_field: SAKNR
+  - field: RITCLG
+    check_table: FCOMC_ITEM
+    check_field: RITCLG
+  - field: RITEM
+    check_table: FCOMC_SITEM
+    check_field: RITEM
+  - field: RCNTR
+    check_table: CSKS
+    check_field: KOSTL
+  - field: PRCTR
+    check_table: CEPC
+    check_field: PRCTR
+  - field: RFAREA
+    check_table: TFKB
+    check_field: FKBER
+  - field: RBUSA
+    check_table: TGSB
+    check_field: GSBER
+  - field: KOKRS
+    check_table: TKA01
+    check_field: KOKRS
+  - field: SEGMENT
+    check_table: FAGL_SEGM
+    check_field: SEGMENT
+  - field: RASSC
+    check_table: T880
+    check_field: RCOMP
+  - field: PPRCTR
+    check_table: CEPC
+    check_field: PRCTR
+  - field: PSEGMENT
+    check_table: FAGL_SEGM
+    check_field: SEGMENT
+  - field: KTOPL
+    check_table: T004
+    check_field: KTOPL
+  - field: BTTYPE
+    check_table: FINSC_BTTYPE
+    check_field: BTTYPE
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

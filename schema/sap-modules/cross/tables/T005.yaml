@@ -1,0 +1,255 @@
+table: T005
+module: CROSS
+description: "Countries — the master check table nearly every LAND1/COUNTRY field across every module in this repository resolves against (ADRC.COUNTRY, T001.LAND1, ADR2/ADR3.COUNTRY, and dozens more). Carries per-country validation rules for postal codes, bank data, VAT numbers, and tax jurisdiction, plus the country's own currency and language defaults. SAP's real T005 carries roughly 60 fields, most of them field-length/validation-rule pairs for bank and tax-number formats; this definition carries the full key, ISO-code, currency, language, and EU/tax-relevant identity fields — the set any address, tax, or currency crosswalk actually consumes, not every per-field validation-rule pair."
+source: https://leanx.eu/en/sap/table/t005.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: LAND1
+    description: "Country Key — the value every LAND1/COUNTRY field in the model checks against"
+    data_element: LAND1
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: true
+  - name: LANDK
+    description: "Vehicle country key"
+    data_element: LANDK
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: LNPLZ
+    description: "Postal code length"
+    data_element: LNPLZ_005
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: ADDRS
+    description: "Formatting routine key for printing addresses"
+    data_element: ADDRS_005
+    check_table: T005A
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: SPRAS
+    description: "Language Key — the country's default language"
+    data_element: SPRAS
+    check_table: T002
+    datatype: LANG
+    length: 1
+    decimals: 0
+    key: false
+  - name: XLAND
+    description: "Country version flag"
+    data_element: XLAND_005
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: NMFMT
+    description: "Standard name format"
+    data_element: NMFMT_005
+    check_table: T005N
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: INTCA
+    description: "Country ISO code (2-char)"
+    data_element: INTCA
+    check_table: ~
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+  - name: INTCA3
+    description: "ISO country code 3 char"
+    data_element: INTCA3
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: INTCN3
+    description: "ISO Country Code Numeric 3-Characters"
+    data_element: INTCN3
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: XEGLD
+    description: "Indicator: European Union Member?"
+    data_element: XEGLD
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: LNBKN
+    description: "Bank account number length"
+    data_element: LNBKN_005
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: LNBLZ
+    description: "Bank number length"
+    data_element: LNBLZ_005
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: UINLN
+    description: "VAT registration number length"
+    data_element: UINLN
+    check_table: ~
+    datatype: NUMC
+    length: 2
+    decimals: 0
+    key: false
+  - name: LANDD
+    description: "DUEVO: Nationality"
+    data_element: DUSTA
+    check_table: T5D4E
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: KALSM
+    description: "Procedure (Pricing, Output Control, Acct. Det., Costing,...)"
+    data_element: KALSM_D
+    check_table: T683
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: LANDA
+    description: "Alternative Country Key"
+    data_element: LANDA
+    check_table: ~
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: DATFM
+    description: "Date Format"
+    data_element: DATFM
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CURIN
+    description: "Currency Key of the Index-Based Currency"
+    data_element: CURIN
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: CURHA
+    description: "Currency Key of the Hard Currency"
+    data_element: CURHA
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: WAERS
+    description: "Country currency"
+    data_element: WAERS_005
+    check_table: TCURC
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: false
+  - name: KURST
+    description: "Exchange Rate Type for Translation into Country Currency"
+    data_element: KURST_005
+    check_table: TCURV
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: AFAPL
+    description: "Chart of depreciaton for asset valuation"
+    data_element: AFAPL
+    check_table: T096
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: SUREG
+    description: "Super region per country"
+    data_element: PRQ_SUREG
+    check_table: TBKS
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: LANDGRP_VP
+    description: "Country grouping for shipping schedule"
+    data_element: LANDGRP_VP
+    check_table: TJG94
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: ADDRS
+    check_table: T005A
+    check_field: ADDRS
+  - field: SPRAS
+    check_table: T002
+    check_field: SPRAS
+  - field: NMFMT
+    check_table: T005N
+    check_field: NAMEFORMAT
+  - field: LANDD
+    check_table: T5D4E
+    check_field: DUNAT
+  - field: KALSM
+    check_table: T683
+    check_field: KALSM
+  - field: CURIN
+    check_table: TCURC
+    check_field: WAERS
+  - field: CURHA
+    check_table: TCURC
+    check_field: WAERS
+  - field: WAERS
+    check_table: TCURC
+    check_field: WAERS
+  - field: KURST
+    check_table: TCURV
+    check_field: KURST
+  - field: AFAPL
+    check_table: T096
+    check_field: AFAPL
+  - field: SUREG
+    check_table: TBKS
+    check_field: SUREG
+  - field: LANDGRP_VP
+    check_table: TJG94
+    check_field: LANDGRP_VP
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

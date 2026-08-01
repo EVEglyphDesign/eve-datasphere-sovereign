@@ -1,0 +1,68 @@
+table: JSTO
+module: CROSS
+description: "Status object information — the header record linking a general object number (OBJNR) to its object category (TJ03) and status profile (TJ20), and flagging whether change documents are active for its status transitions. JEST holds the individual status flags for the same OBJNR; JSTO is the one-row-per-object anchor above it. SAP's real JSTO carries all its fields; this definition carries the table complete."
+source: https://leanx.eu/en/sap/table/jsto.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: OBJNR
+    description: "Object number — shared key with JEST"
+    data_element: J_OBJNR
+    check_table: ONR00
+    datatype: CHAR
+    length: 22
+    decimals: 0
+    key: true
+  - name: OBTYP
+    description: "Object Category — links to TJ03"
+    data_element: J_OBTYP
+    check_table: TJ03
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: false
+  - name: STSMA
+    description: "Status Profile"
+    data_element: J_STSMA
+    check_table: TJ20
+    datatype: CHAR
+    length: 8
+    decimals: 0
+    key: false
+  - name: CHGKZ
+    description: "Indicator: Change documents are active"
+    data_element: J_CHGKZ
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: CHGNR
+    description: "Change number"
+    data_element: J_CHGNR
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: OBJNR
+    check_table: ONR00
+    check_field: OBJNR
+  - field: OBTYP
+    check_table: TJ03
+    check_field: OBTYP
+  - field: STSMA
+    check_table: TJ20
+    check_field: STSMA
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.

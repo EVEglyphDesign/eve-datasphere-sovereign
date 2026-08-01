@@ -1,0 +1,229 @@
+table: GLT0
+module: FI
+description: "G/L Account Master (Company Code) — Transaction Figures / classic G/L totals table. Carries one row per ledger/company code/account/period-set combination with a balance-carryforward bucket plus 16 debit and 16 credit period totals in local currency, transaction currency, and a second (hard/group) currency. This is the classic-GL (pre-New-GL) counterpart to FAGLFLEXT — an ECC customer still on classic G/L mirrors this table for account balances; a New-GL or S/4HANA customer's equivalent balance lives in FAGLFLEXT or is derived from ACDOCA."
+source: https://leanx.eu/en/sap/table/glt0.html
+fields:
+  - name: MANDT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: RCLNT
+    description: "Client"
+    data_element: MANDT
+    check_table: T000
+    datatype: CLNT
+    length: 3
+    decimals: 0
+    key: true
+  - name: BUKRS
+    description: "Company Code"
+    data_element: BUKRS
+    check_table: T001
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: true
+  - name: GJAHR
+    description: "Fiscal Year"
+    data_element: GJAHR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: true
+  - name: RACCT
+    description: "Account Number — the G/L account this totals row aggregates"
+    data_element: RACCT
+    check_table: SKA1
+    datatype: CHAR
+    length: 10
+    decimals: 0
+    key: true
+  - name: RCOMP
+    description: "Company"
+    data_element: RCOMP
+    check_table: T880
+    datatype: CHAR
+    length: 6
+    decimals: 0
+    key: false
+  - name: RLDNR
+    description: "Ledger"
+    data_element: RLDNR
+    check_table: T882
+    datatype: CHAR
+    length: 2
+    decimals: 0
+    key: true
+  - name: RRCTY
+    description: "Record Type"
+    data_element: RRCTY
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: true
+  - name: RVERS
+    description: "Version"
+    data_element: RVERS
+    check_table: T894
+    datatype: CHAR
+    length: 3
+    decimals: 0
+    key: true
+  - name: RYEAR
+    description: "Fiscal Year"
+    data_element: RYEAR
+    check_table: ~
+    datatype: NUMC
+    length: 4
+    decimals: 0
+    key: false
+  - name: RBUSA
+    description: "Business Area"
+    data_element: GSBER
+    check_table: TGSB
+    datatype: CHAR
+    length: 4
+    decimals: 0
+    key: false
+  - name: RTCUR
+    description: "Currency Key"
+    data_element: RTCUR
+    check_table: ~
+    datatype: CUKY
+    length: 5
+    decimals: 0
+    key: true
+  - name: DRCRK
+    description: "Debit/Credit Indicator"
+    data_element: SHKZG
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: RPMAX
+    description: "Highest Number of Periods"
+    data_element: RPMAX
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: RPMAX2
+    description: "Highest number of special periods"
+    data_element: RPMAX2
+    check_table: ~
+    datatype: NUMC
+    length: 3
+    decimals: 0
+    key: false
+  - name: TSLVT
+    description: "Balance carried forward in transaction currency"
+    data_element: TSLVT12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: TSL01
+    description: "Total of transactions of period 1 in transaction currency (representative of the TSL01-TSL16 period array)"
+    data_element: TSLXX12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: TSL16
+    description: "Total of transactions of period 16 (year-end/adjustment) in transaction currency (representative of the TSL01-TSL16 period array)"
+    data_element: TSLXX12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: HSLVT
+    description: "Balance carried forward in local currency"
+    data_element: HSLVT12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: HSL01
+    description: "Total of transactions of period 1 in local currency (representative of the HSL01-HSL16 period array)"
+    data_element: HSLXX12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: HSL16
+    description: "Total of transactions of period 16 (year-end/adjustment) in local currency (representative of the HSL01-HSL16 period array)"
+    data_element: HSLXX12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: CSPRED
+    description: "Cost Splitting Complete Indicator"
+    data_element: CSPRED
+    check_table: ~
+    datatype: CHAR
+    length: 1
+    decimals: 0
+    key: false
+  - name: KSLVT
+    description: "Balance carried forward in group (hard) currency"
+    data_element: KSLVT12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: KSL01
+    description: "Total of transactions of period 1 in group (hard) currency (representative of the KSL01-KSL16 period array)"
+    data_element: KSLXX12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+  - name: KSL16
+    description: "Total of transactions of period 16 (year-end/adjustment) in group (hard) currency (representative of the KSL01-KSL16 period array)"
+    data_element: KSLXX12
+    check_table: ~
+    datatype: CURR
+    length: 23
+    decimals: 2
+    key: false
+foreign_keys:
+  - field: MANDT
+    check_table: T000
+    check_field: MANDT
+  - field: BUKRS
+    check_table: T001
+    check_field: BUKRS
+  - field: RACCT
+    check_table: SKA1
+    check_field: SAKNR
+  - field: RCOMP
+    check_table: T880
+    check_field: RCOMP
+  - field: RLDNR
+    check_table: T882
+    check_field: RLDNR
+  - field: RVERS
+    check_table: T894
+    check_field: RVERS
+  - field: RBUSA
+    check_table: TGSB
+    check_field: GSBER
+
+# © 2026 Dany Thériault / EVE Glyph Design. Pour le bien-être du peuple.
