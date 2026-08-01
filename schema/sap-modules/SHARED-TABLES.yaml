@@ -1,0 +1,48 @@
+# Shared structures registry — Rule 4 of the non-proliferation compact.
+#
+# A table belongs to the model, not to a module. Where several modules inventory the same
+# SAP structure, exactly one module owns the field-level definition and the others resolve
+# to it. scripts/coverage.py enforces this: an inventory entry satisfied by another
+# module's definition is counted as resolved-by-reference, never re-derived and never
+# duplicated on disk.
+#
+# Doctrine: docs/DOCTRINE-MIRROR-NON-PROLIFERATION.md
+shared:
+  - table: AUFK
+    owner: co
+    claimed_by: [co, pm, pp]
+    note: "Order master. CO owns it because the order is a cost object first; PM maintenance
+      orders and PP production orders are order types on the same header."
+  - table: AFKO
+    owner: pp
+    claimed_by: [pm, pp, ps]
+    note: "Order header, production/maintenance/network. PP owns it; PM and PS reference."
+  - table: AFPO
+    owner: pp
+    claimed_by: [pm, pp]
+    note: "Order item."
+  - table: AFVC
+    owner: pp
+    claimed_by: [pm, pp, ps]
+    note: "Order operation. The row AFRU confirmations post against."
+  - table: PLKO
+    owner: pp
+    claimed_by: [pm, pp]
+    note: "Task list header — routings, maintenance task lists, inspection plans share it."
+  - table: PLPO
+    owner: pp
+    claimed_by: [pm, pp]
+    note: "Task list operation."
+  - table: QMEL
+    owner: pm
+    claimed_by: [pm, qm]
+    note: "Notification header. PM owns it; QM quality notifications are notification types
+      on the same header."
+  - table: QMFE
+    owner: pm
+    claimed_by: [pm, qm]
+    note: "Notification item."
+  - table: QMSM
+    owner: pm
+    claimed_by: [pm, qm]
+    note: "Notification task. OUTSTANDING — not yet defined under any module."
