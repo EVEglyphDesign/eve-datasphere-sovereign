@@ -1,5 +1,5 @@
 -- EVE Datasphere Sovereign — PostgreSQL materialisation
--- Generated 2026-08-01T02:17:52Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
+-- Generated 2026-08-01T02:19:53Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
 -- Column names are the canonical Latin layer (EgD-LATIN-001). The legacy SAP field name
 -- is preserved in COMMENT ON COLUMN and in egd_catalog.field_map, and is the join key.
 -- Mirror, never cannibalise. Pour le bien-etre du peuple.
@@ -4707,7 +4707,7 @@ CREATE OR REPLACE VIEW legacy."PCL1" AS
     nom_glm_tbl AS "PGMID",
     vrs_glm AS "VERSN",
     glm_are AS "CLUSTR",
-    glm_cmp_spc AS "CLUSTD"
+    glm_ons_cmp AS "CLUSTD"
   FROM hr.pcl1;
 
 CREATE OR REPLACE VIEW legacy."PCL2" AS
@@ -4722,7 +4722,7 @@ CREATE OR REPLACE VIEW legacy."PCL2" AS
     nom_glm_tbl AS "PGMID",
     vrs_glm AS "VERSN",
     glm_are AS "CLUSTR",
-    glm_opr_efc AS "CLUSTD"
+    glm_ons_opr AS "CLUSTD"
   FROM hr.pcl2;
 
 CREATE OR REPLACE VIEW legacy."PCL3" AS
@@ -4737,7 +4737,7 @@ CREATE OR REPLACE VIEW legacy."PCL3" AS
     nom_tmp_glm AS "PGMID",
     vrs_glm AS "VERSN",
     glm_are_tmp AS "CLUSTR",
-    glm_opr_tmp AS "CLUSTD"
+    glm_ons_opr AS "CLUSTD"
   FROM hr.pcl3;
 
 CREATE OR REPLACE VIEW legacy."PCL4" AS
@@ -4752,7 +4752,7 @@ CREATE OR REPLACE VIEW legacy."PCL4" AS
     nom_trb_glm AS "PGMID",
     vrs_glm AS "VERSN",
     glm_are_trb AS "CLUSTR",
-    glm_opr_trb AS "CLUSTD"
+    glm_ons_opr AS "CLUSTD"
   FROM hr.pcl4;
 
 CREATE OR REPLACE VIEW legacy."ACDOCI" AS
@@ -4764,10 +4764,10 @@ CREATE OR REPLACE VIEW legacy."ACDOCI" AS
     fns_sys_itr AS "SRCSYS",
     fns_obi_tbl AS "SRCTYP",
     tor AS "SRCID",
-    fns_tbl_itr AS "SRCPAR",
-    ult_sor AS "SRCMOD",
-    spc_fns AS "MIRTS",
-    hsh_fns AS "MIRHSH",
+    fns_tpr_itr AS "SRCPAR",
+    ult_tms_sor AS "SRCMOD",
+    spc_tms_fns AS "MIRTS",
+    hsh_fns_ons AS "MIRHSH",
     itr_gen_voc AS "INTTYP",
     cnl_itr AS "CHANNL",
     drc AS "DIRECT",
@@ -4876,8 +4876,8 @@ CREATE OR REPLACE VIEW legacy."IJTEL" AS
     eph_pos AS "IJLN",
     tvc_rfr_fns AS "CDRREF",
     voc AS "CALLID",
-    hsh_num AS "ANIHSH",
-    hsh_num2 AS "DNIHSH",
+    ssh_num AS "ANIHSH",
+    ssh_num2 AS "DNIHSH",
     itn AS "NUMPFX",
     cts_voc AS "CARRIR",
     voc_gen AS "CALTYP",
@@ -4919,7 +4919,7 @@ CREATE OR REPLACE VIEW legacy."PARTY" AS
     orm_psn AS "MEMBER",
     sor_tbl AS "SRCSYS",
     psn_sor AS "SRCID",
-    hsh_psn AS "IDHASH",
+    ssh_psn AS "IDHASH",
     lng_psn AS "SPRAS",
     ptr_clv_psn AS "LAND1",
     cns_sta_psn AS "CNSSTA",
@@ -4955,7 +4955,7 @@ CREATE OR REPLACE VIEW legacy."SYSRC" AS
     flg_pct_cns AS "LEGBAS",
     rfr_spc AS "AUTHRF",
     spc_fns AS "CADENC",
-    ult AS "LASTRD",
+    ult_tms AS "LASTRD",
     rtn_fns AS "RETDAY",
     fns AS "ACTIVE"
   FROM int.sysrc;
@@ -8546,7 +8546,7 @@ CREATE OR REPLACE VIEW legacy."MDVM" AS
     idx AS "MPSKZ",
     die_cns_tmp AS "RHYTD",
     tmp_ult_cns AS "USTMP",
-    ult_cns AS "DSTMP"
+    tms_ult_cns AS "DSTMP"
   FROM pp.mdvm;
 
 CREATE OR REPLACE VIEW legacy."PLAB" AS

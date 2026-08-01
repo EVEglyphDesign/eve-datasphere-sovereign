@@ -1,5 +1,5 @@
 -- EVE Datasphere Sovereign — PostgreSQL materialisation
--- Generated 2026-08-01T02:17:52Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
+-- Generated 2026-08-01T02:19:53Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
 -- Column names are the canonical Latin layer (EgD-LATIN-001). The legacy SAP field name
 -- is preserved in COMMENT ON COLUMN and in egd_catalog.field_map, and is the join key.
 -- Mirror, never cannibalise. Pour le bien-etre du peuple.
@@ -14,10 +14,10 @@ CREATE TABLE IF NOT EXISTS int.acdoci (
   fns_sys_itr varchar(10),
   fns_obi_tbl varchar(40),
   tor varchar(60),
-  fns_tbl_itr varchar(60),
-  ult_sor numeric(15,0),
-  spc_fns numeric(15,0),
-  hsh_fns varchar(64),
+  fns_tpr_itr varchar(60),
+  ult_tms_sor numeric(15,0),
+  spc_tms_fns numeric(15,0),
+  hsh_fns_ons varchar(64),
   itr_gen_voc varchar(10),
   cnl_itr varchar(10),
   drc varchar(1),
@@ -81,10 +81,10 @@ COMMENT ON COLUMN int.acdoci.eph_pos IS 'IJLN — Interaction journal item [ephe
 COMMENT ON COLUMN int.acdoci.fns_sys_itr IS 'SRCSYS — Source system of record the interaction was mirrored from [fons systema tabularum commercium]';
 COMMENT ON COLUMN int.acdoci.fns_obi_tbl IS 'SRCTYP — Source object or table name in the system of record [fons obiectum tabula]';
 COMMENT ON COLUMN int.acdoci.tor IS 'SRCID — Source record identifier, unaltered [tabula originis]';
-COMMENT ON COLUMN int.acdoci.fns_tbl_itr IS 'SRCPAR — Source parent record identifier, where the interaction hangs off a case or request [fons tabula commercium]';
-COMMENT ON COLUMN int.acdoci.ult_sor IS 'SRCMOD — Last modified timestamp in the source system [ultimus systema originis]';
-COMMENT ON COLUMN int.acdoci.spc_fns IS 'MIRTS — Mirror timestamp — when this line was read from the source [speculum fons]';
-COMMENT ON COLUMN int.acdoci.hsh_fns IS 'MIRHSH — SHA-256 hash of the mirrored source payload, so drift is detectable [summa digesta fons]';
+COMMENT ON COLUMN int.acdoci.fns_tpr_itr IS 'SRCPAR — Source parent record identifier, where the interaction hangs off a case or request [fons tabula parentis commercium]';
+COMMENT ON COLUMN int.acdoci.ult_tms_sor IS 'SRCMOD — Last modified timestamp in the source system [ultimus tempus signatum systema originis]';
+COMMENT ON COLUMN int.acdoci.spc_tms_fns IS 'MIRTS — Mirror timestamp — when this line was read from the source [speculum tempus signatum fons]';
+COMMENT ON COLUMN int.acdoci.hsh_fns_ons IS 'MIRHSH — SHA-256 hash of the mirrored source payload, so drift is detectable [summa digesta fons onus]';
 COMMENT ON COLUMN int.acdoci.itr_gen_voc IS 'INTTYP — Interaction type: case, incident, call, meeting, message, task, service request or visit [commercium genus vocatio]';
 COMMENT ON COLUMN int.acdoci.cnl_itr IS 'CHANNL — Channel the interaction travelled over [canalis commercium]';
 COMMENT ON COLUMN int.acdoci.drc IS 'DIRECT — Direction: inbound, outbound or internal [directio]';
@@ -230,8 +230,8 @@ CREATE TABLE IF NOT EXISTS int.ijtel (
   eph_pos varchar(6),
   tvc_rfr_fns varchar(60),
   voc varchar(60),
-  hsh_num varchar(64),
-  hsh_num2 varchar(64),
+  ssh_num varchar(64),
+  ssh_num2 varchar(64),
   itn varchar(8),
   cts_voc varchar(30),
   voc_gen varchar(10),
@@ -259,8 +259,8 @@ COMMENT ON COLUMN int.ijtel.eph_ndo IS 'IJNO — Interaction journal document nu
 COMMENT ON COLUMN int.ijtel.eph_pos IS 'IJLN — Interaction journal item [ephemeris commercii positio]';
 COMMENT ON COLUMN int.ijtel.tvc_rfr_fns IS 'CDRREF — Call detail record reference in the source telephony platform [tabula vocationis referentia fons]';
 COMMENT ON COLUMN int.ijtel.voc IS 'CALLID — Session identifier of the call [vocatio]';
-COMMENT ON COLUMN int.ijtel.hsh_num IS 'ANIHSH — Salted hash of the calling number [summa digesta numerus]';
-COMMENT ON COLUMN int.ijtel.hsh_num2 IS 'DNIHSH — Salted hash of the dialled number [summa digesta numerus]';
+COMMENT ON COLUMN int.ijtel.ssh_num IS 'ANIHSH — Salted hash of the calling number [summa salita numerus]';
+COMMENT ON COLUMN int.ijtel.ssh_num2 IS 'DNIHSH — Salted hash of the dialled number [summa salita numerus]';
 COMMENT ON COLUMN int.ijtel.itn IS 'NUMPFX — Dialling prefix retained for routing and geography, without identifying the subscriber [itinerarium]';
 COMMENT ON COLUMN int.ijtel.cts_voc IS 'CARRIR — Carrier or trunk group the call traversed [coetus vocatio]';
 COMMENT ON COLUMN int.ijtel.voc_gen IS 'CALTYP — Call type: voice, video, conference, transfer leg or voicemail [vocatio genus]';
@@ -309,7 +309,7 @@ CREATE TABLE IF NOT EXISTS int.party (
   orm_psn varchar(18),
   sor_tbl varchar(10),
   psn_sor varchar(60),
-  hsh_psn varchar(64),
+  ssh_psn varchar(64),
   lng_psn char(1),
   ptr_clv_psn varchar(3),
   cns_sta_psn varchar(1),
@@ -327,7 +327,7 @@ COMMENT ON COLUMN int.party.emp_opr_ven IS 'PTYROL — Primary role: customer, c
 COMMENT ON COLUMN int.party.orm_psn IS 'MEMBER — Member organisation the party is associated with [organizatio membri persona]';
 COMMENT ON COLUMN int.party.sor_tbl IS 'SRCSYS — Source system holding the identifying record [systema originis tabula]';
 COMMENT ON COLUMN int.party.psn_sor IS 'SRCID — Identifier of the party in that source system [persona systema originis]';
-COMMENT ON COLUMN int.party.hsh_psn IS 'IDHASH — Salted hash used to resolve the same party across systems without storing identity [summa digesta persona]';
+COMMENT ON COLUMN int.party.ssh_psn IS 'IDHASH — Salted hash used to resolve the same party across systems without storing identity [summa salita persona]';
 COMMENT ON COLUMN int.party.lng_psn IS 'SPRAS — Language the party prefers to be addressed in [lingua persona]';
 COMMENT ON COLUMN int.party.ptr_clv_psn IS 'LAND1 — Country Key of the party [patria clavis persona]';
 COMMENT ON COLUMN int.party.cns_sta_psn IS 'CNSSTA — Consent status governing use of this party record [consensus status persona]';
@@ -371,7 +371,7 @@ CREATE TABLE IF NOT EXISTS int.sysrc (
   flg_pct_cns varchar(4),
   rfr_spc varchar(60),
   spc_fns varchar(10),
-  ult numeric(15,0),
+  ult_tms numeric(15,0),
   rtn_fns varchar(5),
   fns varchar(1),
   CONSTRAINT sysrc_pk PRIMARY KEY (cli, sor_clv)
@@ -388,7 +388,7 @@ COMMENT ON COLUMN int.sysrc.spc IS 'RDONLY — Read only: the mirror never write
 COMMENT ON COLUMN int.sysrc.flg_pct_cns IS 'LEGBAS — Legal basis for mirroring: contract, consent, legitimate interest or legal obligation [fundamentum legale pactum consensus]';
 COMMENT ON COLUMN int.sysrc.rfr_spc IS 'AUTHRF — Authorisation reference — the agreement permitting the mirror [referentia speculum]';
 COMMENT ON COLUMN int.sysrc.spc_fns IS 'CADENC — Mirror cadence: how often the source is read [speculum fons]';
-COMMENT ON COLUMN int.sysrc.ult IS 'LASTRD — Last successful read timestamp [ultimus]';
+COMMENT ON COLUMN int.sysrc.ult_tms IS 'LASTRD — Last successful read timestamp [ultimus tempus signatum]';
 COMMENT ON COLUMN int.sysrc.rtn_fns IS 'RETDAY — Retention in days applied to mirrored lines from this source [retentio fons]';
 COMMENT ON COLUMN int.sysrc.fns IS 'ACTIVE — Source is currently mirrored [fons]';
 

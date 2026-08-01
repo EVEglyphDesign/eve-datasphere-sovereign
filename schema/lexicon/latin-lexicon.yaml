@@ -987,3 +987,15 @@ concepts:
 - en: mirror
   la: speculum
   ab: SPC
+- en: timestamp
+  la: tempus signatum
+  ab: TMS
+- en: parent record
+  la: tabula parentis
+  ab: TPR
+- en: payload
+  la: onus
+  ab: ONS
+- en: salted hash
+  la: summa salita
+  ab: SSH

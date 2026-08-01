@@ -1087,19 +1087,21 @@ ACDOCI:
       derived: true
       latin: organizatio membri commercium
     MIRHSH:
-      canonical: HSH_FNS
+      canonical: HSH_FNS_ONS
       concepts:
       - hash
       - source
+      - payload
       derived: true
-      latin: summa digesta fons
+      latin: summa digesta fons onus
     MIRTS:
-      canonical: SPC_FNS
+      canonical: SPC_TMS_FNS
       concepts:
       - mirror
+      - timestamp
       - source
       derived: true
-      latin: speculum fons
+      latin: speculum tempus signatum fons
     PIIIND:
       canonical: IDX_CNS
       concepts:
@@ -1238,20 +1240,21 @@ ACDOCI:
       derived: true
       latin: tabula originis
     SRCMOD:
-      canonical: ULT_SOR
+      canonical: ULT_TMS_SOR
       concepts:
       - last
+      - timestamp
       - source system
       derived: true
-      latin: ultimus systema originis
+      latin: ultimus tempus signatum systema originis
     SRCPAR:
-      canonical: FNS_TBL_ITR
+      canonical: FNS_TPR_ITR
       concepts:
       - source
-      - record
+      - parent record
       - interaction
       derived: true
-      latin: fons tabula commercium
+      latin: fons tabula parentis commercium
     SRCSTA:
       canonical: STA_VAL_SOR
       concepts:
@@ -29098,12 +29101,12 @@ IJTEL:
       derived: true
       latin: vocatio
     ANIHSH:
-      canonical: HSH_NUM
+      canonical: SSH_NUM
       concepts:
-      - hash
+      - salted hash
       - number
       derived: true
-      latin: summa digesta numerus
+      latin: summa salita numerus
     CALLID:
       canonical: VOC
       concepts:
@@ -29146,12 +29149,12 @@ IJTEL:
       derived: true
       latin: codex finis vocatio
     DNIHSH:
-      canonical: HSH_NUM2
+      canonical: SSH_NUM2
       concepts:
-      - hash
+      - salted hash
       - number
       derived: true
-      latin: summa digesta numerus
+      latin: summa salita numerus
     HLDSEC:
       canonical: TMP2
       concepts:
@@ -40201,12 +40204,13 @@ MDVM:
       derived: true
       latin: netus consilium index
     DSTMP:
-      canonical: ULT_CNS
+      canonical: TMS_ULT_CNS
       concepts:
+      - timestamp
       - last
       - planning
       derived: true
-      latin: ultimus consilium
+      latin: tempus signatum ultimus consilium
     ERDAT:
       canonical: DIE_TBL_CRE
       concepts:
@@ -47151,12 +47155,12 @@ PARTY:
       derived: true
       latin: deletio persona
     IDHASH:
-      canonical: HSH_PSN
+      canonical: SSH_PSN
       concepts:
-      - hash
+      - salted hash
       - party
       derived: true
-      latin: summa digesta persona
+      latin: summa salita persona
     LAND1:
       canonical: PTR_CLV_PSN
       concepts:
@@ -47243,13 +47247,13 @@ PCL1:
       derived: true
       latin: cliens
     CLUSTD:
-      canonical: GLM_CMP_SPC
+      canonical: GLM_ONS_CMP
       concepts:
       - cluster
+      - payload
       - field
-      - mirror
       derived: true
-      latin: glomus campus speculum
+      latin: glomus onus campus
     CLUSTR:
       canonical: GLM_ARE
       concepts:
@@ -47324,13 +47328,13 @@ PCL2:
       derived: true
       latin: cliens
     CLUSTD:
-      canonical: GLM_OPR_EFC
+      canonical: GLM_ONS_OPR
       concepts:
       - cluster
+      - payload
       - employee
-      - result
       derived: true
-      latin: glomus operarius effectus
+      latin: glomus onus operarius
     CLUSTR:
       canonical: GLM_ARE
       concepts:
@@ -47405,13 +47409,13 @@ PCL3:
       derived: true
       latin: cliens
     CLUSTD:
-      canonical: GLM_OPR_TMP
+      canonical: GLM_ONS_OPR
       concepts:
       - cluster
+      - payload
       - employee
-      - time
       derived: true
-      latin: glomus operarius tempus
+      latin: glomus onus operarius
     CLUSTR:
       canonical: GLM_ARE_TMP
       concepts:
@@ -47488,13 +47492,13 @@ PCL4:
       derived: true
       latin: cliens
     CLUSTD:
-      canonical: GLM_OPR_TRB
+      canonical: GLM_ONS_OPR
       concepts:
       - cluster
+      - payload
       - employee
-      - tax
       derived: true
-      latin: glomus operarius tributum
+      latin: glomus onus operarius
     CLUSTR:
       canonical: GLM_ARE_TRB
       concepts:
@@ -60799,11 +60803,12 @@ SYSRC:
       derived: true
       latin: speculum fons
     LASTRD:
-      canonical: ULT
+      canonical: ULT_TMS
       concepts:
       - last
+      - timestamp
       derived: true
-      latin: ultimus
+      latin: ultimus tempus signatum
     LEGBAS:
       canonical: FLG_PCT_CNS
       concepts:

@@ -1,5 +1,5 @@
 -- EVE Datasphere Sovereign — PostgreSQL materialisation
--- Generated 2026-08-01T02:17:52Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
+-- Generated 2026-08-01T02:19:53Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
 -- Column names are the canonical Latin layer (EgD-LATIN-001). The legacy SAP field name
 -- is preserved in COMMENT ON COLUMN and in egd_catalog.field_map, and is the join key.
 -- Mirror, never cannibalise. Pour le bien-etre du peuple.
@@ -1294,7 +1294,7 @@ CREATE TABLE IF NOT EXISTS hr.pcl1 (
   nom_glm_tbl varchar(8),
   vrs_glm varchar(2),
   glm_are smallint,
-  glm_cmp_spc bytea,
+  glm_ons_cmp bytea,
   CONSTRAINT pcl1_pk PRIMARY KEY (cli, are_glm, clv_nps_tbl, cmp_clv)
 );
 COMMENT ON TABLE hr.pcl1 IS 'PCL1 — HR Cluster 1 — a generic HR cluster-database table. Its payload (CLUSTD) is stored as compressed, opaque cluster data addressed by a relation-ID/key/cluster-number combination (RELID/SRTFD/SRTF2/CLUSTR), not as readable columns: SAP writes structured ABAP internal tables into this raw LRAW field via the IMPORT/EXPORT cluster mechanism, and the field contents cannot be interpreted without an ABAP program performing the corresponding IMPORT. A mirror of this table can capture the key fields and the CLUSTD blob as an opaque byte value, but it cannot field-decode the payload — there is no field-le';
@@ -1308,7 +1308,7 @@ COMMENT ON COLUMN hr.pcl1.usr_nom IS 'UNAME — User Name [usor nomen]';
 COMMENT ON COLUMN hr.pcl1.nom_glm_tbl IS 'PGMID — ABAP: Program Name — the program that wrote this cluster record [nomen glomus tabula]';
 COMMENT ON COLUMN hr.pcl1.vrs_glm IS 'VERSN — Version in Cluster Files [versio glomus]';
 COMMENT ON COLUMN hr.pcl1.glm_are IS 'CLUSTR — Cluster for PCLx — the cluster-ID sub-selector within the RELID area [glomus area]';
-COMMENT ON COLUMN hr.pcl1.glm_cmp_spc IS 'CLUSTD — Compressed cluster payload (opaque raw bytes) — NOT field-decodable without ABAP IMPORT against SAP''s cluster structure definitions; a mirror can only store this as a binary blob keyed by RELID/SRTFD/SRTF2/CLUSTR, never as individual readable fields [glomus campus speculum]';
+COMMENT ON COLUMN hr.pcl1.glm_ons_cmp IS 'CLUSTD — Compressed cluster payload (opaque raw bytes) — NOT field-decodable without ABAP IMPORT against SAP''s cluster structure definitions; a mirror can only store this as a binary blob keyed by RELID/SRTFD/SRTF2/CLUSTR, never as individual readable fields [glomus onus campus]';
 
 CREATE TABLE IF NOT EXISTS hr.pcl2 (
   cli char(3),
@@ -1321,7 +1321,7 @@ CREATE TABLE IF NOT EXISTS hr.pcl2 (
   nom_glm_tbl varchar(8),
   vrs_glm varchar(2),
   glm_are smallint,
-  glm_opr_efc bytea,
+  glm_ons_opr bytea,
   CONSTRAINT pcl2_pk PRIMARY KEY (cli, are_glm, clv_nps_per, cmp_clv)
 );
 COMMENT ON TABLE hr.pcl2 IS 'PCL2 — HR Cluster 2 — the payroll results cluster database table (e.g. relation IDs such as RD for domestic payroll results). Its payload (CLUSTD) is stored as compressed, opaque cluster data addressed by a relation-ID/key/cluster-number combination (RELID/SRTFD/SRTF2/CLUSTR), not as readable columns: SAP writes a structured payroll-results internal table into this raw LRAW field via the IMPORT/EXPORT cluster mechanism, and the field contents cannot be interpreted without an ABAP program performing the corresponding IMPORT against the relevant cluster structure (e.g. PCL2''s payroll results cluster). ';
@@ -1335,7 +1335,7 @@ COMMENT ON COLUMN hr.pcl2.usr_nom IS 'UNAME — User Name [usor nomen]';
 COMMENT ON COLUMN hr.pcl2.nom_glm_tbl IS 'PGMID — ABAP: Program Name — the program (typically a payroll driver) that wrote this cluster record [nomen glomus tabula]';
 COMMENT ON COLUMN hr.pcl2.vrs_glm IS 'VERSN — Version in Cluster Files [versio glomus]';
 COMMENT ON COLUMN hr.pcl2.glm_are IS 'CLUSTR — Cluster for PCLx — the cluster-ID sub-selector within the RELID area (e.g. the specific payroll results cluster) [glomus area]';
-COMMENT ON COLUMN hr.pcl2.glm_opr_efc IS 'CLUSTD — Compressed cluster payload (opaque raw bytes) — this is where an employee''s payroll result (wage types, amounts, tax and deduction detail) actually lives, but it is NOT field-decodable without ABAP IMPORT against SAP''s payroll-results cluster structure; a mirror can only store this as a binary blob keyed by RELID/SRTFD/SRTF2/CLUSTR, never as individual readable fields [glomus operarius effectus]';
+COMMENT ON COLUMN hr.pcl2.glm_ons_opr IS 'CLUSTD — Compressed cluster payload (opaque raw bytes) — this is where an employee''s payroll result (wage types, amounts, tax and deduction detail) actually lives, but it is NOT field-decodable without ABAP IMPORT against SAP''s payroll-results cluster structure; a mirror can only store this as a binary blob keyed by RELID/SRTFD/SRTF2/CLUSTR, never as individual readable fields [glomus onus operarius]';
 
 CREATE TABLE IF NOT EXISTS hr.pcl3 (
   cli char(3),
@@ -1348,7 +1348,7 @@ CREATE TABLE IF NOT EXISTS hr.pcl3 (
   nom_tmp_glm varchar(8),
   vrs_glm varchar(2),
   glm_are_tmp smallint,
-  glm_opr_tmp bytea,
+  glm_ons_opr bytea,
   CONSTRAINT pcl3_pk PRIMARY KEY (cli, are_idx_glm, clv_nps_tmp, cmp_clv)
 );
 COMMENT ON TABLE hr.pcl3 IS 'PCL3 — HR Cluster 3 — the time-management cluster database table (e.g. time-evaluation results and time-transfer clusters). Its payload (CLUSTD) is stored as compressed, opaque cluster data addressed by a relation-ID/key/cluster-number combination (RELID/SRTFD/SRTF2/CLUSTR), not as readable columns: SAP writes a structured time-evaluation internal table into this raw LRAW field via the IMPORT/EXPORT cluster mechanism, and the field contents cannot be interpreted without an ABAP program performing the corresponding IMPORT against the relevant cluster structure. A mirror of this table can capture the k';
@@ -1362,7 +1362,7 @@ COMMENT ON COLUMN hr.pcl3.usr_nom IS 'UNAME — User Name [usor nomen]';
 COMMENT ON COLUMN hr.pcl3.nom_tmp_glm IS 'PGMID — ABAP: Program Name — the program (typically the time evaluation driver, RPTIME00) that wrote this cluster record [nomen tempus glomus]';
 COMMENT ON COLUMN hr.pcl3.vrs_glm IS 'VERSN — Version in Cluster Files [versio glomus]';
 COMMENT ON COLUMN hr.pcl3.glm_are_tmp IS 'CLUSTR — Cluster for PCLx — the cluster-ID sub-selector within the RELID area (e.g. the specific time-evaluation results cluster) [glomus area tempus]';
-COMMENT ON COLUMN hr.pcl3.glm_opr_tmp IS 'CLUSTD — Compressed cluster payload (opaque raw bytes) — this is where an employee''s evaluated time data (time pairs, generated quotas, balances) actually lives, but it is NOT field-decodable without ABAP IMPORT against SAP''s time-evaluation cluster structure; a mirror can only store this as a binary blob keyed by RELID/SRTFD/SRTF2/CLUSTR, never as individual readable fields [glomus operarius tempus]';
+COMMENT ON COLUMN hr.pcl3.glm_ons_opr IS 'CLUSTD — Compressed cluster payload (opaque raw bytes) — this is where an employee''s evaluated time data (time pairs, generated quotas, balances) actually lives, but it is NOT field-decodable without ABAP IMPORT against SAP''s time-evaluation cluster structure; a mirror can only store this as a binary blob keyed by RELID/SRTFD/SRTF2/CLUSTR, never as individual readable fields [glomus onus operarius]';
 
 CREATE TABLE IF NOT EXISTS hr.pcl4 (
   cli char(3),
@@ -1375,7 +1375,7 @@ CREATE TABLE IF NOT EXISTS hr.pcl4 (
   nom_trb_glm varchar(8),
   vrs_glm varchar(2),
   glm_are_trb smallint,
-  glm_opr_trb bytea,
+  glm_ons_opr bytea,
   CONSTRAINT pcl4_pk PRIMARY KEY (cli, are_glm_trb, clv_nps_trb, cmp_clv)
 );
 COMMENT ON TABLE hr.pcl4 IS 'PCL4 — HR Cluster 4 — the tax-reporting and year-end cluster database table (e.g. legal/statutory reporting clusters). Its payload (CLUSTD) is stored as compressed, opaque cluster data addressed by a relation-ID/key/cluster-number combination (RELID/SRTFD/SRTF2/CLUSTR), not as readable columns: SAP writes a structured tax/legal-reporting internal table into this raw LRAW field via the IMPORT/EXPORT cluster mechanism, and the field contents cannot be interpreted without an ABAP program performing the corresponding IMPORT against the relevant cluster structure. A mirror of this table can capture the ke';
@@ -1389,5 +1389,5 @@ COMMENT ON COLUMN hr.pcl4.usr_nom IS 'UNAME — User Name [usor nomen]';
 COMMENT ON COLUMN hr.pcl4.nom_trb_glm IS 'PGMID — ABAP: Program Name — the program (typically a legal/tax reporting driver) that wrote this cluster record [nomen tributum glomus]';
 COMMENT ON COLUMN hr.pcl4.vrs_glm IS 'VERSN — Version in Cluster Files [versio glomus]';
 COMMENT ON COLUMN hr.pcl4.glm_are_trb IS 'CLUSTR — Cluster for PCLx — the cluster-ID sub-selector within the RELID area (e.g. the specific tax-reporting cluster) [glomus area tributum]';
-COMMENT ON COLUMN hr.pcl4.glm_opr_trb IS 'CLUSTD — Compressed cluster payload (opaque raw bytes) — this is where an employee''s tax/statutory-reporting data actually lives, but it is NOT field-decodable without ABAP IMPORT against SAP''s tax-reporting cluster structure; a mirror can only store this as a binary blob keyed by RELID/SRTFD/SRTF2/CLUSTR, never as individual readable fields [glomus operarius tributum]';
+COMMENT ON COLUMN hr.pcl4.glm_ons_opr IS 'CLUSTD — Compressed cluster payload (opaque raw bytes) — this is where an employee''s tax/statutory-reporting data actually lives, but it is NOT field-decodable without ABAP IMPORT against SAP''s tax-reporting cluster structure; a mirror can only store this as a binary blob keyed by RELID/SRTFD/SRTF2/CLUSTR, never as individual readable fields [glomus onus operarius]';
 

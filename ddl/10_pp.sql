@@ -1,5 +1,5 @@
 -- EVE Datasphere Sovereign — PostgreSQL materialisation
--- Generated 2026-08-01T02:17:52Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
+-- Generated 2026-08-01T02:19:53Z by scripts/emit_postgres.py. Do not hand-edit; regenerate.
 -- Column names are the canonical Latin layer (EgD-LATIN-001). The legacy SAP field name
 -- is preserved in COMMENT ON COLUMN and in egd_catalog.field_map, and is the join key.
 -- Mirror, never cannibalise. Pour le bien-etre du peuple.
@@ -1392,7 +1392,7 @@ CREATE TABLE IF NOT EXISTS pp.mdvm (
   idx varchar(1),
   die_cns_tmp date,
   tmp_ult_cns numeric(15,0),
-  ult_cns numeric(15,0),
+  tms_ult_cns numeric(15,0),
   CONSTRAINT mdvm_pk PRIMARY KEY (cli, tbl_gen, tot_clv)
 );
 COMMENT ON TABLE pp.mdvm IS 'MDVM — Planning File Entry — flags a material/plant (or other planning object) as due for the next MRP run, carrying net-change and low-level-code re-explosion indicators plus MRP timestamps. The demand-side trigger record of what the system has decided still needs re-planning.';
@@ -1407,7 +1407,7 @@ COMMENT ON COLUMN pp.mdvm.resal IS 'RESAL — Re-explode BOM';
 COMMENT ON COLUMN pp.mdvm.idx IS 'MPSKZ — Indicator for MPS items [index]';
 COMMENT ON COLUMN pp.mdvm.die_cns_tmp IS 'RHYTD — Date for planning (e.g. as per time-phased mat. planning) [dies consilium tempus]';
 COMMENT ON COLUMN pp.mdvm.tmp_ult_cns IS 'USTMP — Time stamp of last update for planning file entry [tempus ultimus consilium]';
-COMMENT ON COLUMN pp.mdvm.ult_cns IS 'DSTMP — Timestamp of last MRP for planning file entry [ultimus consilium]';
+COMMENT ON COLUMN pp.mdvm.tms_ult_cns IS 'DSTMP — Timestamp of last MRP for planning file entry [tempus signatum ultimus consilium]';
 
 CREATE TABLE IF NOT EXISTS pp.plab (
   cli char(3),
