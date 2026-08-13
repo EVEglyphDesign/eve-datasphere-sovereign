@@ -2,7 +2,7 @@
   "instrument": "latencia",
   "instrument_id": "EgD-SCT-INS-001",
   "version": "1.0",
-  "generated_at": "2026-08-13T23:10:52.446915+00:00",
+  "generated_at": "2026-08-13T23:17:00.212518+00:00",
   "seed": 20260813,
   "n_rows": 2000,
   "classes": [
@@ -57,6 +57,7 @@
     "contractus.json": "b781dfc79399be83158914a7981a5dd0ff161737a3a5250ca282bff51f12b85e",
     "distribution.json": "f7b4fc7b53c9573b03904631e8fd5dc686f15de3a9ec6a6aba75d1be58750146",
     "evidence.json": "4b212f251716b50cb90fc52d247b32438063419dc9cf3ccac9970dc6e0d63738",
-    "eligibility.json": "ad3d6269342f5ac4e459c061757f541f69161ff159a0c9cf1097ce7f1a31b867"
+    "eligibility.json": "ad3d6269342f5ac4e459c061757f541f69161ff159a0c9cf1097ce7f1a31b867",
+    "manifest.json": "31dfd241c19a451873ef438c02a6af2c90ba5e6e52073c851ae4717215d2844d"
   }
 }

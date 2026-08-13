@@ -295,6 +295,12 @@ def build():
         data = (OUT / name).read_bytes()
         manifest["artifact_hashes"][name] = hashlib.sha256(data).hexdigest()
 
+    # Two-pass self-hash: write manifest without its own row, hash the file,
+    # then rewrite it with the manifest self-hash appended. Reproducible from seed.
+    manifest["artifact_hashes"]["manifest.json"] = None
+    (OUT / "manifest.json").write_text(json.dumps(manifest, indent=2))
+    partial = (OUT / "manifest.json").read_bytes()
+    manifest["artifact_hashes"]["manifest.json"] = hashlib.sha256(partial).hexdigest()
     (OUT / "manifest.json").write_text(json.dumps(manifest, indent=2))
     print(f"wrote {N_ROWS} rows to {OUT}")
     print("hashes:")
