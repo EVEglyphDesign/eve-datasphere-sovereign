@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Latencia — Synthetic Latency Instrument · EVEglyphDesign</title>
+<meta name="description" content="A browser-executable proof of the Sovereign Capital Twin L1 commitment register. Invented parties. No client data. No RWA claim." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --cream:  #fdfaf4;
+  --cream2: #f7f2e7;
+  --ink:    #1a1a1a;
+  --line:   #e7e1d3;
+  --mute:   #6b665c;
+  --accent: #e87722;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--cream); color: var(--ink); }
+body { font-family: 'Inter', system-ui, sans-serif; font-size: 16px; line-height: 1.55; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 40px 28px 80px; }
+header .rule { height: 3px; width: 96px; background: var(--accent); margin-bottom: 22px; }
+header .id-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  color: var(--mute); letter-spacing: 0.02em; margin-bottom: 6px;
+}
+h1 {
+  font-family: 'Fraunces', Georgia, serif; font-weight: 600;
+  font-size: 44px; line-height: 1.1; margin: 0 0 10px;
+}
+.sub { color: var(--mute); font-size: 17px; max-width: 780px; margin: 0 0 32px; }
+h2 {
+  font-family: 'Fraunces', Georgia, serif; font-weight: 600;
+  font-size: 26px; margin: 44px 0 14px; letter-spacing: -0.01em;
+}
+h3 {
+  font-family: 'Inter', sans-serif; font-weight: 600;
+  font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--accent); margin: 24px 0 10px;
+}
+p { margin: 0 0 12px; }
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+code, .mono { font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+
+.refusals {
+  background: var(--cream2); border: 1px solid var(--line);
+  border-left: 3px solid var(--accent); padding: 18px 22px; margin: 28px 0 8px;
+}
+.refusals h3 { margin-top: 0; }
+.refusals ul { margin: 6px 0 0 0; padding-left: 18px; }
+.refusals li { margin: 4px 0; }
+
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 14px; }
+.card {
+  background: var(--cream2); border: 1px solid var(--line);
+  padding: 18px 20px; border-radius: 2px;
+}
+.card h3 { margin-top: 0; }
+.big {
+  font-family: 'Fraunces', Georgia, serif; font-weight: 600;
+  font-size: 32px; line-height: 1; margin: 4px 0 2px;
+}
+.tiny { color: var(--mute); font-size: 12px; }
+
+table {
+  width: 100%; border-collapse: collapse; font-size: 14px;
+  margin: 8px 0 8px;
+}
+th, td {
+  padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+th {
+  font-weight: 600; color: var(--mute); text-transform: uppercase;
+  font-size: 11px; letter-spacing: 0.06em;
+}
+td.n { text-align: right; font-variant-numeric: tabular-nums; }
+
+.bar-row { display: flex; align-items: center; gap: 10px; margin: 4px 0; }
+.bar-row .lbl { min-width: 140px; font-size: 13px; }
+.bar-row .bar {
+  flex: 1; height: 10px; background: var(--cream);
+  border: 1px solid var(--line); position: relative;
+}
+.bar-row .fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--accent); }
+.bar-row .val { min-width: 90px; text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--mute); }
+
+.hist { width: 100%; height: 220px; }
+.axis text { font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: var(--mute); }
+.axis path, .axis line { stroke: var(--line); }
+
+.footer {
+  margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--mute);
+}
+.footer .rt { text-align: right; }
+.footer .mark { color: var(--accent); font-style: italic; }
+
+.badge {
+  display: inline-block; padding: 2px 8px; border: 1px solid var(--line);
+  background: var(--cream); border-radius: 2px; font-size: 11px;
+  color: var(--mute); font-family: 'JetBrains Mono', monospace;
+}
+.pill-not-assessed { border-color: var(--accent); color: var(--accent); }
+
+.pending-note { font-size: 13px; color: var(--mute); margin-top: 6px; }
+
+@media (max-width: 720px) {
+  h1 { font-size: 34px; }
+  .grid { grid-template-columns: 1fr; }
+  .bar-row .lbl { min-width: 110px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="rule"></div>
+  <div class="id-row">
+    <span>EgD-SCT-INS-001 · Latencia v1.0</span>
+    <span>EgD-KEY-2026-07</span>
+  </div>
+  <h1>Latencia</h1>
+  <p class="sub">A browser-executable proof of the <a href="../DOCTRINE-SOVEREIGN-CAPITAL-TWIN.md">Sovereign Capital Twin</a> L1 commitment register. Invented parties. No client system is read. The instrument reports measured latency, evidence completeness, and eligibility-qualified collateral — and refuses to state anything else.</p>
+</header>
+
+<section class="refusals">
+  <h3>Three refusals, visible on the surface</h3>
+  <ul>
+    <li>No RWA relief claim is made or implied.</li>
+    <li><span class="mono">NOT_ASSESSED</span> is reported as itself — it is never rolled into an eligible number.</li>
+    <li>No Basel effect is quantified without a rule reference.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Provenance</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Instrument</h3>
+      <div class="mono" id="p-instrument">latencia</div>
+      <div class="tiny" id="p-generated">generated_at: —</div>
+      <div class="tiny">seed: <span class="mono" id="p-seed">—</span></div>
+      <div class="tiny">rows: <span class="mono" id="p-rows">—</span></div>
+    </div>
+    <div class="card">
+      <h3>Invented parties</h3>
+      <div id="p-parties" class="tiny">—</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>1. Risk latency distribution</h2>
+  <p>Measured latency is <span class="mono">t_post − t_bind</span>, in hours. This is the honest core of Contractual Gravity — a duration, not a metaphor.</p>
+
+  <h3>By commitment class</h3>
+  <table>
+    <thead><tr><th>Class</th><th class="n">n</th><th class="n">median (h)</th><th class="n">p95 (h)</th><th class="n">p99 (h)</th></tr></thead>
+    <tbody id="tbl-class"></tbody>
+  </table>
+
+  <h3>Overall — all classes, cumulative distribution</h3>
+  <svg class="hist" id="hist" viewBox="0 0 900 220" preserveAspectRatio="none"></svg>
+  <div class="tiny" id="hist-note">—</div>
+
+  <h3>By creditor</h3>
+  <table>
+    <thead><tr><th>Creditor</th><th class="n">n</th><th class="n">median (h)</th><th class="n">p95 (h)</th></tr></thead>
+    <tbody id="tbl-creditor"></tbody>
+  </table>
+  <p class="pending-note" id="pending-note">—</p>
+</section>
+
+<section>
+  <h2>2. Evidence completeness</h2>
+  <p>Share of commitment notional whose evidence pointers are hashed, retrievable from obligor custody, and in <span class="mono">VERIFIED</span> state. Reported as a fraction — never rounded up to a claim.</p>
+  <div id="ev-bars"></div>
+</section>
+
+<section>
+  <h2>3. Eligibility-qualified collateral</h2>
+  <p>Notional split across the four <span class="mono">eligibility_class</span> values. The number that may be shown to a lender is only the qualified subset (<span class="mono">BASEL_FINANCIAL</span> and <span class="mono">BASEL_PHYSICAL_FIRB</span>). Every unclassified commitment reports as <span class="mono">NOT_ASSESSED</span>.</p>
+  <div id="elig-bars"></div>
+  <div class="card" style="margin-top:16px">
+    <h3>Qualified for lender</h3>
+    <div class="big" id="q-share">—</div>
+    <div class="tiny" id="q-notional">notional: —</div>
+    <div class="tiny" style="margin-top:6px">
+      Under the standardized approach, inventory is not eligible collateral (<a href="https://www.bis.org/basel_framework/chapter/CRE/36.htm">BIS CRE36</a>). Physical collateral enters only under foundation IRB, first lien, with a 25% LGD floor and 40% haircut (<a href="https://www.bis.org/basel_framework/chapter/CRE/32.htm">BIS CRE32</a>).
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>4. Artifacts</h2>
+  <p>The four JSON files below are the ledger and the derived quantities. They are hashed and their SHA-256 digests are stamped in <a href="data/manifest.json">manifest.json</a>.</p>
+  <table>
+    <thead><tr><th>Artifact</th><th>SHA-256 (short)</th></tr></thead>
+    <tbody id="tbl-artifacts"></tbody>
+  </table>
+  <p><a href="../DOCTRINE-SOVEREIGN-CAPITAL-TWIN.md">Back to the doctrine</a> · <a href="../../">EVE Datasphere Sovereign</a> · <a href="../EVEglyphDesign_Sovereign_Capital_Twin.pdf">Controlled PDF</a></p>
+</section>
+
+<div class="footer">
+  <div>© 2026 EVEglyphDesign. Controlled copy. Key ID EgD-KEY-2026-07.</div>
+  <div class="rt"><span class="mark">Pour le bien-être du peuple</span></div>
+</div>
+</div>
+
+<script>
+const fmtN = new Intl.NumberFormat('en-CA', {maximumFractionDigits: 1});
+const fmtI = new Intl.NumberFormat('en-CA');
+const fmtM = new Intl.NumberFormat('en-CA', {style:'currency', currency:'CAD', maximumFractionDigits:0});
+const pct = x => (x * 100).toFixed(1) + '%';
+
+async function jget(u) {
+  const r = await fetch(u, {cache: 'no-store'});
+  if (!r.ok) throw new Error('fetch ' + u + ' -> ' + r.status);
+  return r.json();
+}
+
+function drawHist(svg, values) {
+  const W = 900, H = 220, ML=40, MR=10, MT=10, MB=28;
+  const iw = W - ML - MR, ih = H - MT - MB;
+  values = values.filter(v => v != null).sort((a,b)=>a-b);
+  const max = values[values.length - 1];
+  // log-x bins
+  const nb = 30;
+  const lo = Math.log(Math.max(0.1, values[0]));
+  const hi = Math.log(max);
+  const step = (hi - lo) / nb;
+  const bins = new Array(nb).fill(0);
+  for (const v of values) {
+    let i = Math.floor((Math.log(v) - lo) / step);
+    if (i < 0) i = 0; if (i >= nb) i = nb - 1;
+    bins[i]++;
+  }
+  const bmax = Math.max(...bins);
+
+  let g = '';
+  const bw = iw / nb;
+  for (let i = 0; i < nb; i++) {
+    const h = (bins[i] / bmax) * ih;
+    g += `<rect x="${ML + i*bw + 1}" y="${MT + ih - h}" width="${bw - 2}" height="${h}" fill="#e87722" opacity="0.85"/>`;
+  }
+
+  // p50 and p95 lines
+  const q = p => {
+    const i = p * (values.length - 1);
+    const lo_ = Math.floor(i), hi_ = Math.ceil(i);
+    return values[lo_] + (values[hi_] - values[lo_]) * (i - lo_);
+  };
+  const xAt = v => ML + ((Math.log(v) - lo) / (hi - lo)) * iw;
+  const p50 = q(0.5), p95 = q(0.95);
+  g += `<line x1="${xAt(p50)}" x2="${xAt(p50)}" y1="${MT}" y2="${MT+ih}" stroke="#1a1a1a" stroke-dasharray="3,3"/>`;
+  g += `<text x="${xAt(p50)+4}" y="${MT+12}" font-family="JetBrains Mono" font-size="10" fill="#1a1a1a">median ${fmtN.format(p50)}h</text>`;
+  g += `<line x1="${xAt(p95)}" x2="${xAt(p95)}" y1="${MT}" y2="${MT+ih}" stroke="#6b665c" stroke-dasharray="3,3"/>`;
+  g += `<text x="${xAt(p95)+4}" y="${MT+26}" font-family="JetBrains Mono" font-size="10" fill="#6b665c">p95 ${fmtN.format(p95)}h</text>`;
+
+  // x-axis ticks at 1h, 1d, 1w, 1mo
+  const ticks = [{v:1,l:'1 h'},{v:24,l:'1 d'},{v:168,l:'1 w'},{v:720,l:'1 mo'},{v:8760,l:'1 y'}];
+  for (const t of ticks) {
+    if (t.v < Math.exp(lo) * 0.5 || t.v > Math.exp(hi) * 1.5) continue;
+    const x = xAt(t.v);
+    g += `<line x1="${x}" x2="${x}" y1="${MT+ih}" y2="${MT+ih+4}" stroke="#e7e1d3"/>`;
+    g += `<text x="${x}" y="${MT+ih+18}" font-family="JetBrains Mono" font-size="10" fill="#6b665c" text-anchor="middle">${t.l}</text>`;
+  }
+  g += `<line x1="${ML}" x2="${ML+iw}" y1="${MT+ih}" y2="${MT+ih}" stroke="#e7e1d3"/>`;
+  svg.innerHTML = g;
+}
+
+function barRow(label, share, right) {
+  return `<div class="bar-row"><div class="lbl">${label}</div><div class="bar"><div class="fill" style="width:${(share*100).toFixed(1)}%"></div></div><div class="val">${right}</div></div>`;
+}
+
+(async () => {
+  try {
+    const [m, d, e, el, ctr] = await Promise.all([
+      jget('data/manifest.json'),
+      jget('data/distribution.json'),
+      jget('data/evidence.json'),
+      jget('data/eligibility.json'),
+      jget('data/contractus.json'),
+    ]);
+
+    // provenance
+    document.getElementById('p-instrument').textContent = m.instrument + ' v' + m.version;
+    document.getElementById('p-generated').textContent = 'generated_at: ' + m.generated_at;
+    document.getElementById('p-seed').textContent = String(m.seed);
+    document.getElementById('p-rows').textContent = fmtI.format(m.n_rows);
+    document.getElementById('p-parties').innerHTML =
+      '<div><strong>Obligors:</strong> ' + m.obligors.map(o=>o.name).join(' · ') + '</div>' +
+      '<div style="margin-top:4px"><strong>Creditors:</strong> ' + m.creditors.map(c=>c.name).join(' · ') + '</div>';
+
+    // by class table
+    const byC = d.by_class;
+    const tc = document.getElementById('tbl-class');
+    for (const k of Object.keys(byC)) {
+      const v = byC[k];
+      tc.insertAdjacentHTML('beforeend',
+        `<tr><td><span class="badge">${k}</span></td>` +
+        `<td class="n">${fmtI.format(v.n)}</td>` +
+        `<td class="n">${fmtN.format(v.median)}</td>` +
+        `<td class="n">${fmtN.format(v.p95)}</td>` +
+        `<td class="n">${fmtN.format(v.p99)}</td></tr>`);
+    }
+
+    // histogram
+    const values = ctr.map(r => r.latency_hours).filter(v => v != null);
+    drawHist(document.getElementById('hist'), values);
+    document.getElementById('hist-note').textContent =
+      'n=' + fmtI.format(values.length) + ' posted commitments · log-scale x-axis · ' +
+      'overall median ' + fmtN.format(d.overall.median) + 'h, p95 ' + fmtN.format(d.overall.p95) + 'h.';
+
+    // creditor table
+    const byR = d.by_creditor;
+    const tr = document.getElementById('tbl-creditor');
+    for (const k of Object.keys(byR)) {
+      const v = byR[k];
+      tr.insertAdjacentHTML('beforeend',
+        `<tr><td>${k}</td>` +
+        `<td class="n">${fmtI.format(v.n)}</td>` +
+        `<td class="n">${fmtN.format(v.median)}</td>` +
+        `<td class="n">${fmtN.format(v.p95)}</td></tr>`);
+    }
+
+    // pending count
+    const nPending = ctr.filter(r => r.qualification === 'PENDING').length;
+    document.getElementById('pending-note').textContent =
+      fmtI.format(nPending) + ' of ' + fmtI.format(ctr.length) +
+      ' commitments are PENDING — no t_post yet, latency reported as null.';
+
+    // evidence bars
+    const ev = document.getElementById('ev-bars');
+    for (const k of Object.keys(e.by_class)) {
+      const row = e.by_class[k];
+      ev.insertAdjacentHTML('beforeend',
+        barRow(`<span class="badge">${k}</span>`, row.notional_verified_share,
+               pct(row.notional_verified_share) + ' verified'));
+    }
+
+    // eligibility bars
+    const eb = document.getElementById('elig-bars');
+    for (const k of Object.keys(el.share_by_class)) {
+      const s = el.share_by_class[k];
+      const cls = k === 'NOT_ASSESSED' ? 'badge pill-not-assessed' : 'badge';
+      eb.insertAdjacentHTML('beforeend',
+        barRow(`<span class="${cls}">${k}</span>`, s,
+               pct(s) + ' · ' + fmtM.format(el.notional_by_class[k])));
+    }
+    document.getElementById('q-share').textContent = pct(el.qualified_for_lender.share);
+    document.getElementById('q-notional').textContent = 'notional: ' + fmtM.format(el.qualified_for_lender.notional);
+
+    // artifacts
+    const ta = document.getElementById('tbl-artifacts');
+    for (const [name, hash] of Object.entries(m.artifact_hashes)) {
+      ta.insertAdjacentHTML('beforeend',
+        `<tr><td><a href="data/${name}">${name}</a></td><td class="mono">${hash.slice(0,32)}…</td></tr>`);
+    }
+  } catch (err) {
+    document.body.insertAdjacentHTML('afterbegin',
+      '<div style="background:#f7f2e7;color:#e87722;padding:16px;border-bottom:1px solid #e7e1d3">The instrument failed to load its data: ' + err.message + '</div>');
+    throw err;
+  }
+})();
+</script>
+</body>
+</html>
