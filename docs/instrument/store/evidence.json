@@ -1,0 +1,52 @@
+{
+  "by_class": {
+    "CONTRACTUAL": {
+      "n": 828,
+      "verified_share": 0.8925,
+      "hashed_pointer_share": 1.0,
+      "notional_total": 78714477.56,
+      "notional_verified": 67729142.46,
+      "notional_verified_share": 0.8604
+    },
+    "LOGISTIC": {
+      "n": 556,
+      "verified_share": 0.6241,
+      "hashed_pointer_share": 1.0,
+      "notional_total": 22379459.58,
+      "notional_verified": 14162224.74,
+      "notional_verified_share": 0.6328
+    },
+    "ESG": {
+      "n": 205,
+      "verified_share": 0.361,
+      "hashed_pointer_share": 1.0,
+      "notional_total": 1457273.0,
+      "notional_verified": 464110.23,
+      "notional_verified_share": 0.3185
+    },
+    "STANDING": {
+      "n": 98,
+      "verified_share": 0.2143,
+      "hashed_pointer_share": 1.0,
+      "notional_total": 158676.23,
+      "notional_verified": 30296.09,
+      "notional_verified_share": 0.1909
+    },
+    "MEMBERSHIP": {
+      "n": 80,
+      "verified_share": 0.6,
+      "hashed_pointer_share": 1.0,
+      "notional_total": 75194.19,
+      "notional_verified": 51075.07,
+      "notional_verified_share": 0.6792
+    },
+    "INTERACTION": {
+      "n": 233,
+      "verified_share": 0.5193,
+      "hashed_pointer_share": 1.0,
+      "notional_total": 1471842.48,
+      "notional_verified": 682588.42,
+      "notional_verified_share": 0.4638
+    }
+  }
+}

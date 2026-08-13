@@ -1,0 +1,62 @@
+{
+  "instrument": "latencia",
+  "instrument_id": "EgD-SCT-INS-001",
+  "version": "1.0",
+  "generated_at": "2026-08-13T23:10:52.446915+00:00",
+  "seed": 20260813,
+  "n_rows": 2000,
+  "classes": [
+    "CONTRACTUAL",
+    "LOGISTIC",
+    "ESG",
+    "STANDING",
+    "MEMBERSHIP",
+    "INTERACTION"
+  ],
+  "obligors": [
+    {
+      "id": "EGD-OBL-001",
+      "name": "Ateliers Fictifs du Fleuve"
+    },
+    {
+      "id": "EGD-OBL-002",
+      "name": "Cooperativa Ejemplo del Norte"
+    },
+    {
+      "id": "EGD-OBL-003",
+      "name": "Northline Made-Up Freight"
+    }
+  ],
+  "creditors": [
+    {
+      "id": "EGD-CRD-001",
+      "name": "Banque Imaginaire de Rive-Sud"
+    },
+    {
+      "id": "EGD-CRD-002",
+      "name": "Placeholder Trust & Discount"
+    },
+    {
+      "id": "EGD-CRD-003",
+      "name": "Caisse Mod\u00e8le de Sainte-Trinit\u00e9"
+    }
+  ],
+  "cutoff_utc": "2026-08-13T12:00:00+00:00",
+  "window_days": 120,
+  "provenance": {
+    "parties": "invented \u2014 no real counterparty is named",
+    "input_data": "none \u2014 the instrument reads no client system",
+    "reproducibility": "deterministic from seed=20260813"
+  },
+  "refusals": [
+    "No RWA relief claim is made or implied.",
+    "NOT_ASSESSED is reported as itself \u2014 never rolled into an eligible number.",
+    "No Basel effect is quantified without a rule reference."
+  ],
+  "artifact_hashes": {
+    "contractus.json": "b781dfc79399be83158914a7981a5dd0ff161737a3a5250ca282bff51f12b85e",
+    "distribution.json": "f7b4fc7b53c9573b03904631e8fd5dc686f15de3a9ec6a6aba75d1be58750146",
+    "evidence.json": "4b212f251716b50cb90fc52d247b32438063419dc9cf3ccac9970dc6e0d63738",
+    "eligibility.json": "ad3d6269342f5ac4e459c061757f541f69161ff159a0c9cf1097ce7f1a31b867"
+  }
+}

@@ -44,18 +44,18 @@ python3 scripts/generate_latencia.py
 ```
 
 Deterministic from `seed=20260813`. Writes five JSON files under
-`docs/instrument/data/` and SHA-256 stamps them in `manifest.json`.
+`docs/instrument/store/` and SHA-256 stamps them in `manifest.json`.
 
 ## Files
 
 | File | What it holds |
 |---|---|
 | `docs/instrument/index.html` | The demo page — vanilla JS, canon palette |
-| `docs/instrument/data/contractus.json` | The ledger, one row per commitment |
-| `docs/instrument/data/distribution.json` | Latency quantiles by class and by creditor |
-| `docs/instrument/data/evidence.json` | Evidence completeness fractions |
-| `docs/instrument/data/eligibility.json` | Notional split across eligibility classes |
-| `docs/instrument/data/manifest.json` | Seed, timestamps, refusals, artifact hashes |
+| `docs/instrument/store/contractus.json` | The ledger, one row per commitment |
+| `docs/instrument/store/distribution.json` | Latency quantiles by class and by creditor |
+| `docs/instrument/store/evidence.json` | Evidence completeness fractions |
+| `docs/instrument/store/eligibility.json` | Notional split across eligibility classes |
+| `docs/instrument/store/manifest.json` | Seed, timestamps, refusals, artifact hashes |
 | `scripts/generate_latencia.py` | The generator |
 
 ## What comes next

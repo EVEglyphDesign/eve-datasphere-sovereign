@@ -1,0 +1,19 @@
+{
+  "notional_by_class": {
+    "BASEL_FINANCIAL": 5397276.61,
+    "BASEL_PHYSICAL_FIRB": 224834.64,
+    "INELIGIBLE": 35707279.74,
+    "NOT_ASSESSED": 62927532.05
+  },
+  "share_by_class": {
+    "BASEL_FINANCIAL": 0.0518,
+    "BASEL_PHYSICAL_FIRB": 0.0022,
+    "INELIGIBLE": 0.3425,
+    "NOT_ASSESSED": 0.6036
+  },
+  "qualified_for_lender": {
+    "note": "Only BASEL_FINANCIAL and BASEL_PHYSICAL_FIRB may be shown as collateral to a lender. NOT_ASSESSED is not eligible until classified.",
+    "notional": 5622111.25,
+    "share": 0.0539
+  }
+}

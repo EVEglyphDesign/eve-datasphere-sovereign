@@ -28,7 +28,7 @@ from pathlib import Path
 SEED = 20260813
 random.seed(SEED)
 
-OUT = Path(__file__).resolve().parent.parent / "docs" / "instrument" / "data"
+OUT = Path(__file__).resolve().parent.parent / "docs" / "instrument" / "store"
 OUT.mkdir(parents=True, exist_ok=True)
 
 # --- Invented parties (Vendor Sphere pattern: no real counterparties) --------

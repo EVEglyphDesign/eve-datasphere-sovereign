@@ -198,7 +198,7 @@ td.n { text-align: right; font-variant-numeric: tabular-nums; }
 
 <section>
   <h2>4. Artifacts</h2>
-  <p>The four JSON files below are the ledger and the derived quantities. They are hashed and their SHA-256 digests are stamped in <a href="data/manifest.json">manifest.json</a>.</p>
+  <p>The four JSON files below are the ledger and the derived quantities. They are hashed and their SHA-256 digests are stamped in <a href="store/manifest.json">manifest.json</a>.</p>
   <table>
     <thead><tr><th>Artifact</th><th>SHA-256 (short)</th></tr></thead>
     <tbody id="tbl-artifacts"></tbody>
@@ -360,7 +360,7 @@ function barRow(label, share, right) {
     const ta = document.getElementById('tbl-artifacts');
     for (const [name, hash] of Object.entries(m.artifact_hashes)) {
       ta.insertAdjacentHTML('beforeend',
-        `<tr><td><a href="data/${name}">${name}</a></td><td class="mono">${hash.slice(0,32)}…</td></tr>`);
+        `<tr><td><a href="store/${name}">${name}</a></td><td class="mono">${hash.slice(0,32)}…</td></tr>`);
     }
   } catch (err) {
     document.body.insertAdjacentHTML('afterbegin',
