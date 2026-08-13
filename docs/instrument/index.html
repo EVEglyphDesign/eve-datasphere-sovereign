@@ -281,11 +281,11 @@ function barRow(label, share, right) {
 (async () => {
   try {
     const [m, d, e, el, ctr] = await Promise.all([
-      jget('data/manifest.json'),
-      jget('data/distribution.json'),
-      jget('data/evidence.json'),
-      jget('data/eligibility.json'),
-      jget('data/contractus.json'),
+      jget('store/manifest.json'),
+      jget('store/distribution.json'),
+      jget('store/evidence.json'),
+      jget('store/eligibility.json'),
+      jget('store/contractus.json'),
     ]);
 
     // provenance
